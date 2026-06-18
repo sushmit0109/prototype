@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chakma ↔ Bengali Transliterator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Chakma&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --accent: #6c8cff;
+    --accent2: #ff8c6c;
+    --text: #e8eaf6;
+    --muted: #8890b0;
+    --radius: 12px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 64px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+  header p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 0.92rem;
+  }
+
+  .app {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .panel-header .lang-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .script-name {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .char-count {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 280px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    padding: 18px;
+    resize: vertical;
+    font-size: 1.5rem;
+    line-height: 2;
+    caret-color: var(--accent);
+  }
+  textarea::placeholder { color: var(--border); }
+
+  textarea.bn { font-family: 'Noto Sans Bengali', serif; }
+  textarea.ck { font-family: 'Noto Sans Chakma', serif; }
+
+  .panel-footer {
+    padding: 10px 18px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    background: var(--surface2);
+  }
+
+  .btn-clear {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-clear:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  .btn-copy {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Middle controls */
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    gap: 12px;
+    padding-top: 60px;
+  }
+
+  .arrow-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .arrow-btn:hover {
+    border-color: var(--accent);
+    background: rgba(108, 140, 255, 0.1);
+    transform: scale(1.05);
+  }
+  .arrow-btn.right { color: var(--accent); }
+  .arrow-btn.left  { color: var(--accent2); }
+
+  .arrow-btn .tooltip {
+    position: absolute;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    color: var(--muted);
+    top: 54px;
+    pointer-events: none;
+  }
+
+  .swap-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .swap-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Warnings / notes */
+  .notes {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .notes strong { color: var(--text); }
+  .notes ul { padding-left: 18px; margin-top: 6px; }
+  .notes li { margin-bottom: 4px; }
+
+  /* Quick reference */
+  .ref-toggle {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 16px;
+  }
+  .ref-toggle summary {
+    cursor: pointer;
+    color: var(--accent);
+    font-size: 0.85rem;
+    user-select: none;
+    padding: 8px 0;
+  }
+  .ref-table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 8px;
+    overflow-x: auto;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.85rem;
+  }
+  th {
+    text-align: left;
+    padding: 6px 12px;
+    color: var(--muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  .bn-cell { font-family: 'Noto Sans Bengali', serif; font-size: 1.3rem; }
+  .ck-cell { font-family: 'Noto Sans Chakma', serif; font-size: 1.3rem; }
+
+  .section-heading {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 14px 12px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 720px) {
+    .app {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+    .controls {
+      flex-direction: row;
+      padding: 12px 0;
+      justify-content: center;
+    }
+    .arrow-btn .tooltip { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../" style="display:inline-block;margin-bottom:18px;font-size:0.78rem;color:var(--muted);text-decoration:none;letter-spacing:0.05em;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">← Prototypes</a>
+  <h1>𑄌𑄇𑄟𑄳𑄠𑄴 &nbsp;↔&nbsp; বাংলা</h1>
+  <p>Chakma script ↔ Bengali (Eastern Nagari) phonemic transliterator</p>
+</header>
+
+<div class="app">
+  <!-- Bengali panel -->
+  <div class="panel" id="bn-panel">
+    <div class="panel-header">
+      <span class="lang-label">
+        বাংলা <span class="script-name">Bengali / Eastern Nagari</span>
+      </span>
+      <span class="char-count" id="bn-count">0 chars</span>
+    </div>
+    <textarea class="bn" id="bn-text"
+      placeholder="বাংলা লিখুন…"
+      spellcheck="false"
+      autocorrect="off"></textarea>
+    <div class="panel-footer">
+      <button class="btn-clear" onclick="clearPanel('bn')">Clear</button>
+      <button class="btn-copy" onclick="copyPanel('bn')">Copy</button>
+    </div>
+  </div>
+
+  <!-- Middle controls -->
+  <div class="controls">
+    <button class="arrow-btn right" onclick="convert('bn','ck')" title="Bengali → Chakma">
+      →
+      <span class="tooltip">Bn → Ck</span>
+    </button>
+    <button class="swap-btn" onclick="swap()">⇄ swap</button>
+    <button class="arrow-btn left" onclick="convert('ck','bn')" title="Chakma → Bengali">
+      ←
+      <span class="tooltip">Ck → Bn</span>
+    </button>
+  </div>
+
+  <!-- Chakma panel -->
+  <div class="panel" id="ck-panel">
+    <div class="panel-header">
+      <span class="lang-label">
+        𑄌𑄇𑄟𑄳𑄠𑄴 <span class="script-name">Chakma / Ojhapath</span>
+      </span>
+      <span class="char-count" id="ck-count">0 chars</span>
+    </div>
+    <textarea class="ck" id="ck-text"
+      placeholder="𑄌𑄇𑄟𑄳𑄠𑄴 𑄣𑄨𑄈𑄪𑄚𑄴…"
+      spellcheck="false"
+      autocorrect="off"></textarea>
+    <div class="panel-footer">
+      <button class="btn-clear" onclick="clearPanel('ck')">Clear</button>
+      <button class="btn-copy" onclick="copyPanel('ck')">Copy</button>
+    </div>
+  </div>
+</div>
+
+<div class="notes">
+  <strong>Phonemic mapping notes:</strong>
+  <ul>
+    <li>Bengali <span style="font-family:'Noto Sans Bengali'">শ / ষ / স</span> all map to Chakma <span style="font-family:'Noto Sans Chakma'">𑄥</span>; reverse defaults to <span style="font-family:'Noto Sans Bengali'">শ</span>.</li>
+    <li>Bengali <span style="font-family:'Noto Sans Bengali'">ই / ঈ</span> both → Chakma <span style="font-family:'Noto Sans Chakma'">𑄄</span> (length distinction not preserved). Same for <span style="font-family:'Noto Sans Bengali'">উ / ঊ</span>.</li>
+    <li>Chakma <span style="font-family:'Noto Sans Chakma'">𑄤</span> (w) has no Bengali equivalent → rendered as <span style="font-family:'Noto Sans Bengali'">ব</span>. Chakma <span style="font-family:'Noto Sans Chakma'">𑄡</span> (z) → <span style="font-family:'Noto Sans Bengali'">জ</span>.</li>
+    <li>Bengali <span style="font-family:'Noto Sans Bengali'">ৃ</span> (vocalic ri) → approximate <span style="font-family:'Noto Sans Chakma'">𑄢𑄨</span> (r+i). Bengali <span style="font-family:'Noto Sans Bengali'">ৎ</span> (khanda-ta) → <span style="font-family:'Noto Sans Chakma'">𑄖𑄴</span>.</li>
+    <li>Inherent vowels differ: Bengali /ɔ/, Chakma /aː/ — treated as equivalent for transliteration.</li>
+    <li>Chakma maayyaa <span style="font-family:'Noto Sans Chakma'">𑄴</span> is a visible halant, unlike Bengali hasanta <span style="font-family:'Noto Sans Bengali'">্</span> which is hidden in conjuncts.</li>
+  </ul>
+</div>
+
+<details class="ref-toggle">
+  <summary>▸ Show character mapping reference table</summary>
+  <div class="ref-table-wrap">
+    <table id="ref-table"></table>
+  </div>
+</details>
+
+<script>
+// ── Mapping tables ──────────────────────────────────────────────────────────
+
+const BN_TO_CK = {
+  // Independent vowels
+  'অ':'\u{11103}', 'আ':'\u{11103}\u{11145}',
+  'ই':'\u{11104}', 'ঈ':'\u{11104}',
+  'উ':'\u{11105}', 'ঊ':'\u{11105}',
+  'এ':'\u{11106}',
+  'ঐ':'\u{11106}\u{1112D}',
+  'ও':'\u{11103}\u{1112E}',
+  'ঔ':'\u{11103}\u{1112F}',
+  'ঋ':'\u{11122}\u{11128}',  // ri → ra+i
+  'ৠ':'\u{11122}\u{11129}',  // rri → ra+ii
+
+  // Consonants (33)
+  'ক':'\u{11107}', 'খ':'\u{11108}', 'গ':'\u{11109}', 'ঘ':'\u{1110A}', 'ঙ':'\u{1110B}',
+  'চ':'\u{1110C}', 'ছ':'\u{1110D}', 'জ':'\u{1110E}', 'ঝ':'\u{1110F}', 'ঞ':'\u{11110}',
+  'ট':'\u{11111}', 'ঠ':'\u{11112}', 'ড':'\u{11113}', 'ঢ':'\u{11114}', 'ণ':'\u{11115}',
+  'ত':'\u{11116}', 'থ':'\u{11117}', 'দ':'\u{11118}', 'ধ':'\u{11119}', 'ন':'\u{1111A}',
+  'প':'\u{1111B}', 'ফ':'\u{1111C}', 'ব':'\u{1111D}', 'ভ':'\u{1111E}', 'ম':'\u{1111F}',
+  'য':'\u{11120}', 'র':'\u{11122}', 'ল':'\u{11123}',
+  'শ':'\u{11125}', 'ষ':'\u{11125}', 'স':'\u{11125}',
+  'হ':'\u{11126}',
+  // Extended / nukta-modified  (precomposed codepoints)
+  'ড়':'\u{11122}',    // U+09DC: flap r → Chakma ra
+  'ঢ়':'\u{11122}',    // U+09DD: aspirated flap → Chakma ra (approx)
+  'য়':'\u{11120}',    // U+09DF: ya with nukta → Chakma ya
+  'ৎ':'\u{11116}\u{11134}',  // khanda ta → ta + maayyaa
+  // Decomposed nukta sequences (base + U+09BC)
+  'ড়':'\u{11122}',  // ড + ় → ra
+  'ঢ়':'\u{11122}',  // ঢ + ়
+  'য়':'\u{11120}',  // য + ়
+
+  // Dependent vowels (matras)
+  'া':'\u{11145}',  // aa-kar
+  'ি':'\u{11128}',  // i-kar
+  'ী':'\u{11129}',  // ii-kar
+  'ু':'\u{1112A}',  // u-kar
+  'ূ':'\u{1112B}',  // uu-kar
+  'ৃ':'\u{11122}\u{11128}',  // ri-kar → ra+i (approx)
+  'ে':'\u{1112C}',  // e-kar
+  'ৈ':'\u{1112D}',  // oi-kar
+  'ো':'\u{1112E}',  // o-kar  (U+09CB precomposed)
+  'ৌ':'\u{1112F}',  // ou-kar (U+09CC precomposed)
+  // Decomposed ো and ৌ (ে+া, ে+ৌ) handled in loop
+
+  // Special marks
+  '্':'\u{11134}',  // hasanta → maayyaa
+  'ং':'\u{11101}',  // anusvara
+  'ঃ':'\u{11102}',  // visarga
+  'ঁ':'\u{11100}',  // chandrabindu → nasalization
+
+  // Digits
+  '০':'\u{11136}','১':'\u{11137}','২':'\u{11138}','৩':'\u{11139}','৪':'\u{1113A}',
+  '৫':'\u{1113B}','৬':'\u{1113C}','৭':'\u{1113D}','৮':'\u{1113E}','৯':'\u{1113F}',
+
+  // Punctuation
+  '।':'\u{11141}', '॥':'\u{11142}',
+};
+
+// Chakma → Bengali  (longer sequences checked first)
+const CK_TO_BN_MULTI = [
+  // 2-Chakma-char sequences (independent vowel + matra combos)
+  ['\u{11103}\u{11145}','আ'],  // a + aa-matra
+  ['\u{11103}\u{1112E}','ও'],  // a + o-matra
+  ['\u{11103}\u{1112F}','ঔ'],  // a + ou-matra
+  ['\u{11106}\u{1112D}','ঐ'],  // e + oi-matra
+];
+
+const CK_TO_BN = {
+  // Independent vowels (single)
+  '\u{11103}':'অ', '\u{11104}':'ই', '\u{11105}':'উ', '\u{11106}':'এ',
+
+  // Consonants
+  '\u{11107}':'ক', '\u{11108}':'খ', '\u{11109}':'গ', '\u{1110A}':'ঘ', '\u{1110B}':'ঙ',
+  '\u{1110C}':'চ', '\u{1110D}':'ছ', '\u{1110E}':'জ', '\u{1110F}':'ঝ', '\u{11110}':'ঞ',
+  '\u{11111}':'ট', '\u{11112}':'ঠ', '\u{11113}':'ড', '\u{11114}':'ঢ', '\u{11115}':'ণ',
+  '\u{11116}':'ত', '\u{11117}':'থ', '\u{11118}':'দ', '\u{11119}':'ধ', '\u{1111A}':'ন',
+  '\u{1111B}':'প', '\u{1111C}':'ফ', '\u{1111D}':'ব', '\u{1111E}':'ভ', '\u{1111F}':'ম',
+  '\u{11120}':'য', '\u{11121}':'জ',  // z → ja
+  '\u{11122}':'র', '\u{11123}':'ল',
+  '\u{11124}':'ব',  // w → ba
+  '\u{11125}':'শ', '\u{11126}':'হ',
+
+  // Matras
+  '\u{11145}':'া',  // aa-matra
+  '\u{11127}':'',   // short-a/ɔ matra → inherent (no Bengali matra)
+  '\u{11128}':'ি', '\u{11129}':'ী',
+  '\u{1112A}':'ু', '\u{1112B}':'ূ',
+  '\u{1112C}':'ে',
+  '\u{1112D}':'ৈ',
+  '\u{1112E}':'ো',
+  '\u{1112F}':'ৌ',
+
+  // Special marks
+  '\u{11134}':'্',  // maayyaa → hasanta
+  '\u{11133}':'্',  // virama → hasanta
+  '\u{11101}':'ং', '\u{11102}':'ঃ', '\u{11100}':'ঁ',
+
+  // Digits
+  '\u{11136}':'০','\u{11137}':'১','\u{11138}':'২','\u{11139}':'৩','\u{1113A}':'৪',
+  '\u{1113B}':'৫','\u{1113C}':'৬','\u{1113D}':'৭','\u{1113E}':'৮','\u{1113F}':'৯',
+
+  // Punctuation
+  '\u{11141}':'।', '\u{11142}':'॥',
+};
+
+// ── Transliteration functions ────────────────────────────────────────────────
+
+function translitBnToCk(text) {
+  // NFC normalise so precomposed forms (ো, ড়, য়…) are single codepoints
+  text = text.normalize('NFC');
+  let out = '';
+  let i = 0;
+  while (i < text.length) {
+    // Try 2-char sequences first (decomposed nukta forms, ো decomposed)
+    const two = text.slice(i, i + 2);
+    if (BN_TO_CK[two] !== undefined) {
+      out += BN_TO_CK[two];
+      i += 2;
+      continue;
+    }
+    const ch = text[i];
+    out += BN_TO_CK[ch] !== undefined ? BN_TO_CK[ch] : ch;
+    i++;
+  }
+  return out;
+}
+
+function translitCkToBn(text) {
+  text = text.normalize('NFC');
+  const chars = Array.from(text);  // proper SMP codepoint iteration
+  let out = '';
+  let i = 0;
+  while (i < chars.length) {
+    // Try 2-char multi sequences
+    if (i + 1 < chars.length) {
+      const two = chars[i] + chars[i + 1];
+      const hit = CK_TO_BN_MULTI.find(([k]) => k === two);
+      if (hit) { out += hit[1]; i += 2; continue; }
+    }
+    const ch = chars[i];
+    out += CK_TO_BN[ch] !== undefined ? CK_TO_BN[ch] : ch;
+    i++;
+  }
+  return out;
+}
+
+// ── UI wiring ────────────────────────────────────────────────────────────────
+
+const bnEl = document.getElementById('bn-text');
+const ckEl = document.getElementById('ck-text');
+const bnCount = document.getElementById('bn-count');
+const ckCount = document.getElementById('ck-count');
+
+function updateCount(id, text) {
+  const n = Array.from(text).length;
+  document.getElementById(id + '-count').textContent = n + ' char' + (n !== 1 ? 's' : '');
+}
+
+bnEl.addEventListener('input', () => updateCount('bn', bnEl.value));
+ckEl.addEventListener('input', () => updateCount('ck', ckEl.value));
+
+function convert(from, to) {
+  if (from === 'bn' && to === 'ck') {
+    ckEl.value = translitBnToCk(bnEl.value);
+    updateCount('ck', ckEl.value);
+  } else {
+    bnEl.value = translitCkToBn(ckEl.value);
+    updateCount('bn', bnEl.value);
+  }
+}
+
+function swap() {
+  const tmp = bnEl.value;
+  bnEl.value = ckEl.value;
+  ckEl.value = tmp;
+  updateCount('bn', bnEl.value);
+  updateCount('ck', ckEl.value);
+}
+
+function clearPanel(id) {
+  document.getElementById(id + '-text').value = '';
+  updateCount(id, '');
+}
+
+async function copyPanel(id) {
+  const el = document.getElementById(id + '-text');
+  try {
+    await navigator.clipboard.writeText(el.value);
+    const btn = el.closest('.panel').querySelector('.btn-copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 1500);
+  } catch(e) { el.select(); document.execCommand('copy'); }
+}
+
+// ── Reference table builder ──────────────────────────────────────────────────
+
+const REF_DATA = [
+  { section: 'Independent Vowels' },
+  ['অ','𑄃','ɔ/a','a'],
+  ['আ','𑄃𑅅','aː','aa'],
+  ['ই','𑄄','i','i'],
+  ['ঈ','𑄄','iː','ii (merged)'],
+  ['উ','𑄅','u','u'],
+  ['ঊ','𑄅','uː','uu (merged)'],
+  ['এ','𑄆','e','e'],
+  ['ঐ','𑄆𑄭','ɔi̯','oi'],
+  ['ও','𑄃𑄮','o','o'],
+  ['ঔ','𑄃𑄯','ou̯','ou'],
+
+  { section: 'Consonants' },
+  ['ক','𑄇','k','ka'],
+  ['খ','𑄈','kʰ','kha'],
+  ['গ','𑄉','ɡ','ga'],
+  ['ঘ','𑄊','ɡʰ','gha'],
+  ['ঙ','𑄋','ŋ','nga'],
+  ['চ','𑄌','t͡ʃ','cha'],
+  ['ছ','𑄍','t͡ʃʰ','chha'],
+  ['জ','𑄎','d͡ʒ','ja'],
+  ['ঝ','𑄏','d͡ʒʰ','jha'],
+  ['ঞ','𑄐','ɲ','nya'],
+  ['ট','𑄑','ʈ','tta'],
+  ['ঠ','𑄒','ʈʰ','ttha'],
+  ['ড','𑄓','ɖ','dda'],
+  ['ঢ','𑄔','ɖʰ','ddha'],
+  ['ণ','𑄕','ɳ','nna'],
+  ['ত','𑄖','t','ta'],
+  ['থ','𑄗','tʰ','tha'],
+  ['দ','𑄘','d','da'],
+  ['ধ','𑄙','dʰ','dha'],
+  ['ন','𑄚','n','na'],
+  ['প','𑄛','p','pa'],
+  ['ফ','𑄜','pʰ','pha'],
+  ['ব','𑄝','b','ba'],
+  ['ভ','𑄞','bʰ','bha'],
+  ['ম','𑄟','m','ma'],
+  ['য','𑄠','j','ya'],
+  ['র','𑄢','r','ra'],
+  ['ল','𑄣','l','la'],
+  ['শ','𑄥','ʃ','sha → 𑄥'],
+  ['ষ','𑄥','ʃ','Sha → 𑄥 (same)'],
+  ['স','𑄥','s','sa → 𑄥 (same)'],
+  ['হ','𑄦','h','ha'],
+  ['ড়','𑄢','ɽ','rra (flap) ≈ ra'],
+  ['য়','𑄠','j','ya (nukta)'],
+  ['ৎ','𑄖𑄴','t','khanda-ta'],
+  ['—','𑄤','w','w (no Bengali equiv → ব)'],
+  ['—','𑄡','z','z (no Bengali equiv → জ)'],
+
+  { section: 'Dependent Vowels (Matras)' },
+  ['া','𑅅','aː','aa-kar'],
+  ['ি','𑄨','i','i-kar'],
+  ['ী','𑄩','iː','ii-kar'],
+  ['ু','𑄪','u','u-kar'],
+  ['ূ','𑄫','uː','uu-kar'],
+  ['ে','𑄬','e','e-kar'],
+  ['ৈ','𑄭','ɔi̯','oi-kar'],
+  ['ো','𑄮','o','o-kar'],
+  ['ৌ','𑄯','ou̯','ou-kar'],
+  ['ৃ','𑄢𑄨','ri','ri-kar (approx r+i)'],
+  ['—','𑄧','ɔ','short-a/ɔ matra (Chakma only)'],
+
+  { section: 'Special Marks' },
+  ['্','𑄴','—','hasanta ↔ maayyaa (vowel killer)'],
+  ['ং','𑄁','ŋ','anusvara (final nasal)'],
+  ['ঃ','𑄂','h','visarga'],
+  ['ঁ','𑄀','—','chandrabindu ↔ nasalization'],
+
+  { section: 'Numerals' },
+  ['০','𑄶','0','zero'],
+  ['১','𑄷','1','one'],
+  ['২','𑄸','2','two'],
+  ['৩','𑄹','3','three'],
+  ['৪','𑄺','4','four'],
+  ['৫','𑄻','5','five'],
+  ['৬','𑄼','6','six'],
+  ['৭','𑄽','7','seven'],
+  ['৮','𑄾','8','eight'],
+  ['৯','𑄿','9','nine'],
+
+  { section: 'Punctuation' },
+  ['।','𑅁','—','danda / full stop'],
+  ['॥','𑅂','—','double danda'],
+];
+
+(function buildRefTable() {
+  const t = document.getElementById('ref-table');
+  let html = '<thead><tr><th>Bengali</th><th>Chakma</th><th>IPA</th><th>Notes</th></tr></thead><tbody>';
+  for (const row of REF_DATA) {
+    if (row.section) {
+      html += `<tr><td colspan="4" class="section-heading">${row.section}</td></tr>`;
+    } else {
+      const [bn, ck, ipa, note] = row;
+      html += `<tr>
+        <td class="bn-cell">${bn}</td>
+        <td class="ck-cell">${ck}</td>
+        <td>${ipa}</td>
+        <td style="color:var(--muted)">${note}</td>
+      </tr>`;
+    }
+  }
+  html += '</tbody>';
+  t.innerHTML = html;
+})();
+</script>
+</body>
+</html>
