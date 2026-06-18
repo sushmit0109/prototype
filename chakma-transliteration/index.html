@@ -349,12 +349,12 @@
 <div class="notes">
   <strong>Phonemic mapping notes:</strong>
   <ul>
-    <li>Bengali <span style="font-family:'Noto Sans Bengali'">শ / ষ / স</span> all map to Chakma <span style="font-family:'Noto Sans Chakma'">𑄥</span>; reverse defaults to <span style="font-family:'Noto Sans Bengali'">শ</span>.</li>
-    <li>Bengali <span style="font-family:'Noto Sans Bengali'">ই / ঈ</span> both → Chakma <span style="font-family:'Noto Sans Chakma'">𑄄</span> (length distinction not preserved). Same for <span style="font-family:'Noto Sans Bengali'">উ / ঊ</span>.</li>
-    <li>Chakma <span style="font-family:'Noto Sans Chakma'">𑄤</span> (w) has no Bengali equivalent → rendered as <span style="font-family:'Noto Sans Bengali'">ব</span>. Chakma <span style="font-family:'Noto Sans Chakma'">𑄡</span> (z) → <span style="font-family:'Noto Sans Bengali'">জ</span>.</li>
-    <li>Bengali <span style="font-family:'Noto Sans Bengali'">ৃ</span> (vocalic ri) → approximate <span style="font-family:'Noto Sans Chakma'">𑄢𑄨</span> (r+i). Bengali <span style="font-family:'Noto Sans Bengali'">ৎ</span> (khanda-ta) → <span style="font-family:'Noto Sans Chakma'">𑄖𑄴</span>.</li>
-    <li>Inherent vowels differ: Bengali /ɔ/, Chakma /aː/ — treated as equivalent for transliteration.</li>
-    <li>Chakma maayyaa <span style="font-family:'Noto Sans Chakma'">𑄴</span> is a visible halant, unlike Bengali hasanta <span style="font-family:'Noto Sans Bengali'">্</span> which is hidden in conjuncts.</li>
+    <li><strong>Inherent vowel:</strong> Chakma's inherent vowel on every consonant is already <em>/aː/</em>, so Bengali <span style="font-family:'Noto Sans Bengali'">আ-কার (া)</span> is dropped — e.g. <span style="font-family:'Noto Sans Bengali'">আমার নাম</span> → <span style="font-family:'Noto Sans Chakma'">𑄃𑄟𑄢𑄴 𑄚𑄟𑄴</span>.</li>
+    <li><strong>Maayyaa <span style="font-family:'Noto Sans Chakma'">𑄴</span>:</strong> added automatically after word-final consonants and where Bengali has explicit hasanta <span style="font-family:'Noto Sans Bengali'">্</span>.</li>
+    <li>Bengali <span style="font-family:'Noto Sans Bengali'">শ / ষ / স</span> all → Chakma <span style="font-family:'Noto Sans Chakma'">𑄥</span>; reverse defaults to <span style="font-family:'Noto Sans Bengali'">শ</span>.</li>
+    <li>Bengali <span style="font-family:'Noto Sans Bengali'">ই / ঈ</span> both → <span style="font-family:'Noto Sans Chakma'">𑄄</span>; <span style="font-family:'Noto Sans Bengali'">উ / ঊ</span> both → <span style="font-family:'Noto Sans Chakma'">𑄅</span> (length distinction not preserved).</li>
+    <li>Chakma <span style="font-family:'Noto Sans Chakma'">𑄤</span> (w) → <span style="font-family:'Noto Sans Bengali'">ব</span>; Chakma <span style="font-family:'Noto Sans Chakma'">𑄡</span> (z) → <span style="font-family:'Noto Sans Bengali'">জ</span>.</li>
+    <li>Bengali <span style="font-family:'Noto Sans Bengali'">ৃ</span> → <span style="font-family:'Noto Sans Chakma'">𑄢𑄨</span> (r+i, approx); <span style="font-family:'Noto Sans Bengali'">ৎ</span> → <span style="font-family:'Noto Sans Chakma'">𑄖𑄴</span>.</li>
   </ul>
 </div>
 
@@ -366,150 +366,234 @@
 </details>
 
 <script>
-// ── Mapping tables ──────────────────────────────────────────────────────────
+// ── Character sets ───────────────────────────────────────────────────────────
 
-const BN_TO_CK = {
-  // Independent vowels
-  'অ':'\u{11103}', 'আ':'\u{11103}\u{11145}',
+// Bengali consonant letters (BMP, single codepoint each)
+const BN_CONSONANTS = new Set([
+  'ক','খ','গ','ঘ','ঙ','চ','ছ','জ','ঝ','ঞ',
+  'ট','ঠ','ড','ঢ','ণ','ত','থ','দ','ধ','ন',
+  'প','ফ','ব','ভ','ম','য','র','ল','শ','ষ','স','হ',
+  'ড়','ঢ়','য়',  // nukta forms (precomposed after NFC)
+]);
+
+// Bengali matras other than া (these let us know NOT to add maayyaa)
+const BN_MATRAS_NOT_AA = new Set([
+  'ি','ী','ু','ূ','ৃ','ে','ৈ','ো','ৌ',
+]);
+
+// Chakma consonant codepoints (SMP, U+11107–U+11126)
+const CK_CONSONANTS = new Set([
+  '\u{11107}','\u{11108}','\u{11109}','\u{1110A}','\u{1110B}',
+  '\u{1110C}','\u{1110D}','\u{1110E}','\u{1110F}','\u{11110}',
+  '\u{11111}','\u{11112}','\u{11113}','\u{11114}','\u{11115}',
+  '\u{11116}','\u{11117}','\u{11118}','\u{11119}','\u{1111A}',
+  '\u{1111B}','\u{1111C}','\u{1111D}','\u{1111E}','\u{1111F}',
+  '\u{11120}','\u{11121}','\u{11122}','\u{11123}','\u{11124}',
+  '\u{11125}','\u{11126}',
+]);
+
+// Chakma matras (any vowel sign — consonant followed by one of these does NOT get aa-kar in Bengali)
+const CK_MATRAS = new Set([
+  '\u{11127}',  // 𑄧 short-a/ɔ
+  '\u{11128}',  // 𑄨 i
+  '\u{11129}',  // 𑄩 ii
+  '\u{1112A}',  // 𑄪 u
+  '\u{1112B}',  // 𑄫 uu
+  '\u{1112C}',  // 𑄬 e
+  '\u{1112D}',  // 𑄭 oi
+  '\u{1112E}',  // 𑄮 o
+  '\u{1112F}',  // 𑄯 ou
+  '\u{11145}',  // 𑅅 aa
+]);
+
+const CK_KILLERS = new Set(['\u{11133}', '\u{11134}']); // virama, maayyaa
+
+// ── Mapping tables ───────────────────────────────────────────────────────────
+
+// Consonant letter → Chakma consonant (no matra info here; handled by algorithm)
+const BN_CONS_MAP = {
+  'ক':'\u{11107}','খ':'\u{11108}','গ':'\u{11109}','ঘ':'\u{1110A}','ঙ':'\u{1110B}',
+  'চ':'\u{1110C}','ছ':'\u{1110D}','জ':'\u{1110E}','ঝ':'\u{1110F}','ঞ':'\u{11110}',
+  'ট':'\u{11111}','ঠ':'\u{11112}','ড':'\u{11113}','ঢ':'\u{11114}','ণ':'\u{11115}',
+  'ত':'\u{11116}','থ':'\u{11117}','দ':'\u{11118}','ধ':'\u{11119}','ন':'\u{1111A}',
+  'প':'\u{1111B}','ফ':'\u{1111C}','ব':'\u{1111D}','ভ':'\u{1111E}','ম':'\u{1111F}',
+  'য':'\u{11120}','র':'\u{11122}','ল':'\u{11123}',
+  'শ':'\u{11125}','ষ':'\u{11125}','স':'\u{11125}','হ':'\u{11126}',
+  'ড়':'\u{11122}','ঢ়':'\u{11122}','য়':'\u{11120}',
+};
+
+// Non-consonant Bengali chars → Chakma (independent vowels, matras, marks, digits)
+const BN_OTHER_MAP = {
+  // Independent vowels — আ maps to same as অ since Chakma's inherent is already /aː/
+  'অ':'\u{11103}', 'আ':'\u{11103}',
   'ই':'\u{11104}', 'ঈ':'\u{11104}',
   'উ':'\u{11105}', 'ঊ':'\u{11105}',
   'এ':'\u{11106}',
   'ঐ':'\u{11106}\u{1112D}',
   'ও':'\u{11103}\u{1112E}',
   'ঔ':'\u{11103}\u{1112F}',
-  'ঋ':'\u{11122}\u{11128}',  // ri → ra+i
-  'ৠ':'\u{11122}\u{11129}',  // rri → ra+ii
+  'ঋ':'\u{11122}\u{11128}',  // vocalic ri → ra+i (approx)
+  'ৠ':'\u{11122}\u{11129}',
 
-  // Consonants (33)
-  'ক':'\u{11107}', 'খ':'\u{11108}', 'গ':'\u{11109}', 'ঘ':'\u{1110A}', 'ঙ':'\u{1110B}',
-  'চ':'\u{1110C}', 'ছ':'\u{1110D}', 'জ':'\u{1110E}', 'ঝ':'\u{1110F}', 'ঞ':'\u{11110}',
-  'ট':'\u{11111}', 'ঠ':'\u{11112}', 'ড':'\u{11113}', 'ঢ':'\u{11114}', 'ণ':'\u{11115}',
-  'ত':'\u{11116}', 'থ':'\u{11117}', 'দ':'\u{11118}', 'ধ':'\u{11119}', 'ন':'\u{1111A}',
-  'প':'\u{1111B}', 'ফ':'\u{1111C}', 'ব':'\u{1111D}', 'ভ':'\u{1111E}', 'ম':'\u{1111F}',
-  'য':'\u{11120}', 'র':'\u{11122}', 'ল':'\u{11123}',
-  'শ':'\u{11125}', 'ষ':'\u{11125}', 'স':'\u{11125}',
-  'হ':'\u{11126}',
-  // Extended / nukta-modified  (precomposed codepoints)
-  'ড়':'\u{11122}',    // U+09DC: flap r → Chakma ra
-  'ঢ়':'\u{11122}',    // U+09DD: aspirated flap → Chakma ra (approx)
-  'য়':'\u{11120}',    // U+09DF: ya with nukta → Chakma ya
-  'ৎ':'\u{11116}\u{11134}',  // khanda ta → ta + maayyaa
-  // Decomposed nukta sequences (base + U+09BC)
-  'ড়':'\u{11122}',  // ড + ় → ra
-  'ঢ়':'\u{11122}',  // ঢ + ়
-  'য়':'\u{11120}',  // য + ়
-
-  // Dependent vowels (matras)
-  'া':'\u{11145}',  // aa-kar
-  'ি':'\u{11128}',  // i-kar
-  'ী':'\u{11129}',  // ii-kar
-  'ু':'\u{1112A}',  // u-kar
-  'ূ':'\u{1112B}',  // uu-kar
-  'ৃ':'\u{11122}\u{11128}',  // ri-kar → ra+i (approx)
-  'ে':'\u{1112C}',  // e-kar
-  'ৈ':'\u{1112D}',  // oi-kar
-  'ো':'\u{1112E}',  // o-kar  (U+09CB precomposed)
-  'ৌ':'\u{1112F}',  // ou-kar (U+09CC precomposed)
-  // Decomposed ো and ৌ (ে+া, ে+ৌ) handled in loop
+  // Dependent matras  (া is dropped — Chakma inherent covers it)
+  'ি':'\u{11128}','ী':'\u{11129}',
+  'ু':'\u{1112A}','ূ':'\u{1112B}',
+  'ৃ':'\u{11122}\u{11128}',  // ri-kar → ra+i
+  'ে':'\u{1112C}','ৈ':'\u{1112D}',
+  'ো':'\u{1112E}','ৌ':'\u{1112F}',
 
   // Special marks
   '্':'\u{11134}',  // hasanta → maayyaa
-  'ং':'\u{11101}',  // anusvara
-  'ঃ':'\u{11102}',  // visarga
-  'ঁ':'\u{11100}',  // chandrabindu → nasalization
+  'ং':'\u{11101}','ঃ':'\u{11102}','ঁ':'\u{11100}',
 
   // Digits
   '০':'\u{11136}','১':'\u{11137}','২':'\u{11138}','৩':'\u{11139}','৪':'\u{1113A}',
   '৫':'\u{1113B}','৬':'\u{1113C}','৭':'\u{1113D}','৮':'\u{1113E}','৯':'\u{1113F}',
 
   // Punctuation
-  '।':'\u{11141}', '॥':'\u{11142}',
+  '।':'\u{11141}','॥':'\u{11142}',
 };
 
-// Chakma → Bengali  (longer sequences checked first)
+// Chakma → Bengali  (multi-char sequences checked first)
 const CK_TO_BN_MULTI = [
-  // 2-Chakma-char sequences (independent vowel + matra combos)
-  ['\u{11103}\u{11145}','আ'],  // a + aa-matra
-  ['\u{11103}\u{1112E}','ও'],  // a + o-matra
-  ['\u{11103}\u{1112F}','ঔ'],  // a + ou-matra
-  ['\u{11106}\u{1112D}','ঐ'],  // e + oi-matra
+  ['\u{11103}\u{1112E}','ও'],  // 𑄃𑄮 → ও
+  ['\u{11103}\u{1112F}','ঔ'],  // 𑄃𑄯 → ঔ
+  ['\u{11106}\u{1112D}','ঐ'],  // 𑄆𑄭 → ঐ
 ];
 
 const CK_TO_BN = {
-  // Independent vowels (single)
-  '\u{11103}':'অ', '\u{11104}':'ই', '\u{11105}':'উ', '\u{11106}':'এ',
+  // Independent vowels — 𑄃 → আ (Chakma's base vowel is /aː/)
+  '\u{11103}':'আ', '\u{11104}':'ই', '\u{11105}':'উ', '\u{11106}':'এ',
 
   // Consonants
-  '\u{11107}':'ক', '\u{11108}':'খ', '\u{11109}':'গ', '\u{1110A}':'ঘ', '\u{1110B}':'ঙ',
-  '\u{1110C}':'চ', '\u{1110D}':'ছ', '\u{1110E}':'জ', '\u{1110F}':'ঝ', '\u{11110}':'ঞ',
-  '\u{11111}':'ট', '\u{11112}':'ঠ', '\u{11113}':'ড', '\u{11114}':'ঢ', '\u{11115}':'ণ',
-  '\u{11116}':'ত', '\u{11117}':'থ', '\u{11118}':'দ', '\u{11119}':'ধ', '\u{1111A}':'ন',
-  '\u{1111B}':'প', '\u{1111C}':'ফ', '\u{1111D}':'ব', '\u{1111E}':'ভ', '\u{1111F}':'ম',
-  '\u{11120}':'য', '\u{11121}':'জ',  // z → ja
-  '\u{11122}':'র', '\u{11123}':'ল',
-  '\u{11124}':'ব',  // w → ba
-  '\u{11125}':'শ', '\u{11126}':'হ',
+  '\u{11107}':'ক','\u{11108}':'খ','\u{11109}':'গ','\u{1110A}':'ঘ','\u{1110B}':'ঙ',
+  '\u{1110C}':'চ','\u{1110D}':'ছ','\u{1110E}':'জ','\u{1110F}':'ঝ','\u{11110}':'ঞ',
+  '\u{11111}':'ট','\u{11112}':'ঠ','\u{11113}':'ড','\u{11114}':'ঢ','\u{11115}':'ণ',
+  '\u{11116}':'ত','\u{11117}':'থ','\u{11118}':'দ','\u{11119}':'ধ','\u{1111A}':'ন',
+  '\u{1111B}':'প','\u{1111C}':'ফ','\u{1111D}':'ব','\u{1111E}':'ভ','\u{1111F}':'ম',
+  '\u{11120}':'য','\u{11121}':'জ','\u{11122}':'র','\u{11123}':'ল',
+  '\u{11124}':'ব','\u{11125}':'শ','\u{11126}':'হ',
 
   // Matras
-  '\u{11145}':'া',  // aa-matra
-  '\u{11127}':'',   // short-a/ɔ matra → inherent (no Bengali matra)
-  '\u{11128}':'ি', '\u{11129}':'ী',
-  '\u{1112A}':'ু', '\u{1112B}':'ূ',
-  '\u{1112C}':'ে',
-  '\u{1112D}':'ৈ',
-  '\u{1112E}':'ো',
-  '\u{1112F}':'ৌ',
+  '\u{11145}':'া',  // explicit aa-matra (𑅅) → aa-kar (rare in correct Chakma, but handle it)
+  '\u{11127}':'',   // short-a/ɔ matra → inherent in Bengali (no visible matra)
+  '\u{11128}':'ি','\u{11129}':'ী',
+  '\u{1112A}':'ু','\u{1112B}':'ূ',
+  '\u{1112C}':'ে','\u{1112D}':'ৈ','\u{1112E}':'ো','\u{1112F}':'ৌ',
 
-  // Special marks
-  '\u{11134}':'্',  // maayyaa → hasanta
-  '\u{11133}':'্',  // virama → hasanta
-  '\u{11101}':'ং', '\u{11102}':'ঃ', '\u{11100}':'ঁ',
+  // Special marks (maayyaa handled context-sensitively in the function)
+  '\u{11101}':'ং','\u{11102}':'ঃ','\u{11100}':'ঁ',
 
   // Digits
   '\u{11136}':'০','\u{11137}':'১','\u{11138}':'২','\u{11139}':'৩','\u{1113A}':'৪',
   '\u{1113B}':'৫','\u{1113C}':'৬','\u{1113D}':'৭','\u{1113E}':'৮','\u{1113F}':'৯',
 
   // Punctuation
-  '\u{11141}':'।', '\u{11142}':'॥',
+  '\u{11141}':'।','\u{11142}':'॥',
 };
 
 // ── Transliteration functions ────────────────────────────────────────────────
 
+/*
+ * Bengali → Chakma
+ *
+ * Core rule: Chakma's inherent vowel is /aː/, so Bengali আ-কার (া) is
+ * redundant — we drop it. Every other consonant position that lacks a
+ * following vowel mark (matra) needs an explicit maayyaa (𑄴) to kill
+ * the Chakma inherent. Explicit Bengali hasanta ্ also becomes maayyaa.
+ */
 function translitBnToCk(text) {
-  // NFC normalise so precomposed forms (ো, ড়, য়…) are single codepoints
   text = text.normalize('NFC');
+  const MAAYYAA = '\u{11134}';
   let out = '';
   let i = 0;
+
   while (i < text.length) {
-    // Try 2-char sequences first (decomposed nukta forms, ো decomposed)
-    const two = text.slice(i, i + 2);
-    if (BN_TO_CK[two] !== undefined) {
-      out += BN_TO_CK[two];
-      i += 2;
+    const ch = text[i];
+
+    // ৎ (khanda-ta): special — always ta+maayyaa, no further vowel
+    if (ch === 'ৎ') {
+      out += '\u{11116}' + MAAYYAA;
+      i++;
       continue;
     }
-    const ch = text[i];
-    out += BN_TO_CK[ch] !== undefined ? BN_TO_CK[ch] : ch;
-    i++;
+
+    if (BN_CONSONANTS.has(ch)) {
+      out += BN_CONS_MAP[ch];
+      const next = i + 1 < text.length ? text[i + 1] : null;
+
+      if (next === 'া') {
+        // aa-kar: drop it — Chakma inherent /aː/ already covers it
+        i += 2;
+      } else if (BN_MATRAS_NOT_AA.has(next) || next === '্' || next === 'ঁ') {
+        // Another matra, hasanta, or chandrabindu follows — no maayyaa needed here
+        i++;
+      } else {
+        // Word-final, next consonant, space, punctuation, anusvara, visarga, digits
+        // → Chakma inherent must be killed
+        out += MAAYYAA;
+        i++;
+      }
+    } else if (ch === 'া') {
+      // Bare aa-kar (no preceding consonant in this loop — drop)
+      i++;
+    } else {
+      const mapped = BN_OTHER_MAP[ch];
+      out += mapped !== undefined ? mapped : ch;
+      i++;
+    }
   }
   return out;
 }
 
+/*
+ * Chakma → Bengali
+ *
+ * Core rule: every Chakma consonant without a following matra or killer
+ * carries the inherent /aː/, which maps to Bengali আ-কার (া).
+ * Maayyaa/virama before another consonant → hasanta ্; word-final → dropped.
+ */
 function translitCkToBn(text) {
   text = text.normalize('NFC');
-  const chars = Array.from(text);  // proper SMP codepoint iteration
+  const chars = Array.from(text);
   let out = '';
   let i = 0;
+
   while (i < chars.length) {
-    // Try 2-char multi sequences
+    // Try multi-char sequences first
     if (i + 1 < chars.length) {
       const two = chars[i] + chars[i + 1];
       const hit = CK_TO_BN_MULTI.find(([k]) => k === two);
       if (hit) { out += hit[1]; i += 2; continue; }
     }
+
     const ch = chars[i];
-    out += CK_TO_BN[ch] !== undefined ? CK_TO_BN[ch] : ch;
-    i++;
+    const next = i + 1 < chars.length ? chars[i + 1] : null;
+
+    if (CK_CONSONANTS.has(ch)) {
+      out += CK_TO_BN[ch];
+      if (CK_MATRAS.has(next)) {
+        // Matra follows — it will supply the vowel; no aa-kar here
+        // (𑄧 short-a matra maps to '' so Bengali gets the bare inherent ɔ)
+      } else if (CK_KILLERS.has(next)) {
+        // Maayyaa/virama follows — handled in next iteration; no aa-kar
+      } else {
+        // No vowel or killer → Chakma inherent /aː/ → Bengali আ-কার
+        out += 'া';
+      }
+      i++;
+    } else if (CK_KILLERS.has(ch)) {
+      // Maayyaa or virama: conjunct marker when before a consonant, silent at word-end
+      if (next && CK_CONSONANTS.has(next)) {
+        out += '্';  // hasanta — forms conjunct with following consonant
+      }
+      // word-final: output nothing (Bengali doesn't write explicit halant at word-end)
+      i++;
+    } else {
+      const mapped = CK_TO_BN[ch];
+      out += mapped !== undefined ? mapped : ch;
+      i++;
+    }
   }
   return out;
 }
@@ -566,8 +650,8 @@ async function copyPanel(id) {
 
 const REF_DATA = [
   { section: 'Independent Vowels' },
-  ['অ','𑄃','ɔ/a','a'],
-  ['আ','𑄃𑅅','aː','aa'],
+  ['অ','𑄃','ɔ/a','অ and আ both → 𑄃 (inherent /aː/ covers it)'],
+  ['আ','𑄃','aː','same as অ; Chakma inherent vowel is already /aː/'],
   ['ই','𑄄','i','i'],
   ['ঈ','𑄄','iː','ii (merged)'],
   ['উ','𑄅','u','u'],
