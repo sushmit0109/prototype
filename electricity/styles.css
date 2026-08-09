@@ -339,3 +339,15 @@ footer li { margin-bottom: 4px; }
 .ranknote b { color: var(--text); }
 .ranknote.bad { background: #fdeaea; border-inline-start-color: var(--critical); }
 .ranknote.ok  { background: #e8f7e8; border-inline-start-color: var(--good); }
+
+/* year labels sit on their own line, so identity never rests on shade alone */
+svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.legend-interactive .legend-item {
+  background: transparent; border: 1px solid transparent; border-radius: 999px;
+  padding: 3px 9px; font: inherit; font-size: 0.78rem; color: var(--text2);
+  cursor: pointer; transition: opacity 0.12s, border-color 0.12s;
+}
+.legend-interactive .legend-item:hover,
+.legend-interactive .legend-item.pinned { border-color: var(--border-strong); background: var(--surface2); }
+.legend-interactive .legend-item.dim { opacity: 0.4; }

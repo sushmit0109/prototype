@@ -1503,7 +1503,7 @@ function renderEquity() {
 // Years are ordered, so they take an ordinal one-hue ramp (older = lighter).
 // The current year is lifted out in the load-shedding colour so the comparison
 // reads at a glance instead of hunting the legend.
-const YEAR_RAMP = ['#86b6ef', '#5598e7', '#2a78d6', '#184f95'];
+const YEAR_RAMP = ['#86b6ef', '#3987e5', '#256abf', '#0d366b'];
 
 const MONTH_STARTS = [1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
 
@@ -1527,17 +1527,20 @@ function multiLine(host, lines, opts = {}) {
   el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: padT + ih, y2: padT + ih }, svg);
 
   const order = drawn.slice().sort((a, b) => (a.emphasis ? 1 : 0) - (b.emphasis ? 1 : 0));
+  const marks = new Map();          // label -> the <polyline>s drawn for it
+  const ends = [];                  // end-of-line label positions
+
   for (const l of order) {
+    const parts = [];
     // break the path wherever a run of days is missing
     let run = [];
     const flush = () => {
       if (run.length > 1) {
-        el('polyline', {
+        parts.push(el('polyline', {
           points: run.join(' '), fill: 'none', stroke: l.color,
-          'stroke-width': l.emphasis ? 2.6 : 1.6,
+          'stroke-width': l.emphasis ? 2.8 : 1.8,
           'stroke-linejoin': 'round', 'stroke-linecap': 'round',
-          opacity: l.emphasis ? 1 : 0.85,
-        }, svg);
+        }, svg));
       }
       run = [];
     };
@@ -1546,22 +1549,36 @@ function multiLine(host, lines, opts = {}) {
       else run.push(`${x(i)},${y(v)}`);
     });
     flush();
+    marks.set(l.label, parts);
 
-    // direct-label the emphasised line at its end
-    if (l.emphasis) {
-      const last = l.values.reduce((acc, v, i) =>
-        (v === null || v === undefined) ? acc : i, -1);
-      if (last >= 0) {
-        el('circle', { cx: x(last), cy: y(l.values[last]), r: 4.5, fill: l.color,
-                       stroke: C.surface, 'stroke-width': 2 }, svg);
-        const tx = el('text', {
-          x: Math.min(x(last) + 8, padL + iw - 2), y: y(l.values[last]) - 9,
-          'text-anchor': x(last) > padL + iw * 0.85 ? 'end' : 'start',
-          class: 'bar-label',
-        }, svg);
-        tx.textContent = l.label;
-      }
-    }
+    // Anchor each label at that year's own peak, not its end: every line
+    // finishes on 31 December near zero, so end labels pile up in one corner,
+    // whereas the peaks fall at different times and heights.
+    let best = -1, bestV = -Infinity;
+    l.values.forEach((v, i) => {
+      if (v !== null && v !== undefined && v > bestV) { bestV = v; best = i; }
+    });
+    if (best >= 0) ends.push({ l, i: best, y: y(bestV) });
+  }
+
+  // Shade alone cannot separate five years on thin overlapping lines, so every
+  // line is named at its own end. Labels are nudged apart where they collide.
+  ends.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < ends.length; i++) {
+    if (ends[i].y - ends[i - 1].y < 12) ends[i].y = ends[i - 1].y + 12;
+  }
+  for (const e of ends) {
+    const atRight = x(e.i) > padL + iw * 0.86;
+    el('circle', { cx: x(e.i), cy: y(e.l.values[e.i]), r: e.l.emphasis ? 4 : 3,
+                   fill: e.l.color, stroke: C.surface, 'stroke-width': 1.5 }, svg);
+    const tx = el('text', {
+      x: atRight ? x(e.i) - 7 : x(e.i) + 7,
+      y: Math.max(padT + 9, Math.min(e.y + 3, padT + ih - 2)),
+      'text-anchor': atRight ? 'end' : 'start',
+      class: 'year-label', fill: e.l.color,
+      'font-weight': e.l.emphasis ? 700 : 600,
+    }, svg);
+    tx.textContent = e.l.label;
   }
 
   const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted,
@@ -1584,7 +1601,38 @@ function multiLine(host, lines, opts = {}) {
     hideTip(f); cross.setAttribute('opacity', 0);
   });
 
-  legend(host, drawn.map(l => ({ label: l.label, color: l.color })));
+  const box = document.createElement('div');
+  box.className = 'legend legend-interactive';
+  box.innerHTML = drawn.map(l =>
+    `<button type="button" class="legend-item" data-k="${l.label}">
+       <i class="swatch" style="background:${l.color}"></i>${l.label}</button>`).join('');
+  host.appendChild(box);
+
+  const focus = (key) => {
+    for (const [k, parts] of marks) {
+      const on = !key || k === key;
+      for (const el_ of parts) {
+        el_.setAttribute('opacity', on ? 1 : 0.15);
+        el_.setAttribute('stroke-width', key && k === key ? 3 :
+          (drawn.find(d => d.label === k).emphasis ? 2.8 : 1.8));
+      }
+    }
+    box.querySelectorAll('.legend-item').forEach(b =>
+      b.classList.toggle('dim', !!key && b.dataset.k !== key));
+  };
+  box.querySelectorAll('.legend-item').forEach(b => {
+    b.addEventListener('pointerenter', () => focus(b.dataset.k));
+    b.addEventListener('focus', () => focus(b.dataset.k));
+    b.addEventListener('click', () => {
+      const on = b.classList.toggle('pinned');
+      box.querySelectorAll('.legend-item').forEach(o => { if (o !== b) o.classList.remove('pinned'); });
+      focus(on ? b.dataset.k : null);
+    });
+  });
+  box.addEventListener('pointerleave', () => {
+    const pinned = box.querySelector('.legend-item.pinned');
+    focus(pinned ? pinned.dataset.k : null);
+  });
 }
 
 function renderSeasonal() {
