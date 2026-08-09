@@ -39,6 +39,7 @@ const STR = {
     resDistrict: 'জেলা', resZone: 'অঞ্চল', resPlant: 'বিদ্যুৎকেন্দ্র', resSubstation: 'সাবস্টেশন',
     resUpazila: 'উপজেলা/থানা', resPlace: 'এলাকা',
     areaRank: 'গত ৯০ দিনের হিসাবে {n}টি অঞ্চলের মধ্যে {zone} সবচেয়ে বেশি ভুগেছে এমন তালিকায় <b>{pos}</b> নম্বরে।',
+    ownSubLoad: 'এই সাবস্টেশনে সর্বোচ্চ লোড', ownPlantOut: 'এই কেন্দ্রের উৎপাদন',
     areaShedNow: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় লোডশেডিং',
     areaRate: 'চাহিদার কত অংশ দেওয়া যায়নি',
     areaPerPerson: 'জনপ্রতি ঘাটতি', watts: 'ওয়াট',
@@ -144,6 +145,7 @@ const STR = {
     resDistrict: 'district', resZone: 'zone', resPlant: 'power station', resSubstation: 'substation',
     resUpazila: 'upazila / thana', resPlace: 'area',
     areaRank: 'Over the last 90 days, {zone} ranks <b>{pos}</b> of {n} zones for how much of its demand was cut.',
+    ownSubLoad: 'Peak load served by this substation', ownPlantOut: 'This station\u2019s output',
     areaShedNow: 'Load-shedding at the evening peak',
     areaRate: 'Share of its own demand not supplied',
     areaPerPerson: 'Shortfall per person', watts: 'W',
@@ -292,6 +294,9 @@ function fmtPop(n) {
     ? `${fmt(n / 1e7, 2)} কোটি মানুষ`
     : `${fmt(n / 1e6, 1)} million people`;
 }
+
+/** Clock time with both parts in the reader's own digits. */
+const fmtHour = (h) => `${fmt(h)}:${fmt(0)}${fmt(0)}`;
 
 const pct = (x) => (x === null || x === undefined) ? '—'
   : new Intl.NumberFormat(locale(), { style: 'percent', maximumFractionDigits: 1 }).format(x);
@@ -1068,7 +1073,7 @@ function renderMap() {
         color: C.surface, weight: 1.5, fillColor: C.s[5], fillOpacity: 0.85,
       });
       m.bindPopup(`<b>${s.name}</b><br>${t('load')}: <b>${fmt(s.load_mw)}</b> ${t('mw')}` +
-        (s.hour !== null && s.hour !== undefined ? `<br>${t('at')}: ${fmt(s.hour)}:00` : '') +
+        (s.hour !== null && s.hour !== undefined ? `<br>${t('at')}: ${fmtHour(s.hour)}` : '') +
         (s.geo !== 'osm' ? `<br><span style="color:#74757e;font-size:.9em">${t('approx')}</span>` : ''));
       g.addLayer(m);
     });
@@ -1176,11 +1181,16 @@ function buildSearchIndex() {
     idx.push(indexEntry(p.k, p.n, p.b, p.d, p.z,
                         { lat: p.lat, lon: p.lon, districtBn: p.db })));
 
-  ((D.plants && D.plants.plants) || []).forEach(p =>
-    idx.push(indexEntry('plant', p.name, p.name, p.district, p.zone)));
+  // A plant or substation whose name could not be matched to a location has
+  // no zone, so the area panel would come up blank. Leaving it in the results
+  // promises an answer the data cannot give, so it is left out.
+  ((D.plants && D.plants.plants) || []).forEach(p => {
+    if (p.zone) idx.push(indexEntry('plant', p.name, p.name, p.district, p.zone));
+  });
 
-  ((D.subs && D.subs.substations) || []).forEach(s =>
-    idx.push(indexEntry('substation', s.name, s.name, s.district, s.zone)));
+  ((D.subs && D.subs.substations) || []).forEach(s => {
+    if (s.zone) idx.push(indexEntry('substation', s.name, s.name, s.district, s.zone));
+  });
 
   return idx;
 }
@@ -1230,6 +1240,19 @@ function searchMatches(q) {
   return out;
 }
 
+/** English district name -> its Bengali name, from the district boundaries. */
+let DISTRICT_BN = null;
+function districtBn(nameEn) {
+  if (!nameEn) return null;
+  if (!DISTRICT_BN) {
+    DISTRICT_BN = new Map(((D.districts && D.districts.features) || [])
+      .map(f => [f.properties.name_en,
+                 (f.properties.name_bn || '').replace(/\s*জেলা\s*$/, '')])
+      .filter(([, bn]) => bn));
+  }
+  return DISTRICT_BN.get(nameEn) || null;
+}
+
 function equityForZone(zone, win = '90') {
   const w = D.equity && D.equity.windows && D.equity.windows[win];
   if (!w) return null;
@@ -1249,7 +1272,7 @@ function renderArea(entry) {
   const district = entry.kind === 'district' ? entry.key : entry.district;
   // A locality resolves upward: the figures exist only per grid zone, so say
   // so plainly instead of implying we have Ramna-level data.
-  const districtLabel = (LANG === 'bn' && entry.districtBn) ? entry.districtBn : district;
+  const districtLabel = (LANG === 'bn' && districtBn(district)) || district;
   const resolved = entry.kind !== 'district' && entry.kind !== 'zone' && district
     ? `<div class="resolve">${LANG === 'bn' ? entry.bn : entry.en} → ${districtLabel} ` +
       `${t('resDistrict')} → ${zoneName(zone)} ${t('resZone')}</div>` : '';
@@ -1263,7 +1286,8 @@ function renderArea(entry) {
 
   const sub = [
     entry.kind !== 'zone' ? `${t('zone')}: <b>${zoneName(zone)}</b>` : null,
-    district && entry.kind !== 'district' ? `${t('district')}: <b>${district}</b>` : null,
+    district && entry.kind !== 'district'
+      ? `${t('district')}: <b>${(LANG === 'bn' && districtBn(district)) || district}</b>` : null,
   ].filter(Boolean).join(' · ');
 
   // Rank makes it personal: "2nd worst of 9" lands where "4.7%" does not.
@@ -1293,6 +1317,33 @@ function renderArea(entry) {
   const subs = inDistrict((D.subs && D.subs.substations) || [])
     .sort((a, b) => (b.load_mw || 0) - (a.load_mw || 0));
 
+  // Many names are several things at once — Savar is an upazila, a settlement
+  // AND a grid substation. The results list shows one row per name, so the
+  // panel looks up every kind that name matches and shows each one's own
+  // measured figure alongside the zone aggregate.
+  const nkey = (x) => (x || '').toLowerCase()
+    .replace(/\b(sadar\s+)?(upazila|sub-?district|thana|paurashava|city corporation|district)\b/g, '')
+    .replace(/[^a-z0-9]/g, '');
+  const sameName = (list) => {
+    const hit = list.filter(x => nkey(x.name) === nkey(entry.en));
+    return hit.find(x => x.district && x.district === district) || hit[0] || null;
+  };
+
+  let ownTile = '';
+  const subRec = sameName((D.subs && D.subs.substations) || []);
+  if (subRec) {
+    ownTile += tile(t('ownSubLoad'), fmt(subRec.load_mw), t('mw'),
+      (subRec.hour !== null && subRec.hour !== undefined
+        ? `${t('at')} ${fmtHour(subRec.hour)} · ` : '') + fmtDate(D.subs.date));
+  }
+  const plantRec = sameName((D.plants && D.plants.plants) || []);
+  if (plantRec) {
+    ownTile += tile(t('ownPlantOut'), fmt(plantRec.peak_mw), t('mw'),
+      `${t('capacity')} ${fmt(plantRec.capacity_mw)} ${t('mw')}` +
+      ((plantRec.peak_mw || 0) <= 0 && plantRec.reason
+        ? ` · ${REASON_NAMES[LANG][plantRec.reason] || ''}` : ''));
+  }
+
   host.innerHTML = `
     <div class="card arearesult">
       <div class="area-head">
@@ -1303,6 +1354,7 @@ function renderArea(entry) {
       ${rankLine}
 
       <div class="grid g4">
+        ${ownTile}
         ${tile(t('areaShedNow'), fmt(latest ? latest.v : null), t('mw'),
                latest ? fmtDate(latest.date) : '')}
         ${tile(t('areaRate'), eq ? pct(eq.shed_rate) : '—', '',
@@ -1353,6 +1405,7 @@ function renderArea(entry) {
 }
 
 function renderSearch() {
+  DISTRICT_BN = null;
   SEARCH_INDEX = buildSearchIndex();
   const input = document.getElementById('area-search');
   const list = document.getElementById('area-results');

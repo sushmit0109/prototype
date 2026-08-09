@@ -257,6 +257,9 @@ STOP = {
 
 def toks(name: str):
     t = re.sub(r"\(.*?\)", " ", name or "")
+    # NLDC writes some substations without spaces ("DhakaUniversity",
+    # "HaripurSBU"); split on the camel-case boundary so they tokenise.
+    t = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", t)
     t = re.sub(r"[^A-Za-z\s]", " ", t).lower()
     return [w for w in t.split() if w not in STOP and len(w) > 2]
 
@@ -438,7 +441,9 @@ def build_places(districts: "DistrictIndex", geojson):
 
     for kind, fname in (("upazila", "upazilas.json"), ("place", "places.json")):
         for it in read_json(GEO / fname, []) or []:
-            name = re.sub(r"\s+(Upazila|Thana|Sadar Upazila)$", "", it["name"]).strip()
+            name = re.sub(r"\s+(Sadar\s+)?(Upazila|Sub-?district|Thana|Paurashava|"
+                          r"City\s+Corporation|District)$", "", it["name"],
+                          flags=re.I).strip()
             dist, zone = districts.find(it.get("lat"), it.get("lon"))
             if not dist:
                 continue          # outside the country outline, or unplaceable
