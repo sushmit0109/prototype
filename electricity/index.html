@@ -45,11 +45,11 @@
       <a href="#now" data-i18n="navNow">এখন</a>
       <a href="#search" data-i18n="navSearch">আপনার এলাকা</a>
       <a href="#why" data-i18n="navWhy">কেন হচ্ছে</a>
-      <a href="#map" data-i18n="navMap">মানচিত্র</a>
       <a href="#equity" data-i18n="navEquity">কে বেশি ভুগছে</a>
-      <a href="#fuel" data-i18n="navFuel">জ্বালানি</a>
-      <a href="#zones" data-i18n="navZones">অঞ্চল</a>
+      <a href="#map" data-i18n="navMap">মানচিত্র</a>
       <a href="#seasonal" data-i18n="navSeasonal">আগের বছরের তুলনা</a>
+      <a href="#zones" data-i18n="navZones">অঞ্চল</a>
+      <a href="#fuel" data-i18n="navFuel">জ্বালানি</a>
       <a href="#trend" data-i18n="navTrend">সময়ের সঙ্গে</a>
       <a href="#trust" data-i18n="navTrust">হিসাব কতটা পাকা</a>
     </nav>
@@ -63,7 +63,8 @@
         পিজিসিবির সর্বশেষ ঘণ্টাভিত্তিক হিসাব। সরবরাহ ও লোডশেড যোগ করলেই প্রকাশিত “চাহিদা” পাওয়া যায়।
       </p>
     </div>
-    <div class="grid g4" id="now-tiles"><p class="loading" data-i18n="loading">তথ্য আসছে…</p></div>
+    <div id="verdict"></div>
+    <div class="grid g4" id="now-tiles" style="margin-top:14px"><p class="loading" data-i18n="loading">তথ্য আসছে…</p></div>
 
     <div class="card" style="margin-top:14px">
       <div class="chart-head">
@@ -111,22 +112,6 @@
     <div style="margin-top:14px" id="idle-note"></div>
   </section>
 
-  <!-- ── MAP ─────────────────────────────────────────── -->
-  <section id="map">
-    <div class="sec-head">
-      <h2 data-i18n="mapTitle">মানচিত্রে বিদ্যুৎ</h2>
-      <p class="sec-sub" data-i18n="mapSub">
-        জেলার রং তার অঞ্চলের সন্ধ্যাকালীন লোডশেড অনুযায়ী। বিন্দুগুলো বিদ্যুৎকেন্দ্র ও গ্রিড উপকেন্দ্র।
-      </p>
-    </div>
-    <div class="map-controls">
-      <div class="seg" id="map-seg" role="group"></div>
-      <span class="ramp" id="map-ramp"></span>
-    </div>
-    <div id="map-el"></div>
-    <p class="chart-note" style="margin-top:10px" data-i18n="mapNote"></p>
-  </section>
-
   <!-- ── EQUITY ──────────────────────────────────────── -->
   <section id="equity">
     <div class="sec-head">
@@ -151,6 +136,56 @@
       <div class="chart-head"><span class="chart-title" data-i18n="equityTableTitle"></span></div>
       <div class="tablewrap"><table id="equity-table"></table></div>
       <p class="chart-note" style="margin-top:8px" id="equity-source"></p>
+    </div>
+  </section>
+
+  <!-- ── MAP ─────────────────────────────────────────── -->
+  <section id="map">
+    <div class="sec-head">
+      <h2 data-i18n="mapTitle">মানচিত্রে বিদ্যুৎ</h2>
+      <p class="sec-sub" data-i18n="mapSub">
+        জেলার রং তার অঞ্চলের সন্ধ্যাকালীন লোডশেড অনুযায়ী। বিন্দুগুলো বিদ্যুৎকেন্দ্র ও গ্রিড উপকেন্দ্র।
+      </p>
+    </div>
+    <div class="map-controls">
+      <div class="seg" id="map-seg" role="group"></div>
+      <span class="ramp" id="map-ramp"></span>
+    </div>
+    <div id="map-el"></div>
+    <p class="chart-note" style="margin-top:10px" data-i18n="mapNote"></p>
+  </section>
+
+  <!-- ── SEASONAL: NOW vs PAST YEARS ─────────────────── -->
+  <section id="seasonal">
+    <div class="sec-head">
+      <h2 data-i18n="seasonalTitle"></h2>
+      <p class="sec-sub" data-i18n="seasonalSub"></p>
+    </div>
+    <div id="seasonal-note"></div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head">
+        <span class="chart-title" data-i18n="seasonalChart"></span>
+      </div>
+      <div class="chartbox" id="seasonal-chart"></div>
+    </div>
+    <div class="chart-head" style="margin-top:16px">
+      <span class="chart-title" data-i18n="compareTitle"></span>
+    </div>
+    <div class="grid g3" id="seasonal-compare"></div>
+  </section>
+
+  <!-- ── ZONES ───────────────────────────────────────── -->
+  <section id="zones">
+    <div class="sec-head">
+      <h2 data-i18n="zonesTitle">অঞ্চলভিত্তিক চিত্র</h2>
+      <p class="sec-sub" data-i18n="zonesSub">
+        এনএলডিসির প্রতিবেদনে সন্ধ্যার সর্বোচ্চ চাহিদার সময়ের অঞ্চলভিত্তিক চাহিদা ও লোডশেড।
+      </p>
+    </div>
+    <div class="tablewrap"><table id="zone-table"></table></div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="zoneTrend">অঞ্চলভিত্তিক লোডশেডের প্রবণতা</span></div>
+      <div class="chartbox" id="zone-chart"></div>
     </div>
   </section>
 
@@ -179,40 +214,6 @@
         <div class="chartbox" id="fuelmix-latest"></div>
       </div>
     </div>
-  </section>
-
-  <!-- ── ZONES ───────────────────────────────────────── -->
-  <section id="zones">
-    <div class="sec-head">
-      <h2 data-i18n="zonesTitle">অঞ্চলভিত্তিক চিত্র</h2>
-      <p class="sec-sub" data-i18n="zonesSub">
-        এনএলডিসির প্রতিবেদনে সন্ধ্যার সর্বোচ্চ চাহিদার সময়ের অঞ্চলভিত্তিক চাহিদা ও লোডশেড।
-      </p>
-    </div>
-    <div class="tablewrap"><table id="zone-table"></table></div>
-    <div class="card" style="margin-top:14px">
-      <div class="chart-head"><span class="chart-title" data-i18n="zoneTrend">অঞ্চলভিত্তিক লোডশেডের প্রবণতা</span></div>
-      <div class="chartbox" id="zone-chart"></div>
-    </div>
-  </section>
-
-  <!-- ── SEASONAL: NOW vs PAST YEARS ─────────────────── -->
-  <section id="seasonal">
-    <div class="sec-head">
-      <h2 data-i18n="seasonalTitle"></h2>
-      <p class="sec-sub" data-i18n="seasonalSub"></p>
-    </div>
-    <div id="seasonal-note"></div>
-    <div class="card" style="margin-top:14px">
-      <div class="chart-head">
-        <span class="chart-title" data-i18n="seasonalChart"></span>
-      </div>
-      <div class="chartbox" id="seasonal-chart"></div>
-    </div>
-    <div class="chart-head" style="margin-top:16px">
-      <span class="chart-title" data-i18n="compareTitle"></span>
-    </div>
-    <div class="grid g3" id="seasonal-compare"></div>
   </section>
 
   <!-- ── TREND ───────────────────────────────────────── -->

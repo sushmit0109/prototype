@@ -303,3 +303,39 @@ footer li { margin-bottom: 4px; }
   font-size: 0.68rem; color: var(--muted); margin-top: 2px;
   font-variant-numeric: tabular-nums;
 }
+
+/* ── verdict banner: the plain-language answer, before any chart ──── */
+.verdict {
+  display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--muted);
+  border-radius: var(--radius); padding: 15px 17px; box-shadow: var(--shadow);
+}
+.verdict-badge {
+  display: inline-flex; align-items: center; gap: 7px; flex: none;
+  font-size: 0.76rem; font-weight: 700; letter-spacing: 0.02em;
+  padding: 4px 11px; border-radius: 999px;
+  background: var(--surface2); color: var(--text2);
+}
+.verdict-badge span { font-weight: 800; }
+.verdict-body { flex: 1 1 260px; min-width: 0; }
+.verdict-line { font-size: clamp(1rem, 3.2vw, 1.12rem); color: var(--text); line-height: 1.55; }
+.verdict-sub { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+
+.verdict.v-good   { border-inline-start-color: var(--good); }
+.verdict.v-good   .verdict-badge { background: #e8f7e8; color: #0a6b0a; }
+.verdict.v-normal { border-inline-start-color: var(--accent); }
+.verdict.v-normal .verdict-badge { background: var(--accent-soft); color: var(--accent); }
+.verdict.v-bad    { border-inline-start-color: var(--warning); }
+.verdict.v-bad    .verdict-badge { background: #fdf3dd; color: #8a6100; }
+.verdict.v-worst  { border-inline-start-color: var(--critical); }
+.verdict.v-worst  .verdict-badge { background: #fdeaea; color: #a32020; }
+
+.ranknote {
+  font-size: 0.88rem; color: var(--text2); margin: 0 0 12px;
+  padding: 8px 12px; border-radius: 8px; background: var(--surface2);
+  border-inline-start: 3px solid var(--muted);
+}
+.ranknote b { color: var(--text); }
+.ranknote.bad { background: #fdeaea; border-inline-start-color: var(--critical); }
+.ranknote.ok  { background: #e8f7e8; border-inline-start-color: var(--good); }

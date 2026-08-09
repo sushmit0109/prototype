@@ -19,6 +19,12 @@ const STR = {
     navEquity: 'কে বেশি ভুগছে', navFuel: 'জ্বালানি', navZones: 'অঞ্চল',
     navSeasonal: 'আগের বছরের তুলনা', navTrend: 'সময়ের সঙ্গে', navTrust: 'হিসাব কতটা পাকা',
 
+    vGoodTag: 'তুলনামূলক ভালো', vNormalTag: 'যেমন থাকে', vBadTag: 'খারাপ', vWorstTag: 'খুব খারাপ',
+    vGood: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ে সাধারণত যা হয়, আজ তার চেয়ে কম।',
+    vNormal: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ে সাধারণত যা হয়, আজও মোটামুটি তেমনই।',
+    vBad: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ে সাধারণত যা হয়, আজ তার চেয়ে বেশি।',
+    vWorst: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ের মধ্যে আজকেরটা সবচেয়ে বেশির দিকে।',
+    vPeople: 'আজ এখন পর্যন্ত যত বিদ্যুৎ দেওয়া যায়নি ({mwh} মে.ও.ঘ.), তা দিয়ে প্রায় <b>{people}</b> মানুষের একদিনের বিদ্যুৎ চলত। (মাথাপিছু বছরে ৫৬০ কিলোওয়াট-ঘণ্টা ধরে)',
     nowTitle: 'এখন যা চলছে',
     nowSub: 'পিজিসিবির সবচেয়ে সাম্প্রতিক ঘণ্টার হিসাব। সরবরাহ আর লোডশেডিং যোগ করলেই প্রকাশিত “চাহিদা” সংখ্যাটা পাওয়া যায়।',
     supply: 'সরবরাহ', loadshedding: 'লোডশেডিং', demand: 'চাহিদা (প্রকাশিত)',
@@ -36,6 +42,7 @@ const STR = {
     searchHint: 'সরকারি হিসাব জেলা ধরে নয়, ৯টি গ্রিড অঞ্চল ধরে প্রকাশ করা হয়। তাই আপনার জেলার সংখ্যাটি আসলে সেই পুরো অঞ্চলের।',
     resDistrict: 'জেলা', resZone: 'অঞ্চল', resPlant: 'বিদ্যুৎকেন্দ্র', resSubstation: 'সাবস্টেশন',
     resUpazila: 'উপজেলা/থানা', resPlace: 'এলাকা',
+    areaRank: 'গত ৯০ দিনের হিসাবে {n}টি অঞ্চলের মধ্যে {zone} সবচেয়ে বেশি ভুগেছে এমন তালিকায় <b>{pos}</b> নম্বরে।',
     areaShedNow: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় লোডশেডিং',
     areaRate: 'চাহিদার কত অংশ দেওয়া যায়নি',
     areaPerPerson: 'জনপ্রতি ঘাটতি', watts: 'ওয়াট',
@@ -121,6 +128,12 @@ const STR = {
     navEquity: 'Who bears it', navFuel: 'Fuel', navZones: 'Zones',
     navSeasonal: 'Vs. past years', navTrend: 'Over time', navTrust: 'Data integrity',
 
+    vGoodTag: 'better than usual', vNormalTag: 'about usual', vBadTag: 'worse than usual', vWorstTag: 'among the worst',
+    vGood: 'There is <b>{mw}</b> MW of load-shedding right now — lower than this hour usually runs over the last {days} readings.',
+    vNormal: 'There is <b>{mw}</b> MW of load-shedding right now — about what this hour usually runs over the last {days} readings.',
+    vBad: 'There is <b>{mw}</b> MW of load-shedding right now — higher than this hour usually runs over the last {days} readings.',
+    vWorst: 'There is <b>{mw}</b> MW of load-shedding right now — among the highest this hour has run in the last {days} readings.',
+    vPeople: 'The electricity not supplied so far today ({mwh} MWh) would have run a day\u2019s power for about <b>{people}</b> people. (At 560 kWh per person per year.)',
     nowTitle: 'Right now',
     nowSub: 'The most recent hourly reading from PGCB. Supply plus load-shedding is exactly the published “demand”.',
     supply: 'Supply', loadshedding: 'Load-shedding', demand: 'Demand (published)',
@@ -138,6 +151,7 @@ const STR = {
     searchHint: 'The official figures are published for nine grid zones, not for individual districts. So the number shown for your district is really its whole zone’s.',
     resDistrict: 'district', resZone: 'zone', resPlant: 'power station', resSubstation: 'substation',
     resUpazila: 'upazila / thana', resPlace: 'area',
+    areaRank: 'Over the last 90 days, {zone} ranks <b>{pos}</b> of {n} zones for how much of its demand was cut.',
     areaShedNow: 'Load-shedding at the evening peak',
     areaRate: 'Share of its own demand not supplied',
     areaPerPerson: 'Shortfall per person', watts: 'W',
@@ -1260,6 +1274,20 @@ function renderArea(entry) {
     district && entry.kind !== 'district' ? `${t('district')}: <b>${district}</b>` : null,
   ].filter(Boolean).join(' · ');
 
+  // Rank makes it personal: "2nd worst of 9" lands where "4.7%" does not.
+  const w90 = D.equity && D.equity.windows && D.equity.windows['90'];
+  let rankLine = '';
+  if (w90 && eq) {
+    const ordered = w90.zones.slice().sort((a, b) => (b.shed_rate || 0) - (a.shed_rate || 0));
+    const pos = ordered.findIndex(z => z.zone === zone) + 1;
+    if (pos > 0) {
+      rankLine = `<div class="ranknote ${pos <= 3 ? 'bad' : pos > ordered.length - 3 ? 'ok' : ''}">` +
+        t('areaRank').replace('{zone}', zoneName(zone))
+                     .replace('{pos}', fmt(pos))
+                     .replace('{n}', fmt(ordered.length)) + `</div>`;
+    }
+  }
+
   const tile = (label, value, unit, note) => `
     <div class="stat">
       <div class="stat-label">${label}</div>
@@ -1280,6 +1308,7 @@ function renderArea(entry) {
         <span class="area-zone">${sub}</span>
       </div>
       ${resolved}
+      ${rankLine}
 
       <div class="grid g4">
         ${tile(t('areaShedNow'), fmt(latest ? latest.v : null), t('mw'),
@@ -1634,6 +1663,86 @@ function renderSeasonal() {
   }
 }
 
+
+/* ═══════════════════════════ the plain-language answer ═══════════════════ */
+
+// Bangladesh's electricity use averages roughly 560 kWh per person per year.
+// Dividing the shortfall by a day of that turns an abstract MWh figure into
+// "how many people's daily electricity went missing". The assumption is stated
+// on screen rather than buried here.
+const PER_CAPITA_KWH_DAY = 560 / 365;
+
+function dailyShedSeries() {
+  const rows = (D.hourly && D.hourly.rows) || [];
+  const byDay = new Map();
+  for (const r of rows) {
+    const day = r[0].slice(0, 10);
+    byDay.set(day, (byDay.get(day) || 0) + (r[3] || 0));
+  }
+  return [...byDay.entries()].sort((a, b) => (a[0] < b[0] ? -1 : 1));
+}
+
+function renderVerdict() {
+  const host = document.getElementById('verdict');
+  const l = D.latest;
+  if (!host || !l) return;
+
+  // Compare like with like: today is still in progress, so ranking its
+  // part-day total against completed days would understate it. Instead the
+  // current reading is compared with the same hour on previous days.
+  const rows = (D.hourly && D.hourly.rows) || [];
+  const nowHour = (l.observed_at || '').slice(11, 13);
+  const today = (l.observed_at || '').slice(0, 10);
+  const sameHour = rows
+    .filter(r => r[0].slice(11, 13) === nowHour && r[0].slice(0, 10) !== today
+                 && r[3] !== null && r[3] !== undefined)
+    .slice(-90)
+    .map(r => r[3]);
+  if (sameHour.length < 10 || l.loadshed === null || l.loadshed === undefined) {
+    host.innerHTML = ''; return;
+  }
+  const history = sameHour.slice().sort((a, b) => a - b);
+  const at = (q) => history[Math.floor(q * (history.length - 1))];
+  const v = l.loadshed;
+
+  const days = dailyShedSeries();
+  const todayEnergy = days.length ? days[days.length - 1][1] : 0;
+
+  // Where today sits against the days before it, rather than an absolute
+  // threshold nobody could calibrate.
+  let level, key;
+  if (v <= at(0.25)) { level = 'good'; key = 'vGood'; }
+  else if (v <= at(0.75)) { level = 'normal'; key = 'vNormal'; }
+  else if (v <= at(0.92)) { level = 'bad'; key = 'vBad'; }
+  else { level = 'worst'; key = 'vWorst'; }
+
+  const people = (todayEnergy * 1000) / PER_CAPITA_KWH_DAY;  // MWh -> kWh -> people
+  const icon = { good: '✓', normal: '•', bad: '!', worst: '!!' }[level];
+
+  host.innerHTML = `
+    <div class="verdict v-${level}">
+      <div class="verdict-badge"><span aria-hidden="true">${icon}</span>${t('v' + level.charAt(0).toUpperCase() + level.slice(1) + 'Tag')}</div>
+      <div class="verdict-body">
+        <p class="verdict-line">${t(key)
+          .replace('{mw}', `<b>${fmt(l.loadshed)}</b>`)
+          .replace('{days}', fmt(history.length))
+          .replace('{hour}', fmt(+nowHour))}</p>
+        <p class="verdict-sub">${t('vPeople')
+          .replace('{people}', `<b>${fmtPeople(people)}</b>`)
+          .replace('{mwh}', fmt(todayEnergy))}</p>
+      </div>
+    </div>`;
+}
+
+/** People-scale rounding: crore / lakh in Bengali, million in English. */
+function fmtPeople(n) {
+  if (!n || n <= 0) return '—';
+  if (LANG === 'bn') {
+    return n >= 1e7 ? `${fmt(n / 1e7, 1)} কোটি` : `${fmt(n / 1e5, 1)} লাখ`;
+  }
+  return n >= 1e6 ? `${fmt(n / 1e6, 1)} million` : `${fmt(n / 1e3, 0)} thousand`;
+}
+
 /* ══════════════════════════════════ boot ═════════════════════════════════ */
 
 function renderAll() {
@@ -1641,6 +1750,7 @@ function renderAll() {
   renderUpdated();
   renderRangeSeg();
   renderNow();
+  renderVerdict();
   renderSearch();
   renderWhy();
   renderEquitySeg();
