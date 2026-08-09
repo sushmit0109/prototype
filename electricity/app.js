@@ -19,11 +19,7 @@ const STR = {
     navEquity: 'কে বেশি ভুগছে', navFuel: 'জ্বালানি', navZones: 'অঞ্চল',
     navSeasonal: 'আগের বছরের তুলনা', navTrend: 'সময়ের সঙ্গে', navTrust: 'হিসাব কতটা পাকা',
 
-    vGoodTag: 'তুলনামূলক ভালো', vNormalTag: 'যেমন থাকে', vBadTag: 'খারাপ', vWorstTag: 'খুব খারাপ',
-    vGood: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ে সাধারণত যা হয়, আজ তার চেয়ে কম।',
-    vNormal: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ে সাধারণত যা হয়, আজও মোটামুটি তেমনই।',
-    vBad: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ে সাধারণত যা হয়, আজ তার চেয়ে বেশি।',
-    vWorst: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে এই সময়ের মধ্যে আজকেরটা সবচেয়ে বেশির দিকে।',
+    vLine: 'এই মুহূর্তে দেশে <b>{mw}</b> মেগাওয়াট লোডশেডিং চলছে। গত {days} দিনে দিনের এই সময়ে সাধারণত <b>{median}</b> মেগাওয়াটের মতো হয়েছে — বেশির ভাগ দিন {lo} থেকে {hi} মেগাওয়াটের মধ্যে।',
     vPeople: 'আজ এখন পর্যন্ত যত বিদ্যুৎ দেওয়া যায়নি ({mwh} মে.ও.ঘ.), তা দিয়ে প্রায় <b>{people}</b> মানুষের একদিনের বিদ্যুৎ চলত। (মাথাপিছু বছরে ৫৬০ কিলোওয়াট-ঘণ্টা ধরে)',
     nowTitle: 'এখন যা চলছে',
     nowSub: 'পিজিসিবির সবচেয়ে সাম্প্রতিক ঘণ্টার হিসাব। সরবরাহ আর লোডশেডিং যোগ করলেই প্রকাশিত “চাহিদা” সংখ্যাটা পাওয়া যায়।',
@@ -128,11 +124,7 @@ const STR = {
     navEquity: 'Who bears it', navFuel: 'Fuel', navZones: 'Zones',
     navSeasonal: 'Vs. past years', navTrend: 'Over time', navTrust: 'Data integrity',
 
-    vGoodTag: 'better than usual', vNormalTag: 'about usual', vBadTag: 'worse than usual', vWorstTag: 'among the worst',
-    vGood: 'There is <b>{mw}</b> MW of load-shedding right now — lower than this hour usually runs over the last {days} readings.',
-    vNormal: 'There is <b>{mw}</b> MW of load-shedding right now — about what this hour usually runs over the last {days} readings.',
-    vBad: 'There is <b>{mw}</b> MW of load-shedding right now — higher than this hour usually runs over the last {days} readings.',
-    vWorst: 'There is <b>{mw}</b> MW of load-shedding right now — among the highest this hour has run in the last {days} readings.',
+    vLine: 'There is <b>{mw}</b> MW of load-shedding right now. At this hour over the last {days} readings it has typically been <b>{median}</b> MW, most days between {lo} and {hi} MW.',
     vPeople: 'The electricity not supplied so far today ({mwh} MWh) would have run a day\u2019s power for about <b>{people}</b> people. (At 560 kWh per person per year.)',
     nowTitle: 'Right now',
     nowSub: 'The most recent hourly reading from PGCB. Supply plus load-shedding is exactly the published “demand”.',
@@ -1752,27 +1744,19 @@ function renderVerdict() {
   const history = sameHour.slice().sort((a, b) => a - b);
   const at = (q) => history[Math.floor(q * (history.length - 1))];
   const v = l.loadshed;
+  const median = at(0.5), lo = at(0.25), hi = at(0.75);
 
   const days = dailyShedSeries();
   const todayEnergy = days.length ? days[days.length - 1][1] : 0;
 
-  // Where today sits against the days before it, rather than an absolute
-  // threshold nobody could calibrate.
-  let level, key;
-  if (v <= at(0.25)) { level = 'good'; key = 'vGood'; }
-  else if (v <= at(0.75)) { level = 'normal'; key = 'vNormal'; }
-  else if (v <= at(0.92)) { level = 'bad'; key = 'vBad'; }
-  else { level = 'worst'; key = 'vWorst'; }
-
   const people = (todayEnergy * 1000) / PER_CAPITA_KWH_DAY;  // MWh -> kWh -> people
-  const icon = { good: '✓', normal: '•', bad: '!', worst: '!!' }[level];
-
   host.innerHTML = `
-    <div class="verdict v-${level}">
-      <div class="verdict-badge"><span aria-hidden="true">${icon}</span>${t('v' + level.charAt(0).toUpperCase() + level.slice(1) + 'Tag')}</div>
+    <div class="verdict">
       <div class="verdict-body">
-        <p class="verdict-line">${t(key)
+        <p class="verdict-line">${t('vLine')
           .replace('{mw}', `<b>${fmt(l.loadshed)}</b>`)
+          .replace('{median}', `<b>${fmt(median)}</b>`)
+          .replace('{lo}', fmt(lo)).replace('{hi}', fmt(hi))
           .replace('{days}', fmt(history.length))
           .replace('{hour}', fmt(+nowHour))}</p>
         <p class="verdict-sub">${t('vPeople')
