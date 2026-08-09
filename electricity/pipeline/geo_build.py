@@ -66,6 +66,15 @@ area["ISO3166-1"="BD"][admin_level=2]->.bd;
 out;
 """
 
+# Upazilas / thanas (admin_level 6) are the level people actually name — Ramna,
+# Savar, Bhaluka. They are matched to a district by their centroid.
+Q_UPAZILAS = """
+[out:json][timeout:240];
+area["ISO3166-1"="BD"][admin_level=2]->.bd;
+relation(area.bd)["boundary"="administrative"]["admin_level"="6"];
+out center tags;
+"""
+
 Q_DISTRICTS = """
 [out:json][timeout:240];
 area["ISO3166-1"="BD"][admin_level=2]->.bd;
@@ -332,7 +341,8 @@ def build_points(refresh: bool):
     out = {}
     for kind, query, cache in (("plants", Q_PLANTS, "plants_raw.json"),
                                ("substations", Q_SUBSTATIONS, "substations_raw.json"),
-                               ("places", Q_PLACES, "places_raw.json")):
+                               ("places", Q_PLACES, "places_raw.json"),
+                               ("upazilas", Q_UPAZILAS, "upazilas_raw.json")):
         data = overpass(query, cache, refresh)
         items = []
         for el in data.get("elements", []):
@@ -344,6 +354,10 @@ def build_points(refresh: bool):
             if lat is None:
                 continue
             rec = {"name": name, "lat": round(lat, 5), "lon": round(lon, 5)}
+            if tags.get("name:bn"):
+                rec["name_bn"] = tags["name:bn"]
+            if tags.get("name") and tags.get("name") != name:
+                rec["alt"] = tags["name"]
             if kind == "plants":
                 rec["source"] = tags.get("plant:source") or tags.get("generator:source") or ""
                 rec["output"] = tags.get("plant:output:electricity") or ""

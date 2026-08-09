@@ -49,6 +49,7 @@
       <a href="#equity" data-i18n="navEquity">কে বেশি ভুগছে</a>
       <a href="#fuel" data-i18n="navFuel">জ্বালানি</a>
       <a href="#zones" data-i18n="navZones">অঞ্চল</a>
+      <a href="#seasonal" data-i18n="navSeasonal">আগের বছরের তুলনা</a>
       <a href="#trend" data-i18n="navTrend">সময়ের সঙ্গে</a>
       <a href="#trust" data-i18n="navTrust">হিসাব কতটা পাকা</a>
     </nav>
@@ -67,6 +68,7 @@
     <div class="card" style="margin-top:14px">
       <div class="chart-head">
         <span class="chart-title" data-i18n="todayChart">গত ৭ দিনের ঘণ্টাভিত্তিক চিত্র</span>
+        <span class="chart-note" id="hourly-smooth"></span>
         <div class="seg" id="range-seg" role="group"></div>
       </div>
       <div class="chartbox" id="hourly-chart"></div>
@@ -192,6 +194,25 @@
       <div class="chart-head"><span class="chart-title" data-i18n="zoneTrend">অঞ্চলভিত্তিক লোডশেডের প্রবণতা</span></div>
       <div class="chartbox" id="zone-chart"></div>
     </div>
+  </section>
+
+  <!-- ── SEASONAL: NOW vs PAST YEARS ─────────────────── -->
+  <section id="seasonal">
+    <div class="sec-head">
+      <h2 data-i18n="seasonalTitle"></h2>
+      <p class="sec-sub" data-i18n="seasonalSub"></p>
+    </div>
+    <div id="seasonal-note"></div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head">
+        <span class="chart-title" data-i18n="seasonalChart"></span>
+      </div>
+      <div class="chartbox" id="seasonal-chart"></div>
+    </div>
+    <div class="chart-head" style="margin-top:16px">
+      <span class="chart-title" data-i18n="compareTitle"></span>
+    </div>
+    <div class="grid g3" id="seasonal-compare"></div>
   </section>
 
   <!-- ── TREND ───────────────────────────────────────── -->

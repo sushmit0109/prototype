@@ -17,7 +17,7 @@ const STR = {
     loading: 'তথ্য আসছে…',
     navNow: 'এখন', navSearch: 'আপনার এলাকা', navWhy: 'কেন হচ্ছে', navMap: 'মানচিত্র',
     navEquity: 'কে বেশি ভুগছে', navFuel: 'জ্বালানি', navZones: 'অঞ্চল',
-    navTrend: 'সময়ের সঙ্গে', navTrust: 'হিসাব কতটা পাকা',
+    navSeasonal: 'আগের বছরের তুলনা', navTrend: 'সময়ের সঙ্গে', navTrust: 'হিসাব কতটা পাকা',
 
     nowTitle: 'এখন যা চলছে',
     nowSub: 'পিজিসিবির সবচেয়ে সাম্প্রতিক ঘণ্টার হিসাব। সরবরাহ আর লোডশেডিং যোগ করলেই প্রকাশিত “চাহিদা” সংখ্যাটা পাওয়া যায়।',
@@ -26,14 +26,16 @@ const STR = {
     asOf: 'সময়', noData: 'তথ্য নেই',
     todayChart: 'ঘণ্টায় ঘণ্টায় সরবরাহ ও লোডশেডিং',
     r7: '৭ দিন', r30: '৩০ দিন', r90: '৯০ দিন',
+    smoothed: '{n} দিনের চলমান গড়',
     hoursShed: 'যত ঘণ্টা লোডশেডিং ছিল', energyShed: 'যত বিদ্যুৎ দেওয়া যায়নি',
-    mwh: 'মেগাওয়াট-ঘণ্টা',
+    mwh: 'মে.ও.ঘ.',
 
     searchTitle: 'আপনার এলাকার অবস্থা',
     searchSub: 'জেলার নাম লিখে খুঁজুন — সেই জেলা কোন গ্রিড অঞ্চলে পড়ে, সেখানে কতটা লোডশেডিং হচ্ছে, আর আশপাশে কোন বিদ্যুৎকেন্দ্র ও সাবস্টেশন আছে তা দেখা যাবে। বিদ্যুৎকেন্দ্র বা সাবস্টেশনের নাম দিয়েও খোঁজা যায়।',
-    searchPlaceholder: 'যেমন: ময়মনসিংহ, বগুড়া, আশুগঞ্জ…',
+    searchPlaceholder: 'যেমন: রমনা, সাভার, ময়মনসিংহ, বগুড়া…',
     searchHint: 'সরকারি হিসাব জেলা ধরে নয়, ৯টি গ্রিড অঞ্চল ধরে প্রকাশ করা হয়। তাই আপনার জেলার সংখ্যাটি আসলে সেই পুরো অঞ্চলের।',
     resDistrict: 'জেলা', resZone: 'অঞ্চল', resPlant: 'বিদ্যুৎকেন্দ্র', resSubstation: 'সাবস্টেশন',
+    resUpazila: 'উপজেলা/থানা', resPlace: 'এলাকা',
     areaShedNow: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় লোডশেডিং',
     areaRate: 'চাহিদার কত অংশ দেওয়া যায়নি',
     areaPerPerson: 'জনপ্রতি ঘাটতি', watts: 'ওয়াট',
@@ -83,6 +85,11 @@ const STR = {
     zoneTrend: 'অঞ্চল ধরে লোডশেডিংয়ের গতিপ্রকৃতি',
     zoneName: 'অঞ্চল', zoneShare: 'মোট লোডশেডিংয়ের কত ভাগ',
 
+    seasonalTitle: 'এখনকার অবস্থা আগের বছরগুলোর তুলনায়',
+    seasonalSub: 'লোডশেডিং বছরের সময় ধরে ওঠানামা করে — গরমকালে বেশি, শীতে কম। তাই এক বছর আগের সঙ্গে মেলাতে হলে বছরের একই সময়ের সঙ্গে মেলানো দরকার। নিচের রেখাগুলো প্রতিটি বছরের একই তারিখগুলো পাশাপাশি দেখায়।',
+    seasonalChart: 'বছরে যেদিন যত বিদ্যুৎ দেওয়া যায়নি (৭ দিনের গড়)',
+    seasonalNote: 'গত ৩০ দিনে দিনে গড়ে <b>{now}</b> মেগাওয়াট-ঘণ্টা বিদ্যুৎ দেওয়া যায়নি। {year} সালের ঠিক এই সময়ে সংখ্যাটা ছিল <b>{prev}</b> — অর্থাৎ এখন প্রায় <b>{times} গুণ {dir}</b>।',
+    compareTitle: 'একই ৩০ দিন, আলাদা বছর',
     trendTitle: 'সময়ের সঙ্গে বদল',
     trendSub: 'পিজিসিবির খাতায় ২০১৫ সাল থেকে সারি আছে ঠিকই, কিন্তু ২০২২ সালের আগে প্রায় প্রতি ঘণ্টায় লোডশেডিংয়ের ঘরে “০” বসানো। তাই ওই সময়টাকে শূন্য না ধরে “প্রকাশ করা হয়নি” হিসেবে আলাদা করে দেখানো হয়েছে।',
     monthlyTitle: 'মাস ধরে সর্বোচ্চ লোডশেডিং',
@@ -112,7 +119,7 @@ const STR = {
     loading: 'Loading…',
     navNow: 'Right now', navSearch: 'Your area', navWhy: 'Why', navMap: 'Map',
     navEquity: 'Who bears it', navFuel: 'Fuel', navZones: 'Zones',
-    navTrend: 'Over time', navTrust: 'Data integrity',
+    navSeasonal: 'Vs. past years', navTrend: 'Over time', navTrust: 'Data integrity',
 
     nowTitle: 'Right now',
     nowSub: 'The most recent hourly reading from PGCB. Supply plus load-shedding is exactly the published “demand”.',
@@ -121,14 +128,16 @@ const STR = {
     asOf: 'as of', noData: 'no data',
     todayChart: 'Supply and load-shedding, hour by hour',
     r7: '7 days', r30: '30 days', r90: '90 days',
+    smoothed: '{n}-day rolling average',
     hoursShed: 'Hours with load-shedding', energyShed: 'Electricity not supplied',
     mwh: 'MWh',
 
     searchTitle: 'The situation in your area',
     searchSub: 'Type a district name to see which grid zone it belongs to, how much load-shedding that zone is getting, and which power stations and substations are nearby. You can also search by plant or substation name.',
-    searchPlaceholder: 'e.g. Mymensingh, Bogura, Ashuganj…',
+    searchPlaceholder: 'e.g. Ramna, Savar, Mymensingh, Bogura…',
     searchHint: 'The official figures are published for nine grid zones, not for individual districts. So the number shown for your district is really its whole zone’s.',
     resDistrict: 'district', resZone: 'zone', resPlant: 'power station', resSubstation: 'substation',
+    resUpazila: 'upazila / thana', resPlace: 'area',
     areaShedNow: 'Load-shedding at the evening peak',
     areaRate: 'Share of its own demand not supplied',
     areaPerPerson: 'Shortfall per person', watts: 'W',
@@ -178,6 +187,11 @@ const STR = {
     zoneTrend: 'Load-shedding trend by zone',
     zoneName: 'Zone', zoneShare: 'Share of all load-shedding',
 
+    seasonalTitle: 'How now compares with previous years',
+    seasonalSub: 'Load-shedding swings with the season — heavier in summer, lighter in winter. So “versus a year ago” only means something against the same point in the calendar. Each line below is one year, laid over the same dates.',
+    seasonalChart: 'Electricity not supplied, by day of year (7-day average)',
+    seasonalNote: 'Over the last 30 days an average of <b>{now}</b> MWh a day went unsupplied. At the same point in {year} it was <b>{prev}</b> — about <b>{times}× {dir}</b> now.',
+    compareTitle: 'The same 30 days, different years',
     trendTitle: 'Over time',
     trendSub: 'PGCB’s archive holds rows back to 2015, but before 2022 the load-shedding column reads “0” in almost every hour. That period is marked “not reported” rather than drawn as zero.',
     monthlyTitle: 'Monthly peak load-shedding',
@@ -613,14 +627,15 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
-      load('reasons'), load('geo/districts'), load('equity'),
+      load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
+      load('places'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -685,12 +700,39 @@ function renderNow() {
   renderHourly(D.range || 7);
 }
 
+// Over a month or a quarter the hour-to-hour swing is noise against the trend,
+// so the longer views are smoothed: 3 days at 30, a week at 90.
+const SMOOTH_HOURS = { 7: 0, 30: 72, 90: 168 };
+
+function rollingMean(rows, keys, win) {
+  if (!win) return rows;
+  const half = Math.floor(win / 2);
+  return rows.map((row, i) => {
+    const lo = Math.max(0, i - half), hi = Math.min(rows.length, i + half + 1);
+    const out = { x: row.x };
+    for (const k of keys) {
+      let sum = 0;
+      for (let j = lo; j < hi; j++) sum += rows[j][k];
+      out[k] = sum / (hi - lo);
+    }
+    return out;
+  });
+}
+
 function renderHourly(days) {
   const host = document.getElementById('hourly-chart');
   if (!D.hourly || !D.hourly.rows) { host.innerHTML = `<p class="loading">${t('noData')}</p>`; return; }
-  const rows = D.hourly.rows.slice(-days * 24).map(r => ({
+  const raw = D.hourly.rows.slice(-days * 24).map(r => ({
     x: r[0], supply: r[2] || 0, loadshed: r[3] || 0,
   }));
+  const win = SMOOTH_HOURS[days] || 0;
+  const rows = rollingMean(raw, ['supply', 'loadshed'], win);
+
+  const noteEl = document.getElementById('hourly-smooth');
+  if (noteEl) {
+    noteEl.textContent = win
+      ? t('smoothed').replace('{n}', fmt(win / 24)) : '';
+  }
   stackedArea(host, rows, [
     { key: 'supply', label: t('supply'), color: C.supply },
     { key: 'loadshed', label: t('loadshedding'), color: C.loadshed },
@@ -1042,48 +1084,130 @@ function renderMapSeg() {
 
 let SEARCH_INDEX = null;
 
+/* Romanised Bengali place names vary mostly in their vowels and in which
+ * aspirated digraph the writer picked: Ramna / Romna / Romana, Dhaka / Dacca,
+ * Bogra / Bogura. Reducing a name to its consonant skeleton collapses all of
+ * those onto one key, so any of the spellings finds the place.            */
+const DIGRAPHS = [
+  [/ksh|kkh/g, 'k'], [/chh|ch/g, 'c'], [/sh|ss/g, 's'], [/kh/g, 'k'],
+  [/gh/g, 'g'], [/jh/g, 'j'], [/th/g, 't'], [/dh/g, 'd'], [/ph/g, 'f'],
+  [/bh/g, 'b'], [/zh/g, 'j'], [/ng|nk/g, 'n'], [/ee|ii/g, 'i'], [/oo|uu/g, 'u'],
+];
+
+function phonetic(name) {
+  let t = (name || '').toLowerCase().normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z\s]/g, '');
+  for (const [re, to] of DIGRAPHS) t = t.replace(re, to);
+  t = t.replace(/c|q/g, 'k').replace(/z/g, 'j').replace(/[vw]/g, 'b')
+       .replace(/x/g, 'ks').replace(/y/g, 'i');
+  t = t.replace(/h/g, '');                  // aspiration is written inconsistently
+  t = t.replace(/[aeiou]/g, '');            // consonant skeleton
+  t = t.replace(/(.)\1+/g, '$1');           // collapse doubles
+  return t.replace(/\s+/g, '');
+}
+
+/** Levenshtein, capped — only used to rescue near-miss typing. */
+function editDistance(a, b, cap = 2) {
+  if (Math.abs(a.length - b.length) > cap) return cap + 1;
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    let best = i;
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1,
+                        prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      best = Math.min(best, cur[j]);
+    }
+    if (best > cap) return cap + 1;
+    prev = cur;
+  }
+  return prev[b.length];
+}
+
+// Names still in daily use that OpenStreetMap now files under the 2018 spelling.
+const NAME_ALIASES = {
+  Dhaka: ['Dacca'], Chattogram: ['Chittagong', 'Ctg'], Cumilla: ['Comilla'],
+  Barishal: ['Barisal'], Jashore: ['Jessore'], Bogura: ['Bogra'],
+  Chapainawabganj: ['Nawabganj', 'Chapai'], Netrokona: ['Netrakona'],
+  Jhalokati: ['Jhalakathi'], Moulvibazar: ['Maulvibazar', 'Moulavibazar'],
+  Khagrachari: ['Khagrachhari'], Munshiganj: ['Munshigonj'],
+  Sunamganj: ['Sunamgonj'], Brahmanbaria: ['Bramhanbaria', 'B.Baria'],
+};
+
+function indexEntry(kind, label_en, label_bn, district, zone, extra) {
+  const aliases = NAME_ALIASES[label_en] || [];
+  const keys = [label_en, ...aliases].map(phonetic).filter(Boolean);
+  return Object.assign({
+    kind, key: label_en, en: label_en, bn: label_bn || label_en,
+    district, zone, aliases,
+    lc: (label_en || '').toLowerCase(),
+    ph: keys,
+  }, extra || {});
+}
+
 function buildSearchIndex() {
   const idx = [];
-  const seen = new Set();
 
-  ((D.districts && D.districts.features) || []).forEach(f => {
-    const p = f.properties;
-    if (seen.has('d:' + p.name_en)) return;
-    seen.add('d:' + p.name_en);
-    idx.push({ kind: 'district', key: p.name_en, zone: p.zone,
-               en: p.name_en, bn: p.name_bn || p.name_en });
-  });
+  (D.zones && D.zones.zones ? D.zones.zones : []).forEach(z =>
+    idx.push(indexEntry('zone', ZONE_NAMES.en[z], ZONE_NAMES.bn[z], null, z)));
 
-  (D.zones && D.zones.zones ? D.zones.zones : []).forEach(z => {
-    idx.push({ kind: 'zone', key: z, zone: z,
-               en: ZONE_NAMES.en[z], bn: ZONE_NAMES.bn[z] });
-  });
+  ((D.places && D.places.places) || []).forEach(p =>
+    idx.push(indexEntry(p.k, p.n, p.b, p.d, p.z,
+                        { lat: p.lat, lon: p.lon, districtBn: p.db })));
 
-  ((D.plants && D.plants.plants) || []).forEach(p => {
-    idx.push({ kind: 'plant', key: p.name, zone: p.zone, district: p.district,
-               en: p.name, bn: p.name });
-  });
+  ((D.plants && D.plants.plants) || []).forEach(p =>
+    idx.push(indexEntry('plant', p.name, p.name, p.district, p.zone)));
 
-  ((D.subs && D.subs.substations) || []).forEach(s => {
-    idx.push({ kind: 'substation', key: s.name, zone: s.zone, district: s.district,
-               en: s.name, bn: s.name });
-  });
+  ((D.subs && D.subs.substations) || []).forEach(s =>
+    idx.push(indexEntry('substation', s.name, s.name, s.district, s.zone)));
 
   return idx;
 }
 
+const KIND_RANK = { district: 0, upazila: 1, place: 2, zone: 3, plant: 4, substation: 5 };
+
 function searchMatches(q) {
-  const t = q.trim().toLowerCase();
-  if (t.length < 2) return [];
-  const hit = (e) => (e.en || '').toLowerCase().includes(t) || (e.bn || '').includes(q.trim());
-  const rank = { district: 0, zone: 1, plant: 2, substation: 3 };
-  return (SEARCH_INDEX || []).filter(hit)
-    .sort((a, b) => {
-      const as = (a.en || '').toLowerCase().startsWith(t) ? 0 : 1;
-      const bs = (b.en || '').toLowerCase().startsWith(t) ? 0 : 1;
-      return as - bs || rank[a.kind] - rank[b.kind] || a.en.localeCompare(b.en);
-    })
-    .slice(0, 8);
+  const raw = q.trim();
+  if (raw.length < 2) return [];
+  const lc = raw.toLowerCase();
+  const ph = phonetic(raw);
+  const bengali = /[ঀ-৿]/.test(raw);
+
+  const scored = [];
+  for (const e of (SEARCH_INDEX || [])) {
+    let s = null;
+    if (bengali) {
+      if (e.bn === raw) s = 0;
+      else if (e.bn && e.bn.startsWith(raw)) s = 1;
+      else if (e.bn && e.bn.includes(raw)) s = 3;
+    } else {
+      if (e.lc === lc) s = 0;
+      else if (e.lc.startsWith(lc)) s = 1;
+      else if (e.aliases.some(a => a.toLowerCase().startsWith(lc))) s = 2;
+      else if (e.lc.includes(lc)) s = 3;
+      else if (ph && e.ph.includes(ph)) s = 4;                     // Romna → Ramna
+      else if (ph.length >= 3 && e.ph.some(k => editDistance(ph, k) <= 1)) s = 5;
+    }
+    if (s !== null) scored.push([s, e]);
+  }
+
+  scored.sort((a, b) => a[0] - b[0]
+    || KIND_RANK[a[1].kind] - KIND_RANK[b[1].kind]
+    || a[1].en.length - b[1].en.length
+    || a[1].en.localeCompare(b[1].en));
+
+  // one row per place name: an upazila and a settlement of the same name in the
+  // same district are the same answer to the user
+  const out = [], seen = new Set();
+  for (const [, e] of scored) {
+    const k = `${e.lc}|${e.district}`;
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(e);
+    if (out.length >= 8) break;
+  }
+  return out;
 }
 
 function equityForZone(zone, win = '90') {
@@ -1103,6 +1227,12 @@ function renderArea(entry) {
 
   const zone = entry.zone;
   const district = entry.kind === 'district' ? entry.key : entry.district;
+  // A locality resolves upward: the figures exist only per grid zone, so say
+  // so plainly instead of implying we have Ramna-level data.
+  const districtLabel = (LANG === 'bn' && entry.districtBn) ? entry.districtBn : district;
+  const resolved = entry.kind !== 'district' && entry.kind !== 'zone' && district
+    ? `<div class="resolve">${LANG === 'bn' ? entry.bn : entry.en} → ${districtLabel} ` +
+      `${t('resDistrict')} → ${zoneName(zone)} ${t('resZone')}</div>` : '';
   const eq = equityForZone(zone);
   const series = zoneSeries(zone);
   const latest = series.length ? series[series.length - 1] : null;
@@ -1135,6 +1265,7 @@ function renderArea(entry) {
         <span class="area-name">${title}</span>
         <span class="area-zone">${sub}</span>
       </div>
+      ${resolved}
 
       <div class="grid g4">
         ${tile(t('areaShedNow'), fmt(latest ? latest.v : null), t('mw'),
@@ -1324,6 +1455,171 @@ function renderEquity() {
     `${LANG === 'bn' ? src.bn : src.en} · ${t('burdenHint')}`;
 }
 
+/* ═════════════════════════ now vs the same time before ═══════════════════ */
+
+// Years are ordered, so they take an ordinal one-hue ramp (older = lighter).
+// The current year is lifted out in the load-shedding colour so the comparison
+// reads at a glance instead of hunting the legend.
+const YEAR_RAMP = ['#86b6ef', '#5598e7', '#2a78d6', '#184f95'];
+
+const MONTH_STARTS = [1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
+
+/** Several lines over a shared x index, drawn back-to-front by emphasis. */
+function multiLine(host, lines, opts = {}) {
+  const drawn = lines.filter(l => l.values.some(v => v !== null && v !== undefined));
+  if (!drawn.length) { host.innerHTML = `<p class="loading">${t('noData')}</p>`; return; }
+  const f = frame(host, { height: opts.height || 300, padL: 52 });
+  const { svg, padL, padT, iw, ih } = f;
+
+  const n = opts.length || Math.max(...drawn.map(l => l.values.length));
+  const all = drawn.flatMap(l => l.values).filter(v => v !== null && v !== undefined);
+  const y = yAxis(f, 0, Math.max(...all, 1) * 1.08, opts.yfmt);
+  const x = (i) => padL + (n <= 1 ? iw / 2 : (i / (n - 1)) * iw);
+
+  // month ticks along the bottom instead of raw day numbers
+  MONTH_STARTS.forEach((d, m) => {
+    const lb = el('text', { x: x(d - 1), y: padT + ih + 17, 'text-anchor': 'middle' }, svg);
+    lb.textContent = opts.monthLabel ? opts.monthLabel(m) : String(m + 1);
+  });
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: padT + ih, y2: padT + ih }, svg);
+
+  const order = drawn.slice().sort((a, b) => (a.emphasis ? 1 : 0) - (b.emphasis ? 1 : 0));
+  for (const l of order) {
+    // break the path wherever a run of days is missing
+    let run = [];
+    const flush = () => {
+      if (run.length > 1) {
+        el('polyline', {
+          points: run.join(' '), fill: 'none', stroke: l.color,
+          'stroke-width': l.emphasis ? 2.6 : 1.6,
+          'stroke-linejoin': 'round', 'stroke-linecap': 'round',
+          opacity: l.emphasis ? 1 : 0.85,
+        }, svg);
+      }
+      run = [];
+    };
+    l.values.forEach((v, i) => {
+      if (v === null || v === undefined) flush();
+      else run.push(`${x(i)},${y(v)}`);
+    });
+    flush();
+
+    // direct-label the emphasised line at its end
+    if (l.emphasis) {
+      const last = l.values.reduce((acc, v, i) =>
+        (v === null || v === undefined) ? acc : i, -1);
+      if (last >= 0) {
+        el('circle', { cx: x(last), cy: y(l.values[last]), r: 4.5, fill: l.color,
+                       stroke: C.surface, 'stroke-width': 2 }, svg);
+        const tx = el('text', {
+          x: Math.min(x(last) + 8, padL + iw - 2), y: y(l.values[last]) - 9,
+          'text-anchor': x(last) > padL + iw * 0.85 ? 'end' : 'start',
+          class: 'bar-label',
+        }, svg);
+        tx.textContent = l.label;
+      }
+    }
+  }
+
+  const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted,
+                             'stroke-width': 1, opacity: 0 }, svg);
+  const hit = el('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' }, svg);
+  hit.addEventListener('pointermove', (ev) => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (f.width / bb.width);
+    let i = Math.round(((px - padL) / iw) * (n - 1));
+    i = Math.max(0, Math.min(n - 1, i));
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i));
+    cross.setAttribute('opacity', 0.5);
+    const body = order.slice().reverse()
+      .filter(l => l.values[i] !== null && l.values[i] !== undefined)
+      .map(l => tipRow(l.color, l.label, fmt(l.values[i])))
+      .join('');
+    showTip(f, x(i), `<div class="tip-date">${opts.xtip ? opts.xtip(i) : i + 1}</div>${body}`);
+  });
+  hit.addEventListener('pointerleave', () => {
+    hideTip(f); cross.setAttribute('opacity', 0);
+  });
+
+  legend(host, drawn.map(l => ({ label: l.label, color: l.color })));
+}
+
+function renderSeasonal() {
+  const sn = D.seasonal;
+  if (!sn || !sn.series) return;
+
+  const years = Object.keys(sn.series).sort();
+  const current = years[years.length - 1];
+  const past = years.slice(0, -1);
+
+  const lines = past.map((yr, i) => ({
+    label: fmtYear(yr),
+    color: YEAR_RAMP[Math.max(0, YEAR_RAMP.length - past.length + i)] || YEAR_RAMP[0],
+    values: sn.series[yr],
+  })).concat([{
+    label: fmtYear(current), color: C.loadshed,
+    values: sn.series[current], emphasis: true,
+  }]);
+
+  const monthName = (m) => new Intl.DateTimeFormat(locale(), { month: 'short' })
+    .format(new Date(2021, m, 1));
+
+  multiLine(document.getElementById('seasonal-chart'), lines, {
+    height: 320, length: 365,
+    monthLabel: monthName,
+    xtip: (i) => {
+      const d = new Date(2021, 0, 1);
+      d.setDate(i + 1);
+      return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'long' }).format(d);
+    },
+    yfmt: (v) => fmt(v),
+  });
+
+  // ---- like-for-like window tiles ------------------------------------
+  const cmp = sn.compare || [];
+  if (!cmp.length) return;
+  const now = cmp[0];
+  const host = document.getElementById('seasonal-compare');
+
+  const delta = (v) => {
+    if (!now.mean_energy_shed_mwh || !v) return '';
+    const ratio = now.mean_energy_shed_mwh / v;
+    const worse = ratio >= 1;
+    const txt = ratio >= 1
+      ? `${fmt(ratio, 1)}${t('times')} ${LANG === 'bn' ? 'বেশি' : 'more'}`
+      : `${fmt(1 / ratio, 1)}${t('times')} ${LANG === 'bn' ? 'কম' : 'less'}`;
+    return `<div class="stat-note" style="color:${worse ? 'var(--critical)' : 'var(--good)'}">
+              ${LANG === 'bn' ? 'এখন' : 'now'} ${txt}</div>`;
+  };
+
+  host.innerHTML = cmp.map((c, i) => `
+    <div class="stat">
+      <div class="stat-label">${i === 0
+        ? (LANG === 'bn' ? 'গত ৩০ দিন' : 'Last 30 days')
+        : `${fmtYear(c.year)} · ${LANG === 'bn' ? 'একই সময়' : 'same period'}`}</div>
+      <div class="stat-value">${fmt(c.mean_energy_shed_mwh)}<span class="stat-unit">${t('mwh')}</span></div>
+      <div class="stat-note">${LANG === 'bn' ? 'দিনে গড়ে' : 'per day'} · ${
+        fmt(c.mean_hours_shed, 1)} ${LANG === 'bn' ? 'ঘণ্টা' : 'hrs'}</div>
+      ${i === 0 ? '' : delta(c.mean_energy_shed_mwh)}
+    </div>`).join('');
+
+  const yearAgo = cmp.find(c => c.year === now.year - 1);
+  const noteEl = document.getElementById('seasonal-note');
+  if (yearAgo && yearAgo.mean_energy_shed_mwh && now.mean_energy_shed_mwh) {
+    const ratio = now.mean_energy_shed_mwh / yearAgo.mean_energy_shed_mwh;
+    noteEl.innerHTML = `<div class="note ${ratio >= 1 ? 'warn' : ''}">` +
+      t('seasonalNote')
+        .replace('{now}', fmt(now.mean_energy_shed_mwh))
+        .replace('{prev}', fmt(yearAgo.mean_energy_shed_mwh))
+        .replace('{year}', fmtYear(yearAgo.year))
+        .replace('{times}', fmt(ratio >= 1 ? ratio : 1 / ratio, 1))
+        .replace('{dir}', ratio >= 1
+          ? (LANG === 'bn' ? 'বেশি' : 'more')
+          : (LANG === 'bn' ? 'কম' : 'less')) +
+      `</div>`;
+  }
+}
+
 /* ══════════════════════════════════ boot ═════════════════════════════════ */
 
 function renderAll() {
@@ -1339,6 +1635,7 @@ function renderAll() {
   renderMap();
   renderFuel();
   renderZones();
+  renderSeasonal();
   renderTrend();
   renderTrust();
   renderSources();
@@ -1362,6 +1659,7 @@ window.addEventListener('resize', () => {
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderZones();
+    renderSeasonal();
     renderTrend();
   }, 220);
 });

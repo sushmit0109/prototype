@@ -24,7 +24,7 @@ import math
 import re
 import sys
 from collections import Counter, defaultdict
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from common import (FUELS, RAW, SITE_DATA, ZONES, ZONE_BN, num, read_csv,
@@ -163,16 +163,50 @@ def build_monthly(daily):
 
 # ------------------------------------------------------------- BPDB daily
 
+# Some editions print the whole energy sheet a thousand times too large — the
+# columns are still headed "MKWHr." but hold kWh-scale numbers (e.g. energy
+# generated 219,337.66 for a day that actually produced 219.3 MkWh). National
+# daily generation has never been outside roughly 100-500 MkWh, so anything an
+# order of magnitude beyond that is a unit slip, and the whole record is scaled
+# together to keep it internally consistent.
+ENERGY_SANITY_MAX = 5000
+ENERGY_FIELDS = ("energy_generated", "energy_unserved", "energy_demand",
+                 "import_energy")
+
+
+def normalise_units(rec: dict) -> dict:
+    gen = rec.get("energy_generated")
+    if gen is None or gen <= ENERGY_SANITY_MAX:
+        return rec
+    rec["unit_rescaled"] = True
+    for k in ENERGY_FIELDS:
+        if rec.get(k) is not None:
+            rec[k] = r(rec[k] / 1000, 5)
+    zf = rec.get("zone_fuel_energy")
+    if zf:
+        for zone, vals in zf.items():
+            for fuel, v in list(vals.items()):
+                if v is not None:
+                    vals[fuel] = r(v / 1000, 3)
+    return rec
+
+
 def load_bpdb():
     recs = {}
+    rescaled = 0
     for f in sorted(DAILYDIR.glob("*.json")):
         d = read_json(f)
         if not d or d.get("failed") or not d.get("date"):
             continue
+        d = normalise_units(d)
+        rescaled += 1 if d.get("unit_rescaled") else 0
         # keep the richest record if two listings resolve to the same report date
         cur = recs.get(d["date"])
         if cur is None or len(json.dumps(d)) > len(json.dumps(cur)):
             recs[d["date"]] = d
+    if rescaled:
+        print(f"[build] rescaled {rescaled} day(s) whose energy sheet was "
+              f"published in kWh under an MKWHr heading")
     return recs
 
 
@@ -363,6 +397,59 @@ class DistrictIndex:
         return None, None
 
 
+# ------------------------------------------------------------- gazetteer
+
+def build_places(districts: "DistrictIndex", geojson):
+    """Everywhere a person might type, mapped to the district it sits in.
+
+    The published figures only go down to nine grid zones, but nobody thinks of
+    themselves as living in "Dhaka zone" — they live in Ramna, or Savar, or
+    Bhaluka. This gazetteer lets the page accept the name people actually use
+    and resolve it upwards to the area the data is published for.
+
+    Sources: district boundaries, upazila/thana boundaries (admin level 6), and
+    named settlements — all from OpenStreetMap.
+    """
+    seen, out = set(), []
+    # OSM's Bengali names often already carry the administrative word
+    # ("ঢাকা জেলা"); the UI adds its own kind label, so strip it here.
+    strip_bn = re.compile(r"\s*(জেলা|উপজেলা|থানা|সিটি কর্পোরেশন)\s*$")
+    dist_bn = {f["properties"]["name_en"]: strip_bn.sub("", f["properties"].get("name_bn") or "")
+               for f in (geojson or {}).get("features", [])}
+
+    def add(name_en, name_bn, kind, district, zone, lat=None, lon=None):
+        key = (kind, (name_en or "").lower(), district)
+        if not name_en or key in seen:
+            return
+        seen.add(key)
+        clean_bn = strip_bn.sub("", name_bn or "").strip()
+        rec = {"n": name_en, "k": kind, "d": district, "z": zone}
+        if clean_bn and clean_bn != name_en:
+            rec["b"] = clean_bn
+        if district and dist_bn.get(district):
+            rec["db"] = dist_bn[district]
+        if lat is not None:
+            rec["lat"], rec["lon"] = round(lat, 4), round(lon, 4)
+        out.append(rec)
+
+    for f in (geojson or {}).get("features", []):
+        p = f["properties"]
+        add(p["name_en"], p.get("name_bn"), "district", p["name_en"], p["zone"])
+
+    for kind, fname in (("upazila", "upazilas.json"), ("place", "places.json")):
+        for it in read_json(GEO / fname, []) or []:
+            name = re.sub(r"\s+(Upazila|Thana|Sadar Upazila)$", "", it["name"]).strip()
+            dist, zone = districts.find(it.get("lat"), it.get("lon"))
+            if not dist:
+                continue          # outside the country outline, or unplaceable
+            if name.lower() == dist.lower():
+                continue          # the district itself, already listed
+            add(name, it.get("name_bn"), kind, dist, zone, it.get("lat"), it.get("lon"))
+
+    by_kind = Counter(x["k"] for x in out)
+    return {"places": out, "counts": dict(by_kind)}
+
+
 # --------------------------------------------------------- reason grouping
 
 REASON_RULES = [
@@ -536,6 +623,96 @@ def build_zones(area, bpdb):
 
     return {"cols": ["demand", "loadshed"], "zones": ZONES,
             "areawise_daily": days, "nldc_evening_peak": peak}
+
+
+# --------------------------------------------------------------- seasonal
+
+SEASONAL_SMOOTH = 7          # days in the centred rolling mean
+COMPARE_WINDOW = 30          # days in the "now vs a year ago" comparison
+
+
+def _doy(iso: str) -> int:
+    """Day of year, with 29 Feb folded onto 28 Feb so years align."""
+    d = date.fromisoformat(iso)
+    n = d.timetuple().tm_yday
+    leap = (d.year % 4 == 0 and d.year % 100 != 0) or d.year % 400 == 0
+    if leap and n > 59:
+        n -= 1
+    return n
+
+
+def build_seasonal(daily):
+    """Year-on-year comparison of the same time of year.
+
+    Load-shedding is strongly seasonal, so comparing today with a year ago only
+    means anything against the same point in the calendar. Years before
+    load-shedding was actually published are left out entirely rather than
+    drawn as an improvement from zero.
+    """
+    start_year = int(REPORTING_START[:4])
+    by_year = defaultdict(dict)
+    for d in daily:
+        y = int(d["date"][:4])
+        if y < start_year or not d.get("reported"):
+            continue
+        by_year[y][_doy(d["date"])] = {
+            "energy": d.get("energy_shed_mwh"),
+            "hours": d.get("hours_shed"),
+            "peak": d.get("max_loadshed"),
+        }
+
+    def smooth(vals):
+        out, half = [], SEASONAL_SMOOTH // 2
+        for i in range(len(vals)):
+            win = [v for v in vals[max(0, i - half): i + half + 1] if v is not None]
+            out.append(r(sum(win) / len(win)) if win else None)
+        return out
+
+    series = {}
+    for y, days in sorted(by_year.items()):
+        raw = [days.get(n, {}).get("energy") for n in range(1, 366)]
+        # trim the tail of a year still in progress so the line simply stops
+        last = max((i for i, v in enumerate(raw) if v is not None), default=-1)
+        if last < 0:
+            continue
+        series[str(y)] = smooth(raw[: last + 1])
+
+    # ---- like-for-like window comparison -------------------------------
+    dmap = {d["date"]: d for d in daily}
+    end = date.fromisoformat(daily[-1]["date"])
+    compare = []
+    for back in range(0, 5):
+        try:
+            w_end = end.replace(year=end.year - back)
+        except ValueError:                      # 29 Feb in a non-leap year
+            w_end = end.replace(year=end.year - back, day=28)
+        rows = []
+        for k in range(COMPARE_WINDOW):
+            day = (w_end - timedelta(days=k)).isoformat()
+            rec = dmap.get(day)
+            if rec and rec.get("reported"):
+                rows.append(rec)
+        if not rows:
+            continue
+        energies = [x["energy_shed_mwh"] for x in rows if x["energy_shed_mwh"] is not None]
+        peaks = [x["max_loadshed"] for x in rows if x["max_loadshed"] is not None]
+        compare.append({
+            "year": w_end.year,
+            "to": w_end.isoformat(),
+            "days": len(rows),
+            "mean_energy_shed_mwh": r(sum(energies) / len(energies)) if energies else None,
+            "mean_hours_shed": r(sum(x["hours_shed"] for x in rows) / len(rows), 1),
+            "peak_loadshed": max(peaks) if peaks else None,
+        })
+
+    return {
+        "metric": "energy_shed_mwh",
+        "smooth_days": SEASONAL_SMOOTH,
+        "reporting_start": REPORTING_START,
+        "series": series,
+        "compare_window": COMPARE_WINDOW,
+        "compare": compare,
+    }
 
 
 # ----------------------------------------------------------------- equity
@@ -805,10 +982,23 @@ def main():
                                           "rows": settled})
     write_json(SITE_DATA / "monthly.json", monthly)
 
+    seasonal = build_seasonal(settled)
+    write_json(SITE_DATA / "seasonal.json", seasonal)
+    if seasonal["compare"]:
+        c = seasonal["compare"]
+        print("[build] last %dd vs prior years (mean MWh/day not supplied): %s"
+              % (seasonal["compare_window"],
+                 ", ".join(f"{x['year']}={x['mean_energy_shed_mwh']}" for x in c)))
+
     osm_plants = read_json(GEO / "plants.json", []) or []
     osm_subs = read_json(GEO / "substations.json", []) or []
     osm_places = read_json(GEO / "places.json", []) or []
-    districts = DistrictIndex(read_json(SITE_DATA / "geo" / "districts.json"))
+    dgeo = read_json(SITE_DATA / "geo" / "districts.json")
+    districts = DistrictIndex(dgeo)
+    places = build_places(districts, dgeo)
+    write_json(SITE_DATA / "places.json", places)
+    print(f"[build] gazetteer: {len(places['places'])} searchable places "
+          f"{places['counts']}")
     plants = build_plants(bpdb, Geocoder([("osm", osm_plants),
                                           ("place", osm_places)]), districts)
     subs = build_substations(bpdb, Geocoder([("osm", osm_subs),

@@ -289,3 +289,10 @@ footer li { margin-bottom: 4px; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* how a searched locality maps up to the area the data is published for */
+.resolve {
+  font-size: 0.8rem; color: var(--muted); margin: -4px 0 10px;
+  padding: 5px 10px; background: var(--surface2);
+  border-radius: 7px; display: inline-block;
+}
