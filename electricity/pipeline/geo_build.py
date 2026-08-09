@@ -27,6 +27,8 @@ import requests
 
 from common import RAW, SITE_DATA, write_json, read_json
 
+BENGALI = re.compile(r"[\u0980-\u09FF]")
+
 GEO = RAW / "geo"
 ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
@@ -313,7 +315,8 @@ def build_districts(refresh: bool, eps: float, keep: int):
             "type": "Feature",
             "properties": {
                 "name_en": name_en.replace(" District", "").strip(),
-                "name_bn": tags.get("name:bn") or "",
+                "name_bn": (tags.get("name:bn")
+                            or (tags.get("name") if BENGALI.search(tags.get("name") or "") else "")),
                 "zone": zone,
             },
             "geometry": {"type": "MultiPolygon", "coordinates": polys},
@@ -354,10 +357,14 @@ def build_points(refresh: bool):
             if lat is None:
                 continue
             rec = {"name": name, "lat": round(lat, 5), "lon": round(lon, 5)}
-            if tags.get("name:bn"):
-                rec["name_bn"] = tags["name:bn"]
-            if tags.get("name") and tags.get("name") != name:
-                rec["alt"] = tags["name"]
+            # Most Bangladeshi features put the Bengali in `name` and the
+            # English in `name:en`, so `name:bn` is often absent; fall back to
+            # `name` whenever it is actually written in Bengali script.
+            bn = tags.get("name:bn")
+            if not bn and BENGALI.search(tags.get("name") or ""):
+                bn = tags["name"]
+            if bn:
+                rec["name_bn"] = bn
             if kind == "plants":
                 rec["source"] = tags.get("plant:source") or tags.get("generator:source") or ""
                 rec["output"] = tags.get("plant:output:electricity") or ""
