@@ -615,6 +615,16 @@ function sparkGrid(host, panels, opts = {}) {
                     'fill-opacity': 0.2 }, svg);
     el('polyline', { points: pts, fill: 'none', stroke: opts.color || C.loadshed,
                      'stroke-width': 1.8, 'stroke-linejoin': 'round' }, svg);
+    el('line', { class: 'axis-line', x1: 0, x2: w, y1: h - 0.5, y2: h - 0.5 }, svg);
+
+    // A sparkline still needs to say what span it covers, or the shape is
+    // uninterpretable. First and last date only — there is no room for a scale.
+    if (opts.axis) {
+      const ax = document.createElement('div');
+      ax.className = 'spark-axis';
+      ax.innerHTML = `<span>${opts.axis[0]}</span><span>${opts.axis[1]}</span>`;
+      cell.appendChild(ax);
+    }
   });
 }
 
@@ -853,6 +863,10 @@ function renderZones() {
   }
 
   const daily = (z.areawise_daily || []).slice(-365);
+  const axis = daily.length
+    ? [fmtDate(daily[0].date, { month: 'short', year: 'numeric' }),
+       fmtDate(daily[daily.length - 1].date, { month: 'short', year: 'numeric' })]
+    : null;
   sparkGrid(document.getElementById('zone-chart'),
     zoneKeys.map(k => {
       const vals = daily.map(d => (d[k] && d[k][1]) || 0);
@@ -861,7 +875,7 @@ function renderZones() {
         stat: `${fmt(Math.max(...vals, 0))} ${t('mw')}`,
         values: vals,
       };
-    }), { color: C.loadshed });
+    }), { color: C.loadshed, axis });
 }
 
 function renderTrend() {
