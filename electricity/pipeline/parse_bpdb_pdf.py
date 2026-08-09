@@ -26,12 +26,16 @@ import argparse
 import io
 import re
 import sys
+from datetime import date
 from concurrent.futures import ThreadPoolExecutor
 
 import pdfplumber
 
 from common import (FUELS, RAW, get, num, read_json, session, write_json,
                     zone_key)
+
+# A miss newer than this is treated as retryable rather than permanent.
+RETRY_WINDOW_DAYS = 10
 
 INDEX = RAW / "bpdb" / "archive_index.json"
 DAILY = RAW / "bpdb" / "daily"
@@ -389,8 +393,14 @@ def main():
                 write_json(DAILY / f"{d}.json", rec)
                 ok += 1
             else:
-                # remember the miss so --all doesn't retry it forever
-                write_json(DAILY / f"{d}.json", {"listing_date": d, "failed": True})
+                # Remember a miss so --all does not retry it forever — but only
+                # once the date is old enough that the file is genuinely absent
+                # upstream. A recent date is far more likely to be a transient
+                # network error, or a report not published yet, so leave it
+                # unmarked and let the next run try again.
+                age = (date.today() - date.fromisoformat(d)).days
+                if age > RETRY_WINDOW_DAYS:
+                    write_json(DAILY / f"{d}.json", {"listing_date": d, "failed": True})
                 fail += 1
             if i % 50 == 0 or i == len(todo):
                 print(f"  {i}/{len(todo)} ok={ok} fail={fail}", flush=True)

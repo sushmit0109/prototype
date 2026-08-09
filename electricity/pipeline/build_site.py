@@ -29,6 +29,8 @@ from pathlib import Path
 
 from common import (FUELS, RAW, SITE_DATA, ZONES, ZONE_BN, num, read_csv,
                     read_json, write_json)
+from population import (CENSUS_YEAR, SOURCE_BN as POP_SOURCE_BN,
+                        SOURCE_EN as POP_SOURCE_EN, zone_population)
 
 PGCB = RAW / "pgcb"
 DAILYDIR = RAW / "bpdb" / "daily"
@@ -320,6 +322,47 @@ class Geocoder:
         return None, None, "none", None
 
 
+# ------------------------------------------------ district point-in-polygon
+
+def _in_ring(lon, lat, ring) -> bool:
+    """Ray casting against one closed ring of [lon, lat] pairs."""
+    inside = False
+    n = len(ring)
+    j = n - 1
+    for i in range(n):
+        xi, yi = ring[i][0], ring[i][1]
+        xj, yj = ring[j][0], ring[j][1]
+        if (yi > lat) != (yj > lat):
+            x_at = (xj - xi) * (lat - yi) / ((yj - yi) or 1e-12) + xi
+            if lon < x_at:
+                inside = not inside
+        j = i
+    return inside
+
+
+class DistrictIndex:
+    """Which district a coordinate falls in, with a bounding-box prefilter."""
+
+    def __init__(self, geojson):
+        self.items = []
+        for f in (geojson or {}).get("features", []):
+            props = f["properties"]
+            for poly in f["geometry"]["coordinates"]:
+                ring = poly[0]
+                lons = [p[0] for p in ring]
+                lats = [p[1] for p in ring]
+                self.items.append((min(lons), min(lats), max(lons), max(lats),
+                                   ring, props))
+
+    def find(self, lat, lon):
+        if lat is None or lon is None:
+            return None, None
+        for x0, y0, x1, y1, ring, props in self.items:
+            if x0 <= lon <= x1 and y0 <= lat <= y1 and _in_ring(lon, lat, ring):
+                return props["name_en"], props["zone"]
+        return None, None
+
+
 # --------------------------------------------------------- reason grouping
 
 REASON_RULES = [
@@ -368,7 +411,7 @@ def classify_reason(remark: str) -> str:
     return "other"
 
 
-def build_plants(bpdb, geo):
+def build_plants(bpdb, geo, districts):
     latest = None
     for d in sorted(bpdb, reverse=True):
         if bpdb[d].get("plants"):
@@ -383,7 +426,9 @@ def build_plants(bpdb, geo):
         cap = p.get("capacity_mw") or 0
         peak = p.get("peak_mw") or 0
         reason = classify_reason(p.get("remarks"))
+        dist, dzone = districts.find(lat, lon)
         plants.append({
+            "district": dist,
             "name": p["name"],
             "zone": p.get("zone"),
             "producer": p.get("producer"),
@@ -436,7 +481,7 @@ def build_reason_history(bpdb):
     return out
 
 
-def build_substations(bpdb, geo):
+def build_substations(bpdb, geo, districts):
     latest = None
     for d in sorted(bpdb, reverse=True):
         if bpdb[d].get("substations"):
@@ -447,9 +492,11 @@ def build_substations(bpdb, geo):
     items = []
     for s in bpdb[latest]["substations"]:
         lat, lon, src, score = geo.match(s["name"])
+        dist, dzone = districts.find(lat, lon)
         items.append({
             "name": s["name"], "load_mw": s["load_mw"], "hour": s.get("hour"),
             "lat": lat, "lon": lon, "geo": src,
+            "district": dist, "zone": dzone,
         })
     return {
         "date": latest,
@@ -489,6 +536,97 @@ def build_zones(area, bpdb):
 
     return {"cols": ["demand", "loadshed"], "zones": ZONES,
             "areawise_daily": days, "nldc_evening_peak": peak}
+
+
+# ----------------------------------------------------------------- equity
+
+# Checked against the data: in the NLDC zone table, "Demand" is the load
+# actually served and the shed portion sits in its own column, so a zone's
+# total demand is demand + load-shed. (Summing the zone demands and adding
+# load-shed lands within ~1% of the report's own evening-peak demand, whereas
+# treating demand as already inclusive is off by roughly the load-shed itself.)
+EQUITY_WINDOWS = [30, 90, 365, None]
+
+
+def build_equity(bpdb):
+    """Who actually carries the shortfall.
+
+    Three different questions, because they can disagree:
+      shed_rate      what share of a zone's own demand went unserved
+      watts_person   how much shortfall per resident
+      burden         a zone's share of national load-shedding divided by its
+                     share of national demand (1.0 = proportionate)
+    """
+    pops = zone_population()
+
+    days = [(d, rec["zone_peak"]) for d, rec in sorted(bpdb.items())
+            if rec.get("zone_peak")]
+    if not days:
+        return None
+
+    def window(n):
+        sel = days[-n:] if n else days
+        agg = {z: {"shed": 0.0, "demand": 0.0, "days": 0, "shed_days": 0}
+               for z in ZONES}
+        for _, zp in sel:
+            for z in ZONES:
+                v = zp.get(z)
+                if not v:
+                    continue
+                shed = v.get("loadshed") or 0
+                dem = v.get("demand") or 0
+                a = agg[z]
+                a["shed"] += shed
+                a["demand"] += dem
+                a["days"] += 1
+                if shed > 0:
+                    a["shed_days"] += 1
+
+        nat_shed = sum(a["shed"] for a in agg.values())
+        nat_total = sum(a["shed"] + a["demand"] for a in agg.values())
+
+        rows = []
+        for z in ZONES:
+            a = agg[z]
+            if not a["days"]:
+                continue
+            pop = pops.get(z) or 0
+            total = a["shed"] + a["demand"]
+            mean_shed = a["shed"] / a["days"]
+            share_shed = a["shed"] / nat_shed if nat_shed else None
+            share_dem = total / nat_total if nat_total else None
+            rows.append({
+                "zone": z,
+                "population": pop,
+                "days": a["days"],
+                "shed_days": a["shed_days"],
+                "mean_loadshed": r(mean_shed),
+                "mean_demand": r(a["demand"] / a["days"]),
+                # share of this zone's own demand that went unserved
+                "shed_rate": r(a["shed"] / total, 4) if total else None,
+                # watts of shortfall per resident at the evening peak
+                "watts_per_person": r(mean_shed * 1e6 / pop, 2) if pop else None,
+                "share_shed": r(share_shed, 4) if share_shed is not None else None,
+                "share_demand": r(share_dem, 4) if share_dem is not None else None,
+                "burden": (r(share_shed / share_dem, 3)
+                           if share_shed is not None and share_dem else None),
+            })
+        rows.sort(key=lambda x: -(x["shed_rate"] or 0))
+        return {
+            "days": len(sel),
+            "from": sel[0][0], "to": sel[-1][0],
+            "national_shed_rate": r(nat_shed / nat_total, 4) if nat_total else None,
+            "national_watts_per_person": (
+                r((nat_shed / len(sel)) * 1e6 / sum(pops.values()), 2) if sel else None),
+            "zones": rows,
+        }
+
+    return {
+        "population_source": {"en": POP_SOURCE_EN, "bn": POP_SOURCE_BN,
+                              "year": CENSUS_YEAR,
+                              "national_population": sum(pops.values())},
+        "windows": {(str(n) if n else "all"): window(n) for n in EQUITY_WINDOWS},
+    }
 
 
 # -------------------------------------------------------------- integrity
@@ -670,10 +808,11 @@ def main():
     osm_plants = read_json(GEO / "plants.json", []) or []
     osm_subs = read_json(GEO / "substations.json", []) or []
     osm_places = read_json(GEO / "places.json", []) or []
+    districts = DistrictIndex(read_json(SITE_DATA / "geo" / "districts.json"))
     plants = build_plants(bpdb, Geocoder([("osm", osm_plants),
-                                          ("place", osm_places)]))
+                                          ("place", osm_places)]), districts)
     subs = build_substations(bpdb, Geocoder([("osm", osm_subs),
-                                             ("place", osm_places)]))
+                                             ("place", osm_places)]), districts)
     if plants:
         write_json(SITE_DATA / "plants.json", plants)
         print(f"[build] plants {len(plants['plants'])} geo={plants['geo_counts']}")
@@ -688,6 +827,15 @@ def main():
         "zone_latest": build_zone_fuel_latest(bpdb),
     })
     write_json(SITE_DATA / "zones.json", build_zones(area, bpdb))
+
+    equity = build_equity(bpdb)
+    if equity:
+        write_json(SITE_DATA / "equity.json", equity)
+        w = equity["windows"]["90"]
+        top = w["zones"][0]
+        print(f"[build] equity 90d: national shed rate {w['national_shed_rate']}, "
+              f"worst {top['zone']} {top['shed_rate']} "
+              f"({top['watts_per_person']} W/person)")
 
     integrity = build_integrity(hourly, area, bpdb, daily)
     write_json(SITE_DATA / "integrity.json", integrity)

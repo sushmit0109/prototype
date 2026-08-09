@@ -11,140 +11,192 @@
 const STR = {
   bn: {
     brand: 'বিদ্যুৎ ড্যাশবোর্ড', allProto: 'সব প্রোটোটাইপ',
-    eyebrow: 'সরকারি তথ্যের ভিত্তিতে',
-    title: 'বাংলাদেশের বিদ্যুৎ উৎপাদন ও লোডশেডিং',
-    lede: 'পিজিসিবি ও বিপিডিবির প্রকাশিত তথ্য প্রতি ঘণ্টায় সংগ্রহ করে এখানে একসঙ্গে দেখানো হচ্ছে — কত বিদ্যুৎ উৎপাদন হলো, কতটা ঘাটতি থাকল, কোন অঞ্চলে কতটা লোডশেড হলো, আর কেন হলো।',
+    eyebrow: 'সরকারি হিসাব থেকে',
+    title: 'বাংলাদেশে বিদ্যুৎ উৎপাদন ও লোডশেডিং',
+    lede: 'পিজিসিবি আর বিপিডিবি প্রতিদিন যেসব হিসাব প্রকাশ করে, সেগুলো প্রতি ঘণ্টায় জোগাড় করে এক জায়গায় সাজানো হয়েছে — কত বিদ্যুৎ তৈরি হলো, কতটা ঘাটতি থেকে গেল, কোন এলাকায় কতটা লোডশেডিং হলো, আর কেন হলো।',
     loading: 'তথ্য আসছে…',
-    navNow: 'এই মুহূর্তে', navWhy: 'কেন লোডশেডিং', navMap: 'মানচিত্র',
-    navFuel: 'জ্বালানি', navZones: 'অঞ্চলভিত্তিক', navTrend: 'দীর্ঘমেয়াদি',
-    navTrust: 'তথ্যের নির্ভরযোগ্যতা',
+    navNow: 'এখন', navSearch: 'আপনার এলাকা', navWhy: 'কেন হচ্ছে', navMap: 'মানচিত্র',
+    navEquity: 'কে বেশি ভুগছে', navFuel: 'জ্বালানি', navZones: 'অঞ্চল',
+    navTrend: 'সময়ের সঙ্গে', navTrust: 'হিসাব কতটা পাকা',
 
-    nowTitle: 'এই মুহূর্তে',
-    nowSub: 'পিজিসিবির সর্বশেষ ঘণ্টাভিত্তিক হিসাব। সরবরাহ ও লোডশেড যোগ করলেই প্রকাশিত “চাহিদা” পাওয়া যায়।',
-    supply: 'সরবরাহ', loadshed: 'লোডশেড', demand: 'চাহিদা (প্রকাশিত)',
-    todayPeak: 'আজকের সর্বোচ্চ লোডশেড', mw: 'মেগাওয়াট', mkwh: 'মি. কি.ও.ঘ.',
+    nowTitle: 'এখন যা চলছে',
+    nowSub: 'পিজিসিবির সবচেয়ে সাম্প্রতিক ঘণ্টার হিসাব। সরবরাহ আর লোডশেডিং যোগ করলেই প্রকাশিত “চাহিদা” সংখ্যাটা পাওয়া যায়।',
+    supply: 'সরবরাহ', loadshedding: 'লোডশেডিং', demand: 'চাহিদা (প্রকাশিত)',
+    todayPeak: 'আজকের সবচেয়ে বেশি', mw: 'মেগাওয়াট', mkwh: 'মি. কিওঘ',
     asOf: 'সময়', noData: 'তথ্য নেই',
-    todayChart: 'ঘণ্টাভিত্তিক সরবরাহ ও লোডশেড',
-    r7: '৭ দিন', r30: '৩০ দিন', r90: '৯০ দিন', ryear: 'এ বছর',
-    hoursShed: 'লোডশেড হয়েছে এমন ঘণ্টা', energyShed: 'সরবরাহ করা যায়নি',
+    todayChart: 'ঘণ্টায় ঘণ্টায় সরবরাহ ও লোডশেডিং',
+    r7: '৭ দিন', r30: '৩০ দিন', r90: '৯০ দিন',
+    hoursShed: 'যত ঘণ্টা লোডশেডিং ছিল', energyShed: 'যত বিদ্যুৎ দেওয়া যায়নি',
     mwh: 'মেগাওয়াট-ঘণ্টা',
 
+    searchTitle: 'আপনার এলাকার অবস্থা',
+    searchSub: 'জেলার নাম লিখে খুঁজুন — সেই জেলা কোন গ্রিড অঞ্চলে পড়ে, সেখানে কতটা লোডশেডিং হচ্ছে, আর আশপাশে কোন বিদ্যুৎকেন্দ্র ও সাবস্টেশন আছে তা দেখা যাবে। বিদ্যুৎকেন্দ্র বা সাবস্টেশনের নাম দিয়েও খোঁজা যায়।',
+    searchPlaceholder: 'যেমন: ময়মনসিংহ, বগুড়া, আশুগঞ্জ…',
+    searchHint: 'সরকারি হিসাব জেলা ধরে নয়, ৯টি গ্রিড অঞ্চল ধরে প্রকাশ করা হয়। তাই আপনার জেলার সংখ্যাটি আসলে সেই পুরো অঞ্চলের।',
+    resDistrict: 'জেলা', resZone: 'অঞ্চল', resPlant: 'বিদ্যুৎকেন্দ্র', resSubstation: 'সাবস্টেশন',
+    areaShedNow: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় লোডশেডিং',
+    areaRate: 'চাহিদার কত অংশ দেওয়া যায়নি',
+    areaPerPerson: 'জনপ্রতি ঘাটতি', watts: 'ওয়াট',
+    areaDays: 'গত ৯০ দিনে যত দিন লোডশেডিং হয়েছে',
+    areaPlants: 'এই জেলার বিদ্যুৎকেন্দ্র', areaSubs: 'এই জেলার গ্রিড সাবস্টেশন',
+    areaNone: 'এই জেলায় তালিকাভুক্ত কিছু পাওয়া যায়নি',
+    areaTrend: 'এই অঞ্চলে গত ৯০ দিনের লোডশেডিং',
+    running: 'চালু', stopped: 'বন্ধ',
+
     whyTitle: 'লোডশেডিং কেন হচ্ছে?',
-    whySub: 'এনএলডিসির দৈনিক প্রতিবেদনে প্রতিটি বিদ্যুৎকেন্দ্রের পাশে কারণ লেখা থাকে। যেসব কেন্দ্র সন্ধ্যার সর্বোচ্চ চাহিদার সময় একেবারেই উৎপাদন করেনি, তাদের ক্ষমতা কারণ অনুযায়ী সাজানো হলো।',
-    mapSub: 'জেলার রং তার অঞ্চলের সন্ধ্যাকালীন হিসাব অনুযায়ী। বিন্দুগুলো বিদ্যুৎকেন্দ্র ও গ্রিড উপকেন্দ্র — আকার ক্ষমতা বা লোড অনুযায়ী।',
-    fuelSub: 'দৈনিক উৎপাদিত বিদ্যুতের জ্বালানিভিত্তিক ভাগ (মিলিয়ন কিলোওয়াট-ঘণ্টা)।',
-    zonesSub: 'এনএলডিসির প্রতিবেদনে সন্ধ্যার সর্বোচ্চ চাহিদার সময়ের অঞ্চলভিত্তিক চাহিদা ও লোডশেড।',
-    trendSub: 'পিজিসিবির সংরক্ষিত তথ্য ২০১৫ সাল থেকে থাকলেও, ২০২২ সালের আগে প্রায় প্রতিটি ঘণ্টায় লোডশেড “০” লেখা আছে। তাই আগের সময়টা “তথ্য প্রকাশ করা হয়নি” হিসেবে আলাদা করে দেখানো হয়েছে।',
-    trustSub: 'এখানে কর্তৃপক্ষের প্রকাশিত সংখ্যাই তুলে ধরা হয়েছে। কিন্তু সংখ্যাগুলো কীভাবে তৈরি হয়, আর কোথায় দুই সরকারি সূত্র একে অপরের সঙ্গে মেলে না — সেটাও দেখানো দরকার।',
-    idleTitle: 'অলস ক্ষমতা, কারণ অনুযায়ী',
-    idleTrend: 'গ্যাস সংকটে বসে থাকা ক্ষমতা',
-    idleNote: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় মোট <b>{cap}</b> মেগাওয়াট উৎপাদন ক্ষমতা একেবারেই ব্যবহার হয়নি — এর মধ্যে <b>{gas}</b> মেগাওয়াট শুধু গ্যাস সংকটের কারণে। উৎস: এনএলডিসি দৈনিক প্রতিবেদন, {date}।',
-    idleCap: 'অলস ক্ষমতা', plants: 'কেন্দ্র',
+    whySub: 'এনএলডিসির দৈনিক রিপোর্টে প্রতিটি বিদ্যুৎকেন্দ্রের পাশে কারণ লেখা থাকে। সন্ধ্যার সবচেয়ে বেশি চাহিদার সময় যেসব কেন্দ্র একেবারেই বিদ্যুৎ দেয়নি, তাদের ক্ষমতা কারণ ধরে ভাগ করে দেখানো হলো।',
+    idleTitle: 'যত ক্ষমতা বসে ছিল, কারণ অনুযায়ী',
+    idleTrend: 'গ্যাস না পেয়ে বসে থাকা ক্ষমতা',
+    idleNote: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় সব মিলিয়ে <b>{cap}</b> মেগাওয়াট উৎপাদন ক্ষমতা একেবারেই কাজে লাগেনি — এর মধ্যে <b>{gas}</b> মেগাওয়াট বসে ছিল শুধু গ্যাস না পাওয়ায়। সূত্র: এনএলডিসির দৈনিক রিপোর্ট, {date}।',
+    idleCap: 'বসে থাকা ক্ষমতা', plants: 'কেন্দ্র',
 
     mapTitle: 'মানচিত্রে বিদ্যুৎ',
-    mapLoadshed: 'লোডশেড', mapDemand: 'চাহিদা',
-    mapNote: 'জেলার রং সেই জেলার অঞ্চলভিত্তিক (জোন) হিসাব অনুযায়ী — জোনের ভেতরে জেলাভিত্তিক আলাদা হিসাব প্রকাশ করা হয় না। বিদ্যুৎকেন্দ্র ও উপকেন্দ্রের অবস্থান ওপেনস্ট্রিটম্যাপ থেকে নাম মিলিয়ে বসানো; কিছু ক্ষেত্রে তা কাছের শহর পর্যন্তই নির্ভুল।',
-    layerPlants: 'বিদ্যুৎকেন্দ্র', layerSubs: 'গ্রিড উপকেন্দ্র', layerDistricts: 'জেলা',
-    capacity: 'ক্ষমতা', generated: 'উৎপাদন', idle: 'অলস', load: 'সর্বোচ্চ লোড',
-    reason: 'কারণ', zone: 'অঞ্চল', at: 'সময়',
-    low: 'কম', high: 'বেশি', approx: 'আনুমানিক অবস্থান',
+    mapSub: 'রং যত গাঢ়, সেই অঞ্চলে লোডশেডিং তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
+    mapLoadshedding: 'লোডশেডিং', mapDemand: 'চাহিদা',
+    mapNote: 'একটি জেলার রং আসলে সেই জেলা যে গ্রিড অঞ্চলে পড়ে তার হিসাব — অঞ্চলের ভেতরে জেলা ধরে আলাদা হিসাব প্রকাশ করা হয় না। কেন্দ্র ও সাবস্টেশনের অবস্থান ওপেনস্ট্রিটম্যাপ থেকে নাম মিলিয়ে বসানো; কিছু ক্ষেত্রে তা কাছের শহর পর্যন্তই ঠিক।',
+    layerPlants: 'বিদ্যুৎকেন্দ্র', layerSubs: 'গ্রিড সাবস্টেশন', layerDistricts: 'জেলা',
+    capacity: 'ক্ষমতা', generated: 'উৎপাদন', load: 'সর্বোচ্চ লোড',
+    reason: 'কারণ', zone: 'অঞ্চল', district: 'জেলা', at: 'সময়',
+    low: 'কম', high: 'বেশি', approx: 'অবস্থান আনুমানিক',
+
+    equityTitle: 'ভোগান্তি কি সবার সমান?',
+    equitySub: 'একই দিনে সব অঞ্চলে সমান লোডশেডিং হয় না। কোন অঞ্চলের নিজের চাহিদার কত অংশ কাটা পড়ছে, আর মাথাপিছু কতটা ঘাটতি পড়ছে — কর্তৃপক্ষের নিজের হিসাব থেকেই তা বের করা হয়েছে।',
+    equityRate: 'নিজের চাহিদার কত অংশ কাটা পড়েছে',
+    equityPerPerson: 'জনপ্রতি ঘাটতি (সন্ধ্যার সর্বোচ্চ চাহিদার সময়)',
+    equityBurden: 'ভাগের তুলনায় বোঝা',
+    equityNote: 'গত {days} দিনে সারা দেশে গড়ে চাহিদার <b>{nat}</b> অংশ কাটা পড়েছে। কিন্তু <b>{worst}</b> অঞ্চলে কাটা পড়েছে <b>{worstRate}</b> — জাতীয় গড়ের <b>{times} গুণ</b>। একই সময়ে <b>{best}</b> অঞ্চলে কাটা পড়েছে মাত্র <b>{bestRate}</b>।',
+    equityCaveat: 'এই পার্থক্যের পেছনে ইচ্ছাকৃত পক্ষপাত থাকতে পারে, আবার সঞ্চালন লাইনের সীমাবদ্ধতা, শিল্পকারখানার চাপ বা কেন্দ্রের অবস্থানও কারণ হতে পারে। সংখ্যাগুলো ফলটা দেখায়, উদ্দেশ্য নয়।',
+    equityTableTitle: 'অঞ্চল ধরে পুরো হিসাব',
+    population: 'জনসংখ্যা', shedDays: 'যত দিন কাটা পড়েছে',
+    natAvg: 'জাতীয় গড়', times: 'গুণ',
+    w30: '৩০ দিন', w90: '৯০ দিন', w365: '১ বছর', wall: 'পুরো সময়',
+    burdenHint: '১-এর বেশি মানে সেই অঞ্চল তার চাহিদার তুলনায় বেশি লোডশেডিং সইছে',
 
     fuelTitle: 'কোন জ্বালানি থেকে বিদ্যুৎ',
-    fuelChart: 'জ্বালানিভিত্তিক দৈনিক উৎপাদন',
-    costTitle: 'প্রতি ইউনিট উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
-    fuelLatest: 'সর্বশেষ দিনের জ্বালানি ভাগ',
-    share: 'অংশ',
+    fuelSub: 'প্রতিদিন যত বিদ্যুৎ তৈরি হয়, তার কতটা কোন জ্বালানি থেকে এলো (মিলিয়ন কিলোওয়াট-ঘণ্টা)।',
+    fuelChart: 'জ্বালানি অনুযায়ী দৈনিক উৎপাদন',
+    costTitle: 'প্রতি ইউনিট বিদ্যুতের উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
+    fuelLatest: 'সবশেষ দিনের ভাগ', share: 'অংশ',
 
-    zonesTitle: 'অঞ্চলভিত্তিক চিত্র', zoneTrend: 'অঞ্চলভিত্তিক লোডশেডের প্রবণতা',
-    zoneName: 'অঞ্চল', zoneShare: 'লোডশেডের হার',
+    zonesTitle: 'কোন অঞ্চলে কেমন',
+    zonesSub: 'এনএলডিসির রিপোর্টে সন্ধ্যার সর্বোচ্চ চাহিদার সময় প্রতিটি অঞ্চলে কত চাহিদা ছিল আর কতটা কাটা পড়েছে।',
+    zoneTrend: 'অঞ্চল ধরে লোডশেডিংয়ের গতিপ্রকৃতি',
+    zoneName: 'অঞ্চল', zoneShare: 'মোট লোডশেডিংয়ের কত ভাগ',
 
-    trendTitle: 'দীর্ঘমেয়াদি প্রবণতা',
-    monthlyTitle: 'মাসভিত্তিক সর্বোচ্চ লোডশেড',
-    notReported: 'তথ্য প্রকাশ করা হয়নি',
+    trendTitle: 'সময়ের সঙ্গে বদল',
+    trendSub: 'পিজিসিবির খাতায় ২০১৫ সাল থেকে সারি আছে ঠিকই, কিন্তু ২০২২ সালের আগে প্রায় প্রতি ঘণ্টায় লোডশেডিংয়ের ঘরে “০” বসানো। তাই ওই সময়টাকে শূন্য না ধরে “প্রকাশ করা হয়নি” হিসেবে আলাদা করে দেখানো হয়েছে।',
+    monthlyTitle: 'মাস ধরে সর্বোচ্চ লোডশেডিং',
+    notReported: 'প্রকাশ করা হয়নি',
 
-    trustTitle: 'তথ্য কতটা নির্ভরযোগ্য',
-    identityTitle: 'প্রকাশিত “চাহিদা” আসলে একটি যোগফল, আলাদা কোনো পরিমাপ নয়',
-    identityBody: 'পিজিসিবির ঘণ্টাভিত্তিক তালিকায় {rate} ক্ষেত্রে চাহিদা = সরবরাহ + লোডশেড, হুবহু। বিপিডিবির দৈনিক প্রতিবেদনেও শক্তির হিসাবে চাহিদা = উৎপাদন + সরবরাহ করা যায়নি, {erate} ক্ষেত্রে হুবহু মেলে। অর্থাৎ “চাহিদা” সংখ্যাটি স্বাধীনভাবে মাপা হয় না — এটি লোডশেডের হিসাব থেকেই তৈরি। তাই এই দুটি সংখ্যা দিয়ে একে অপরকে যাচাই করা যায় না; প্রকৃত চাহিদা এর চেয়ে বেশিও হতে পারে।',
-    sameSourceTitle: 'দুটি আলাদা পাতা, কিন্তু সংখ্যা একই',
-    sameSourceBody: 'বিপিডিবির “area-wise demand” পাতা আর এনএলডিসির দৈনিক প্রতিবেদনের সন্ধ্যাকালীন হিসাব — {days} দিনের মধ্যে {match} দিনেই সংখ্যা হুবহু এক। অর্থাৎ এটি দ্বিতীয় কোনো স্বাধীন সূত্র নয়, একই হিসাবেরই আরেক রূপ।',
-    coverageTitle: 'কোন বছরে কতটা তথ্য আছে',
-    coverageBody: 'পিজিসিবির তালিকায় ২০১৫ সাল থেকে সারি আছে, কিন্তু চাহিদা ও সরবরাহের ঘর প্রায় পুরোটাই ফাঁকা, আর ২০২২ সালের আগে লোডশেডের ঘরে প্রায় সব সময় “০”। নিচের হিসাবে দেখুন কোন বছরে আসলে কতটা প্রকাশ করা হয়েছে।',
-    year: 'বছর', rows: 'সারি', withDemand: 'চাহিদা আছে', nonzeroShed: 'শূন্যের বেশি লোডশেড',
+    trustTitle: 'এই হিসাব কতটা পাকা',
+    trustSub: 'এখানে কর্তৃপক্ষের নিজের সংখ্যাই তুলে ধরা হয়েছে। তবে সংখ্যাগুলো কীভাবে বানানো হয়, আর কোথায় দুই সরকারি সূত্র নিজেরাই মেলে না — সেটাও জানা দরকার।',
+    identityTitle: 'প্রকাশিত “চাহিদা” আসলে একটা যোগফল, আলাদা কোনো মাপ নয়',
+    identityBody: 'পিজিসিবির ঘণ্টাভিত্তিক তালিকায় {rate} ক্ষেত্রে চাহিদা = সরবরাহ + লোডশেডিং, একেবারে হুবহু। বিপিডিবির দৈনিক রিপোর্টেও শক্তির হিসাবে চাহিদা = উৎপাদন + যা দেওয়া যায়নি, {erate} ক্ষেত্রে হুবহু মেলে। মানে “চাহিদা” আলাদা করে মাপা হয় না — লোডশেডিংয়ের সংখ্যা থেকেই সেটা বানানো। তাই এই দুটো সংখ্যা দিয়ে একে অন্যকে যাচাই করা যায় না, আর আসল চাহিদা এর চেয়ে বেশিও হতে পারে।',
+    sameSourceTitle: 'দুটো আলাদা পাতা, সংখ্যা একটাই',
+    sameSourceBody: 'বিপিডিবির “area-wise demand” পাতা আর এনএলডিসির দৈনিক রিপোর্টের সন্ধ্যাকালীন হিসাব — যত দিন মিলিয়ে দেখা হয়েছে ({days} দিন), তার {match} দিনেই সংখ্যা অবিকল এক। অর্থাৎ এটা দ্বিতীয় কোনো স্বাধীন সূত্র নয়, একই হিসাবই আরেক জায়গায় ছাপা।',
+    coverageTitle: 'কোন বছরে আসলে কতটা তথ্য আছে',
+    coverageBody: 'পিজিসিবির তালিকায় ২০১৫ সাল থেকে সারি থাকলেও চাহিদা ও সরবরাহের ঘর প্রায় পুরোটাই ফাঁকা, আর ২০২২ সালের আগে লোডশেডিংয়ের ঘরে প্রায় সব সময় “০”। নিচের হিসাবে দেখুন কোন বছরে কতটা সত্যিই লেখা আছে।',
+    year: 'বছর', rows: 'সারি', withDemand: 'চাহিদা লেখা আছে', nonzeroShed: 'শূন্যের বেশি লোডশেডিং',
     outlierTitle: 'অসম্ভব সংখ্যা',
-    outlierBody: 'দেশের মোট উৎপাদন ক্ষমতা প্রায় ২৯,০০০ মেগাওয়াট। এর চেয়ে বড় লোডশেডের সংখ্যা টাইপিং ভুল ধরে নিয়ে বাদ দেওয়া হয়েছে — মোট {n}টি।',
-    of: 'এর মধ্যে',
+    outlierBody: 'দেশের মোট উৎপাদন ক্ষমতাই প্রায় ২৯,০০০ মেগাওয়াট। এর চেয়ে বড় লোডশেডিংয়ের সংখ্যাকে টাইপের ভুল ধরে সরিয়ে রাখা হয়েছে — সব মিলিয়ে {n}টি।',
 
     sourcesTitle: 'তথ্যসূত্র',
-    footerNote: 'তথ্য সংগ্রহ করা হয় প্রতি ঘণ্টায়, স্বয়ংক্রিয়ভাবে। এই পাতায় কোনো সংখ্যা হাতে বদলানো হয় না — যা প্রকাশিত, তা-ই দেখানো হয়। কোনো অসঙ্গতি চোখে পড়লে উৎসের লিংক থেকে মিলিয়ে দেখা যাবে।',
-    builtAt: 'সর্বশেষ হালনাগাদ', dataFrom: 'তথ্যের পরিসর',
+    footerNote: 'তথ্য প্রতি ঘণ্টায় আপনাআপনি সংগ্রহ হয়। এই পাতায় কোনো সংখ্যা হাতে বদলানো হয় না — যা প্রকাশিত, তা-ই দেখানো। কিছু চোখে খটকা লাগলে নিচের লিংক থেকে মূল উৎসে মিলিয়ে নিতে পারেন।',
+    builtAt: 'সবশেষ হালনাগাদ', dataFrom: 'তথ্যের পরিসর',
   },
   en: {
     brand: 'Electricity Dashboard', allProto: 'All prototypes',
-    eyebrow: 'Built from official data',
+    eyebrow: 'Built from official figures',
     title: 'Bangladesh electricity generation & load-shedding',
-    lede: 'PGCB and BPDB publish these figures; this page collects them every hour and puts them side by side — how much was generated, how much was short, which areas were shed, and why.',
+    lede: 'PGCB and BPDB publish these figures every day; this page collects them every hour and puts them side by side — how much was generated, how much fell short, which areas were shed, and why.',
     loading: 'Loading…',
-    navNow: 'Right now', navWhy: 'Why', navMap: 'Map',
-    navFuel: 'Fuel', navZones: 'By zone', navTrend: 'Long view',
-    navTrust: 'Data integrity',
+    navNow: 'Right now', navSearch: 'Your area', navWhy: 'Why', navMap: 'Map',
+    navEquity: 'Who bears it', navFuel: 'Fuel', navZones: 'Zones',
+    navTrend: 'Over time', navTrust: 'Data integrity',
 
     nowTitle: 'Right now',
-    nowSub: 'The latest hourly reading from PGCB. Supply plus load-shed is exactly the published “demand”.',
-    supply: 'Supply', loadshed: 'Load-shed', demand: 'Demand (published)',
-    todayPeak: 'Today’s peak load-shed', mw: 'MW', mkwh: 'MkWh',
+    nowSub: 'The most recent hourly reading from PGCB. Supply plus load-shedding is exactly the published “demand”.',
+    supply: 'Supply', loadshedding: 'Load-shedding', demand: 'Demand (published)',
+    todayPeak: 'Today’s highest', mw: 'MW', mkwh: 'MkWh',
     asOf: 'as of', noData: 'no data',
-    todayChart: 'Hourly supply and load-shed',
-    r7: '7 days', r30: '30 days', r90: '90 days', ryear: 'This year',
-    hoursShed: 'Hours with load-shedding', energyShed: 'Energy not supplied',
+    todayChart: 'Supply and load-shedding, hour by hour',
+    r7: '7 days', r30: '30 days', r90: '90 days',
+    hoursShed: 'Hours with load-shedding', energyShed: 'Electricity not supplied',
     mwh: 'MWh',
+
+    searchTitle: 'The situation in your area',
+    searchSub: 'Type a district name to see which grid zone it belongs to, how much load-shedding that zone is getting, and which power stations and substations are nearby. You can also search by plant or substation name.',
+    searchPlaceholder: 'e.g. Mymensingh, Bogura, Ashuganj…',
+    searchHint: 'The official figures are published for nine grid zones, not for individual districts. So the number shown for your district is really its whole zone’s.',
+    resDistrict: 'district', resZone: 'zone', resPlant: 'power station', resSubstation: 'substation',
+    areaShedNow: 'Load-shedding at the evening peak',
+    areaRate: 'Share of its own demand not supplied',
+    areaPerPerson: 'Shortfall per person', watts: 'W',
+    areaDays: 'Days with load-shedding in the last 90',
+    areaPlants: 'Power stations in this district', areaSubs: 'Grid substations in this district',
+    areaNone: 'None listed for this district',
+    areaTrend: 'Load-shedding in this zone, last 90 days',
+    running: 'running', stopped: 'stopped',
 
     whyTitle: 'Why is there load-shedding?',
     whySub: 'The NLDC daily report prints a reason beside every power station. These are the stations that generated nothing at all at the evening peak, grouped by the reason given.',
-    mapSub: 'Districts are shaded by their zone’s evening-peak figure. Dots are power stations and grid substations, sized by capacity or load.',
-    fuelSub: 'The fuel split of each day’s generation, in million kilowatt-hours.',
-    zonesSub: 'Zone demand and load-shed at the evening peak, as published in the NLDC daily report.',
-    trendSub: 'PGCB’s archive holds rows back to 2015, but before 2022 the load-shed column reads “0” in almost every hour. That period is marked “not reported” rather than drawn as zero.',
-    trustSub: 'This page shows the authorities’ own published figures. But it also matters how those figures are constructed, and where two official sources describing the same day do not agree.',
     idleTitle: 'Idle capacity, by stated reason',
     idleTrend: 'Capacity idled by gas shortage',
-    idleNote: 'At the evening peak, <b>{cap}</b> MW of generating capacity produced nothing at all — <b>{gas}</b> MW of it for gas shortage alone. Source: NLDC daily report, {date}.',
-    idleCap: 'Idle capacity', plants: 'plants',
+    idleNote: 'At the evening peak, <b>{cap}</b> MW of generating capacity produced nothing at all — <b>{gas}</b> MW of it sitting idle for want of gas alone. Source: NLDC daily report, {date}.',
+    idleCap: 'Idle capacity', plants: 'stations',
 
     mapTitle: 'Electricity on the map',
-    mapLoadshed: 'Load-shed', mapDemand: 'Demand',
-    mapNote: 'Districts are shaded by their zone’s figure — no district-level breakdown is published inside a zone. Plant and substation positions come from matching names against OpenStreetMap; some are only accurate to the nearest town.',
-    layerPlants: 'Power plants', layerSubs: 'Grid substations', layerDistricts: 'Districts',
-    capacity: 'Capacity', generated: 'Generated', idle: 'Idle', load: 'Peak load',
-    reason: 'Reason', zone: 'Zone', at: 'at',
-    low: 'low', high: 'high', approx: 'approximate position',
+    mapSub: 'The darker the shade, the more load-shedding in that zone. Dots are power stations and grid substations, sized by capacity or load.',
+    mapLoadshedding: 'Load-shedding', mapDemand: 'Demand',
+    mapNote: 'A district takes the colour of the grid zone it sits in — no district-level breakdown is published inside a zone. Plant and substation positions come from matching names against OpenStreetMap; some are only accurate to the nearest town.',
+    layerPlants: 'Power stations', layerSubs: 'Grid substations', layerDistricts: 'Districts',
+    capacity: 'Capacity', generated: 'Generated', load: 'Peak load',
+    reason: 'Reason', zone: 'Zone', district: 'District', at: 'at',
+    low: 'less', high: 'more', approx: 'approximate position',
+
+    equityTitle: 'Is the burden shared evenly?',
+    equitySub: 'Zones are not shed equally on the same day. How much of a zone’s own demand gets cut, and how much shortfall falls on each resident — worked out from the authorities’ own table.',
+    equityRate: 'Share of its own demand that was cut',
+    equityPerPerson: 'Shortfall per person, at the evening peak',
+    equityBurden: 'Burden vs. its share',
+    equityNote: 'Over the last {days} days, <b>{nat}</b> of national demand was cut on average. But <b>{worst}</b> lost <b>{worstRate}</b> — <b>{times}×</b> the national average — while <b>{best}</b> lost only <b>{bestRate}</b>.',
+    equityCaveat: 'A gap like this may reflect deliberate priority, but it can equally reflect transmission limits, industrial load, or where the power stations happen to sit. The numbers show the outcome, not the intent.',
+    equityTableTitle: 'The full picture, zone by zone',
+    population: 'Population', shedDays: 'Days shed',
+    natAvg: 'national average', times: '×',
+    w30: '30 days', w90: '90 days', w365: '1 year', wall: 'All',
+    burdenHint: 'Above 1 means the zone takes more load-shedding than its share of demand',
 
     fuelTitle: 'What the electricity is made from',
+    fuelSub: 'The fuel split of each day’s generation, in million kilowatt-hours.',
     fuelChart: 'Daily generation by fuel',
     costTitle: 'Production cost per unit', costUnit: 'Tk per kWh',
-    fuelLatest: 'Fuel split, latest day',
-    share: 'share',
+    fuelLatest: 'Split on the latest day', share: 'share',
 
-    zonesTitle: 'By zone', zoneTrend: 'Load-shedding trend by zone',
-    zoneName: 'Zone', zoneShare: 'Share of load-shed',
+    zonesTitle: 'Zone by zone',
+    zonesSub: 'Demand and load-shedding in each zone at the evening peak, as published in the NLDC daily report.',
+    zoneTrend: 'Load-shedding trend by zone',
+    zoneName: 'Zone', zoneShare: 'Share of all load-shedding',
 
-    trendTitle: 'The long view',
-    monthlyTitle: 'Monthly peak load-shed',
+    trendTitle: 'Over time',
+    trendSub: 'PGCB’s archive holds rows back to 2015, but before 2022 the load-shedding column reads “0” in almost every hour. That period is marked “not reported” rather than drawn as zero.',
+    monthlyTitle: 'Monthly peak load-shedding',
     notReported: 'not reported',
 
-    trustTitle: 'How reliable is this data?',
+    trustTitle: 'How solid are these figures?',
+    trustSub: 'This page shows the authorities’ own numbers. But it also matters how those numbers are built, and where two official sources fail to agree with each other.',
     identityTitle: 'The published “demand” is an arithmetic identity, not a measurement',
-    identityBody: 'In PGCB’s hourly table, demand equals supply plus load-shed exactly in {rate} of rows. BPDB’s daily report does the same with energy: demand = generated + unserved, exact in {erate} of days. So “demand” is not measured independently — it is derived from the load-shed figure. The two numbers therefore cannot be used to check each other, and true demand may well be higher.',
-    sameSourceTitle: 'Two different pages, the same numbers',
-    sameSourceBody: 'BPDB’s “area-wise demand” page and the NLDC daily report’s evening-peak table agree exactly on {match} of {days} days compared. It is not a second independent source — it is the same figure republished.',
-    coverageTitle: 'How much data each year actually holds',
-    coverageBody: 'PGCB’s table has rows going back to 2015, but the demand and supply columns are almost entirely empty, and before 2022 the load-shed column reads “0” nearly every hour. The table below shows what is actually populated.',
-    year: 'Year', rows: 'Rows', withDemand: 'Has demand', nonzeroShed: 'Load-shed above zero',
+    identityBody: 'In PGCB’s hourly table, demand equals supply plus load-shedding exactly in {rate} of rows. BPDB’s daily report does the same with energy: demand = generated + not supplied, exact in {erate} of days. So “demand” is never measured independently — it is built from the load-shedding figure. The two cannot be used to check each other, and real demand may well be higher.',
+    sameSourceTitle: 'Two different pages, one set of numbers',
+    sameSourceBody: 'BPDB’s “area-wise demand” page and the NLDC daily report’s evening-peak table agree exactly on {match} of the {days} days compared. It is not a second independent source — it is the same figure printed elsewhere.',
+    coverageTitle: 'How much each year actually holds',
+    coverageBody: 'PGCB’s table has rows going back to 2015, but the demand and supply columns are almost entirely empty, and before 2022 the load-shedding column reads “0” nearly every hour. The table below shows what is really there.',
+    year: 'Year', rows: 'Rows', withDemand: 'Has demand', nonzeroShed: 'Load-shedding above zero',
     outlierTitle: 'Impossible values',
-    outlierBody: 'National installed capacity is about 29,000 MW. Load-shed figures larger than that are treated as typing errors and set aside — {n} in total.',
-    of: 'of',
+    outlierBody: 'National installed capacity is about 29,000 MW. Load-shedding figures larger than that are treated as typing errors and set aside — {n} in total.',
 
     sourcesTitle: 'Sources',
-    footerNote: 'Data is collected automatically every hour. No figure on this page is edited by hand — what was published is what is shown. Every source is linked so any number here can be checked against the original.',
+    footerNote: 'Data is collected automatically every hour. No figure on this page is edited by hand — what was published is what is shown. If something looks wrong, the links below go to the original source.',
     builtAt: 'Last updated', dataFrom: 'Data range',
   },
 };
@@ -159,10 +211,10 @@ const ZONE_NAMES = {
 };
 
 const REASON_NAMES = {
-  bn: { gas_shortage: 'গ্যাস সংকট', fuel_shortage: 'তরল জ্বালানির সংকট',
-        maintenance: 'রক্ষণাবেক্ষণ', fault: 'যান্ত্রিক ত্রুটি',
-        contract_ended: 'চুক্তি শেষ', not_needed: 'চাহিদা কম / রিজার্ভ',
-        other: 'অন্যান্য', none: 'কারণ উল্লেখ নেই' },
+  bn: { gas_shortage: 'গ্যাসের সংকট', fuel_shortage: 'তেলের সংকট',
+        maintenance: 'রক্ষণাবেক্ষণে বন্ধ', fault: 'যান্ত্রিক ত্রুটি',
+        contract_ended: 'চুক্তি শেষ', not_needed: 'চাহিদা কম, তাই বন্ধ',
+        other: 'অন্যান্য', none: 'কারণ লেখা নেই' },
   en: { gas_shortage: 'Gas shortage', fuel_shortage: 'Liquid fuel shortage',
         maintenance: 'Maintenance / overhaul', fault: 'Mechanical fault',
         contract_ended: 'Contract ended', not_needed: 'Low demand / reserve',
@@ -171,7 +223,7 @@ const REASON_NAMES = {
 
 const FUEL_NAMES = {
   bn: { gas: 'গ্যাস', coal: 'কয়লা', hfo: 'ফার্নেস তেল', hsd: 'ডিজেল',
-        hydro: 'জলবিদ্যুৎ', solar: 'সৌর', wind: 'বায়ু', import: 'আমদানি',
+        hydro: 'জলবিদ্যুৎ', solar: 'সৌর', wind: 'বাতাস', import: 'আমদানি',
         renewable: 'নবায়নযোগ্য' },
   en: { gas: 'Gas', coal: 'Coal', hfo: 'Furnace oil', hsd: 'Diesel',
         hydro: 'Hydro', solar: 'Solar', wind: 'Wind', import: 'Import',
@@ -212,23 +264,33 @@ function fmtDateTime(iso) {
 /** Years are labels, not quantities — no thousands separator. */
 const fmtYear = (y) => new Intl.NumberFormat(locale(), { useGrouping: false }).format(+y);
 
+/** Population in the unit each language actually reads in: crore for Bengali,
+ *  millions for English. */
+function fmtPop(n) {
+  if (!n) return '—';
+  return LANG === 'bn'
+    ? `${fmt(n / 1e7, 2)} কোটি মানুষ`
+    : `${fmt(n / 1e6, 1)} million people`;
+}
+
 const pct = (x) => (x === null || x === undefined) ? '—'
   : new Intl.NumberFormat(locale(), { style: 'percent', maximumFractionDigits: 1 }).format(x);
 
 /* ══════════════════════════════════ colours ═══════════════════════════════ */
 
 const C = {
-  supply: '#3987e5', loadshed: '#d95926',
-  s: ['#3987e5', '#d95926', '#199e70', '#c98500', '#d55181', '#008300', '#9085e9'],
-  surface: '#1a1d27', grid: '#262b40', muted: '#8890b0',
+  supply: '#2a78d6', loadshed: '#eb6834',
+  s: ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300'],
+  surface: '#ffffff', grid: '#ebeae5', muted: '#74757e', text2: '#4a4b52',
 };
 
-// Single-hue sequential ramps, near-surface -> prominent.
-const RAMP_SHED = ['#33251d', '#6b3a1e', '#a04a20', '#cf5c26', '#f0803f'];
-const RAMP_DEM  = ['#1e2a3d', '#22456e', '#2a5f9f', '#3178cd', '#4d97ec'];
+// Sequential ramps run light -> dark, so the darkest shade always means the
+// most load-shedding. Each stays inside one hue family and ships a scale legend.
+const RAMP_SHED = ['#fdeadb', '#fbc9a5', '#f39a68', '#dd6631', '#a2380f'];
+const RAMP_DEM  = ['#e7f0fa', '#c2dbf1', '#8dbce5', '#4a8ecd', '#1c5698'];
 
 const FUEL_ORDER = ['gas', 'coal', 'hfo', 'import', 'renewable', 'hsd'];
-const fuelColor = (f) => C.s[FUEL_ORDER.indexOf(f)] || C.s[6];
+const fuelColor = (f) => C.s[FUEL_ORDER.indexOf(f)] || C.s[5];
 
 /* ══════════════════════════════════ svg utils ═════════════════════════════ */
 
@@ -551,14 +613,14 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
-      load('reasons'), load('geo/districts'),
+      load('reasons'), load('geo/districts'), load('equity'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts });
+                     fuelmix, zones, reasons, districts, equity });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -613,7 +675,7 @@ function renderNow() {
   host.innerHTML =
     tile(t('supply'), fmt(l.supply), t('mw'),
          `${t('asOf')} ${fmtDateTime(l.observed_at)}`, C.supply) +
-    tile(t('loadshed'), fmt(l.loadshed), t('mw'),
+    tile(t('loadshedding'), fmt(l.loadshed), t('mw'),
          `${t('todayPeak')}: ${fmt(today.max_loadshed)} ${t('mw')}`, C.loadshed) +
     tile(t('demand'), fmt(l.demand), t('mw'),
          LANG === 'bn' ? 'সরবরাহ + লোডশেড' : 'supply + load-shed', null) +
@@ -631,7 +693,7 @@ function renderHourly(days) {
   }));
   stackedArea(host, rows, [
     { key: 'supply', label: t('supply'), color: C.supply },
-    { key: 'loadshed', label: t('loadshed'), color: C.loadshed },
+    { key: 'loadshed', label: t('loadshedding'), color: C.loadshed },
   ], {
     height: 300,
     totalLabel: t('demand'),
@@ -742,7 +804,7 @@ function renderZones() {
       .sort((a, b) => b.shed - a.shed);
     table.innerHTML =
       `<thead><tr><th>${t('zoneName')}</th><th class="num">${t('demand').replace(' (প্রকাশিত)', '').replace(' (published)', '')}</th>` +
-      `<th class="num">${t('loadshed')}</th><th class="num">${t('zoneShare')}</th></tr></thead><tbody>` +
+      `<th class="num">${t('loadshedding')}</th><th class="num">${t('zoneShare')}</th></tr></thead><tbody>` +
       rows.map(r => `<tr><td>${zoneName(r.k)}</td><td class="num">${fmt(r.demand)}</td>` +
         `<td class="num">${fmt(r.shed)}</td><td class="num">${pct(r.shed / tot)}</td></tr>`).join('') +
       `</tbody>`;
@@ -765,7 +827,7 @@ function renderTrend() {
   const start = (D.integrity && D.integrity.reporting_start) || '2022-01-01';
   const rows = m.map(r => ({ x: r.month, v: r.max_loadshed || 0, month: r.month }));
   barChart(document.getElementById('monthly-chart'), rows, 'v', {
-    height: 280, color: C.loadshed, label: t('loadshed'),
+    height: 280, color: C.loadshed, label: t('loadshedding'),
     missing: (r) => r.month < start.slice(0, 7),
     xlabel: (r) => fmtDate(r.month + '-01', { month: 'short', year: 'numeric' }),
     xtip: (r) => fmtDate(r.month + '-01', { month: 'long', year: 'numeric' }),
@@ -774,7 +836,7 @@ function renderTrend() {
   const lg = document.createElement('div');
   lg.className = 'legend';
   lg.innerHTML =
-    `<span class="legend-item"><i class="swatch" style="background:${C.loadshed}"></i>${t('loadshed')} (${t('mw')})</span>` +
+    `<span class="legend-item"><i class="swatch" style="background:${C.loadshed}"></i>${t('loadshedding')} (${t('mw')})</span>` +
     `<span class="legend-item"><i class="swatch" style="background:${C.grid}"></i>${t('notReported')}</span>`;
   host.appendChild(lg);
 }
@@ -857,7 +919,7 @@ function makeBinner(values, ramp) {
   const nums = values.filter(v => v !== null && v !== undefined && v > 0)
                      .sort((a, b) => a - b);
   return (v) => {
-    if (v === null || v === undefined) return '#20242f';
+    if (v === null || v === undefined) return '#e9e8e3';
     if (v <= 0 || !nums.length) return ramp[0];
     const rank = nums.filter(n => n < v).length;
     const i = Math.min(ramp.length - 1,
@@ -874,7 +936,7 @@ function renderMap() {
     holder.innerHTML = '<div id="map-canvas"></div>';
     MAP = L.map('map-canvas', { scrollWheelZoom: false, zoomControl: true })
       .setView([23.75, 90.4], 7);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 12, minZoom: 6,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     }).addTo(MAP);
@@ -895,7 +957,7 @@ function renderMap() {
     LAYERS.districts = L.geoJSON(D.districts, {
       style: (feat) => ({
         fillColor: binner(vals[feat.properties.zone]),
-        fillOpacity: 0.75, color: '#2e3350', weight: 1,
+        fillOpacity: 0.8, color: '#ffffff', weight: 1,
       }),
       onEachFeature: (feat, layer) => {
         const p = feat.properties;
@@ -903,9 +965,9 @@ function renderMap() {
         const v = vals[p.zone];
         layer.bindPopup(
           `<b>${name}</b><br>${t('zone')}: ${zoneName(p.zone)}<br>` +
-          `${metric === 'loadshed' ? t('loadshed') : t('demand')}: <b>${fmt(v)}</b> ${t('mw')}`);
-        layer.on('mouseover', () => layer.setStyle({ weight: 2, color: '#6c8cff' }));
-        layer.on('mouseout', () => layer.setStyle({ weight: 1, color: '#2e3350' }));
+          `${metric === 'loadshed' ? t('loadshedding') : t('demand')}: <b>${fmt(v)}</b> ${t('mw')}`);
+        layer.on('mouseover', () => layer.setStyle({ weight: 2.5, color: '#2a5fd6' }));
+        layer.on('mouseout', () => layer.setStyle({ weight: 1, color: '#ffffff' }));
       },
     }).addTo(MAP);
   }
@@ -927,8 +989,8 @@ function renderMap() {
         `${t('capacity')}: <b>${fmt(cap)}</b> ${t('mw')}<br>` +
         `${t('generated')}: <b>${fmt(p.peak_mw)}</b> ${t('mw')}<br>` +
         (ran ? '' : `${t('reason')}: <b>${REASON_NAMES[LANG][p.reason] || p.reason}</b><br>`) +
-        (p.remarks ? `<i style="color:#8890b0">${p.remarks}</i><br>` : '') +
-        (p.geo !== 'osm' ? `<span style="color:#8890b0;font-size:.9em">${t('approx')}</span>` : ''));
+        (p.remarks ? `<i style="color:#74757e">${p.remarks}</i><br>` : '') +
+        (p.geo !== 'osm' ? `<span style="color:#74757e;font-size:.9em">${t('approx')}</span>` : ''));
       g.addLayer(m);
     });
     LAYERS.plants = g.addTo(MAP);
@@ -941,11 +1003,11 @@ function renderMap() {
       if (s.lat === null || s.lon === null) return;
       const m = L.circleMarker([s.lat, s.lon], {
         radius: Math.max(3, Math.min(11, Math.sqrt(s.load_mw || 1) * 0.55)),
-        color: C.surface, weight: 1.5, fillColor: C.s[6], fillOpacity: 0.8,
+        color: C.surface, weight: 1.5, fillColor: C.s[5], fillOpacity: 0.85,
       });
       m.bindPopup(`<b>${s.name}</b><br>${t('load')}: <b>${fmt(s.load_mw)}</b> ${t('mw')}` +
         (s.hour !== null && s.hour !== undefined ? `<br>${t('at')}: ${fmt(s.hour)}:00` : '') +
-        (s.geo !== 'osm' ? `<br><span style="color:#8890b0;font-size:.9em">${t('approx')}</span>` : ''));
+        (s.geo !== 'osm' ? `<br><span style="color:#74757e;font-size:.9em">${t('approx')}</span>` : ''));
       g.addLayer(m);
     });
     LAYERS.subs = g;
@@ -967,13 +1029,299 @@ function renderMap() {
 function renderMapSeg() {
   const seg = document.getElementById('map-seg');
   D.mapMetric = D.mapMetric || 'loadshed';
-  seg.innerHTML = [['loadshed', 'mapLoadshed'], ['demand', 'mapDemand']].map(([k, lbl]) =>
+  seg.innerHTML = [['loadshed', 'mapLoadshedding'], ['demand', 'mapDemand']].map(([k, lbl]) =>
     `<button type="button" data-metric="${k}" aria-pressed="${D.mapMetric === k}">${t(lbl)}</button>`).join('');
   seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
     D.mapMetric = b.dataset.metric;
     renderMapSeg();
     renderMap();
   }));
+}
+
+/* ════════════════════════════ search: your area ══════════════════════════ */
+
+let SEARCH_INDEX = null;
+
+function buildSearchIndex() {
+  const idx = [];
+  const seen = new Set();
+
+  ((D.districts && D.districts.features) || []).forEach(f => {
+    const p = f.properties;
+    if (seen.has('d:' + p.name_en)) return;
+    seen.add('d:' + p.name_en);
+    idx.push({ kind: 'district', key: p.name_en, zone: p.zone,
+               en: p.name_en, bn: p.name_bn || p.name_en });
+  });
+
+  (D.zones && D.zones.zones ? D.zones.zones : []).forEach(z => {
+    idx.push({ kind: 'zone', key: z, zone: z,
+               en: ZONE_NAMES.en[z], bn: ZONE_NAMES.bn[z] });
+  });
+
+  ((D.plants && D.plants.plants) || []).forEach(p => {
+    idx.push({ kind: 'plant', key: p.name, zone: p.zone, district: p.district,
+               en: p.name, bn: p.name });
+  });
+
+  ((D.subs && D.subs.substations) || []).forEach(s => {
+    idx.push({ kind: 'substation', key: s.name, zone: s.zone, district: s.district,
+               en: s.name, bn: s.name });
+  });
+
+  return idx;
+}
+
+function searchMatches(q) {
+  const t = q.trim().toLowerCase();
+  if (t.length < 2) return [];
+  const hit = (e) => (e.en || '').toLowerCase().includes(t) || (e.bn || '').includes(q.trim());
+  const rank = { district: 0, zone: 1, plant: 2, substation: 3 };
+  return (SEARCH_INDEX || []).filter(hit)
+    .sort((a, b) => {
+      const as = (a.en || '').toLowerCase().startsWith(t) ? 0 : 1;
+      const bs = (b.en || '').toLowerCase().startsWith(t) ? 0 : 1;
+      return as - bs || rank[a.kind] - rank[b.kind] || a.en.localeCompare(b.en);
+    })
+    .slice(0, 8);
+}
+
+function equityForZone(zone, win = '90') {
+  const w = D.equity && D.equity.windows && D.equity.windows[win];
+  if (!w) return null;
+  return (w.zones || []).find(z => z.zone === zone) || null;
+}
+
+function zoneSeries(zone, n = 90) {
+  const peak = (D.zones && D.zones.nldc_evening_peak) || [];
+  return peak.slice(-n).map(d => ({ date: d.date, v: (d[zone] && d[zone][1]) || 0 }));
+}
+
+function renderArea(entry) {
+  const host = document.getElementById('area-result');
+  if (!entry) { host.innerHTML = ''; return; }
+
+  const zone = entry.zone;
+  const district = entry.kind === 'district' ? entry.key : entry.district;
+  const eq = equityForZone(zone);
+  const series = zoneSeries(zone);
+  const latest = series.length ? series[series.length - 1] : null;
+
+  const title = entry.kind === 'district'
+    ? (LANG === 'bn' ? entry.bn : entry.en)
+    : (LANG === 'bn' ? entry.bn : entry.en);
+
+  const sub = [
+    entry.kind !== 'zone' ? `${t('zone')}: <b>${zoneName(zone)}</b>` : null,
+    district && entry.kind !== 'district' ? `${t('district')}: <b>${district}</b>` : null,
+  ].filter(Boolean).join(' · ');
+
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+
+  const inDistrict = (arr) => district ? arr.filter(x => x.district === district) : [];
+  const plants = inDistrict((D.plants && D.plants.plants) || [])
+    .sort((a, b) => (b.capacity_mw || 0) - (a.capacity_mw || 0));
+  const subs = inDistrict((D.subs && D.subs.substations) || [])
+    .sort((a, b) => (b.load_mw || 0) - (a.load_mw || 0));
+
+  host.innerHTML = `
+    <div class="card arearesult">
+      <div class="area-head">
+        <span class="area-name">${title}</span>
+        <span class="area-zone">${sub}</span>
+      </div>
+
+      <div class="grid g4">
+        ${tile(t('areaShedNow'), fmt(latest ? latest.v : null), t('mw'),
+               latest ? fmtDate(latest.date) : '')}
+        ${tile(t('areaRate'), eq ? pct(eq.shed_rate) : '—', '',
+               eq ? `${t('natAvg')}: ${pct(D.equity.windows['90'].national_shed_rate)}` : '')}
+        ${tile(t('areaPerPerson'), eq ? fmt(eq.watts_per_person, 1) : '—', t('watts'), '')}
+        ${tile(t('areaDays'), eq ? `${fmt(eq.shed_days)} / ${fmt(eq.days)}` : '—', '', '')}
+      </div>
+
+      <div class="chart-head" style="margin-top:16px">
+        <span class="chart-title">${t('areaTrend')}</span>
+      </div>
+      <div class="chartbox" id="area-chart"></div>
+
+      <div class="grid g2" style="margin-top:16px">
+        <div>
+          <div class="chart-title">${t('areaPlants')}</div>
+          ${plants.length ? `<ul class="mini-list">${plants.map(p => `
+            <li><span>${p.name}<br><span class="mini-reason">${
+              (p.peak_mw || 0) > 0 ? t('running')
+                : (REASON_NAMES[LANG][p.reason] || t('stopped'))
+            }</span></span>
+            <span class="n">${fmt(p.peak_mw)} / ${fmt(p.capacity_mw)} ${t('mw')}</span></li>`
+          ).join('')}</ul>` : `<p class="chart-note">${t('areaNone')}</p>`}
+        </div>
+        <div>
+          <div class="chart-title">${t('areaSubs')}</div>
+          ${subs.length ? `<ul class="mini-list">${subs.map(s => `
+            <li><span>${s.name}</span><span class="n">${fmt(s.load_mw)} ${t('mw')}</span></li>`
+          ).join('')}</ul>` : `<p class="chart-note">${t('areaNone')}</p>`}
+        </div>
+      </div>
+
+      <p class="chart-note" style="margin-top:14px">${t('searchHint')}</p>
+    </div>`;
+
+  lineChart(document.getElementById('area-chart'),
+    series.map(d => ({ x: d.date, v: d.v })), 'v', {
+      color: C.loadshed, area: true, zero: true, height: 200,
+      label: t('loadshedding'),
+      xlabel: (r) => fmtDate(r.x, { day: 'numeric', month: 'short' }),
+      xtip: (r) => fmtDate(r.x),
+    });
+
+  if (MAP && entry.zone) {
+    const target = plants.find(p => p.lat) || subs.find(s => s.lat);
+    if (target) MAP.setView([target.lat, target.lon], 9);
+  }
+}
+
+function renderSearch() {
+  SEARCH_INDEX = buildSearchIndex();
+  const input = document.getElementById('area-search');
+  const list = document.getElementById('area-results');
+  if (!input) return;
+
+  input.placeholder = t('searchPlaceholder');
+  let active = -1, current = [];
+
+  const close = () => { list.classList.remove('on'); active = -1; };
+
+  const paint = () => {
+    if (!current.length) { close(); return; }
+    list.innerHTML = current.map((e, i) =>
+      `<button type="button" data-i="${i}" class="${i === active ? 'active' : ''}">
+         <span>${LANG === 'bn' ? e.bn : e.en}</span>
+         <span class="res-kind">${t('res' + e.kind.charAt(0).toUpperCase() + e.kind.slice(1))}</span>
+       </button>`).join('');
+    list.classList.add('on');
+    list.querySelectorAll('button').forEach(b =>
+      b.addEventListener('click', () => choose(+b.dataset.i)));
+  };
+
+  const choose = (i) => {
+    const e = current[i];
+    if (!e) return;
+    input.value = LANG === 'bn' ? e.bn : e.en;
+    close();
+    D.selectedArea = e;
+    renderArea(e);
+    document.getElementById('area-result').scrollIntoView({ block: 'nearest' });
+  };
+
+  input.addEventListener('input', () => { current = searchMatches(input.value); active = -1; paint(); });
+  input.addEventListener('focus', () => { if (current.length) list.classList.add('on'); });
+  input.addEventListener('keydown', (ev) => {
+    if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      if (!current.length) return;
+      active = (active + (ev.key === 'ArrowDown' ? 1 : -1) + current.length) % current.length;
+      paint();
+    } else if (ev.key === 'Enter') {
+      ev.preventDefault();
+      choose(active >= 0 ? active : 0);
+    } else if (ev.key === 'Escape') { close(); }
+  });
+  document.addEventListener('click', (ev) => {
+    if (!ev.target.closest('.searchbox')) close();
+  });
+
+  if (D.selectedArea) {
+    const again = SEARCH_INDEX.find(e => e.kind === D.selectedArea.kind &&
+                                         e.key === D.selectedArea.key);
+    if (again) { D.selectedArea = again; renderArea(again); }
+  }
+}
+
+/* ═══════════════════════════ equity: who bears it ════════════════════════ */
+
+function renderEquitySeg() {
+  const seg = document.getElementById('equity-seg');
+  if (!seg) return;
+  D.equityWin = D.equityWin || '90';
+  const opts = [['30', 'w30'], ['90', 'w90'], ['365', 'w365'], ['all', 'wall']];
+  const have = (D.equity && D.equity.windows) || {};
+  seg.innerHTML = opts.filter(([k]) => have[k]).map(([k, lbl]) =>
+    `<button type="button" data-win="${k}" aria-pressed="${D.equityWin === k}">${t(lbl)}</button>`
+  ).join('');
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    D.equityWin = b.dataset.win;
+    renderEquitySeg();
+    renderEquity();
+  }));
+}
+
+function renderEquity() {
+  const eq = D.equity;
+  if (!eq) return;
+  const w = eq.windows[D.equityWin || '90'];
+  if (!w || !w.zones.length) return;
+
+  const byRate = w.zones.slice().sort((a, b) => (b.shed_rate || 0) - (a.shed_rate || 0));
+  const byHead = w.zones.slice().sort((a, b) => (b.watts_per_person || 0) - (a.watts_per_person || 0));
+
+  hBars(document.getElementById('equity-rate'),
+    byRate.map(z => ({
+      label: zoneName(z.zone), value: (z.shed_rate || 0) * 100, color: C.loadshed,
+      note: `${fmt(z.shed_days)} / ${fmt(z.days)} ${t('shedDays')}`,
+    })),
+    { fmtValue: (v) => pct(v / 100), valueLabel: t('equityRate') });
+
+  hBars(document.getElementById('equity-head'),
+    byHead.map(z => ({
+      label: zoneName(z.zone), value: z.watts_per_person || 0, color: C.loadshed,
+      note: fmtPop(z.population),
+    })),
+    { fmtValue: (v) => `${fmt(v, 1)} ${t('watts')}`, valueLabel: t('equityPerPerson') });
+
+  const worst = byRate[0], best = byRate[byRate.length - 1];
+  const natRate = w.national_shed_rate || 0;
+  document.getElementById('equity-note').innerHTML =
+    `<div class="note warn">` +
+    t('equityNote')
+      .replace('{days}', fmt(w.days))
+      .replace('{nat}', pct(natRate))
+      .replace('{worst}', zoneName(worst.zone))
+      .replace('{worstRate}', pct(worst.shed_rate))
+      .replace('{times}', fmt(natRate ? worst.shed_rate / natRate : 0, 1))
+      .replace('{best}', zoneName(best.zone))
+      .replace('{bestRate}', pct(best.shed_rate)) +
+    `<p style="margin-top:8px;font-size:.85rem">${t('equityCaveat')}</p></div>`;
+
+  const rows = w.zones.slice().sort((a, b) => (b.burden || 0) - (a.burden || 0));
+  document.getElementById('equity-table').innerHTML =
+    `<thead><tr>
+       <th>${t('zoneName')}</th>
+       <th class="num">${t('population')}</th>
+       <th class="num">${t('loadshedding')} (${t('mw')})</th>
+       <th class="num">${t('equityRate')}</th>
+       <th class="num">${t('areaPerPerson')} (${t('watts')})</th>
+       <th class="num">${t('equityBurden')}</th>
+       <th class="num">${t('shedDays')}</th>
+     </tr></thead><tbody>` +
+    rows.map(z => `<tr>
+       <td>${zoneName(z.zone)}</td>
+       <td class="num">${fmt(z.population)}</td>
+       <td class="num">${fmt(z.mean_loadshed)}</td>
+       <td class="num">${pct(z.shed_rate)}</td>
+       <td class="num">${fmt(z.watts_per_person, 1)}</td>
+       <td class="num"><b>${fmt(z.burden, 2)}</b></td>
+       <td class="num">${fmt(z.shed_days)} / ${fmt(z.days)}</td>
+     </tr>`).join('') + `</tbody>`;
+
+  const src = eq.population_source || {};
+  document.getElementById('equity-source').textContent =
+    `${LANG === 'bn' ? src.bn : src.en} · ${t('burdenHint')}`;
 }
 
 /* ══════════════════════════════════ boot ═════════════════════════════════ */
@@ -983,7 +1331,10 @@ function renderAll() {
   renderUpdated();
   renderRangeSeg();
   renderNow();
+  renderSearch();
   renderWhy();
+  renderEquitySeg();
+  renderEquity();
   renderMapSeg();
   renderMap();
   renderFuel();
@@ -1007,6 +1358,8 @@ window.addEventListener('resize', () => {
   resizeTimer = setTimeout(() => {
     renderHourly(D.range || 7);
     renderWhy();
+    renderEquity();
+    if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderZones();
     renderTrend();

@@ -18,7 +18,7 @@
 <div class="topbar">
   <div class="topbar-in">
     <span class="brand" data-i18n="brand">বিদ্যুৎ ড্যাশবোর্ড</span>
-    <span class="brand"><a href="../">← <span data-i18n="allProto">সব প্রোটোটাইপ</span></a></span>
+    <span class="brand-back"><a href="../">← <span data-i18n="allProto">সব প্রোটোটাইপ</span></a></span>
     <span class="topbar-spacer"></span>
     <div class="langtoggle" role="group" aria-label="Language">
       <button type="button" data-lang-btn="bn" aria-pressed="true">বাংলা</button>
@@ -42,13 +42,15 @@
     </div>
 
     <nav class="sections" aria-label="Sections">
-      <a href="#now" data-i18n="navNow">এই মুহূর্তে</a>
-      <a href="#why" data-i18n="navWhy">কেন লোডশেডিং</a>
+      <a href="#now" data-i18n="navNow">এখন</a>
+      <a href="#search" data-i18n="navSearch">আপনার এলাকা</a>
+      <a href="#why" data-i18n="navWhy">কেন হচ্ছে</a>
       <a href="#map" data-i18n="navMap">মানচিত্র</a>
+      <a href="#equity" data-i18n="navEquity">কে বেশি ভুগছে</a>
       <a href="#fuel" data-i18n="navFuel">জ্বালানি</a>
-      <a href="#zones" data-i18n="navZones">অঞ্চলভিত্তিক</a>
-      <a href="#trend" data-i18n="navTrend">দীর্ঘমেয়াদি</a>
-      <a href="#trust" data-i18n="navTrust">তথ্যের নির্ভরযোগ্যতা</a>
+      <a href="#zones" data-i18n="navZones">অঞ্চল</a>
+      <a href="#trend" data-i18n="navTrend">সময়ের সঙ্গে</a>
+      <a href="#trust" data-i18n="navTrust">হিসাব কতটা পাকা</a>
     </nav>
   </header>
 
@@ -69,6 +71,20 @@
       </div>
       <div class="chartbox" id="hourly-chart"></div>
     </div>
+  </section>
+
+  <!-- ── YOUR AREA ───────────────────────────────────── -->
+  <section id="search">
+    <div class="sec-head">
+      <h2 data-i18n="searchTitle">আপনার এলাকার অবস্থা</h2>
+      <p class="sec-sub" data-i18n="searchSub"></p>
+    </div>
+    <div class="searchbox">
+      <input id="area-search" type="search" autocomplete="off" spellcheck="false"
+             aria-label="Search district, power station or substation">
+      <div class="results" id="area-results" role="listbox"></div>
+    </div>
+    <div id="area-result"></div>
   </section>
 
   <!-- ── WHY ─────────────────────────────────────────── -->
@@ -107,6 +123,33 @@
     </div>
     <div id="map-el"></div>
     <p class="chart-note" style="margin-top:10px" data-i18n="mapNote"></p>
+  </section>
+
+  <!-- ── EQUITY ──────────────────────────────────────── -->
+  <section id="equity">
+    <div class="sec-head">
+      <h2 data-i18n="equityTitle">ভোগান্তি কি সবার সমান?</h2>
+      <p class="sec-sub" data-i18n="equitySub"></p>
+    </div>
+    <div class="map-controls">
+      <div class="seg" id="equity-seg" role="group"></div>
+    </div>
+    <div id="equity-note"></div>
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card">
+        <div class="chart-head"><span class="chart-title" data-i18n="equityRate"></span></div>
+        <div class="chartbox" id="equity-rate"></div>
+      </div>
+      <div class="card">
+        <div class="chart-head"><span class="chart-title" data-i18n="equityPerPerson"></span></div>
+        <div class="chartbox" id="equity-head"></div>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="equityTableTitle"></span></div>
+      <div class="tablewrap"><table id="equity-table"></table></div>
+      <p class="chart-note" style="margin-top:8px" id="equity-source"></p>
+    </div>
   </section>
 
   <!-- ── FUEL ────────────────────────────────────────── -->
