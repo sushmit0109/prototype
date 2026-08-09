@@ -1,0 +1,6 @@
+# Overpass responses: tens of MB, re-fetchable, and only needed when the map
+# layers are rebuilt. The small derived files next to them ARE committed.
+raw/geo/*_raw.json
+
+# run logs
+raw/*.log
