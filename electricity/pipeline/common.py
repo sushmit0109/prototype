@@ -50,6 +50,62 @@ def en2bn(s) -> str:
     return str(s).translate(str.maketrans("0123456789", "০১২৩৪৫৬৭৮৯"))
 
 
+def _runs(t: str):
+    """Lengths of consecutive identical-character runs."""
+    out, i = [], 0
+    while i < len(t):
+        j = i
+        while j < len(t) and t[j] == t[i]:
+            j += 1
+        out.append(j - i)
+        i = j
+    return out
+
+
+def is_doubled(s: str) -> bool:
+    """True when a field's text layer was drawn twice.
+
+    Some NLDC PDFs render text twice for a faux-bold effect, and the extracted
+    layer reads "JJuullddaahh 110000 MMWW" — turning a 100 MW station into a
+    110,000 MW one. Whitespace is *not* duplicated, so the test ignores spaces
+    and asks whether every run of identical characters has even length.
+    Detection is only ever run on a long alphabetic field such as a station
+    name: a bare "22" is indistinguishable from a doubled "2".
+    """
+    t = re.sub(r"\s+", "", s or "")
+    if len(t) < 8 or len(t) % 2:
+        return False
+    if not re.search(r"[A-Za-z]", t):
+        return False
+    return all(n % 2 == 0 for n in _runs(t))
+
+
+def undouble(s: str) -> str:
+    """Collapse a field that is itself detectably doubled."""
+    return halve_runs(s) if is_doubled(s) else s
+
+
+def halve_runs(s: str) -> str:
+    """Halve every run of identical characters, no questions asked.
+
+    Only for cells in a row already judged doubled by its *name* field: a bare
+    "6666" is indistinguishable from a genuine 6,666, so this must never be
+    applied on the strength of a numeric cell alone.
+    """
+    out, i, t = [], 0, s or ""
+    while i < len(t):
+        if t[i].isspace():                      # spaces were never doubled
+            out.append(t[i])
+            i += 1
+            continue
+        j = i
+        while j < len(t) and t[j] == t[i]:
+            j += 1
+        out.append(t[i] * ((j - i) // 2))
+        i = j
+    return "".join(out)
+
+
 def num(s):
     """Parse a possibly-Bengali, possibly-comma'd numeric string. None if blank."""
     if s is None:

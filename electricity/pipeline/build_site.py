@@ -174,6 +174,29 @@ ENERGY_FIELDS = ("energy_generated", "energy_unserved", "energy_demand",
                  "import_energy")
 
 
+# No single generating unit in Bangladesh exceeds about 1,500 MW (the largest
+# import block is ~1,496 MW; Payra and Rampal are 1,320 MW). A per-station row
+# above this ceiling means the report's text layer defeated the parser, so the
+# row is dropped and counted rather than charted.
+PLANT_MAX_MW = 2000
+DROPPED_PLANT_ROWS = []
+
+
+def drop_implausible_plants(rec: dict) -> dict:
+    ps = rec.get("plants")
+    if not ps:
+        return rec
+    keep = []
+    for p in ps:
+        if (p.get("capacity_mw") or 0) > PLANT_MAX_MW:
+            DROPPED_PLANT_ROWS.append({"date": rec.get("date"), "name": p.get("name"),
+                                       "capacity_mw": p.get("capacity_mw")})
+        else:
+            keep.append(p)
+    rec["plants"] = keep
+    return rec
+
+
 def normalise_units(rec: dict) -> dict:
     gen = rec.get("energy_generated")
     if gen is None or gen <= ENERGY_SANITY_MAX:
@@ -198,7 +221,7 @@ def load_bpdb():
         d = read_json(f)
         if not d or d.get("failed") or not d.get("date"):
             continue
-        d = normalise_units(d)
+        d = drop_implausible_plants(normalise_units(d))
         rescaled += 1 if d.get("unit_rescaled") else 0
         # keep the richest record if two listings resolve to the same report date
         cur = recs.get(d["date"])
@@ -207,6 +230,9 @@ def load_bpdb():
     if rescaled:
         print(f"[build] rescaled {rescaled} day(s) whose energy sheet was "
               f"published in kWh under an MKWHr heading")
+    if DROPPED_PLANT_ROWS:
+        print(f"[build] dropped {len(DROPPED_PLANT_ROWS)} per-station row(s) above "
+              f"{PLANT_MAX_MW} MW as unparseable")
     return recs
 
 
@@ -896,6 +922,11 @@ def build_integrity(hourly, area, bpdb, daily):
     return {
         "reporting_start": REPORTING_START,
         "completeness": completeness,
+        "plant_rows_dropped": {
+            "threshold_mw": PLANT_MAX_MW,
+            "count": len(DROPPED_PLANT_ROWS),
+            "examples": DROPPED_PLANT_ROWS[:5],
+        },
         "outliers": {
             "threshold_mw": PLAUSIBLE_MAX_MW,
             "count": len(OUTLIERS),

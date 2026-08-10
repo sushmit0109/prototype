@@ -31,8 +31,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pdfplumber
 
-from common import (FUELS, RAW, get, num, read_json, session, write_json,
-                    zone_key)
+from common import (FUELS, RAW, get, halve_runs, is_doubled, num, read_json,
+                    session, undouble, write_json, zone_key)
 
 # A miss newer than this is treated as retryable rather than permanent.
 RETRY_WINDOW_DAYS = 10
@@ -179,6 +179,16 @@ def parse_sheet2(pdf) -> list:
                 cells = [(c or "").replace("\n", " ").strip() for c in row]
                 if len(cells) < 7:
                     continue
+                # If this row's text layer was drawn twice, every field in it is
+                # doubled — collapse the whole row before reading any number.
+                # Doubling does not always hit every cell of a row — some rows
+                # keep a clean station name while units, capacity and remarks
+                # are doubled. So any cell that is detectably doubled condemns
+                # the whole row, and every cell is then halved: a numeric cell
+                # can never be judged on its own, since a genuine "22" and a
+                # doubled "2" are the same string.
+                if any(is_doubled(c) for c in cells):
+                    cells = [halve_runs(c) for c in cells]
                 name = cells[1].strip()
                 # Subtotal rows carry their label in the Sl. column, not the
                 # name column, so look at both.
@@ -250,6 +260,8 @@ def parse_substations(pdf) -> list:
             starts = [i for i, h in enumerate(header) if SUBSTATION_HEADER.search(h)]
             for row in table[1:]:
                 cells = [(c or "").replace("\n", " ").strip() for c in row]
+                if any(is_doubled(c) for c in cells if len(c) > 6):
+                    cells = [halve_runs(c) for c in cells]
                 for s in starts:
                     if s + 2 >= len(cells):
                         continue
@@ -302,7 +314,12 @@ def pdf_text(sess, url: str):
         pdf = pdfplumber.open(io.BytesIO(r.content))
     except Exception:  # noqa: BLE001 - corrupt upstream file
         return None, None
-    return pdf, "\n".join((p.extract_text() or "") for p in pdf.pages)
+    text = "\n".join((p.extract_text() or "") for p in pdf.pages)
+    # a wholly doubled page shows up line by line
+    lines = text.split("\n")
+    if lines and sum(1 for ln in lines if is_doubled(ln.strip())) > len(lines) / 3:
+        text = "\n".join(undouble(ln) for ln in lines)
+    return pdf, text
 
 
 DATE_RE = re.compile(r"Date\s*:\s*(\d{1,2})-(\d{1,2})-(\d{4})")
