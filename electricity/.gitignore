@@ -4,3 +4,7 @@ raw/geo/*_raw.json
 
 # run logs
 raw/*.log
+
+# python bytecode has no business in the data repo
+__pycache__/
+*.pyc
