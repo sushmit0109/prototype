@@ -46,6 +46,7 @@
       <a href="#search" data-i18n="navSearch">আপনার এলাকা</a>
       <a href="#why" data-i18n="navWhy">কেন হচ্ছে</a>
       <a href="#equity" data-i18n="navEquity">কে বেশি ভুগছে</a>
+      <a href="#forecast" data-i18n="navForecast"></a>
       <a href="#map" data-i18n="navMap">মানচিত্র</a>
       <a href="#seasonal" data-i18n="navSeasonal">আগের বছরের তুলনা</a>
       <a href="#zones" data-i18n="navZones">অঞ্চল</a>
@@ -105,8 +106,8 @@
         <div class="chartbox" id="reason-chart"></div>
       </div>
       <div class="card">
-        <div class="chart-head"><span class="chart-title" data-i18n="idleTrend">গ্যাস সংকটে বসে থাকা ক্ষমতা</span></div>
-        <div class="chartbox" id="reason-trend"></div>
+        <div class="chart-head"><span class="chart-title" data-i18n="causeTitle"></span></div>
+        <div class="chartbox" id="cause-chart"></div>
       </div>
     </div>
     <div style="margin-top:14px" id="idle-note"></div>
@@ -137,6 +138,20 @@
       <div class="tablewrap"><table id="equity-table"></table></div>
       <p class="chart-note" style="margin-top:8px" id="equity-source"></p>
     </div>
+  </section>
+
+  <!-- ── FORECAST ────────────────────────────────────── -->
+  <section id="forecast">
+    <div class="sec-head">
+      <h2 data-i18n="fcTitle"></h2>
+      <p class="sec-sub" data-i18n="fcSub"></p>
+    </div>
+    <div class="grid g3" id="fc-tiles"></div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="fcChart"></span></div>
+      <div class="chartbox" id="fc-chart"></div>
+    </div>
+    <p class="chart-note" style="margin-top:10px" data-i18n="fcNote"></p>
   </section>
 
   <!-- ── MAP ─────────────────────────────────────────── -->
@@ -212,6 +227,10 @@
       <div class="card">
         <div class="chart-head"><span class="chart-title" data-i18n="fuelLatest">সর্বশেষ দিনের জ্বালানি ভাগ</span></div>
         <div class="chartbox" id="fuelmix-latest"></div>
+      </div>
+      <div class="card">
+        <div class="chart-head"><span class="chart-title" data-i18n="unitCostTitle"></span></div>
+        <div class="chartbox" id="unitcost-chart"></div>
       </div>
     </div>
   </section>

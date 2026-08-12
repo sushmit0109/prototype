@@ -237,6 +237,99 @@ def parse_sheet2(pdf) -> list:
     return plants, zone_totals
 
 
+# ------------------------------------------- BPDB daily generation report
+#
+# A third form, published in the archive's "summary" slot: BPDB's own Daily
+# Electricity Generation Report. It carries three things no other sheet does —
+# the shortfall attributed to a cause in MW, a next-day forecast including the
+# load-shedding BPDB expects, and fuel cost alongside energy by fuel, which
+# together give a cost per unit for each fuel. Its zone table is measured at
+# the sub-station end and prints Demand, Supply and Load Shed, which is what
+# establishes that "Demand" in these reports already includes the shed portion.
+
+ZONE_ROW = re.compile(
+    r"\b([A-Z][a-z]+)\s+(\d[\d,]*)\s+(\d[\d,]*)\s+(\d[\d,]*)\b")
+
+CAUSES = [
+    ("gas_lf",      r"Gas\s*/\s*LF\s+limitation\s*:?\s*([\d.,]+)\s*MW"),
+    ("kaptai",      r"Low\s+water\s+level\s+in\s+Kaptai[^:]*:?\s*([\d.,]+)\s*MW"),
+    ("maintenance", r"Plants?\s+under\s+shut\s*down\s*/?\s*maintenance\s*:?\s*([\d.,]+)\s*MW"),
+    ("coal",        r"Coal\s+supply\s+Limitation\s*:?\s*([\d.,]+)\s*MW"),
+]
+ENERGY = [("gas", r"By\s+Gas\s*=\s*([\d.,]+)"), ("oil", r"By\s+Oil\s*=\s*([\d.,]+)"),
+          ("coal", r"By\s+Coal\s*=\s*([\d.,]+)"),
+          ("hydro_wind", r"By\s+Hydro\s*&\s*Wind\s*=\s*([\d.,]+)"),
+          ("solar", r"By\s+Solar\s*=\s*([\d.,]+)"),
+          ("import", r"Imported\s*=\s*([\d.,]+)")]
+COST = [("gas", r"\(a\)\s*Gas\s*=\s*([\d.,]+)\s*Taka"),
+        ("oil", r"\(b\)\s*Oil\s*=\s*([\d.,]+)\s*Taka"),
+        ("coal", r"\(c\)\s*Coal\s*=\s*([\d.,]+)\s*Taka"),
+        ("renewable", r"\(d\)\s*Renewable\s*=?\s*([\d.,]+)\s*Taka"),
+        ("import", r"\(e\)\s*Import\s*=\s*([\d.,]+)\s*Taka")]
+PEAKS = [("eve_peak_demand_gen_end", r"Max\.?\s*Demand\s+at\s+eve\.?\s*peak[^:]*:\s*([\d.,]+)\s*MW"),
+         ("eve_peak_generation", r"Evening-?peak\s+Generation[^:]*:\s*([\d.,]+)\s*MW"),
+         ("highest_generation", r"Highest\s+Generation[^:]*:\s*([\d.,]+)\s*MW"),
+         ("day_peak_demand", r"Day\s+Peak\s+Demand\s*:\s*([\d.,]+)\s*MW"),
+         ("day_peak_generation", r"Day-?peak\s+Generation[^:]*:\s*([\d.,]+)\s*MW"),
+         ("min_generation", r"Minimum\s+Generation[^:]*:\s*([\d.,]+)\s*MW")]
+FORECAST = [("f_day_peak_demand", r"Probable\s+Maximum\s+Demand\s+at\s+Day\s+Peak\s*:\s*([\d.,]+)"),
+            ("f_eve_peak_demand", r"Probable\s+Maximum\s+Demand\s+at\s+Evening\s+Peak\s*:\s*([\d.,]+)"),
+            ("f_eve_peak_generation", r"Probable\s+Maximum\s+Generation\s+at\s+Evening\s+Peak\s*:\s*([\d.,]+)"),
+            ("f_loadshed", r"Probable\s+Load\s*Shed\s*:\s*([\d.,]+)"),
+            ("f_energy", r"Probable\s+Total\s+Energy\s+Generation\s*:\s*([\d.,]+)"),
+            ("f_max_temp", r"Probable\s+Maximum\s+Temperature\s*:\s*([\d.,]+)")]
+
+
+def parse_genreport(text: str) -> dict:
+    out = {}
+    m = re.search(r"Actual\s+data\s+of\s*(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{2,4})", text)
+    if m:
+        dd, mm, yy = m.groups()
+        yr = int(yy) + 2000 if len(yy) == 2 else int(yy)
+        out["data_date"] = f"{yr}-{int(mm):02d}-{int(dd):02d}"
+    fm = re.search(r"Forecast\s+of\s*(\d{1,2})-(\d{1,2})-(\d{4})", text)
+    if fm:
+        dd, mm, yy = fm.groups()
+        out["forecast_date"] = f"{yy}-{int(mm):02d}-{int(dd):02d}"
+
+    for key, pat in CAUSES + PEAKS + FORECAST:
+        r_ = re.search(pat, text, re.I)
+        if r_:
+            out[key] = num(r_.group(1))
+    e = {}
+    for key, pat in ENERGY:
+        r_ = re.search(pat, text, re.I)
+        if r_:
+            e[key] = num(r_.group(1))
+    if e:
+        out["energy_by_fuel"] = e
+    c = {}
+    for key, pat in COST:
+        r_ = re.search(pat, text, re.I)
+        if r_:
+            c[key] = num(r_.group(1))
+    if c:
+        out["cost_by_fuel"] = c
+    r_ = re.search(r"Total\s*Energy\s*\(Generation\s*\+\s*Import\)\s*:\s*([\d.,]+)", text, re.I)
+    if r_:
+        out["total_energy"] = num(r_.group(1))
+    r_ = re.search(r"Total\s+Gas\s+Supplied\s*:\s*([\d.,]+)", text, re.I)
+    if r_:
+        out["gas_supplied"] = num(r_.group(1))
+
+    zt = {}
+    i = text.find("Zone wise Demand")
+    if i > 0:
+        for line in text[i:i + 1200].splitlines():
+            for zn, d_, s_, l_ in ZONE_ROW.findall(line):
+                z = zone_key(zn)
+                if z:
+                    zt[z] = {"demand": num(d_), "supply": num(s_), "loadshed": num(l_)}
+    if zt:
+        out["zone_substation"] = zt
+    return out
+
+
 # --------------------------------------------------------------- QF-LDC-09
 
 SUBSTATION_HEADER = re.compile(r"sub-?station", re.I)
@@ -296,6 +389,7 @@ FORMS = {
     "summary":     re.compile(r"System\s+Summary\s+Report", re.I),
     "plants":      re.compile(r"EVENING\s+PEAK\s+GENERATION\s+AND\s+DAY\s+LONG", re.I),
     "substations": re.compile(r"MAXIMUM\s+LOAD\s+SERVED\s+BY\s+DIFFERENT\s+GRID", re.I),
+    "genreport": re.compile(r"DAILY\s+ELECTRICITY\s+GENERATION\s+REPORT", re.I),
 }
 
 
@@ -356,6 +450,12 @@ def process(sess, listing_date: str, links: dict):
                         rec["sources"]["plants"] = url
                     if zone_totals:
                         rec["zone_generation"] = zone_totals
+                elif kind == "genreport":
+                    g = parse_genreport(text)
+                    if g:
+                        rec["genreport"] = g
+                        rec["sources"]["genreport"] = url
+                        rec.setdefault("date", g.get("data_date"))
                 elif kind == "substations":
                     subs = parse_substations(pdf)
                     if subs:

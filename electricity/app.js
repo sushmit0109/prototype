@@ -55,6 +55,21 @@ const STR = {
     idleTrend: 'গ্যাস না পেয়ে বসে থাকা ক্ষমতা',
     idleNote: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় সব মিলিয়ে <b>{cap}</b> মেগাওয়াট উৎপাদন ক্ষমতা একেবারেই কাজে লাগেনি — এর মধ্যে <b>{gas}</b> মেগাওয়াট বসে ছিল শুধু গ্যাস না পাওয়ায়। সূত্র: এনএলডিসির দৈনিক রিপোর্ট, {date}।',
     idleCap: 'বসে থাকা ক্ষমতা', plants: 'কেন্দ্র',
+    causeTitle: 'বিপিডিবির নিজের হিসাবে ঘাটতির কারণ',
+    cause_maintenance: 'রক্ষণাবেক্ষণে বন্ধ', cause_gas_lf: 'গ্যাস/তরল জ্বালানির সীমাবদ্ধতা',
+    cause_kaptai: 'কাপ্তাই হ্রদে পানি কম', cause_coal: 'কয়লা সরবরাহের সীমাবদ্ধতা',
+    navForecast: 'পূর্বাভাস মিলছে?',
+    fcTitle: 'বিপিডিবি আগের দিন কী বলেছিল?',
+    fcSub: 'বিপিডিবি প্রতিদিনের প্রতিবেদনে পরের দিনের জন্য “সম্ভাব্য লোডশেড” কত হবে তা লিখে রাখে। সেই পূর্বাভাসের পাশে পরদিন আসলে কী হলো, তা মিলিয়ে দেখা হলো।',
+    fcChart: 'পূর্বাভাস আর বাস্তব, পাশাপাশি',
+    fcZero: 'যত দিন “শূন্য” লোডশেডের পূর্বাভাস', fcZeroNote: 'মোট যত দিনের হিসাব আছে',
+    fcMissed: 'তার মধ্যে যত দিন লোডশেডিং হয়েছে', fcOfThose: 'ক্ষেত্রে',
+    fcMean: 'ওই দিনগুলোয় গড় লোডশেডিং', fcWorst: 'সবচেয়ে খারাপ',
+    fcForecast: 'পূর্বাভাস', fcActual: 'বাস্তবে যা হয়েছে',
+    fcNote: 'পূর্বাভাসটি সন্ধ্যার সর্বোচ্চ চাহিদার সময়ের, সাবস্টেশন প্রান্তে মাপা — বাস্তব সংখ্যাটিও একই মাপে।',
+    unitCostTitle: 'প্রতি ইউনিট বিদ্যুতে জ্বালানির খরচ',
+    fuel_gas: 'গ্যাস', fuel_oil: 'তেল', fuel_coal: 'কয়লা',
+    fuel_import: 'আমদানি', fuel_renewable: 'নবায়নযোগ্য',
 
     mapTitle: 'মানচিত্রে বিদ্যুৎ',
     mapSub: 'রং যত গাঢ়, সেই অঞ্চলে লোডশেডিং তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
@@ -161,6 +176,21 @@ const STR = {
     idleTrend: 'Capacity idled by gas shortage',
     idleNote: 'At the evening peak, <b>{cap}</b> MW of generating capacity produced nothing at all — <b>{gas}</b> MW of it sitting idle for want of gas alone. Source: NLDC daily report, {date}.',
     idleCap: 'Idle capacity', plants: 'stations',
+    causeTitle: 'The shortfall, as BPDB itself attributes it',
+    cause_maintenance: 'Shut down / maintenance', cause_gas_lf: 'Gas / liquid fuel limitation',
+    cause_kaptai: 'Low water in Kaptai lake', cause_coal: 'Coal supply limitation',
+    navForecast: 'The forecast',
+    fcTitle: 'What BPDB said the day before',
+    fcSub: 'Every daily report carries BPDB’s own forecast of the next day’s “probable load shed”. Here it is, set against what actually happened.',
+    fcChart: 'Forecast and outcome, side by side',
+    fcZero: 'Days forecast at zero load-shedding', fcZeroNote: 'of all days with both figures',
+    fcMissed: 'Of those, days that then shed', fcOfThose: 'of them',
+    fcMean: 'Average shed on those days', fcWorst: 'worst',
+    fcForecast: 'Forecast', fcActual: 'What happened',
+    fcNote: 'The forecast is for the evening peak at the sub-station end; the outcome is measured the same way.',
+    unitCostTitle: 'Fuel cost per unit of electricity',
+    fuel_gas: 'Gas', fuel_oil: 'Oil', fuel_coal: 'Coal',
+    fuel_import: 'Imports', fuel_renewable: 'Renewables',
 
     mapTitle: 'Electricity on the map',
     mapSub: 'The darker the shade, the more load-shedding in that zone. Dots are power stations and grid substations, sized by capacity or load.',
@@ -648,15 +678,15 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
-      load('places'),
+      load('places'), load('official'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -796,13 +826,6 @@ function renderWhy() {
   hBars(document.getElementById('reason-chart'), items, {
     valueLabel: t('idleCap'),
     fmtValue: (v) => `${fmt(v)} ${t('mw')}`,
-  });
-
-  const hist = (D.reasons || []).map(r => ({ x: r.date, v: r.gas_shortage || 0 }));
-  lineChart(document.getElementById('reason-trend'), hist, 'v', {
-    color: C.loadshed, area: true, zero: true, label: t('idleCap'), height: 230,
-    xlabel: (r) => fmtDate(r.x, { day: 'numeric', month: 'short' }),
-    xtip: (r) => fmtDate(r.x),
   });
 
   const totalIdle = (p.idle_by_reason || []).reduce((a, r) => a + r.idle_mw, 0);
@@ -1828,6 +1851,118 @@ function fmtPeople(n) {
   return n >= 1e6 ? `${fmt(n / 1e6, 1)} million` : `${fmt(n / 1e3, 0)} thousand`;
 }
 
+/* ═══════════════ BPDB's own report: causes, forecast, unit cost ══════════ */
+
+const CAUSE_ORDER = ['maintenance', 'gas_lf', 'kaptai', 'coal'];
+const CAUSE_COLOR = {
+  maintenance: C.s[0], gas_lf: C.s[1], kaptai: C.s[2], coal: C.s[3],
+};
+
+function renderCauses() {
+  const host = document.getElementById('cause-chart');
+  const rows = (D.official && D.official.causes) || [];
+  if (!host || !rows.length) return;
+  const recent = rows.slice(-180).map(r => ({
+    x: r.date,
+    maintenance: r.maintenance || 0, gas_lf: r.gas_lf || 0,
+    kaptai: r.kaptai || 0, coal: r.coal || 0,
+  }));
+  stackedArea(host, recent,
+    CAUSE_ORDER.map(k => ({ key: k, label: t('cause_' + k), color: CAUSE_COLOR[k] })), {
+      height: 230,
+      totalLabel: LANG === 'bn' ? 'মোট ঘাটতি' : 'Total shortfall',
+      xlabel: (r) => fmtDate(r.x, { day: 'numeric', month: 'short' }),
+      xtip: (r) => fmtDate(r.x),
+      yfmt: (v) => fmt(v),
+    });
+}
+
+function renderForecast() {
+  const o = D.official;
+  if (!o || !o.forecast || !o.forecast.length) return;
+  const s = o.forecast_summary;
+
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+
+  document.getElementById('fc-tiles').innerHTML =
+    tile(t('fcZero'), `${fmt(s.forecast_zero)} / ${fmt(s.days)}`, '',
+         t('fcZeroNote')) +
+    tile(t('fcMissed'), fmt(s.forecast_zero_but_shed), '',
+         s.days ? pct(s.forecast_zero_but_shed / Math.max(s.forecast_zero, 1)) +
+                  ' ' + t('fcOfThose') : '') +
+    tile(t('fcMean'), fmt(s.mean_shed_on_those_days), t('mw'),
+         s.worst ? `${t('fcWorst')}: ${fmt(s.worst.actual_loadshed)} ${t('mw')} · ${fmtDate(s.worst.date)}` : '');
+
+  const rows = o.forecast.slice(-180).map(r => ({
+    x: r.date, f: r.forecast_loadshed || 0, a: r.actual_loadshed || 0,
+  }));
+  const host = document.getElementById('fc-chart');
+  const f = frame(host, { height: 260 });
+  const { svg, padL, padT, iw, ih } = f;
+  const ymax = Math.max(...rows.map(r => Math.max(r.f, r.a)), 1) * 1.08;
+  const y = yAxis(f, 0, ymax, (v) => fmt(v));
+  const x = (i) => padL + (rows.length === 1 ? iw / 2 : (i / (rows.length - 1)) * iw);
+
+  // actual as an area, forecast as a line over it — the gap is the story
+  const up = rows.map((r, i) => `${x(i)},${y(r.a)}`).join(' ');
+  el('polygon', { points: `${padL},${y(0)} ${up} ${padL + iw},${y(0)}`,
+                  fill: C.loadshed, 'fill-opacity': 0.18 }, svg);
+  el('polyline', { points: up, fill: 'none', stroke: C.loadshed, 'stroke-width': 2,
+                   'stroke-linejoin': 'round' }, svg);
+  el('polyline', { points: rows.map((r, i) => `${x(i)},${y(r.f)}`).join(' '),
+                   fill: 'none', stroke: C.supply, 'stroke-width': 2,
+                   'stroke-dasharray': '5 3', 'stroke-linejoin': 'round' }, svg);
+
+  const step = Math.max(1, Math.round(rows.length / 6));
+  for (let i = 0; i < rows.length; i += step) {
+    const lb = el('text', { x: x(i), y: padT + ih + 18, 'text-anchor': 'middle' }, svg);
+    lb.textContent = fmtDate(rows[i].x, { day: 'numeric', month: 'short' });
+  }
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: padT + ih, y2: padT + ih }, svg);
+
+  const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted,
+                             'stroke-width': 1, opacity: 0 }, svg);
+  const hit = el('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' }, svg);
+  hit.addEventListener('pointermove', (ev) => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (f.width / bb.width);
+    let i = Math.round(((px - padL) / iw) * (rows.length - 1));
+    i = Math.max(0, Math.min(rows.length - 1, i));
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i));
+    cross.setAttribute('opacity', 0.55);
+    showTip(f, x(i), `<div class="tip-date">${fmtDate(rows[i].x)}</div>` +
+      tipRow(C.supply, t('fcForecast'), fmt(rows[i].f)) +
+      tipRow(C.loadshed, t('fcActual'), fmt(rows[i].a)));
+  });
+  hit.addEventListener('pointerleave', () => {
+    hideTip(f); cross.setAttribute('opacity', 0);
+  });
+  legend(host, [{ label: t('fcForecast'), color: C.supply },
+                { label: t('fcActual'), color: C.loadshed }]);
+}
+
+function renderUnitCost() {
+  const host = document.getElementById('unitcost-chart');
+  const rows = (D.official && D.official.unit_cost) || [];
+  if (!host || !rows.length) return;
+  const last = rows.slice(-30);
+  const keys = ['gas', 'coal', 'import', 'renewable', 'oil'];
+  const items = keys.map(k => {
+    const v = last.map(r => r[k]).filter(x => x !== undefined && x !== null);
+    return v.length ? { label: t('fuel_' + k), value: v.reduce((a, b) => a + b, 0) / v.length,
+                        color: k === 'oil' ? C.loadshed : C.supply } : null;
+  }).filter(Boolean).sort((a, b) => a.value - b.value);
+  hBars(host, items, {
+    fmtValue: (v) => `${fmt(v, 2)} ${LANG === 'bn' ? 'টাকা' : 'Tk'}`,
+    valueLabel: t('unitCostTitle'),
+  });
+}
+
 /* ══════════════════════════════════ boot ═════════════════════════════════ */
 
 function renderAll() {
@@ -1840,6 +1975,9 @@ function renderAll() {
   renderWhy();
   renderEquitySeg();
   renderEquity();
+  renderCauses();
+  renderForecast();
+  renderUnitCost();
   renderMapSeg();
   renderMap();
   renderFuel();
@@ -1865,6 +2003,9 @@ window.addEventListener('resize', () => {
     renderHourly(D.range || 7);
     renderWhy();
     renderEquity();
+    renderCauses();
+    renderForecast();
+    renderUnitCost();
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderZones();

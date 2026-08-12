@@ -170,6 +170,9 @@ def build_monthly(daily):
 # order of magnitude beyond that is a unit slip, and the whole record is scaled
 # together to keep it internally consistent.
 ENERGY_SANITY_MAX = 5000
+# Daily national generation has never been below this in MkWh; a total under it
+# means the sheet's energy block is printed in a smaller unit.
+ENERGY_UNIT_FLOOR = 50
 ENERGY_FIELDS = ("energy_generated", "energy_unserved", "energy_demand",
                  "import_energy")
 
@@ -214,7 +217,17 @@ def normalise_units(rec: dict) -> dict:
     return rec
 
 
+GENREPORTS = {}
+
+
 def load_bpdb():
+    """Daily records keyed by report date.
+
+    Generation reports are gathered separately, keyed by the date they
+    themselves describe: several archive listings can resolve to the same
+    NLDC sheet-1 date while carrying generation reports for different days,
+    so deduplicating on sheet-1's date would silently discard them.
+    """
     recs = {}
     rescaled = 0
     for f in sorted(DAILYDIR.glob("*.json")):
@@ -223,6 +236,14 @@ def load_bpdb():
             continue
         d = drop_implausible_plants(normalise_units(d))
         rescaled += 1 if d.get("unit_rescaled") else 0
+        g = d.get("genreport")
+        # The report's "Actual data of DD.MM.YY" line is occasionally mistyped;
+        # anything outside the archive's own span is a typo, not a date.
+        if g and g.get("data_date") and (
+                "2024-01-01" <= g["data_date"] <= date.today().isoformat()):
+            cur = GENREPORTS.get(g["data_date"])
+            if cur is None or len(json.dumps(g)) > len(json.dumps(cur)):
+                GENREPORTS[g["data_date"]] = g
         # keep the richest record if two listings resolve to the same report date
         cur = recs.get(d["date"])
         if cur is None or len(json.dumps(d)) > len(json.dumps(cur)):
@@ -656,6 +677,95 @@ def build_zones(area, bpdb):
             "areawise_daily": days, "nldc_evening_peak": peak}
 
 
+# ------------------------------------------------- BPDB generation report
+
+def build_official(bpdb):  # noqa: C901
+    """Three things only BPDB's Daily Electricity Generation Report carries.
+
+    causes      the evening-peak shortfall attributed to a cause, in MW, by
+                BPDB itself — rather than inferred from per-plant remarks
+    forecast    the load-shedding BPDB expected for the next day, set beside
+                what actually happened, so the forecast can be scored
+    unit_cost   cost per kWh for each fuel, from cost and energy on the same
+                sheet: the price of running the grid on liquid fuel
+    """
+    causes, unit_cost = [], []
+    forecast_for, actual_for = {}, {}
+
+    for dd, g in sorted(GENREPORTS.items()):
+        rec = bpdb.get(dd, {})
+
+        cs = {k: g.get(k) for k in ("gas_lf", "kaptai", "maintenance", "coal")}
+        if any(v is not None for v in cs.values()):
+            causes.append({"date": dd,
+                           **{k: (v or 0) for k, v in cs.items()},
+                           "total": sum(v or 0 for v in cs.values())})
+
+        e, c = g.get("energy_by_fuel") or {}, g.get("cost_by_fuel") or {}
+        # Some editions print the per-fuel energy in a scale that does not
+        # match the sheet's own total; a unit cost from those would be wrong by
+        # orders of magnitude, so the row is only kept when the parts add up.
+        tot_e, stated = sum(v or 0 for v in e.values()), g.get("total_energy")
+        reconciles = (stated and tot_e and abs(tot_e - stated) / stated < 0.15)
+        # Some editions print the whole energy block a thousand times small, so
+        # the parts still agree with the stated total while the scale is wrong.
+        # National daily generation sits near 100-500 MkWh, which identifies
+        # those days and lets them be rescaled rather than discarded.
+        scale = 1000.0 if (tot_e and tot_e < ENERGY_UNIT_FLOOR) else 1.0
+        if e and c and reconciles:
+            row = {"date": dd}
+            for fuel, ekey in (("gas", "gas"), ("oil", "oil"), ("coal", "coal"),
+                               ("import", "import")):
+                kwh = (e.get(ekey) or 0) * 1e6 * scale
+                if kwh > 0 and c.get(fuel):
+                    row[fuel] = r(c[fuel] / kwh, 2)
+            ren_kwh = ((e.get("solar") or 0) + (e.get("hydro_wind") or 0)) * 1e6 * scale
+            if ren_kwh > 0 and c.get("renewable"):
+                row["renewable"] = r(c["renewable"] / ren_kwh, 2)
+            if len(row) > 1:
+                unit_cost.append(row)
+
+        if g.get("forecast_date") is not None and g.get("f_loadshed") is not None:
+            forecast_for[g["forecast_date"]] = {
+                "loadshed": g["f_loadshed"],
+                "demand": g.get("f_eve_peak_demand"),
+            }
+        zs = g.get("zone_substation") or {}
+        if zs:
+            actual_for[dd] = {
+                "loadshed": sum((v.get("loadshed") or 0) for v in zs.values()),
+                "demand": sum((v.get("demand") or 0) for v in zs.values()),
+            }
+        elif rec.get("peak_loadshed_total") is not None:
+            actual_for[dd] = {"loadshed": rec["peak_loadshed_total"],
+                              "demand": rec.get("peak_demand_total")}
+
+    forecast = []
+    for d in sorted(set(forecast_for) & set(actual_for)):
+        f, a = forecast_for[d], actual_for[d]
+        forecast.append({"date": d,
+                         "forecast_loadshed": f["loadshed"],
+                         "actual_loadshed": a["loadshed"],
+                         "forecast_demand": f["demand"],
+                         "actual_demand": a["demand"]})
+
+    zero_fc = [x for x in forecast if (x["forecast_loadshed"] or 0) == 0]
+    missed = [x for x in zero_fc if (x["actual_loadshed"] or 0) > 0]
+    return {
+        "causes": causes,
+        "unit_cost": unit_cost,
+        "forecast": forecast,
+        "forecast_summary": {
+            "days": len(forecast),
+            "forecast_zero": len(zero_fc),
+            "forecast_zero_but_shed": len(missed),
+            "mean_shed_on_those_days": r(
+                sum(x["actual_loadshed"] for x in missed) / len(missed)) if missed else None,
+            "worst": max(missed, key=lambda x: x["actual_loadshed"]) if missed else None,
+        },
+    }
+
+
 # --------------------------------------------------------------- seasonal
 
 SEASONAL_SMOOTH = 7          # days in the centred rolling mean
@@ -1024,6 +1134,14 @@ def main():
     write_json(SITE_DATA / "daily.json", {"cols": list(settled[0].keys()),
                                           "rows": settled})
     write_json(SITE_DATA / "monthly.json", monthly)
+
+    official = build_official(bpdb)
+    write_json(SITE_DATA / "official.json", official)
+    fs = official["forecast_summary"]
+    if fs["days"]:
+        print(f"[build] BPDB forecast: {fs['forecast_zero']}/{fs['days']} days "
+              f"forecast zero load-shedding; {fs['forecast_zero_but_shed']} of those "
+              f"then shed (mean {fs['mean_shed_on_those_days']} MW)")
 
     seasonal = build_seasonal(settled)
     write_json(SITE_DATA / "seasonal.json", seasonal)
