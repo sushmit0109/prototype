@@ -310,6 +310,55 @@ def build_fuelmix(bpdb):
     return days
 
 
+# Fuels are grouped as a reader thinks of them: the two oils together, the
+# three renewables together. Eight separate bands would not survive a stacked
+# monthly chart legibly, and the small ones carry no story on their own.
+FUEL_GROUPS = [
+    ("gas", ["gas"]),
+    ("coal", ["coal"]),
+    ("import", ["import"]),
+    ("oil", ["hfo", "hsd"]),
+    ("renewable", ["solar", "wind", "hydro"]),
+]
+
+
+def build_fuel_monthly(days):
+    """Generation by fuel per month, as a daily average.
+
+    A daily average rather than a monthly total, so a short month or an
+    incomplete one cannot masquerade as a fall in generation.
+    """
+    by_month = defaultdict(list)
+    for d in days:
+        by_month[d["date"][:7]].append(d)
+
+    out = []
+    for m, ds in sorted(by_month.items()):
+        row = {"month": m, "days": len(ds)}
+        total = 0.0
+        for name, parts in FUEL_GROUPS:
+            v = sum(sum(d.get(p) or 0 for p in parts) for d in ds) / len(ds)
+            row[name] = r(v, 2)
+            total += v
+        row["total"] = r(total, 2)
+        costs = [d["cost_per_kwh"] for d in ds if d.get("cost_per_kwh")]
+        row["cost_per_kwh"] = r(sum(costs) / len(costs), 3) if costs else None
+        out.append(row)
+
+    # the same month a year apart, which is the only fair fuel comparison
+    idx = {x["month"]: x for x in out}
+    compare = None
+    if out:
+        cur = out[-1]
+        y, mo = cur["month"].split("-")
+        prev = idx.get(f"{int(y) - 1}-{mo}")
+        if prev and prev["days"] >= 10 and cur["days"] >= 5:
+            compare = {"month": mo, "now": cur, "before": prev, "changes": {
+                k: (r(100 * (cur[k] - prev[k]) / prev[k], 1) if prev.get(k) else None)
+                for k in ("total", "gas", "coal", "oil", "import", "renewable")}}
+    return {"monthly": out, "same_month": compare}
+
+
 def build_zone_fuel_latest(bpdb):
     for d in sorted(bpdb, reverse=True):
         zf = bpdb[d].get("zone_fuel_energy")
@@ -1239,9 +1288,18 @@ def main():
         print(f"[build] substations {len(subs['substations'])} geo={subs['geo_counts']}")
 
     write_json(SITE_DATA / "reasons.json", build_reason_history(bpdb))
+    _fuel_daily = build_fuelmix(bpdb)
+    _fuel_monthly = build_fuel_monthly(_fuel_daily)
+    if _fuel_monthly["same_month"]:
+        ch = _fuel_monthly["same_month"]["changes"]
+        print(f"[build] fuel, same month a year apart: total {ch['total']:+.1f}%  "
+              f"gas {ch['gas']:+.1f}%  coal {ch['coal']:+.1f}%  oil {ch['oil']:+.1f}%")
     write_json(SITE_DATA / "fuelmix.json", {
         "fuels": FUELS,
-        "daily": build_fuelmix(bpdb),
+        "groups": [g[0] for g in FUEL_GROUPS],
+        "monthly": _fuel_monthly["monthly"],
+        "same_month": _fuel_monthly["same_month"],
+        "daily": _fuel_daily,
         "zone_latest": build_zone_fuel_latest(bpdb),
     })
     write_json(SITE_DATA / "zones.json", build_zones(area, bpdb))

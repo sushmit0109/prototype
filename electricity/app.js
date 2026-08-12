@@ -99,6 +99,13 @@ const STR = {
     fuelTitle: 'কোন জ্বালানি থেকে বিদ্যুৎ',
     fuelSub: 'প্রতিদিন যত বিদ্যুৎ তৈরি হয়, তার কতটা কোন জ্বালানি থেকে এলো (মিলিয়ন কিলোওয়াট-ঘণ্টা)।',
     fuelChart: 'জ্বালানি অনুযায়ী দৈনিক উৎপাদন',
+    fuelAbs: 'পরিমাণ', fuelShare: 'অনুপাত', fuelTotal: 'মোট',
+    fuel_total: 'মোট উৎপাদন',
+    fuelMonthAbs: 'মাসে দিনে গড়ে কোন জ্বালানি থেকে কত (মিলিয়ন কি.ও.ঘ.)',
+    fuelMonthShare: 'মাসে কোন জ্বালানির কত অংশ',
+    fuelMonthNote: 'মাসের মোট নয়, দিনে গড়ে — তাই ছোট বা অসম্পূর্ণ মাস উৎপাদন কমে যাওয়ার মতো দেখায় না।',
+    fuelYoyTitle: '{m} মাস, {a} সালের তুলনায় {b}',
+    fuelYoyBody: 'মোট উৎপাদন প্রায় একই আছে, কিন্তু তার গঠন বদলে গেছে — গ্যাস কমেছে, তার জায়গা নিয়েছে কয়লা আর তেল। তেল গ্যাসের চেয়ে ইউনিটপ্রতি পাঁচ গুণ দামি। উৎপাদন একই থাকলেও চাহিদা বেড়েছে, আর সেই ব্যবধানই লোডশেডিং।',
     costTitle: 'প্রতি ইউনিট বিদ্যুতের উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
     fuelLatest: 'সবশেষ দিনের ভাগ', share: 'অংশ',
 
@@ -238,6 +245,13 @@ const STR = {
     fuelTitle: 'What the electricity is made from',
     fuelSub: 'The fuel split of each day’s generation, in million kilowatt-hours.',
     fuelChart: 'Daily generation by fuel',
+    fuelAbs: 'Amount', fuelShare: 'Share', fuelTotal: 'Total',
+    fuel_total: 'Total generation',
+    fuelMonthAbs: 'Generation by fuel, average per day (million kWh)',
+    fuelMonthShare: 'Share of generation by fuel',
+    fuelMonthNote: 'A daily average rather than a monthly total, so a short or incomplete month cannot look like a fall in generation.',
+    fuelYoyTitle: '{m}: {b} against {a}',
+    fuelYoyBody: 'Total generation is almost unchanged, but what it is made from has shifted — gas fell and coal and oil took its place, and oil costs about five times as much per unit. With output flat and demand still growing, the difference became load-shedding.',
     costTitle: 'Production cost per unit', costUnit: 'Tk per kWh',
     fuelLatest: 'Split on the latest day', share: 'share',
 
@@ -312,10 +326,10 @@ const REASON_NAMES = {
 const FUEL_NAMES = {
   bn: { gas: 'গ্যাস', coal: 'কয়লা', hfo: 'ফার্নেস তেল', hsd: 'ডিজেল',
         hydro: 'জলবিদ্যুৎ', solar: 'সৌর', wind: 'বাতাস', import: 'আমদানি',
-        renewable: 'নবায়নযোগ্য' },
+        renewable: 'নবায়নযোগ্য', oil: 'তেল' },
   en: { gas: 'Gas', coal: 'Coal', hfo: 'Furnace oil', hsd: 'Diesel',
         hydro: 'Hydro', solar: 'Solar', wind: 'Wind', import: 'Import',
-        renewable: 'Renewables' },
+        renewable: 'Renewables', oil: 'Oil' },
 };
 
 let LANG = localStorage.getItem('bd-elec-lang') || 'bn';
@@ -1932,6 +1946,109 @@ function fmtPeople(n) {
   return n >= 1e6 ? `${fmt(n / 1e6, 1)} million` : `${fmt(n / 1e3, 0)} thousand`;
 }
 
+/* ══════════════════════ fuel: month by month, year on year ═══════════════ */
+
+const FUEL_GROUPS = ['gas', 'coal', 'import', 'oil', 'renewable'];
+const GROUP_COLOR = {
+  gas: C.s[0], coal: C.s[1], import: C.s[2], oil: C.s[3], renewable: C.s[5],
+};
+
+/** Stacked bars over months — bars, not an area, because months are discrete. */
+function stackedBars(host, rows, series, opts = {}) {
+  if (!rows.length) { host.innerHTML = `<p class="loading">${t('noData')}</p>`; return; }
+  const f = frame(host, { height: opts.height || 300, padL: 52 });
+  const { svg, padL, padT, iw, ih } = f;
+  const totals = rows.map(r => series.reduce((a, s) => a + (r[s.key] || 0), 0));
+  const ymax = (opts.share ? 100 : Math.max(...totals, 1) * 1.08);
+  const y = yAxis(f, 0, ymax, opts.yfmt);
+  const bw = iw / rows.length;
+  const gap = Math.min(4, bw * 0.22);
+
+  rows.forEach((row, i) => {
+    let acc = 0;
+    const scale = opts.share ? 100 / (totals[i] || 1) : 1;
+    for (const s of series) {
+      const v = (row[s.key] || 0) * scale;
+      if (v <= 0) continue;
+      const y0 = y(acc), y1 = y(acc + v);
+      const rect = el('rect', {
+        x: padL + i * bw + gap / 2, width: Math.max(1, bw - gap),
+        y: y1, height: Math.max(1, y0 - y1), fill: s.color,
+        stroke: '#ffffff', 'stroke-width': 1,
+      }, svg);
+      rect.addEventListener('pointerenter', () => {
+        const body = series.map(q => tipRow(q.color, q.label,
+          opts.share ? pct((row[q.key] || 0) / (totals[i] || 1))
+                     : fmt(row[q.key] || 0, 1))).join('');
+        showTip(f, padL + i * bw + bw / 2,
+          `<div class="tip-date">${opts.xtip ? opts.xtip(row) : row.month}</div>${body}` +
+          (opts.share ? '' : tipRow(null, t('fuelTotal'), fmt(totals[i], 1))));
+      });
+      rect.addEventListener('pointerleave', () => hideTip(f));
+      acc += v;
+    }
+  });
+
+  const step = Math.max(1, Math.round(rows.length / 7));
+  for (let i = 0; i < rows.length; i += step) {
+    const lb = el('text', { x: padL + i * bw + bw / 2, y: padT + ih + 18,
+                            'text-anchor': 'middle' }, svg);
+    lb.textContent = opts.xlabel ? opts.xlabel(rows[i]) : rows[i].month;
+  }
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: padT + ih, y2: padT + ih }, svg);
+  legend(host, series);
+}
+
+function renderFuelModeSeg() {
+  const seg = document.getElementById('fuelmode-seg');
+  if (!seg) return;
+  D.fuelMode = D.fuelMode || 'abs';
+  seg.innerHTML = [['abs', 'fuelAbs'], ['share', 'fuelShare']].map(([k, l]) =>
+    `<button type="button" data-k="${k}" aria-pressed="${D.fuelMode === k}">${t(l)}</button>`
+  ).join('');
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    D.fuelMode = b.dataset.k;
+    renderFuelModeSeg();
+    renderFuelMonthly();
+  }));
+}
+
+function renderFuelMonthly() {
+  const fm = D.fuelmix;
+  if (!fm || !fm.monthly || !fm.monthly.length) return;
+  const share = D.fuelMode === 'share';
+  const el_ = document.getElementById('fuelmonth-title');
+  if (el_) el_.textContent = share ? t('fuelMonthShare') : t('fuelMonthAbs');
+
+  stackedBars(document.getElementById('fuelmonth-chart'), fm.monthly,
+    FUEL_GROUPS.map(k => ({ key: k, label: FUEL_NAMES[LANG][k] || k,
+                            color: GROUP_COLOR[k] })), {
+      height: 300, share,
+      yfmt: (v) => (share ? `${fmt(v)}%` : fmt(v)),
+      xlabel: (r) => fmtDate(r.month + '-01', { month: 'short', year: '2-digit' }),
+      xtip: (r) => fmtDate(r.month + '-01', { month: 'long', year: 'numeric' }),
+    });
+
+  // the same month a year apart — the only fair comparison for a seasonal system
+  const c = fm.same_month;
+  const box = document.getElementById('fuel-yoy');
+  if (!box) return;
+  if (!c) { box.innerHTML = ''; return; }
+  const arrow = (v) => (v > 0 ? '+' : '') + fmt(v, 1) + '%';
+  const cls = (v) => (v > 5 ? 'up' : v < -5 ? 'down' : '');
+  const label = fmtDate(c.now.month + '-01', { month: 'long' });
+  box.innerHTML = `<div class="note">
+      <div class="note-title">${t('fuelYoyTitle')
+        .replace('{m}', label)
+        .replace('{a}', fmtYear(c.before.month.slice(0, 4)))
+        .replace('{b}', fmtYear(c.now.month.slice(0, 4)))}</div>
+      <div class="yoy-row">${['total', 'gas', 'coal', 'oil', 'import'].map(k =>
+        `<span class="yoy ${cls(c.changes[k])}"><b>${t('fuel_' + k) || k}</b> ${arrow(c.changes[k])}</span>`
+      ).join('')}</div>
+      <p style="margin-top:8px;font-size:.88rem">${t('fuelYoyBody')}</p>
+    </div>`;
+}
+
 /* ═══════════════ BPDB's own report: causes, forecast, unit cost ══════════ */
 
 const CAUSE_ORDER = ['maintenance', 'gas_lf', 'kaptai', 'coal'];
@@ -2070,6 +2187,8 @@ function renderAll() {
   renderCauses();
   renderForecast();
   renderUnitCost();
+  renderFuelModeSeg();
+  renderFuelMonthly();
   renderMapSeg();
   renderMap();
   renderFuel();
@@ -2099,6 +2218,7 @@ window.addEventListener('resize', () => {
     renderCauses();
     renderForecast();
     renderUnitCost();
+    renderFuelMonthly();
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderZones();

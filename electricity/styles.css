@@ -335,3 +335,14 @@ svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums; }
 .legend-interactive .legend-item:hover,
 .legend-interactive .legend-item.pinned { border-color: var(--border-strong); background: var(--surface2); }
 .legend-interactive .legend-item.dim { opacity: 0.4; }
+
+/* year-on-year fuel deltas */
+.yoy-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.yoy {
+  font-size: 0.84rem; padding: 4px 10px; border-radius: 999px;
+  background: var(--surface2); color: var(--text2); border: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+}
+.yoy b { color: var(--text); font-weight: 650; margin-inline-end: 4px; }
+.yoy.up { background: #fdeceb; border-color: #f3c9c4; color: #9c3a2c; }
+.yoy.down { background: #eaf3ea; border-color: #c6e0c6; color: #2c6b34; }
