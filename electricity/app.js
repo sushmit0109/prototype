@@ -114,7 +114,22 @@ const STR = {
     compareTitle: 'একই ৩০ দিন, আলাদা বছর',
     trendTitle: 'সময়ের সঙ্গে বদল',
     trendSub: 'পিজিসিবির খাতায় ২০১৫ সাল থেকে সারি আছে ঠিকই, কিন্তু ২০২২ সালের আগে প্রায় প্রতি ঘণ্টায় লোডশেডিংয়ের ঘরে “০” বসানো। তাই ওই সময়টাকে শূন্য না ধরে “প্রকাশ করা হয়নি” হিসেবে আলাদা করে দেখানো হয়েছে।',
-    monthlyTitle: 'মাস ধরে সর্বোচ্চ লোডশেডিং',
+    monthlyTitle: 'মাস ধরে লোডশেডিং',
+    mwhPerDay: 'মেওঘ/দিন', hoursUnit: 'ঘণ্টা',
+    mMean: 'গড় (মেওঘ/দিন)', mMedian: 'মধ্যমা', mP95: '৯৫তম শতাংশ (মেওয়া)',
+    mMax: 'সর্বোচ্চ (মেওয়া)', mHours: 'ঘণ্টা/দিন',
+    mTitle_mean_energy_shed_mwh: 'মাসে দিনে গড়ে যত বিদ্যুৎ দেওয়া যায়নি',
+    mTitle_median_energy_shed_mwh: 'মাসের সাধারণ একটি দিনে যত দেওয়া যায়নি',
+    mTitle_p95_loadshed: 'মাসের খারাপ দিনগুলোর মাত্রা (৯৫তম শতাংশ)',
+    mTitle_max_loadshed: 'মাসের সবচেয়ে খারাপ এক ঘণ্টা',
+    mTitle_mean_hours_shed: 'দিনে গড়ে কত ঘণ্টা লোডশেডিং ছিল',
+    mNote_mean_energy_shed_mwh: 'মোট ঘাটতিকে দিন দিয়ে ভাগ করা। মাসের দৈর্ঘ্য বা অসম্পূর্ণ মাসে বিভ্রান্ত করে না — মানুষ আসলে যত বিদ্যুৎ পায়নি, এটাই তার পরিমাপ।',
+    mNote_median_energy_shed_mwh: 'মাসের মাঝামাঝি দিনটি। কয়েকটি ভয়াবহ দিন গড়কে টেনে তোলে; মধ্যমা বলে সাধারণ দিনটা কেমন ছিল।',
+    mNote_p95_loadshed: 'মাসের সবচেয়ে খারাপ দিনগুলোর মাত্রা, তবে একটিমাত্র ভুল সংখ্যায় নষ্ট হয় না।',
+    mNote_max_loadshed: 'সবচেয়ে ভঙ্গুর মাপকাঠি — একটিমাত্র ভুল টাইপ করা ঘণ্টা পুরো মাসের ছবি বদলে দিতে পারে। তুলনার জন্য এটি ব্যবহার না করাই ভালো, তবু লুকানো হয়নি।',
+    mNote_mean_hours_shed: 'কত গভীর নয়, কত দীর্ঘ — দিনে কত ঘণ্টা বিদ্যুৎ ছিল না।',
+    mDisagree: 'মাপকাঠি বদলালে উত্তরও বদলায়: গড় ঘাটতির হিসাবে সবচেয়ে খারাপ মাস <b>{a}</b>, কিন্তু “সর্বোচ্চ মেগাওয়াট” ধরলে <b>{b}</b>। তাই আমরা কোনো একটি বেছে না নিয়ে সবগুলোই দিচ্ছি — আপনি নিজে মিলিয়ে দেখুন।',
+    mAgree: 'এই মুহূর্তে সব মাপকাঠিই একই মাসকে সবচেয়ে খারাপ বলছে।',
     notReported: 'প্রকাশ করা হয়নি',
 
     trustTitle: 'এই হিসাব কতটা পাকা',
@@ -238,7 +253,22 @@ const STR = {
     compareTitle: 'The same 30 days, different years',
     trendTitle: 'Over time',
     trendSub: 'PGCB’s archive holds rows back to 2015, but before 2022 the load-shedding column reads “0” in almost every hour. That period is marked “not reported” rather than drawn as zero.',
-    monthlyTitle: 'Monthly peak load-shedding',
+    monthlyTitle: 'Load-shedding by month',
+    mwhPerDay: 'MWh/day', hoursUnit: 'hours',
+    mMean: 'Mean (MWh/day)', mMedian: 'Median', mP95: '95th pct (MW)',
+    mMax: 'Maximum (MW)', mHours: 'Hours/day',
+    mTitle_mean_energy_shed_mwh: 'Electricity not supplied, average per day',
+    mTitle_median_energy_shed_mwh: 'Electricity not supplied on a typical day',
+    mTitle_p95_loadshed: 'How deep the bad days ran (95th percentile)',
+    mTitle_max_loadshed: 'The single worst hour of the month',
+    mTitle_mean_hours_shed: 'Hours of the day affected, on average',
+    mNote_mean_energy_shed_mwh: 'Total shortfall divided by days. Unaffected by month length or an incomplete month, and it measures the thing people actually lost.',
+    mNote_median_energy_shed_mwh: 'The middle day of the month. A few catastrophic days pull the mean up; the median says what an ordinary day was like.',
+    mNote_p95_loadshed: 'How deep the worst days ran, without a single mis-keyed hour deciding the month.',
+    mNote_max_loadshed: 'The most fragile measure — one mistyped hour can rewrite a month. We would not compare periods with it, but we are not hiding it either.',
+    mNote_mean_hours_shed: 'Not how deep but how long: hours of the day with no power.',
+    mDisagree: 'The measure changes the answer: by average shortfall the worst month is <b>{a}</b>, but by “maximum MW” it is <b>{b}</b>. Rather than pick one for you, all of them are here — check us against each.',
+    mAgree: 'At present every measure agrees on which month was worst.',
     notReported: 'not reported',
 
     trustTitle: 'How solid are these figures?',
@@ -918,12 +948,56 @@ function renderZones() {
     }), { color: C.loadshed, axis });
 }
 
+// The same month looks different under each measure, and choosing one is
+// itself an editorial act — so all four are offered and the reader picks.
+const METRICS = [
+  { key: 'mean_energy_shed_mwh', label: 'mMean', unit: 'mwh', digits: 0 },
+  { key: 'median_energy_shed_mwh', label: 'mMedian', unit: 'mwh', digits: 0 },
+  { key: 'p95_loadshed', label: 'mP95', unit: 'mw', digits: 0 },
+  { key: 'max_loadshed', label: 'mMax', unit: 'mw', digits: 0 },
+  { key: 'mean_hours_shed', label: 'mHours', unit: 'hours', digits: 1 },
+];
+
+function renderMetricSeg() {
+  const seg = document.getElementById('metric-seg');
+  if (!seg) return;
+  D.metric = D.metric || METRICS[0].key;
+  seg.innerHTML = METRICS.map(m =>
+    `<button type="button" data-k="${m.key}" aria-pressed="${D.metric === m.key}">${t(m.label)}</button>`
+  ).join('');
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    D.metric = b.dataset.k;
+    renderMetricSeg();
+    renderTrend();
+  }));
+}
+
 function renderTrend() {
   const m = D.monthly || [];
   const start = (D.integrity && D.integrity.reporting_start) || '2022-01-01';
-  const rows = m.map(r => ({ x: r.month, v: r.max_loadshed || 0, month: r.month }));
+  const spec = METRICS.find(x => x.key === (D.metric || METRICS[0].key)) || METRICS[0];
+  const rows = m.map(r => ({ x: r.month, v: r[spec.key] || 0, month: r.month }));
+
+  const titleEl = document.getElementById('monthly-title');
+  if (titleEl) titleEl.textContent = t('mTitle_' + spec.key);
+  const noteEl = document.getElementById('metric-note');
+  if (noteEl) noteEl.textContent = t('mNote_' + spec.key);
+
+  // Where the measures disagree, say so rather than let the choice pass unseen.
+  const warn = document.getElementById('metric-warning');
+  if (warn) {
+    const recent = m.filter(r => r.month >= start.slice(0, 7) && r.reported_days > 5);
+    const worstBy = (k) => recent.slice().sort((a, b) => (b[k] || 0) - (a[k] || 0))[0];
+    const a1 = worstBy('mean_energy_shed_mwh'), a2 = worstBy('max_loadshed');
+    warn.innerHTML = (a1 && a2 && a1.month !== a2.month)
+      ? `<div class="note warn">${t('mDisagree')
+          .replace('{a}', fmtDate(a1.month + '-01', { month: 'long', year: 'numeric' }))
+          .replace('{b}', fmtDate(a2.month + '-01', { month: 'long', year: 'numeric' }))}</div>`
+      : `<div class="note">${t('mAgree')}</div>`;
+  }
+
   barChart(document.getElementById('monthly-chart'), rows, 'v', {
-    height: 280, color: C.loadshed, label: t('loadshedding'),
+    height: 280, color: C.loadshed, label: t(spec.label), digits: spec.digits,
     missing: (r) => r.month < start.slice(0, 7),
     xlabel: (r) => fmtDate(r.month + '-01', { month: 'short', year: 'numeric' }),
     xtip: (r) => fmtDate(r.month + '-01', { month: 'long', year: 'numeric' }),
@@ -931,8 +1005,9 @@ function renderTrend() {
   const host = document.getElementById('monthly-chart');
   const lg = document.createElement('div');
   lg.className = 'legend';
+  const unit = { mwh: t('mwhPerDay'), mw: t('mw'), hours: t('hoursUnit') }[spec.unit];
   lg.innerHTML =
-    `<span class="legend-item"><i class="swatch" style="background:${C.loadshed}"></i>${t('loadshedding')} (${t('mw')})</span>` +
+    `<span class="legend-item"><i class="swatch" style="background:${C.loadshed}"></i>${t('loadshedding')} (${unit})</span>` +
     `<span class="legend-item"><i class="swatch" style="background:${C.grid}"></i>${t('notReported')}</span>`;
   host.appendChild(lg);
 }
@@ -2000,6 +2075,7 @@ function renderAll() {
   renderFuel();
   renderZones();
   renderSeasonal();
+  renderMetricSeg();
   renderTrend();
   renderTrust();
   renderSources();

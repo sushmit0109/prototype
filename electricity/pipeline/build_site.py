@@ -139,6 +139,15 @@ def build_daily(rows):
     return out
 
 
+def pctile(values, q):
+    """Nearest-rank percentile; used instead of a maximum, which is an
+    extremum of one observation and grows with sample size."""
+    v = sorted(x for x in values if x is not None)
+    if not v:
+        return None
+    return v[min(len(v) - 1, int(q * (len(v) - 1)))]
+
+
 def build_monthly(daily):
     by_m = defaultdict(list)
     for d in daily:
@@ -149,13 +158,21 @@ def build_monthly(daily):
         sheds = [d["max_loadshed"] for d in ds if d["max_loadshed"] is not None]
         energy = [d["energy_shed_mwh"] for d in ds if d["energy_shed_mwh"] is not None]
         hrs = [d["hours_shed"] for d in ds]
+        # Several measures of the same month, because they disagree and the
+        # choice of one is itself an editorial act. A maximum is the most
+        # fragile: a single mis-keyed hour can put a quiet month above a
+        # catastrophic one, so the 95th percentile is carried beside it.
         out.append({
             "month": m,
             "days": len(ds),
+            "reported_days": len(energy),
             "peak_demand": max(peaks) if peaks else None,
             "mean_peak_demand": r(sum(peaks) / len(peaks)) if peaks else None,
             "max_loadshed": max(sheds) if sheds else None,
+            "p95_loadshed": pctile(sheds, 0.95),
             "energy_shed_mwh": r(sum(energy)) if energy else None,
+            "mean_energy_shed_mwh": r(sum(energy) / len(energy)) if energy else None,
+            "median_energy_shed_mwh": r(pctile(energy, 0.5)) if energy else None,
             "mean_hours_shed": r(sum(hrs) / len(ds)) if ds else None,
         })
     return out
