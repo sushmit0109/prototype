@@ -748,11 +748,17 @@ def build_seasonal(daily):
 
 # ----------------------------------------------------------------- equity
 
-# Checked against the data: in the NLDC zone table, "Demand" is the load
-# actually served and the shed portion sits in its own column, so a zone's
-# total demand is demand + load-shed. (Summing the zone demands and adding
-# load-shed lands within ~1% of the report's own evening-peak demand, whereas
-# treating demand as already inclusive is off by roughly the load-shed itself.)
+# In the NLDC zone table, "Demand" is TOTAL demand and already contains the
+# shed portion. Confirmed against BPDB's Daily Electricity Generation Report,
+# whose section 10 prints the same zone figures with a Supply column as well:
+# Demand = Supply + Load Shed, exactly (e.g. Dhaka 4,812 = 4,780 + 32 on
+# 14-04-2025), and its Demand column matches this table value for value.
+#
+# An earlier reading of this compared the summed zone demand against
+# generation-end output and concluded demand was the served load. That was
+# wrong: the zone table is measured at the sub-station end, after auxiliary
+# use and transmission loss, so the two are not comparable. The share of a
+# zone's demand that went unserved is therefore load-shed / demand.
 EQUITY_WINDOWS = [30, 90, 365, None]
 
 
@@ -791,7 +797,7 @@ def build_equity(bpdb):
                     a["shed_days"] += 1
 
         nat_shed = sum(a["shed"] for a in agg.values())
-        nat_total = sum(a["shed"] + a["demand"] for a in agg.values())
+        nat_total = sum(a["demand"] for a in agg.values())
 
         rows = []
         for z in ZONES:
@@ -799,7 +805,7 @@ def build_equity(bpdb):
             if not a["days"]:
                 continue
             pop = pops.get(z) or 0
-            total = a["shed"] + a["demand"]
+            total = a["demand"]          # already inclusive of the shed portion
             mean_shed = a["shed"] / a["days"]
             share_shed = a["shed"] / nat_shed if nat_shed else None
             share_dem = total / nat_total if nat_total else None
@@ -810,6 +816,7 @@ def build_equity(bpdb):
                 "shed_days": a["shed_days"],
                 "mean_loadshed": r(mean_shed),
                 "mean_demand": r(a["demand"] / a["days"]),
+                "mean_served": r((a["demand"] - a["shed"]) / a["days"]),
                 # share of this zone's own demand that went unserved
                 "shed_rate": r(a["shed"] / total, 4) if total else None,
                 # watts of shortfall per resident at the evening peak
