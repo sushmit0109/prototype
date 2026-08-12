@@ -60,9 +60,12 @@ const STR = {
     cause_kaptai: 'কাপ্তাই হ্রদে পানি কম', cause_coal: 'কয়লা সরবরাহের সীমাবদ্ধতা',
     navForecast: 'পূর্বাভাস মিলছে?',
     fcTitle: 'বিপিডিবি আগের দিন কী বলেছিল?',
-    fcSub: 'বিপিডিবি প্রতিদিনের প্রতিবেদনে পরের দিনের জন্য “সম্ভাব্য লোডশেড” কত হবে তা লিখে রাখে। সেই পূর্বাভাসের পাশে পরদিন আসলে কী হলো, তা মিলিয়ে দেখা হলো।',
+    fcSub: 'বিপিডিবি প্রতিদিনের প্রতিবেদনে পরের দিনের জন্য “সম্ভাব্য লোডশেড” কত হবে তা লিখে রাখে। সেই পূর্বাভাসের পাশে পরদিন আসলে কী হলো, তা মিলিয়ে দেখা হলো। ২০২৫ সালে প্রায় প্রতিদিনই “শূন্য” লেখা হতো; ২০২৬-এ পূর্বাভাস বাস্তবের কাছাকাছি এসেছে, কিন্তু যেদিন শূন্য লেখা হয় সেদিন ভুল হওয়ার হার কমেনি — বরং ঘাটতির পরিমাণ বেড়েছে।',
     fcChart: 'পূর্বাভাস আর বাস্তব, পাশাপাশি',
     fcZero: 'যত দিন “শূন্য” লোডশেডের পূর্বাভাস', fcZeroNote: 'মোট যত দিনের হিসাব আছে',
+    fcZeroUnit: 'দিনে “শূন্য” পূর্বাভাস',
+    fcMissedInline: 'এর মধ্যে {n} দিন আসলে লোডশেডিং হয়েছে — গড়ে {mw} মেগাওয়াট',
+    fcWorstNote: '{d} — সেদিনের পূর্বাভাস ছিল শূন্য',
     fcMissed: 'তার মধ্যে যত দিন লোডশেডিং হয়েছে', fcOfThose: 'ক্ষেত্রে',
     fcMean: 'ওই দিনগুলোয় গড় লোডশেডিং', fcWorst: 'সবচেয়ে খারাপ',
     fcForecast: 'পূর্বাভাস', fcActual: 'বাস্তবে যা হয়েছে',
@@ -181,9 +184,12 @@ const STR = {
     cause_kaptai: 'Low water in Kaptai lake', cause_coal: 'Coal supply limitation',
     navForecast: 'The forecast',
     fcTitle: 'What BPDB said the day before',
-    fcSub: 'Every daily report carries BPDB’s own forecast of the next day’s “probable load shed”. Here it is, set against what actually happened.',
+    fcSub: 'Every daily report carries BPDB’s own forecast of the next day’s “probable load shed”, set here against what actually happened. In 2025 it read zero on almost every day; in 2026 the forecasts became far more realistic, but on the days it still says zero it is wrong just as often — and by more.',
     fcChart: 'Forecast and outcome, side by side',
     fcZero: 'Days forecast at zero load-shedding', fcZeroNote: 'of all days with both figures',
+    fcZeroUnit: 'days forecast at zero',
+    fcMissedInline: 'on {n} of them it then shed — {mw} MW on average',
+    fcWorstNote: '{d} — forecast that day was zero',
     fcMissed: 'Of those, days that then shed', fcOfThose: 'of them',
     fcMean: 'Average shed on those days', fcWorst: 'worst',
     fcForecast: 'Forecast', fcActual: 'What happened',
@@ -1889,14 +1895,25 @@ function renderForecast() {
       ${note ? `<div class="stat-note">${note}</div>` : ''}
     </div>`;
 
-  document.getElementById('fc-tiles').innerHTML =
-    tile(t('fcZero'), `${fmt(s.forecast_zero)} / ${fmt(s.days)}`, '',
-         t('fcZeroNote')) +
-    tile(t('fcMissed'), fmt(s.forecast_zero_but_shed), '',
-         s.days ? pct(s.forecast_zero_but_shed / Math.max(s.forecast_zero, 1)) +
-                  ' ' + t('fcOfThose') : '') +
-    tile(t('fcMean'), fmt(s.mean_shed_on_those_days), t('mw'),
-         s.worst ? `${t('fcWorst')}: ${fmt(s.worst.actual_loadshed)} ${t('mw')} · ${fmtDate(s.worst.date)}` : '');
+  // The practice changed between years, so the two are shown apart rather
+  // than blended into one average that describes neither.
+  const yrs = Object.keys(s.by_year || {}).sort();
+  document.getElementById('fc-tiles').innerHTML = yrs.map(y => {
+    const v = s.by_year[y];
+    return `
+      <div class="stat">
+        <div class="stat-label">${fmtYear(y)}</div>
+        <div class="stat-value">${fmt(v.forecast_zero)} / ${fmt(v.days)}<span class="stat-unit">${t('fcZeroUnit')}</span></div>
+        <div class="stat-note">${t('fcMissedInline')
+          .replace('{n}', fmt(v.forecast_zero_but_shed))
+          .replace('{mw}', fmt(v.mean_shed_on_those_days))}</div>
+      </div>`;
+  }).join('') + `
+      <div class="stat">
+        <div class="stat-label">${t('fcWorst')}</div>
+        <div class="stat-value">${fmt(s.worst ? s.worst.actual_loadshed : null)}<span class="stat-unit">${t('mw')}</span></div>
+        <div class="stat-note">${s.worst ? t('fcWorstNote').replace('{d}', fmtDate(s.worst.date)) : ''}</div>
+      </div>`;
 
   const rows = o.forecast.slice(-180).map(r => ({
     x: r.date, f: r.forecast_loadshed || 0, a: r.actual_loadshed || 0,

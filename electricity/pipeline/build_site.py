@@ -760,6 +760,24 @@ def build_official(bpdb):  # noqa: C901
                          "forecast_demand": f["demand"],
                          "actual_demand": a["demand"]})
 
+    def score(rows):
+        zero = [x for x in rows if (x["forecast_loadshed"] or 0) == 0]
+        miss = [x for x in zero if (x["actual_loadshed"] or 0) > 0]
+        return {
+            "days": len(rows),
+            "forecast_zero": len(zero),
+            "forecast_zero_but_shed": len(miss),
+            "mean_shed_on_those_days": r(
+                sum(x["actual_loadshed"] for x in miss) / len(miss)) if miss else None,
+            "mean_forecast": r(
+                sum(x["forecast_loadshed"] or 0 for x in rows) / len(rows)) if rows else None,
+            "worst": max(miss, key=lambda x: x["actual_loadshed"]) if miss else None,
+        }
+
+    by_year = {}
+    for row in forecast:
+        by_year.setdefault(row["date"][:4], []).append(row)
+
     zero_fc = [x for x in forecast if (x["forecast_loadshed"] or 0) == 0]
     missed = [x for x in zero_fc if (x["actual_loadshed"] or 0) > 0]
     return {
@@ -773,6 +791,9 @@ def build_official(bpdb):  # noqa: C901
             "mean_shed_on_those_days": r(
                 sum(x["actual_loadshed"] for x in missed) / len(missed)) if missed else None,
             "worst": max(missed, key=lambda x: x["actual_loadshed"]) if missed else None,
+            # The practice changed: 2025 forecast zero almost daily, 2026 far
+            # less often but misses by more, so the years are scored apart.
+            "by_year": {y: score(rows) for y, rows in sorted(by_year.items())},
         },
     }
 
