@@ -1157,6 +1157,24 @@ def build_latest(hourly, daily, bpdb, area):
 
 # ------------------------------------------------------------------- main
 
+def stamp_assets():
+    """Rewrite index.html so app.js and styles.css carry a content hash."""
+    import hashlib
+    root = SITE_DATA.parent
+    index = root / "index.html"
+    if not index.exists():
+        return
+    html = index.read_text(encoding="utf-8")
+    for asset in ("app.js", "styles.css"):
+        f = root / asset
+        if not f.exists():
+            continue
+        digest = hashlib.sha1(f.read_bytes()).hexdigest()[:8]
+        html = re.sub(rf'(["\'])({re.escape(asset)})(\?v=[0-9a-f]+)?\1',
+                      rf'\g<1>{asset}?v={digest}\g<1>', html)
+    index.write_text(html, encoding="utf-8")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.parse_args()
@@ -1240,6 +1258,11 @@ def main():
     integrity = build_integrity(hourly, area, bpdb, daily)
     write_json(SITE_DATA / "integrity.json", integrity)
     write_json(SITE_DATA / "latest.json", build_latest(hourly, daily, bpdb, area))
+
+    # Cache-busting: the browser revalidates data on every load, but would
+    # otherwise hold app.js and styles.css indefinitely, so fresh figures could
+    # be rendered by stale code. Stamp both with a hash of their contents.
+    stamp_assets()
 
     meta = {
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
