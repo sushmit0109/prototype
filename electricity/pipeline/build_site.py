@@ -237,10 +237,21 @@ def load_bpdb():
         d = drop_implausible_plants(normalise_units(d))
         rescaled += 1 if d.get("unit_rescaled") else 0
         g = d.get("genreport")
-        # The report's "Actual data of DD.MM.YY" line is occasionally mistyped;
-        # anything outside the archive's own span is a typo, not a date.
-        if g and g.get("data_date") and (
-                "2024-01-01" <= g["data_date"] <= date.today().isoformat()):
+        # A report describes the day or two before the listing that published
+        # it. Anything further away means its date line was misread — through
+        # 2026 the source prints a stale year there — and such a record would
+        # otherwise overwrite the real report for the date it lands on.
+        listing = d.get("listing_date")
+        dd_ = g.get("data_date") if g else None
+        near = False
+        if dd_ and listing:
+            try:
+                near = 0 <= (date.fromisoformat(listing)
+                             - date.fromisoformat(dd_)).days <= 5
+            except ValueError:
+                near = False
+        if g and dd_ and near and (
+                "2024-01-01" <= dd_ <= date.today().isoformat()):
             cur = GENREPORTS.get(g["data_date"])
             if cur is None or len(json.dumps(g)) > len(json.dumps(cur)):
                 GENREPORTS[g["data_date"]] = g

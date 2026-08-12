@@ -26,7 +26,7 @@ import argparse
 import io
 import re
 import sys
-from datetime import date
+from datetime import date, timedelta
 from concurrent.futures import ThreadPoolExecutor
 
 import pdfplumber
@@ -281,12 +281,48 @@ FORECAST = [("f_day_peak_demand", r"Probable\s+Maximum\s+Demand\s+at\s+Day\s+Pea
 
 
 def parse_genreport(text: str) -> dict:
+    """Parse BPDB's Daily Electricity Generation Report.
+
+    The date needs care. Through 2026 the "Actual data of DD.MM.YY" line
+    carries a stale year — a report headed "Date : 10-08-2026" describes its
+    previous day as "09.08.25". Left alone, a year of 2026 reports lands on
+    2025 dates and overwrites the real ones. The four-digit report date is
+    reliable, so the day and month come from the actual-data line and the year
+    is taken from the report, with a sanity check against the report date.
+    """
     out = {}
+    rep = re.search(r"Date\s*:\s*(\d{1,2})-(\d{1,2})-(\d{4})", text)
+    report_date = None
+    if rep:
+        rd, rm, ry = (int(x) for x in rep.groups())
+        try:
+            report_date = date(ry, rm, rd)
+        except ValueError:
+            report_date = None
+
     m = re.search(r"Actual\s+data\s+of\s*(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{2,4})", text)
-    if m:
+    data_date = None
+    if m and report_date:
+        dd, mm = int(m.group(1)), int(m.group(2))
+        # a December reading reported in January belongs to the year before
+        year = report_date.year - 1 if mm > report_date.month else report_date.year
+        try:
+            cand = date(year, mm, dd)
+        except ValueError:
+            cand = None
+        if cand and 0 <= (report_date - cand).days <= 5:
+            data_date = cand
+    if data_date is None and report_date:
+        data_date = report_date - timedelta(days=1)   # the report's own convention
+    elif data_date is None and m:
         dd, mm, yy = m.groups()
         yr = int(yy) + 2000 if len(yy) == 2 else int(yy)
-        out["data_date"] = f"{yr}-{int(mm):02d}-{int(dd):02d}"
+        try:
+            data_date = date(yr, int(mm), int(dd))
+        except ValueError:
+            data_date = None
+    if data_date:
+        out["data_date"] = data_date.isoformat()
     fm = re.search(r"Forecast\s+of\s*(\d{1,2})-(\d{1,2})-(\d{4})", text)
     if fm:
         dd, mm, yy = fm.groups()
