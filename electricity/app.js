@@ -1737,8 +1737,12 @@ function multiLine(host, lines, opts = {}) {
   const y = yAxis(f, lo, Math.max(...all, 1) * 1.04, opts.yfmt);
   const x = (i) => padL + (n <= 1 ? iw / 2 : (i / (n - 1)) * iw);
 
-  // month ticks along the bottom instead of raw day numbers
+  // Month ticks along the bottom instead of raw day numbers. On a phone twelve
+  // Bengali month names run into each other, so label every other month once
+  // the slots get narrower than a name.
+  const monthStep = iw / 12 < 40 ? 2 : 1;
   MONTH_STARTS.forEach((d, m) => {
+    if (m % monthStep) return;
     const lb = el('text', { x: x(d - 1), y: padT + ih + 17, 'text-anchor': 'middle' }, svg);
     lb.textContent = opts.monthLabel ? opts.monthLabel(m) : String(m + 1);
   });
@@ -1780,11 +1784,12 @@ function multiLine(host, lines, opts = {}) {
   }
 
   // Shade alone cannot separate five years on thin overlapping lines, so every
-  // line is named at its own end. Labels are nudged apart where they collide.
+  // line is named at its own peak. Two labels only collide when they are close
+  // on *both* axes: pushing apart on y alone moved labels that never overlapped
+  // while leaving genuine collisions — visible on a phone, where the text is
+  // wider relative to the plot.
   ends.sort((a, b) => a.y - b.y);
-  for (let i = 1; i < ends.length; i++) {
-    if (ends[i].y - ends[i - 1].y < 12) ends[i].y = ends[i - 1].y + 12;
-  }
+  const labels = [];
   for (const e of ends) {
     const atRight = x(e.i) > padL + iw * 0.86;
     el('circle', { cx: x(e.i), cy: y(e.l.values[e.i]), r: e.l.emphasis ? 4 : 3,
@@ -1797,6 +1802,26 @@ function multiLine(host, lines, opts = {}) {
       'font-weight': e.l.emphasis ? 700 : 600,
     }, svg);
     tx.textContent = e.l.label;
+    labels.push(tx);
+  }
+
+  // Nudge collisions apart by measuring what was actually drawn. Guessing a
+  // label's size in user units is wrong on a phone: font-size is set in CSS
+  // pixels and so does not shrink with the viewBox, leaving the text far wider
+  // relative to the plot than on a desktop. getBBox reports the real extent.
+  const boxes = [];
+  for (const tx of labels) {
+    let b;
+    try { b = tx.getBBox(); } catch { break; }
+    for (let guard = 0; guard < 8; guard++) {
+      const hit = boxes.find(o => b.x < o.x + o.width && o.x < b.x + b.width &&
+                                  b.y < o.y + o.height && o.y < b.y + b.height);
+      if (!hit) break;
+      const shifted = hit.y + hit.height + 2 - b.y;
+      tx.setAttribute('y', +tx.getAttribute('y') + shifted);
+      b = tx.getBBox();
+    }
+    boxes.push(b);
   }
 
   // Named events, drawn under the lines so they explain a dip without

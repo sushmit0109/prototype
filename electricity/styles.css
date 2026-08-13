@@ -325,7 +325,11 @@ footer li { margin-bottom: 4px; }
 .ranknote.ok  { background: #e8f7e8; border-inline-start-color: var(--good); }
 
 /* year labels sit on their own line, so identity never rests on shade alone */
-svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums; }
+/* A halo, so a label stays readable where it has to sit over its own lines.
+   paint-order draws the stroke first, leaving the glyph itself unthickened. */
+svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums;
+  paint-order: stroke; stroke: var(--surface); stroke-width: 3px;
+  stroke-linejoin: round; }
 
 .legend-interactive .legend-item {
   background: transparent; border: 1px solid transparent; border-radius: 999px;
@@ -355,4 +359,6 @@ svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums; }
 .decomp-key span { display: flex; align-items: center; gap: 6px; }
 .decomp-key b { color: var(--text); font-variant-numeric: tabular-nums; }
 
-svg.chart .mark-label { fill: var(--muted); font-size: 10px; }
+svg.chart .mark-label { fill: var(--muted); font-size: 10px;
+  paint-order: stroke; stroke: var(--surface); stroke-width: 3px;
+  stroke-linejoin: round; }
