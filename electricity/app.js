@@ -105,9 +105,18 @@ const STR = {
     fuelMonthShare: 'মাসে কোন জ্বালানির কত অংশ',
     fuelMonthNote: 'মাসের মোট নয়, দিনে গড়ে — তাই ছোট বা অসম্পূর্ণ মাস উৎপাদন কমে যাওয়ার মতো দেখায় না।',
     fuelYoyTitle: '{m} মাস, {a} সালের তুলনায় {b}',
-    fuelYoyBody: 'মোট উৎপাদন প্রায় একই আছে, কিন্তু তার গঠন বদলে গেছে — গ্যাস কমেছে, তার জায়গা নিয়েছে কয়লা আর তেল। তেল গ্যাসের চেয়ে ইউনিটপ্রতি পাঁচ গুণ দামি। উৎপাদন একই থাকলেও চাহিদা বেড়েছে, আর সেই ব্যবধানই লোডশেডিং।',
+    fuelYoyBody: 'উৎপাদন কিছুটা বেড়েছে, কিন্তু তার গঠন বদলে গেছে — গ্যাস কমেছে, জায়গা নিয়েছে কয়লা আর তেল। তেল গ্যাসের চেয়ে ইউনিটপ্রতি প্রায় পাঁচ গুণ দামি। উৎপাদন যতটুকু বেড়েছে, প্রয়োজন বেড়েছে তার চেয়ে অনেক বেশি — সেই ব্যবধানই লোডশেডিং। একই দিনগুলো মিলিয়ে তুলনা করা হয়েছে।',
     costTitle: 'প্রতি ইউনিট বিদ্যুতের উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
-    navCost: 'বিদ্যুতের দাম',
+    navCost: 'বিদ্যুতের দাম', navDemand: 'চাহিদা কত বেড়েছে',
+    demTitle: 'চাহিদা কত দ্রুত বেড়েছে',
+    demSub: 'সন্ধ্যার সর্বোচ্চ চাহিদা, বছরের একই দিনের সঙ্গে মিলিয়ে। এটি প্রকাশিত চাহিদা — অর্থাৎ যতটা দেওয়া গেছে আর যতটা কাটা পড়েছে, দুইয়ের যোগফল।',
+    demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ পাঁচ বছর পাশাপাশি (৭ দিনের গড়)',
+    demDecadeChart: 'বছরে সাধারণ দিনের সর্বোচ্চ চাহিদা, ২০১৬ থেকে',
+    demGrowth: 'এক দশকে চাহিদা বেড়েছে', demGrowthNote: '{a} থেকে {b}',
+    demCagr: 'বছরে গড়ে বেড়েছে', perYear: 'প্রতি বছর',
+    demMedian: 'সাধারণ দিনের চাহিদা', demP95: 'ব্যস্ত দিনে',
+    demPeak: 'এ বছরের ব্যস্ত দিনগুলোয়', demPeakNote: '{y} সালের ৯৫তম শতাংশ',
+    demNote: 'সংখ্যাটি সাবস্টেশন প্রান্তে মাপা। যেহেতু “চাহিদা” = সরবরাহ + লোডশেডিং, তাই যে কারখানা বিদ্যুৎ পাবে না জেনে চাওয়াই ছেড়ে দিয়েছে, সে এই হিসাবে নেই — প্রকৃত চাহিদা এর চেয়ে বেশি।',
     costTitle2: 'একদিনের বিদ্যুৎ বানাতে কত খরচ',
     costSub: 'প্রতিদিনের রিপোর্টে মোট উৎপাদন খরচ আর প্রতি ইউনিটের খরচ — দুটোই লেখা থাকে। বছরের একই সময়ের সঙ্গে মিলিয়ে দেখলে বোঝা যায়, দাম বাড়ল কেন।',
     costUnitMode: 'প্রতি ইউনিট', costTotalMode: 'দৈনিক মোট',
@@ -265,9 +274,18 @@ const STR = {
     fuelMonthShare: 'Share of generation by fuel',
     fuelMonthNote: 'A daily average rather than a monthly total, so a short or incomplete month cannot look like a fall in generation.',
     fuelYoyTitle: '{m}: {b} against {a}',
-    fuelYoyBody: 'Total generation is almost unchanged, but what it is made from has shifted — gas fell and coal and oil took its place, and oil costs about five times as much per unit. With output flat and demand still growing, the difference became load-shedding.',
+    fuelYoyBody: 'Generation rose a little, but what it is made from has shifted — gas fell and coal and oil took its place, and oil costs about five times as much per unit. Output grew far less than the country needed, and that difference became load-shedding. The comparison is against the same days of the year.',
     costTitle: 'Production cost per unit', costUnit: 'Tk per kWh',
-    navCost: 'What it costs',
+    navCost: 'What it costs', navDemand: 'Demand growth',
+    demTitle: 'How fast demand has grown',
+    demSub: 'Evening-peak demand, laid over the same days of earlier years. This is demand as published — what was served plus what was shed.',
+    demYearChart: 'Evening-peak demand, the last five years side by side (7-day average)',
+    demDecadeChart: 'Demand on an ordinary day, by year, since 2016',
+    demGrowth: 'Growth over the decade', demGrowthNote: '{a} to {b}',
+    demCagr: 'Average growth', perYear: 'a year',
+    demMedian: 'Demand on an ordinary day', demP95: 'on a busy day',
+    demPeak: 'On this year’s busiest days', demPeakNote: '95th percentile, {y}',
+    demNote: 'Measured at the sub-station end. Since “demand” here is supply plus load-shedding, a factory that stopped asking for power it knew would not arrive does not appear in it — true demand is higher than this line.',
     costTitle2: 'What a day of electricity costs to make',
     costSub: 'Each daily report prints both the total cost of generation and the cost per unit. Laid over the same days a year earlier, they show not just that electricity got dearer but why.',
     costUnitMode: 'Per unit', costTotalMode: 'Daily total',
@@ -756,15 +774,15 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
-      load('places'), load('official'), load('cost'),
+      load('places'), load('official'), load('cost'), load('demand'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -1978,6 +1996,58 @@ function fmtPeople(n) {
   return n >= 1e6 ? `${fmt(n / 1e6, 1)} million` : `${fmt(n / 1e3, 0)} thousand`;
 }
 
+/* ═══════════════════════════ how demand has grown ════════════════════════ */
+
+function renderDemand() {
+  const d = D.demand;
+  if (!d) return;
+  const years = Object.keys(d.by_year).sort();
+  const ramp = ['#9DC4EE', '#6BA5E8', '#3987e5', '#1c5cab'];
+
+  const lines = years.slice(0, -1).map((y, i) => ({
+    label: fmtYear(y), color: ramp[Math.max(0, ramp.length - (years.length - 1) + i)],
+    values: d.by_year[y],
+  })).concat([{ label: fmtYear(years[years.length - 1]), color: C.loadshed,
+                values: d.by_year[years[years.length - 1]], emphasis: true }]);
+
+  const monthName = (m) => new Intl.DateTimeFormat(locale(), { month: 'short' })
+    .format(new Date(2021, m, 1));
+  multiLine(document.getElementById('dem-year'), lines, {
+    height: 300, length: 365, monthLabel: monthName, baseline: 'auto',
+    xtip: (i) => {
+      const x = new Date(2021, 0, 1); x.setDate(i + 1);
+      return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'long' }).format(x);
+    },
+    yfmt: (v) => fmt(v),
+  });
+
+  // the decade behind those five years
+  const a = d.annual;
+  barChart(document.getElementById('dem-decade'),
+    a.map(x => ({ x: x.year, v: x.median, year: x.year, p95: x.p95, days: x.days })),
+    'v', {
+      height: 240, color: C.supply, label: t('demMedian'),
+      xlabel: (r) => fmtYear(r.year),
+      xtip: (r) => `${fmtYear(r.year)} · ${t('demP95')} ${fmt(r.p95)} ${t('mw')}`,
+    });
+
+  const g = d.growth;
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+  const last = a[a.length - 1];
+  document.getElementById('dem-tiles').innerHTML =
+    tile(t('demGrowth'), `+${fmt(g.total_pct, 0)}%`, '',
+         t('demGrowthNote').replace('{a}', fmtYear(g.from)).replace('{b}', fmtYear(g.to))) +
+    tile(t('demCagr'), `${fmt(g.cagr_pct, 1)}%`, t('perYear'),
+         `${fmt(g.median_from)} → ${fmt(g.median_to)} ${t('mw')}`) +
+    tile(t('demPeak'), fmt(last.p95), t('mw'),
+         t('demPeakNote').replace('{y}', fmtYear(last.year)));
+}
+
 /* ═════════════════════ what the electricity costs to make ════════════════ */
 
 function renderCostSeg() {
@@ -2312,6 +2382,7 @@ function renderAll() {
   renderFuelMonthly();
   renderCostSeg();
   renderCost();
+  renderDemand();
   renderMapSeg();
   renderMap();
   renderFuel();
@@ -2343,6 +2414,7 @@ window.addEventListener('resize', () => {
     renderUnitCost();
     renderFuelMonthly();
     renderCost();
+    renderDemand();
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderZones();

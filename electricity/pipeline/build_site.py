@@ -345,17 +345,42 @@ def build_fuel_monthly(days):
         row["cost_per_kwh"] = r(sum(costs) / len(costs), 3) if costs else None
         out.append(row)
 
-    # the same month a year apart, which is the only fair fuel comparison
-    idx = {x["month"]: x for x in out}
+    # The same month a year apart — matched on the day range, not just the
+    # month. The current month is usually incomplete, and generation builds
+    # through August, so weighing eleven days against a full thirty-one
+    # understates the change.
     compare = None
     if out:
-        cur = out[-1]
-        y, mo = cur["month"].split("-")
-        prev = idx.get(f"{int(y) - 1}-{mo}")
-        if prev and prev["days"] >= 10 and cur["days"] >= 5:
-            compare = {"month": mo, "now": cur, "before": prev, "changes": {
-                k: (r(100 * (cur[k] - prev[k]) / prev[k], 1) if prev.get(k) else None)
-                for k in ("total", "gas", "coal", "oil", "import", "renewable")}}
+        cur_month = out[-1]["month"]
+        y, mo = cur_month.split("-")
+        cur_days = sorted(int(d["date"][8:10]) for d in by_month.get(cur_month, []))
+        prev_month = f"{int(y) - 1}-{mo}"
+        prev_all = by_month.get(prev_month, [])
+        if cur_days and len(prev_all) >= 10:
+            cutoff = max(cur_days)
+            prev_days = [d for d in prev_all if int(d["date"][8:10]) <= cutoff]
+            if len(prev_days) >= max(5, len(cur_days) // 2):
+                def profile(ds):
+                    row = {"days": len(ds)}
+                    tot = 0.0
+                    for name, parts in FUEL_GROUPS:
+                        v = sum(sum(d.get(p) or 0 for p in parts) for d in ds) / len(ds)
+                        row[name] = r(v, 2)
+                        tot += v
+                    row["total"] = r(tot, 2)
+                    return row
+
+                now_p = profile(by_month[cur_month])
+                before_p = profile(prev_days)
+                now_p["month"], before_p["month"] = cur_month, prev_month
+                compare = {
+                    "month": mo, "day_range": [min(cur_days), cutoff],
+                    "now": now_p, "before": before_p,
+                    "changes": {k: (r(100 * (now_p[k] - before_p[k]) / before_p[k], 1)
+                                    if before_p.get(k) else None)
+                                for k in ("total", "gas", "coal", "oil",
+                                          "import", "renewable")},
+                }
     return {"monthly": out, "same_month": compare}
 
 
@@ -958,28 +983,139 @@ def build_seasonal(daily):
     }
 
 
+# ---------------------------------------------------------------- demand
+
+# Bangladesh's all-time evening peak is under 18 GW, so a daily figure above
+# this ceiling is a data-entry error. A handful of days read above 22,000 MW.
+DEMAND_MAX_MW = 20000
+DEMAND_MIN_MW = 3000
+DEMAND_MIN_DAYS = 200          # a year needs real coverage to be comparable
+
+
+def build_demand(area):
+    """Evening-peak demand, year by year.
+
+    This is demand as published: served load plus load-shed, at the
+    sub-station end. Because the shed portion is itself the authorities'
+    estimate, the series is a floor on true demand rather than a measurement
+    of it — a mill that stopped asking for power it knew would not arrive is
+    not counted here.
+    """
+    clean, dropped = defaultdict(dict), 0
+    for d, rec in sorted(area.items()):
+        if rec.get("suspect"):
+            continue
+        v = rec.get("total_demand")
+        if not v:
+            continue
+        if not (DEMAND_MIN_MW <= v <= DEMAND_MAX_MW):
+            dropped += 1
+            continue
+        clean[d[:4]][_doy(d)] = v
+
+    years = [y for y, days in sorted(clean.items()) if len(days) >= DEMAND_MIN_DAYS]
+    if not years:
+        return None
+
+    def smooth(days, win=7):
+        last = max(days)
+        raw = [days.get(n) for n in range(1, last + 1)]
+        half, out = win // 2, []
+        for i in range(len(raw)):
+            w = [x for x in raw[max(0, i - half): i + half + 1] if x is not None]
+            out.append(r(sum(w) / len(w)) if w else None)
+        return out
+
+    series = {y: smooth(clean[y]) for y in years[-5:]}
+
+    annual = []
+    for y in years:
+        v = sorted(clean[y].values())
+        annual.append({
+            "year": y, "days": len(v),
+            "median": r(v[len(v) // 2]),
+            "p95": r(v[int(0.95 * (len(v) - 1))]),
+            "min": r(v[0]),
+        })
+
+    first, last = annual[0], annual[-1]
+    span = int(last["year"]) - int(first["year"])
+    growth = {
+        "from": first["year"], "to": last["year"],
+        "median_from": first["median"], "median_to": last["median"],
+        "total_pct": r(100 * (last["median"] / first["median"] - 1), 1),
+        "cagr_pct": r(100 * ((last["median"] / first["median"]) ** (1 / span) - 1), 2)
+        if span else None,
+    }
+    return {"by_year": series, "annual": annual, "growth": growth,
+            "dropped_implausible": dropped}
+
+
 # ------------------------------------------------------------------ cost
 
-def build_cost(fuel_daily, official):
+def build_cost(fuel_daily, official, bpdb):
     """What a day of electricity costs, and why that changes.
 
-    The daily reports carry both the total generation cost in taka and the
-    cost per unit, and separately the cost and energy of each fuel. That is
-    enough to separate the two reasons a unit of electricity gets dearer:
-    the fuels themselves costing more, or the same fuels being burned in a
-    worse proportion.
+    Built primarily from BPDB's generation report, which prints the cost and
+    the energy of each fuel on the same sheet and runs back to July 2024. The
+    NLDC summary carries the same totals but only from December 2024, so using
+    it as the base would throw away five months and leave no third year to
+    compare against. It is kept as a fallback for days the generation report
+    is missing.
     """
-    rows = [d for d in fuel_daily if d.get("total_cost_tk")]
+    GROUPS = {"gas": ["gas"], "coal": ["coal"], "oil": ["oil"],
+              "import": ["import"], "renewable": ["solar", "hydro_wind"]}
+    s1_groups = {"gas": ["gas"], "coal": ["coal"], "oil": ["hfo", "hsd"],
+                 "import": ["import"], "renewable": ["solar", "wind", "hydro"]}
+    s1 = {d["date"]: d for d in fuel_daily}
+
+    rows = []
+    for dd in sorted(set(GENREPORTS) | set(s1)):
+        g = GENREPORTS.get(dd) or {}
+        e, c = g.get("energy_by_fuel") or {}, g.get("cost_by_fuel") or {}
+        tot_e = sum(v or 0 for v in e.values())
+        stated = g.get("total_energy")
+        # the same unit slip the per-fuel costs guard against
+        scale = 1000.0 if (tot_e and tot_e < ENERGY_UNIT_FLOOR) else 1.0
+        total_cost = sum(v or 0 for v in c.values()) or None
+        energy_mkwh = (tot_e * scale) or None
+        shares, prices = {}, {}
+        if e and c and tot_e:
+            for grp, parts in GROUPS.items():
+                ge = sum(e.get(x) or 0 for x in parts)
+                shares[grp] = ge / tot_e
+                kwh = ge * 1e6 * scale
+                gc = sum(c.get(x) or 0 for x in ([grp] if grp in c else parts))
+                if kwh > 1e6 and gc:
+                    prices[grp] = gc / kwh
+
+        rec = bpdb.get(dd) or {}
+        if not total_cost and rec.get("total_cost_tk"):
+            total_cost = rec["total_cost_tk"]
+        if not energy_mkwh and rec.get("energy_generated"):
+            energy_mkwh = rec["energy_generated"]
+        if not shares and dd in s1:
+            row = s1[dd]
+            t = sum(sum(row.get(x) or 0 for x in parts) for parts in s1_groups.values())
+            if t:
+                shares = {g_: sum(row.get(x) or 0 for x in parts) / t
+                          for g_, parts in s1_groups.items()}
+        if not total_cost or not energy_mkwh:
+            continue
+
+        cpk = rec.get("cost_per_kwh") or r(total_cost / (energy_mkwh * 1e6), 3)
+        rows.append({"date": dd, "total_cost_tk": total_cost,
+                     "energy_mkwh": r(energy_mkwh, 2), "cost_per_kwh": cpk,
+                     "shares": shares, "prices": prices})
+
     if not rows:
         return None
 
-    # year-on-year curves, indexed by day of year so they overlay
     series_cost, series_unit = defaultdict(dict), defaultdict(dict)
     for d in rows:
         n = _doy(d["date"])
         series_cost[d["date"][:4]][n] = r(d["total_cost_tk"] / 1e7, 2)   # crore Tk
-        if d.get("cost_per_kwh"):
-            series_unit[d["date"][:4]][n] = d["cost_per_kwh"]
+        series_unit[d["date"][:4]][n] = d["cost_per_kwh"]
 
     def to_list(store, smooth=7):
         out = {}
@@ -996,61 +1132,49 @@ def build_cost(fuel_daily, official):
     monthly = defaultdict(list)
     for d in rows:
         monthly[d["date"][:7]].append(d)
-    months = []
-    for m, ds in sorted(monthly.items()):
-        cpk = [x["cost_per_kwh"] for x in ds if x.get("cost_per_kwh")]
-        months.append({
-            "month": m, "days": len(ds),
-            "total_cost_crore": r(sum(x["total_cost_tk"] for x in ds) / 1e7 / len(ds), 1),
-            "cost_per_kwh": r(sum(cpk) / len(cpk), 3) if cpk else None,
-        })
+    months = [{
+        "month": m, "days": len(ds),
+        "total_cost_crore": r(sum(x["total_cost_tk"] for x in ds) / 1e7 / len(ds), 1),
+        "cost_per_kwh": r(sum(x["cost_per_kwh"] for x in ds) / len(ds), 3),
+    } for m, ds in sorted(monthly.items())]
 
     # ---- why the unit cost moved: mix against price --------------------
-    unit = {u["date"]: u for u in official.get("unit_cost", [])}
-    energy = {d["date"]: d for d in fuel_daily}
-    GROUPS = {"gas": ["gas"], "coal": ["coal"], "oil": ["hfo", "hsd"],
-              "import": ["import"], "renewable": ["solar", "wind", "hydro"]}
-
-    def profile(dates):
-        """Average fuel shares and prices over a set of days."""
-        shares, prices = {}, {}
-        for g, parts in GROUPS.items():
-            e = [sum(energy[d].get(p) or 0 for p in parts) for d in dates if d in energy]
-            tot = [sum(sum(energy[d].get(p) or 0 for p in q) for q in GROUPS.values())
-                   for d in dates if d in energy]
-            if e and sum(tot):
-                shares[g] = sum(e) / sum(tot)
-            pr = [unit[d][g] for d in dates if d in unit and unit[d].get(g)]
-            if pr:
-                prices[g] = sum(pr) / len(pr)
-        return shares, prices
+    def profile(ds):
+        sh, pr = {}, {}
+        for g_ in GROUPS:
+            v = [d["shares"][g_] for d in ds if d["shares"].get(g_) is not None]
+            if v:
+                sh[g_] = sum(v) / len(v)
+            q = [d["prices"][g_] for d in ds if d["prices"].get(g_) is not None]
+            if q:
+                pr[g_] = sum(q) / len(q)
+        return sh, pr
 
     decomp = None
     if months:
         cur = months[-1]["month"]
         y, mo = cur.split("-")
         prev = f"{int(y) - 1}-{mo}"
-        now_days = [d["date"] for d in monthly.get(cur, [])]
-        old_days = [d["date"] for d in monthly.get(prev, [])]
-        if len(old_days) >= 10 and len(now_days) >= 5:
-            s0, p0 = profile(old_days)
-            s1, p1 = profile(now_days)
-            common = [g for g in GROUPS if g in s0 and g in s1 and g in p0 and g in p1]
+        now_d, old_d = monthly.get(cur, []), monthly.get(prev, [])
+        if len(old_d) >= 10 and len(now_d) >= 5:
+            s0, p0 = profile(old_d)
+            s1_, p1 = profile(now_d)
+            common = [g_ for g_ in GROUPS
+                      if g_ in s0 and g_ in s1_ and g_ in p0 and g_ in p1]
             if common:
-                base = sum(s0[g] * p0[g] for g in common)
-                after = sum(s1[g] * p1[g] for g in common)
-                # what the unit cost would be if only the mix had changed
-                mix_only = sum(s1[g] * p0[g] for g in common)
+                base = sum(s0[g_] * p0[g_] for g_ in common)
+                after = sum(s1_[g_] * p1[g_] for g_ in common)
+                mix_only = sum(s1_[g_] * p0[g_] for g_ in common)
                 decomp = {
                     "from": prev, "to": cur,
                     "cost_before": r(base, 2), "cost_after": r(after, 2),
                     "change": r(after - base, 2),
                     "mix_effect": r(mix_only - base, 2),
                     "price_effect": r(after - mix_only, 2),
-                    "shares_before": {g: r(s0[g], 4) for g in common},
-                    "shares_after": {g: r(s1[g], 4) for g in common},
-                    "prices_before": {g: r(p0[g], 2) for g in common},
-                    "prices_after": {g: r(p1[g], 2) for g in common},
+                    "shares_before": {g_: r(s0[g_], 4) for g_ in common},
+                    "shares_after": {g_: r(s1_[g_], 4) for g_ in common},
+                    "prices_before": {g_: r(p0[g_], 2) for g_ in common},
+                    "prices_after": {g_: r(p1[g_], 2) for g_ in common},
                 }
 
     latest = rows[-1]
@@ -1059,9 +1183,10 @@ def build_cost(fuel_daily, official):
         "crore_by_year": to_list(series_cost),
         "monthly": months,
         "decomposition": decomp,
+        "coverage": {"days": len(rows), "from": rows[0]["date"], "to": rows[-1]["date"]},
         "latest": {"date": latest["date"],
                    "total_cost_crore": r(latest["total_cost_tk"] / 1e7, 1),
-                   "cost_per_kwh": latest.get("cost_per_kwh")},
+                   "cost_per_kwh": latest["cost_per_kwh"]},
     }
 
 
@@ -1415,7 +1540,15 @@ def main():
     })
     write_json(SITE_DATA / "zones.json", build_zones(area, bpdb))
 
-    cost = build_cost(_fuel_daily, official)
+    demand = build_demand(area)
+    if demand:
+        write_json(SITE_DATA / "demand.json", demand)
+        g = demand["growth"]
+        print(f"[build] peak demand {g['from']}->{g['to']}: {g['median_from']:,.0f} -> "
+              f"{g['median_to']:,.0f} MW ({g['total_pct']:+.0f}%, {g['cagr_pct']}%/yr); "
+              f"{demand['dropped_implausible']} implausible days dropped")
+
+    cost = build_cost(_fuel_daily, official, bpdb)
     if cost:
         write_json(SITE_DATA / "cost.json", cost)
         dc = cost["decomposition"]

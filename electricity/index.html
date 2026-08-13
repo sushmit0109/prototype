@@ -49,6 +49,7 @@
       <a href="#forecast" data-i18n="navForecast"></a>
       <a href="#map" data-i18n="navMap">মানচিত্র</a>
       <a href="#seasonal" data-i18n="navSeasonal">আগের বছরের তুলনা</a>
+      <a href="#demand" data-i18n="navDemand"></a>
       <a href="#cost" data-i18n="navCost"></a>
       <a href="#zones" data-i18n="navZones">অঞ্চল</a>
       <a href="#fuel" data-i18n="navFuel">জ্বালানি</a>
@@ -190,6 +191,24 @@
     <div class="grid g3" id="seasonal-compare"></div>
   </section>
 
+  <!-- ── DEMAND ──────────────────────────────────────── -->
+  <section id="demand">
+    <div class="sec-head">
+      <h2 data-i18n="demTitle"></h2>
+      <p class="sec-sub" data-i18n="demSub"></p>
+    </div>
+    <div class="grid g3" id="dem-tiles"></div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="demYearChart"></span></div>
+      <div class="chartbox" id="dem-year"></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="demDecadeChart"></span></div>
+      <div class="chartbox" id="dem-decade"></div>
+    </div>
+    <p class="chart-note" style="margin-top:10px" data-i18n="demNote"></p>
+  </section>
+
   <!-- ── COST ────────────────────────────────────────── -->
   <section id="cost">
     <div class="sec-head">
@@ -305,6 +324,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="app.js?v=96bfc58b"></script>
+<script src="app.js?v=6e70fcbf"></script>
 </body>
 </html>
