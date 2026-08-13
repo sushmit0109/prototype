@@ -58,6 +58,14 @@ jobs:
         continue-on-error: true
         run: python parse_bpdb_pdf.py --recent ${{ inputs.backfill && '400' || '6' }}
 
+      # The same NLDC reports, digitised, plus the half-hourly curves the PDFs
+      # do not carry. Without --full this only tries the ids on the listing
+      # page, so an ordinary run fetches at most a day or two.
+      - name: PGCB daily workbooks
+        working-directory: electricity/pipeline
+        continue-on-error: true
+        run: python scrape_pgcb_erp.py ${{ inputs.backfill && '--full' || '' }}
+
       - name: Rebuild site data
         working-directory: electricity/pipeline
         run: python build_site.py
