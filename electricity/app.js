@@ -107,6 +107,20 @@ const STR = {
     fuelYoyTitle: '{m} মাস, {a} সালের তুলনায় {b}',
     fuelYoyBody: 'মোট উৎপাদন প্রায় একই আছে, কিন্তু তার গঠন বদলে গেছে — গ্যাস কমেছে, তার জায়গা নিয়েছে কয়লা আর তেল। তেল গ্যাসের চেয়ে ইউনিটপ্রতি পাঁচ গুণ দামি। উৎপাদন একই থাকলেও চাহিদা বেড়েছে, আর সেই ব্যবধানই লোডশেডিং।',
     costTitle: 'প্রতি ইউনিট বিদ্যুতের উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
+    navCost: 'বিদ্যুতের দাম',
+    costTitle2: 'একদিনের বিদ্যুৎ বানাতে কত খরচ',
+    costSub: 'প্রতিদিনের রিপোর্টে মোট উৎপাদন খরচ আর প্রতি ইউনিটের খরচ — দুটোই লেখা থাকে। বছরের একই সময়ের সঙ্গে মিলিয়ে দেখলে বোঝা যায়, দাম বাড়ল কেন।',
+    costUnitMode: 'প্রতি ইউনিট', costTotalMode: 'দৈনিক মোট',
+    costYearUnit: 'প্রতি ইউনিট খরচ, বছরে একই দিনের তুলনায় (৭ দিনের গড়)',
+    costYearTotal: 'দিনের মোট উৎপাদন খরচ, কোটি টাকা (৭ দিনের গড়)',
+    costYearNote: 'দুই বছরের একই তারিখ পাশাপাশি রাখা হয়েছে, কারণ খরচ মৌসুমের সঙ্গে ওঠানামা করে।',
+    costPerDay: 'সবশেষ দিনের উৎপাদন খরচ', crore: 'কোটি টাকা',
+    costPerDayNote: 'শুধু জ্বালানি ও উৎপাদন', takaKwh: 'টাকা/ইউনিট',
+    costPerUnit: 'প্রতি ইউনিট খরচ',
+    costYoy: 'এক বছরে ইউনিটপ্রতি বেড়েছে', costYoyNote: '{a}-এর তুলনায়',
+    costWhyTitle: 'দাম বাড়ল কেন — জ্বালানির দামে, নাকি জ্বালানির মিশ্রণে?',
+    costMix: 'মিশ্রণ বদলানোয়', costPrice: 'জ্বালানির দাম বাড়ায়',
+    costWhyBody: 'ইউনিটপ্রতি খরচ বেড়েছে {total} টাকা। এর মধ্যে {mix} টাকা এসেছে শুধু জ্বালানির মিশ্রণ বদলানোয়, আর {price} টাকা জ্বালানির দাম বাড়ায়। গ্যাসের অংশ {gasBefore}% থেকে নেমে {gasAfter}% হয়েছে — অথচ গ্যাসের নিজের দাম বাড়েনি, বরং ইউনিটপ্রতি {gasPriceBefore} টাকা থেকে {gasPriceAfter} টাকায় নেমেছে। অর্থাৎ বিশ্ববাজারের দাম নয়, দেশে গ্যাস কমে যাওয়াই মূল কারণ।',
     fuelLatest: 'সবশেষ দিনের ভাগ', share: 'অংশ',
 
     zonesTitle: 'কোন অঞ্চলে কেমন',
@@ -253,6 +267,20 @@ const STR = {
     fuelYoyTitle: '{m}: {b} against {a}',
     fuelYoyBody: 'Total generation is almost unchanged, but what it is made from has shifted — gas fell and coal and oil took its place, and oil costs about five times as much per unit. With output flat and demand still growing, the difference became load-shedding.',
     costTitle: 'Production cost per unit', costUnit: 'Tk per kWh',
+    navCost: 'What it costs',
+    costTitle2: 'What a day of electricity costs to make',
+    costSub: 'Each daily report prints both the total cost of generation and the cost per unit. Laid over the same days a year earlier, they show not just that electricity got dearer but why.',
+    costUnitMode: 'Per unit', costTotalMode: 'Daily total',
+    costYearUnit: 'Cost per unit, against the same days a year earlier (7-day average)',
+    costYearTotal: 'Total cost of a day’s generation, crore taka (7-day average)',
+    costYearNote: 'The two years are laid over the same dates because cost moves with the season.',
+    costPerDay: 'Cost of the latest day’s generation', crore: 'crore Tk',
+    costPerDayNote: 'fuel and generation only', takaKwh: 'Tk/unit',
+    costPerUnit: 'Cost per unit',
+    costYoy: 'Change per unit in a year', costYoyNote: 'against {a}',
+    costWhyTitle: 'Why it rose — the price of fuel, or the mix of it?',
+    costMix: 'from the mix changing', costPrice: 'from fuel prices',
+    costWhyBody: 'The unit cost rose {total} taka. Of that, {mix} taka came from nothing but a change in the mix of fuels burned, and {price} taka from fuel prices themselves. Gas fell from {gasBefore}% of generation to {gasAfter}% — while the price of gas did not rise at all, easing from {gasPriceBefore} to {gasPriceAfter} taka a unit. The driver is the loss of domestic gas, not the world market.',
     fuelLatest: 'Split on the latest day', share: 'share',
 
     zonesTitle: 'Zone by zone',
@@ -728,15 +756,15 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
-      load('places'), load('official'),
+      load('places'), load('official'), load('cost'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -1679,7 +1707,11 @@ function multiLine(host, lines, opts = {}) {
 
   const n = opts.length || Math.max(...drawn.map(l => l.values.length));
   const all = drawn.flatMap(l => l.values).filter(v => v !== null && v !== undefined);
-  const y = yAxis(f, 0, Math.max(...all, 1) * 1.08, opts.yfmt);
+  // A price is a level, not a magnitude: a line chart of it may sit on a
+  // non-zero baseline without misleading, because nothing here encodes value
+  // by length from the axis. Quantities keep their zero.
+  const lo = opts.baseline === 'auto' ? Math.min(...all) * 0.94 : 0;
+  const y = yAxis(f, lo, Math.max(...all, 1) * 1.04, opts.yfmt);
   const x = (i) => padL + (n <= 1 ? iw / 2 : (i / (n - 1)) * iw);
 
   // month ticks along the bottom instead of raw day numbers
@@ -1946,6 +1978,95 @@ function fmtPeople(n) {
   return n >= 1e6 ? `${fmt(n / 1e6, 1)} million` : `${fmt(n / 1e3, 0)} thousand`;
 }
 
+/* ═════════════════════ what the electricity costs to make ════════════════ */
+
+function renderCostSeg() {
+  const seg = document.getElementById('costmode-seg');
+  if (!seg) return;
+  D.costMode = D.costMode || 'unit';
+  seg.innerHTML = [['unit', 'costUnitMode'], ['total', 'costTotalMode']].map(([k, l]) =>
+    `<button type="button" data-k="${k}" aria-pressed="${D.costMode === k}">${t(l)}</button>`
+  ).join('');
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    D.costMode = b.dataset.k;
+    renderCostSeg();
+    renderCost();
+  }));
+}
+
+function renderCost() {
+  const c = D.cost;
+  if (!c) return;
+  const unitMode = (D.costMode || 'unit') === 'unit';
+  const store = unitMode ? c.unit_by_year : c.crore_by_year;
+  const years = Object.keys(store).sort();
+  if (!years.length) return;
+
+  const el_ = document.getElementById('costyear-title');
+  if (el_) el_.textContent = unitMode ? t('costYearUnit') : t('costYearTotal');
+
+  const ramp = ['#86b6ef', '#3987e5', '#256abf', '#0d366b'];
+  const lines = years.slice(0, -1).map((y, i) => ({
+    label: fmtYear(y), color: ramp[Math.max(0, ramp.length - (years.length - 1) + i)],
+    values: store[y],
+  })).concat([{ label: fmtYear(years[years.length - 1]), color: C.loadshed,
+                values: store[years[years.length - 1]], emphasis: true }]);
+
+  const monthName = (m) => new Intl.DateTimeFormat(locale(), { month: 'short' })
+    .format(new Date(2021, m, 1));
+  multiLine(document.getElementById('costyear-chart'), lines, {
+    height: 300, length: 365, monthLabel: monthName,
+    baseline: unitMode ? 'auto' : 'zero',
+    xtip: (i) => {
+      const d = new Date(2021, 0, 1); d.setDate(i + 1);
+      return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'long' }).format(d);
+    },
+    yfmt: (v) => fmt(v, unitMode ? 1 : 0),
+  });
+
+  // headline tiles
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+  const d = c.decomposition;
+  document.getElementById('cost-tiles').innerHTML =
+    tile(t('costPerDay'), fmt(c.latest.total_cost_crore), t('crore'),
+         `${fmtDate(c.latest.date)} · ${t('costPerDayNote')}`) +
+    tile(t('costPerUnit'), fmt(c.latest.cost_per_kwh, 2), t('takaKwh'), '') +
+    (d ? tile(t('costYoy'), `${d.change > 0 ? '+' : ''}${fmt(d.change, 2)}`, t('takaKwh'),
+              t('costYoyNote').replace('{a}', fmtDate(d.from + '-01', { month: 'long', year: 'numeric' }))) : '');
+
+  // why it moved
+  const box = document.getElementById('cost-decomp');
+  if (!box) return;
+  if (!d) { box.innerHTML = ''; return; }
+  const mixPct = Math.abs(d.mix_effect) / (Math.abs(d.mix_effect) + Math.abs(d.price_effect));
+  box.innerHTML = `<div class="note">
+      <div class="note-title">${t('costWhyTitle')}</div>
+      <div class="decomp">
+        <div class="decomp-bar">
+          <i style="width:${(100 * mixPct).toFixed(1)}%;background:${C.loadshed}"></i>
+          <i style="width:${(100 * (1 - mixPct)).toFixed(1)}%;background:${C.supply}"></i>
+        </div>
+        <div class="decomp-key">
+          <span><i class="swatch" style="background:${C.loadshed}"></i>${t('costMix')} <b>${d.mix_effect > 0 ? '+' : ''}${fmt(d.mix_effect, 2)}</b></span>
+          <span><i class="swatch" style="background:${C.supply}"></i>${t('costPrice')} <b>${d.price_effect > 0 ? '+' : ''}${fmt(d.price_effect, 2)}</b></span>
+        </div>
+      </div>
+      <p style="margin-top:10px;font-size:.88rem">${t('costWhyBody')
+        .replace('{total}', fmt(d.change, 2))
+        .replace('{mix}', fmt(d.mix_effect, 2))
+        .replace('{price}', fmt(d.price_effect, 2))
+        .replace('{gasBefore}', fmt(100 * d.shares_before.gas, 0))
+        .replace('{gasAfter}', fmt(100 * d.shares_after.gas, 0))
+        .replace('{gasPriceBefore}', fmt(d.prices_before.gas, 2))
+        .replace('{gasPriceAfter}', fmt(d.prices_after.gas, 2))}</p>
+    </div>`;
+}
+
 /* ══════════════════════ fuel: month by month, year on year ═══════════════ */
 
 const FUEL_GROUPS = ['gas', 'coal', 'import', 'oil', 'renewable'];
@@ -2189,6 +2310,8 @@ function renderAll() {
   renderUnitCost();
   renderFuelModeSeg();
   renderFuelMonthly();
+  renderCostSeg();
+  renderCost();
   renderMapSeg();
   renderMap();
   renderFuel();
@@ -2219,6 +2342,7 @@ window.addEventListener('resize', () => {
     renderForecast();
     renderUnitCost();
     renderFuelMonthly();
+    renderCost();
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderZones();

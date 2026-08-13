@@ -346,3 +346,11 @@ svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums; }
 .yoy b { color: var(--text); font-weight: 650; margin-inline-end: 4px; }
 .yoy.up { background: #fdeceb; border-color: #f3c9c4; color: #9c3a2c; }
 .yoy.down { background: #eaf3ea; border-color: #c6e0c6; color: #2c6b34; }
+
+/* cost decomposition: how much of a rise is mix, how much is price */
+.decomp { margin-top: 10px; }
+.decomp-bar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; border: 1px solid var(--border); }
+.decomp-bar i { display: block; height: 100%; }
+.decomp-key { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; font-size: 0.84rem; color: var(--text2); }
+.decomp-key span { display: flex; align-items: center; gap: 6px; }
+.decomp-key b { color: var(--text); font-variant-numeric: tabular-nums; }
