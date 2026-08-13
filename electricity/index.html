@@ -113,6 +113,17 @@
       </div>
     </div>
     <div style="margin-top:14px" id="idle-note"></div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head">
+        <span class="chart-title" id="gas-title"></span>
+        <span class="chart-note" id="gas-src"></span>
+      </div>
+      <div class="chartbox" id="gas-chart"></div>
+      <p class="chart-note" style="margin-top:8px" data-i18n="gasNote"></p>
+      <div id="gas-bands" class="grid g3" style="margin-top:12px"></div>
+      <p class="chart-note" style="margin-top:10px" data-i18n="gasBandNote"></p>
+    </div>
   </section>
 
   <!-- ── EQUITY ──────────────────────────────────────── -->
@@ -262,6 +273,16 @@
     </div>
     <div class="card" style="margin-top:14px">
       <div class="chart-head">
+        <span class="chart-title" id="fuelcost-title"></span>
+        <span class="chart-note" id="fuelcost-src"></span>
+      </div>
+      <div id="fuelcost-headline"></div>
+      <div class="chartbox" id="fuelcost-chart"></div>
+      <p class="chart-note" style="margin-top:8px" data-i18n="fuelCostNote"></p>
+      <div class="tablewrap" style="margin-top:12px"><table id="fuelcost-table"></table></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head">
         <span class="chart-title" id="daycurve-title"></span>
         <span class="chart-note" id="daycurve-note"></span>
       </div>
@@ -334,6 +355,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="app.js?v=e003c363"></script>
+<script src="app.js?v=2d117237"></script>
 </body>
 </html>

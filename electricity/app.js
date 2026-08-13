@@ -105,6 +105,25 @@ const STR = {
     fuelMonthShare: 'মাসে কোন জ্বালানির কত অংশ',
     fuelMonthNote: 'মাসের মোট নয়, দিনে গড়ে — তাই ছোট বা অসম্পূর্ণ মাস উৎপাদন কমে যাওয়ার মতো দেখায় না।',
     dayCurveTitle: 'একটি সাধারণ দিন ঘণ্টায় ঘণ্টায় — কোন জ্বালানি কখন চলে',
+    fuelCostTitle: 'কোন জ্বালানি কত বিদ্যুৎ দেয়, আর কত টাকা নেয়',
+    fuelCostSrc: 'সূত্র: পিজিসিবির দৈনিক ওয়ার্কবুক, {days} দিন',
+    fuelCostHead: 'তেল থেকে আসে মোট বিদ্যুতের {e}%, কিন্তু খরচের {c}%',
+    fuelCostHeadSub: 'তেলে ইউনিটপ্রতি {oil} টাকা, গ্যাসে {gas} টাকা — প্রায় {x} গুণ। গড়ে ইউনিটপ্রতি {avg} টাকা।',
+    fuelCostNote: 'প্রতিটি জ্বালানির দুটি হিসাব পাশাপাশি: সে কত বিদ্যুৎ দিয়েছে, আর মোট খরচের কতটা নিয়েছে। দুটি দণ্ডের ফারাকই আসল কথা। হিসাবটি পিজিসিবির নিজের প্রকাশিত গড় উৎপাদন খরচের সঙ্গে প্রতিদিন মিলিয়ে দেখা হয়েছে; না মিললে সেই দিন বাদ।',
+    fcEnergyShare: 'বিদ্যুতের ভাগ',
+    fcCostShare: 'খরচের ভাগ',
+    fcPerUnit: 'ইউনিটপ্রতি টাকা',
+    gasTitle: 'গ্যাস কমলে লোডশেডিং বাড়ে',
+    gasSrc: 'সূত্র: পিজিসিবির দৈনিক ওয়ার্কবুক',
+    gasNote: 'বিদ্যুৎকেন্দ্রে দিনে কত গ্যাস এসেছে (এমএমসিএফডি) আর সেদিন কতটা চাহিদা অপূরণ থেকেছে (মিলিয়ন কিলোওয়াট-ঘণ্টা), মাসের মধ্যক হিসেবে।',
+    gasBandNote: 'গরমের মাসগুলোতেই (এপ্রিল–সেপ্টেম্বর) ব্যবস্থাটা টানটান থাকে, তাই তুলনাটা সেখানেই। ওই দিনগুলোকে গ্যাস সরবরাহ অনুযায়ী তিন ভাগে ভাগ করা হয়েছে — তিন ভাগেই দিনের সর্বোচ্চ তাপমাত্রা প্রায় এক, তাই ফারাকটা গরমের নয়, গ্যাসের। গরমকালে গ্যাস আর অপূরণ চাহিদার সম্পর্ক r={rh}; শীতে r={rc}, অর্থাৎ তখন গ্যাস কম থাকলেও চাহিদা কম বলে সমস্যা হয় না।',
+    gasLow: 'সবচেয়ে কম গ্যাসের দিন',
+    gasMid: 'মাঝারি',
+    gasHigh: 'সবচেয়ে বেশি গ্যাসের দিন',
+    gasBandNoteTile: '{gas} এমএমসিএফডি · {t}° সে · {n} দিন',
+    gasUnserved: 'অপূরণ চাহিদা',
+    gasSupplied: 'গ্যাস সরবরাহ',
+    mkwh: 'মিকিওঘ',
     dayCurveNote: 'শেষ {days} দিনের গড়, আধা ঘণ্টা পর পর। নিচের স্তরগুলো উৎপাদন, সবচেয়ে ওপরের গাঢ় স্তরটি লোডশেডিং — চাওয়া হয়েছিল, দেওয়া যায়নি। গ্যাস, কয়লা আর আমদানি সারা দিন প্রায় স্থির: গ্যাস ওঠানামা করে মাত্র {gas} মেগাওয়াট। দিনের প্রায় পুরো ওঠানামাটাই সামলায় তেল — ভোরে {oilMin} মেগাওয়াট থেকে সন্ধ্যার সর্বোচ্চ চাহিদায় {oilMax} মেগাওয়াট। অর্থাৎ চাহিদা যখন সবচেয়ে বেশি, তখন বাড়তি প্রতিটি ইউনিট আসে সবচেয়ে দামি জ্বালানি থেকে।',
     dayCurveSrc: 'সূত্র: পিজিসিবির দৈনিক ওয়ার্কবুক (এন-কার্ভ)',
     dcOilPeak: 'তেল থেকে সর্বোচ্চ',
@@ -286,6 +305,25 @@ const STR = {
     fuelMonthShare: 'Share of generation by fuel',
     fuelMonthNote: 'A daily average rather than a monthly total, so a short or incomplete month cannot look like a fall in generation.',
     dayCurveTitle: 'An ordinary day, half hour by half hour — which fuel runs when',
+    fuelCostTitle: 'What each fuel delivers, and what each fuel costs',
+    fuelCostSrc: 'Source: PGCB daily workbook, {days} days',
+    fuelCostHead: 'Oil supplies {e}% of the electricity and takes {c}% of the bill',
+    fuelCostHeadSub: 'It costs {oil} Tk a unit against {gas} Tk for gas — about {x} times as much. The blended cost is {avg} Tk a unit.',
+    fuelCostNote: 'Two figures side by side for each fuel: how much electricity it delivered, and how much of the total bill it took. The gap between the pair is the point. Each day is reconciled against PGCB\u2019s own published blended cost, and days that do not reconcile are set aside.',
+    fcEnergyShare: 'Share of electricity',
+    fcCostShare: 'Share of cost',
+    fcPerUnit: 'Tk per unit',
+    gasTitle: 'When gas falls, the lights go out',
+    gasSrc: 'Source: PGCB daily workbook',
+    gasNote: 'Gas delivered to the power stations each day (MMCFD) against the demand left unserved that day (million kWh), as monthly medians.',
+    gasBandNote: 'The system is only tight in the hot months (April to September), so that is where the question is asked. Those days are split into three by how much gas arrived — and the daily maximum temperature is near-identical across all three, so the difference is the fuel, not the weather. Across the hot months gas and unserved demand correlate at r={rh}; in the cool months r={rc}, because demand is low enough that gas does not bind.',
+    gasLow: 'Least gas',
+    gasMid: 'Middle',
+    gasHigh: 'Most gas',
+    gasBandNoteTile: '{gas} MMCFD · {t}°C · {n} days',
+    gasUnserved: 'Demand unserved',
+    gasSupplied: 'Gas supplied',
+    mkwh: 'M kWh',
     dayCurveNote: 'Averaged over the last {days} days, at half-hourly resolution. The bands are generation; the dark band on top is load-shedding — power asked for and not delivered. Gas, coal and imports run almost flat all day: gas varies by only {gas} MW. Nearly the whole daily swing is carried by oil, which rises from {oilMin} MW in the early morning to {oilMax} MW at the evening peak. When demand is highest, every extra unit comes from the most expensive fuel on the system.',
     dayCurveSrc: 'Source: PGCB daily workbook (En-Curve)',
     dcOilPeak: 'Most oil burning',
@@ -801,16 +839,16 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
       load('places'), load('official'), load('cost'), load('demand'),
-      load('daycurve'),
+      load('daycurve'), load('fuelcost'), load('gas'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -960,6 +998,165 @@ function renderWhy() {
       .replace('{cap}', fmt(totalIdle))
       .replace('{gas}', fmt(gas ? gas.idle_mw : 0))
       .replace('{date}', fmtDate(p.date)) + `</div>`;
+}
+
+/* What each fuel delivers against what it costs.
+   Paired bars rather than two charts: the argument is the gap between a
+   fuel's share of the electricity and its share of the bill, and that gap is
+   only legible when the two sit on one axis. */
+function renderFuelCost() {
+  const fc = D.fuelcost;
+  const host = document.getElementById('fuelcost-chart');
+  if (!host || !fc || !fc.rows || !fc.rows.length) return;
+
+  document.getElementById('fuelcost-title').textContent = t('fuelCostTitle');
+  document.getElementById('fuelcost-src').textContent =
+    t('fuelCostSrc').replace('{days}', fmt(fc.days));
+
+  const o = fc.oil;
+  document.getElementById('fuelcost-headline').innerHTML =
+    `<div class="note warn"><div class="note-title">${t('fuelCostHead')
+      .replace('{e}', fmt(o.energy_share, 1))
+      .replace('{c}', fmt(o.cost_share, 1))}</div>` +
+    t('fuelCostHeadSub')
+      .replace('{oil}', fmt(o.tk_per_kwh, 2))
+      .replace('{gas}', fmt(o.gas_tk_per_kwh, 2))
+      .replace('{x}', fmt(Math.round(o.tk_per_kwh / o.gas_tk_per_kwh)))
+      .replace('{avg}', fmt(fc.blended_tk_per_kwh, 2)) + '</div>';
+
+  // one row per fuel, two bars in it
+  host.innerHTML = '';
+  const rows = fc.rows.filter(r => r.energy_share >= 0.05 || r.cost_share >= 0.05);
+  const width = Math.max(host.clientWidth || 520, 280);
+  const rowH = 46, labelW = Math.min(Math.max(width * 0.26, 86), 150);
+  const height = rows.length * rowH + 26;
+  const svg = el('svg', { class: 'chart', viewBox: `0 0 ${width} ${height}` }, host);
+  svg.style.height = height + 'px';
+  const max = Math.max(...rows.map(r => Math.max(r.energy_share, r.cost_share)), 1);
+  const barW = width - labelW - 62;
+  const scale = (v) => (v / max) * barW;
+
+  rows.forEach((r, i) => {
+    const top = i * rowH + 6;
+    const lb = el('text', { x: labelW - 8, y: top + rowH / 2 + 1,
+                            'text-anchor': 'end', class: 'bar-label' }, svg);
+    lb.textContent = FUEL_NAMES[LANG][r.fuel] || r.fuel;
+    [['energy_share', C.supply, 0], ['cost_share', RAMP_SHED[4], 1]].forEach(([k, col, n]) => {
+      const h = 13, y = top + 3 + n * (h + 3);
+      el('rect', { x: labelW, y, width: Math.max(scale(r[k]), 1), height: h,
+                   rx: 2, fill: col, 'fill-opacity': 0.95 }, svg);
+      const tx = el('text', { x: labelW + scale(r[k]) + 6, y: y + h - 2,
+                              class: 'bar-value' }, svg);
+      tx.textContent = `${fmt(r[k], 1)}%`;
+    });
+  });
+  legend(host, [{ label: t('fcEnergyShare'), color: C.supply },
+                { label: t('fcCostShare'), color: RAMP_SHED[4] }]);
+
+  const tbl = document.getElementById('fuelcost-table');
+  tbl.innerHTML =
+    `<thead><tr><th></th><th>${t('fcEnergyShare')}</th>` +
+    `<th>${t('fcCostShare')}</th><th>${t('fcPerUnit')}</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${FUEL_NAMES[LANG][r.fuel] || r.fuel}</td>` +
+      `<td class="num">${fmt(r.energy_share, 1)}%</td>` +
+      `<td class="num">${fmt(r.cost_share, 1)}%</td>` +
+      `<td class="num">${r.tk_per_kwh === null ? '—' : fmt(r.tk_per_kwh, 2)}</td></tr>`).join('') +
+    '</tbody>';
+}
+
+/* Gas delivered against demand left unserved.
+   Both follow the season, so the monthly chart alone would mostly show the
+   calendar. The three bands under it hold the temperature still and let the
+   fuel vary, which is the comparison that answers the question. */
+function renderGas() {
+  const g = D.gas;
+  const host = document.getElementById('gas-chart');
+  if (!host || !g || !g.months || g.months.length < 3) return;
+
+  document.getElementById('gas-title').textContent = t('gasTitle');
+  document.getElementById('gas-src').textContent = t('gasSrc');
+
+  const rows = g.months.map(m => ({ x: m.month, gas: m.gas_mmcfd,
+                                    unserved: m.unserved_mkwh }));
+  // room on the right for the second scale's labels
+  const f = frame(host, { height: 260, padR: 44 });
+  const { svg, padL, padT, iw, ih } = f;
+  const gmax = Math.max(...rows.map(r => r.gas), 1) * 1.08;
+  const umax = Math.max(...rows.map(r => r.unserved), 1) * 1.15;
+  const y = yAxis(f, 0, gmax, (v) => fmt(v));
+  const yu = (v) => padT + ih - (v / umax) * ih;
+
+  // unserved energy as columns behind the gas line: the shortfall is the
+  // consequence, the gas is the cause, so the cause is drawn on top. The
+  // scale is inset by half a bar so the first and last columns sit inside the
+  // plot instead of spilling over the axis labels.
+  const bw = Math.max(4, (iw / rows.length) * 0.55);
+  const inset = bw / 2;
+  const x = (i) => padL + inset + (rows.length === 1 ? (iw - 2 * inset) / 2
+                                   : (i / (rows.length - 1)) * (iw - 2 * inset));
+  rows.forEach((r, i) => {
+    const h = padT + ih - yu(r.unserved);
+    if (h > 0.5) el('rect', { x: x(i) - bw / 2, y: yu(r.unserved), width: bw,
+                              height: h, rx: 2, fill: RAMP_SHED[4],
+                              'fill-opacity': 0.85 }, svg);
+  });
+  el('polyline', { points: rows.map((r, i) => `${x(i)},${y(r.gas)}`).join(' '),
+                   fill: 'none', stroke: C.supply, 'stroke-width': 2.6,
+                   'stroke-linejoin': 'round' }, svg);
+
+  // The bars and the line are on different scales, so the second scale gets
+  // its own labelled axis on the right, in its own colour. Without it the
+  // August column looks as though it reaches nine hundred-odd of something.
+  for (const v of niceTicks(0, umax, 4)) {
+    if (v > umax) continue;
+    const ty = el('text', { x: padL + iw + 6, y: yu(v) + 4, 'text-anchor': 'start',
+                            class: 'axis-label', fill: RAMP_SHED[4] }, svg);
+    ty.textContent = fmt(v, v < 10 ? 0 : 0);
+  }
+
+  const step = Math.max(1, Math.round(rows.length / 7));
+  for (let i = 0; i < rows.length; i += step) {
+    const lb = el('text', { x: x(i), y: padT + ih + 18, 'text-anchor': 'middle' }, svg);
+    lb.textContent = fmtDate(rows[i].x + '-01', { month: 'short', year: '2-digit' });
+  }
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw,
+               y1: padT + ih, y2: padT + ih }, svg);
+
+  const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted,
+                             'stroke-width': 1, opacity: 0 }, svg);
+  const hit = el('rect', { x: padL, y: padT, width: iw, height: ih,
+                           fill: 'transparent' }, svg);
+  hit.addEventListener('pointermove', (ev) => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (f.width / bb.width);
+    let i = Math.round(((px - padL) / iw) * (rows.length - 1));
+    i = Math.max(0, Math.min(rows.length - 1, i));
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i));
+    cross.setAttribute('opacity', 0.5);
+    showTip(f, x(i),
+      `<div class="tip-date">${fmtDate(rows[i].x + '-01', { month: 'long', year: 'numeric' })}</div>` +
+      tipRow(C.supply, t('gasSupplied'), `${fmt(rows[i].gas)} MMCFD`) +
+      tipRow(RAMP_SHED[4], t('gasUnserved'), `${fmt(rows[i].unserved, 1)} ${t('mkwh')}`));
+  });
+  hit.addEventListener('pointerleave', () => {
+    hideTip(f); cross.setAttribute('opacity', 0);
+  });
+  legend(host, [{ label: t('gasSupplied') + ' (MMCFD)', color: C.supply },
+                { label: t('gasUnserved') + ` (${t('mkwh')})`, color: RAMP_SHED[4] }]);
+
+  const NAMES = { low: 'gasLow', mid: 'gasMid', high: 'gasHigh' };
+  document.getElementById('gas-bands').innerHTML = (g.bands || []).map(b => `
+    <div class="stat">
+      <div class="stat-label">${t(NAMES[b.band])}</div>
+      <div class="stat-value">${fmt(b.unserved_mkwh, 1)}<span class="stat-unit">${t('mkwh')}</span></div>
+      <div class="stat-note">${t('gasBandNoteTile')
+        .replace('{gas}', fmt(b.gas_mmcfd))
+        .replace('{t}', fmt(b.max_temp, 1))
+        .replace('{n}', fmt(b.days))}</div>
+    </div>`).join('');
+  const note = document.querySelector('[data-i18n="gasBandNote"]');
+  if (note) note.textContent = t('gasBandNote')
+    .replace('{rh}', fmt(g.r_hot, 2)).replace('{rc}', fmt(g.r_cool, 2));
 }
 
 /* An ordinary day, half hour by half hour.
@@ -2547,6 +2744,8 @@ function renderAll() {
   renderMap();
   renderFuel();
   renderDayCurve();
+  renderFuelCost();
+  renderGas();
   renderZones();
   renderSeasonal();
   renderMetricSeg();
@@ -2579,6 +2778,8 @@ window.addEventListener('resize', () => {
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
     renderDayCurve();
+    renderFuelCost();
+    renderGas();
     renderZones();
     renderSeasonal();
     renderTrend();

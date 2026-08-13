@@ -1065,6 +1065,169 @@ def build_daycurve(hh):
     }
 
 
+def load_erp_summary():
+    """date -> the workbook's system summary."""
+    out = {}
+    for f in sorted(ERP_DIR.glob("summary_*.json")):
+        out.update(read_json(f, {}) or {})
+    return out
+
+
+# PGCB prints the day's blended production cost as well as the taka spent on
+# each fuel and the energy each produced, so the parts can be checked against
+# the whole. A day whose parts do not reproduce the published blended figure
+# is set aside rather than guessed at: the energy column has been published in
+# two different units at different times, and a silent factor of a thousand
+# would put a fuel's cost per unit out by the same factor.
+COST_RECONCILE_TOL = 0.05
+
+
+def build_fuelcost(summary):
+    """What each fuel contributes, and what each fuel costs.
+
+    A fuel's share of the electricity and its share of the bill are different
+    numbers, and the gap between them is the whole argument about the fuel mix.
+    """
+    agg_e, agg_c, used, rejected = {}, {}, [], 0
+    for d, rec in sorted(summary.items()):
+        cost = rec.get("cost_by_fuel_tk") or {}
+        zone = (rec.get("zone_generation") or {}).get("total") or {}
+        unit = rec.get("unit_cost")
+        energy = sum(v for k, v in zone.items() if k != "total" and v)
+        total_cost = sum(v for v in cost.values() if v)
+        if not (energy and total_cost and unit):
+            continue
+        if abs(total_cost / (energy * 1e6) - unit) / unit > COST_RECONCILE_TOL:
+            rejected += 1
+            continue
+        used.append(d)
+        for fuel in FUELS:
+            agg_e[fuel] = agg_e.get(fuel, 0.0) + (zone.get(fuel) or 0.0)
+            agg_c[fuel] = agg_c.get(fuel, 0.0) + (cost.get(fuel) or 0.0)
+    if len(used) < 60:
+        return None
+    tot_e, tot_c = sum(agg_e.values()), sum(agg_c.values())
+    if not (tot_e and tot_c):
+        return None
+    rows = []
+    for fuel in FUELS:
+        e, c = agg_e[fuel], agg_c[fuel]
+        if e <= 0 and c <= 0:
+            continue
+        rows.append({
+            "fuel": fuel,
+            "energy_share": r(100 * e / tot_e, 2),
+            "cost_share": r(100 * c / tot_c, 2),
+            "tk_per_kwh": r(c / (e * 1e6), 2) if e else None,
+            "energy_mkwh": r(e, 1), "cost_tk": r(c, 0),
+        })
+    rows.sort(key=lambda x: -x["cost_share"])
+    oil_e = agg_e["hfo"] + agg_e["hsd"]
+    oil_c = agg_c["hfo"] + agg_c["hsd"]
+    return {
+        "rows": rows,
+        "days": len(used), "from": min(used), "to": max(used),
+        "days_rejected": rejected,
+        "blended_tk_per_kwh": r(tot_c / (tot_e * 1e6), 2),
+        "total_cost_crore": r(tot_c / 1e7, 0),
+        "oil": {
+            "energy_share": r(100 * oil_e / tot_e, 1),
+            "cost_share": r(100 * oil_c / tot_c, 1),
+            "tk_per_kwh": r(oil_c / (oil_e * 1e6), 2) if oil_e else None,
+            "gas_tk_per_kwh": (r(agg_c["gas"] / (agg_e["gas"] * 1e6), 2)
+                               if agg_e["gas"] else None),
+        },
+    }
+
+
+# Gas supply and load-shedding both follow the season, so a correlation over
+# the whole year mostly measures the calendar. The hot months are where the
+# system is actually tight, and that is where the question is asked.
+HOT_MONTHS = {"04", "05", "06", "07", "08", "09"}
+COOL_MONTHS = {"11", "12", "01", "02"}
+
+
+def _pearson(pairs):
+    n = len(pairs)
+    if n < 10:
+        return None
+    mx = sum(p[0] for p in pairs) / n
+    my = sum(p[1] for p in pairs) / n
+    cov = sum((a - mx) * (b - my) for a, b in pairs)
+    sx = math.sqrt(sum((a - mx) ** 2 for a, _ in pairs))
+    sy = math.sqrt(sum((b - my) ** 2 for _, b in pairs))
+    return r(cov / (sx * sy), 3) if sx and sy else None
+
+
+def build_gas(summary):
+    """Gas supplied to the power stations, against what went unserved.
+
+    The comparison that matters holds the weather still: sorting the hot
+    months by how much gas arrived, and reading off the load-shedding at each
+    level, answers whether the shortfall follows the fuel or merely the
+    temperature.
+    """
+    have = [d for d, x in summary.items()
+            if x.get("gas_supplied") and x.get("energy_unserved") is not None]
+    if len(have) < 120:
+        return None
+    have.sort()
+
+    monthly = {}
+    for d in have:
+        monthly.setdefault(d[:7], []).append(d)
+    months = []
+    for m, ds in sorted(monthly.items()):
+        if len(ds) < 5:
+            continue
+        temps = [summary[d]["max_temperature"] for d in ds
+                 if summary[d].get("max_temperature")]
+        months.append({
+            "month": m, "days": len(ds),
+            "gas_mmcfd": r(statistics.median(summary[d]["gas_supplied"] for d in ds), 0),
+            "unserved_mkwh": r(statistics.median(summary[d]["energy_unserved"]
+                                                 for d in ds), 2),
+            "generated_mkwh": r(statistics.median(
+                summary[d]["energy_generated"] for d in ds
+                if summary[d].get("energy_generated")), 1),
+            "max_temp": r(statistics.median(temps), 1) if temps else None,
+        })
+
+    hot = [d for d in have if d[5:7] in HOT_MONTHS
+           and summary[d].get("max_temperature")]
+    cool = [d for d in have if d[5:7] in COOL_MONTHS]
+    bands = []
+    if len(hot) >= 60:
+        gases = sorted(summary[d]["gas_supplied"] for d in hot)
+        lo, hi = gases[len(gases) // 3], gases[2 * len(gases) // 3]
+        for key, ds in (("low", [d for d in hot if summary[d]["gas_supplied"] <= lo]),
+                        ("mid", [d for d in hot
+                                 if lo < summary[d]["gas_supplied"] < hi]),
+                        ("high", [d for d in hot if summary[d]["gas_supplied"] >= hi])):
+            if not ds:
+                continue
+            bands.append({
+                "band": key, "days": len(ds),
+                "gas_mmcfd": r(statistics.median(summary[d]["gas_supplied"]
+                                                 for d in ds), 0),
+                "unserved_mkwh": r(statistics.median(summary[d]["energy_unserved"]
+                                                     for d in ds), 2),
+                "max_temp": r(statistics.median(summary[d]["max_temperature"]
+                                                for d in ds), 1),
+            })
+
+    return {
+        "months": months,
+        "bands": bands,
+        "r_hot": _pearson([(summary[d]["gas_supplied"],
+                            summary[d]["energy_unserved"]) for d in hot]),
+        "r_cool": _pearson([(summary[d]["gas_supplied"],
+                             summary[d]["energy_unserved"]) for d in cool]),
+        "hot_days": len(hot), "cool_days": len(cool),
+        "from": min(have), "to": max(have),
+    }
+
+
 def build_identity(erp_hourly):
     """Test whether published demand is measured or arithmetic.
 
@@ -1761,6 +1924,26 @@ def main():
               f"{daycurve['shortage_peak_time']} on the median, "
               f"{daycurve['shortage_mean_peak_mw']:,.0f} MW at "
               f"{daycurve['shortage_mean_peak_time']} on the mean")
+    erp_summary = load_erp_summary()
+    fuelcost = build_fuelcost(erp_summary)
+    if fuelcost:
+        write_json(SITE_DATA / "fuelcost.json", fuelcost)
+        o = fuelcost["oil"]
+        print(f"[build] fuel cost over {fuelcost['days']} days "
+              f"({fuelcost['days_rejected']} set aside as unreconciled): oil is "
+              f"{o['energy_share']}% of the electricity and {o['cost_share']}% of "
+              f"the bill, {o['tk_per_kwh']} Tk/kWh against {o['gas_tk_per_kwh']} "
+              f"for gas; blended {fuelcost['blended_tk_per_kwh']} Tk/kWh")
+    gas = build_gas(erp_summary)
+    if gas:
+        write_json(SITE_DATA / "gas.json", gas)
+        b = {x["band"]: x for x in gas["bands"]}
+        if "low" in b and "high" in b:
+            print(f"[build] gas vs load-shedding: r={gas['r_hot']} in the hot "
+                  f"months ({gas['hot_days']} days), r={gas['r_cool']} in the cool "
+                  f"ones; at {b['low']['max_temp']}C vs {b['high']['max_temp']}C, "
+                  f"low-gas days go unserved {b['low']['unserved_mkwh']} MkWh "
+                  f"against {b['high']['unserved_mkwh']}")
     identity = build_identity(erp_hourly)
     if identity:
         print(f"[build] demand identity: demand = generation + load-shed x "
