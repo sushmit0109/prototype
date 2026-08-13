@@ -990,7 +990,11 @@ def build_seasonal(daily):
 DEMAND_MAX_MW = 20000
 DEMAND_MIN_MW = 3000
 DEMAND_MIN_DAYS = 200          # a year needs real coverage to be comparable
-DEMAND_OVERLAY_YEARS = 3       # more than three lines and the chart stops reading
+# Five years, matching the load-shedding chart. Legibility is handled by
+# letting the reader isolate a year from the legend, not by dropping years:
+# showing fewer would invite exactly the suspicion of a chosen window that the
+# rest of the page is built to avoid.
+DEMAND_OVERLAY_YEARS = 5
 
 # Eid as observed in Bangladesh. Static reference data, not scraped. Industry
 # shuts for several days and national demand falls sharply, which is why the

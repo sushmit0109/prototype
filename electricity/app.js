@@ -109,15 +109,15 @@ const STR = {
     costTitle: 'প্রতি ইউনিট বিদ্যুতের উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
     navCost: 'বিদ্যুতের দাম', navDemand: 'চাহিদা কত বেড়েছে',
     demTitle: 'চাহিদা কত দ্রুত বেড়েছে',
-    demSub: 'সন্ধ্যার সর্বোচ্চ চাহিদা, বছরের একই দিনের সঙ্গে মিলিয়ে। এটি প্রকাশিত চাহিদা — অর্থাৎ যতটা দেওয়া গেছে আর যতটা কাটা পড়েছে, দুইয়ের যোগফল।',
-    demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ তিন বছর পাশাপাশি (৭ দিনের গড়)',
+    demSub: 'সন্ধ্যার সর্বোচ্চ চাহিদা, বছরের একই দিনের সঙ্গে মিলিয়ে। কোনো বছর বাদ দেওয়া হয়নি — একটি রেখা আলাদা করে দেখতে নিচের রঙিন নামগুলোর ওপর মাউস রাখুন বা চাপ দিন। এটি প্রকাশিত চাহিদা, অর্থাৎ যতটা দেওয়া গেছে আর যতটা কাটা পড়েছে, দুইয়ের যোগফল।',
+    demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ পাঁচ বছর পাশাপাশি (৭ দিনের গড়)',
     demDecadeChart: 'বছরে সাধারণ দিনের সর্বোচ্চ চাহিদা, ২০১৬ থেকে',
     demGrowth: 'এক দশকে চাহিদা বেড়েছে', demGrowthNote: '{a} থেকে {b}',
     demCagr: 'বছরে গড়ে বেড়েছে', perYear: 'প্রতি বছর',
     demMedian: 'সাধারণ দিনের চাহিদা', demP95: 'ব্যস্ত দিনে',
     demPeak: 'এ বছরের ব্যস্ত দিনগুলোয়', demPeakNote: '{y} সালের ৯৫তম শতাংশ',
     eid: 'ঈদ',
-    demHoliday: 'বছরের গভীরতম খাদগুলো ঈদের ছুটি — কারখানা বন্ধ থাকায় চাহিদা কয়েক দিনের জন্য অনেক নেমে যায়। ঈদ প্রতি বছর প্রায় ১১ দিন এগিয়ে আসে, তাই খাদটিও বছরে বছরে সরে যায়। শেষ পাঁচ বছরের দশটি ঈদেই এই পতন তথ্যে ধরা পড়েছে — {min} থেকে {max} শতাংশ পর্যন্ত।',
+    demHoliday: 'বছরের গভীরতম খাদগুলো ঈদের ছুটি — কারখানা বন্ধ থাকায় চাহিদা কয়েক দিনের জন্য অনেক নেমে যায়। ঈদ প্রতি বছর প্রায় ১১ দিন এগিয়ে আসে, তাই খাদটিও বছরে বছরে সরে যায়। শেষ {y} বছরের {n}টি ঈদেই এই পতন তথ্যে ধরা পড়েছে — {min} থেকে {max} শতাংশ পর্যন্ত।',
     demNote: 'সংখ্যাটি সাবস্টেশন প্রান্তে মাপা। যেহেতু “চাহিদা” = সরবরাহ + লোডশেডিং, তাই যে কারখানা বিদ্যুৎ পাবে না জেনে চাওয়াই ছেড়ে দিয়েছে, সে এই হিসাবে নেই — প্রকৃত চাহিদা এর চেয়ে বেশি।',
     costTitle2: 'একদিনের বিদ্যুৎ বানাতে কত খরচ',
     costSub: 'প্রতিদিনের রিপোর্টে মোট উৎপাদন খরচ আর প্রতি ইউনিটের খরচ — দুটোই লেখা থাকে। বছরের একই সময়ের সঙ্গে মিলিয়ে দেখলে বোঝা যায়, দাম বাড়ল কেন।',
@@ -280,15 +280,15 @@ const STR = {
     costTitle: 'Production cost per unit', costUnit: 'Tk per kWh',
     navCost: 'What it costs', navDemand: 'Demand growth',
     demTitle: 'How fast demand has grown',
-    demSub: 'Evening-peak demand, laid over the same days of earlier years. This is demand as published — what was served plus what was shed.',
-    demYearChart: 'Evening-peak demand, the last three years side by side (7-day average)',
+    demSub: 'Evening-peak demand, laid over the same days of earlier years. No year is left out — hover or tap a year in the legend to isolate it. This is demand as published: what was served plus what was shed.',
+    demYearChart: 'Evening-peak demand, the last five years side by side (7-day average)',
     demDecadeChart: 'Demand on an ordinary day, by year, since 2016',
     demGrowth: 'Growth over the decade', demGrowthNote: '{a} to {b}',
     demCagr: 'Average growth', perYear: 'a year',
     demMedian: 'Demand on an ordinary day', demP95: 'on a busy day',
     demPeak: 'On this year’s busiest days', demPeakNote: '95th percentile, {y}',
     eid: 'Eid',
-    demHoliday: 'The deepest troughs of each year are the Eid holidays: industry closes and demand falls for several days. Eid moves about eleven days earlier each year, so the dip moves with it. All ten Eids across the last five years show the fall in this data — between {min}% and {max}%.',
+    demHoliday: 'The deepest troughs of each year are the Eid holidays: industry closes and demand falls for several days. Eid moves about eleven days earlier each year, so the dip moves with it. All {n} Eids across the last {y} years show the fall in this data — between {min}% and {max}%.',
     demNote: 'Measured at the sub-station end. Since “demand” here is supply plus load-shedding, a factory that stopped asking for power it knew would not arrive does not appear in it — true demand is higher than this line.',
     costTitle2: 'What a day of electricity costs to make',
     costSub: 'Each daily report prints both the total cost of generation and the cost per unit. Laid over the same days a year earlier, they show not just that electricity got dearer but why.',
@@ -1800,16 +1800,30 @@ function multiLine(host, lines, opts = {}) {
   }
 
   // Named events, drawn under the lines so they explain a dip without
-  // competing with it.
+  // competing with it. Marks carrying a key belong to one line and are shown
+  // only while that line is the highlighted one.
+  const markEls = new Map();
   for (const a of (opts.marks || [])) {
     const ax = x(Math.max(0, Math.min(n - 1, a.index)));
+    const g = el('g', { opacity: 0 }, svg);
     el('line', { x1: ax, x2: ax, y1: padT + 14, y2: padT + ih,
                  stroke: MUTED_LINE, 'stroke-width': 1,
-                 'stroke-dasharray': '3 3' }, svg);
+                 'stroke-dasharray': '3 3' }, g);
     const tx = el('text', { x: ax, y: padT + 9, 'text-anchor': 'middle',
-                            class: 'mark-label' }, svg);
+                            class: 'mark-label' }, g);
     tx.textContent = a.label;
+    const k = a.key || '';
+    if (!markEls.has(k)) markEls.set(k, []);
+    markEls.get(k).push(g);
   }
+  const defaultMarkKey = (drawn.find(l => l.emphasis) || drawn[drawn.length - 1] || {}).label;
+  const showMarks = (key) => {
+    for (const [k, gs] of markEls) {
+      const on = !k || k === (key || defaultMarkKey);
+      for (const g of gs) g.setAttribute('opacity', on ? 1 : 0);
+    }
+  };
+  showMarks(null);
 
   const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted,
                              'stroke-width': 1, opacity: 0 }, svg);
@@ -1849,6 +1863,7 @@ function multiLine(host, lines, opts = {}) {
     }
     box.querySelectorAll('.legend-item').forEach(b =>
       b.classList.toggle('dim', !!key && b.dataset.k !== key));
+    showMarks(key);
   };
   box.querySelectorAll('.legend-item').forEach(b => {
     b.addEventListener('pointerenter', () => focus(b.dataset.k));
@@ -2029,10 +2044,14 @@ function renderDemand() {
 
   const monthName = (m) => new Intl.DateTimeFormat(locale(), { month: 'short' })
     .format(new Date(2021, m, 1));
-  const newest = years[years.length - 1];
-  const marks = (d.holidays || [])
-    .filter(h => h.year === newest)
-    .map(h => ({ index: h.doy - 1, label: t('eid') }));
+  // Eid moves about eleven days earlier each year, so a single set of rules
+  // would misexplain four of the five lines. Each year carries its own marks;
+  // only the highlighted year's are shown, so isolating a line from the legend
+  // lets the reader check that year's dip for themselves.
+  const marks = (d.holidays || []).map(h => ({
+    index: h.doy - 1, key: fmtYear(h.year),
+    label: `${t('eid')} ${fmtYear(h.year)}`,
+  }));
 
   multiLine(document.getElementById('dem-year'), lines, {
     height: 300, length: 365, monthLabel: monthName, baseline: 'auto', marks,
@@ -2058,6 +2077,8 @@ function renderDemand() {
   if (noteEl && hol.length) {
     const drops = hol.map(h => h.drop_pct);
     noteEl.textContent = t('demHoliday')
+      .replace('{n}', fmt(hol.length))
+      .replace('{y}', fmt(new Set(hol.map(h => h.year)).size))
       .replace('{min}', fmt(Math.min(...drops), 0))
       .replace('{max}', fmt(Math.max(...drops), 0));
   }
