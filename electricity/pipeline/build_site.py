@@ -990,6 +990,20 @@ def build_seasonal(daily):
 DEMAND_MAX_MW = 20000
 DEMAND_MIN_MW = 3000
 DEMAND_MIN_DAYS = 200          # a year needs real coverage to be comparable
+DEMAND_OVERLAY_YEARS = 3       # more than three lines and the chart stops reading
+
+# Eid as observed in Bangladesh. Static reference data, not scraped. Industry
+# shuts for several days and national demand falls sharply, which is why the
+# series has a deep trough that moves earlier through the Gregorian calendar
+# each year. Every one of these is checked against the data before being drawn.
+EID_DATES = {
+    "2022": [("2022-05-03", "Eid al-Fitr"), ("2022-07-10", "Eid al-Adha")],
+    "2023": [("2023-04-22", "Eid al-Fitr"), ("2023-06-29", "Eid al-Adha")],
+    "2024": [("2024-04-11", "Eid al-Fitr"), ("2024-06-17", "Eid al-Adha")],
+    "2025": [("2025-03-31", "Eid al-Fitr"), ("2025-06-07", "Eid al-Adha")],
+    "2026": [("2026-03-20", "Eid al-Fitr"), ("2026-05-27", "Eid al-Adha")],
+}
+EID_MIN_DROP = 0.05            # only label a festival the data actually shows
 
 
 def build_demand(area):
@@ -1026,7 +1040,32 @@ def build_demand(area):
             out.append(r(sum(w) / len(w)) if w else None)
         return out
 
-    series = {y: smooth(clean[y]) for y in years[-5:]}
+    overlay = years[-DEMAND_OVERLAY_YEARS:]
+    series = {y: smooth(clean[y]) for y in overlay}
+
+    # Label a festival only where the demand drop is actually present.
+    holidays = []
+    for y in overlay:
+        days = clean.get(y, {})
+        for iso, name in EID_DATES.get(y, []):
+            e = date.fromisoformat(iso)
+            win = [(e + timedelta(days=k)) for k in range(-1, 4)]
+            vals = [(k, days.get(_doy(k.isoformat()))) for k in win
+                    if days.get(_doy(k.isoformat()))]
+            base = [days[_doy((e - timedelta(days=k)).isoformat())]
+                    for k in range(8, 29)
+                    if days.get(_doy((e - timedelta(days=k)).isoformat()))]
+            if not vals or len(base) < 8:
+                continue
+            lo = min(vals, key=lambda t: t[1])
+            nb = sorted(base)[len(base) // 2]
+            drop = 1 - lo[1] / nb
+            if drop >= EID_MIN_DROP:
+                holidays.append({"year": y, "label": name,
+                                 "date": lo[0].isoformat(),
+                                 "doy": _doy(lo[0].isoformat()),
+                                 "demand": r(lo[1]), "normal": r(nb),
+                                 "drop_pct": r(100 * drop, 1)})
 
     annual = []
     for y in years:
@@ -1048,7 +1087,7 @@ def build_demand(area):
         if span else None,
     }
     return {"by_year": series, "annual": annual, "growth": growth,
-            "dropped_implausible": dropped}
+            "holidays": holidays, "dropped_implausible": dropped}
 
 
 # ------------------------------------------------------------------ cost

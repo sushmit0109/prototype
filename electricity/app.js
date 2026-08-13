@@ -110,12 +110,14 @@ const STR = {
     navCost: 'বিদ্যুতের দাম', navDemand: 'চাহিদা কত বেড়েছে',
     demTitle: 'চাহিদা কত দ্রুত বেড়েছে',
     demSub: 'সন্ধ্যার সর্বোচ্চ চাহিদা, বছরের একই দিনের সঙ্গে মিলিয়ে। এটি প্রকাশিত চাহিদা — অর্থাৎ যতটা দেওয়া গেছে আর যতটা কাটা পড়েছে, দুইয়ের যোগফল।',
-    demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ পাঁচ বছর পাশাপাশি (৭ দিনের গড়)',
+    demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ তিন বছর পাশাপাশি (৭ দিনের গড়)',
     demDecadeChart: 'বছরে সাধারণ দিনের সর্বোচ্চ চাহিদা, ২০১৬ থেকে',
     demGrowth: 'এক দশকে চাহিদা বেড়েছে', demGrowthNote: '{a} থেকে {b}',
     demCagr: 'বছরে গড়ে বেড়েছে', perYear: 'প্রতি বছর',
     demMedian: 'সাধারণ দিনের চাহিদা', demP95: 'ব্যস্ত দিনে',
     demPeak: 'এ বছরের ব্যস্ত দিনগুলোয়', demPeakNote: '{y} সালের ৯৫তম শতাংশ',
+    eid: 'ঈদ',
+    demHoliday: 'বছরের গভীরতম খাদগুলো ঈদের ছুটি — কারখানা বন্ধ থাকায় চাহিদা কয়েক দিনের জন্য অনেক নেমে যায়। ঈদ প্রতি বছর প্রায় ১১ দিন এগিয়ে আসে, তাই খাদটিও বছরে বছরে সরে যায়। শেষ পাঁচ বছরের দশটি ঈদেই এই পতন তথ্যে ধরা পড়েছে — {min} থেকে {max} শতাংশ পর্যন্ত।',
     demNote: 'সংখ্যাটি সাবস্টেশন প্রান্তে মাপা। যেহেতু “চাহিদা” = সরবরাহ + লোডশেডিং, তাই যে কারখানা বিদ্যুৎ পাবে না জেনে চাওয়াই ছেড়ে দিয়েছে, সে এই হিসাবে নেই — প্রকৃত চাহিদা এর চেয়ে বেশি।',
     costTitle2: 'একদিনের বিদ্যুৎ বানাতে কত খরচ',
     costSub: 'প্রতিদিনের রিপোর্টে মোট উৎপাদন খরচ আর প্রতি ইউনিটের খরচ — দুটোই লেখা থাকে। বছরের একই সময়ের সঙ্গে মিলিয়ে দেখলে বোঝা যায়, দাম বাড়ল কেন।',
@@ -279,12 +281,14 @@ const STR = {
     navCost: 'What it costs', navDemand: 'Demand growth',
     demTitle: 'How fast demand has grown',
     demSub: 'Evening-peak demand, laid over the same days of earlier years. This is demand as published — what was served plus what was shed.',
-    demYearChart: 'Evening-peak demand, the last five years side by side (7-day average)',
+    demYearChart: 'Evening-peak demand, the last three years side by side (7-day average)',
     demDecadeChart: 'Demand on an ordinary day, by year, since 2016',
     demGrowth: 'Growth over the decade', demGrowthNote: '{a} to {b}',
     demCagr: 'Average growth', perYear: 'a year',
     demMedian: 'Demand on an ordinary day', demP95: 'on a busy day',
     demPeak: 'On this year’s busiest days', demPeakNote: '95th percentile, {y}',
+    eid: 'Eid',
+    demHoliday: 'The deepest troughs of each year are the Eid holidays: industry closes and demand falls for several days. Eid moves about eleven days earlier each year, so the dip moves with it. All ten Eids across the last five years show the fall in this data — between {min}% and {max}%.',
     demNote: 'Measured at the sub-station end. Since “demand” here is supply plus load-shedding, a factory that stopped asking for power it knew would not arrive does not appear in it — true demand is higher than this line.',
     costTitle2: 'What a day of electricity costs to make',
     costSub: 'Each daily report prints both the total cost of generation and the cost per unit. Laid over the same days a year earlier, they show not just that electricity got dearer but why.',
@@ -446,6 +450,7 @@ const fuelColor = (f) => C.s[FUEL_ORDER.indexOf(f)] || C.s[5];
 /* ══════════════════════════════════ svg utils ═════════════════════════════ */
 
 const NS = 'http://www.w3.org/2000/svg';
+const MUTED_LINE = '#B9C4CE';
 function el(name, attrs = {}, parent = null) {
   const n = document.createElementNS(NS, name);
   for (const k in attrs) if (attrs[k] !== null && attrs[k] !== undefined) n.setAttribute(k, attrs[k]);
@@ -1794,6 +1799,18 @@ function multiLine(host, lines, opts = {}) {
     tx.textContent = e.l.label;
   }
 
+  // Named events, drawn under the lines so they explain a dip without
+  // competing with it.
+  for (const a of (opts.marks || [])) {
+    const ax = x(Math.max(0, Math.min(n - 1, a.index)));
+    el('line', { x1: ax, x2: ax, y1: padT + 14, y2: padT + ih,
+                 stroke: MUTED_LINE, 'stroke-width': 1,
+                 'stroke-dasharray': '3 3' }, svg);
+    const tx = el('text', { x: ax, y: padT + 9, 'text-anchor': 'middle',
+                            class: 'mark-label' }, svg);
+    tx.textContent = a.label;
+  }
+
   const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted,
                              'stroke-width': 1, opacity: 0 }, svg);
   const hit = el('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' }, svg);
@@ -2012,8 +2029,13 @@ function renderDemand() {
 
   const monthName = (m) => new Intl.DateTimeFormat(locale(), { month: 'short' })
     .format(new Date(2021, m, 1));
+  const newest = years[years.length - 1];
+  const marks = (d.holidays || [])
+    .filter(h => h.year === newest)
+    .map(h => ({ index: h.doy - 1, label: t('eid') }));
+
   multiLine(document.getElementById('dem-year'), lines, {
-    height: 300, length: 365, monthLabel: monthName, baseline: 'auto',
+    height: 300, length: 365, monthLabel: monthName, baseline: 'auto', marks,
     xtip: (i) => {
       const x = new Date(2021, 0, 1); x.setDate(i + 1);
       return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'long' }).format(x);
@@ -2030,6 +2052,15 @@ function renderDemand() {
       xlabel: (r) => fmtYear(r.year),
       xtip: (r) => `${fmtYear(r.year)} · ${t('demP95')} ${fmt(r.p95)} ${t('mw')}`,
     });
+
+  const hol = d.holidays || [];
+  const noteEl = document.querySelector('[data-i18n="demHolidayNote"]');
+  if (noteEl && hol.length) {
+    const drops = hol.map(h => h.drop_pct);
+    noteEl.textContent = t('demHoliday')
+      .replace('{min}', fmt(Math.min(...drops), 0))
+      .replace('{max}', fmt(Math.max(...drops), 0));
+  }
 
   const g = d.growth;
   const tile = (label, value, unit, note) => `

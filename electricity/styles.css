@@ -354,3 +354,5 @@ svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums; }
 .decomp-key { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; font-size: 0.84rem; color: var(--text2); }
 .decomp-key span { display: flex; align-items: center; gap: 6px; }
 .decomp-key b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+svg.chart .mark-label { fill: var(--muted); font-size: 10px; }
