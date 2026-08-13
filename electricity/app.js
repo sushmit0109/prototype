@@ -104,6 +104,16 @@ const STR = {
     fuelMonthAbs: 'মাসে দিনে গড়ে কোন জ্বালানি থেকে কত (মিলিয়ন কি.ও.ঘ.)',
     fuelMonthShare: 'মাসে কোন জ্বালানির কত অংশ',
     fuelMonthNote: 'মাসের মোট নয়, দিনে গড়ে — তাই ছোট বা অসম্পূর্ণ মাস উৎপাদন কমে যাওয়ার মতো দেখায় না।',
+    dayCurveTitle: 'একটি সাধারণ দিন ঘণ্টায় ঘণ্টায় — কোন জ্বালানি কখন চলে',
+    dayCurveNote: 'শেষ {days} দিনের গড়, আধা ঘণ্টা পর পর। নিচের স্তরগুলো উৎপাদন, সবচেয়ে ওপরের গাঢ় স্তরটি লোডশেডিং — চাওয়া হয়েছিল, দেওয়া যায়নি। গ্যাস, কয়লা আর আমদানি সারা দিন প্রায় স্থির: গ্যাস ওঠানামা করে মাত্র {gas} মেগাওয়াট। দিনের প্রায় পুরো ওঠানামাটাই সামলায় তেল — ভোরে {oilMin} মেগাওয়াট থেকে সন্ধ্যার সর্বোচ্চ চাহিদায় {oilMax} মেগাওয়াট। অর্থাৎ চাহিদা যখন সবচেয়ে বেশি, তখন বাড়তি প্রতিটি ইউনিট আসে সবচেয়ে দামি জ্বালানি থেকে।',
+    dayCurveSrc: 'সূত্র: পিজিসিবির দৈনিক ওয়ার্কবুক (এন-কার্ভ)',
+    dcOilPeak: 'তেল থেকে সর্বোচ্চ',
+    dcOilSwing: 'তেলের ওঠানামা',
+    dcOilSwingNote: 'দিনের মোট ওঠানামার {pct}% · একই দিনে গ্যাস নড়ে মাত্র {gas} মেগাওয়াট',
+    dcShedPeak: 'লোডশেডিং সবচেয়ে বেশি',
+    dcAt: '{t}-এ',
+    dcMedianMean: 'মধ্যক {a} মেগাওয়াট, {ta}-এ · গড় {b} মেগাওয়াট, {tb}-এ',
+    dcShedNote: 'লোডশেডিং',
     fuelYoyTitle: '{m} মাস, {a} সালের তুলনায় {b}',
     fuelYoyBody: 'উৎপাদন কিছুটা বেড়েছে, কিন্তু তার গঠন বদলে গেছে — গ্যাস কমেছে, জায়গা নিয়েছে কয়লা আর তেল। তেল গ্যাসের চেয়ে ইউনিটপ্রতি প্রায় পাঁচ গুণ দামি। উৎপাদন যতটুকু বেড়েছে, প্রয়োজন বেড়েছে তার চেয়ে অনেক বেশি — সেই ব্যবধানই লোডশেডিং। একই দিনগুলো মিলিয়ে তুলনা করা হয়েছে।',
     costTitle: 'প্রতি ইউনিট বিদ্যুতের উৎপাদন খরচ', costUnit: 'টাকা/কিলোওয়াট-ঘণ্টা',
@@ -275,6 +285,16 @@ const STR = {
     fuelMonthAbs: 'Generation by fuel, average per day (million kWh)',
     fuelMonthShare: 'Share of generation by fuel',
     fuelMonthNote: 'A daily average rather than a monthly total, so a short or incomplete month cannot look like a fall in generation.',
+    dayCurveTitle: 'An ordinary day, half hour by half hour — which fuel runs when',
+    dayCurveNote: 'Averaged over the last {days} days, at half-hourly resolution. The bands are generation; the dark band on top is load-shedding — power asked for and not delivered. Gas, coal and imports run almost flat all day: gas varies by only {gas} MW. Nearly the whole daily swing is carried by oil, which rises from {oilMin} MW in the early morning to {oilMax} MW at the evening peak. When demand is highest, every extra unit comes from the most expensive fuel on the system.',
+    dayCurveSrc: 'Source: PGCB daily workbook (En-Curve)',
+    dcOilPeak: 'Most oil burning',
+    dcOilSwing: 'Oil swing',
+    dcOilSwingNote: '{pct}% of the whole daily swing · gas moves only {gas} MW over the same day',
+    dcShedPeak: 'Worst load-shedding',
+    dcAt: 'at {t}',
+    dcMedianMean: 'median {a} MW at {ta} · mean {b} MW at {tb}',
+    dcShedNote: 'Load-shedding',
     fuelYoyTitle: '{m}: {b} against {a}',
     fuelYoyBody: 'Generation rose a little, but what it is made from has shifted — gas fell and coal and oil took its place, and oil costs about five times as much per unit. Output grew far less than the country needed, and that difference became load-shedding. The comparison is against the same days of the year.',
     costTitle: 'Production cost per unit', costUnit: 'Tk per kWh',
@@ -427,6 +447,8 @@ function fmtPop(n) {
 
 /** Clock time with both parts in the reader's own digits. */
 const fmtHour = (h) => `${fmt(h)}:${fmt(0)}${fmt(0)}`;
+// "21:30" carries its digits in the page's own numerals.
+const fmtClock = (s) => String(s).replace(/\d/g, (d) => fmt(Number(d)));
 
 const pct = (x) => (x === null || x === undefined) ? '—'
   : new Intl.NumberFormat(locale(), { style: 'percent', maximumFractionDigits: 1 }).format(x);
@@ -779,15 +801,16 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
       load('places'), load('official'), load('cost'), load('demand'),
+      load('daycurve'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -937,6 +960,66 @@ function renderWhy() {
       .replace('{cap}', fmt(totalIdle))
       .replace('{gas}', fmt(gas ? gas.idle_mw : 0))
       .replace('{date}', fmtDate(p.date)) + `</div>`;
+}
+
+/* An ordinary day, half hour by half hour.
+   Load-shedding is stacked on top of the generation bands rather than drawn
+   beside them, so the height of the whole stack is what was asked for and the
+   dark cap is the part that did not arrive. That is the demand identity made
+   visible: the two really are added together to get demand. */
+function renderDayCurve() {
+  const dc = D.daycurve;
+  const host = document.getElementById('daycurve-chart');
+  if (!host || !dc || !dc.now || !dc.now.length) return;
+
+  const rows = dc.now.map(r => ({
+    x: r.time,
+    gas: r.gas || 0, coal: r.coal || 0, hfo: r.hfo || 0, import: r.import || 0,
+    renewable: (r.hydro || 0) + (r.solar || 0) + (r.wind || 0),
+    hsd: r.hsd || 0,
+    shortage: r.shortage || 0,
+  }));
+
+  const series = FUEL_ORDER.map(f => ({
+    key: f, label: FUEL_NAMES[LANG][f], color: fuelColor(f),
+  })).concat([{ key: 'shortage', label: t('dcShedNote'), color: RAMP_SHED[4] }]);
+
+  stackedArea(host, rows, series, {
+    height: 300, tipDigits: 0,
+    totalLabel: LANG === 'bn' ? 'উৎপাদন + লোডশেডিং' : 'Generation + load-shedding',
+    xlabel: (r) => fmtClock(r.x),
+    xtip: (r) => fmtClock(r.x),
+    yfmt: (v) => fmt(v),
+  });
+
+  document.getElementById('daycurve-title').textContent = t('dayCurveTitle');
+  document.getElementById('daycurve-note').textContent = t('dayCurveSrc');
+  const noteEl = document.querySelector('[data-i18n="dayCurveNote"]');
+  if (noteEl) noteEl.textContent = t('dayCurveNote')
+    .replace('{days}', fmt(dc.days))
+    .replace('{gas}', fmt((dc.swing || {}).gas || 0))
+    .replace('{oilMin}', fmt(dc.oil_trough_mw))
+    .replace('{oilMax}', fmt(dc.oil_peak_mw));
+
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+  document.getElementById('daycurve-tiles').innerHTML =
+    tile(t('dcOilPeak'), fmt(dc.oil_peak_mw), t('mw'),
+         t('dcAt').replace('{t}', fmtClock(dc.oil_peak_time))) +
+    tile(t('dcOilSwing'), fmt(dc.oil_swing_mw), t('mw'),
+         t('dcOilSwingNote')
+           .replace('{pct}', fmt(dc.oil_share_of_swing || 0))
+           .replace('{gas}', fmt((dc.swing || {}).gas || 0))) +
+    tile(t('dcShedPeak'), fmt(dc.shortage_peak_mw), t('mw'),
+         t('dcMedianMean')
+           .replace('{a}', fmt(dc.shortage_peak_mw))
+           .replace('{ta}', fmtClock(dc.shortage_peak_time))
+           .replace('{b}', fmt(dc.shortage_mean_peak_mw))
+           .replace('{tb}', fmtClock(dc.shortage_mean_peak_time)));
 }
 
 function renderFuel() {
@@ -2463,6 +2546,7 @@ function renderAll() {
   renderMapSeg();
   renderMap();
   renderFuel();
+  renderDayCurve();
   renderZones();
   renderSeasonal();
   renderMetricSeg();
@@ -2494,6 +2578,7 @@ window.addEventListener('resize', () => {
     renderDemand();
     if (D.selectedArea) renderArea(D.selectedArea);
     renderFuel();
+    renderDayCurve();
     renderZones();
     renderSeasonal();
     renderTrend();

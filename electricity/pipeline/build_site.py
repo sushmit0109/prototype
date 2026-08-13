@@ -22,6 +22,7 @@ import argparse
 import json
 import math
 import re
+import statistics
 import sys
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta, timezone
@@ -899,6 +900,207 @@ SEASONAL_SMOOTH = 7          # days in the centred rolling mean
 COMPARE_WINDOW = 30          # days in the "now vs a year ago" comparison
 
 
+# ── PGCB's own workbooks ─────────────────────────────────────────────────────
+#
+# erp.powergrid.gov.bd publishes each day's NLDC reports as a spreadsheet as
+# well as a PDF. The spreadsheet carries two things the PDFs do not: the
+# generation mix at half-hourly resolution, and the shortage alongside it. It
+# is also the better witness for everything the two share, never having been
+# through a PDF text layer, so it is preferred where it exists (2025 onward).
+
+ERP_DIR = RAW / "erp"
+
+# En-Curve's fourteen columns onto the eight fuels used across the site. The
+# public/private split is an ownership distinction, not a fuel one, and the
+# four import columns are separate interconnectors.
+ERP_FUEL_MAP = {
+    "gas_public": "gas", "gas_pvt": "gas",
+    "coal": "coal",
+    "hfo_public": "hfo", "hfo_pvt": "hfo",
+    "hsd_public": "hsd", "hsd_pvt": "hsd",
+    "hydro": "hydro", "solar": "solar", "wind": "wind",
+    "hvdc": "import", "nepal": "import", "tripura": "import",
+    "adani": "import",
+}
+
+DAYCURVE_WINDOW = 30            # days averaged into the profile
+DAYCURVE_MIN_SLOTS = 40         # a day missing more than a few slots is skipped
+
+
+def load_erp_halfhourly():
+    """date -> {time -> {fuel -> MW, 'shortage': MW, 'total': MW}}."""
+    out = {}
+    for f in sorted(ERP_DIR.glob("halfhourly_*.csv")):
+        for r in read_csv(f):
+            slot = out.setdefault(r["date"], {}).setdefault(r["time"], {})
+            for col, fuel in ERP_FUEL_MAP.items():
+                v = num(r.get(col))
+                if v is not None:
+                    slot[fuel] = slot.get(fuel, 0.0) + v
+            for k in ("shortage", "total"):
+                v = num(r.get(k))
+                if v is not None:
+                    slot[k] = v
+    return out
+
+
+def load_erp_hourly():
+    """date -> [{time, generation, loadshed, demand}], from the workbook P4."""
+    out = {}
+    for f in sorted(ERP_DIR.glob("hourly_*.csv")):
+        for r in read_csv(f):
+            out.setdefault(r["date"], []).append({
+                "time": r["time"], "generation": num(r.get("generation")),
+                "loadshed": num(r.get("loadshed")), "demand": num(r.get("demand"))})
+    return out
+
+
+def build_daycurve(hh):
+    """The generation mix and the shortage through an average day.
+
+    Averaged over a window of recent days rather than shown for one day: a
+    single day is weather and outages, whereas the shape that repeats is the
+    thing worth explaining — which fuels carry the base load, which are
+    started only for the evening peak, and when the shortage actually falls.
+
+    The same window one and two years earlier is included so the change in
+    shape is visible, not just the level.
+    """
+    if not hh:
+        return None
+    days = sorted(hh)
+    slots = sorted({t for d in days for t in hh[d]})
+    if not slots:
+        return None
+
+    def profile(window):
+        """Mean MW per slot across the given days, and the days that counted."""
+        used = [d for d in window if len(hh[d]) >= DAYCURVE_MIN_SLOTS]
+        if not used:
+            return None, []
+        rows = []
+        for t in slots:
+            vals = [hh[d][t] for d in used if t in hh[d]]
+            if not vals:
+                continue
+            rec = {"time": t, "n": len(vals)}
+            for fuel in FUELS:
+                got = [v[fuel] for v in vals if v.get(fuel) is not None]
+                rec[fuel] = round(sum(got) / len(got), 1) if got else 0.0
+            # A handful of bad nights drag the mean shortage well above what a
+            # normal night looks like, so the median leads and the mean is
+            # carried beside it rather than instead of it.
+            short = [v["shortage"] for v in vals if v.get("shortage") is not None]
+            rec["shortage"] = round(statistics.median(short), 1) if short else None
+            rec["shortage_mean"] = round(sum(short) / len(short), 1) if short else None
+            rows.append(rec)
+        return rows, used
+
+    latest = days[-1]
+    window = days[-DAYCURVE_WINDOW:]
+    now, used = profile(window)
+    if not now:
+        return None
+
+    # the same calendar window in earlier years, so like is compared with like
+    prior = []
+    for back in (1, 2):
+        try:
+            lo = date.fromisoformat(window[0]).replace(
+                year=date.fromisoformat(window[0]).year - back).isoformat()
+            hi = date.fromisoformat(latest).replace(
+                year=date.fromisoformat(latest).year - back).isoformat()
+        except ValueError:                       # 29 Feb
+            continue
+        earlier = [d for d in days if lo <= d <= hi]
+        rows, used_p = profile(earlier)
+        if rows and len(used_p) >= 7:
+            prior.append({"year": lo[:4], "rows": rows, "days": len(used_p),
+                          "from": min(used_p), "to": max(used_p)})
+
+    # What the shape says, computed rather than asserted. The swing of each
+    # fuel across the day is the point: if one fuel carries nearly all of it,
+    # that fuel sets the cost of every extra unit at the peak.
+    swing = {}
+    for fuel in FUELS:
+        vals = [r[fuel] for r in now]
+        swing[fuel] = round(max(vals) - min(vals), 1)
+    oil_vals = [r["hfo"] + r["hsd"] for r in now]
+    swing["oil"] = round(max(oil_vals) - min(oil_vals), 1)
+    total_vals = [sum(r[f] for f in FUELS) for r in now]
+    swing["total"] = round(max(total_vals) - min(total_vals), 1)
+
+    peak = max(now, key=lambda r: sum(r[f] for f in FUELS))
+    trough = min(now, key=lambda r: sum(r[f] for f in FUELS))
+    oil_peak = max(now, key=lambda r: r["hfo"] + r["hsd"])
+    worst_short = max((r for r in now if r["shortage"] is not None),
+                      key=lambda r: r["shortage"], default=None)
+    worst_short_mean = max((r for r in now if r["shortage_mean"] is not None),
+                           key=lambda r: r["shortage_mean"], default=None)
+    oil_swing = round((oil_peak["hfo"] + oil_peak["hsd"])
+                      - (trough["hfo"] + trough["hsd"]), 1)
+
+    return {
+        "slots": [r["time"] for r in now],
+        "fuels": FUELS,
+        "now": now,
+        "prior": prior,
+        "days": len(used),
+        "from": min(used), "to": max(used),
+        "peak_time": peak["time"],
+        "trough_time": trough["time"],
+        "oil_peak_time": oil_peak["time"],
+        "oil_peak_mw": round(oil_peak["hfo"] + oil_peak["hsd"], 1),
+        "oil_trough_mw": round(trough["hfo"] + trough["hsd"], 1),
+        "oil_swing_mw": oil_swing,
+        "swing": swing,
+        "oil_share_of_swing": (round(100 * swing["oil"] / swing["total"], 1)
+                               if swing["total"] else None),
+        "shortage_peak_time": worst_short["time"] if worst_short else None,
+        "shortage_peak_mw": worst_short["shortage"] if worst_short else None,
+        "shortage_mean_peak_time": (worst_short_mean["time"]
+                                    if worst_short_mean else None),
+        "shortage_mean_peak_mw": (worst_short_mean["shortage_mean"]
+                                  if worst_short_mean else None),
+    }
+
+
+def build_identity(erp_hourly):
+    """Test whether published demand is measured or arithmetic.
+
+    PGCB's workbook gives generation, load-shed and demand for every hour. If
+    demand were an independent measurement the three would not close exactly.
+    They do: demand is generation plus load-shed grossed up by a fixed factor,
+    which is the transmission and distribution loss the shed load would itself
+    have incurred. Reporting the factor found in the data, rather than one
+    assumed, is what makes the claim checkable.
+    """
+    ratios, months = [], {}
+    for d, rows in erp_hourly.items():
+        for r in rows:
+            g, s, dem = r["generation"], r["loadshed"], r["demand"]
+            if None in (g, s, dem) or s <= 0:
+                continue
+            ratios.append((dem - g) / s)
+            months.setdefault(d[:7], []).append((dem - g) / s)
+    if len(ratios) < 100:
+        return None
+    med = statistics.median(ratios)
+    within = sum(1 for x in ratios if abs(x - med) <= 0.002)
+    by_month = sorted((m, round(statistics.median(v), 4), len(v))
+                      for m, v in months.items() if len(v) >= 24)
+    return {
+        "hours": len(ratios),
+        "factor": round(med, 4),
+        "share_within": round(100 * within / len(ratios), 1),
+        "months": len(by_month),
+        "months_at_factor": sum(1 for _, f, _ in by_month
+                                if abs(f - med) <= 0.002),
+        "by_month": [{"month": m, "factor": f, "hours": n}
+                     for m, f, n in by_month],
+    }
+
+
 def _doy(iso: str) -> int:
     """Day of year, with 29 Feb folded onto 28 Feb so years align."""
     d = date.fromisoformat(iso)
@@ -1333,7 +1535,7 @@ def build_equity(bpdb):
 
 # -------------------------------------------------------------- integrity
 
-def build_integrity(hourly, area, bpdb, daily):
+def build_integrity(hourly, area, bpdb, daily, identity=None):
     """Cross-source agreement checks.
 
     The point is not to accuse anyone of anything: it is to show, from the
@@ -1430,6 +1632,11 @@ def build_integrity(hourly, area, bpdb, daily):
             "matches": ident, "mismatches": miss,
             "rate": r(ident / (ident + miss), 4) if (ident + miss) else None,
         },
+        # The website's hourly table rounds, so the identity there only holds
+        # approximately. PGCB's workbook carries full precision and closes it
+        # exactly, including the loss factor applied to the shed load — that
+        # is the stronger statement, so it is published alongside.
+        "demand_formula": identity,
         "energy_identity": {
             "matches": e_ident, "mismatches": e_miss,
             "rate": r(e_ident / (e_ident + e_miss), 4) if (e_ident + e_miss) else None,
@@ -1538,6 +1745,29 @@ def main():
               f"forecast zero load-shedding; {fs['forecast_zero_but_shed']} of those "
               f"then shed (mean {fs['mean_shed_on_those_days']} MW)")
 
+    erp_hh = load_erp_halfhourly()
+    erp_hourly = load_erp_hourly()
+    if erp_hh:
+        print(f"[build] PGCB workbooks: {len(erp_hh)} days half-hourly "
+              f"({min(erp_hh)} to {max(erp_hh)})")
+    daycurve = build_daycurve(erp_hh)
+    if daycurve:
+        write_json(SITE_DATA / "daycurve.json", daycurve)
+        print(f"[build] day curve over {daycurve['days']} days: oil peaks "
+              f"{daycurve['oil_peak_mw']:,.0f} MW at {daycurve['oil_peak_time']} "
+              f"against {daycurve['oil_trough_mw']:,.0f} MW at its lowest "
+              f"(swing {daycurve['oil_swing_mw']:,.0f} MW); shortage peaks "
+              f"{daycurve['shortage_peak_mw']:,.0f} MW at "
+              f"{daycurve['shortage_peak_time']} on the median, "
+              f"{daycurve['shortage_mean_peak_mw']:,.0f} MW at "
+              f"{daycurve['shortage_mean_peak_time']} on the mean")
+    identity = build_identity(erp_hourly)
+    if identity:
+        print(f"[build] demand identity: demand = generation + load-shed x "
+              f"{identity['factor']} on {identity['share_within']}% of "
+              f"{identity['hours']:,} hours; that factor is the monthly median "
+              f"in {identity['months_at_factor']}/{identity['months']} months")
+
     seasonal = build_seasonal(settled)
     write_json(SITE_DATA / "seasonal.json", seasonal)
     if seasonal["compare"]:
@@ -1609,7 +1839,7 @@ def main():
               f"worst {top['zone']} {top['shed_rate']} "
               f"({top['watts_per_person']} W/person)")
 
-    integrity = build_integrity(hourly, area, bpdb, daily)
+    integrity = build_integrity(hourly, area, bpdb, daily, identity)
     write_json(SITE_DATA / "integrity.json", integrity)
     write_json(SITE_DATA / "latest.json", build_latest(hourly, daily, bpdb, area))
 
