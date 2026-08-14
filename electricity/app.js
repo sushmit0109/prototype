@@ -139,7 +139,15 @@ const STR = {
     demTitle: 'চাহিদা কত দ্রুত বেড়েছে',
     demSub: 'সন্ধ্যার সর্বোচ্চ চাহিদা, বছরের একই দিনের সঙ্গে মিলিয়ে। কোনো বছর বাদ দেওয়া হয়নি — একটি রেখা আলাদা করে দেখতে নিচের রঙিন নামগুলোর ওপর মাউস রাখুন বা চাপ দিন। এটি প্রকাশিত চাহিদা, অর্থাৎ যতটা দেওয়া গেছে আর যতটা কাটা পড়েছে, দুইয়ের যোগফল।',
     demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ পাঁচ বছর পাশাপাশি (৭ দিনের গড়)',
-    demDecadeChart: 'বছরে সাধারণ দিনের সর্বোচ্চ চাহিদা, ২০১৬ থেকে',
+    demDecadeChart: 'একই হিসাব, বছরের মধ্যক দিন ধরে — ২০১৬ থেকে',
+    demDecadeNote: 'ওপরের রেখাচিত্র আর এই স্তম্ভচিত্র একই জিনিস মাপে: সন্ধ্যার সর্বোচ্চ চাহিদা। ওপরে বছরের প্রতিটি দিন, এখানে বছরের মধ্যক দিনটি। গরমকাল সব বছরেই মধ্যকের অনেক ওপরে থাকে, তাই স্তম্ভ ধীরে বাড়লেও গ্রীষ্মের রেখা অনেক উঁচুতে উঠতে পারে।',
+    demSplitTitle: 'গ্রীষ্মের সন্ধ্যার চাহিদা: কতটা পাওয়া গেল, কতটা কাটা পড়ল',
+    demSplitNote: 'জুন থেকে {to} পর্যন্ত, প্রতি বছর একই দিনসীমায় মিলিয়ে। প্রকাশিত চাহিদা = যা দেওয়া হয়েছে + যা কাটা পড়েছে। তাই লোডশেডিং বাড়লে প্রকাশিত চাহিদাও বাড়ে, যদিও কেউ বাড়তি বিদ্যুৎ চায়নি এমনও হতে পারে।',
+    demSplitHead: '{from} থেকে {to}: প্রকাশিত চাহিদা বেড়েছে {d}%, কিন্তু বিদ্যুৎ সত্যিই বেশি পৌঁছেছে {v}%',
+    demSplitHeadSub: 'বৃদ্ধির {p}% আসলে লোডশেডিং — চাহিদার হিসাবে যোগ হওয়া না-দেওয়া বিদ্যুৎ ({s} মেগাওয়াট)।',
+    daysUnit: 'দিন',
+    dsServed: 'যতটা দেওয়া হয়েছে',
+    dsShed: 'যতটা কাটা পড়েছে',
     demGrowth: 'এক দশকে চাহিদা বেড়েছে', demGrowthNote: '{a} থেকে {b}',
     demCagr: 'বছরে গড়ে বেড়েছে', perYear: 'প্রতি বছর',
     demMedian: 'সাধারণ দিনের চাহিদা', demP95: 'ব্যস্ত দিনে',
@@ -338,7 +346,15 @@ const STR = {
     demTitle: 'How fast demand has grown',
     demSub: 'Evening-peak demand, laid over the same days of earlier years. No year is left out — hover or tap a year in the legend to isolate it. This is demand as published: what was served plus what was shed.',
     demYearChart: 'Evening-peak demand, the last five years side by side (7-day average)',
-    demDecadeChart: 'Demand on an ordinary day, by year, since 2016',
+    demDecadeChart: 'The same measure, taken on each year\u2019s median day — since 2016',
+    demDecadeNote: 'The lines above and these bars measure the same thing: evening-peak demand. Above is every day of the year; here is the year\u2019s median day. Summer sits far above the median in every year, which is why the bars can creep up while a summer line jumps.',
+    demSplitTitle: 'Summer evening demand: how much arrived, how much was cut',
+    demSplitNote: 'June to {to}, matched on the same day range each year. Published demand is what was delivered plus what was shed — so when load-shedding rises, published demand rises with it, even where nobody asked for more electricity.',
+    demSplitHead: '{from} to {to}: published demand rose {d}%, but the electricity actually delivered rose {v}%',
+    demSplitHeadSub: '{p}% of the rise is load-shedding — power not delivered, counted as demand ({s} MW).',
+    daysUnit: 'days',
+    dsServed: 'Delivered',
+    dsShed: 'Cut',
     demGrowth: 'Growth over the decade', demGrowthNote: '{a} to {b}',
     demCagr: 'Average growth', perYear: 'a year',
     demMedian: 'Demand on an ordinary day', demP95: 'on a busy day',
@@ -996,6 +1012,82 @@ function renderWhy() {
       .replace('{cap}', fmt(totalIdle))
       .replace('{gas}', fmt(gas ? gas.idle_mw : 0))
       .replace('{date}', fmtDate(p.date)) + `</div>`;
+}
+
+/* Published demand, split into the electricity that arrived and the
+   electricity that was cut.
+   The two stack to the published figure, which is how it is arrived at, so a
+   reader can see directly how much of a rise in "demand" is appetite and how
+   much is failure to meet it. */
+function renderDemandSplit() {
+  const sp = D.demand && D.demand.split;
+  const host = document.getElementById('demsplit-chart');
+  if (!host || !sp || !sp.rows || sp.rows.length < 2) return;
+
+  document.getElementById('demsplit-title').textContent = t('demSplitTitle');
+  const c = sp.compare;
+  document.getElementById('demsplit-headline').innerHTML =
+    `<div class="note warn"><div class="note-title">${t('demSplitHead')
+      .replace('{from}', fmtYear(c.from)).replace('{to}', fmtYear(c.to))
+      .replace('{d}', fmt(c.demand_pct, 1)).replace('{v}', fmt(c.served_pct, 1))}</div>` +
+    t('demSplitHeadSub')
+      .replace('{p}', fmt(c.shed_share_of_rise))
+      .replace('{s}', fmt(c.shed_rise)) + '</div>';
+
+  const rows = sp.rows.map(x => ({ x: fmtYear(x.year), served: x.served, shed: x.shed }));
+  const f = frame(host, { height: 268, padB: 46 });
+  const { svg, padL, padT, iw, ih } = f;
+  const ymax = Math.max(...sp.rows.map(x => x.demand), 1) * 1.1;
+  const y = yAxis(f, 0, ymax, (v) => fmt(v));
+  const bw = Math.min(58, (iw / rows.length) * 0.62);
+  const x = (i) => padL + (iw / rows.length) * (i + 0.5);
+
+  rows.forEach((r, i) => {
+    const base = padT + ih;
+    const hs = base - y(r.served);
+    el('rect', { x: x(i) - bw / 2, y: y(r.served), width: bw, height: hs,
+                 rx: 2, fill: C.supply, 'fill-opacity': 0.95 }, svg);
+    if (r.shed > 0) {
+      const top = y(r.served + r.shed);
+      el('rect', { x: x(i) - bw / 2, y: top, width: bw,
+                   height: y(r.served) - top, rx: 2, fill: RAMP_SHED[4] }, svg);
+    }
+    const lb = el('text', { x: x(i), y: padT + ih + 18, 'text-anchor': 'middle' }, svg);
+    lb.textContent = r.x;
+    // The cut is a sliver against a bar that starts at zero, which is the
+    // honest way to draw a magnitude but leaves the year-on-year growth in
+    // the shed portion invisible. So the figure is written out underneath —
+    // the number alone, since the legend already carries what the colour is,
+    // and repeating the words under every bar does not fit a phone.
+    const cut = el('text', { x: x(i), y: padT + ih + 34, 'text-anchor': 'middle',
+                             class: 'bar-value', fill: RAMP_SHED[4] }, svg);
+    cut.textContent = fmt(r.shed);
+    const tv = el('text', { x: x(i), y: y(r.served + r.shed) - 6,
+                            'text-anchor': 'middle', class: 'bar-value' }, svg);
+    tv.textContent = fmt(r.served + r.shed);
+  });
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw,
+               y1: padT + ih, y2: padT + ih }, svg);
+
+  const hit = el('rect', { x: padL, y: padT, width: iw, height: ih,
+                           fill: 'transparent' }, svg);
+  hit.addEventListener('pointermove', (ev) => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (f.width / bb.width);
+    let i = Math.floor(((px - padL) / iw) * rows.length);
+    i = Math.max(0, Math.min(rows.length - 1, i));
+    const s = sp.rows[i];
+    showTip(f, x(i), `<div class="tip-date">${fmtYear(s.year)} · ${fmt(s.days)} ${t('daysUnit')}</div>` +
+      tipRow(C.supply, t('dsServed'), `${fmt(s.served)} ${t('mw')}`) +
+      tipRow(RAMP_SHED[4], t('dsShed'), `${fmt(s.shed)} ${t('mw')}`));
+  });
+  hit.addEventListener('pointerleave', () => hideTip(f));
+  legend(host, [{ label: t('dsServed'), color: C.supply },
+                { label: t('dsShed'), color: RAMP_SHED[4] }]);
+
+  const note = document.querySelector('[data-i18n="demSplitNote"]');
+  if (note) note.textContent = t('demSplitNote')
+    .replace('{to}', fmtDate('2020-' + sp.window_to, { day: 'numeric', month: 'long' }));
 }
 
 /* What each fuel delivers against what it costs.
@@ -2367,6 +2459,8 @@ function renderDemand() {
 
   // the decade behind those five years
   const a = d.annual;
+  renderDemandSplit();
+
   barChart(document.getElementById('dem-decade'),
     a.map(x => ({ x: x.year, v: x.median, year: x.year, p95: x.p95, days: x.days })),
     'v', {

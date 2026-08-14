@@ -1456,7 +1456,67 @@ def build_demand(area):
         if span else None,
     }
     return {"by_year": series, "annual": annual, "growth": growth,
-            "holidays": holidays, "dropped_implausible": dropped}
+            "holidays": holidays, "dropped_implausible": dropped,
+            "split": build_demand_split(area)}
+
+
+# The published demand curve is served load plus load-shedding, so a year in
+# which more was shed shows higher demand even if no extra electricity was
+# wanted. Splitting the summer peak into the two parts says how much of the
+# rise is appetite and how much is failure to meet it.
+DEMAND_SPLIT_MONTHS = ("06", "07", "08")
+DEMAND_SPLIT_FROM = "2022"
+
+
+def build_demand_split(area):
+    """Summer evening peak, split into what was delivered and what was cut.
+
+    Matched on the day range, not the month: the current year stops partway
+    through August, and August is the heaviest part of the window, so running
+    a part-year against three full months would understate it.
+    """
+    rows = defaultdict(list)
+    for d, rec in area.items():
+        if rec.get("suspect") or not rec.get("total_demand"):
+            continue
+        if d[5:7] not in DEMAND_SPLIT_MONTHS or d[:4] < DEMAND_SPLIT_FROM:
+            continue
+        dem = rec["total_demand"]
+        if not (DEMAND_MIN_MW <= dem <= DEMAND_MAX_MW):
+            continue
+        rows[d[:4]].append((d[5:], dem, rec.get("total_loadshed") or 0))
+    if len(rows) < 2:
+        return None
+    newest = max(rows)
+    cutoff = max(md for md, _, _ in rows[newest])
+
+    out = []
+    for y in sorted(rows):
+        days = [x for x in rows[y] if x[0] <= cutoff]
+        if len(days) < 20:
+            continue
+        dem = sum(x[1] for x in days) / len(days)
+        shed = sum(x[2] for x in days) / len(days)
+        out.append({"year": y, "days": len(days),
+                    "demand": r(dem), "served": r(dem - shed), "shed": r(shed)})
+    if len(out) < 2:
+        return None
+
+    last, prev = out[-1], out[-2]
+    d_rise = last["demand"] - prev["demand"]
+    v_rise = last["served"] - prev["served"]
+    s_rise = last["shed"] - prev["shed"]
+    return {
+        "rows": out, "window_to": cutoff, "months": list(DEMAND_SPLIT_MONTHS),
+        "compare": {
+            "from": prev["year"], "to": last["year"],
+            "demand_pct": r(100 * (last["demand"] / prev["demand"] - 1), 1),
+            "served_pct": r(100 * (last["served"] / prev["served"] - 1), 1),
+            "demand_rise": r(d_rise), "served_rise": r(v_rise),
+            "shed_rise": r(s_rise),
+            "shed_share_of_rise": r(100 * s_rise / d_rise, 0) if d_rise > 0 else None,
+        },
+    }
 
 
 # ------------------------------------------------------------------ cost
@@ -1999,6 +2059,14 @@ def main():
     demand = build_demand(area)
     if demand:
         write_json(SITE_DATA / "demand.json", demand)
+        sp = demand.get("split")
+        if sp and sp.get("compare"):
+            c = sp["compare"]
+            print(f"[build] summer evening peak {c['from']}->{c['to']} "
+                  f"(1 Jun to {sp['window_to']}): published demand "
+                  f"{c['demand_pct']:+.1f}%, electricity actually delivered "
+                  f"{c['served_pct']:+.1f}%; {c['shed_share_of_rise']:.0f}% of the "
+                  f"rise is load-shedding counted as demand")
         g = demand["growth"]
         print(f"[build] peak demand {g['from']}->{g['to']}: {g['median_from']:,.0f} -> "
               f"{g['median_to']:,.0f} MW ({g['total_pct']:+.0f}%, {g['cagr_pct']}%/yr); "
