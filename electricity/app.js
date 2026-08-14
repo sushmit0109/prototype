@@ -171,7 +171,9 @@ const STR = {
     fuelLatest: 'সবশেষ দিনের ভাগ', share: 'অংশ',
 
     zonesTitle: 'কোন অঞ্চলে কেমন',
-    zonesSub: 'এনএলডিসির রিপোর্টে সন্ধ্যার সর্বোচ্চ চাহিদার সময় প্রতিটি অঞ্চলে কত চাহিদা ছিল আর কতটা কাটা পড়েছে।',
+    zonesSub: 'এনএলডিসির রিপোর্টে সন্ধ্যার সর্বোচ্চ চাহিদার সময় প্রতিটি অঞ্চলে কত চাহিদা ছিল আর কতটা কাটা পড়েছে — একটিমাত্র দিনের হিসাব, {date}।',
+    zoneOwn: 'নিজের চাহিদার কত ভাগ',
+    zoneTwoWays: 'শেষ দুটি কলাম দুটি আলাদা প্রশ্নের উত্তর দেয়, তাই ক্রমও আলাদা হতে পারে। “মোট লোডশেডিংয়ের কত ভাগ” বলে দেশের কাটা বিদ্যুতের কতটা কোন অঞ্চলে পড়েছে — ঢাকা সবচেয়ে বড় অঞ্চল বলে এখানে তার ভাগ স্বাভাবিকভাবেই বড়। “নিজের চাহিদার কত ভাগ” বলে সেই অঞ্চল যতটা চেয়েছিল তার কতটা পায়নি — ভোগান্তি মাপতে হলে এটিই দেখার কথা, আর ৯০ দিনের হিসাবে সেটিই ওপরের “কে বেশি ভুগছে” অংশে আছে।',
     zoneTrend: 'অঞ্চল ধরে লোডশেডিংয়ের গতিপ্রকৃতি',
     zoneName: 'অঞ্চল', zoneShare: 'মোট লোডশেডিংয়ের কত ভাগ',
 
@@ -378,7 +380,9 @@ const STR = {
     fuelLatest: 'Split on the latest day', share: 'share',
 
     zonesTitle: 'Zone by zone',
-    zonesSub: 'Demand and load-shedding in each zone at the evening peak, as published in the NLDC daily report.',
+    zonesSub: 'Demand and load-shedding in each zone at the evening peak, as published in the NLDC daily report — a single day, {date}.',
+    zoneOwn: 'Share of its own demand',
+    zoneTwoWays: 'The last two columns answer different questions and can rank the zones differently. “Share of all load-shedding” says where the country\u2019s cut power fell — Dhaka is the largest zone, so its share is large almost by construction. “Share of its own demand” says how much of what a zone asked for never arrived, which is the one to read for who is suffering; over 90 days that is the measure in the section above.',
     zoneTrend: 'Load-shedding trend by zone',
     zoneName: 'Zone', zoneShare: 'Share of all load-shedding',
 
@@ -1361,10 +1365,19 @@ function renderZones() {
       .sort((a, b) => b.shed - a.shed);
     table.innerHTML =
       `<thead><tr><th>${t('zoneName')}</th><th class="num">${t('demand').replace(' (প্রকাশিত)', '').replace(' (published)', '')}</th>` +
-      `<th class="num">${t('loadshedding')}</th><th class="num">${t('zoneShare')}</th></tr></thead><tbody>` +
+      `<th class="num">${t('loadshedding')}</th><th class="num">${t('zoneShare')}</th>` +
+      `<th class="num">${t('zoneOwn')}</th></tr></thead><tbody>` +
       rows.map(r => `<tr><td>${zoneName(r.k)}</td><td class="num">${fmt(r.demand)}</td>` +
-        `<td class="num">${fmt(r.shed)}</td><td class="num">${pct(r.shed / tot)}</td></tr>`).join('') +
+        `<td class="num">${fmt(r.shed)}</td><td class="num">${pct(r.shed / tot)}</td>` +
+        `<td class="num">${r.demand ? pct(r.shed / r.demand) : '—'}</td></tr>`).join('') +
       `</tbody>`;
+    // The table is one day and the equity section is ninety, so the date has
+    // to be on the page: without it the two look like contradictions rather
+    // than different questions asked over different windows.
+    const sub = document.querySelector('[data-i18n="zonesSub"]');
+    if (sub) sub.textContent = t('zonesSub').replace('{date}', fmtDate(last.date));
+    const tw = document.getElementById('zone-twoways');
+    if (tw) tw.textContent = t('zoneTwoWays');
   }
 
   const daily = (z.areawise_daily || []).slice(-365);
