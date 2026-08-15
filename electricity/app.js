@@ -173,6 +173,8 @@ const STR = {
     zonesTitle: 'কোন অঞ্চলে কেমন',
     zonesSub: 'এনএলডিসির রিপোর্টে সন্ধ্যার সর্বোচ্চ চাহিদার সময় প্রতিটি অঞ্চলে কত চাহিদা ছিল আর কতটা কাটা পড়েছে — একটিমাত্র দিনের হিসাব, {date}।',
     zoneOwn: 'নিজের চাহিদার কত ভাগ',
+    srcLatest: 'সর্বশেষ তথ্য',
+    srcBehind: '{n} দিন পিছিয়ে — সূত্রটি নতুন কিছু প্রকাশ করেনি',
     zoneTwoWays: 'শেষ দুটি কলাম দুটি আলাদা প্রশ্নের উত্তর দেয়, তাই ক্রমও আলাদা হতে পারে। “মোট লোডশেডিংয়ের কত ভাগ” বলে দেশের কাটা বিদ্যুতের কতটা কোন অঞ্চলে পড়েছে — ঢাকা সবচেয়ে বড় অঞ্চল বলে এখানে তার ভাগ স্বাভাবিকভাবেই বড়। “নিজের চাহিদার কত ভাগ” বলে সেই অঞ্চল যতটা চেয়েছিল তার কতটা পায়নি — ভোগান্তি মাপতে হলে এটিই দেখার কথা, আর ৯০ দিনের হিসাবে সেটিই ওপরের “কে বেশি ভুগছে” অংশে আছে।',
     zoneTrend: 'অঞ্চল ধরে লোডশেডিংয়ের গতিপ্রকৃতি',
     zoneName: 'অঞ্চল', zoneShare: 'মোট লোডশেডিংয়ের কত ভাগ',
@@ -382,6 +384,8 @@ const STR = {
     zonesTitle: 'Zone by zone',
     zonesSub: 'Demand and load-shedding in each zone at the evening peak, as published in the NLDC daily report — a single day, {date}.',
     zoneOwn: 'Share of its own demand',
+    srcLatest: 'latest data',
+    srcBehind: '{n} days behind — this source has published nothing newer',
     zoneTwoWays: 'The last two columns answer different questions and can rank the zones differently. “Share of all load-shedding” says where the country\u2019s cut power fell — Dhaka is the largest zone, so its share is large almost by construction. “Share of its own demand” says how much of what a zone asked for never arrived, which is the one to read for who is suffering; over 90 days that is the measure in the section above.',
     zoneTrend: 'Load-shedding trend by zone',
     zoneName: 'Zone', zoneShare: 'Share of all load-shedding',
@@ -529,6 +533,9 @@ const fuelColor = (f) => C.s[FUEL_ORDER.indexOf(f)] || C.s[5];
 
 const NS = 'http://www.w3.org/2000/svg';
 const MUTED_LINE = '#B9C4CE';
+// A daily report published for "yesterday" is normally a day or two behind,
+// so only flag a source once it is further back than that.
+const SOURCE_LAG_WARN = 3;
 function el(name, attrs = {}, parent = null) {
   const n = document.createElementNS(NS, name);
   for (const k in attrs) if (attrs[k] !== null && attrs[k] !== undefined) n.setAttribute(k, attrs[k]);
@@ -1509,9 +1516,22 @@ function renderTrust() {
 function renderSources() {
   const m = D.meta;
   if (!m) return;
-  document.getElementById('source-list').innerHTML = (m.sources || []).map(s =>
-    `<li><a href="${s.url}" target="_blank" rel="noopener">${LANG === 'bn' ? s.name_bn : s.name_en}</a></li>`
-  ).join('');
+  // Each source shows the newest day it holds. Publishers stop posting
+  // without notice, and a single page-wide "updated" stamp would go on
+  // saying everything is current while one of them silently fell behind.
+  const today = new Date();
+  document.getElementById('source-list').innerHTML = (m.sources || []).map(s => {
+    let tag = '';
+    if (s.latest) {
+      const lag = Math.floor((today - new Date(s.latest + 'T00:00:00')) / 86400000);
+      const late = lag >= SOURCE_LAG_WARN;
+      tag = `<span class="src-date${late ? ' src-late' : ''}">` +
+            `${t('srcLatest')} ${fmtDate(s.latest)}` +
+            (late ? ` · ${t('srcBehind').replace('{n}', fmt(lag))}` : '') + '</span>';
+    }
+    return `<li><a href="${s.url}" target="_blank" rel="noopener">` +
+           `${LANG === 'bn' ? s.name_bn : s.name_en}</a>${tag}</li>`;
+  }).join('');
   document.getElementById('footer-note').textContent = t('footerNote');
 }
 

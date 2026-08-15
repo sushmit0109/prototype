@@ -362,3 +362,8 @@ svg.chart .year-label { font-size: 11px; font-variant-numeric: tabular-nums;
 svg.chart .mark-label { fill: var(--muted); font-size: 10px;
   paint-order: stroke; stroke: var(--surface); stroke-width: 3px;
   stroke-linejoin: round; }
+
+/* Per-source freshness beside each source link. A source that has stopped
+   publishing is marked, rather than left to look as current as the rest. */
+#source-list .src-date { display: block; font-size: .82rem; color: var(--muted); }
+#source-list .src-late { color: #a2380f; font-weight: 600; }

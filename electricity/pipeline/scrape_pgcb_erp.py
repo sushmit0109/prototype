@@ -789,20 +789,35 @@ def main():
     missing = set(manifest.setdefault("missing", []))
 
     sess = session()
+    listed = set()
     if args.lo or args.hi or args.full:
         lo = args.lo or FIRST_ID
         hi = args.hi or (max(int(k) for k in done) + 400 if done else FIRST_ID + 800)
         ids = list(range(lo, min(hi, ID_CEILING) + 1))
     else:
-        ids = listing_ids(sess)
-        if not ids:
+        listed = set(listing_ids(sess))
+        if not listed:
             print("[erp] listing unreachable", file=sys.stderr)
             return 1
         # a few ids past the newest, in case the listing lags
-        ids += list(range(max(ids) + 1, max(ids) + 4))
+        ids = sorted(listed) + list(range(max(listed) + 1, max(listed) + 4))
 
-    todo = [i for i in ids
-            if str(i) not in done and (args.retry_missing or i not in missing)]
+    # An id that 404s only because tomorrow's report does not exist yet must
+    # not be blacklisted for good: a backfill that runs past the frontier
+    # would otherwise freeze the collection, and the scraper would go on
+    # reporting "nothing new" while reports piled up behind it. So the
+    # missing set is only trusted below the newest id already held, and never
+    # for an id the listing page is currently advertising.
+    frontier = max((int(k) for k in done), default=FIRST_ID)
+
+    def skip(i):
+        if str(i) in done:
+            return True
+        if args.retry_missing or i in listed or i >= frontier:
+            return False
+        return i in missing
+
+    todo = [i for i in ids if not skip(i)]
     if not todo:
         print("[erp] nothing new")
         return 0
@@ -835,6 +850,7 @@ def main():
                     bad += 1
                 else:
                     store.add(day)
+                    missing.discard(doc_id)
                     done[str(doc_id)] = {
                         "date": dates.get("hourly") or dates.get("lcurve")
                         or sorted(dates.values())[0],

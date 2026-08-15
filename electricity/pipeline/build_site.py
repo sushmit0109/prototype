@@ -238,6 +238,41 @@ def normalise_units(rec: dict) -> dict:
 GENREPORTS = {}
 
 
+REPAIRED_YEARS = []
+
+
+def repair_report_year(d):
+    """Put a report back in the year its listing says it belongs to.
+
+    A handful of NLDC sheets carry a mistyped year on the report line — five
+    days from late 2024 are dated 2028. The listing that published the file is
+    reliable, and a report always describes the day or two before it, so where
+    swapping in the listing's year lands the report next to its listing, that
+    is the date. Where it does not, the record is set aside rather than filed
+    under a year it cannot belong to: left alone it both loses a real day and
+    invents a phantom one years away.
+    """
+    iso, listing = d.get("date"), d.get("listing_date")
+    if not iso or not listing:
+        return d
+    try:
+        rep, lst = date.fromisoformat(iso), date.fromisoformat(listing)
+    except ValueError:
+        return None
+    if 0 <= (lst - rep).days <= 5:
+        return d
+    try:
+        fixed = rep.replace(year=lst.year)
+    except ValueError:                       # 29 Feb into a common year
+        return None
+    if 0 <= (lst - fixed).days <= 5:
+        REPAIRED_YEARS.append({"was": iso, "now": fixed.isoformat(),
+                               "listing": listing})
+        d["date"] = fixed.isoformat()
+        return d
+    return None
+
+
 def load_bpdb():
     """Daily records keyed by report date.
 
@@ -254,6 +289,9 @@ def load_bpdb():
             continue
         d = drop_implausible_plants(normalise_units(d))
         rescaled += 1 if d.get("unit_rescaled") else 0
+        d = repair_report_year(d)
+        if d is None:
+            continue
         g = d.get("genreport")
         # A report describes the day or two before the listing that published
         # it. Anything further away means its date line was misread — through
@@ -277,6 +315,10 @@ def load_bpdb():
         cur = recs.get(d["date"])
         if cur is None or len(json.dumps(d)) > len(json.dumps(cur)):
             recs[d["date"]] = d
+    if REPAIRED_YEARS:
+        ex = ", ".join(f"{x['was']}->{x['now']}" for x in REPAIRED_YEARS[:5])
+        print(f"[build] moved {len(REPAIRED_YEARS)} report(s) to the year their "
+              f"listing gives ({ex})")
     if rescaled:
         print(f"[build] rescaled {rescaled} day(s) whose energy sheet was "
               f"published in kWh under an MKWHr heading")
@@ -2113,16 +2155,27 @@ def main():
                          "usable": sum(1 for v in area.values() if not v.get("suspect")),
                          "suspect": sum(1 for v in area.values() if v.get("suspect"))},
         },
+        # Each source carries the newest day it actually holds. One "updated"
+        # stamp for the whole page would say everything is current whenever
+        # the build ran, which is wrong the moment a single publisher stops
+        # posting — and they do, without notice.
         "sources": [
             {"id": "pgcb", "name_en": "PGCB / NLDC hourly demand-supply-loadshed",
              "name_bn": "পিজিসিবি / এনএলডিসি ঘণ্টাভিত্তিক চাহিদা-সরবরাহ-লোডশেড",
-             "url": "https://erp.powergrid.gov.bd/web/generations/view_demand_supply_loadshed_bn"},
+             "url": "https://erp.powergrid.gov.bd/web/generations/view_demand_supply_loadshed_bn",
+             "latest": max((x["date"] for x in hourly), default=None)},
             {"id": "bpdb_archive", "name_en": "BPDB daily generation archive (NLDC PDF reports)",
              "name_bn": "বিপিডিবি দৈনিক উৎপাদন আর্কাইভ (এনএলডিসি পিডিএফ প্রতিবেদন)",
-             "url": "https://misc.bpdb.gov.bd/daily-generation-archive"},
+             "url": "https://misc.bpdb.gov.bd/daily-generation-archive",
+             "latest": max(bpdb, default=None)},
             {"id": "bpdb_area", "name_en": "BPDB area-wise demand",
              "name_bn": "বিপিডিবি এলাকাভিত্তিক চাহিদা",
-             "url": "https://misc.bpdb.gov.bd/area-wise-demand"},
+             "url": "https://misc.bpdb.gov.bd/area-wise-demand",
+             "latest": max(area, default=None)},
+            {"id": "pgcb_erp", "name_en": "PGCB daily workbook (NLDC reports, digitised)",
+             "name_bn": "পিজিসিবির দৈনিক ওয়ার্কবুক (এনএলডিসি প্রতিবেদন, ডিজিটাইজড)",
+             "url": "https://erp.powergrid.gov.bd/",
+             "latest": max(erp_summary, default=None)},
             {"id": "osm", "name_en": "OpenStreetMap (plant & substation locations, district boundaries)",
              "name_bn": "ওপেনস্ট্রিটম্যাপ (কেন্দ্র ও উপকেন্দ্রের অবস্থান, জেলা সীমানা)",
              "url": "https://www.openstreetmap.org/copyright"},
