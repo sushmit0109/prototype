@@ -29,6 +29,11 @@
   --d-400: #eb6834; --d-500: #c9521f; --d-600: #9d3f17; --d-700: #722d0f;
   --dest: #eb6834;
 
+  /* Ordinal ramp for the year-comparison lines. Its own tokens, because the
+     sequential map ramp is tuned for large filled areas and leaves the oldest
+     line too dim to follow at 1.7px on the dark surface. */
+  --year-1: #6da7ec; --year-2: #3987e5; --year-3: #256abf; --year-4: #0d366b;
+
   --empty: #e6e4de;
   --focus: #2a78d6;
 
@@ -62,6 +67,8 @@
     --d-400: #97431a; --d-500: #d95926; --d-600: #f2814a; --d-700: #ffab7d;
     --dest: #d95926;
 
+    --year-1: #3f74b5; --year-2: #4a93e8; --year-3: #79b6f5; --year-4: #c8e0fa;
+
     --empty: #2a2a28;
     --focus: #3987e5;
     --shadow: 0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
@@ -90,6 +97,8 @@
   --d-100: #241109; --d-200: #3a1a0d; --d-300: #5c2a13;
   --d-400: #97431a; --d-500: #d95926; --d-600: #f2814a; --d-700: #ffab7d;
   --dest: #d95926;
+
+  --year-1: #3f74b5; --year-2: #4a93e8; --year-3: #79b6f5; --year-4: #c8e0fa;
 
   --empty: #2a2a28;
   --focus: #3987e5;
@@ -159,6 +168,31 @@ header.top p  { margin: 0; color: var(--text-secondary); font-size: 13.5px; max-
 .grid2.maps { grid-template-columns: 1fr 1.9fr; }
 .grid2.maps .map-wrap { flex: 1; display: flex; align-items: center; }
 .grid2.maps .map-wrap svg { width: 100%; }
+
+/* ---------- panel head: title + view switch ---------- */
+
+.panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.panel-head .hint { margin-bottom: 10px; }
+
+.seg { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 2px; flex: none; }
+.seg button {
+  border: 0; background: transparent; color: var(--text-secondary);
+  font: inherit; font-size: 12.5px; padding: 5px 11px; border-radius: 6px; cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--surface-1); color: var(--text-primary); font-weight: 600; box-shadow: var(--shadow); }
+.seg button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+/* Time-window presets. Small and quiet: they are a shortcut for the brush,
+   not the primary control. */
+.presets { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.presets button {
+  border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
+  font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 999px; cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.presets button:hover { border-color: var(--border-strong); color: var(--text-primary); }
+.presets button[aria-pressed="true"] { background: var(--origin); border-color: var(--origin); color: #fff; font-weight: 600; }
+.presets button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 /* ---------- corridor / selection bar ---------- */
 
@@ -259,6 +293,9 @@ svg { display: block; width: 100%; height: auto; }
 .brush-sel  { fill: var(--origin); fill-opacity: .1; stroke: var(--origin); stroke-width: 1; }
 .brush-out  { fill: var(--surface-0); fill-opacity: .62; pointer-events: none; }
 .brush-handle { fill: var(--origin); cursor: ew-resize; rx: 2; }
+
+.year-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.year-label { font-size: 11.5px; font-weight: 650; font-variant-numeric: tabular-nums; }
 
 /* ---------- legend ---------- */
 

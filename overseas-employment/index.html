@@ -38,8 +38,17 @@
   </div>
 
   <section class="panel">
-    <h2>Timeline</h2>
-    <p class="hint">Monthly clearances for the current corridor. Drag across the chart to select a period; click once to clear.</p>
+    <div class="panel-head">
+      <div>
+        <h2>Timeline</h2>
+        <p class="hint" id="tl-hint">Monthly clearances for the current corridor. Drag across the chart to select a period; click once to clear.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Timeline view">
+        <button type="button" data-mode="months" aria-pressed="true">Months</button>
+        <button type="button" data-mode="years" aria-pressed="false">By year</button>
+      </div>
+    </div>
+    <div class="presets" id="tl-presets" role="group" aria-label="Time window"></div>
     <div id="timeline"></div>
   </section>
 

@@ -71,6 +71,13 @@ filter, so a selection never blanks out the map you clicked it on.
 Nationally Malaysia is the second destination; for **Comilla**, Qatar overtakes
 it. That is the kind of sub-stratum difference the corridor view exists for.
 
+The period is set by dragging the timeline or by the buttons above it (All time,
+Last 12 months, or a single year). **Months / By year** switches the timeline to
+a year-over-year view — the same twelve months with one line per year — which is
+the only way to see whether the current year is running above or below the last.
+It replaces the timeline rather than sitting beside it, so there are never two
+time axes competing for the same glance.
+
 Every ranking row carries its own **sparkline and trend %** for the selected
 period, so trends compare twelve at a time rather than one. Selecting Comilla
 shows its destination mix shifting hard: Malaysia down 100% (to zero), Maldives

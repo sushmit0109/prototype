@@ -26,7 +26,7 @@ const MONTH_LABEL = (ym) => {
 };
 
 let DATA, BDGEO, WORLDGEO;
-const state = { m0: 0, m1: 0, dSel: null, cSel: null };
+const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months' };
 let agg = null;
 
 /* ---------------------------------------------------------------- utils */
@@ -241,8 +241,168 @@ function renderCorridor() {
 
 let brushDrag = null;
 
+/* ---- time-window presets -------------------------------------------
+ * A shortcut for the brush, not a second source of truth: a preset just sets
+ * [m0, m1], and dragging the brush deselects whichever preset no longer
+ * matches. That keeps one window, however it was chosen.
+ */
+
+function presetList() {
+  const months = DATA.months;
+  const last = months.length - 1;
+  const years = [...new Set(months.map((m) => m.slice(0, 4)))];
+  const out = [{ id: 'all', label: 'All time', m0: 0, m1: last }];
+  if (months.length > 12)
+    out.push({ id: 'last12', label: 'Last 12 months', m0: last - 11, m1: last });
+  years.forEach((y) => {
+    const idx = months.map((m, i) => (m.startsWith(y) ? i : -1)).filter((i) => i >= 0);
+    out.push({ id: y, label: y, m0: idx[0], m1: idx[idx.length - 1] });
+  });
+  return out;
+}
+
+function renderPresets() {
+  const host = $('#tl-presets');
+  host.replaceChildren();
+  presetList().forEach((p) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = p.label;
+    const active = state.m0 === p.m0 && state.m1 === p.m1;
+    b.setAttribute('aria-pressed', String(active));
+    b.onclick = () => { state.m0 = p.m0; state.m1 = p.m1; render(); };
+    host.appendChild(b);
+  });
+}
+
+/* ---- year comparison ------------------------------------------------
+ * Months of the year on one axis, one line per year. This is the view that
+ * answers "is this year running above or below last year", which a continuous
+ * timeline cannot show at a glance. Years are ordered, so the lines take an
+ * ordinal ramp of the origin hue - older lighter, current darkest - rather
+ * than categorical hues, and each line is labelled at its end.
+ */
+
+// Years are ordered, so they take an ordinal ramp of the origin hue rather
+// than categorical hues. Spread wide, because the two most recent years are
+// the pair a reader actually compares and must not look alike; the current
+// year also carries extra stroke weight.
+const YEAR_RAMP = ['--year-1', '--year-2', '--year-3', '--year-4'];
+const MON_ABBR = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+
+function renderYearChart(host) {
+  const W = host.clientWidth || 900, H = 210, padL = 46, padR = 52, padT = 12, padB = 26;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  svg.setAttribute('aria-label', 'Clearances by month of year, one line per year');
+
+  const years = [...new Set(DATA.months.map((m) => m.slice(0, 4)))];
+  // value per (year, month-of-year), from the corridor-filtered series
+  const byYear = years.map((y) => {
+    const pts = [];
+    DATA.months.forEach((ym, i) => {
+      if (ym.slice(0, 4) === y) pts.push({ mo: +ym.slice(5, 7) - 1, v: agg.mSer[i], i });
+    });
+    return { y, pts, total: pts.reduce((a, b) => a + b.v, 0) };
+  });
+
+  const max = Math.max(1, ...byYear.flatMap((s) => s.pts.map((p) => p.v)));
+  const x = (mo) => padL + (mo / 11) * (W - padL - padR);
+  const yy = (v) => H - padB - (v / max) * (H - padT - padB);
+
+  for (let t = 0; t <= 2; t++) {
+    const gv = (max / 2) * t;
+    svg.appendChild(svgEl('line', { class: 'gridline', x1: padL, x2: W - padR, y1: yy(gv), y2: yy(gv) }));
+    const lb = svgEl('text', { x: padL - 7, y: yy(gv) + 4, 'text-anchor': 'end' });
+    lb.setAttribute('fill', 'var(--text-muted)');
+    lb.style.fontSize = '10.5px';
+    lb.textContent = fmtCompact(Math.round(gv));
+    svg.appendChild(lb);
+  }
+  for (let mo = 0; mo < 12; mo++) {
+    const t = svgEl('text', { x: x(mo), y: H - 8, 'text-anchor': 'middle' });
+    t.setAttribute('fill', 'var(--text-muted)');
+    t.style.fontSize = '10.5px';
+    t.textContent = MON_ABBR[mo];
+    svg.appendChild(t);
+  }
+
+  // If the window is exactly one year, emphasise that year's line instead of
+  // the newest, so the chart and the period buttons agree with each other.
+  const selYear = DATA.months[state.m0].slice(0, 4) === DATA.months[state.m1].slice(0, 4)
+    ? DATA.months[state.m0].slice(0, 4) : null;
+  const emphYear = selYear || years[years.length - 1];
+
+  const labels = [];
+  byYear.forEach((s, k) => {
+    if (!s.pts.length) return;
+    const stroke = `var(${YEAR_RAMP[Math.min(k, YEAR_RAMP.length - 1)]})`;
+    const isLatest = s.y === emphYear;
+    let d = '';
+    s.pts.forEach((p, j) => { d += (j ? 'L' : 'M') + x(p.mo).toFixed(1) + ' ' + yy(p.v).toFixed(1); });
+    svg.appendChild(svgEl('path', {
+      class: 'year-line', d, stroke,
+      'stroke-width': isLatest ? 2.8 : 1.7,
+      opacity: isLatest ? 1 : 0.85,
+    }));
+    const lastPt = s.pts[s.pts.length - 1];
+    svg.appendChild(svgEl('circle', {
+      cx: x(lastPt.mo).toFixed(1), cy: yy(lastPt.v).toFixed(1), r: isLatest ? 3.6 : 2.8, fill: stroke,
+    }));
+    labels.push({ y: s.y, stroke, isLatest, px: Math.min(x(lastPt.mo) + 8, W - 42), py: yy(lastPt.v) });
+  });
+
+  // Two years ending December at similar volumes put their labels on top of
+  // each other. Push them apart before drawing, keeping the order intact.
+  labels.sort((a, b) => a.py - b.py);
+  const GAP = 14;
+  for (let i = 1; i < labels.length; i++)
+    if (labels[i].py - labels[i - 1].py < GAP) labels[i].py = labels[i - 1].py + GAP;
+  const overflow = labels.length && labels[labels.length - 1].py - (H - padB);
+  if (overflow > 0) labels.forEach((l) => { l.py -= overflow; });
+
+  labels.forEach((l) => {
+    // Direct label: identity never rests on colour alone.
+    const lb = svgEl('text', { x: l.px, y: l.py + 4, class: 'year-label' });
+    lb.setAttribute('fill', l.stroke);
+    if (!l.isLatest) lb.setAttribute('opacity', '0.9');
+    lb.textContent = l.y;
+    svg.appendChild(lb);
+  });
+
+  // One hover target per month: a crosshair that reports every year at once.
+  const bandW = (W - padL - padR) / 11;
+  for (let mo = 0; mo < 12; mo++) {
+    const hit = svgEl('rect', {
+      x: x(mo) - bandW / 2, y: padT, width: bandW, height: H - padT - padB,
+      fill: 'transparent',
+    });
+    hit.addEventListener('pointermove', (e) => {
+      const rows = byYear
+        .map((s) => ({ y: s.y, p: s.pts.find((p) => p.mo === mo) }))
+        .filter((r) => r.p)
+        .map((r) => `<div class="t-val">${r.y}: ${fmt(Math.round(r.p.v))}</div>`)
+        .join('');
+      showTip(e, `<div class="t-name">${['January','February','March','April','May','June','July','August','September','October','November','December'][mo]}</div>${rows}<div class="t-sub">${corridorText()}</div>`);
+    });
+    hit.addEventListener('pointerleave', hideTip);
+    svg.appendChild(hit);
+  }
+
+  host.replaceChildren(svg);
+}
+
 function renderTimeline() {
   const host = $('#timeline');
+  renderPresets();
+  if (state.tlMode === 'years') {
+    $('#tl-hint').textContent =
+      'Each year on the same twelve months, so this year reads directly against the last. ' +
+      'Use the buttons below to change the period the maps and rankings cover.';
+    renderYearChart(host);
+    return;
+  }
+  $('#tl-hint').textContent =
+    'Monthly clearances for the current corridor. Drag across the chart to select a period; click once to clear.';
   const W = host.clientWidth || 900, H = 132, padL = 46, padR = 12, padT = 10, padB = 22;
   const n = DATA.months.length;
   const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
@@ -708,6 +868,15 @@ async function boot() {
   $('#foot-meta').textContent =
     `Data through ${DATA.meta.dateEnd}; rebuilt ${DATA.meta.generated}. ` +
     `${fmt(DATA.meta.total)} clearances mapped.`;
+
+  document.querySelectorAll('.seg button').forEach((b) => {
+    b.onclick = () => {
+      state.tlMode = b.dataset.mode;
+      document.querySelectorAll('.seg button').forEach((o) =>
+        o.setAttribute('aria-pressed', String(o.dataset.mode === state.tlMode)));
+      render();
+    };
+  });
 
   $('#reset-btn').onclick = () => {
     state.dSel = state.cSel = null;
