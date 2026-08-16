@@ -316,6 +316,26 @@ def main() -> None:
         print(f"\n  remittance_monthly.csv   {len(monthly):,} rows  "
               f"{len({r['district'] for r in monthly})} districts  "
               f"{len(months)} months  {months[0]}..{months[-1]}")
+    # Newer reports drop the multi-year Annex-IV in favour of "last FY + this
+    # FY by month". Any fiscal year whose twelve months are all present for all
+    # 64 districts can therefore be summed into an annual figure, which is how
+    # the current year appears without waiting for the next report's annexure.
+    have_fy = {r["fiscal_year"] for r in annual}
+    bymonth: dict[tuple[str, str], dict[int, float]] = {}
+    for r in monthly:
+        bymonth.setdefault((r["district"], r["fiscal_year"]), {})[r["month"]] = r["remittance_musd"]
+    derived = 0
+    for (dist, fy), months_ in bymonth.items():
+        if fy in have_fy or len(months_) < 12:
+            continue
+        annual.append({"district": dist, "fiscal_year": fy,
+                       "remittance_musd": round(sum(months_.values()), 1),
+                       "source_pdf": "derived from 12 monthly columns"})
+        derived += 1
+    if derived:
+        print(f"  derived {derived} annual rows from complete monthly years")
+        annual.sort(key=lambda r: (r["fiscal_year"], r["district"]))
+
     if annual:
         with open(ROOT / "remittance_annual_fy.csv", "w", newline="") as f:
             w = csv.DictWriter(f, fieldnames=list(annual[0].keys()))
