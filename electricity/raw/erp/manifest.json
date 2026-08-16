@@ -8281,6 +8281,20 @@
     "summary",
     "zones"
    ]
+  },
+  "5100":{
+   "date":"2026-08-15",
+   "bytes":518593,
+   "parts":[
+    "encurve",
+    "forecast",
+    "hourly",
+    "lcurve",
+    "plants",
+    "substations",
+    "summary",
+    "zones"
+   ]
   }
  },
  "missing":[
@@ -8361,8 +8375,8 @@
   5060,
   5070,
   5082,
-  5100,
   5101,
-  5102
+  5102,
+  5103
  ]
 }
