@@ -96,6 +96,19 @@ per 100,000 — against roughly 400 across the north-west, a 16x spread.
 exactly to the unfiltered total, so crawling women and "other" is enough and men
 fall out by subtraction — halving what would otherwise be two more full passes.
 
+**Remittance** adds Bangladesh Bank's district-level inflows (million USD by
+fiscal year, FY2017-18 onward) as a second dataset. Its geography is genuinely
+different — Sylhet division lights up where the clearance map does not.
+
+There is deliberately no "USD per clearance": remittance is credited to the
+recipient's district and clearances record the worker's home district, so Dhaka
+takes 34.8% of remittance against 4.1% of clearances and the ratio would put it
+at 15.6x the median — a banking artefact dressed as a migration finding. Both
+shares appear in the tooltip instead.
+
+Extraction of those tables, and what breaks in them, is documented in
+`pipeline/remittance/README.md`.
+
 ## Design notes
 
 **Both maps are heatmaps, on deliberately different scales.** Districts use

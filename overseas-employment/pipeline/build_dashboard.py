@@ -150,6 +150,22 @@ def load_population() -> dict[str, dict]:
     }
 
 
+def load_remittance() -> dict[str, dict[str, float]]:
+    """District -> {fiscal year: million USD}, from the Bangladesh Bank extract.
+
+    Optional: the dashboard hides the remittance lens when this is absent.
+    Annual only - Bangladesh Bank's district figures exist as a fiscal-year
+    series from FY 2017-18; the monthly tables start only in late 2024.
+    """
+    f = ROOT / "remittance" / "remittance_annual_fy.csv"
+    if not f.exists():
+        return {}
+    out: dict[str, dict[str, float]] = {}
+    for r in csv.DictReader(f.read_text().splitlines()):
+        out.setdefault(r["district"], {})[r["fiscal_year"]] = float(r["remittance_musd"])
+    return out
+
+
 def round_coords(obj, nd: int = 3):
     """Trim coordinate precision. 3dp is ~110m, far finer than a district map needs."""
     if isinstance(obj, list):
@@ -283,6 +299,13 @@ def main() -> None:
         sys.exit(f"FATAL: districts with no population: {missing_pop}")
     tot_t = sum(v["t"] for v in dpop.values())
     tot_w = sum(v["w"] for v in dpop.values())
+    rem = load_remittance()
+    if rem:
+        fys = sorted({fy for v in rem.values() for fy in v})
+        miss = [d for d in dnames if d not in rem]
+        print(f"  remittance mapped              : {len(rem)}/64 districts, "
+              f"{len(fys)} fiscal years {fys[0]}..{fys[-1]}"
+              + (f"  MISSING {miss}" if miss else ""))
     print(f"  population mapped              : {len(dpop)}/64  "
           f"(total {tot_t:,}; working age 15-64 {tot_w:,} = {100*tot_w/tot_t:.1f}%)")
     print(f"  districts mapped to geometry : {len(bd_out['features'])}/64")
@@ -417,6 +440,8 @@ def main() -> None:
             "generated": today().isoformat(),
             "source": "BMET / OEP geo-clearance report, oep.gov.bd",
             "popSource": "District population: 2022 census, UN OCHA COD-PS (UNFPA/BBS)",
+            "remSource": ("District remittance: Bangladesh Bank, Monthly Report on Workers' "
+                          "Remittance Inflows (Annex-IV), million USD by fiscal year"),
             "dateStart": DATA_START.isoformat(),
             "dateEnd": max(d for d, _ in daily),
             "total": total,
@@ -430,7 +455,8 @@ def main() -> None:
         # rather than a single national point.
         "districts": [
             {"n": d, "v": ddiv[d], "c": [round(x, 2) for x in dcentroid[d]],
-             "p": dpop[d]["t"], "pw": dpop[d]["w"]}
+             "p": dpop[d]["t"], "pw": dpop[d]["w"],
+             "r": rem.get(d) or None}
             for d in dnames
         ],
         "countries": [

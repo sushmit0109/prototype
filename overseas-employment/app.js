@@ -49,18 +49,55 @@ const genderLabel = () =>
  * destination country. */
 const PER = 100000;
 const DENOM = { rate: 'p', rateW: 'pw' };     // total population / working age 15-64
-const isRate = () => state.measure !== 'total';
+const isRem = () => state.measure === 'rem';
+
+/* Remittance lens.
+ *
+ * A different quantity, not a different cut of the same one: Bangladesh Bank
+ * credits remittance to the RECIPIENT's district, while a clearance records the
+ * worker's home district. Dhaka takes 34.8% of remittance against 4.1% of
+ * clearances - that is where bank accounts and head offices sit, not where
+ * migrants come from. So this colours the map by remittance itself and shows
+ * both shares side by side in the tooltip, rather than dividing one by the
+ * other: "USD per clearance" would put Dhaka at 15.6x the median and read as a
+ * migration finding when it is a banking artefact.
+ *
+ * It is also annual - the district figures exist only as a fiscal-year series -
+ * and it has no destination breakdown, so a country selection cannot apply. */
+const FY_OF = (ym) => {
+  const y = +ym.slice(0, 4), m = +ym.slice(5, 7);
+  const s = m >= 7 ? y : y - 1;
+  return `FY${s}-${String((s + 1) % 100).padStart(2, '0')}`;
+};
+function remFYs() {
+  // fiscal years overlapping the selected months that we actually hold data for
+  const want = new Set();
+  for (let i = state.m0; i <= state.m1; i++) want.add(FY_OF(DATA.months[i]));
+  const have = new Set();
+  DATA.districts.forEach((d) => d.r && Object.keys(d.r).forEach((f) => have.add(f)));
+  return [...want].filter((f) => have.has(f)).sort();
+}
+const remValue = (i, fys) => {
+  const r = DATA.districts[i].r;
+  if (!r) return 0;
+  return fys.reduce((a, f) => a + (r[f] || 0), 0);
+};
+const isRate = () => state.measure === 'rate' || state.measure === 'rateW';
 const denomKey = () => DENOM[state.measure];
 const denomLabel = () =>
   state.measure === 'rateW' ? 'residents aged 15–64' : 'residents';
+let REM_FYS = [];
 const districtValue = (i) => {
+  if (isRem()) return remValue(i, REM_FYS);
   if (!isRate()) return agg.dTot[i];
   const d = DATA.districts[i][denomKey()];
   return d ? (agg.dTot[i] / d) * PER : 0;
 };
 const fmtRate = (v) => (v >= 100 ? Math.round(v).toLocaleString('en-US')
   : v >= 10 ? v.toFixed(1) : v.toFixed(2));
-const fmtDistrict = (v) => (isRate() ? fmtRate(v) + ' / 100k' : fmt(Math.round(v)));
+const fmtUSD = (v) => (v >= 1000 ? (v / 1000).toFixed(2) + 'bn' : v.toFixed(1) + 'm') + ' USD';
+const fmtDistrict = (v) =>
+  isRem() ? fmtUSD(v) : isRate() ? fmtRate(v) + ' / 100k' : fmt(Math.round(v));
 let agg = null;
 
 /* ---------------------------------------------------------------- utils */
@@ -208,6 +245,7 @@ function trendOf(series) {
 
 function render() {
   aggregate();
+  REM_FYS = isRem() ? remFYs() : [];
   renderKpis();
   renderCorridor();
   renderTimeline();
@@ -227,9 +265,11 @@ function renderKpis() {
   const dMax = maxIdx(dVals), cMax = maxIdx(cTot);
   $('#kpi-district').textContent = dMax < 0 ? '—' : DATA.districts[dMax].n;
   $('#kpi-district-sub').textContent = dMax < 0 ? ''
+    : isRem() ? fmtUSD(dVals[dMax]) + ' received'
     : isRate() ? fmtRate(dVals[dMax]) + ' per 100k ' + denomLabel()
     : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
-  $('#kpi-district-label').textContent = isRate() ? 'Highest rate' : 'Top origin';
+  $('#kpi-district-label').textContent =
+    isRem() ? 'Top remittance' : isRate() ? 'Highest rate' : 'Top origin';
   $('#kpi-country').textContent = cMax < 0 ? '—' : DATA.countries[cMax].n;
   $('#kpi-country-sub').textContent =
     cMax < 0 ? '' : fmt(cTot[cMax]) + ' (' + pct(cTot[cMax], sum(cTot)) + ')';
@@ -559,16 +599,22 @@ function renderBdMap() {
       tabindex: '0', role: 'button',
     });
     p.setAttribute('aria-label',
-      `${f.properties.name}: ${fmtDistrict(val)}${isRate() ? ' per 100,000 ' + denomLabel() : ' clearances'}`);
+      `${f.properties.name}: ${fmtDistrict(val)}` +
+      (isRem() ? ' remittance received' : isRate() ? ' per 100,000 ' + denomLabel() : ' clearances'));
     const activate = () => { state.dSel = state.dSel === i ? null : i; render(); };
     p.addEventListener('click', activate);
     p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     p.addEventListener('pointermove', (e) =>
       showTip(e, `<div class="t-name">${f.properties.name}</div>
-        <div class="t-val">${isRate()
-          ? fmtRate(val) + ' per 100,000 ' + denomLabel()
-          : fmt(Math.round(val)) + ' clearances'}</div>
-        <div class="t-sub">${isRate()
+        <div class="t-val">${isRem()
+          ? fmtUSD(val) + ' remittance'
+          : isRate()
+            ? fmtRate(val) + ' per 100,000 ' + denomLabel()
+            : fmt(Math.round(val)) + ' clearances'}</div>
+        ${isRem() ? `<div class="t-sub">${pct(val, sum(DATA.districts.map((_, k) => remValue(k, REM_FYS))))} of national remittance · ${pct(agg.dTot[i], sum(agg.dTot))} of clearances</div>` : ''}
+        <div class="t-sub">${isRem()
+          ? REM_FYS.join(', ') || 'no fiscal year in range'
+          : isRate()
           ? fmt(agg.dTot[i]) + ' clearances · ' + denomLabel() + ' ' + fmt(DATA.districts[i][denomKey()])
           : fmtRate((agg.dTot[i] / DATA.districts[i].p) * PER) + ' per 100k · population ' + fmt(DATA.districts[i].p)}</div>
         <div class="t-sub">${f.properties.division} division${state.cSel !== null ? ' → ' + DATA.countries[state.cSel].n : ''}</div>`));
@@ -578,10 +624,19 @@ function renderBdMap() {
 
   host.replaceChildren(svg);
   renderLegend($('#bd-legend'), breaks, RAMP_O,
-    isRate() ? 'Per 100,000 ' + denomLabel() : 'Clearances', Math.max(...dVals));
-  $('#bd-hint').textContent = state.cSel === null
-    ? 'Where workers come from. Click a district to see its destinations.'
-    : `Districts sending workers to ${DATA.countries[state.cSel].n}.`;
+    isRem() ? 'Remittance (million USD)' : isRate() ? 'Per 100,000 ' + denomLabel() : 'Clearances',
+    Math.max(...dVals));
+  if (isRem()) {
+    const fy = REM_FYS.length ? REM_FYS.join(', ') : 'no fiscal year in the selected period';
+    $('#bd-hint').textContent =
+      `Remittance received, ${fy} (Bangladesh Bank, annual). Credited to the ` +
+      'recipient\u2019s district, not the worker\u2019s home district' +
+      (state.cSel !== null ? ' \u2014 and not broken down by destination, so the country filter does not apply.' : '.');
+  } else {
+    $('#bd-hint').textContent = state.cSel === null
+      ? 'Where workers come from. Click a district to see its destinations.'
+      : `Districts sending workers to ${DATA.countries[state.cSel].n}.`;
+  }
 }
 
 /* -------------------------------------------------------- world map */
@@ -776,7 +831,7 @@ function barChart(host, items, colorClass, onPick, selIdx, valFmt) {
     const trendTxt = it.trend == null ? ''
       : `, ${it.trend >= 0 ? 'up' : 'down'} ${Math.abs(Math.round(it.trend * 100))}% across the period`;
     g.setAttribute('aria-label',
-      `${it.n}: ${valFmt ? valFmt(it.v) + ' per 100,000 ' + denomLabel() : fmt(it.v) + ' clearances'}${trendTxt}`);
+      `${it.n}: ${valFmt ? valFmt(it.v) : fmt(it.v) + ' clearances'}${trendTxt}`);
 
     const lb = svgEl('text', { x: labelW - 8, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
     // Fit the label to the gutter actually available rather than a fixed count.
@@ -834,7 +889,7 @@ function barChart(host, items, colorClass, onPick, selIdx, valFmt) {
     g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     g.addEventListener('pointermove', (e) =>
       showTip(e, `<div class="t-name">${it.n}</div><div class="t-val">${
-        valFmt ? valFmt(it.v) + ' per 100,000 ' + denomLabel() : fmt(it.v) + ' clearances'}</div>
+        valFmt ? valFmt(it.v) : fmt(it.v) + ' clearances'}</div>
         <div class="t-sub">${it.sub || ''}</div>`));
     g.addEventListener('pointerleave', hideTip);
     svg.appendChild(g);
@@ -868,12 +923,18 @@ function renderBars() {
   const dNames = DATA.districts.map((d) => d.n);
   const cNames = DATA.countries.map((c) => c.n);
   barChart($('#bars-districts'),
-    topItems(agg.dTot, dNames, 12, agg.dSer, isRate() ? districtValue : null), '',
+    topItems(agg.dTot, dNames, 12, isRem() ? null : agg.dSer,
+             (isRate() || isRem()) ? districtValue : null), '',
     (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel,
-    isRate() ? fmtRate : null);
+    isRem() ? fmtUSD : isRate() ? fmtRate : null);
   barChart($('#bars-countries'), topItems(agg.cTot, cNames, 12, agg.cSer), 'dest',
     (i) => { state.cSel = state.cSel === i ? null : i; render(); }, state.cSel);
   const trendNote = ' Each row carries its own trend for the selected period.';
+  if (isRem()) {
+    $('#bars-d-hint').textContent =
+      'Ranked by remittance received. Dhaka takes 34.8% of remittance against ' +
+      '4.1% of clearances \u2014 that is where bank accounts sit, not where migrants come from.';
+  } else
   $('#bars-d-hint').textContent = (isRate()
     ? `Ranked by clearances per 100,000 ${denomLabel()} — propensity, not volume.`
     : state.cSel === null
@@ -941,6 +1002,11 @@ async function boot() {
         render();
       };
     });
+  }
+
+  if (DATA.districts.some((d) => d.r)) {
+    const rb = document.querySelector('.seg button[data-measure="rem"]');
+    if (rb) rb.hidden = false;
   }
 
   // Belt and braces: if the data predates a denominator, disable that option

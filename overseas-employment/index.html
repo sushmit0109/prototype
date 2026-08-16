@@ -67,6 +67,8 @@
                   title="Clearances per 100,000 residents of any age">Per 100k</button>
           <button type="button" data-measure="rateW" aria-pressed="false"
                   title="Clearances per 100,000 residents aged 15–64">Per 100k · 15–64</button>
+          <button type="button" data-measure="rem" aria-pressed="false" hidden
+                  title="Remittance received, million USD, by fiscal year">Remittance</button>
         </div>
       </div>
       <p class="hint" id="bd-hint">Where workers come from. Click a district to see its destinations.</p>
@@ -108,6 +110,8 @@
       Overseas Employment Portal, <a href="https://www.oep.gov.bd/reports/geo-clearance-count" rel="noopener">oep.gov.bd</a>.
       District boundaries from geoBoundaries (BGD ADM2); world boundaries from Natural Earth via world-atlas.
       District population from the 2022 census via UN OCHA's Common Operational Dataset (UNFPA / BBS).
+      District remittance from Bangladesh Bank's Monthly Report on Workers' Remittance Inflows (Annex-IV),
+      million USD by fiscal year, FY2017-18 onward.
       <span id="foot-meta"></span></p>
     <div class="caveat">
       <strong>Reading this data.</strong> A clearance is permission to take up a job abroad — it counts
@@ -117,6 +121,14 @@
       2023-06-19 is excluded entirely: it is a catch-all bucket in the source that keeps
       absorbing records rather than a real day.
       Figures for the most recent days are incomplete while data entry continues.
+      <br><strong>Remittance.</strong> A different quantity, not another cut of the same one.
+      Bangladesh Bank credits remittance to the <em>recipient's</em> district, while a clearance
+      records the worker's <em>home</em> district. Dhaka receives 34.8% of all remittance but
+      accounts for 4.1% of clearances — that is where bank accounts and head offices are, not
+      where migrants come from. For the same reason this dashboard does not show
+      &ldquo;USD per clearance&rdquo;: it would put Dhaka at 15.6&times; the national median and
+      read as a migration finding when it is a banking artefact. Remittance is annual
+      (FY2017-18 onward) and has no destination breakdown, so the country filter does not apply to it.
       <br><strong>Per 100,000.</strong> The rate divides clearances in the selected period by each
       district's 2022 census population — how many residents out of every 100,000 took a clearance,
       not how many people live there. <em>Per 100k · 15–64</em> uses only working-age residents
