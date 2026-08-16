@@ -176,6 +176,17 @@ REM_COUNTRY_ALIAS = {
 }
 
 
+def load_national_monthly() -> dict[str, dict[str, float]]:
+    """Fiscal year -> {month number: million USD} (Bangladesh Bank Annexure-II)."""
+    f = ROOT / "remittance" / "remittance_national_monthly.csv"
+    if not f.exists():
+        return {}
+    out: dict[str, dict[str, float]] = {}
+    for r in csv.DictReader(f.read_text().splitlines()):
+        out.setdefault(r["fiscal_year"], {})[r["month"]] = float(r["remittance_musd"])
+    return out
+
+
 def load_migrant_stock() -> dict[str, int]:
     """Country -> Bangladeshi migrants living there (UN DESA, 2024).
 
@@ -341,6 +352,7 @@ def main() -> None:
     rem = load_remittance()
     crem = load_country_remittance()
     stock = load_migrant_stock()
+    natmon = load_national_monthly()
     if rem:
         fys = sorted({fy for v in rem.values() for fy in v})
         miss = [d for d in dnames if d not in rem]
@@ -497,6 +509,8 @@ def main() -> None:
             "remSource": ("District remittance: Bangladesh Bank, Monthly Report on Workers' "
                           "Remittance Inflows (Annex-IV), million USD by fiscal year"),
             "stockSource": "Migrant stock: UN DESA International Migrant Stock 2024",
+            "remMonthlySource": ("National monthly remittance: Bangladesh Bank Annexure-II, "
+                                 "FY2014-15 onward"),
             "dateStart": DATA_START.isoformat(),
             "dateEnd": max(d for d, _ in daily),
             "total": total,
@@ -528,6 +542,9 @@ def main() -> None:
             str(g): pack(cubes[g]) for g in (MALE, 2) if g in cubes
         },
         "daily": {"dates": [d for d, _ in daily], "values": [v for _, v in daily]},
+        # national remittance by month, 12 fiscal years - the only monthly money
+        # series long enough for a seasonal comparison
+        "remMonthly": natmon or None,
     }
 
     def write(name: str, obj) -> None:

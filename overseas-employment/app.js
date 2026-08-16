@@ -106,11 +106,15 @@ const denomLabel = () =>
 let REM_FYS = [];
 const districtValue = (i) => {
   if (isRem()) {
-    const v = remValue(i, REM_FYS);
+    const v = remValue(i, REM_FYS);            // million USD over the period
     const k = DENOM[state.measure];
     if (!k) return v;
     const d = DATA.districts[i][k];
-    return d ? (v * 1e6 / d) * PER : 0;   // USD per 100,000 residents
+    // Money per head is per RESIDENT per YEAR. Per-100,000 is the right unit
+    // for counting people and a nonsense one for currency - it produced
+    // hundreds of millions, which then hit a formatter expecting millions and
+    // rendered as "521030.40bn USD".
+    return d ? (v * 1e6) / d / Math.max(REM_FYS.length, 1) : 0;
   }
   if (!isRate()) return agg.dTot[i];
   const d = DATA.districts[i][denomKey()];
@@ -119,8 +123,13 @@ const districtValue = (i) => {
 const fmtRate = (v) => (v >= 100 ? Math.round(v).toLocaleString('en-US')
   : v >= 10 ? v.toFixed(1) : v.toFixed(2));
 const fmtUSD = (v) => (v >= 1000 ? (v / 1000).toFixed(2) + 'bn' : v.toFixed(1) + 'm') + ' USD';
+// USD per head: plain dollars, never the million-denominated formatter.
+const fmtPerHead = (v) => '$' + (v >= 100 ? Math.round(v).toLocaleString('en-US') : v.toFixed(1));
+const remPerHead = () => isRem() && !!DENOM[state.measure];
 const fmtDistrict = (v) =>
-  isRem() ? fmtUSD(v) : isRate() ? fmtRate(v) + ' / 100k' : fmt(Math.round(v));
+  remPerHead() ? fmtPerHead(v)
+  : isRem() ? fmtUSD(v)
+  : isRate() ? fmtRate(v) + ' / 100k' : fmt(Math.round(v));
 let agg = null;
 
 /* ---------------------------------------------------------------- utils */
@@ -272,6 +281,19 @@ function render() {
   REM_FYS = isRem() ? remFYs() : [];
   const gs = $('#gender-seg');
   if (gs) gs.style.display = isRem() ? 'none' : '';
+  const fym = document.querySelector('.seg button[data-mode="fymonths"]');
+  if (fym) fym.hidden = !isRem() || !DATA.remMonthly;
+  const modeLabel = { months: isRem() ? 'Fiscal years' : 'Months',
+                      years: 'By year', fymonths: 'Month by month' };
+  document.querySelectorAll('.seg button[data-mode]').forEach((b) => {
+    if (modeLabel[b.dataset.mode]) b.textContent = modeLabel[b.dataset.mode];
+  });
+  if (!isRem() && state.tlMode === 'fymonths') state.tlMode = 'months';
+  const relabel = { rate: isRem() ? 'Per person' : 'Per 100k',
+                    rateW: isRem() ? 'Per person · 15–64' : 'Per 100k · 15–64' };
+  document.querySelectorAll('.seg button[data-measure]').forEach((b) => {
+    if (relabel[b.dataset.measure]) b.textContent = relabel[b.dataset.measure];
+  });
   const ln = $('#lens-note');
   if (ln) ln.textContent = isRem()
     ? 'Bangladesh Bank · fiscal years · annual'
@@ -306,6 +328,7 @@ function renderKpis() {
   const dMax = maxIdx(dVals), cMax = maxIdx(cTot);
   $('#kpi-district').textContent = dMax < 0 ? '—' : DATA.districts[dMax].n;
   $('#kpi-district-sub').textContent = dMax < 0 ? ''
+    : remPerHead() ? fmtPerHead(dVals[dMax]) + ' per resident, per year'
     : isRem() ? fmtUSD(dVals[dMax]) + ' received'
     : isRate() ? fmtRate(dVals[dMax]) + ' per 100k ' + denomLabel()
     : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
@@ -393,6 +416,124 @@ function renderPresets() {
     b.onclick = () => { state.m0 = p.m0; state.m1 = p.m1; render(); };
     host.appendChild(b);
   });
+}
+
+/** National remittance month by month, twelve fiscal years. The district and
+ *  country money series are annual; this is the only monthly one Bangladesh
+ *  Bank publishes long enough to show a shape, so it is national only and does
+ *  not drive the map selection. */
+function remMonths() {
+  const M = DATA.remMonthly || {};
+  const out = [];
+  Object.keys(M).sort().forEach((fy) => {
+    const y0 = +fy.slice(2, 6);
+    Object.keys(M[fy]).map(Number).sort((a, b) => (a >= 7 ? a - 12 : a) - (b >= 7 ? b - 12 : b))
+      .forEach((mn) => out.push({
+        fy, mn, y: mn >= 7 ? y0 : y0 + 1, v: M[fy][mn],
+        key: `${mn >= 7 ? y0 : y0 + 1}-${String(mn).padStart(2, '0')}`,
+      }));
+  });
+  return out.sort((a, b) => a.key.localeCompare(b.key));
+}
+
+function renderRemMonthly(host) {
+  const pts = remMonths();
+  const W = host.clientWidth || 900, H = 168, padL = 52, padR = 14, padT = 12, padB = 26;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  svg.setAttribute('aria-label', 'National remittance by month');
+  const max = Math.max(1, ...pts.map((p) => p.v));
+  const x = (i) => padL + (i / Math.max(1, pts.length - 1)) * (W - padL - padR);
+  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  for (let t = 0; t <= 2; t++) {
+    const gv = (max / 2) * t;
+    svg.appendChild(svgEl('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(gv), y2: y(gv) }));
+    const lb = svgEl('text', { x: padL - 8, y: y(gv) + 4, 'text-anchor': 'end' });
+    lb.setAttribute('fill', 'var(--text-muted)'); lb.style.fontSize = '10.5px';
+    lb.textContent = fmtCompact(Math.round(gv)); svg.appendChild(lb);
+  }
+  let dA = `M${x(0)} ${y(0)}`, dL = '';
+  pts.forEach((p, i) => { dA += `L${x(i)} ${y(p.v)}`; dL += (i ? 'L' : 'M') + x(i) + ' ' + y(p.v); });
+  dA += `L${x(pts.length - 1)} ${y(0)}Z`;
+  const ar = svgEl('path', { d: dA, class: 'timeline-area' }); ar.style.fill = 'var(--dest)';
+  svg.appendChild(ar);
+  const ln = svgEl('path', { d: dL, class: 'timeline-line' }); ln.style.stroke = 'var(--dest)';
+  svg.appendChild(ln);
+  for (let i = 0; i < pts.length; i += Math.ceil(pts.length / 8)) {
+    const t = svgEl('text', { x: x(i), y: H - 8, 'text-anchor': 'middle' });
+    t.setAttribute('fill', 'var(--text-muted)'); t.style.fontSize = '10.5px';
+    t.textContent = MONTH_LABEL(pts[i].key); svg.appendChild(t);
+  }
+  const hit = svgEl('rect', { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: 'transparent' });
+  hit.addEventListener('pointermove', (e) => {
+    const r = svg.getBoundingClientRect();
+    const i = clamp(Math.round((((e.clientX - r.left) / r.width) * W - padL) / ((W - padL - padR) / (pts.length - 1))), 0, pts.length - 1);
+    showTip(e, `<div class="t-name">${MONTH_LABEL(pts[i].key)}</div>
+      <div class="t-val">${fmtUSD(pts[i].v)}</div>
+      <div class="t-sub">national total · ${FY_LABEL(pts[i].fy)}</div>`);
+  });
+  hit.addEventListener('pointerleave', hideTip);
+  svg.appendChild(hit);
+  host.replaceChildren(svg);
+  $('#tl-hint').textContent =
+    'National remittance month by month, July 2014 onward (Bangladesh Bank). ' +
+    'District and country money are published annually, so this national series ' +
+    'is the only monthly one — it shows the shape, not the map selection.';
+}
+
+/** The same twelve months, one line per fiscal year: the seasonal comparison. */
+function renderRemSeasonal(host) {
+  const M = DATA.remMonthly || {};
+  const fys = Object.keys(M).sort();
+  const W = host.clientWidth || 900, H = 210, padL = 52, padR = 56, padT = 12, padB = 26;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  const ORD = [7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6];
+  const max = Math.max(1, ...fys.flatMap((f) => Object.values(M[f])));
+  const x = (k) => padL + (k / 11) * (W - padL - padR);
+  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  for (let t = 0; t <= 2; t++) {
+    const gv = (max / 2) * t;
+    svg.appendChild(svgEl('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(gv), y2: y(gv) }));
+    const lb = svgEl('text', { x: padL - 8, y: y(gv) + 4, 'text-anchor': 'end' });
+    lb.setAttribute('fill', 'var(--text-muted)'); lb.style.fontSize = '10.5px';
+    lb.textContent = fmtCompact(Math.round(gv)); svg.appendChild(lb);
+  }
+  ORD.forEach((mn, k) => {
+    const t = svgEl('text', { x: x(k), y: H - 8, 'text-anchor': 'middle' });
+    t.setAttribute('fill', 'var(--text-muted)'); t.style.fontSize = '10.5px';
+    t.textContent = MON_ABBR[mn - 1]; svg.appendChild(t);
+  });
+  const labels = [];
+  fys.forEach((f, i) => {
+    const shade = 0.18 + 0.82 * (i / Math.max(fys.length - 1, 1));
+    const latest = i === fys.length - 1;
+    const col = latest ? 'var(--dest)' : `color-mix(in srgb, var(--dest) ${Math.round(shade * 100)}%, var(--surface-1))`;
+    let d = '';
+    ORD.forEach((mn, k) => {
+      const v = M[f][mn]; if (v == null) return;
+      d += (d ? 'L' : 'M') + x(k).toFixed(1) + ' ' + y(v).toFixed(1);
+    });
+    if (!d) return;
+    svg.appendChild(svgEl('path', {
+      d, fill: 'none', stroke: col, 'stroke-width': latest ? 2.8 : 1.4,
+      'stroke-linejoin': 'round', 'stroke-linecap': 'round',
+    }));
+    const lastV = M[f][6] ?? M[f][ORD.filter((m) => M[f][m] != null).pop()];
+    labels.push({ t: FY_LABEL(f), col, py: y(lastV), latest });
+  });
+  labels.sort((a, b) => a.py - b.py);
+  for (let i = 1; i < labels.length; i++)
+    if (labels[i].py - labels[i - 1].py < 12) labels[i].py = labels[i - 1].py + 12;
+  labels.forEach((l) => {
+    const t = svgEl('text', { x: W - padR + 6, y: l.py + 4 });
+    t.setAttribute('fill', l.col); t.style.fontSize = '10.5px';
+    if (l.latest) t.style.fontWeight = '700';
+    t.textContent = l.t; svg.appendChild(t);
+  });
+  host.replaceChildren(svg);
+  $('#tl-hint').textContent =
+    'Every fiscal year on the same twelve months, so this year reads against the ' +
+    'last. National remittance (Bangladesh Bank); the Ramadan and Eid peaks are ' +
+    'the recurring spikes.';
 }
 
 /** Fiscal-year axis for the remittance lens: one bar per year, click to select
@@ -575,7 +716,12 @@ function renderYearChart(host) {
 
 function renderTimeline() {
   const host = $('#timeline');
-  if (isRem()) { renderPresets(); return renderFYTimeline(host); }
+  if (isRem()) {
+    renderPresets();
+    if (state.tlMode === 'years') return renderRemSeasonal(host);
+    if (state.tlMode === 'fymonths') return renderRemMonthly(host);
+    return renderFYTimeline(host);
+  }
   renderPresets();
   if (state.tlMode === 'years') {
     $('#tl-hint').textContent =
@@ -706,13 +852,16 @@ function renderBdMap() {
     });
     p.setAttribute('aria-label',
       `${f.properties.name}: ${fmtDistrict(val)}` +
-      (isRem() ? ' remittance received' : isRate() ? ' per 100,000 ' + denomLabel() : ' clearances'));
+      (remPerHead() ? ' per resident per year' : isRem() ? ' remittance received'
+       : isRate() ? ' per 100,000 ' + denomLabel() : ' clearances'));
     const activate = () => { state.dSel = state.dSel === i ? null : i; render(); };
     p.addEventListener('click', activate);
     p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     p.addEventListener('pointermove', (e) =>
       showTip(e, `<div class="t-name">${f.properties.name}</div>
-        <div class="t-val">${isRem()
+        <div class="t-val">${remPerHead()
+          ? fmtPerHead(val) + ' per ' + (state.measure === 'rateW' ? 'resident aged 15–64' : 'resident') + ', per year'
+          : isRem()
           ? fmtUSD(val) + ' remittance'
           : isRate()
             ? fmtRate(val) + ' per 100,000 ' + denomLabel()
@@ -730,7 +879,9 @@ function renderBdMap() {
 
   host.replaceChildren(svg);
   renderLegend($('#bd-legend'), breaks, RAMP_O,
-    isRem() ? 'Remittance (million USD)' : isRate() ? 'Per 100,000 ' + denomLabel() : 'Clearances',
+    remPerHead() ? 'USD per resident, per year'
+    : isRem() ? 'Remittance (million USD)'
+    : isRate() ? 'Per 100,000 ' + denomLabel() : 'Clearances',
     Math.max(...dVals));
   if (isRem()) {
     const fy = REM_FYS.length ? FY_RANGE() : 'no fiscal year in the selected period';
@@ -1089,7 +1240,7 @@ function renderBars() {
     topItems(agg.dTot, dNames, 12, isRem() ? null : agg.dSer,
              (isRate() || isRem()) ? districtValue : null), '',
     (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel,
-    isRem() ? fmtUSD : isRate() ? fmtRate : null);
+    remPerHead() ? fmtPerHead : isRem() ? fmtUSD : isRate() ? fmtRate : null);
   barChart($('#bars-countries'),
     topItems(agg.cTot, cNames, 12, isRem() ? null : agg.cSer, isRem() ? countryValue : null),
     'dest',
@@ -1098,8 +1249,8 @@ function renderBars() {
   const trendNote = ' Each row carries its own trend for the selected period.';
   if (isRem()) {
     $('#bars-d-hint').textContent =
-      'Ranked by remittance received. Dhaka takes 34.8% of remittance against ' +
-      '4.1% of clearances \u2014 that is where bank accounts sit, not where migrants come from.';
+      'Ranked by remittance received. Credited to the recipient\u2019s district \u2014 Dhaka leads ' +
+      'partly because that is where bank accounts and head offices are.';
   } else
   $('#bars-d-hint').textContent = (isRate()
     ? `Ranked by clearances per 100,000 ${denomLabel()} — propensity, not volume.`

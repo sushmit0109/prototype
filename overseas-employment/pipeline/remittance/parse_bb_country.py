@@ -231,3 +231,78 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# --------------------------------------------------------------------------
+# Annexure-II: month-wise national inflows, FY 2014-15 onward. A plain grid,
+# unlike the country table, so character layout is enough.
+
+MONTH_ORDER = ["July", "August", "September", "October", "November", "December",
+               "January", "February", "March", "April", "May", "June"]
+
+
+def parse_national_monthly(pdf: Path) -> dict[str, dict[int, float]]:
+    """Fiscal year -> {calendar month number: million USD}."""
+    out: dict[str, dict[int, float]] = {}
+    for p in range(1, n_pages(pdf) + 1):
+        txt = subprocess.run(
+            ["pdftotext", "-layout", "-f", str(p), "-l", str(p), str(pdf), "-"],
+            capture_output=True, text=True).stdout
+        titled = "Month-wise" in txt or "Month wise" in txt
+        # The Jan-Jun half sits on a continuation page with no title, only the
+        # month header and fiscal-year rows - the same trap as the district
+        # table, and it cost half the series.
+        cont = (sum(1 for m in MONTH_ORDER if m in txt) >= 3
+                and (re.search(r"^\s*\d{4}-\d{2,4}\s+[\d,]+\.\d", txt, re.M)
+                     or re.search(r"[\d,]+\.\d+\s+\d{4}-\d{2,4}\s*$", txt, re.M)))
+        if not (titled or cont):
+            continue
+        header = next((l for l in txt.splitlines()
+                       if sum(1 for m in MONTH_ORDER if m in l) >= 3), "")
+        cols = [m for m in MONTH_ORDER if m in header]
+        cols.sort(key=lambda m: header.index(m))
+        if not cols:
+            continue
+        for line in txt.splitlines():
+            # July-December rows lead with the fiscal year; the January-June
+            # half puts it at the END, after a Total column. Handling only the
+            # first layout silently halved the series.
+            m = re.match(r"^\s*(\d{4})-(\d{4}|\d{2})\s+(.*)$", line)
+            if m:
+                body, fy = m.group(3), f"FY{m.group(1)}-{m.group(2)[-2:]}"
+            else:
+                m2 = re.match(r"^\s*(.*?)\s+(\d{4})-(\d{4}|\d{2})\s*$", line)
+                if not m2:
+                    continue
+                body, fy = m2.group(1), f"FY{m2.group(2)}-{m2.group(3)[-2:]}"
+            vals = [float(v.replace(",", "")) for v in re.findall(r"[\d,]+\.\d+", body)]
+            if len(vals) < len(cols):
+                continue
+            for i, name in enumerate(cols):
+                if i < len(vals):
+                    out.setdefault(fy, {})[MONTH_ORDER.index(name)] = vals[i]
+    return out
+
+
+if __name__ == "__main__" and "--national" in sys.argv:
+    import io
+    pdfs = [Path(a) for a in sys.argv[1:] if a.endswith(".pdf")]
+    merged: dict[str, dict[int, float]] = {}
+    for f in pdfs:
+        for fy, mv in parse_national_monthly(f).items():
+            merged.setdefault(fy, {}).update(mv)
+    rows = []
+    for fy in sorted(merged):
+        for oi, v in sorted(merged[fy].items()):
+            name = MONTH_ORDER[oi]
+            mn = ["January","February","March","April","May","June","July",
+                  "August","September","October","November","December"].index(name) + 1
+            yr = int(fy[2:6]) + (0 if mn >= 7 else 1)
+            rows.append({"fiscal_year": fy, "year": yr, "month": mn,
+                         "date": f"{yr}-{mn:02d}", "remittance_musd": v})
+    rows.sort(key=lambda r: r["date"])
+    with open(ROOT / "remittance_national_monthly.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w.writeheader(); w.writerows(rows)
+    print(f"  remittance_national_monthly.csv  {len(rows)} rows  "
+          f"{rows[0]['date']}..{rows[-1]['date']}  {len(merged)} fiscal years")
