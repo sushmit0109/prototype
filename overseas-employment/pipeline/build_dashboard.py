@@ -20,6 +20,7 @@ unmatched - a silently unmapped district would just vanish from the map.
 
 from __future__ import annotations
 
+import csv
 import json
 import os
 import sqlite3
@@ -41,6 +42,14 @@ BD_ADM2_URL = (
     "BGD/ADM2/geoBoundaries-BGD-ADM2_simplified.geojson"
 )
 WORLD_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
+
+# District population, 2022 census, from the UN OCHA Common Operational Dataset
+# (UNFPA / BBS) on HDX. Needed for the per-100,000 view: absolute counts only
+# say which districts are large, not where the propensity to emigrate is high.
+POP_URL = (
+    "https://data.humdata.org/dataset/fdf0606c-8a3b-421a-b3e8-903301e5b2ff/"
+    "resource/43bfa9fd-f571-4973-9f31-91093e1e6142/download/bgd_admpop_adm2_2022.csv"
+)
 
 # BMET district spelling -> geoBoundaries shapeName. Only the ones that differ;
 # the other 56 match exactly. Mostly the post-2018 romanisation updates.
@@ -112,6 +121,21 @@ def fetch_cached(url: str, name: str) -> dict:
         with urllib.request.urlopen(req, timeout=180) as r:
             p.write_bytes(r.read())
     return json.loads(p.read_text())
+
+
+def load_population() -> dict[str, int]:
+    """District -> 2022 census population, keyed by BMET's spelling."""
+    GEO_CACHE.mkdir(parents=True, exist_ok=True)
+    p = GEO_CACHE / "pop_adm2.csv"
+    if not p.exists():
+        print("  downloading pop_adm2.csv ...")
+        req = urllib.request.Request(POP_URL, headers={"User-Agent": "bmet-dashboard-build"})
+        with urllib.request.urlopen(req, timeout=180) as r:
+            p.write_bytes(r.read())
+    return {
+        r["ADM2_NAME"].strip(): int(r["T_TL"])
+        for r in csv.DictReader(p.read_text(encoding="utf-8-sig").splitlines())
+    }
 
 
 def round_coords(obj, nd: int = 3):
@@ -238,6 +262,15 @@ def main() -> None:
         f["properties"]["name"]: polygon_centroid(f["geometry"])
         for f in bd_out["features"]
     }
+
+    # Population, on the same eight spelling variants as the boundary file.
+    pop_raw = load_population()
+    dpop = {d: pop_raw.get(DISTRICT_TO_GEO.get(d, d)) for d in dnames}
+    missing_pop = [d for d, v in dpop.items() if not v]
+    if missing_pop:
+        sys.exit(f"FATAL: districts with no population: {missing_pop}")
+    print(f"  population mapped              : {len(dpop)}/64  "
+          f"(total {sum(dpop.values()):,})")
     print(f"  districts mapped to geometry : {len(bd_out['features'])}/64")
 
     # ---- countries ------------------------------------------------------
@@ -328,6 +361,7 @@ def main() -> None:
         "meta": {
             "generated": today().isoformat(),
             "source": "BMET / OEP geo-clearance report, oep.gov.bd",
+            "popSource": "District population: 2022 census, UN OCHA COD-PS (UNFPA/BBS)",
             "dateStart": DATA_START.isoformat(),
             "dateEnd": max(d for d, _ in daily),
             "total": total,
@@ -340,7 +374,8 @@ def main() -> None:
         # District centroid, so the connection arcs leave from the real place
         # rather than a single national point.
         "districts": [
-            {"n": d, "v": ddiv[d], "c": [round(x, 2) for x in dcentroid[d]]}
+            {"n": d, "v": ddiv[d], "c": [round(x, 2) for x in dcentroid[d]],
+             "p": dpop[d]}
             for d in dnames
         ],
         "countries": [

@@ -22,7 +22,7 @@
 
   <section class="kpis" aria-label="Headline figures">
     <div class="kpi"><div class="label">Clearances</div><div class="value" id="kpi-total">—</div><div class="sub" id="kpi-total-sub">in view</div></div>
-    <div class="kpi"><div class="label">Top origin</div><div class="value" id="kpi-district">—</div><div class="sub" id="kpi-district-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label" id="kpi-district-label">Top origin</div><div class="value" id="kpi-district">—</div><div class="sub" id="kpi-district-sub">&nbsp;</div></div>
     <div class="kpi"><div class="label">Top destination</div><div class="value" id="kpi-country">—</div><div class="sub" id="kpi-country-sub">&nbsp;</div></div>
     <div class="kpi"><div class="label">Busiest month</div><div class="value" id="kpi-peak">—</div><div class="sub" id="kpi-peak-sub">&nbsp;</div></div>
   </section>
@@ -54,7 +54,13 @@
 
   <div class="grid2 maps" style="margin-bottom:16px">
     <section class="panel">
-      <h2>Origin — districts of Bangladesh</h2>
+      <div class="panel-head">
+        <h2>Origin — districts</h2>
+        <div class="seg" role="group" aria-label="District measure">
+          <button type="button" data-measure="total" aria-pressed="true">Total</button>
+          <button type="button" data-measure="rate" aria-pressed="false">Per 100k</button>
+        </div>
+      </div>
       <p class="hint" id="bd-hint">Where workers come from. Click a district to see its destinations.</p>
       <div class="map-wrap" id="bd-map"></div>
       <div class="legend" id="bd-legend" aria-hidden="true"></div>
@@ -93,6 +99,7 @@
     <p><strong>Source:</strong> Bureau of Manpower, Employment and Training (BMET) /
       Overseas Employment Portal, <a href="https://www.oep.gov.bd/reports/geo-clearance-count" rel="noopener">oep.gov.bd</a>.
       District boundaries from geoBoundaries (BGD ADM2); world boundaries from Natural Earth via world-atlas.
+      District population from the 2022 census via UN OCHA's Common Operational Dataset (UNFPA / BBS).
       <span id="foot-meta"></span></p>
     <div class="caveat">
       <strong>Reading this data.</strong> A clearance is permission to take up a job abroad — it counts
@@ -102,6 +109,11 @@
       2023-06-19 is excluded entirely: it is a catch-all bucket in the source that keeps
       absorbing records rather than a real day.
       Figures for the most recent days are incomplete while data entry continues.
+      <br><strong>Per 100,000.</strong> The rate divides clearances in the selected period by each
+      district's 2022 census population — so it measures how many residents out of every 100,000
+      took a clearance, not how many people live there. It is a propensity measure, and it is
+      sensitive in small districts. Population is fixed at the 2022 census; internal migration
+      since then is not reflected.
     </div>
   </footer>
 </div>

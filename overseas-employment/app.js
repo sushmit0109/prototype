@@ -26,7 +26,22 @@ const MONTH_LABEL = (ym) => {
 };
 
 let DATA, BDGEO, WORLDGEO;
-const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months' };
+const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months', measure: 'total' };
+
+/* Per-100,000-residents view.
+ *
+ * Absolute counts mostly rank districts by how big they are. Dividing by the
+ * 2022 census population turns the map into a propensity measure: out of every
+ * 100,000 residents, how many took a clearance in the selected period. Only the
+ * origin side is normalised - a rate per Bangladeshi head is meaningless on a
+ * destination country. */
+const PER = 100000;
+const isRate = () => state.measure === 'rate';
+const districtValue = (i) =>
+  isRate() ? (agg.dTot[i] / DATA.districts[i].p) * PER : agg.dTot[i];
+const fmtRate = (v) => (v >= 100 ? Math.round(v).toLocaleString('en-US')
+  : v >= 10 ? v.toFixed(1) : v.toFixed(2));
+const fmtDistrict = (v) => (isRate() ? fmtRate(v) + ' / 100k' : fmt(Math.round(v)));
 let agg = null;
 
 /* ---------------------------------------------------------------- utils */
@@ -189,10 +204,13 @@ function renderKpis() {
   $('#kpi-total-sub').textContent =
     total === DATA.meta.total ? 'all records' : fmt(total) + ' in view';
 
-  const dMax = maxIdx(dTot), cMax = maxIdx(cTot);
+  const dVals = DATA.districts.map((_, i) => districtValue(i));
+  const dMax = maxIdx(dVals), cMax = maxIdx(cTot);
   $('#kpi-district').textContent = dMax < 0 ? '—' : DATA.districts[dMax].n;
-  $('#kpi-district-sub').textContent =
-    dMax < 0 ? '' : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
+  $('#kpi-district-sub').textContent = dMax < 0 ? ''
+    : isRate() ? fmtRate(dVals[dMax]) + ' per 100k residents'
+    : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
+  $('#kpi-district-label').textContent = isRate() ? 'Highest rate' : 'Top origin';
   $('#kpi-country').textContent = cMax < 0 ? '—' : DATA.countries[cMax].n;
   $('#kpi-country-sub').textContent =
     cMax < 0 ? '' : fmt(cTot[cMax]) + ' (' + pct(cTot[cMax], sum(cTot)) + ')';
@@ -507,11 +525,12 @@ function renderBdMap() {
   const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
   svg.setAttribute('aria-label', 'Choropleth of Bangladesh districts by clearances');
   const proj = makeProjection(bbox, W, H, 8);
-  const breaks = quantileBreaks(Array.from(agg.dTot), 6);
+  const dVals = DATA.districts.map((_, i) => districtValue(i));
+  const breaks = quantileBreaks(dVals, 6);
 
   BDGEO.features.forEach((f) => {
     const i = DISTRICT_INDEX[f.properties.name];
-    const val = agg.dTot[i] || 0;
+    const val = dVals[i] || 0;
     const b = binOf(val, breaks);
     const p = svgEl('path', {
       class: 'geo' + (state.dSel === i ? ' sel' : ''),
@@ -519,20 +538,27 @@ function renderBdMap() {
       fill: b < 0 ? 'var(--empty)' : `var(${RAMP_O[b]})`,
       tabindex: '0', role: 'button',
     });
-    p.setAttribute('aria-label', `${f.properties.name}: ${fmt(val)} clearances`);
+    p.setAttribute('aria-label',
+      `${f.properties.name}: ${fmtDistrict(val)}${isRate() ? ' per 100,000 residents' : ' clearances'}`);
     const activate = () => { state.dSel = state.dSel === i ? null : i; render(); };
     p.addEventListener('click', activate);
     p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     p.addEventListener('pointermove', (e) =>
       showTip(e, `<div class="t-name">${f.properties.name}</div>
-        <div class="t-val">${fmt(val)} clearances</div>
+        <div class="t-val">${isRate()
+          ? fmtRate(val) + ' per 100,000 residents'
+          : fmt(Math.round(val)) + ' clearances'}</div>
+        <div class="t-sub">${isRate()
+          ? fmt(agg.dTot[i]) + ' clearances · population ' + fmt(DATA.districts[i].p)
+          : fmtRate((agg.dTot[i] / DATA.districts[i].p) * PER) + ' per 100k · population ' + fmt(DATA.districts[i].p)}</div>
         <div class="t-sub">${f.properties.division} division${state.cSel !== null ? ' → ' + DATA.countries[state.cSel].n : ''}</div>`));
     p.addEventListener('pointerleave', hideTip);
     svg.appendChild(p);
   });
 
   host.replaceChildren(svg);
-  renderLegend($('#bd-legend'), breaks, RAMP_O, 'Clearances', Math.max(...agg.dTot));
+  renderLegend($('#bd-legend'), breaks, RAMP_O,
+    isRate() ? 'Per 100,000 residents' : 'Clearances', Math.max(...dVals));
   $('#bd-hint').textContent = state.cSel === null
     ? 'Where workers come from. Click a district to see its destinations.'
     : `Districts sending workers to ${DATA.countries[state.cSel].n}.`;
@@ -712,7 +738,7 @@ function renderLegend(host, breaks, ramp, caption, maxVal, microNote) {
 
 /* ------------------------------------------------------------- bars */
 
-function barChart(host, items, colorClass, onPick, selIdx) {
+function barChart(host, items, colorClass, onPick, selIdx, valFmt) {
   const W = host.clientWidth || 460;
   // The sparkline column is the first thing to go when space is tight; the
   // ranking still works without it.
@@ -729,7 +755,8 @@ function barChart(host, items, colorClass, onPick, selIdx) {
     const g = svgEl('g', { class: 'bar-row' + (selIdx === it.i ? ' sel' : ''), tabindex: '0', role: 'button' });
     const trendTxt = it.trend == null ? ''
       : `, ${it.trend >= 0 ? 'up' : 'down'} ${Math.abs(Math.round(it.trend * 100))}% across the period`;
-    g.setAttribute('aria-label', `${it.n}: ${fmt(it.v)} clearances${trendTxt}`);
+    g.setAttribute('aria-label',
+      `${it.n}: ${valFmt ? valFmt(it.v) + ' per 100,000 residents' : fmt(it.v) + ' clearances'}${trendTxt}`);
 
     const lb = svgEl('text', { x: labelW - 8, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
     // Fit the label to the gutter actually available rather than a fixed count.
@@ -744,7 +771,7 @@ function barChart(host, items, colorClass, onPick, selIdx) {
     }));
 
     const vl = svgEl('text', { x: labelW + w + 8, y: y + 15, class: 'bar-value' });
-    vl.textContent = fmt(it.v);
+    vl.textContent = valFmt ? valFmt(it.v) : fmt(it.v);
     g.appendChild(vl);
 
     // Sparkline: this row's own trajectory over the selected period. Twelve of
@@ -786,7 +813,8 @@ function barChart(host, items, colorClass, onPick, selIdx) {
     g.addEventListener('click', activate);
     g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     g.addEventListener('pointermove', (e) =>
-      showTip(e, `<div class="t-name">${it.n}</div><div class="t-val">${fmt(it.v)} clearances</div>
+      showTip(e, `<div class="t-name">${it.n}</div><div class="t-val">${
+        valFmt ? valFmt(it.v) + ' per 100,000 residents' : fmt(it.v) + ' clearances'}</div>
         <div class="t-sub">${it.sub || ''}</div>`));
     g.addEventListener('pointerleave', hideTip);
     svg.appendChild(g);
@@ -794,10 +822,10 @@ function barChart(host, items, colorClass, onPick, selIdx) {
   host.replaceChildren(svg);
 }
 
-function topItems(arr, names, n, flatSeries) {
+function topItems(arr, names, n, flatSeries, valueFn) {
   const total = sum(arr);
   return Array.from(arr)
-    .map((v, i) => ({ i, v, n: names[i] }))
+    .map((v, i) => ({ i, v: valueFn ? valueFn(i) : v, raw: v, n: names[i] }))
     .filter((x) => x.v > 0)
     .sort((a, b) => b.v - a.v)
     .slice(0, n)
@@ -806,7 +834,9 @@ function topItems(arr, names, n, flatSeries) {
       const trend = series ? trendOf(series) : null;
       return {
         ...x, series, trend,
-        sub: pct(x.v, total) + ' of the current view' +
+        sub: (valueFn
+          ? fmt(Math.round(x.raw)) + ' clearances · ' + pct(x.raw, total) + ' of the current view'
+          : pct(x.v, total) + ' of the current view') +
           (trend == null ? '' :
             `<br>${trend >= 0 ? 'Up' : 'Down'} ${Math.abs(Math.round(trend * 100))}% — ` +
             'second half of the period vs the first'),
@@ -817,14 +847,18 @@ function topItems(arr, names, n, flatSeries) {
 function renderBars() {
   const dNames = DATA.districts.map((d) => d.n);
   const cNames = DATA.countries.map((c) => c.n);
-  barChart($('#bars-districts'), topItems(agg.dTot, dNames, 12, agg.dSer), '',
-    (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel);
+  barChart($('#bars-districts'),
+    topItems(agg.dTot, dNames, 12, agg.dSer, isRate() ? districtValue : null), '',
+    (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel,
+    isRate() ? fmtRate : null);
   barChart($('#bars-countries'), topItems(agg.cTot, cNames, 12, agg.cSer), 'dest',
     (i) => { state.cSel = state.cSel === i ? null : i; render(); }, state.cSel);
   const trendNote = ' Each row carries its own trend for the selected period.';
-  $('#bars-d-hint').textContent = (state.cSel === null
-    ? 'Ranked by clearances in the current view.'
-    : `Districts sending to ${DATA.countries[state.cSel].n}.`) + trendNote;
+  $('#bars-d-hint').textContent = (isRate()
+    ? 'Ranked by clearances per 100,000 residents — propensity, not volume.'
+    : state.cSel === null
+      ? 'Ranked by clearances in the current view.'
+      : `Districts sending to ${DATA.countries[state.cSel].n}.`) + trendNote;
   $('#bars-c-hint').textContent = (state.dSel === null
     ? 'Ranked by clearances in the current view.'
     : `Destinations for ${DATA.districts[state.dSel].n} — how its mix has shifted.`) + trendNote;
@@ -837,15 +871,18 @@ function renderTable() {
   const cNames = DATA.countries.map((c) => c.n);
   const rows = [];
   topItems(agg.dTot, dNames, 64).forEach((x) =>
-    rows.push(['District', x.n, DATA.districts[x.i].v, x.v]));
+    rows.push(['District', x.n, DATA.districts[x.i].v, x.v,
+               fmtRate((x.v / DATA.districts[x.i].p) * PER), fmt(DATA.districts[x.i].p)]));
   topItems(agg.cTot, cNames, 200).forEach((x) =>
-    rows.push(['Destination', x.n, '', x.v]));
+    rows.push(['Destination', x.n, '', x.v, '', '']));
 
   const html = `<div class="tablewrap"><table>
     <caption class="sr-only">Clearances for ${corridorText()}, ${MONTH_LABEL(DATA.months[state.m0])} to ${MONTH_LABEL(DATA.months[state.m1])}</caption>
-    <thead><tr><th>Type</th><th>Name</th><th>Division</th><th class="num">Clearances</th></tr></thead>
+    <thead><tr><th>Type</th><th>Name</th><th>Division</th><th class="num">Clearances</th>
+      <th class="num">Per 100k</th><th class="num">Population</th></tr></thead>
     <tbody>${rows.map((r) =>
-      `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="num">${fmt(r[3])}</td></tr>`
+      `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="num">${fmt(r[3])}</td>` +
+      `<td class="num">${r[4]}</td><td class="num">${r[5]}</td></tr>`
     ).join('')}</tbody></table></div>`;
   $('#table-body').innerHTML = html;
 }
@@ -869,10 +906,19 @@ async function boot() {
     `Data through ${DATA.meta.dateEnd}; rebuilt ${DATA.meta.generated}. ` +
     `${fmt(DATA.meta.total)} clearances mapped.`;
 
-  document.querySelectorAll('.seg button').forEach((b) => {
+  document.querySelectorAll('.seg button[data-measure]').forEach((b) => {
+    b.onclick = () => {
+      state.measure = b.dataset.measure;
+      document.querySelectorAll('.seg button[data-measure]').forEach((o) =>
+        o.setAttribute('aria-pressed', String(o.dataset.measure === state.measure)));
+      render();
+    };
+  });
+
+  document.querySelectorAll('.seg button[data-mode]').forEach((b) => {
     b.onclick = () => {
       state.tlMode = b.dataset.mode;
-      document.querySelectorAll('.seg button').forEach((o) =>
+      document.querySelectorAll('.seg button[data-mode]').forEach((o) =>
         o.setAttribute('aria-pressed', String(o.dataset.mode === state.tlMode)));
       render();
     };

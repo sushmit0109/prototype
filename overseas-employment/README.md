@@ -83,6 +83,12 @@ period, so trends compare twelve at a time rather than one. Selecting Comilla
 shows its destination mix shifting hard: Malaysia down 100% (to zero), Maldives
 up 458%, Portugal up 387%, UAE down 83%.
 
+**Total / Per 100k** on the origin panel divides by each district's 2022 census
+population. It changes the story: Dhaka falls from 7th by volume to 55th by rate,
+Chattogram 4th to 38th, while Munshiganj, Madaripur and Shariatpur rise into the
+top ten. The highest rates form a contiguous central belt — Brahmanbaria 5,817
+per 100,000 — against roughly 400 across the north-west, a 16x spread.
+
 ## Design notes
 
 **Both maps are heatmaps, on deliberately different scales.** Districts use
@@ -118,4 +124,6 @@ Environment overrides: `BMET_DB` (crawl database), `BMET_SITE` (where
 `data/*.json` is written), `BMET_GEO_CACHE` (downloaded boundaries).
 
 Boundaries: districts from geoBoundaries (BGD ADM2), world from Natural Earth via
-world-atlas.
+world-atlas. District population: 2022 census via UN OCHA's Common Operational
+Dataset (UNFPA / BBS) on HDX. The build fails loudly if any district is left
+without a population, so the rate view can never silently divide by a guess.
