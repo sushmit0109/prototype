@@ -1,0 +1,107 @@
+name: Overseas employment dashboard — daily update
+
+on:
+  schedule:
+    # 02:40 Asia/Dhaka, after BMET's working day. :40 rather than :00 because
+    # every scheduled job on GitHub piles onto the hour.
+    - cron: '40 20 * * *'
+  workflow_dispatch:
+    inputs:
+      window_days:
+        description: 'How many recent days to re-fetch (BMET backfills)'
+        default: '21'
+      full_rebuild:
+        description: 'Ignore the cache and re-crawl from 2023-06-19 (~80 min)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: overseas-employment-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+
+    env:
+      # The crawl database is the crawler's memory (which queries are already
+      # done). It is too big to commit, so it lives in the Actions cache; a
+      # cache miss costs a slow run, never a wrong result.
+      BMET_DB: ${{ github.workspace }}/overseas-employment/pipeline/.state/bmet.sqlite
+      BMET_GEO_CACHE: ${{ github.workspace }}/overseas-employment/pipeline/.geocache
+      BMET_SITE: ${{ github.workspace }}/overseas-employment
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: overseas-employment/pipeline/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r overseas-employment/pipeline/requirements.txt
+
+      - name: Restore crawl database
+        if: ${{ !inputs.full_rebuild }}
+        uses: actions/cache/restore@v4
+        with:
+          path: overseas-employment/pipeline/.state
+          key: bmet-db-${{ github.run_id }}
+          restore-keys: bmet-db-
+
+      # BMET keeps entering records against dates that have already passed, so
+      # a date crawled once is not final. Dropping the recent window makes the
+      # crawl re-fetch exactly those days and nothing else.
+      - name: Re-open the recent window
+        working-directory: overseas-employment/pipeline
+        run: python refresh_window.py ${{ inputs.window_days || '21' }}
+
+      - name: Crawl
+        working-directory: overseas-employment/pipeline
+        run: |
+          python run_crawl.py bootstrap
+          python run_crawl.py daily-all
+          python run_crawl.py screen
+          python run_crawl.py daily-country
+          python run_crawl.py repair
+
+      # A spot-check against the live site. Advisory: a transient network
+      # failure here should not block a good data refresh.
+      - name: Verify a sample against the source
+        working-directory: overseas-employment/pipeline
+        continue-on-error: true
+        run: python verify.py sample 40
+
+      - name: Rebuild dashboard data
+        working-directory: overseas-employment/pipeline
+        run: python build_dashboard.py
+
+      - name: Save crawl database
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: overseas-employment/pipeline/.state
+          key: bmet-db-${{ github.run_id }}
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A overseas-employment/data
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git commit -m "overseas-employment: data refresh $(date -u '+%Y-%m-%d %H:%M UTC')"
+          # Another run may have landed while this one was working.
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && break
+            sleep 5
+          done
+          git push origin "HEAD:${GITHUB_REF_NAME}"

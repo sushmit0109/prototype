@@ -1,0 +1,7 @@
+# The crawl database is ~55 MB and is rebuilt/restored from the Actions cache.
+# It is the crawl's memory, not a source file.
+pipeline/.state/
+pipeline/.geocache/
+
+__pycache__/
+*.pyc

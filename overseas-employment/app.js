@@ -1,0 +1,667 @@
+/* Bangladesh Overseas Employment dashboard.
+ *
+ * No external libraries: geometry, projections, scales and the brush are all
+ * hand-rolled so the page is one stylesheet plus one script and works offline.
+ *
+ * The core of the interaction is linked filtering. Selecting a district must
+ * not blank out the district map, and selecting a country must not blank out
+ * the world map - so each view is aggregated against *the other* view's filter:
+ *   district totals  <- month range + country filter
+ *   country totals   <- month range + district filter
+ *   monthly series   <- both filters, across all months
+ * That is what lets you read "where do Comilla's workers go" and "which
+ * districts feed Saudi Arabia" from the same two maps.
+ */
+'use strict';
+
+const $ = (s) => document.querySelector(s);
+const fmt = (n) => n.toLocaleString('en-US');
+const fmtCompact = (n) =>
+  n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M'
+  : n >= 1e3 ? (n / 1e3).toFixed(n >= 1e4 ? 0 : 1) + 'k'
+  : String(n);
+const MONTH_LABEL = (ym) => {
+  const [y, m] = ym.split('-');
+  return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m - 1] + ' ' + y;
+};
+
+let DATA, BDGEO, WORLDGEO;
+const state = { m0: 0, m1: 0, dSel: null, cSel: null };
+let agg = null;
+
+/* ---------------------------------------------------------------- utils */
+
+function svgEl(tag, attrs) {
+  const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+  return e;
+}
+
+/** Quantile breaks over the non-zero values: the distribution is extremely
+ *  skewed (one destination is ~58% of all records), so equal-width bins would
+ *  paint almost everything the lightest step. */
+function quantileBreaks(values, nBins) {
+  const v = values.filter((x) => x > 0).sort((a, b) => a - b);
+  if (!v.length) return [];
+  const breaks = [];
+  for (let i = 1; i < nBins; i++) {
+    const p = (i / nBins) * (v.length - 1);
+    const lo = Math.floor(p), hi = Math.ceil(p);
+    breaks.push(v[lo] + (v[hi] - v[lo]) * (p - lo));
+  }
+  return breaks;
+}
+const clamp = (v, lo, hi) => (v < lo ? lo : v > hi ? hi : v);
+
+const binOf = (val, breaks) => {
+  if (val <= 0) return -1;
+  let i = 0;
+  while (i < breaks.length && val > breaks[i]) i++;
+  return i;
+};
+
+/* ------------------------------------------------------------ projections */
+
+/** Equirectangular with a cos(lat) correction, fitted to a bounding box.
+ *  Adequate for a country-scale map and for a world reference map, and it
+ *  keeps the whole file dependency-free. */
+function makeProjection(bbox, width, height, pad) {
+  const [minLon, minLat, maxLon, maxLat] = bbox;
+  const midLat = ((minLat + maxLat) / 2) * Math.PI / 180;
+  const kx = Math.cos(midLat);
+  const w = (maxLon - minLon) * kx, h = maxLat - minLat;
+  const s = Math.min((width - 2 * pad) / w, (height - 2 * pad) / h);
+  const ox = (width - w * s) / 2, oy = (height - h * s) / 2;
+  return (lon, lat) => [
+    ox + (lon - minLon) * kx * s,
+    oy + (maxLat - lat) * s,
+  ];
+}
+
+/** Height that fits a bbox exactly at the given width, so a wide world map and
+ *  a tall country map each use their frame instead of padding it with blanks. */
+function fitHeight(bbox, width, pad, maxH) {
+  const [minLon, minLat, maxLon, maxLat] = bbox;
+  const kx = Math.cos(((minLat + maxLat) / 2) * Math.PI / 180);
+  const aspect = ((maxLon - minLon) * kx) / (maxLat - minLat);
+  return Math.min(maxH, Math.round((width - 2 * pad) / aspect) + 2 * pad);
+}
+
+function pathFor(geometry, proj) {
+  const parts = [];
+  const ring = (coords) => {
+    // Break the path where a ring crosses the antimeridian. Russia and Fiji
+    // wrap past +/-180, and joining those points straight across draws a band
+    // through the whole map.
+    let d = '', prevLon = null, pending = true;
+    for (let i = 0; i < coords.length; i++) {
+      const lon = coords[i][0];
+      if (prevLon !== null && Math.abs(lon - prevLon) > 180) pending = true;
+      const p = proj(lon, coords[i][1]);
+      d += (pending ? 'M' : 'L') + p[0].toFixed(1) + ' ' + p[1].toFixed(1);
+      pending = false;
+      prevLon = lon;
+    }
+    return d + 'Z';
+  };
+  if (geometry.type === 'Polygon') geometry.coordinates.forEach((r) => parts.push(ring(r)));
+  else if (geometry.type === 'MultiPolygon')
+    geometry.coordinates.forEach((poly) => poly.forEach((r) => parts.push(ring(r))));
+  return parts.join('');
+}
+
+/* -------------------------------------------------------------- tooltip */
+
+const tip = $('#tip');
+function showTip(evt, html) {
+  tip.innerHTML = html;
+  tip.classList.add('on');
+  const r = tip.getBoundingClientRect();
+  let x = evt.clientX + 14, y = evt.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = evt.clientY - r.height - 14;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
+const hideTip = () => tip.classList.remove('on');
+
+/* ------------------------------------------------------------ aggregate */
+
+function aggregate() {
+  const { m, d, c, v } = DATA.cube;
+  const nD = DATA.districts.length, nC = DATA.countries.length, nM = DATA.months.length;
+  const dTot = new Float64Array(nD), cTot = new Float64Array(nC), mSer = new Float64Array(nM);
+  const { m0, m1, dSel, cSel } = state;
+  let total = 0;
+
+  for (let i = 0; i < m.length; i++) {
+    const mi = m[i], di = d[i], ci = c[i], vi = v[i];
+    const dOk = dSel === null || dSel === di;
+    const cOk = cSel === null || cSel === ci;
+    if (dOk && cOk) mSer[mi] += vi;            // timeline spans all months
+    if (mi < m0 || mi > m1) continue;          // maps and bars respect the brush
+    if (cOk) dTot[di] += vi;
+    if (dOk) cTot[ci] += vi;
+    if (dOk && cOk) total += vi;
+  }
+  agg = { dTot, cTot, mSer, total };
+}
+
+/* ------------------------------------------------------------- rendering */
+
+function render() {
+  aggregate();
+  renderKpis();
+  renderCorridor();
+  renderTimeline();
+  renderBdMap();
+  renderWorldMap();
+  renderBars();
+  if (!$('#table-body').hidden) renderTable();
+}
+
+function renderKpis() {
+  const { dTot, cTot, mSer, total } = agg;
+  $('#kpi-total').textContent = fmtCompact(total);
+  $('#kpi-total-sub').textContent =
+    total === DATA.meta.total ? 'all records' : fmt(total) + ' in view';
+
+  const dMax = maxIdx(dTot), cMax = maxIdx(cTot);
+  $('#kpi-district').textContent = dMax < 0 ? '—' : DATA.districts[dMax].n;
+  $('#kpi-district-sub').textContent =
+    dMax < 0 ? '' : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
+  $('#kpi-country').textContent = cMax < 0 ? '—' : DATA.countries[cMax].n;
+  $('#kpi-country-sub').textContent =
+    cMax < 0 ? '' : fmt(cTot[cMax]) + ' (' + pct(cTot[cMax], sum(cTot)) + ')';
+
+  let pk = -1, pkv = -1;
+  for (let i = state.m0; i <= state.m1; i++) if (mSer[i] > pkv) { pkv = mSer[i]; pk = i; }
+  $('#kpi-peak').textContent = pk < 0 ? '—' : MONTH_LABEL(DATA.months[pk]);
+  $('#kpi-peak-sub').textContent = pk < 0 ? '' : fmt(pkv) + ' clearances';
+}
+const sum = (a) => a.reduce((x, y) => x + y, 0);
+const pct = (a, b) => (b ? ((100 * a) / b).toFixed(1) : '0.0') + '%';
+function maxIdx(a) { let bi = -1, bv = 0; for (let i = 0; i < a.length; i++) if (a[i] > bv) { bv = a[i]; bi = i; } return bi; }
+
+function chip(label, kind, onClear) {
+  const s = document.createElement('span');
+  s.className = 'chip';
+  s.innerHTML = `<span class="dot ${kind}"></span>${label}`;
+  if (onClear) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.innerHTML = '&times;';
+    b.setAttribute('aria-label', 'Clear ' + label);
+    b.onclick = onClear;
+    s.appendChild(b);
+  }
+  return s;
+}
+
+function renderCorridor() {
+  const from = $('#corridor-from'), to = $('#corridor-to');
+  from.replaceChildren(
+    state.dSel === null
+      ? chip('All 64 districts', 'origin')
+      : chip(DATA.districts[state.dSel].n, 'origin', () => { state.dSel = null; render(); })
+  );
+  to.replaceChildren(
+    state.cSel === null
+      ? chip('All ' + DATA.countries.length + ' destinations', 'dest')
+      : chip(DATA.countries[state.cSel].n, 'dest', () => { state.cSel = null; render(); })
+  );
+  const a = MONTH_LABEL(DATA.months[state.m0]), b = MONTH_LABEL(DATA.months[state.m1]);
+  $('#corridor-period').textContent = a === b ? a : a + ' – ' + b;
+}
+
+/* ---------------------------------------------------------- timeline */
+
+let brushDrag = null;
+
+function renderTimeline() {
+  const host = $('#timeline');
+  const W = host.clientWidth || 900, H = 132, padL = 46, padR = 12, padT = 10, padB = 22;
+  const n = DATA.months.length;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  svg.setAttribute('aria-label', 'Monthly clearances; drag to select a period');
+
+  const max = Math.max(1, ...agg.mSer);
+  const x = (i) => padL + (i / Math.max(1, n - 1)) * (W - padL - padR);
+  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  const bandW = (W - padL - padR) / Math.max(1, n - 1);
+
+  for (let t = 0; t <= 2; t++) {
+    const gv = (max / 2) * t;
+    svg.appendChild(svgEl('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(gv), y2: y(gv) }));
+    const lb = svgEl('text', { x: padL - 7, y: y(gv) + 4, 'text-anchor': 'end', class: 'axis' });
+    lb.setAttribute('fill', 'var(--text-muted)');
+    lb.style.fontSize = '10.5px';
+    lb.textContent = fmtCompact(Math.round(gv));
+    svg.appendChild(lb);
+  }
+
+  let dArea = `M${x(0)} ${y(0)}`, dLine = '';
+  for (let i = 0; i < n; i++) {
+    dArea += `L${x(i)} ${y(agg.mSer[i])}`;
+    dLine += (i ? 'L' : 'M') + x(i) + ' ' + y(agg.mSer[i]);
+  }
+  dArea += `L${x(n - 1)} ${y(0)}Z`;
+  svg.appendChild(svgEl('path', { class: 'timeline-area', d: dArea }));
+  svg.appendChild(svgEl('path', { class: 'timeline-line', d: dLine }));
+
+  // shade months outside the selected range
+  if (state.m0 > 0)
+    svg.appendChild(svgEl('rect', { class: 'brush-out', x: padL, y: padT, width: Math.max(0, x(state.m0) - padL), height: H - padT - padB }));
+  if (state.m1 < n - 1)
+    svg.appendChild(svgEl('rect', { class: 'brush-out', x: x(state.m1), y: padT, width: Math.max(0, W - padR - x(state.m1)), height: H - padT - padB }));
+
+  // Tick density follows the available width, or the labels collide on phones.
+  const nTicks = Math.max(3, Math.min(8, Math.round(W / 130)));
+  for (let i = 0; i < n; i += Math.ceil(n / nTicks)) {
+    const t = svgEl('text', { x: x(i), y: H - 6, 'text-anchor': 'middle', class: 'axis' });
+    t.setAttribute('fill', 'var(--text-muted)');
+    t.style.fontSize = '10.5px';
+    t.textContent = MONTH_LABEL(DATA.months[i]);
+    svg.appendChild(t);
+  }
+
+  const hit = svgEl('rect', { class: 'brush-bg', x: padL, y: padT, width: W - padL - padR, height: H - padT - padB });
+  svg.appendChild(hit);
+
+  const idxAt = (evt) => {
+    const r = svg.getBoundingClientRect();
+    const px = ((evt.clientX - r.left) / r.width) * W;
+    return Math.max(0, Math.min(n - 1, Math.round((px - padL) / bandW)));
+  };
+
+  hit.addEventListener('pointerdown', (e) => {
+    brushDrag = { start: idxAt(e), moved: false };
+    hit.setPointerCapture(e.pointerId);
+  });
+  hit.addEventListener('pointermove', (e) => {
+    const i = idxAt(e);
+    if (brushDrag) {
+      brushDrag.moved = true;
+      state.m0 = Math.min(brushDrag.start, i);
+      state.m1 = Math.max(brushDrag.start, i);
+      render();
+      return;
+    }
+    showTip(e, `<div class="t-name">${MONTH_LABEL(DATA.months[i])}</div>
+      <div class="t-val">${fmt(Math.round(agg.mSer[i]))} clearances</div>
+      <div class="t-sub">${corridorText()}</div>`);
+  });
+  hit.addEventListener('pointerleave', hideTip);
+  hit.addEventListener('pointerup', () => {
+    if (brushDrag && !brushDrag.moved) { state.m0 = 0; state.m1 = n - 1; render(); }
+    brushDrag = null;
+  });
+
+  host.replaceChildren(svg);
+}
+
+const corridorText = () =>
+  (state.dSel === null ? 'All districts' : DATA.districts[state.dSel].n) + ' → ' +
+  (state.cSel === null ? 'all destinations' : DATA.countries[state.cSel].n);
+
+/* ----------------------------------------------------------- BD map */
+
+// Sequential ramp for the choropleth. In dark mode these tokens are
+// re-stepped so near-zero recedes toward the dark surface instead of glowing.
+const RAMP_O = ['--o-100','--o-200','--o-300','--o-400','--o-500','--o-700'];
+
+function renderBdMap() {
+  const host = $('#bd-map');
+  const W = host.clientWidth || 460;
+  const bbox = bboxOf(BDGEO);
+  const H = fitHeight(bbox, W, 8, 560);
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  svg.setAttribute('aria-label', 'Choropleth of Bangladesh districts by clearances');
+  const proj = makeProjection(bbox, W, H, 8);
+  const breaks = quantileBreaks(Array.from(agg.dTot), 6);
+
+  BDGEO.features.forEach((f) => {
+    const i = DISTRICT_INDEX[f.properties.name];
+    const val = agg.dTot[i] || 0;
+    const b = binOf(val, breaks);
+    const p = svgEl('path', {
+      class: 'geo' + (state.dSel === i ? ' sel' : ''),
+      d: pathFor(f.geometry, proj),
+      fill: b < 0 ? 'var(--empty)' : `var(${RAMP_O[b]})`,
+      tabindex: '0', role: 'button',
+    });
+    p.setAttribute('aria-label', `${f.properties.name}: ${fmt(val)} clearances`);
+    const activate = () => { state.dSel = state.dSel === i ? null : i; render(); };
+    p.addEventListener('click', activate);
+    p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    p.addEventListener('pointermove', (e) =>
+      showTip(e, `<div class="t-name">${f.properties.name}</div>
+        <div class="t-val">${fmt(val)} clearances</div>
+        <div class="t-sub">${f.properties.division} division${state.cSel !== null ? ' → ' + DATA.countries[state.cSel].n : ''}</div>`));
+    p.addEventListener('pointerleave', hideTip);
+    svg.appendChild(p);
+  });
+
+  host.replaceChildren(svg);
+  renderLegend($('#bd-legend'), breaks, RAMP_O, 'Clearances', Math.max(...agg.dTot));
+  $('#bd-hint').textContent = state.cSel === null
+    ? 'Where workers come from. Click a district to see its destinations.'
+    : `Districts sending workers to ${DATA.countries[state.cSel].n}.`;
+}
+
+/* -------------------------------------------------------- world map */
+
+/* The destination distribution is far too skewed for a choropleth: one country
+ * is ~58% of all records and the next 150 share the rest, so any binning either
+ * flattens the leader or paints mid-volume countries as dark as it. Proportional
+ * circles encode magnitude by area honestly, and they also give Singapore,
+ * Maldives, Malta, Hong Kong and Bahrain a presence - none of which have a
+ * polygon at 110m resolution. The land underneath stays a neutral base. */
+function renderWorldMap() {
+  const host = $('#world-map');
+  const W = host.clientWidth || 460;
+  const WORLD_BBOX = [-180, -56, 180, 84];
+  const H = fitHeight(WORLD_BBOX, W, 4, 420);
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  svg.setAttribute('aria-label', 'World map of destination countries, circle area proportional to clearances');
+  const proj = makeProjection(WORLD_BBOX, W, H, 4);
+
+  const byGeo = new Map();
+  DATA.countries.forEach((c, i) => { if (c.g) byGeo.set(c.g, i); });
+
+  WORLDGEO.features.forEach((f) => {
+    if (f.properties.name === 'Antarctica') return;   // never a destination
+    const i = byGeo.get(f.properties.name);
+    const val = i == null ? 0 : agg.cTot[i] || 0;
+    const p = svgEl('path', {
+      d: pathFor(f.geometry, proj),
+      class: 'world-base' + (i != null && val > 0 ? ' has-data' : '') +
+             (state.cSel === i ? ' sel' : ''),
+    });
+    if (i != null && val > 0) {
+      p.setAttribute('tabindex', '0');
+      p.setAttribute('role', 'button');
+      p.setAttribute('aria-label', `${DATA.countries[i].n}: ${fmt(val)} clearances`);
+      const activate = () => { state.cSel = state.cSel === i ? null : i; render(); };
+      p.addEventListener('click', activate);
+      p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+      p.addEventListener('pointermove', (e) => showTip(e, countryTip(i, val)));
+      p.addEventListener('pointerleave', hideTip);
+    }
+    svg.appendChild(p);
+  });
+
+  const maxV = Math.max(1, ...agg.cTot);
+  const rMax = Math.min(30, W / 14);
+  // Draw largest first so small circles stay clickable on top of big ones.
+  const order = DATA.countries.map((c, i) => i)
+    .filter((i) => agg.cTot[i] > 0)
+    .sort((a, b) => agg.cTot[b] - agg.cTot[a]);
+
+  // Connection arcs, origin -> destination. Capped at the busiest corridors:
+  // 64 districts x 157 countries would be an unreadable hairball, and the tail
+  // adds no information at hairline weight. Drawn before the circles so they
+  // sit underneath, and left non-interactive so they never steal a click.
+  const origin = state.dSel === null
+    ? [90.35, 23.70]                       // national centroid
+    : DATA.districts[state.dSel].c;
+  const arcs = order.slice(0, 30);
+  if (arcs.length) {
+    const g = svgEl('g', { class: 'arcs', 'aria-hidden': 'true' });
+    const [ox, oy] = proj(origin[0], origin[1]);
+    arcs.forEach((i) => {
+      const c = DATA.countries[i];
+      if (!c.c || (c.c[0] === 0 && c.c[1] === 0)) return;
+      const [dx, dy] = proj(c.c[0], c.c[1]);
+      const len = Math.hypot(dx - ox, dy - oy);
+      if (len < 4) return;
+      // Bow the curve perpendicular to the chord, so arcs to nearby countries
+      // stay shallow and long hauls sweep - the usual flight-path read.
+      const mx = (ox + dx) / 2, my = (oy + dy) / 2;
+      const nx = -(dy - oy) / len, ny = (dx - ox) / len;
+      const bow = Math.min(len * 0.2, 70);
+      const share = agg.cTot[i] / maxV;
+      const p = svgEl('path', {
+        class: 'arc' + (state.cSel === i ? ' sel' : ''),
+        d: `M${ox.toFixed(1)} ${oy.toFixed(1)}Q${clamp(mx + nx * bow, 2, W - 2).toFixed(1)} ${clamp(my + ny * bow, 2, H - 2).toFixed(1)} ${dx.toFixed(1)} ${dy.toFixed(1)}`,
+        'stroke-width': (0.5 + Math.sqrt(share) * 1.9).toFixed(2),
+        opacity: (0.3 + Math.sqrt(share) * 0.45).toFixed(2),
+      });
+      g.appendChild(p);
+    });
+    // Anchor the fan so it reads as leaving somewhere, in the origin hue.
+    g.appendChild(svgEl('circle', {
+      class: 'origin-dot', cx: ox.toFixed(1), cy: oy.toFixed(1), r: 2.6,
+    }));
+    svg.appendChild(g);
+  }
+
+  order.forEach((i) => {
+    const c = DATA.countries[i];
+    if (!c.c || (c.c[0] === 0 && c.c[1] === 0)) return;
+    const val = agg.cTot[i];
+    const [cx, cy] = proj(c.c[0], c.c[1]);
+    const r = Math.max(2.4, Math.sqrt(val / maxV) * rMax);
+    const circ = svgEl('circle', {
+      class: 'bubble' + (state.cSel === i ? ' sel' : '') +
+             (state.cSel !== null && state.cSel !== i ? ' dim' : ''),
+      cx: cx.toFixed(1), cy: cy.toFixed(1), r: r.toFixed(1),
+      tabindex: '0', role: 'button',
+    });
+    circ.setAttribute('aria-label', `${c.n}: ${fmt(val)} clearances`);
+    const activate = () => { state.cSel = state.cSel === i ? null : i; render(); };
+    circ.addEventListener('click', activate);
+    circ.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    circ.addEventListener('pointermove', (e) => showTip(e, countryTip(i, val)));
+    circ.addEventListener('pointerleave', hideTip);
+    svg.appendChild(circ);
+  });
+
+  host.replaceChildren(svg);
+  renderBubbleLegend($('#world-legend'), maxV, rMax);
+  $('#world-hint').textContent = state.dSel === null
+    ? 'Where they go. Circle area is proportional to clearances; click a country to see which districts feed it.'
+    : `Destinations of workers from ${DATA.districts[state.dSel].n}.`;
+}
+
+/** Nested circles, the standard legend for a proportional-symbol map. */
+function renderBubbleLegend(host, maxV, rMax) {
+  const stops = [maxV, maxV / 8, maxV / 60].filter((v) => v >= 1);
+  const w = rMax * 2 + 130, h = rMax * 2 + 12;
+  const parts = [`<span class="cap">Clearances</span><svg viewBox="0 0 ${w} ${h}" style="width:${w}px;height:${h}px;flex:none">`];
+  stops.forEach((v) => {
+    const r = Math.max(2.4, Math.sqrt(v / maxV) * rMax);
+    const cx = rMax + 2, cy = h - r - 4;
+    parts.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="var(--dest)" stroke-width="1"/>`);
+    parts.push(`<line x1="${cx}" y1="${(cy - r).toFixed(1)}" x2="${rMax * 2 + 10}" y2="${(cy - r).toFixed(1)}" stroke="var(--border-strong)" stroke-width="1"/>`);
+    parts.push(`<text x="${rMax * 2 + 14}" y="${(cy - r + 3.5).toFixed(1)}" fill="var(--text-muted)" style="font-size:10.5px">${fmtCompact(Math.round(v))}</text>`);
+  });
+  host.innerHTML = parts.join('') + '</svg>';
+}
+
+function countryTip(i, val) {
+  const share = pct(val, sum(agg.cTot));
+  return `<div class="t-name">${DATA.countries[i].n}</div>
+    <div class="t-val">${fmt(val)} clearances · ${share}</div>
+    <div class="t-sub">${state.dSel === null ? 'from all districts' : 'from ' + DATA.districts[state.dSel].n}</div>`;
+}
+
+function bboxOf(fc) {
+  let a = 1e9, b = 1e9, c = -1e9, d = -1e9;
+  const scan = (co) => {
+    if (typeof co[0] === 'number') {
+      a = Math.min(a, co[0]); c = Math.max(c, co[0]);
+      b = Math.min(b, co[1]); d = Math.max(d, co[1]);
+    } else co.forEach(scan);
+  };
+  fc.features.forEach((f) => scan(f.geometry.coordinates));
+  return [a, b, c, d];
+}
+
+/** Binned ramp with the bin boundaries printed under the joins, so a reader can
+ *  tell what a shade is worth instead of only that it is "darker". */
+function renderLegend(host, breaks, ramp, caption, maxVal) {
+  const SW = 34, H = 30;
+  const w = ramp.length * SW + 46;
+  const parts = [
+    `<span class="cap">${caption}</span>`,
+    `<svg viewBox="0 0 ${w} ${H}" style="width:${w}px;height:${H}px;flex:none">`,
+  ];
+  for (let i = 0; i < ramp.length; i++) {
+    parts.push(`<rect x="${i * SW + 2}" y="0" width="${SW - 2}" height="11" rx="2" fill="var(${ramp[i]})"/>`);
+  }
+  // label every other boundary to avoid collisions at this width
+  breaks.forEach((b, i) => {
+    if (i % 2 !== 0) return;
+    const x = (i + 1) * SW + 1;
+    parts.push(`<text x="${x}" y="23" text-anchor="middle" fill="var(--text-muted)" style="font-size:10px">${fmtCompact(Math.round(b))}</text>`);
+  });
+  parts.push(`<text x="0" y="23" fill="var(--text-muted)" style="font-size:10px">0</text>`);
+  if (maxVal)
+    parts.push(`<text x="${ramp.length * SW + 2}" y="23" fill="var(--text-muted)" style="font-size:10px">${fmtCompact(Math.round(maxVal))}</text>`);
+  host.innerHTML = parts.join('') + '</svg>';
+}
+
+/* ------------------------------------------------------------- bars */
+
+function barChart(host, items, colorClass, onPick, selIdx) {
+  const W = host.clientWidth || 460;
+  const rowH = 26, padT = 4, labelW = Math.min(140, W * 0.34), valW = 62;
+  const H = padT + items.length * rowH;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}` });
+  const max = Math.max(1, ...items.map((it) => it.v));
+  const barMax = W - labelW - valW - 10;
+
+  items.forEach((it, r) => {
+    const y = padT + r * rowH;
+    const g = svgEl('g', { class: 'bar-row' + (selIdx === it.i ? ' sel' : ''), tabindex: '0', role: 'button' });
+    g.setAttribute('aria-label', `${it.n}: ${fmt(it.v)} clearances`);
+
+    const lb = svgEl('text', { x: labelW - 8, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
+    // Fit the label to the gutter actually available rather than a fixed count.
+    const maxChars = Math.max(8, Math.floor((labelW - 10) / 6.4));
+    lb.textContent = it.n.length > maxChars ? it.n.slice(0, maxChars - 1) + '…' : it.n;
+    g.appendChild(lb);
+
+    const w = Math.max(2, (it.v / max) * barMax);
+    g.appendChild(svgEl('rect', {
+      class: 'bar ' + colorClass + (selIdx !== null && selIdx !== it.i ? ' dim' : ''),
+      x: labelW, y: y + 4, width: w, height: 14, rx: 4,
+    }));
+
+    const vl = svgEl('text', { x: labelW + w + 8, y: y + 15, class: 'bar-value' });
+    vl.textContent = fmt(it.v);
+    g.appendChild(vl);
+
+    const activate = () => onPick(it.i);
+    g.addEventListener('click', activate);
+    g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    g.addEventListener('pointermove', (e) =>
+      showTip(e, `<div class="t-name">${it.n}</div><div class="t-val">${fmt(it.v)} clearances</div>
+        <div class="t-sub">${it.sub || ''}</div>`));
+    g.addEventListener('pointerleave', hideTip);
+    svg.appendChild(g);
+  });
+  host.replaceChildren(svg);
+}
+
+function topItems(arr, names, n) {
+  const total = sum(arr);
+  return Array.from(arr)
+    .map((v, i) => ({ i, v, n: names[i] }))
+    .filter((x) => x.v > 0)
+    .sort((a, b) => b.v - a.v)
+    .slice(0, n)
+    .map((x) => ({ ...x, sub: pct(x.v, total) + ' of the current view' }));
+}
+
+function renderBars() {
+  const dNames = DATA.districts.map((d) => d.n);
+  const cNames = DATA.countries.map((c) => c.n);
+  barChart($('#bars-districts'), topItems(agg.dTot, dNames, 12), '',
+    (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel);
+  barChart($('#bars-countries'), topItems(agg.cTot, cNames, 12), 'dest',
+    (i) => { state.cSel = state.cSel === i ? null : i; render(); }, state.cSel);
+  $('#bars-d-hint').textContent = state.cSel === null
+    ? 'Ranked by clearances in the current view.'
+    : `Districts sending to ${DATA.countries[state.cSel].n}.`;
+  $('#bars-c-hint').textContent = state.dSel === null
+    ? 'Ranked by clearances in the current view.'
+    : `Destinations for ${DATA.districts[state.dSel].n}.`;
+}
+
+/* ------------------------------------------------------------ table */
+
+function renderTable() {
+  const dNames = DATA.districts.map((d) => d.n);
+  const cNames = DATA.countries.map((c) => c.n);
+  const rows = [];
+  topItems(agg.dTot, dNames, 64).forEach((x) =>
+    rows.push(['District', x.n, DATA.districts[x.i].v, x.v]));
+  topItems(agg.cTot, cNames, 200).forEach((x) =>
+    rows.push(['Destination', x.n, '', x.v]));
+
+  const html = `<div class="tablewrap"><table>
+    <caption class="sr-only">Clearances for ${corridorText()}, ${MONTH_LABEL(DATA.months[state.m0])} to ${MONTH_LABEL(DATA.months[state.m1])}</caption>
+    <thead><tr><th>Type</th><th>Name</th><th>Division</th><th class="num">Clearances</th></tr></thead>
+    <tbody>${rows.map((r) =>
+      `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="num">${fmt(r[3])}</td></tr>`
+    ).join('')}</tbody></table></div>`;
+  $('#table-body').innerHTML = html;
+}
+
+/* ------------------------------------------------------------- boot */
+
+let DISTRICT_INDEX = {};
+
+async function boot() {
+  const [d, bd, w] = await Promise.all([
+    fetch('data/dashboard.json').then((r) => r.json()),
+    fetch('data/bd-districts.geo.json').then((r) => r.json()),
+    fetch('data/world.geo.json').then((r) => r.json()),
+  ]);
+  DATA = d; BDGEO = bd; WORLDGEO = w;
+  DATA.districts.forEach((x, i) => (DISTRICT_INDEX[x.n] = i));
+  state.m0 = 0;
+  state.m1 = DATA.months.length - 1;
+
+  $('#foot-meta').textContent =
+    `Data through ${DATA.meta.dateEnd}; rebuilt ${DATA.meta.generated}. ` +
+    `${fmt(DATA.meta.total)} clearances mapped.`;
+
+  $('#reset-btn').onclick = () => {
+    state.dSel = state.cSel = null;
+    state.m0 = 0; state.m1 = DATA.months.length - 1;
+    render();
+  };
+  const tb = $('#table-btn');
+  tb.onclick = () => {
+    const body = $('#table-body');
+    body.hidden = !body.hidden;
+    tb.setAttribute('aria-expanded', String(!body.hidden));
+    tb.textContent = body.hidden ? 'Show table' : 'Hide table';
+    if (!body.hidden) renderTable();
+  };
+  $('#theme-btn').onclick = () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : cur === 'light' ? 'dark'
+      : (matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('bmet-theme', next); } catch (e) { /* private mode */ }
+    render();
+  };
+  try {
+    const saved = localStorage.getItem('bmet-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) { /* ignore */ }
+
+  let rt;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 160); });
+
+  render();
+}
+
+boot().catch((e) => {
+  document.querySelector('.wrap').insertAdjacentHTML('afterbegin',
+    `<div class="caveat"><strong>Could not load the data.</strong> ${e}</div>`);
+});

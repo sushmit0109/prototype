@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bangladesh Overseas Employment</title>
+<meta name="description" content="Where Bangladesh's overseas workers come from and where they go: district-level emigration clearances by destination country, month by month.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌏</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Bangladesh Overseas Employment</h1>
+      <p>Every emigration clearance issued by BMET, by home district and destination country.
+         Click a district or a country to trace the corridor between them; drag the timeline to change the period.</p>
+    </div>
+    <button class="icon-btn" id="theme-btn" aria-label="Switch between light and dark theme">◐ Theme</button>
+  </header>
+
+  <section class="kpis" aria-label="Headline figures">
+    <div class="kpi"><div class="label">Clearances</div><div class="value" id="kpi-total">—</div><div class="sub" id="kpi-total-sub">in view</div></div>
+    <div class="kpi"><div class="label">Top origin</div><div class="value" id="kpi-district">—</div><div class="sub" id="kpi-district-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label">Top destination</div><div class="value" id="kpi-country">—</div><div class="sub" id="kpi-country-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label">Busiest month</div><div class="value" id="kpi-peak">—</div><div class="sub" id="kpi-peak-sub">&nbsp;</div></div>
+  </section>
+
+  <div class="corridor" id="corridor">
+    <span class="lead">Showing</span>
+    <span id="corridor-from"></span>
+    <span class="arrow" aria-hidden="true">→</span>
+    <span id="corridor-to"></span>
+    <span class="spacer"></span>
+    <span id="corridor-period" style="font-size:13px;color:var(--text-secondary)"></span>
+    <button class="icon-btn" id="reset-btn">Reset all</button>
+  </div>
+
+  <section class="panel">
+    <h2>Timeline</h2>
+    <p class="hint">Monthly clearances for the current corridor. Drag across the chart to select a period; click once to clear.</p>
+    <div id="timeline"></div>
+  </section>
+
+  <div class="grid2 maps" style="margin-bottom:16px">
+    <section class="panel">
+      <h2>Origin — districts of Bangladesh</h2>
+      <p class="hint" id="bd-hint">Where workers come from. Click a district to see its destinations.</p>
+      <div class="map-wrap" id="bd-map"></div>
+      <div class="legend" id="bd-legend" aria-hidden="true"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Destination — countries</h2>
+      <p class="hint" id="world-hint">Where they go. Circle area is proportional to clearances; click a country to see which districts feed it.</p>
+      <div class="map-wrap" id="world-map"></div>
+      <div class="legend" id="world-legend" aria-hidden="true"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section class="panel">
+      <h2>Top districts</h2>
+      <p class="hint" id="bars-d-hint">Ranked by clearances in the current view.</p>
+      <div id="bars-districts"></div>
+    </section>
+    <section class="panel">
+      <h2>Top destinations</h2>
+      <p class="hint" id="bars-c-hint">Ranked by clearances in the current view.</p>
+      <div id="bars-countries"></div>
+    </section>
+  </div>
+
+  <section class="panel" style="margin-top:16px">
+    <h2>Data table</h2>
+    <p class="hint">The same numbers as the charts above, for screen readers and for copying.
+      <button class="icon-btn" id="table-btn" aria-expanded="false" aria-controls="table-body">Show table</button>
+    </p>
+    <div id="table-body" hidden></div>
+  </section>
+
+  <footer class="foot">
+    <p><strong>Source:</strong> Bureau of Manpower, Employment and Training (BMET) /
+      Overseas Employment Portal, <a href="https://www.oep.gov.bd/reports/geo-clearance-count" rel="noopener">oep.gov.bd</a>.
+      District boundaries from geoBoundaries (BGD ADM2); world boundaries from Natural Earth via world-atlas.
+      <span id="foot-meta"></span></p>
+    <div class="caveat">
+      <strong>Reading this data.</strong> A clearance is permission to take up a job abroad — it counts
+      intent to travel, not arrivals, and one person may appear once per clearance.
+      Districts are the worker's <em>home district</em>, not their route.
+      About 1.3% of records carry no district and are excluded from the maps.
+      2023-06-19 is excluded entirely: it is a catch-all bucket in the source that keeps
+      absorbing records rather than a real day.
+      Figures for the most recent days are incomplete while data entry continues.
+    </div>
+  </footer>
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
