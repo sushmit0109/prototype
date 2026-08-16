@@ -131,6 +131,10 @@ function aggregate() {
   const { m, d, c, v } = DATA.cube;
   const nD = DATA.districts.length, nC = DATA.countries.length, nM = DATA.months.length;
   const dTot = new Float64Array(nD), cTot = new Float64Array(nC), mSer = new Float64Array(nM);
+  // Per-entity monthly series, so every row of a ranking can carry its own
+  // sparkline. Flat arrays indexed [entity * nM + month]: 64x39 and 157x39 are
+  // small enough to rebuild on every filter change.
+  const dSer = new Float64Array(nD * nM), cSer = new Float64Array(nC * nM);
   const { m0, m1, dSel, cSel } = state;
   let total = 0;
 
@@ -139,12 +143,31 @@ function aggregate() {
     const dOk = dSel === null || dSel === di;
     const cOk = cSel === null || cSel === ci;
     if (dOk && cOk) mSer[mi] += vi;            // timeline spans all months
+    if (cOk) dSer[di * nM + mi] += vi;         // sparklines span all months too
+    if (dOk) cSer[ci * nM + mi] += vi;
     if (mi < m0 || mi > m1) continue;          // maps and bars respect the brush
     if (cOk) dTot[di] += vi;
     if (dOk) cTot[ci] += vi;
     if (dOk && cOk) total += vi;
   }
-  agg = { dTot, cTot, mSer, total };
+  agg = { dTot, cTot, mSer, dSer, cSer, nM, total };
+}
+
+/** Slice one entity's monthly series over the selected window. */
+function seriesOf(flat, idx, nM) {
+  return Array.from(flat.subarray(idx * nM + state.m0, idx * nM + state.m1 + 1));
+}
+
+/** Change from the first half of the visible window to the second.
+ *  Null when there is too little history, or too little volume, to mean
+ *  anything - a jump from 1 to 4 is not a 300% trend. */
+function trendOf(series) {
+  if (series.length < 4) return null;
+  const half = Math.floor(series.length / 2);
+  const a = series.slice(0, half).reduce((x, y) => x + y, 0);
+  const b = series.slice(series.length - half).reduce((x, y) => x + y, 0);
+  if (a < 30) return null;
+  return (b - a) / a;
 }
 
 /* ------------------------------------------------------------- rendering */
@@ -309,6 +332,12 @@ const corridorText = () =>
 // Sequential ramp for the choropleth. In dark mode these tokens are
 // re-stepped so near-zero recedes toward the dark surface instead of glowing.
 const RAMP_O = ['--o-100','--o-200','--o-300','--o-400','--o-500','--o-700'];
+const RAMP_D = ['--d-100','--d-200','--d-300','--d-400','--d-500','--d-700'];
+// Order-of-magnitude breaks for the destination scale. Deliberately spaced so
+// the top band isolates the single dominant destination and the low bands stay
+// pale: a choropleth of counts inflates whatever is physically large, and
+// Russia, Canada and Brazil are big on screen but small in the data.
+const MAG_BREAKS = [100, 1000, 10000, 100000, 1000000];
 
 function renderBdMap() {
   const host = $('#bd-map');
@@ -369,12 +398,22 @@ function renderWorldMap() {
   const byGeo = new Map();
   DATA.countries.forEach((c, i) => { if (c.g) byGeo.set(c.g, i); });
 
+  // Magnitude bins, not quantiles. Destinations span six orders of magnitude
+  // (1.9M down to 1), so equal-count bins would colour Russia at 8.5k as darkly
+  // as Saudi Arabia at 1.9M. Powers of ten are honest here and read directly
+  // off the legend: "tens", "hundreds", "thousands".
+  const breaks = MAG_BREAKS.filter((b) => b <= Math.max(...agg.cTot));
+
   WORLDGEO.features.forEach((f) => {
     if (f.properties.name === 'Antarctica') return;   // never a destination
     const i = byGeo.get(f.properties.name);
     const val = i == null ? 0 : agg.cTot[i] || 0;
+    const b = binOf(val, breaks);
     const p = svgEl('path', {
       d: pathFor(f.geometry, proj),
+      // An inline style, not a fill attribute: a presentation attribute loses
+      // to any CSS rule, and .world-base sets a fill.
+      style: b < 0 ? null : `fill:var(${RAMP_D[Math.min(b, RAMP_D.length - 1)]})`,
       class: 'world-base' + (i != null && val > 0 ? ' has-data' : '') +
              (state.cSel === i ? ' sel' : ''),
     });
@@ -392,10 +431,11 @@ function renderWorldMap() {
   });
 
   const maxV = Math.max(1, ...agg.cTot);
-  const rMax = Math.min(30, W / 14);
-  // Draw largest first so small circles stay clickable on top of big ones.
+  // Only countries with no polygon at this resolution get a marker - Singapore,
+  // Maldives, Malta, Hong Kong, Bahrain and the island states. They are filled
+  // from the same ramp as the land, so the map carries one encoding, not two.
   const order = DATA.countries.map((c, i) => i)
-    .filter((i) => agg.cTot[i] > 0)
+    .filter((i) => agg.cTot[i] > 0 && !DATA.countries[i].g)
     .sort((a, b) => agg.cTot[b] - agg.cTot[a]);
 
   // Connection arcs, origin -> destination. Capped at the busiest corridors:
@@ -441,11 +481,11 @@ function renderWorldMap() {
     if (!c.c || (c.c[0] === 0 && c.c[1] === 0)) return;
     const val = agg.cTot[i];
     const [cx, cy] = proj(c.c[0], c.c[1]);
-    const r = Math.max(2.4, Math.sqrt(val / maxV) * rMax);
+    const b = binOf(val, breaks);
     const circ = svgEl('circle', {
-      class: 'bubble' + (state.cSel === i ? ' sel' : '') +
-             (state.cSel !== null && state.cSel !== i ? ' dim' : ''),
-      cx: cx.toFixed(1), cy: cy.toFixed(1), r: r.toFixed(1),
+      class: 'micro' + (state.cSel === i ? ' sel' : ''),
+      style: `fill:var(${RAMP_D[Math.min(Math.max(b, 0), RAMP_D.length - 1)]})`,
+      cx: cx.toFixed(1), cy: cy.toFixed(1), r: 3.2,
       tabindex: '0', role: 'button',
     });
     circ.setAttribute('aria-label', `${c.n}: ${fmt(val)} clearances`);
@@ -458,25 +498,10 @@ function renderWorldMap() {
   });
 
   host.replaceChildren(svg);
-  renderBubbleLegend($('#world-legend'), maxV, rMax);
+  renderLegend($('#world-legend'), breaks, RAMP_D, 'Clearances', Math.max(...agg.cTot), true);
   $('#world-hint').textContent = state.dSel === null
-    ? 'Where they go. Circle area is proportional to clearances; click a country to see which districts feed it.'
+    ? 'Where they go, shaded by volume. Small states appear as dots. Click a country to see which districts feed it.'
     : `Destinations of workers from ${DATA.districts[state.dSel].n}.`;
-}
-
-/** Nested circles, the standard legend for a proportional-symbol map. */
-function renderBubbleLegend(host, maxV, rMax) {
-  const stops = [maxV, maxV / 8, maxV / 60].filter((v) => v >= 1);
-  const w = rMax * 2 + 130, h = rMax * 2 + 12;
-  const parts = [`<span class="cap">Clearances</span><svg viewBox="0 0 ${w} ${h}" style="width:${w}px;height:${h}px;flex:none">`];
-  stops.forEach((v) => {
-    const r = Math.max(2.4, Math.sqrt(v / maxV) * rMax);
-    const cx = rMax + 2, cy = h - r - 4;
-    parts.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="var(--dest)" stroke-width="1"/>`);
-    parts.push(`<line x1="${cx}" y1="${(cy - r).toFixed(1)}" x2="${rMax * 2 + 10}" y2="${(cy - r).toFixed(1)}" stroke="var(--border-strong)" stroke-width="1"/>`);
-    parts.push(`<text x="${rMax * 2 + 14}" y="${(cy - r + 3.5).toFixed(1)}" fill="var(--text-muted)" style="font-size:10.5px">${fmtCompact(Math.round(v))}</text>`);
-  });
-  host.innerHTML = parts.join('') + '</svg>';
 }
 
 function countryTip(i, val) {
@@ -500,42 +525,51 @@ function bboxOf(fc) {
 
 /** Binned ramp with the bin boundaries printed under the joins, so a reader can
  *  tell what a shade is worth instead of only that it is "darker". */
-function renderLegend(host, breaks, ramp, caption, maxVal) {
-  const SW = 34, H = 30;
-  const w = ramp.length * SW + 46;
+function renderLegend(host, breaks, ramp, caption, maxVal, microNote) {
+  const SW = 40, H = 30;
+  const nSw = Math.min(ramp.length, breaks.length + 1);
+  const w = nSw * SW + 52;
   const parts = [
     `<span class="cap">${caption}</span>`,
     `<svg viewBox="0 0 ${w} ${H}" style="width:${w}px;height:${H}px;flex:none">`,
   ];
-  for (let i = 0; i < ramp.length; i++) {
+  for (let i = 0; i < nSw; i++) {
     parts.push(`<rect x="${i * SW + 2}" y="0" width="${SW - 2}" height="11" rx="2" fill="var(${ramp[i]})"/>`);
   }
-  // label every other boundary to avoid collisions at this width
-  breaks.forEach((b, i) => {
-    if (i % 2 !== 0) return;
-    const x = (i + 1) * SW + 1;
-    parts.push(`<text x="${x}" y="23" text-anchor="middle" fill="var(--text-muted)" style="font-size:10px">${fmtCompact(Math.round(b))}</text>`);
+  // Label every boundary. With magnitude bins these are round numbers, so the
+  // reader can tell what a shade is worth rather than only that it is darker.
+  breaks.slice(0, nSw - 1).forEach((b, i) => {
+    parts.push(`<text x="${(i + 1) * SW + 1}" y="23" text-anchor="middle" fill="var(--text-muted)" style="font-size:10px">${fmtCompact(Math.round(b))}</text>`);
   });
   parts.push(`<text x="0" y="23" fill="var(--text-muted)" style="font-size:10px">0</text>`);
   if (maxVal)
-    parts.push(`<text x="${ramp.length * SW + 2}" y="23" fill="var(--text-muted)" style="font-size:10px">${fmtCompact(Math.round(maxVal))}</text>`);
-  host.innerHTML = parts.join('') + '</svg>';
+    parts.push(`<text x="${nSw * SW + 2}" y="23" fill="var(--text-muted)" style="font-size:10px">${fmtCompact(Math.round(maxVal))}</text>`);
+  parts.push('</svg>');
+  if (microNote)
+    parts.push(`<span class="tick" style="margin-left:10px">● small states shown as dots</span>`);
+  host.innerHTML = parts.join('');
 }
 
 /* ------------------------------------------------------------- bars */
 
 function barChart(host, items, colorClass, onPick, selIdx) {
   const W = host.clientWidth || 460;
-  const rowH = 26, padT = 4, labelW = Math.min(140, W * 0.34), valW = 62;
+  // The sparkline column is the first thing to go when space is tight; the
+  // ranking still works without it.
+  const sparkW = W >= 400 ? 62 : 0;
+  const rowH = 28, padT = 4, labelW = Math.min(132, W * 0.3), valW = 60;
+  const trendW = sparkW ? 46 : 0;
   const H = padT + items.length * rowH;
   const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}` });
   const max = Math.max(1, ...items.map((it) => it.v));
-  const barMax = W - labelW - valW - 10;
+  const barMax = W - labelW - valW - sparkW - trendW - 14;
 
   items.forEach((it, r) => {
     const y = padT + r * rowH;
     const g = svgEl('g', { class: 'bar-row' + (selIdx === it.i ? ' sel' : ''), tabindex: '0', role: 'button' });
-    g.setAttribute('aria-label', `${it.n}: ${fmt(it.v)} clearances`);
+    const trendTxt = it.trend == null ? ''
+      : `, ${it.trend >= 0 ? 'up' : 'down'} ${Math.abs(Math.round(it.trend * 100))}% across the period`;
+    g.setAttribute('aria-label', `${it.n}: ${fmt(it.v)} clearances${trendTxt}`);
 
     const lb = svgEl('text', { x: labelW - 8, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
     // Fit the label to the gutter actually available rather than a fixed count.
@@ -553,6 +587,41 @@ function barChart(host, items, colorClass, onPick, selIdx) {
     vl.textContent = fmt(it.v);
     g.appendChild(vl);
 
+    // Sparkline: this row's own trajectory over the selected period. Twelve of
+    // them side by side is what turns a ranking into a comparison of trends.
+    if (sparkW && it.series && it.series.length > 1) {
+      const sx = W - sparkW - trendW, sy = y + 5, sh = 15;
+      const smax = Math.max(...it.series, 1);
+      const step = sparkW / (it.series.length - 1);
+      let dLine = '', dArea = `M${sx} ${sy + sh}`;
+      it.series.forEach((val, k) => {
+        const px = sx + k * step, py = sy + sh - (val / smax) * sh;
+        dLine += (k ? 'L' : 'M') + px.toFixed(1) + ' ' + py.toFixed(1);
+        dArea += `L${px.toFixed(1)} ${py.toFixed(1)}`;
+      });
+      dArea += `L${(sx + sparkW).toFixed(1)} ${sy + sh}Z`;
+      g.appendChild(svgEl('path', { class: 'spark-area ' + colorClass, d: dArea }));
+      g.appendChild(svgEl('path', { class: 'spark-line ' + colorClass, d: dLine }));
+      // Emphasise the endpoint — where the series ended is what a reader wants.
+      const last = it.series[it.series.length - 1];
+      g.appendChild(svgEl('circle', {
+        class: 'spark-end ' + colorClass, r: 1.9,
+        cx: (sx + sparkW).toFixed(1),
+        cy: (sy + sh - (last / smax) * sh).toFixed(1),
+      }));
+
+      if (it.trend != null) {
+        const up = it.trend >= 0;
+        const t = svgEl('text', {
+          x: W, y: y + 19, 'text-anchor': 'end',
+          class: 'trend ' + (Math.abs(it.trend) < 0.05 ? 'flat' : up ? 'up' : 'down'),
+        });
+        t.textContent = (Math.abs(it.trend) < 0.05 ? '±' : up ? '▲' : '▼') +
+          Math.abs(Math.round(it.trend * 100)) + '%';
+        g.appendChild(t);
+      }
+    }
+
     const activate = () => onPick(it.i);
     g.addEventListener('click', activate);
     g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
@@ -565,29 +634,40 @@ function barChart(host, items, colorClass, onPick, selIdx) {
   host.replaceChildren(svg);
 }
 
-function topItems(arr, names, n) {
+function topItems(arr, names, n, flatSeries) {
   const total = sum(arr);
   return Array.from(arr)
     .map((v, i) => ({ i, v, n: names[i] }))
     .filter((x) => x.v > 0)
     .sort((a, b) => b.v - a.v)
     .slice(0, n)
-    .map((x) => ({ ...x, sub: pct(x.v, total) + ' of the current view' }));
+    .map((x) => {
+      const series = flatSeries ? seriesOf(flatSeries, x.i, agg.nM) : null;
+      const trend = series ? trendOf(series) : null;
+      return {
+        ...x, series, trend,
+        sub: pct(x.v, total) + ' of the current view' +
+          (trend == null ? '' :
+            `<br>${trend >= 0 ? 'Up' : 'Down'} ${Math.abs(Math.round(trend * 100))}% — ` +
+            'second half of the period vs the first'),
+      };
+    });
 }
 
 function renderBars() {
   const dNames = DATA.districts.map((d) => d.n);
   const cNames = DATA.countries.map((c) => c.n);
-  barChart($('#bars-districts'), topItems(agg.dTot, dNames, 12), '',
+  barChart($('#bars-districts'), topItems(agg.dTot, dNames, 12, agg.dSer), '',
     (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel);
-  barChart($('#bars-countries'), topItems(agg.cTot, cNames, 12), 'dest',
+  barChart($('#bars-countries'), topItems(agg.cTot, cNames, 12, agg.cSer), 'dest',
     (i) => { state.cSel = state.cSel === i ? null : i; render(); }, state.cSel);
-  $('#bars-d-hint').textContent = state.cSel === null
+  const trendNote = ' Each row carries its own trend for the selected period.';
+  $('#bars-d-hint').textContent = (state.cSel === null
     ? 'Ranked by clearances in the current view.'
-    : `Districts sending to ${DATA.countries[state.cSel].n}.`;
-  $('#bars-c-hint').textContent = state.dSel === null
+    : `Districts sending to ${DATA.countries[state.cSel].n}.`) + trendNote;
+  $('#bars-c-hint').textContent = (state.dSel === null
     ? 'Ranked by clearances in the current view.'
-    : `Destinations for ${DATA.districts[state.dSel].n}.`;
+    : `Destinations for ${DATA.districts[state.dSel].n} — how its mix has shifted.`) + trendNote;
 }
 
 /* ------------------------------------------------------------ table */

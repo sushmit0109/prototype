@@ -71,16 +71,22 @@ filter, so a selection never blanks out the map you clicked it on.
 Nationally Malaysia is the second destination; for **Comilla**, Qatar overtakes
 it. That is the kind of sub-stratum difference the corridor view exists for.
 
+Every ranking row carries its own **sparkline and trend %** for the selected
+period, so trends compare twelve at a time rather than one. Selecting Comilla
+shows its destination mix shifting hard: Malaysia down 100% (to zero), Maldives
+up 458%, Portugal up 387%, UAE down 83%.
+
 ## Design notes
 
-**The world map uses circles, not colour.** One destination is ~58% of all
-records. Any choropleth binning either flattens Saudi Arabia or paints Russia
-(8.5k) as dark as it. Circle *area* is honest at that skew — and it is the only
-way Singapore and Maldives appear at all, since neither has a polygon at 110m
-resolution despite being the 4th and 7th largest destinations.
-
-**Bangladesh uses a colour ramp** with quantile breaks: 64 districts are far less
-skewed, and a heatmap is the clearest read of regional concentration.
+**Both maps are heatmaps, on deliberately different scales.** Districts use
+quantile breaks (64 values, ~2 orders of magnitude). Destinations use
+order-of-magnitude breaks — 100 / 1k / 10k / 100k / 1M — because they span six
+orders and one country is ~58% of all records; quantile bins there would colour
+Russia at 8.5k as darkly as Saudi Arabia at 1.9M. The breaks are spaced so the
+low bands stay pale, since a choropleth of counts inflates whatever is
+physically large and Russia, Canada and Brazil are big on screen but small in
+the data. Countries with no polygon at 110m — Singapore, Maldives, Malta, Hong
+Kong, Bahrain — are drawn as dots filled from the same ramp.
 
 Origin is blue, destination is orange — one sequential hue per context. Dark mode
 is re-stepped rather than flipped, so near-zero recedes toward the background.

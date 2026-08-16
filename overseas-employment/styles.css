@@ -24,6 +24,9 @@
   --o-400: #3987e5; --o-500: #256abf; --o-600: #184f95; --o-700: #0d366b;
   --origin: #2a78d6;
 
+  /* sequential: destination (orange) */
+  --d-100: #fcdcc9; --d-200: #f8bd9c; --d-300: #f39a6d;
+  --d-400: #eb6834; --d-500: #c9521f; --d-600: #9d3f17; --d-700: #722d0f;
   --dest: #eb6834;
 
   --empty: #e6e4de;
@@ -48,10 +51,15 @@
     --text-secondary: #c3c2b7;
     --text-muted:     #8f8e85;
 
-    --o-100: #12294a; --o-200: #16386b; --o-300: #1c5cab;
-    --o-400: #2a78d6; --o-500: #4a93e8; --o-600: #6da7ec; --o-700: #8bbcf3;
+    /* Dark-mode sequential steps. Not a flip of the light ramp: the low bands
+       are pushed close to the surface so they recede, and the contrast is
+       spent at the top, where the values that matter are. */
+    --o-100: #0f2038; --o-200: #16345f; --o-300: #1d4d8f;
+    --o-400: #2a78d6; --o-500: #56a0ee; --o-600: #7ab4f2; --o-700: #9ecbf7;
     --origin: #3987e5;
 
+    --d-100: #241109; --d-200: #3a1a0d; --d-300: #5c2a13;
+    --d-400: #97431a; --d-500: #d95926; --d-600: #f2814a; --d-700: #ffab7d;
     --dest: #d95926;
 
     --empty: #2a2a28;
@@ -72,10 +80,15 @@
   --text-secondary: #c3c2b7;
   --text-muted:     #8f8e85;
 
-  --o-100: #12294a; --o-200: #16386b; --o-300: #1c5cab;
-  --o-400: #2a78d6; --o-500: #4a93e8; --o-600: #6da7ec; --o-700: #8bbcf3;
+  /* Dark-mode sequential steps. Not a flip of the light ramp: the low bands
+     are pushed close to the surface so they recede, and the contrast is
+     spent at the top, where the values that matter are. */
+  --o-100: #0f2038; --o-200: #16345f; --o-300: #1d4d8f;
+  --o-400: #2a78d6; --o-500: #56a0ee; --o-600: #7ab4f2; --o-700: #9ecbf7;
   --origin: #3987e5;
 
+  --d-100: #241109; --d-200: #3a1a0d; --d-300: #5c2a13;
+  --d-400: #97431a; --d-500: #d95926; --d-600: #f2814a; --d-700: #ffab7d;
   --dest: #d95926;
 
   --empty: #2a2a28;
@@ -198,18 +211,31 @@ svg { display: block; width: 100%; height: auto; }
    value the circles do not already show - their job is to make the corridor
    legible as a link, so they must never compete with the marks. */
 .arcs { pointer-events: none; }
-.arc { fill: none; stroke: var(--dest); stroke-linecap: round; }
+.arc { fill: none; stroke: var(--text-secondary); stroke-linecap: round; }
 .origin-dot { fill: var(--origin); stroke: var(--surface-1); stroke-width: 1; }
 .arc.sel { stroke: var(--text-primary); opacity: .85 !important; stroke-width: 1.6 !important; }
 @media (prefers-reduced-motion: no-preference) {
   .arc { transition: opacity .15s; }
 }
 
-.bubble { fill: var(--dest); fill-opacity: .5; stroke: var(--dest); stroke-width: 1; cursor: pointer; transition: opacity .12s; }
-.bubble:hover { fill-opacity: .78; }
-.bubble:focus-visible { outline: none; stroke: var(--text-primary); stroke-width: 2; }
-.bubble.sel { stroke: var(--text-primary); stroke-width: 2; fill-opacity: .85; }
-.bubble.dim { opacity: .3; }
+/* Stand-ins for countries too small to draw at this resolution. Same ramp fill
+   as the land, so the map carries one encoding rather than two. */
+.micro { stroke: var(--surface-1); stroke-width: 1; cursor: pointer; }
+.micro:hover { stroke: var(--text-secondary); stroke-width: 1.4; }
+.micro:focus-visible { outline: none; stroke: var(--text-primary); stroke-width: 2; }
+.micro.sel { stroke: var(--text-primary); stroke-width: 2; }
+
+/* Sparklines: one per ranking row, so twelve trends compare at a glance. */
+.spark-line { fill: none; stroke: var(--origin); stroke-width: 1.3; }
+.spark-line.dest { stroke: var(--dest); }
+.spark-area { fill: var(--origin); fill-opacity: .13; stroke: none; }
+.spark-area.dest { fill: var(--dest); }
+.spark-end { fill: var(--origin); }
+.spark-end.dest { fill: var(--dest); }
+.trend { font-size: 11px; font-variant-numeric: tabular-nums; fill: var(--text-muted); }
+.trend.up { fill: #0ca30c; }
+.trend.down { fill: #d03b3b; }
+.trend.flat { fill: var(--text-muted); }
 
 .axis text  { fill: var(--text-muted); font-size: 11px; }
 .axis line, .axis path { stroke: var(--border); }
