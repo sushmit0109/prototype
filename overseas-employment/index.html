@@ -20,6 +20,12 @@
     <button class="icon-btn" id="theme-btn" aria-label="Switch between light and dark theme">◐ Theme</button>
   </header>
 
+  <nav class="lens" role="tablist" aria-label="Dataset">
+    <button role="tab" data-lens="people" aria-selected="true">People</button>
+    <button role="tab" data-lens="money" aria-selected="false">Money</button>
+    <span class="lens-note" id="lens-note"></span>
+  </nav>
+
   <section class="kpis" aria-label="Headline figures">
     <div class="kpi"><div class="label">Clearances</div><div class="value" id="kpi-total">—</div><div class="sub" id="kpi-total-sub">in view</div></div>
     <div class="kpi"><div class="label" id="kpi-district-label">Top origin</div><div class="value" id="kpi-district">—</div><div class="sub" id="kpi-district-sub">&nbsp;</div></div>
@@ -67,8 +73,6 @@
                   title="Clearances per 100,000 residents of any age">Per 100k</button>
           <button type="button" data-measure="rateW" aria-pressed="false"
                   title="Clearances per 100,000 residents aged 15–64">Per 100k · 15–64</button>
-          <button type="button" data-measure="rem" aria-pressed="false" hidden
-                  title="Remittance received, million USD, by fiscal year">Remittance</button>
         </div>
       </div>
       <p class="hint" id="bd-hint">Where workers come from. Click a district to see its destinations.</p>
@@ -98,10 +102,14 @@
   </div>
 
   <section class="panel" id="wvm-panel" style="margin-top:16px" hidden>
-    <h2>Workers vs money</h2>
-    <p class="hint">Each country's share of clearances beside its share of remittance — two separate
-      totals on one scale. This is the only corridor comparison the published data supports:
-      Bangladesh Bank never crosses source country with recipient district.</p>
+    <h2>Remittance per migrant</h2>
+    <p class="hint">Money sent home divided by the number of Bangladeshis actually living in each
+      country (UN DESA, 2024) — not by recent clearances. Clearances count new workers over three
+      years; remittance comes from everyone settled abroad, including decades of earlier migration,
+      so dividing money by clearances would compare a flow with a stock and say more about when a
+      diaspora formed than about what it earns. Countries with fewer than 20,000 Bangladeshi
+      residents are omitted — a small denominator swings the per-head figure wildly. The stock is a
+      2024 snapshot applied across the selected years, so earlier years are approximate.</p>
     <div id="wvm"></div>
   </section>
 

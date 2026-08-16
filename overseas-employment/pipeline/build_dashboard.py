@@ -176,6 +176,23 @@ REM_COUNTRY_ALIAS = {
 }
 
 
+def load_migrant_stock() -> dict[str, int]:
+    """Country -> Bangladeshi migrants living there (UN DESA, 2024).
+
+    Remittance comes from everyone settled abroad, while a clearance is one new
+    worker in a three-year window. Comparing those two directly is a flow
+    against a stock; this is the denominator that makes the comparison fair.
+    """
+    f = ROOT / "remittance" / "migrant_stock_2024.csv"
+    if not f.exists():
+        return {}
+    return {
+        r["country"]: int(float(r["migrants"]))
+        for r in csv.DictReader(f.read_text().splitlines())
+        if r.get("matched") == "True" and float(r["migrants"]) > 0
+    }
+
+
 def load_country_remittance() -> dict[str, dict[str, float]]:
     """Country -> {fiscal year: million USD} (Bangladesh Bank Annex-III)."""
     f = ROOT / "remittance" / "remittance_country_fy.csv"
@@ -323,6 +340,7 @@ def main() -> None:
     tot_w = sum(v["w"] for v in dpop.values())
     rem = load_remittance()
     crem = load_country_remittance()
+    stock = load_migrant_stock()
     if rem:
         fys = sorted({fy for v in rem.values() for fy in v})
         miss = [d for d in dnames if d not in rem]
@@ -384,6 +402,10 @@ def main() -> None:
     ckeys = sorted(merged, key=lambda k: -merged[k]["total"])
     cidx = {k: i for i, k in enumerate(ckeys)}
 
+    if stock:
+        sm = sum(1 for k in ckeys if k in stock)
+        print(f"  migrant stock (UN DESA 2024)   : {sm} countries, "
+              f"{sum(stock.values()):,} Bangladeshis abroad")
     if crem:
         matched = sum(1 for k in ckeys if k in crem)
         unmatched = sorted(set(crem) - set(ckeys))
@@ -474,6 +496,7 @@ def main() -> None:
             "popSource": "District population: 2022 census, UN OCHA COD-PS (UNFPA/BBS)",
             "remSource": ("District remittance: Bangladesh Bank, Monthly Report on Workers' "
                           "Remittance Inflows (Annex-IV), million USD by fiscal year"),
+            "stockSource": "Migrant stock: UN DESA International Migrant Stock 2024",
             "dateStart": DATA_START.isoformat(),
             "dateEnd": max(d for d, _ in daily),
             "total": total,
@@ -493,7 +516,7 @@ def main() -> None:
         ],
         "countries": [
             {"n": k, "g": geo_names.get(k), "c": [round(x, 2) for x in centroids[k]],
-             "r": crem.get(k) or None}
+             "r": crem.get(k) or None, "s": stock.get(k) or None}
             for k in ckeys
         ],
         "months": mlist,

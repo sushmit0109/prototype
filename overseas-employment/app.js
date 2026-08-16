@@ -27,7 +27,7 @@ const MONTH_LABEL = (ym) => {
 
 let DATA, BDGEO, WORLDGEO;
 const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months',
-                measure: 'total', gender: 'all', fy0: 0, fy1: -1 };
+                measure: 'total', gender: 'all', fy0: 0, fy1: -1, lens: 'people' };
 
 /* Gender slice. The source splits every clearance into male / female / other,
  * and those three sum exactly to the unfiltered total, so the build ships a
@@ -49,7 +49,7 @@ const genderLabel = () =>
  * destination country. */
 const PER = 100000;
 const DENOM = { rate: 'p', rateW: 'pw' };     // total population / working age 15-64
-const isRem = () => state.measure === 'rem';
+const isRem = () => state.lens === 'money';
 
 /* Remittance lens.
  *
@@ -99,13 +99,19 @@ const remValue = (i, fys) => {
   if (!r) return 0;
   return fys.reduce((a, f) => a + (r[f] || 0), 0);
 };
-const isRate = () => state.measure === 'rate' || state.measure === 'rateW';
+const isRate = () => !isRem() && (state.measure === 'rate' || state.measure === 'rateW');
 const denomKey = () => DENOM[state.measure];
 const denomLabel = () =>
   state.measure === 'rateW' ? 'residents aged 15–64' : 'residents';
 let REM_FYS = [];
 const districtValue = (i) => {
-  if (isRem()) return remValue(i, REM_FYS);
+  if (isRem()) {
+    const v = remValue(i, REM_FYS);
+    const k = DENOM[state.measure];
+    if (!k) return v;
+    const d = DATA.districts[i][k];
+    return d ? (v * 1e6 / d) * PER : 0;   // USD per 100,000 residents
+  }
   if (!isRate()) return agg.dTot[i];
   const d = DATA.districts[i][denomKey()];
   return d ? (agg.dTot[i] / d) * PER : 0;
@@ -261,8 +267,15 @@ function trendOf(series) {
 /* ------------------------------------------------------------- rendering */
 
 function render() {
+  if (isRem()) { state.gender = 'all'; state.cSel = null; }
   aggregate();
   REM_FYS = isRem() ? remFYs() : [];
+  const gs = $('#gender-seg');
+  if (gs) gs.style.display = isRem() ? 'none' : '';
+  const ln = $('#lens-note');
+  if (ln) ln.textContent = isRem()
+    ? 'Bangladesh Bank · fiscal years · annual'
+    : 'BMET clearances · monthly · from Jun 2023';
   document.querySelectorAll('.panel h2').forEach((h) => {
     if (h.dataset.base === undefined) h.dataset.base = h.textContent;
   });
@@ -1103,56 +1116,64 @@ function renderBars() {
     : `Destinations for ${DATA.districts[state.dSel].n} — how its mix has shifted.`) + trendNote;
 }
 
-/** Workers vs money. The one corridor comparison the published marginals do
- *  support: each country's share of clearances beside its share of remittance.
- *  No cross-tab is implied - these are two independent totals put on the same
- *  scale, which is exactly what makes the mismatch legible. */
+/** Remittance per migrant.
+ *
+ *  The denominator is the number of Bangladeshis living in each country (UN
+ *  DESA 2024), not clearances. Clearances are a flow - new workers over three
+ *  years - while remittance comes from the whole settled stock, so dividing
+ *  money by clearances compares a flow with a stock and mostly reports when a
+ *  diaspora formed. Small stocks are suppressed: a few thousand people produce
+ *  a per-head figure that swings on rounding. */
+const MIN_STOCK = 20000;
+
 function renderWorkersVsMoney() {
   const host = $('#wvm');
   if (!host || !isRem()) return;
-  const money = DATA.countries.map((_, i) => countryValue(i));
-  const mTot = sum(money), cTot = sum(agg.cTot);
   const rows = DATA.countries
-    .map((c, i) => ({ n: c.n, m: money[i] / (mTot || 1), w: agg.cTot[i] / (cTot || 1) }))
-    .filter((r) => r.m > 0.004 || r.w > 0.004)
-    .sort((a, b) => (b.m + b.w) - (a.m + a.w))
-    .slice(0, 12);
+    .map((c, i) => ({ n: c.n, s: c.s || 0, m: countryValue(i) }))
+    .filter((r) => r.s >= MIN_STOCK && r.m > 0)
+    // Per year, not per period: a ten-year total divided by people reads like
+    // an annual figure and is out by an order of magnitude.
+    .map((r) => ({ ...r, per: (r.m * 1e6) / r.s / Math.max(remFYs().length, 1) }))
+    .sort((a, b) => b.per - a.per)
+    .slice(0, 14);
+  if (!rows.length) { host.replaceChildren(); return; }
 
-  const W = host.clientWidth || 900, rowH = 26, labelW = Math.min(170, W * 0.24);
-  const H = 24 + rows.length * rowH;
+  const W = host.clientWidth || 900, rowH = 27, labelW = Math.min(180, W * 0.25);
+  const H = 26 + rows.length * rowH;
   const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}` });
-  const max = Math.max(...rows.map((r) => Math.max(r.m, r.w)), 0.01);
-  const barMax = W - labelW - 96;
+  const max = Math.max(...rows.map((r) => r.per));
+  const barMax = W - labelW - 210;
 
-  ['Workers', 'Money'].forEach((lab, k) => {
-    const t = svgEl('text', { x: labelW + 4 + k * 66, y: 12, class: 'bar-label' });
-    t.setAttribute('fill', k ? 'var(--dest)' : 'var(--origin)');
-    t.style.fontWeight = '650';
-    t.textContent = lab;
-    svg.appendChild(t);
-  });
+  const hd = svgEl('text', { x: labelW, y: 12, class: 'bar-label' });
+  hd.style.fontWeight = '650';
+  hd.textContent = `USD per year, per Bangladeshi living there · ${FY_RANGE()}`;
+  svg.appendChild(hd);
 
   rows.forEach((r, i) => {
-    const y = 24 + i * rowH;
-    const lb = svgEl('text', { x: labelW - 8, y: y + 14, 'text-anchor': 'end', class: 'bar-label' });
-    lb.textContent = r.n.length > 24 ? r.n.slice(0, 23) + '…' : r.n;
-    svg.appendChild(lb);
-    [[r.w, 'var(--origin)', 0], [r.m, 'var(--dest)', 8]].forEach(([v, col, off]) => {
-      svg.appendChild(svgEl('rect', {
-        x: labelW, y: y + 2 + off, width: Math.max(1, (v / max) * barMax).toFixed(1),
-        height: 6, rx: 3, fill: col,
-      }));
-    });
-    const val = svgEl('text', { x: W - 4, y: y + 14, 'text-anchor': 'end', class: 'bar-value' });
-    val.textContent = `${(r.w * 100).toFixed(1)}% / ${(r.m * 100).toFixed(1)}%`;
-    svg.appendChild(val);
-    const g = svgEl('rect', { x: 0, y, width: W, height: rowH, fill: 'transparent' });
-    g.addEventListener('pointermove', (e) => showTip(e,
+    const y = 26 + i * rowH;
+    const g = svgEl('g', { class: 'bar-row' });
+    const lb = svgEl('text', { x: labelW - 8, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
+    lb.textContent = r.n.length > 25 ? r.n.slice(0, 24) + '\u2026' : r.n;
+    g.appendChild(lb);
+    g.appendChild(svgEl('rect', {
+      x: labelW, y: y + 4, width: Math.max(2, (r.per / max) * barMax).toFixed(1),
+      height: 14, rx: 4, class: 'bar dest',
+    }));
+    const v = svgEl('text', { x: labelW + (r.per / max) * barMax + 8, y: y + 15, class: 'bar-value' });
+    v.textContent = '$' + Math.round(r.per).toLocaleString('en-US');
+    g.appendChild(v);
+    const sub = svgEl('text', { x: W - 4, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
+    sub.textContent = `${fmtCompact(r.s)} people · ${fmtUSD(r.m)}`;
+    g.appendChild(sub);
+    const hit = svgEl('rect', { x: 0, y, width: W, height: rowH, fill: 'transparent' });
+    hit.addEventListener('pointermove', (e) => showTip(e,
       `<div class="t-name">${r.n}</div>
-       <div class="t-val">${(r.w * 100).toFixed(1)}% of workers</div>
-       <div class="t-val">${(r.m * 100).toFixed(1)}% of remittance</div>
-       <div class="t-sub">${FY_RANGE()} · shares of two separate totals</div>`));
-    g.addEventListener('pointerleave', hideTip);
+       <div class="t-val">$${Math.round(r.per).toLocaleString('en-US')} per migrant per year</div>
+       <div class="t-sub">${fmt(r.s)} Bangladeshis living there (UN DESA 2024)</div>
+       <div class="t-sub">${fmtUSD(r.m)} sent home, ${FY_RANGE()}</div>`));
+    hit.addEventListener('pointerleave', hideTip);
+    g.appendChild(hit);
     svg.appendChild(g);
   });
   host.replaceChildren(svg);
@@ -1205,6 +1226,18 @@ async function boot() {
   DATA.districts.forEach((x, i) => (DISTRICT_INDEX[x.n] = i));
   computeFYs();
 
+  document.querySelectorAll('.lens button').forEach((b) => {
+    b.onclick = () => {
+      state.lens = b.dataset.lens;
+      document.querySelectorAll('.lens button').forEach((o) =>
+        o.setAttribute('aria-selected', String(o.dataset.lens === state.lens)));
+      // each lens keeps its own selection; a country filter has no meaning on
+      // money, where no country-by-district breakdown is published
+      if (isRem()) state.cSel = null;
+      render();
+    };
+  });
+
   const gseg = $('#gender-seg');
   if (DATA.cubesByGender && Object.keys(DATA.cubesByGender).length) {
     gseg.hidden = false;
@@ -1216,11 +1249,6 @@ async function boot() {
         render();
       };
     });
-  }
-
-  if (DATA.districts.some((d) => d.r)) {
-    const rb = document.querySelector('.seg button[data-measure="rem"]');
-    if (rb) rb.hidden = false;
   }
 
   // Belt and braces: if the data predates a denominator, disable that option
