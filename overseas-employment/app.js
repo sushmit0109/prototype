@@ -27,7 +27,7 @@ const MONTH_LABEL = (ym) => {
 
 let DATA, BDGEO, WORLDGEO;
 const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months',
-                measure: 'total', gender: 'all' };
+                measure: 'total', gender: 'all', fy0: 0, fy1: -1 };
 
 /* Gender slice. The source splits every clearance into male / female / other,
  * and those three sum exactly to the unfiltered total, so the build ships a
@@ -69,14 +69,31 @@ const FY_OF = (ym) => {
   const s = m >= 7 ? y : y - 1;
   return `FY${s}-${String((s + 1) % 100).padStart(2, '0')}`;
 };
-function remFYs() {
-  // fiscal years overlapping the selected months that we actually hold data for
-  const want = new Set();
-  for (let i = state.m0; i <= state.m1; i++) want.add(FY_OF(DATA.months[i]));
+/* Remittance runs on its own fiscal-year axis. The clearance data is monthly
+ * from mid-2023; the district remittance series is annual from FY2017-18 and
+ * the country series from FY2016-17. Forcing them onto one axis would either
+ * hide seven years of money or invent months that were never published, so the
+ * timeline switches axis with the lens and each keeps its own selection. */
+let ALL_FYS = [];
+function computeFYs() {
   const have = new Set();
   DATA.districts.forEach((d) => d.r && Object.keys(d.r).forEach((f) => have.add(f)));
-  return [...want].filter((f) => have.has(f)).sort();
+  DATA.countries.forEach((c) => c.r && Object.keys(c.r).forEach((f) => have.add(f)));
+  ALL_FYS = [...have].sort();
+  if (state.fy1 < 0) { state.fy0 = 0; state.fy1 = ALL_FYS.length - 1; }
 }
+const remFYs = () => ALL_FYS.slice(state.fy0, state.fy1 + 1);
+const FY_LABEL = (f) => f.replace('FY', '').replace('-', '/');
+const FY_RANGE = () => {
+  const f = remFYs();
+  return !f.length ? '—'
+    : f.length === 1 ? FY_LABEL(f[0])
+    : `${FY_LABEL(f[0])} to ${FY_LABEL(f[f.length - 1])}`;
+};
+const countryValue = (i) => {
+  const r = DATA.countries[i].r;
+  return r ? remFYs().reduce((a, f) => a + (r[f] || 0), 0) : 0;
+};
 const remValue = (i, fys) => {
   const r = DATA.districts[i].r;
   if (!r) return 0;
@@ -246,12 +263,23 @@ function trendOf(series) {
 function render() {
   aggregate();
   REM_FYS = isRem() ? remFYs() : [];
+  document.querySelectorAll('.panel h2').forEach((h) => {
+    if (h.dataset.base === undefined) h.dataset.base = h.textContent;
+  });
+  const t = (sel, txt) => { const e = document.querySelector(sel); if (e) e.textContent = txt; };
+  t('.grid2.maps .panel:nth-of-type(1) h2', isRem() ? 'Recipient — districts' : 'Origin — districts');
+  t('.grid2.maps .panel:nth-of-type(2) h2', isRem() ? 'Source — countries' : 'Destination — countries');
+  t('#bars-districts-title', isRem() ? 'Top recipient districts' : 'Top districts');
+  t('#bars-countries-title', isRem() ? 'Top source countries' : 'Top destinations');
+  const wm = $('#wvm-panel');
+  if (wm) wm.hidden = !isRem();
   renderKpis();
   renderCorridor();
   renderTimeline();
   renderBdMap();
   renderWorldMap();
   renderBars();
+  renderWorkersVsMoney();
   if (!$('#table-body').hidden) renderTable();
 }
 
@@ -341,6 +369,8 @@ function presetList() {
 function renderPresets() {
   const host = $('#tl-presets');
   host.replaceChildren();
+  host.hidden = isRem();
+  if (isRem()) return;
   presetList().forEach((p) => {
     const b = document.createElement('button');
     b.type = 'button';
@@ -350,6 +380,68 @@ function renderPresets() {
     b.onclick = () => { state.m0 = p.m0; state.m1 = p.m1; render(); };
     host.appendChild(b);
   });
+}
+
+/** Fiscal-year axis for the remittance lens: one bar per year, click to select
+ *  one, shift-click (or click the first then the last) to span a range. */
+function renderFYTimeline(host) {
+  const W = host.clientWidth || 900, H = 150, padL = 52, padR = 14, padT = 12, padB = 26;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
+  svg.setAttribute('aria-label', 'Remittance by fiscal year; click a year to select it');
+  const totals = ALL_FYS.map((f) =>
+    sum(DATA.districts.map((d) => (d.r && d.r[f]) || 0)) ||
+    sum(DATA.countries.map((c) => (c.r && c.r[f]) || 0)));
+  const max = Math.max(1, ...totals);
+  const bw = (W - padL - padR) / ALL_FYS.length;
+
+  for (let t = 0; t <= 2; t++) {
+    const gv = (max / 2) * t, y = H - padB - (gv / max) * (H - padT - padB);
+    svg.appendChild(svgEl('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y, y2: y }));
+    const lb = svgEl('text', { x: padL - 8, y: y + 4, 'text-anchor': 'end' });
+    lb.setAttribute('fill', 'var(--text-muted)'); lb.style.fontSize = '10.5px';
+    lb.textContent = fmtCompact(Math.round(gv));
+    svg.appendChild(lb);
+  }
+
+  ALL_FYS.forEach((f, i) => {
+    const inSel = i >= state.fy0 && i <= state.fy1;
+    const h = (totals[i] / max) * (H - padT - padB);
+    const g = svgEl('g', { class: 'bar-row', tabindex: '0', role: 'button' });
+    g.setAttribute('aria-label', `${FY_LABEL(f)}: ${fmtUSD(totals[i])}`);
+    g.appendChild(svgEl('rect', {
+      x: (padL + i * bw + 3).toFixed(1), y: (H - padB - h).toFixed(1),
+      width: Math.max(2, bw - 6).toFixed(1), height: h.toFixed(1), rx: 3,
+      class: 'bar dest' + (inSel ? '' : ' dim'),
+    }));
+    const t = svgEl('text', {
+      x: (padL + i * bw + bw / 2).toFixed(1), y: H - 8, 'text-anchor': 'middle',
+    });
+    t.setAttribute('fill', inSel ? 'var(--text-primary)' : 'var(--text-muted)');
+    t.style.fontSize = '10px';
+    t.textContent = FY_LABEL(f);
+    g.appendChild(t);
+    const pick = (e) => {
+      if (e && e.shiftKey) {
+        state.fy0 = Math.min(state.fy0, i); state.fy1 = Math.max(state.fy1, i);
+      } else if (state.fy0 === i && state.fy1 === i) {
+        state.fy0 = 0; state.fy1 = ALL_FYS.length - 1;
+      } else { state.fy0 = state.fy1 = i; }
+      render();
+    };
+    g.addEventListener('click', pick);
+    g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(e); } });
+    g.addEventListener('pointermove', (e) =>
+      showTip(e, `<div class="t-name">${FY_LABEL(f)}</div>
+        <div class="t-val">${fmtUSD(totals[i])} remittance</div>
+        <div class="t-sub">click to isolate · shift-click to extend</div>`));
+    g.addEventListener('pointerleave', hideTip);
+    svg.appendChild(g);
+  });
+  host.replaceChildren(svg);
+  $('#tl-hint').textContent =
+    'Remittance by fiscal year (Bangladesh Bank). Click a year to isolate it, ' +
+    'shift-click to extend the range. The clearance timeline is monthly and has ' +
+    'its own selection — the two datasets do not share an axis.';
 }
 
 /* ---- year comparison ------------------------------------------------
@@ -470,6 +562,7 @@ function renderYearChart(host) {
 
 function renderTimeline() {
   const host = $('#timeline');
+  if (isRem()) { renderPresets(); return renderFYTimeline(host); }
   renderPresets();
   if (state.tlMode === 'years') {
     $('#tl-hint').textContent =
@@ -627,7 +720,7 @@ function renderBdMap() {
     isRem() ? 'Remittance (million USD)' : isRate() ? 'Per 100,000 ' + denomLabel() : 'Clearances',
     Math.max(...dVals));
   if (isRem()) {
-    const fy = REM_FYS.length ? REM_FYS.join(', ') : 'no fiscal year in the selected period';
+    const fy = REM_FYS.length ? FY_RANGE() : 'no fiscal year in the selected period';
     $('#bd-hint').textContent =
       `Remittance received, ${fy} (Bangladesh Bank, annual). Credited to the ` +
       'recipient\u2019s district, not the worker\u2019s home district' +
@@ -658,6 +751,8 @@ function renderWorldMap() {
 
   const byGeo = new Map();
   DATA.countries.forEach((c, i) => { if (c.g) byGeo.set(c.g, i); });
+
+  if (isRem()) return renderRemWorld(host, svg, proj, W, H);
 
   // Magnitude bins, not quantiles. Destinations span six orders of magnitude
   // (1.9M down to 1), so equal-count bins would colour Russia at 8.5k as darkly
@@ -763,6 +858,61 @@ function renderWorldMap() {
   $('#world-hint').textContent = state.dSel === null
     ? 'Where they go, shaded by volume. Small states appear as dots. Click a country to see which districts feed it.'
     : `Destinations of workers from ${DATA.districts[state.dSel].n}.`;
+}
+
+/* Source countries of remittance. Deliberately not linked to the district map:
+ * Bangladesh Bank publishes remittance by source country and by recipient
+ * district, never the two crossed, so clicking a country cannot filter
+ * districts. Saying so is better than implying a breakdown that does not
+ * exist. */
+function renderRemWorld(host, svg, proj, W, H) {
+  const vals = DATA.countries.map((_, i) => countryValue(i));
+  const breaks = quantileBreaks(vals, 6);
+  const byGeo = new Map();
+  DATA.countries.forEach((c, i) => { if (c.g) byGeo.set(c.g, i); });
+  const total = sum(vals);
+
+  WORLDGEO.features.forEach((f) => {
+    if (f.properties.name === 'Antarctica') return;
+    const i = byGeo.get(f.properties.name);
+    const val = i == null ? 0 : vals[i] || 0;
+    const b = binOf(val, breaks);
+    const p = svgEl('path', {
+      d: pathFor(f.geometry, proj),
+      style: b < 0 ? null : `fill:var(${RAMP_D[Math.min(b, RAMP_D.length - 1)]})`,
+      class: 'world-base' + (val > 0 ? ' has-data' : ''),
+    });
+    if (val > 0) {
+      p.addEventListener('pointermove', (e) =>
+        showTip(e, `<div class="t-name">${DATA.countries[i].n}</div>
+          <div class="t-val">${fmtUSD(val)} sent home</div>
+          <div class="t-sub">${pct(val, total)} of remittance · ${pct(agg.cTot[i], sum(agg.cTot))} of clearances</div>
+          <div class="t-sub">${FY_RANGE()}</div>`));
+      p.addEventListener('pointerleave', hideTip);
+    }
+    svg.appendChild(p);
+  });
+
+  DATA.countries.forEach((c, i) => {
+    if (!vals[i] || c.g || !c.c || (c.c[0] === 0 && c.c[1] === 0)) return;
+    const [cx, cy] = proj(c.c[0], c.c[1]);
+    const b = binOf(vals[i], breaks);
+    const circ = svgEl('circle', {
+      class: 'micro', cx: cx.toFixed(1), cy: cy.toFixed(1), r: 3.2,
+      style: `fill:var(${RAMP_D[Math.min(Math.max(b, 0), RAMP_D.length - 1)]})`,
+    });
+    circ.addEventListener('pointermove', (e) =>
+      showTip(e, `<div class="t-name">${c.n}</div><div class="t-val">${fmtUSD(vals[i])} sent home</div>`));
+    circ.addEventListener('pointerleave', hideTip);
+    svg.appendChild(circ);
+  });
+
+  host.replaceChildren(svg);
+  renderLegend($('#world-legend'), breaks, RAMP_D, 'Remittance (million USD)', Math.max(...vals), true);
+  $('#world-hint').textContent =
+    'Where the money is sent from, ' + FY_RANGE() +
+    '. Not linked to the district map — Bangladesh Bank publishes source country and ' +
+    'recipient district separately, never crossed.';
 }
 
 function countryTip(i, val) {
@@ -927,8 +1077,11 @@ function renderBars() {
              (isRate() || isRem()) ? districtValue : null), '',
     (i) => { state.dSel = state.dSel === i ? null : i; render(); }, state.dSel,
     isRem() ? fmtUSD : isRate() ? fmtRate : null);
-  barChart($('#bars-countries'), topItems(agg.cTot, cNames, 12, agg.cSer), 'dest',
-    (i) => { state.cSel = state.cSel === i ? null : i; render(); }, state.cSel);
+  barChart($('#bars-countries'),
+    topItems(agg.cTot, cNames, 12, isRem() ? null : agg.cSer, isRem() ? countryValue : null),
+    'dest',
+    (i) => { if (!isRem()) { state.cSel = state.cSel === i ? null : i; render(); } },
+    isRem() ? null : state.cSel, isRem() ? fmtUSD : null);
   const trendNote = ' Each row carries its own trend for the selected period.';
   if (isRem()) {
     $('#bars-d-hint').textContent =
@@ -940,9 +1093,69 @@ function renderBars() {
     : state.cSel === null
       ? 'Ranked by clearances in the current view.'
       : `Districts sending to ${DATA.countries[state.cSel].n}.`) + trendNote;
+  if (isRem()) {
+    $('#bars-c-hint').textContent =
+      'Ranked by remittance sent home, ' + FY_RANGE() +
+      '. The UK sends the second-most money on about 0.4% of the workers.';
+  } else
   $('#bars-c-hint').textContent = (state.dSel === null
     ? 'Ranked by clearances in the current view.'
     : `Destinations for ${DATA.districts[state.dSel].n} — how its mix has shifted.`) + trendNote;
+}
+
+/** Workers vs money. The one corridor comparison the published marginals do
+ *  support: each country's share of clearances beside its share of remittance.
+ *  No cross-tab is implied - these are two independent totals put on the same
+ *  scale, which is exactly what makes the mismatch legible. */
+function renderWorkersVsMoney() {
+  const host = $('#wvm');
+  if (!host || !isRem()) return;
+  const money = DATA.countries.map((_, i) => countryValue(i));
+  const mTot = sum(money), cTot = sum(agg.cTot);
+  const rows = DATA.countries
+    .map((c, i) => ({ n: c.n, m: money[i] / (mTot || 1), w: agg.cTot[i] / (cTot || 1) }))
+    .filter((r) => r.m > 0.004 || r.w > 0.004)
+    .sort((a, b) => (b.m + b.w) - (a.m + a.w))
+    .slice(0, 12);
+
+  const W = host.clientWidth || 900, rowH = 26, labelW = Math.min(170, W * 0.24);
+  const H = 24 + rows.length * rowH;
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}` });
+  const max = Math.max(...rows.map((r) => Math.max(r.m, r.w)), 0.01);
+  const barMax = W - labelW - 96;
+
+  ['Workers', 'Money'].forEach((lab, k) => {
+    const t = svgEl('text', { x: labelW + 4 + k * 66, y: 12, class: 'bar-label' });
+    t.setAttribute('fill', k ? 'var(--dest)' : 'var(--origin)');
+    t.style.fontWeight = '650';
+    t.textContent = lab;
+    svg.appendChild(t);
+  });
+
+  rows.forEach((r, i) => {
+    const y = 24 + i * rowH;
+    const lb = svgEl('text', { x: labelW - 8, y: y + 14, 'text-anchor': 'end', class: 'bar-label' });
+    lb.textContent = r.n.length > 24 ? r.n.slice(0, 23) + '…' : r.n;
+    svg.appendChild(lb);
+    [[r.w, 'var(--origin)', 0], [r.m, 'var(--dest)', 8]].forEach(([v, col, off]) => {
+      svg.appendChild(svgEl('rect', {
+        x: labelW, y: y + 2 + off, width: Math.max(1, (v / max) * barMax).toFixed(1),
+        height: 6, rx: 3, fill: col,
+      }));
+    });
+    const val = svgEl('text', { x: W - 4, y: y + 14, 'text-anchor': 'end', class: 'bar-value' });
+    val.textContent = `${(r.w * 100).toFixed(1)}% / ${(r.m * 100).toFixed(1)}%`;
+    svg.appendChild(val);
+    const g = svgEl('rect', { x: 0, y, width: W, height: rowH, fill: 'transparent' });
+    g.addEventListener('pointermove', (e) => showTip(e,
+      `<div class="t-name">${r.n}</div>
+       <div class="t-val">${(r.w * 100).toFixed(1)}% of workers</div>
+       <div class="t-val">${(r.m * 100).toFixed(1)}% of remittance</div>
+       <div class="t-sub">${FY_RANGE()} · shares of two separate totals</div>`));
+    g.addEventListener('pointerleave', hideTip);
+    svg.appendChild(g);
+  });
+  host.replaceChildren(svg);
 }
 
 /* ------------------------------------------------------------ table */
@@ -990,6 +1203,7 @@ async function boot() {
   ]);
   DATA = d; BDGEO = bd; WORLDGEO = w;
   DATA.districts.forEach((x, i) => (DISTRICT_INDEX[x.n] = i));
+  computeFYs();
 
   const gseg = $('#gender-seg');
   if (DATA.cubesByGender && Object.keys(DATA.cubesByGender).length) {

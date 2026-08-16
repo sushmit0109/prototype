@@ -166,6 +166,28 @@ def load_remittance() -> dict[str, dict[str, float]]:
     return out
 
 
+# Bangladesh Bank's country labels, reassembled from stacked PDF headers,
+# against the destination list. "Other countries" is a real aggregate row and
+# stays out of the map on purpose.
+REM_COUNTRY_ALIAS = {
+    "China Of Hong Sar": "Hong Kong",
+    "Of Korea, Republic": "South Korea",
+    "Countries Other": "Other countries",
+}
+
+
+def load_country_remittance() -> dict[str, dict[str, float]]:
+    """Country -> {fiscal year: million USD} (Bangladesh Bank Annex-III)."""
+    f = ROOT / "remittance" / "remittance_country_fy.csv"
+    if not f.exists():
+        return {}
+    out: dict[str, dict[str, float]] = {}
+    for r in csv.DictReader(f.read_text().splitlines()):
+        name = REM_COUNTRY_ALIAS.get(r["country"], r["country"])
+        out.setdefault(name, {})[r["fiscal_year"]] = float(r["remittance_musd"])
+    return out
+
+
 def round_coords(obj, nd: int = 3):
     """Trim coordinate precision. 3dp is ~110m, far finer than a district map needs."""
     if isinstance(obj, list):
@@ -300,6 +322,7 @@ def main() -> None:
     tot_t = sum(v["t"] for v in dpop.values())
     tot_w = sum(v["w"] for v in dpop.values())
     rem = load_remittance()
+    crem = load_country_remittance()
     if rem:
         fys = sorted({fy for v in rem.values() for fy in v})
         miss = [d for d in dnames if d not in rem]
@@ -360,6 +383,15 @@ def main() -> None:
     didx = {d: i for i, d in enumerate(dnames)}
     ckeys = sorted(merged, key=lambda k: -merged[k]["total"])
     cidx = {k: i for i, k in enumerate(ckeys)}
+
+    if crem:
+        matched = sum(1 for k in ckeys if k in crem)
+        unmatched = sorted(set(crem) - set(ckeys))
+        cfys = sorted({fy for v in crem.values() for fy in v})
+        print(f"  country remittance             : {matched}/{len(crem)} joined to the "
+              f"country list, {len(cfys)} fiscal years {cfys[0]}..{cfys[-1]}")
+        if unmatched:
+            print(f"    not on the destination list  : {unmatched}")
 
     # One cube per crawled gender, plus male derived by subtraction. The source's
     # three gender buckets sum exactly to the unfiltered total, so male is exact
@@ -460,7 +492,8 @@ def main() -> None:
             for d in dnames
         ],
         "countries": [
-            {"n": k, "g": geo_names.get(k), "c": [round(x, 2) for x in centroids[k]]}
+            {"n": k, "g": geo_names.get(k), "c": [round(x, 2) for x in centroids[k]],
+             "r": crem.get(k) or None}
             for k in ckeys
         ],
         "months": mlist,

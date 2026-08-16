@@ -86,16 +86,24 @@
 
   <div class="grid2">
     <section class="panel">
-      <h2>Top districts</h2>
+      <h2 id="bars-districts-title">Top districts</h2>
       <p class="hint" id="bars-d-hint">Ranked by clearances in the current view.</p>
       <div id="bars-districts"></div>
     </section>
     <section class="panel">
-      <h2>Top destinations</h2>
+      <h2 id="bars-countries-title">Top destinations</h2>
       <p class="hint" id="bars-c-hint">Ranked by clearances in the current view.</p>
       <div id="bars-countries"></div>
     </section>
   </div>
+
+  <section class="panel" id="wvm-panel" style="margin-top:16px" hidden>
+    <h2>Workers vs money</h2>
+    <p class="hint">Each country's share of clearances beside its share of remittance — two separate
+      totals on one scale. This is the only corridor comparison the published data supports:
+      Bangladesh Bank never crosses source country with recipient district.</p>
+    <div id="wvm"></div>
+  </section>
 
   <section class="panel" style="margin-top:16px">
     <h2>Data table</h2>
