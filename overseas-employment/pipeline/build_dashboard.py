@@ -28,7 +28,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-from bmet_crawler import DATA_START, VOLATILE_DATES, connect, today
+from bmet_crawler import DATA_START, MALE_ID as MALE, VOLATILE_DATES, connect, today
 
 ROOT = Path(__file__).resolve().parent
 # Overridable so this runs both from the analysis project (site/ next to it) and
@@ -338,10 +338,13 @@ def main() -> None:
     ckeys = sorted(merged, key=lambda k: -merged[k]["total"])
     cidx = {k: i for i, k in enumerate(ckeys)}
 
-    cube: dict[tuple[int, int, int], int] = {}
+    # One cube per crawled gender, plus male derived by subtraction. The source's
+    # three gender buckets sum exactly to the unfiltered total, so male is exact
+    # and never had to be crawled.
+    cubes: dict[int, dict[tuple[int, int, int], int]] = {}
     months: dict[str, int] = {}
-    for date, cid, district, cnt in con.execute(
-        "SELECT date, country_id, district, count FROM daily_country"
+    for date, cid, gid, district, cnt in con.execute(
+        "SELECT date, country_id, gender_id, district, count FROM daily_country"
     ):
         if date in VOLATILE_DATES:
             continue  # a catch-all bucket, not a day - see bmet_crawler
@@ -354,12 +357,50 @@ def main() -> None:
         ym = date[:7]
         mi = months.setdefault(ym, len(months))
         k = (mi, di, cidx[key])
-        cube[k] = cube.get(k, 0) + cnt
+        c = cubes.setdefault(gid, {})
+        c[k] = c.get(k, 0) + cnt
 
     mlist = sorted(months, key=lambda m: m)
     remap = {months[m]: i for i, m in enumerate(mlist)}
-    entries = sorted(((remap[m], d, c, v) for (m, d, c), v in cube.items()))
-    print(f"  cube rows: {len(entries):,}  months: {len(mlist)}")
+
+    have_gender = 2 in cubes
+    if have_gender:
+        male = dict(cubes[0])
+        for gid in (2, 3):
+            for k, v in cubes.get(gid, {}).items():
+                male[k] = male.get(k, 0) - v
+
+        # The three slices cannot be crawled atomically - each is a separate
+        # pass over ~75k requests - and BMET keeps entering records while they
+        # run. A cell whose female count was captured after its all count can
+        # therefore exceed it, giving a small negative male value. Clamp those
+        # to zero and report the magnitude; fail only if it is large enough to
+        # matter, which would mean a genuinely incomplete crawl rather than
+        # ordinary drift.
+        neg = {k: v for k, v in male.items() if v < 0}
+        neg_records = -sum(neg.values())
+        total_all = sum(cubes[0].values())
+        if neg:
+            share = 100 * neg_records / max(total_all, 1)
+            print(f"  gender drift: {len(neg)} cells negative by {neg_records} records "
+                  f"({share:.4f}% of all) - clamped to zero")
+            if share > 0.01:
+                sys.exit(
+                    f"FATAL: {neg_records:,} records of negative male ({share:.3f}%) - "
+                    "the gender crawl looks incomplete, not merely stale"
+                )
+        cubes[MALE] = {k: max(v, 0) for k, v in male.items() if v > 0}
+
+    def pack(cube):
+        e = sorted(((remap[m], d, c, v) for (m, d, c), v in cube.items()))
+        return {"m": [x[0] for x in e], "d": [x[1] for x in e],
+                "c": [x[2] for x in e], "v": [x[3] for x in e]}
+
+    entries = sorted(((remap[m], d, c, v) for (m, d, c), v in cubes[0].items()))
+    for gid, cube in sorted(cubes.items()):
+        print(f"  cube gender {gid:<2} rows: {len(cube):>7,}  "
+              f"records {sum(cube.values()):>10,}")
+    print(f"  months: {len(mlist)}")
 
     # national daily series, for the fine-grained trend
     daily = [
@@ -398,11 +439,11 @@ def main() -> None:
         ],
         "months": mlist,
         # parallel arrays compress far better than an array of objects
-        "cube": {
-            "m": [e[0] for e in entries],
-            "d": [e[1] for e in entries],
-            "c": [e[2] for e in entries],
-            "v": [e[3] for e in entries],
+        "cube": pack(cubes[0]),
+        # keyed by gender: 1 male, 2 female. Absent when the gender crawl has
+        # not run, and the page hides its toggle in that case.
+        "cubesByGender": {
+            str(g): pack(cubes[g]) for g in (MALE, 2) if g in cubes
         },
         "daily": {"dates": [d for d, _ in daily], "values": [v for _, v in daily]},
     }

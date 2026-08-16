@@ -26,7 +26,19 @@ const MONTH_LABEL = (ym) => {
 };
 
 let DATA, BDGEO, WORLDGEO;
-const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months', measure: 'total' };
+const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months',
+                measure: 'total', gender: 'all' };
+
+/* Gender slice. The source splits every clearance into male / female / other,
+ * and those three sum exactly to the unfiltered total, so the build ships a
+ * separate cube per gender and switching is just a matter of which cube the
+ * aggregation scans. "Other" is nine records in three years; it is inside All
+ * and has no button of its own. */
+const activeCube = () =>
+  state.gender === 'all' ? DATA.cube
+    : (DATA.cubesByGender && DATA.cubesByGender[state.gender]) || DATA.cube;
+const genderLabel = () =>
+  state.gender === '1' ? 'men' : state.gender === '2' ? 'women' : null;
 
 /* Per-100,000-residents view.
  *
@@ -150,7 +162,7 @@ const hideTip = () => tip.classList.remove('on');
 /* ------------------------------------------------------------ aggregate */
 
 function aggregate() {
-  const { m, d, c, v } = DATA.cube;
+  const { m, d, c, v } = activeCube();
   const nD = DATA.districts.length, nC = DATA.countries.length, nM = DATA.months.length;
   const dTot = new Float64Array(nD), cTot = new Float64Array(nC), mSer = new Float64Array(nM);
   // Per-entity monthly series, so every row of a ranking can carry its own
@@ -510,7 +522,8 @@ function renderTimeline() {
 
 const corridorText = () =>
   (state.dSel === null ? 'All districts' : DATA.districts[state.dSel].n) + ' → ' +
-  (state.cSel === null ? 'all destinations' : DATA.countries[state.cSel].n);
+  (state.cSel === null ? 'all destinations' : DATA.countries[state.cSel].n) +
+  (genderLabel() ? ` (${genderLabel()})` : '');
 
 /* ----------------------------------------------------------- BD map */
 
@@ -917,6 +930,19 @@ async function boot() {
   DATA = d; BDGEO = bd; WORLDGEO = w;
   DATA.districts.forEach((x, i) => (DISTRICT_INDEX[x.n] = i));
 
+  const gseg = $('#gender-seg');
+  if (DATA.cubesByGender && Object.keys(DATA.cubesByGender).length) {
+    gseg.hidden = false;
+    gseg.querySelectorAll('button').forEach((b) => {
+      b.onclick = () => {
+        state.gender = b.dataset.gender;
+        gseg.querySelectorAll('button').forEach((o) =>
+          o.setAttribute('aria-pressed', String(o.dataset.gender === state.gender)));
+        render();
+      };
+    });
+  }
+
   // Belt and braces: if the data predates a denominator, disable that option
   // rather than let it render an empty map.
   Object.entries(DENOM).forEach(([measure, key]) => {
@@ -957,6 +983,9 @@ async function boot() {
 
   $('#reset-btn').onclick = () => {
     state.dSel = state.cSel = null;
+    state.gender = 'all';
+    document.querySelectorAll('#gender-seg button').forEach((o) =>
+      o.setAttribute('aria-pressed', String(o.dataset.gender === 'all')));
     state.m0 = 0; state.m1 = DATA.months.length - 1;
     render();
   };

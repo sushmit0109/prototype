@@ -71,6 +71,21 @@ jobs:
           python run_crawl.py daily-country
           python run_crawl.py repair
 
+      # Gender slices. Male is never crawled - it is all minus female minus
+      # other, which is exact. Run these straight after the unfiltered pass so
+      # the three slices stay as close together in time as possible: BMET keeps
+      # entering records, and a slice captured hours later can exceed the one
+      # it is subtracted from.
+      - name: Crawl gender slices
+        working-directory: overseas-employment/pipeline
+        run: |
+          for G in 2 3; do
+            python run_crawl.py daily-all     --gender $G
+            python run_crawl.py screen        --gender $G
+            python run_crawl.py daily-country --gender $G
+            python run_crawl.py repair        --gender $G
+          done
+
       # A spot-check against the live site. Advisory: a transient network
       # failure here should not block a good data refresh.
       - name: Verify a sample against the source

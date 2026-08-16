@@ -104,8 +104,10 @@ def main() -> None:
 
     # ---- fact tables ----------------------------------------------------
     say("\n[2] CRAWL COVERAGE")
-    dall = pd.read_sql_query("SELECT * FROM daily_all", con)
-    dctry = pd.read_sql_query("SELECT * FROM daily_country", con)
+    # Everything below analyses the unfiltered slice. The gender slices live in
+    # the same tables and would otherwise be summed on top of it.
+    dall = pd.read_sql_query("SELECT * FROM daily_all WHERE gender_id = 0", con)
+    dctry = pd.read_sql_query("SELECT * FROM daily_country WHERE gender_id = 0", con)
 
     days_expected = (today() - DATA_START).days + 1
     days_all = dall["date"].nunique()
@@ -181,7 +183,7 @@ def main() -> None:
     say("\n[4b] DAILY vs INDEPENDENT MONTH TOTALS")
     month_spans = {(a.isoformat(), b.isoformat()) for a, b in months_between(DATA_START, today())}
     months = pd.read_sql_query(
-        "SELECT country_id, date_from, date_to, total FROM span_total", con
+        "SELECT country_id, date_from, date_to, total FROM span_total WHERE gender_id = 0", con
     )
     # span_total also holds week spans; keep only the true month spans, since a
     # week inside a month is indistinguishable from one by date-prefix alone.
@@ -224,6 +226,36 @@ def main() -> None:
     stray = mism[~mism["ym"].isin({d[:7] for d in VOLATILE_DATES} | {today().strftime("%Y-%m")})]
     say(f"  mismatches outside those months    : {len(stray)}"
         + ("  <- investigate" if len(stray) else "  (none)"))
+
+    # ---- gender completeness --------------------------------------------
+    # Male is derived as all minus female minus other, so an incomplete female
+    # crawl silently inflates men rather than erroring. Check each crawled
+    # gender's per-country sum against its own unfiltered control series.
+    say("\n[4c] GENDER SLICES vs THEIR OWN CONTROL")
+    grows = pd.read_sql_query(
+        "SELECT gender_id, SUM(count) t FROM daily_country GROUP BY gender_id", con
+    ).set_index("gender_id")["t"].to_dict()
+    arows = pd.read_sql_query(
+        "SELECT gender_id, SUM(count) t FROM daily_all GROUP BY gender_id", con
+    ).set_index("gender_id")["t"].to_dict()
+    if len(arows) <= 1:
+        say("  gender slices not crawled yet")
+    else:
+        names = {0: "all", 1: "male", 2: "female", 3: "other"}
+        for g in sorted(arows):
+            ctrl, byc = arows.get(g, 0), grows.get(g, 0)
+            gap = ctrl - byc
+            pctg = 100 * gap / ctrl if ctrl else 0
+            flag = "" if abs(pctg) < 3 else "   <- INVESTIGATE"
+            say(f"  {names.get(g, g):<7} control={ctrl:>10,}  by country={byc:>10,}"
+                f"  residual={gap:>7,} ({pctg:5.2f}%){flag}")
+        tot = arows.get(0, 0)
+        parts = sum(arows.get(g, 0) for g in (1, 2, 3) if g in arows)
+        if 1 not in arows:
+            parts = arows.get(0, 0) - arows.get(2, 0) - arows.get(3, 0)
+            say(f"  male is derived: all - female - other = {parts:,}")
+        say("  The residual is the Unknown-district share plus records with no")
+        say("  country; it should sit near the same 1.3% seen for the whole set.")
 
     # ---- exports --------------------------------------------------------
     say("\n[5] EXPORTS")

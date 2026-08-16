@@ -30,6 +30,8 @@ def main(days: int = 21) -> None:
     n_log = con.execute(
         "DELETE FROM fetch_log WHERE substr(key,12,10) >= ?", (cutoff,)
     ).rowcount
+    # Every gender slice, or a refreshed unfiltered pass would be compared
+    # against stale female counts and derive a wrong male figure.
     n_dc = con.execute("DELETE FROM daily_country WHERE date >= ?", (cutoff,)).rowcount
     n_da = con.execute("DELETE FROM daily_all WHERE date >= ?", (cutoff,)).rowcount
     # any screening span that ends on or after the cutoff overlaps the window

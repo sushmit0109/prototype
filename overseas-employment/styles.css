@@ -223,6 +223,8 @@ header.top p  { margin: 0; color: var(--text-secondary); font-size: 13.5px; max-
 .chip button:hover { color: var(--text-primary); background: var(--surface-2); }
 .chip button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
 .corridor .arrow { color: var(--text-muted); font-size: 15px; }
+.corridor .seg { margin-left: 4px; }
+.corridor .seg button { padding: 4px 10px; font-size: 12.5px; }
 .corridor .spacer { flex: 1; }
 
 /* ---------- charts ---------- */

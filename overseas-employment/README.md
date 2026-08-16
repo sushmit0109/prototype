@@ -91,6 +91,11 @@ Chattogram 4th to 38th, while Munshiganj, Madaripur and Shariatpur rise into the
 top ten. The highest rates form a contiguous central belt — Brahmanbaria 5,817
 per 100,000 — against roughly 400 across the north-west, a 16x spread.
 
+**All / Men / Women** in the corridor bar slices every panel at once. Women are
+~6% of clearances. Male is never crawled: the source's three gender buckets sum
+exactly to the unfiltered total, so crawling women and "other" is enough and men
+fall out by subtraction — halving what would otherwise be two more full passes.
+
 ## Design notes
 
 **Both maps are heatmaps, on deliberately different scales.** Districts use

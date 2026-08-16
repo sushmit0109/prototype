@@ -21,6 +21,7 @@ import httpx
 
 from bmet_crawler import (
     BASE,
+    GENDERS,
     DATA_START,
     DENSE_MONTH_TOTAL,
     HEADERS,
@@ -33,6 +34,12 @@ from bmet_crawler import (
     today,
     weeks_in,
 )
+
+
+# The gender currently being crawled. Set from the command line; every phase
+# reads it, so the funnel logic is written once and runs identically for the
+# unfiltered pass and for each gender.
+GENDER = 0
 
 
 def log_ok(con, key, rows, total):
@@ -64,8 +71,37 @@ def dead_days(con) -> set[str]:
         k.rsplit("|", 1)[0].split("|")[0]
         for (k,) in con.execute("SELECT key FROM fetch_log WHERE key LIKE '%|ALL'")
     }
-    with_rows = {d for (d,) in con.execute("SELECT DISTINCT date FROM daily_all WHERE count > 0")}
+    with_rows = {
+        d for (d,) in con.execute(
+            "SELECT DISTINCT date FROM daily_all WHERE count > 0 AND gender_id = 0"
+        )
+    }
     return fetched - with_rows
+
+
+def dead_months(con, gender: int) -> set[str]:
+    """Months with no clearances nationwide for this gender.
+
+    The same argument as dead_days, one level up. If the whole country recorded
+    no female clearances in a month, no country-month pair can hold one, so all
+    157 screening requests for that month are skipped. This matters most for
+    the small slices: the "other" gender is nine records in three years, and
+    without this prune finding them would cost ~7,900 requests.
+    """
+    live = {
+        ym for (ym,) in con.execute(
+            "SELECT DISTINCT substr(date,1,7) FROM daily_all"
+            " WHERE gender_id = ? AND count > 0",
+            (gender,),
+        )
+    }
+    fetched = {
+        k[:7] for (k,) in con.execute(
+            "SELECT key FROM fetch_log WHERE key LIKE ?",
+            (f"%|ALL|g{gender}" if gender else "%|ALL",),
+        )
+    }
+    return fetched - live
 
 
 # --------------------------------------------------------------------------
@@ -113,7 +149,7 @@ async def phase_daily_all(con) -> None:
     end = today()
     days = [d.isoformat() for d in daterange(DATA_START, end)]
     have = done_keys(con)
-    todo = [d for d in days if qkey(d, d, None) not in have]
+    todo = [d for d in days if qkey(d, d, None, GENDER) not in have]
     print(f"\n[2/5] daily-all: {len(todo)} days to fetch ({len(days)} total)")
     if not todo:
         return
@@ -122,9 +158,9 @@ async def phase_daily_all(con) -> None:
         buf: list[tuple] = []
 
         async def one(day: str):
-            key = qkey(day, day, None)
+            key = qkey(day, day, None, GENDER)
             try:
-                rows = await cr.fetch(day, day)
+                rows = await cr.fetch(day, day, None, GENDER)
             except Exception as e:  # noqa: BLE001
                 cr.n_err += 1
                 log_err(con, key, e)
@@ -139,10 +175,11 @@ async def phase_daily_all(con) -> None:
 
     for day, rows in buf:
         con.executemany(
-            "INSERT OR REPLACE INTO daily_all(date, division, district, count) VALUES (?,?,?,?)",
-            [(day, r.division, r.district, r.count) for r in rows],
+            "INSERT OR REPLACE INTO daily_all(date, gender_id, division, district, count)"
+            " VALUES (?,?,?,?,?)",
+            [(day, GENDER, r.division, r.district, r.count) for r in rows],
         )
-        log_ok(con, qkey(day, day, None), len(rows), sum(r.count for r in rows))
+        log_ok(con, qkey(day, day, None, GENDER), len(rows), sum(r.count for r in rows))
     con.commit()
     print()
 
@@ -157,12 +194,17 @@ async def phase_screen(con) -> None:
     spans = months_between(DATA_START, end)
     have = done_keys(con)
 
+    # Skip whole months that the national series says are empty for this gender.
+    skip = dead_months(con, GENDER)
     todo = [
         (c, a.isoformat(), b.isoformat())
         for c in countries
         for a, b in spans
-        if qkey(a.isoformat(), b.isoformat(), c) not in have
+        if a.isoformat()[:7] not in skip
+        and qkey(a.isoformat(), b.isoformat(), c, GENDER) not in have
     ]
+    if skip:
+        print(f"      skipping {len(skip)} months with no clearances nationwide")
     print(
         f"\n[3/5] screen: {len(countries)} countries x {len(spans)} months "
         f"= {len(countries)*len(spans)} pairs, {len(todo)} to fetch"
@@ -172,9 +214,9 @@ async def phase_screen(con) -> None:
             buf: list[tuple] = []
 
             async def one(cid, a, b):
-                key = qkey(a, b, cid)
+                key = qkey(a, b, cid, GENDER)
                 try:
-                    rows = await cr.fetch(a, b, cid)
+                    rows = await cr.fetch(a, b, cid, GENDER)
                 except Exception as e:  # noqa: BLE001
                     cr.n_err += 1
                     log_err(con, key, e)
@@ -188,11 +230,12 @@ async def phase_screen(con) -> None:
             cr.progress("screen", len(todo))
 
         con.executemany(
-            "INSERT OR REPLACE INTO span_total(country_id, date_from, date_to, total) VALUES (?,?,?,?)",
-            [(c, a, b, t) for c, a, b, t, _ in buf],
+            "INSERT OR REPLACE INTO span_total(country_id, gender_id, date_from, date_to, total)"
+            " VALUES (?,?,?,?,?)",
+            [(c, GENDER, a, b, t) for c, a, b, t, _ in buf],
         )
         for c, a, b, t, n in buf:
-            log_ok(con, qkey(a, b, c), n, t)
+            log_ok(con, qkey(a, b, c, GENDER), n, t)
         con.commit()
         print()
 
@@ -200,11 +243,17 @@ async def phase_screen(con) -> None:
     # spans (written by phase 4a), and a week that sits inside one month looks
     # identical to a month span under a substr(date,1,7) test - so match the
     # month spans exactly rather than by pattern, or the rollup double counts.
+    if GENDER:
+        # has_data drives which countries later phases visit, and that list must
+        # stay the unfiltered one - a country with no women is still a country.
+        print("      (country rollup left as the unfiltered pass computed it)")
+        return
     month_spans = {(a.isoformat(), b.isoformat()) for a, b in spans}
     con.execute("UPDATE country SET total_records = 0, has_data = 0")
     totals: dict[int, int] = {}
     for cid, a, b, t in con.execute(
-        "SELECT country_id, date_from, date_to, total FROM span_total"
+        "SELECT country_id, date_from, date_to, total FROM span_total WHERE gender_id = ?",
+        (GENDER,),
     ):
         if (a, b) in month_spans:
             totals[cid] = totals.get(cid, 0) + t
@@ -238,7 +287,8 @@ async def phase_daily_country(con) -> None:
         (cid, a, b, t)
         for cid, a, b, t in con.execute(
             "SELECT country_id, date_from, date_to, total FROM span_total"
-            " WHERE total > 0 ORDER BY country_id, date_from"
+            " WHERE total > 0 AND gender_id = ? ORDER BY country_id, date_from",
+            (GENDER,),
         )
         if (a, b) in month_spans
     ]
@@ -259,7 +309,7 @@ async def phase_daily_country(con) -> None:
         for wa, wb in weeks_in(dt.date.fromisoformat(a), dt.date.fromisoformat(b)):
             if not live_days(wa, wb):
                 continue  # whole week is dead nationwide
-            k = qkey(wa.isoformat(), wb.isoformat(), cid)
+            k = qkey(wa.isoformat(), wb.isoformat(), cid, GENDER)
             if k not in have:
                 week_todo.append((cid, wa.isoformat(), wb.isoformat()))
 
@@ -272,34 +322,34 @@ async def phase_daily_country(con) -> None:
             async def flush_weeks():
                 payload, buf[:] = list(buf), []
                 con.executemany(
-                    "INSERT OR REPLACE INTO span_total(country_id, date_from, date_to, total)"
-                    " VALUES (?,?,?,?)",
-                    [(c, a, b, t) for c, a, b, t, _, _ in payload],
+                    "INSERT OR REPLACE INTO span_total(country_id, gender_id, date_from, date_to, total)"
+                    " VALUES (?,?,?,?,?)",
+                    [(c, GENDER, a, b, t) for c, a, b, t, _, _ in payload],
                 )
                 # A span of one day (the 29th of a leap February is the only
                 # case a 7-day split produces) has the same fetch_log key as a
                 # day request. Store its rows too, or phase 4b will treat the
                 # key as done and the day never reaches daily_country.
                 con.executemany(
-                    "INSERT OR REPLACE INTO daily_country(date, country_id, division, district, count)"
-                    " VALUES (?,?,?,?,?)",
+                    "INSERT OR REPLACE INTO daily_country(date, country_id, gender_id, division, district, count)"
+                    " VALUES (?,?,?,?,?,?)",
                     [
-                        (a, c, r.division, r.district, r.count)
+                        (a, c, GENDER, r.division, r.district, r.count)
                         for c, a, b, _, _, rows in payload
                         if a == b and rows
                         for r in rows
                     ],
                 )
                 for c, a, b, t, n, _ in payload:
-                    log_ok(con, qkey(a, b, c), n, t)
+                    log_ok(con, qkey(a, b, c, GENDER), n, t)
                 con.commit()
 
             async def one(cid, a, b):
                 try:
-                    rows = await cr.fetch(a, b, cid)
+                    rows = await cr.fetch(a, b, cid, GENDER)
                 except Exception as e:  # noqa: BLE001
                     cr.n_err += 1
-                    log_err(con, qkey(a, b, cid), e)
+                    log_err(con, qkey(a, b, cid, GENDER), e)
                     return
                 buf.append(
                     (cid, a, b, sum(r.count for r in rows), len(rows), rows if a == b else None)
@@ -330,14 +380,15 @@ async def phase_daily_country(con) -> None:
             spans = []
             for wa, wb in weeks_in(ma, mb):
                 row = con.execute(
-                    "SELECT total FROM span_total WHERE country_id=? AND date_from=? AND date_to=?",
-                    (cid, wa.isoformat(), wb.isoformat()),
+                    "SELECT total FROM span_total WHERE country_id=? AND gender_id=?"
+                    " AND date_from=? AND date_to=?",
+                    (cid, GENDER, wa.isoformat(), wb.isoformat()),
                 ).fetchone()
                 if row and row[0] > 0:
                     spans.append((wa, wb))
         for sa, sb in spans:
             for ds in live_days(sa, sb):
-                if qkey(ds, ds, cid) not in have:
+                if qkey(ds, ds, cid, GENDER) not in have:
                     day_todo.append((cid, ds))
 
     print(f"      4b daily: {len(day_todo)} requests")
@@ -351,25 +402,25 @@ async def phase_daily_country(con) -> None:
         async def flush():
             payload, buf[:] = list(buf), []
             rowvals = [
-                (day, cid, r.division, r.district, r.count)
+                (day, cid, GENDER, r.division, r.district, r.count)
                 for cid, day, rows in payload
                 for r in rows
             ]
             con.executemany(
-                "INSERT OR REPLACE INTO daily_country(date, country_id, division, district, count)"
-                " VALUES (?,?,?,?,?)",
+                "INSERT OR REPLACE INTO daily_country(date, country_id, gender_id, division, district, count)"
+                " VALUES (?,?,?,?,?,?)",
                 rowvals,
             )
             for cid, day, rows in payload:
-                log_ok(con, qkey(day, day, cid), len(rows), sum(r.count for r in rows))
+                log_ok(con, qkey(day, day, cid, GENDER), len(rows), sum(r.count for r in rows))
             con.commit()
 
         async def one(cid, day):
             try:
-                rows = await cr.fetch(day, day, cid)
+                rows = await cr.fetch(day, day, cid, GENDER)
             except Exception as e:  # noqa: BLE001
                 cr.n_err += 1
-                log_err(con, qkey(day, day, cid), e)
+                log_err(con, qkey(day, day, cid, GENDER), e)
                 return
             buf.append((cid, day, rows))
             cr.n_done += 1
@@ -403,14 +454,21 @@ async def phase_repair(con) -> None:
         """
         SELECT l.key, l.rows, l.total FROM fetch_log l
         LEFT JOIN (
-            SELECT date, country_id, COUNT(*) n FROM daily_country GROUP BY date, country_id
+            SELECT date, country_id, COUNT(*) n FROM daily_country
+            WHERE gender_id = ? GROUP BY date, country_id
         ) d ON d.date = substr(l.key, 1, 10)
           AND d.country_id = CAST(substr(l.key, 23) AS INTEGER)
+        -- A daily-all key ends '|ALL' for gender 0 and '|ALL|gN' for a slice;
+        -- matching only the former let gendered control keys through, where
+        -- 'ALL' was then parsed as a country id.
         WHERE l.key NOT LIKE '%|ALL'
+          AND l.key NOT LIKE '%|ALL|g%'
           AND substr(l.key, 1, 10) = substr(l.key, 12, 10)
           AND l.rows > 0
           AND d.n IS NULL
-        """
+          AND (CASE WHEN ? = 0 THEN l.key NOT LIKE '%|g%' ELSE l.key LIKE '%|g' || ? END)
+        """,
+        (GENDER, GENDER, GENDER),
     ).fetchall()
     print(f"\n[repair] day fetches logged but absent from daily_country: {len(gaps)}")
     if not gaps:
@@ -419,18 +477,20 @@ async def phase_repair(con) -> None:
 
     todo = []
     for key, _, _ in gaps:
-        day, _, cid = key.split("|")
-        todo.append((int(cid), day))
+        parts = key.split("|")
+        if not parts[2].isdigit():
+            raise RuntimeError(f"repair got a non-country key: {key!r}")
+        todo.append((int(parts[2]), parts[0]))
 
     async with Crawler(con) as cr:
         recovered = []
 
         async def one(cid, day):
             try:
-                rows = await cr.fetch(day, day, cid)
+                rows = await cr.fetch(day, day, cid, GENDER)
             except Exception as e:  # noqa: BLE001
                 cr.n_err += 1
-                log_err(con, qkey(day, day, cid), e)
+                log_err(con, qkey(day, day, cid, GENDER), e)
                 return
             recovered.append((cid, day, rows))
             cr.n_done += 1
@@ -438,16 +498,16 @@ async def phase_repair(con) -> None:
         await asyncio.gather(*[one(*t) for t in todo])
 
     con.executemany(
-        "INSERT OR REPLACE INTO daily_country(date, country_id, division, district, count)"
-        " VALUES (?,?,?,?,?)",
+        "INSERT OR REPLACE INTO daily_country(date, country_id, gender_id, division, district, count)"
+        " VALUES (?,?,?,?,?,?)",
         [
-            (day, cid, r.division, r.district, r.count)
+            (day, cid, GENDER, r.division, r.district, r.count)
             for cid, day, rows in recovered
             for r in rows
         ],
     )
     for cid, day, rows in recovered:
-        log_ok(con, qkey(day, day, cid), len(rows), sum(r.count for r in rows))
+        log_ok(con, qkey(day, day, cid, GENDER), len(rows), sum(r.count for r in rows))
     con.commit()
     n = sum(sum(r.count for r in rows) for _, _, rows in recovered)
     print(f"      repaired {len(recovered)} day-country fetches, {n:,} records recovered")
@@ -463,9 +523,18 @@ PHASES = {
 
 
 def main() -> None:
-    which = sys.argv[1] if len(sys.argv) > 1 else "all"
+    global GENDER
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    for a in sys.argv[1:]:
+        if a.startswith("--gender"):
+            GENDER = int(a.split("=", 1)[1] if "=" in a else sys.argv[sys.argv.index(a) + 1])
+    if GENDER:
+        print(f"[gender {GENDER}] crawling the {GENDERS.get(GENDER, GENDER)} slice")
+    which = args[0] if args else "all"
     con = connect()
     order = list(PHASES) if which == "all" else [which]
+    if GENDER:
+        order = [p for p in order if p != "bootstrap"]
     for name in order:
         if name not in PHASES:
             print(f"unknown phase {name!r}; choose from {list(PHASES)} or 'all'")

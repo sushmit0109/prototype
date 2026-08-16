@@ -108,23 +108,28 @@ CREATE TABLE IF NOT EXISTS country (
     total_records INTEGER
 );
 
--- one row per (day, division, district), no country filter
+-- one row per (day, gender, division, district), no country filter.
+-- gender_id 0 = every gender (the unfiltered control), 1 male, 2 female, 3 other.
 CREATE TABLE IF NOT EXISTS daily_all (
     date          TEXT NOT NULL,
+    gender_id     INTEGER NOT NULL DEFAULT 0,
     division      TEXT NOT NULL,
     district      TEXT NOT NULL,
     count         INTEGER NOT NULL,
-    PRIMARY KEY (date, division, district)
+    PRIMARY KEY (date, gender_id, division, district)
 );
 
--- one row per (day, country, division, district): the main dataset
+-- one row per (day, country, gender, division, district): the main dataset.
+-- Only genders 0 (all), 2 (female) and 3 (other) are ever crawled - male is
+-- derived as all minus female minus other, which is exact and halves the work.
 CREATE TABLE IF NOT EXISTS daily_country (
     date          TEXT NOT NULL,
     country_id    INTEGER NOT NULL,
+    gender_id     INTEGER NOT NULL DEFAULT 0,
     division      TEXT NOT NULL,
     district      TEXT NOT NULL,
     count         INTEGER NOT NULL,
-    PRIMARY KEY (date, country_id, division, district)
+    PRIMARY KEY (date, country_id, gender_id, division, district)
 );
 
 CREATE INDEX IF NOT EXISTS ix_dc_country ON daily_country(country_id);
@@ -133,10 +138,11 @@ CREATE INDEX IF NOT EXISTS ix_dc_date    ON daily_country(date);
 -- screening results, so phase 4 knows which (country, span) to expand
 CREATE TABLE IF NOT EXISTS span_total (
     country_id    INTEGER NOT NULL,
+    gender_id     INTEGER NOT NULL DEFAULT 0,
     date_from     TEXT NOT NULL,
     date_to       TEXT NOT NULL,
     total         INTEGER NOT NULL,
-    PRIMARY KEY (country_id, date_from, date_to)
+    PRIMARY KEY (country_id, gender_id, date_from, date_to)
 );
 
 -- every successful request, so a re-run skips completed work
@@ -155,10 +161,37 @@ CREATE TABLE IF NOT EXISTS fetch_error (
 """
 
 
+def migrate(con: sqlite3.Connection) -> None:
+    """Add the gender dimension to a database crawled before it existed.
+
+    SQLite cannot alter a primary key, so each affected table is rebuilt and
+    its rows copied in as gender 0. Row counts are asserted afterwards - a
+    silent partial copy here would corrupt the whole dataset.
+    """
+    for table in ("daily_all", "daily_country", "span_total"):
+        cols = [r[1] for r in con.execute(f"PRAGMA table_info({table})")]
+        if not cols or "gender_id" in cols:
+            continue
+        before = con.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+        print(f"  [migrate] adding gender to {table} ({before:,} rows)")
+        con.execute(f"ALTER TABLE {table} RENAME TO {table}_old")
+        con.executescript(SCHEMA)
+        con.execute(
+            f"INSERT INTO {table}({','.join(cols)}, gender_id) "
+            f"SELECT {','.join(cols)}, 0 FROM {table}_old"
+        )
+        after = con.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+        if after != before:
+            raise RuntimeError(f"migration lost rows in {table}: {before} -> {after}")
+        con.execute(f"DROP TABLE {table}_old")
+        con.commit()
+
+
 def connect(path: Path = DB_PATH) -> sqlite3.Connection:
     path.parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(path, timeout=60)
     con.executescript(SCHEMA)
+    migrate(con)
     con.execute("PRAGMA journal_mode=WAL")
     con.execute("PRAGMA synchronous=NORMAL")
     return con
@@ -282,8 +315,20 @@ def parse_reference(text: str) -> dict:
 # --------------------------------------------------------------------------
 
 
-def qkey(date_from: str, date_to: str, country_id: int | None) -> str:
-    return f"{date_from}|{date_to}|{country_id if country_id is not None else 'ALL'}"
+# Genders the crawler actually fetches. Male is derived (all - female - other),
+# which is exact because the source's three buckets sum to the unfiltered total.
+GENDERS = {0: "all", 2: "female", 3: "other"}
+MALE_ID = 1
+
+
+def qkey(date_from: str, date_to: str, country_id: int | None, gender_id: int = 0) -> str:
+    """Cache key for one request.
+
+    Gender 0 produces the pre-gender key unchanged, so a database crawled
+    before gender existed keeps every one of its ~74k logged requests.
+    """
+    base = f"{date_from}|{date_to}|{country_id if country_id is not None else 'ALL'}"
+    return base if not gender_id else f"{base}|g{gender_id}"
 
 
 class Crawler:
@@ -312,11 +357,14 @@ class Crawler:
         await self.client.aclose()
 
     async def fetch(
-        self, date_from: str, date_to: str, country_id: int | None = None
+        self, date_from: str, date_to: str, country_id: int | None = None,
+        gender_id: int = 0,
     ) -> list[Row]:
         params: dict = {"date_from": date_from, "date_to": date_to}
         if country_id is not None:
             params["country_name[]"] = country_id
+        if gender_id:
+            params["gender_id"] = gender_id
 
         last: Exception | None = None
         async with self.sem:
@@ -330,7 +378,7 @@ class Crawler:
                 except Exception as e:  # noqa: BLE001 - retry everything
                     last = e
                     await asyncio.sleep(min(2**attempt, 30) + 0.25 * attempt)
-        raise RuntimeError(f"{qkey(date_from, date_to, country_id)}: {last}")
+        raise RuntimeError(f"{qkey(date_from, date_to, country_id, gender_id)}: {last}")
 
     def progress(self, label: str, total: int) -> None:
         el = time.time() - self.t0
