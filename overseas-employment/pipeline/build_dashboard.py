@@ -123,8 +123,17 @@ def fetch_cached(url: str, name: str) -> dict:
     return json.loads(p.read_text())
 
 
-def load_population() -> dict[str, int]:
-    """District -> 2022 census population, keyed by BMET's spelling."""
+# Working-age band. Emigration is overwhelmingly working-age, so a rate per
+# 15-64 resident is the more faithful denominator; total population is kept as
+# well because it is the figure most readers expect.
+WORKING_AGE_COLS = [
+    "T_15_19", "T_20_24", "T_25_29", "T_30_34", "T_35_39",
+    "T_40_44", "T_45_49", "T_50_54", "T_55_59", "T_60_64",
+]
+
+
+def load_population() -> dict[str, dict]:
+    """District -> {total, working-age 15-64} from the 2022 census."""
     GEO_CACHE.mkdir(parents=True, exist_ok=True)
     p = GEO_CACHE / "pop_adm2.csv"
     if not p.exists():
@@ -133,7 +142,10 @@ def load_population() -> dict[str, int]:
         with urllib.request.urlopen(req, timeout=180) as r:
             p.write_bytes(r.read())
     return {
-        r["ADM2_NAME"].strip(): int(r["T_TL"])
+        r["ADM2_NAME"].strip(): {
+            "t": int(r["T_TL"]),
+            "w": sum(int(r[c]) for c in WORKING_AGE_COLS),
+        }
         for r in csv.DictReader(p.read_text(encoding="utf-8-sig").splitlines())
     }
 
@@ -266,11 +278,13 @@ def main() -> None:
     # Population, on the same eight spelling variants as the boundary file.
     pop_raw = load_population()
     dpop = {d: pop_raw.get(DISTRICT_TO_GEO.get(d, d)) for d in dnames}
-    missing_pop = [d for d, v in dpop.items() if not v]
+    missing_pop = [d for d, v in dpop.items() if not v or not v["t"] or not v["w"]]
     if missing_pop:
         sys.exit(f"FATAL: districts with no population: {missing_pop}")
+    tot_t = sum(v["t"] for v in dpop.values())
+    tot_w = sum(v["w"] for v in dpop.values())
     print(f"  population mapped              : {len(dpop)}/64  "
-          f"(total {sum(dpop.values()):,})")
+          f"(total {tot_t:,}; working age 15-64 {tot_w:,} = {100*tot_w/tot_t:.1f}%)")
     print(f"  districts mapped to geometry : {len(bd_out['features'])}/64")
 
     # ---- countries ------------------------------------------------------
@@ -375,7 +389,7 @@ def main() -> None:
         # rather than a single national point.
         "districts": [
             {"n": d, "v": ddiv[d], "c": [round(x, 2) for x in dcentroid[d]],
-             "p": dpop[d]}
+             "p": dpop[d]["t"], "pw": dpop[d]["w"]}
             for d in dnames
         ],
         "countries": [

@@ -36,9 +36,16 @@ const state = { m0: 0, m1: 0, dSel: null, cSel: null, tlMode: 'months', measure:
  * origin side is normalised - a rate per Bangladeshi head is meaningless on a
  * destination country. */
 const PER = 100000;
-const isRate = () => state.measure === 'rate';
-const districtValue = (i) =>
-  isRate() ? (agg.dTot[i] / DATA.districts[i].p) * PER : agg.dTot[i];
+const DENOM = { rate: 'p', rateW: 'pw' };     // total population / working age 15-64
+const isRate = () => state.measure !== 'total';
+const denomKey = () => DENOM[state.measure];
+const denomLabel = () =>
+  state.measure === 'rateW' ? 'residents aged 15–64' : 'residents';
+const districtValue = (i) => {
+  if (!isRate()) return agg.dTot[i];
+  const d = DATA.districts[i][denomKey()];
+  return d ? (agg.dTot[i] / d) * PER : 0;
+};
 const fmtRate = (v) => (v >= 100 ? Math.round(v).toLocaleString('en-US')
   : v >= 10 ? v.toFixed(1) : v.toFixed(2));
 const fmtDistrict = (v) => (isRate() ? fmtRate(v) + ' / 100k' : fmt(Math.round(v)));
@@ -208,7 +215,7 @@ function renderKpis() {
   const dMax = maxIdx(dVals), cMax = maxIdx(cTot);
   $('#kpi-district').textContent = dMax < 0 ? '—' : DATA.districts[dMax].n;
   $('#kpi-district-sub').textContent = dMax < 0 ? ''
-    : isRate() ? fmtRate(dVals[dMax]) + ' per 100k residents'
+    : isRate() ? fmtRate(dVals[dMax]) + ' per 100k ' + denomLabel()
     : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
   $('#kpi-district-label').textContent = isRate() ? 'Highest rate' : 'Top origin';
   $('#kpi-country').textContent = cMax < 0 ? '—' : DATA.countries[cMax].n;
@@ -539,17 +546,17 @@ function renderBdMap() {
       tabindex: '0', role: 'button',
     });
     p.setAttribute('aria-label',
-      `${f.properties.name}: ${fmtDistrict(val)}${isRate() ? ' per 100,000 residents' : ' clearances'}`);
+      `${f.properties.name}: ${fmtDistrict(val)}${isRate() ? ' per 100,000 ' + denomLabel() : ' clearances'}`);
     const activate = () => { state.dSel = state.dSel === i ? null : i; render(); };
     p.addEventListener('click', activate);
     p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     p.addEventListener('pointermove', (e) =>
       showTip(e, `<div class="t-name">${f.properties.name}</div>
         <div class="t-val">${isRate()
-          ? fmtRate(val) + ' per 100,000 residents'
+          ? fmtRate(val) + ' per 100,000 ' + denomLabel()
           : fmt(Math.round(val)) + ' clearances'}</div>
         <div class="t-sub">${isRate()
-          ? fmt(agg.dTot[i]) + ' clearances · population ' + fmt(DATA.districts[i].p)
+          ? fmt(agg.dTot[i]) + ' clearances · ' + denomLabel() + ' ' + fmt(DATA.districts[i][denomKey()])
           : fmtRate((agg.dTot[i] / DATA.districts[i].p) * PER) + ' per 100k · population ' + fmt(DATA.districts[i].p)}</div>
         <div class="t-sub">${f.properties.division} division${state.cSel !== null ? ' → ' + DATA.countries[state.cSel].n : ''}</div>`));
     p.addEventListener('pointerleave', hideTip);
@@ -558,7 +565,7 @@ function renderBdMap() {
 
   host.replaceChildren(svg);
   renderLegend($('#bd-legend'), breaks, RAMP_O,
-    isRate() ? 'Per 100,000 residents' : 'Clearances', Math.max(...dVals));
+    isRate() ? 'Per 100,000 ' + denomLabel() : 'Clearances', Math.max(...dVals));
   $('#bd-hint').textContent = state.cSel === null
     ? 'Where workers come from. Click a district to see its destinations.'
     : `Districts sending workers to ${DATA.countries[state.cSel].n}.`;
@@ -756,7 +763,7 @@ function barChart(host, items, colorClass, onPick, selIdx, valFmt) {
     const trendTxt = it.trend == null ? ''
       : `, ${it.trend >= 0 ? 'up' : 'down'} ${Math.abs(Math.round(it.trend * 100))}% across the period`;
     g.setAttribute('aria-label',
-      `${it.n}: ${valFmt ? valFmt(it.v) + ' per 100,000 residents' : fmt(it.v) + ' clearances'}${trendTxt}`);
+      `${it.n}: ${valFmt ? valFmt(it.v) + ' per 100,000 ' + denomLabel() : fmt(it.v) + ' clearances'}${trendTxt}`);
 
     const lb = svgEl('text', { x: labelW - 8, y: y + 15, 'text-anchor': 'end', class: 'bar-label' });
     // Fit the label to the gutter actually available rather than a fixed count.
@@ -814,7 +821,7 @@ function barChart(host, items, colorClass, onPick, selIdx, valFmt) {
     g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     g.addEventListener('pointermove', (e) =>
       showTip(e, `<div class="t-name">${it.n}</div><div class="t-val">${
-        valFmt ? valFmt(it.v) + ' per 100,000 residents' : fmt(it.v) + ' clearances'}</div>
+        valFmt ? valFmt(it.v) + ' per 100,000 ' + denomLabel() : fmt(it.v) + ' clearances'}</div>
         <div class="t-sub">${it.sub || ''}</div>`));
     g.addEventListener('pointerleave', hideTip);
     svg.appendChild(g);
@@ -855,7 +862,7 @@ function renderBars() {
     (i) => { state.cSel = state.cSel === i ? null : i; render(); }, state.cSel);
   const trendNote = ' Each row carries its own trend for the selected period.';
   $('#bars-d-hint').textContent = (isRate()
-    ? 'Ranked by clearances per 100,000 residents — propensity, not volume.'
+    ? `Ranked by clearances per 100,000 ${denomLabel()} — propensity, not volume.`
     : state.cSel === null
       ? 'Ranked by clearances in the current view.'
       : `Districts sending to ${DATA.countries[state.cSel].n}.`) + trendNote;
@@ -872,17 +879,21 @@ function renderTable() {
   const rows = [];
   topItems(agg.dTot, dNames, 64).forEach((x) =>
     rows.push(['District', x.n, DATA.districts[x.i].v, x.v,
-               fmtRate((x.v / DATA.districts[x.i].p) * PER), fmt(DATA.districts[x.i].p)]));
+               fmtRate((x.v / DATA.districts[x.i].p) * PER),
+               fmtRate((x.v / DATA.districts[x.i].pw) * PER),
+               fmt(DATA.districts[x.i].p), fmt(DATA.districts[x.i].pw)]));
   topItems(agg.cTot, cNames, 200).forEach((x) =>
-    rows.push(['Destination', x.n, '', x.v, '', '']));
+    rows.push(['Destination', x.n, '', x.v, '', '', '', '']));
 
   const html = `<div class="tablewrap"><table>
     <caption class="sr-only">Clearances for ${corridorText()}, ${MONTH_LABEL(DATA.months[state.m0])} to ${MONTH_LABEL(DATA.months[state.m1])}</caption>
     <thead><tr><th>Type</th><th>Name</th><th>Division</th><th class="num">Clearances</th>
-      <th class="num">Per 100k</th><th class="num">Population</th></tr></thead>
+      <th class="num">Per 100k</th><th class="num">Per 100k 15–64</th>
+      <th class="num">Population</th><th class="num">Pop 15–64</th></tr></thead>
     <tbody>${rows.map((r) =>
       `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="num">${fmt(r[3])}</td>` +
-      `<td class="num">${r[4]}</td><td class="num">${r[5]}</td></tr>`
+      `<td class="num">${r[4]}</td><td class="num">${r[5]}</td>` +
+      `<td class="num">${r[6]}</td><td class="num">${r[7]}</td></tr>`
     ).join('')}</tbody></table></div>`;
   $('#table-body').innerHTML = html;
 }
@@ -892,13 +903,32 @@ function renderTable() {
 let DISTRICT_INDEX = {};
 
 async function boot() {
+  // Revalidate rather than trust the cache. app.js and the data files are
+  // cached independently (max-age=600 on Pages), so a returning visitor could
+  // otherwise run new code against a data file from before a schema change --
+  // which is exactly how the per-100k view once came up blank. 'no-cache'
+  // still uses the cached bytes when the ETag matches, so this costs a 304.
+  const getJSON = (u) => fetch(u, { cache: 'no-cache' }).then((r) => r.json());
   const [d, bd, w] = await Promise.all([
-    fetch('data/dashboard.json').then((r) => r.json()),
-    fetch('data/bd-districts.geo.json').then((r) => r.json()),
-    fetch('data/world.geo.json').then((r) => r.json()),
+    getJSON('data/dashboard.json'),
+    getJSON('data/bd-districts.geo.json'),
+    getJSON('data/world.geo.json'),
   ]);
   DATA = d; BDGEO = bd; WORLDGEO = w;
   DATA.districts.forEach((x, i) => (DISTRICT_INDEX[x.n] = i));
+
+  // Belt and braces: if the data predates a denominator, disable that option
+  // rather than let it render an empty map.
+  Object.entries(DENOM).forEach(([measure, key]) => {
+    const ok = DATA.districts.every((x) => x[key] > 0);
+    if (ok) return;
+    const btn = document.querySelector(`.seg button[data-measure="${measure}"]`);
+    if (btn) {
+      btn.disabled = true;
+      btn.title = 'Population data unavailable in this build';
+    }
+    if (state.measure === measure) state.measure = 'total';
+  });
   state.m0 = 0;
   state.m1 = DATA.months.length - 1;
 
@@ -908,6 +938,7 @@ async function boot() {
 
   document.querySelectorAll('.seg button[data-measure]').forEach((b) => {
     b.onclick = () => {
+      if (b.disabled) return;
       state.measure = b.dataset.measure;
       document.querySelectorAll('.seg button[data-measure]').forEach((o) =>
         o.setAttribute('aria-pressed', String(o.dataset.measure === state.measure)));

@@ -58,7 +58,10 @@
         <h2>Origin — districts</h2>
         <div class="seg" role="group" aria-label="District measure">
           <button type="button" data-measure="total" aria-pressed="true">Total</button>
-          <button type="button" data-measure="rate" aria-pressed="false">Per 100k</button>
+          <button type="button" data-measure="rate" aria-pressed="false"
+                  title="Clearances per 100,000 residents of any age">Per 100k</button>
+          <button type="button" data-measure="rateW" aria-pressed="false"
+                  title="Clearances per 100,000 residents aged 15–64">Per 100k · 15–64</button>
         </div>
       </div>
       <p class="hint" id="bd-hint">Where workers come from. Click a district to see its destinations.</p>
@@ -110,10 +113,12 @@
       absorbing records rather than a real day.
       Figures for the most recent days are incomplete while data entry continues.
       <br><strong>Per 100,000.</strong> The rate divides clearances in the selected period by each
-      district's 2022 census population — so it measures how many residents out of every 100,000
-      took a clearance, not how many people live there. It is a propensity measure, and it is
-      sensitive in small districts. Population is fixed at the 2022 census; internal migration
-      since then is not reflected.
+      district's 2022 census population — how many residents out of every 100,000 took a clearance,
+      not how many people live there. <em>Per 100k · 15–64</em> uses only working-age residents
+      (67.0% of the population nationally), which is the closer denominator since almost every
+      migrant is of working age. Both are propensity measures and both are more sensitive in small
+      districts. Population is fixed at the 2022 census, so internal migration since then is not
+      reflected.
     </div>
   </footer>
 </div>

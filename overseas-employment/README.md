@@ -83,8 +83,10 @@ period, so trends compare twelve at a time rather than one. Selecting Comilla
 shows its destination mix shifting hard: Malaysia down 100% (to zero), Maldives
 up 458%, Portugal up 387%, UAE down 83%.
 
-**Total / Per 100k** on the origin panel divides by each district's 2022 census
-population. It changes the story: Dhaka falls from 7th by volume to 55th by rate,
+**Total / Per 100k / Per 100k · 15–64** on the origin panel divides by each
+district's 2022 census population, or by its working-age population (15–64,
+67.0% nationally — the closer denominator, since almost every migrant is of
+working age). It changes the story: Dhaka falls from 7th by volume to 55th by rate,
 Chattogram 4th to 38th, while Munshiganj, Madaripur and Shariatpur rise into the
 top ten. The highest rates form a contiguous central belt — Brahmanbaria 5,817
 per 100,000 — against roughly 400 across the north-west, a 16x spread.
