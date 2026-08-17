@@ -1,10 +1,10 @@
 {
- "built_at":"2026-08-17T05:52:21+00:00",
+ "built_at":"2026-08-17T07:18:04+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
-   "to":"2026-08-17T08:00",
-   "rows":98273,
+   "to":"2026-08-17T09:00",
+   "rows":98274,
    "months":[
     "2015-04",
     "2015-05",
@@ -151,9 +151,9 @@
    "days":4120
   },
   "bpdb":{
-   "days":720,
+   "days":721,
    "from":"2024-07-04",
-   "to":"2026-08-15"
+   "to":"2026-08-16"
   },
   "areawise":{
    "days":4171,
@@ -174,7 +174,7 @@
    "name_en":"BPDB daily generation archive (NLDC PDF reports)",
    "name_bn":"বিপিডিবি দৈনিক উৎপাদন আর্কাইভ (এনএলডিসি পিডিএফ প্রতিবেদন)",
    "url":"https://misc.bpdb.gov.bd/daily-generation-archive",
-   "latest":"2026-08-15"
+   "latest":"2026-08-16"
   },
   {
    "id":"bpdb_area",
@@ -188,7 +188,7 @@
    "name_en":"PGCB daily workbook (NLDC reports, digitised)",
    "name_bn":"পিজিসিবির দৈনিক ওয়ার্কবুক (এনএলডিসি প্রতিবেদন, ডিজিটাইজড)",
    "url":"https://erp.powergrid.gov.bd/",
-   "latest":"2026-08-15"
+   "latest":"2026-08-16"
   },
   {
    "id":"osm",
