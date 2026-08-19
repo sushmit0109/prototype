@@ -1,0 +1,5 @@
+# Deliberately small. The OCR itself is the tesseract binary and poppler's
+# pdftoppm, both installed from apt in the workflow; Python only marshals them.
+numpy>=1.26
+pillow>=10.0
+pandas>=2.0          # used by the historical audit only

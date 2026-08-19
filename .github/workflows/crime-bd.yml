@@ -1,0 +1,106 @@
+name: Crime BD — refresh dashboard
+
+# Police Headquarters posts the previous month's sheet in the first fortnight of
+# each month, so checking on the 1st and the 16th catches a new one within days
+# of publication without hammering their server.
+on:
+  schedule:
+    - cron: "0 6 1,16 * *"
+  workflow_dispatch:
+    inputs:
+      rebuild_only:
+        description: "Rebuild the page from existing data, without fetching"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: crime-bd
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tools/crime-bd
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install OCR toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-eng poppler-utils
+          tesseract --version | head -1
+          pip install --quiet -r requirements.txt
+
+      - name: Fetch and transcribe any new sheets
+        id: fetch
+        if: ${{ !inputs.rebuild_only }}
+        continue-on-error: true          # a sheet that will not reconcile must
+        run: |                           # not stop us republishing what is good
+          python3 fetch_new.py truth "$RUNNER_TEMP/pdfs"
+
+      - name: Re-verify every transcript against its own checksums
+        run: python3 verify.py truth/*.json
+
+      - name: Rebuild dataset and page
+        run: |
+          python3 build_dataset.py "sources/Crime Stat BD 20-25_cleaned.csv" truth ../../crime-bd/crime.json
+          python3 build_site.py index.template.html ../../crime-bd/crime.json \
+                                bd_divisions.geojson ../../crime-bd/index.html
+
+      - name: Commit if anything changed
+        id: commit
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add crime-bd tools/crime-bd/truth tools/crime-bd/needs_review 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            LATEST=$(python3 -c "import json;print(json.load(open('crime-bd/crime.json'))['meta']['last_month'])")
+            git commit -m "crime-bd: refresh data through ${LATEST}"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Raise an issue if a sheet would not reconcile
+        if: steps.fetch.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = 'crime-bd: a published sheet did not reconcile';
+            const body = [
+              'The scheduled refresh downloaded at least one crime-statistics sheet that',
+              'failed its checksum reconciliation, so it was **not** published.',
+              '',
+              'Reports are in `tools/crime-bd/needs_review/`. Each sheet prints a Recovery',
+              'subtotal and a grand total per row, and totals every column in its last row —',
+              '53 constraints. A failure means OCR could not produce a reading that satisfies',
+              'all of them, usually because the scan is unusually faint or laid out differently.',
+              '',
+              'Re-read the month by hand, drop the result into `tools/crime-bd/truth/YYYY-MM.json`,',
+              'and run the workflow again with **rebuild_only** ticked.',
+              '',
+              `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join('\n');
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'crime-bd',
+            });
+            if (open.data.some(i => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title, body, labels: ['crime-bd'],
+            });
