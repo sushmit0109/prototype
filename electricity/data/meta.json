@@ -1,5 +1,5 @@
 {
- "built_at":"2026-08-19T07:55:41+00:00",
+ "built_at":"2026-08-19T08:56:23+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
@@ -151,13 +151,13 @@
    "days":4122
   },
   "bpdb":{
-   "days":722,
+   "days":723,
    "from":"2024-07-04",
-   "to":"2026-08-17"
+   "to":"2026-08-18"
   },
   "areawise":{
-   "days":4175,
-   "usable":3834,
+   "days":4176,
+   "usable":3835,
    "suspect":341
   }
  },
@@ -174,14 +174,14 @@
    "name_en":"BPDB daily generation archive (NLDC PDF reports)",
    "name_bn":"বিপিডিবি দৈনিক উৎপাদন আর্কাইভ (এনএলডিসি পিডিএফ প্রতিবেদন)",
    "url":"https://misc.bpdb.gov.bd/daily-generation-archive",
-   "latest":"2026-08-17"
+   "latest":"2026-08-18"
   },
   {
    "id":"bpdb_area",
    "name_en":"BPDB area-wise demand",
    "name_bn":"বিপিডিবি এলাকাভিত্তিক চাহিদা",
    "url":"https://misc.bpdb.gov.bd/area-wise-demand",
-   "latest":"2026-08-17"
+   "latest":"2026-08-18"
   },
   {
    "id":"pgcb_erp",
@@ -201,6 +201,6 @@
   "demand_identity_rate":0.9954,
   "energy_identity_rate":1.0,
   "areawise_zero_days":1,
-  "areawise_days_compared":573
+  "areawise_days_compared":574
  }
 }
