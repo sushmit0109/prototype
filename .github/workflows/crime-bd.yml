@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: tools/crime-bd
+        working-directory: crime-bd/pipeline
 
     steps:
       - uses: actions/checkout@v4
@@ -52,11 +52,8 @@ jobs:
       - name: Re-verify every transcript against its own checksums
         run: python3 verify.py truth/*.json
 
-      - name: Rebuild dataset and page
-        run: |
-          python3 build_dataset.py "sources/Crime Stat BD 20-25_cleaned.csv" truth ../../crime-bd/crime.json
-          python3 build_site.py index.template.html ../../crime-bd/crime.json \
-                                bd_divisions.geojson ../../crime-bd/index.html
+      - name: Rebuild the dataset the page reads
+        run: python3 build_dataset.py "sources/Crime Stat BD 20-25_cleaned.csv" truth ../data/crime.json
 
       - name: Commit if anything changed
         id: commit
@@ -64,12 +61,12 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add crime-bd tools/crime-bd/truth tools/crime-bd/needs_review 2>/dev/null || true
+          git add crime-bd 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "nothing to commit"
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            LATEST=$(python3 -c "import json;print(json.load(open('crime-bd/crime.json'))['meta']['last_month'])")
+            LATEST=$(python3 -c "import json;print(json.load(open('crime-bd/data/crime.json'))['meta']['last_month'])")
             git commit -m "crime-bd: refresh data through ${LATEST}"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -85,12 +82,12 @@ jobs:
               'The scheduled refresh downloaded at least one crime-statistics sheet that',
               'failed its checksum reconciliation, so it was **not** published.',
               '',
-              'Reports are in `tools/crime-bd/needs_review/`. Each sheet prints a Recovery',
+              'Reports are in `crime-bd/pipeline/needs_review/`. Each sheet prints a Recovery',
               'subtotal and a grand total per row, and totals every column in its last row —',
               '53 constraints. A failure means OCR could not produce a reading that satisfies',
               'all of them, usually because the scan is unusually faint or laid out differently.',
               '',
-              'Re-read the month by hand, drop the result into `tools/crime-bd/truth/YYYY-MM.json`,',
+              'Re-read the month by hand, drop the result into `crime-bd/pipeline/truth/YYYY-MM.json`,',
               'and run the workflow again with **rebuild_only** ticked.',
               '',
               `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
