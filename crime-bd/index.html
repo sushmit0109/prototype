@@ -908,12 +908,21 @@ function renderKPIs() {
   const pf = from - n, prev = pf >= 0 ? series.slice(pf, from).reduce((a,b)=>a+b,0) : null;
   const d = prev ? (cur-prev)/prev*100 : null;
 
-  const k1 = kpi(crimeName(), fmt(cur), `${periodLabel().toLowerCase()} · ${n} months`, d, true);
+  // The Per-100k switch has to reach the headline too, or toggling it appears
+  // to do nothing up here while changing everything below.
+  const natPop = DATA.units.reduce((a,u) => a + (u.population || 0), 0);
+  const asRate = v => v / (n/12) / natPop * 1e5;
+
+  const k1 = kpi(crimeName(),
+    S.measure === 'count' ? fmt(cur) : fmt1(asRate(cur)),
+    S.measure === 'count' ? `${periodLabel().toLowerCase()} · ${n} months`
+                          : `per 100,000 residents a year`, d, true);
   k1.appendChild(sparkSVG(series.slice(from, to+1)));
   box.appendChild(k1);
 
-  const perMonth = cur / n;
-  box.appendChild(kpi('Average per month', fmt(perMonth), 'over the selected period', null));
+  box.appendChild(S.measure === 'count'
+    ? kpi('Average per month', fmt(cur / n), 'over the selected period', null)
+    : kpi('Total cases', fmt(cur), `${periodLabel().toLowerCase()} · ${n} months`, null));
 
   const {raw, shown} = displayValues();
   const order = DATA.units.map((u,i)=>({u,i,v:shown[i]})).filter(o=>o.v!=null&&isFinite(o.v)).sort((a,b)=>b.v-a.v);

@@ -2,10 +2,17 @@
 """
 Extract the Bangladesh Police monthly "Crime Statistics" sheet from a scanned PDF.
 
-The published sheet is a fully-ruled table printed sideways on a portrait page.
-Rather than throw the whole page at the OCR engine, we straighten the scan,
-find the printed rules, and read one cell at a time with a digit whitelist. That
-removes every column-alignment guess from the engine's job.
+The published sheet is a fully-ruled table, printed sideways on a portrait page
+in most months and landscape or upside down in others. Rather than throw the
+whole page at the OCR engine, we straighten the scan, find the printed rules,
+and read one cell at a time with a digit whitelist -- which removes every
+column-alignment guess from the engine's job.
+
+Within a cell the digits are counted geometrically before they are recognised.
+Tesseract's characteristic failure on this material is dropping a leading or
+trailing digit (1733 read as 733), and the result is a perfectly plausible
+number that nothing downstream would question. Printed digits never touch, so
+the digit count is a fact we can measure rather than something to be trusted.
 
 What makes the result trustworthy is that the sheet carries three independent
 checksums:
@@ -273,22 +280,86 @@ def _tess(img, psm, digits=True):
         os.unlink(name)
 
 
+def digit_columns(img, min_gap=2):
+    """Column spans of each separate ink blob -- one per printed digit.
+
+    These sheets are printed, not handwritten, so the digits never touch. That
+    makes the *number of digits* a geometric fact we can measure, rather than
+    something the OCR has to get right. It matters because tesseract's
+    characteristic failure here is silently dropping a leading or trailing
+    digit: 1733 read as 733, 991 as 99. Both are plausible numbers, so nothing
+    downstream would notice.
+    """
+    a = np.asarray(img)
+    ink = (a < 170).sum(axis=0)
+    spans, start = [], None
+    gap = 0
+    for x, v in enumerate(ink):
+        if v > 0:
+            if start is None:
+                start = x
+            gap = 0
+        elif start is not None:
+            gap += 1
+            if gap >= min_gap:
+                spans.append((start, x - gap + 1))
+                start = None
+    if start is not None:
+        spans.append((start, len(ink)))
+    # drop specks that cannot be a digit
+    h = (a < 170).any(axis=1).sum()
+    return [s for s in spans if s[1] - s[0] >= max(2, h * 0.08)]
+
+
 def read_cell(crop):
-    """Read one numeric cell, voting across page-segmentation modes."""
+    """Read one numeric cell.
+
+    Two independent readings: tesseract on the whole cell, voting across page
+    segmentation modes, and a digit-by-digit pass guided by the blob count. When
+    the whole-cell reading has the wrong number of digits we take the segmented
+    one, which is what catches the dropped-digit failure.
+    """
     p = _prep(crop)
     if p is None:
         # Almost no ink. Usually a genuinely blank cell, which means zero -- but
         # a faint digit looks the same, so leave it open to the checksum pass.
         return 0, 0.6
+
     votes = Counter()
     for psm in (7, 8, 10, 13):
         v = _tess(p, psm)
         if v:
             votes[v] += 1
-    if not votes:
-        return None, 0.0
-    val, n = votes.most_common(1)[0]
-    return int(val), n / 4.0
+
+    spans = digit_columns(p)
+    whole, agree = (votes.most_common(1)[0] if votes else (None, 0))
+
+    if whole is not None and len(whole) == len(spans):
+        return int(whole), agree / 4.0          # both accounts agree on length
+
+    if not spans or len(spans) > 6:
+        return (int(whole), agree / 8.0) if whole else (None, 0.0)
+
+    # Re-read one digit at a time, each padded so tesseract sees a lone glyph.
+    out = ''
+    for x0, x1 in spans:
+        d = p.crop((max(0, x0 - 4), 0, min(p.width, x1 + 4), p.height))
+        pad = Image.new('L', (d.width + 40, d.height + 20), 255)
+        pad.paste(d, (20, 10))
+        per = Counter()
+        for psm in (10, 8, 7):
+            v = _tess(pad, psm)
+            if len(v) == 1:
+                per[v] += 1
+        if not per:
+            return (int(whole), agree / 8.0) if whole else (None, 0.0)
+        out += per.most_common(1)[0][0]
+
+    if whole == out:
+        return int(out), 1.0
+    # length is measured, not guessed, so prefer the segmented reading -- but
+    # flag it as uncertain so the checksum pass may still overrule it
+    return int(out), 0.5
 
 
 # ------------------------------------------------------------- sheet reading
