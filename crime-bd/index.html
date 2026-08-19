@@ -344,8 +344,8 @@ footer.bot a:hover{text-decoration:underline}
     <div class="card">
       <header><div>
         <h3 id="seasonTitle">Seasonal shape, year by year</h3>
-        <p>The selected offence across the twelve months of each year. Earlier years sit back
-           in grey; the highlighted year is the one chosen below.</p>
+        <p>The selected offence across the twelve months of each year, with each year in its own
+           colour so the shape can be compared directly. The highlighted year is the one chosen below.</p>
       </div>
       <div class="field">
         <label for="fYear">Highlight year</label>
@@ -912,6 +912,10 @@ function renderSeason() {
   const host = document.getElementById('seasonChart');
   host.innerHTML = '';
   const years = [...new Set(DATA.months.map(m => m.slice(0, 4)))];
+  const palette = ['#2a78d6', '#eb6834', '#1baf7a', '#8b5cf6', '#d97706', '#0ea5e9', '#ef4444', '#65a30d', '#ec4899', '#64748b', '#14b8a6', '#f59e0b', '#a855f7', '#22c55e'];
+  const colors = {};
+  years.forEach((y, idx) => { colors[y] = palette[idx % palette.length]; });
+
   const byYear = {};
   years.forEach(y => {
     byYear[y] = new Array(12).fill(null);
@@ -945,20 +949,17 @@ function renderSeason() {
     return svg('path', {d: pts.join(' '), fill: 'none', stroke: color, 'stroke-width': w,
                         'stroke-linejoin': 'round', 'stroke-linecap': 'round'}, s);
   };
-  // context years first, so the highlighted year draws on top
-  years.filter(y => y !== S.year).forEach(y => path(byYear[y], 'var(--ctx)', 1.4));
+  years.filter(y => y !== S.year).forEach(y => path(byYear[y], colors[y], 1.5));
   const focus = byYear[S.year];
-  path(focus, 'var(--s1)', 2.5);
+  path(focus, colors[S.year], 2.8);
 
-  // direct-label the highlighted year at its last point, not every point
   let li = -1; focus.forEach((v, i) => { if (v != null) li = i; });
   if (li >= 0) {
-    svg('circle', {cx: X(li), cy: Y(focus[li]), r: 4.5, fill: 'var(--s1)',
+    svg('circle', {cx: X(li), cy: Y(focus[li]), r: 4.5, fill: colors[S.year],
                    stroke: 'var(--surface)', 'stroke-width': 2}, s);
     svg('text', {x: X(li) + 10, y: Y(focus[li]) + 4, class: 'dlabel'}, s).textContent = S.year;
   }
 
-  // one hit target per month covering the full column height
   for (let i = 0; i < 12; i++) {
     const r = svg('rect', {x: X(i) - iw / 24, y: MT, width: iw / 12, height: ih,
                            fill: 'transparent', style: 'cursor:crosshair'}, s);
@@ -971,9 +972,9 @@ function renderSeason() {
   host.appendChild(s);
 
   document.getElementById('seasonTitle').textContent = `${crimeName()} · seasonal shape, year by year`;
-  document.getElementById('seasonLegend').innerHTML =
-    `<span class="item"><i class="swatch line" style="background:var(--s1)"></i>${S.year}</span>
-     <span class="item"><i class="swatch line" style="background:var(--ctx)"></i>Every other year</span>`;
+  document.getElementById('seasonLegend').innerHTML = years.map(y =>
+    `<span class="item"><i class="swatch line" style="background:${colors[y]}"></i>${y}</span>`
+  ).join('');
 }
 
 /* ══════════════ map ══════════════ */
