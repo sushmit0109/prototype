@@ -249,11 +249,16 @@ footer.bot a:hover{text-decoration:underline}
   </div>
 </header>
 
+<!-- Quick guidance for the controls -->
+<div class="wrap" style="margin-top:10px;margin-bottom:6px">
+  <p class="small muted">Use the <strong>Offence</strong> selector to filter the map and charts. Select <strong>All offences</strong> to see totals across all categories.</p>
+</div>
+
 <div class="filters">
   <div class="wrap filters-in">
     <div class="field">
       <label for="fCrime">Offence</label>
-      <select id="fCrime"></select>
+      <select id="fCrime"><option value="-1">All offences</option></select>
     </div>
     <div class="field">
       <label for="fFrom">From</label>
