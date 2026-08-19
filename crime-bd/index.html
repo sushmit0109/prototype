@@ -1,20 +1,406 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crime in Bangladesh — 2020 to 2026</title>
-<meta name="description" content="Every monthly crime-statistics sheet the Police Headquarters has published since January 2020 — transcribed, checksum-verified and made explorable here.">
+<meta name="description" content="Every monthly crime-statistics sheet published by Bangladesh Police from January 2020 to July 2026, transcribed, checksum-verified and made explorable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Minimal reset to embed the dashboard page */
-html,body{height:100%;margin:0}
-body{background:#0f1117}
-.frame{height:100vh;width:100vw;border:0;display:block}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  color-scheme:light;
+  --page:#f7f7f5; --surface:#ffffff; --surface-2:#f2f2ef; --surface-3:#e9e9e4;
+  --border:rgba(11,11,11,.12); --border-strong:rgba(11,11,11,.22);
+  --text-1:#0b0b0b; --text-2:#52514e; --muted:#767570;
+  --grid:#e6e5df; --axis:#c3c2b7;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --ctx:#b9b8b1;
+  --good:#0ca30c; --critical:#d03b3b; --warning:#fab219;
+  --seq-0:#eef4fd; --seq-1:#cde2fb; --seq-2:#9ec5f4; --seq-3:#6da7ec;
+  --seq-4:#3987e5; --seq-5:#256abf; --seq-6:#184f95; --seq-7:#0d366b;
+  --div-lo3:#184f95; --div-lo2:#3987e5; --div-lo1:#9ec5f4;
+  --div-mid:#eceae6;
+  --div-hi1:#f3b5b0; --div-hi2:#df6a63; --div-hi3:#a82824;
+  --shadow:0 1px 2px rgba(11,11,11,.05),0 8px 24px rgba(11,11,11,.05);
+  --radius:14px; --radius-sm:9px;
+  --maxw:1180px;
+}
+:root:not([data-theme="light"]) { }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0f1117; --surface:#171a24; --surface-2:#1e2130; --surface-3:#272b3c;
+    --border:rgba(255,255,255,.11); --border-strong:rgba(255,255,255,.2);
+    --text-1:#f2f3f8; --text-2:#c3c2b7; --muted:#8e8f9c;
+    --grid:#242838; --axis:#383c4d;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --ctx:#4a4e60;
+    --good:#0ca30c; --critical:#e05c4a; --warning:#fab219;
+    --seq-0:#1e2c48; --seq-1:#223c68; --seq-2:#274f8a; --seq-3:#2d63ac;
+    --seq-4:#3579cf; --seq-5:#5c97e4; --seq-6:#90baf0; --seq-7:#c6dcfa;
+    --div-lo3:#8bb9f0; --div-lo2:#3987e5; --div-lo1:#1e4a86;
+    --div-mid:#333747;
+    --div-hi1:#7e3630; --div-hi2:#c4534a; --div-hi3:#f09b93;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0f1117; --surface:#171a24; --surface-2:#1e2130; --surface-3:#272b3c;
+  --border:rgba(255,255,255,.11); --border-strong:rgba(255,255,255,.2);
+  --text-1:#f2f3f8; --text-2:#c3c2b7; --muted:#8e8f9c;
+  --grid:#242838; --axis:#383c4d;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --ctx:#4a4e60;
+  --good:#0ca30c; --critical:#e05c4a; --warning:#fab219;
+  --seq-0:#1e2c48; --seq-1:#223c68; --seq-2:#274f8a; --seq-3:#2d63ac;
+  --seq-4:#3579cf; --seq-5:#5c97e4; --seq-6:#90baf0; --seq-7:#c6dcfa;
+  --div-lo3:#8bb9f0; --div-lo2:#3987e5; --div-lo1:#1e4a86;
+  --div-mid:#333747;
+  --div-hi1:#7e3630; --div-hi2:#c4534a; --div-hi3:#f09b93;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.3);
+}
+
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--page); color:var(--text-1);
+  font-family:'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.55; min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+@media(max-width:640px){ .wrap{padding:0 14px} body{font-size:14px} }
+
+a{color:var(--s1)}
+h1,h2,h3{line-height:1.2;letter-spacing:-.02em;font-weight:650}
+h2{font-size:1.32rem;margin-bottom:5px}
+h3{font-size:1rem;font-weight:600;letter-spacing:-.01em}
+.eyebrow{font-size:.7rem;font-weight:650;letter-spacing:.13em;text-transform:uppercase;color:var(--s1)}
+.lede{color:var(--text-2);max-width:66ch}
+.small{font-size:.82rem}
+.muted{color:var(--muted)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ── header ─────────────────────────────── */
+header.top{padding:44px 0 26px;border-bottom:1px solid var(--border);background:var(--surface)}
+header.top h1{font-size:clamp(1.9rem,5vw,2.9rem);margin:10px 0 12px}
+header.top .eyebrow,header.top h1{padding-right:46px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted);text-decoration:none;margin-bottom:6px}
+.backlink:hover{color:var(--s1)}
+.provenance{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:999px;padding:4px 11px;font-size:.75rem;color:var(--text-2);
+}
+.chip b{color:var(--text-1);font-weight:600}
+.chip.ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}
+
+/* ── theme toggle ───────────────────────── */
+.theme-btn{
+  position:absolute;top:18px;right:20px;display:grid;place-items:center;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);
+  border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:15px;line-height:1;
+}
+.theme-btn:hover{border-color:var(--border-strong);color:var(--text-1)}
+
+/* ── filter bar ─────────────────────────── */
+.filters{
+  position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb,var(--page) 88%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.filters-in{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;padding-top:12px;padding-bottom:12px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field>label{font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+select,.segbtn{
+  font-family:inherit;font-size:.85rem;color:var(--text-1);
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:7px 10px;cursor:pointer;
+}
+select{min-width:150px;max-width:230px}
+@media(max-width:520px){.field{flex:1 1 140px}select{min-width:0;width:100%;max-width:none}}
+select:focus-visible,.segbtn:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2px;gap:2px}
+.segbtn{border:0;background:transparent;padding:5px 11px;border-radius:6px;color:var(--text-2);white-space:nowrap}
+.segbtn[aria-pressed="true"]{background:var(--s1);color:#fff;font-weight:600}
+.filters .spacer{flex:1}
+
+/* ── sections & cards ───────────────────── */
+section{padding:38px 0 6px}
+.sec-head{margin-bottom:18px}
+.sec-head p{color:var(--text-2);max-width:70ch;margin-top:5px;font-size:.9rem}
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:18px;margin-bottom:18px;
+}
+.card>header{margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.card>header p{font-size:.83rem;color:var(--text-2);margin-top:3px;max-width:64ch}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid2.split-map{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.grid2.split-corr{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+@media(max-width:860px){.grid2,.grid2.split-map,.grid2.split-corr{grid-template-columns:minmax(0,1fr)}}
+
+/* ── stat tiles ─────────────────────────── */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow)}
+.kpi .k-label{font-size:.74rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.kpi .k-val{font-size:2rem;font-weight:650;letter-spacing:-.03em;margin:3px 0 2px}
+.kpi .k-sub{font-size:.78rem;color:var(--text-2);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.delta{font-weight:600;display:inline-flex;align-items:center;gap:3px}
+.delta.up{color:var(--critical)} .delta.down{color:var(--good)}
+.kpi svg{display:block;margin-top:9px}
+
+/* ── charts ─────────────────────────────── */
+.chart{width:100%;overflow-x:auto;overflow-y:hidden}
+.chart svg{display:block;max-width:100%;height:auto}
+.gridline{stroke:var(--grid);stroke-width:1}
+.axisline{stroke:var(--axis);stroke-width:1}
+.axistext{fill:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.axistitle{fill:var(--muted);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.dlabel{fill:var(--text-1);font-size:11.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.annot{fill:var(--muted);font-size:10.5px}
+.annot-line{stroke:var(--axis);stroke-width:1;stroke-dasharray:none;opacity:.55}
+
+/* ── tooltip ────────────────────────────── */
+#tip{
+  position:fixed;z-index:120;pointer-events:none;opacity:0;transition:opacity .1s;
+  background:var(--surface);color:var(--text-1);
+  border:1px solid var(--border-strong);border-radius:9px;
+  box-shadow:0 6px 26px rgba(0,0,0,.22);
+  padding:9px 11px;font-size:.8rem;max-width:280px;line-height:1.45;
+}
+#tip .t-title{font-weight:650;margin-bottom:4px}
+#tip .t-row{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
+#tip .t-row span:first-child{color:var(--text-2)}
+#tip .t-note{color:var(--muted);font-size:.73rem;margin-top:5px;padding-top:5px;border-top:1px solid var(--border)}
+
+/* ── table ──────────────────────────────── */
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-sm);max-height:460px;overflow-y:auto}
+table{border-collapse:collapse;width:100%;font-size:.8rem}
+th,td{padding:7px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--border)}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+thead th{position:sticky;top:0;background:var(--surface-2);z-index:2;font-weight:600;color:var(--text-2);font-size:.74rem;letter-spacing:.03em;text-transform:uppercase}
+thead th:first-child{z-index:3;background:var(--surface-2)}
+tbody tr:hover td{background:var(--surface-2)}
+td.num{font-variant-numeric:tabular-nums}
+
+details.tbl{margin-top:12px}
+details.tbl>summary{cursor:pointer;font-size:.8rem;color:var(--s1);list-style:none;display:inline-flex;align-items:center;gap:5px;padding:4px 0}
+details.tbl>summary::-webkit-details-marker{display:none}
+details.tbl>summary::before{content:"▸";transition:transform .15s;display:inline-block}
+details.tbl[open]>summary::before{transform:rotate(90deg)}
+
+/* ── notes / callouts ───────────────────── */
+.note{
+  border-left:3px solid var(--s1);background:var(--surface-2);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:11px 14px;font-size:.85rem;color:var(--text-2);margin:12px 0;
+}
+.note b{color:var(--text-1)}
+.note.warn{border-left-color:var(--warning)}
+
+footer.bot{
+  margin-top:52px;padding:26px 0 46px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:.8rem;
+}
+footer.bot a{color:var(--s1);text-decoration:none}
+footer.bot a:hover{text-decoration:underline}
+.foot-in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media print{ .filters,.theme-btn{display:none} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
 </style>
 </head>
 <body>
-  <!-- Embedded full dashboard page copied from the Crime Dashboard build -->
-  <iframe class="frame" src="../crime-bd-full/index.html" title="Crime Dashboard"></iframe>
-</body>
-</html>
+<div id="tip" role="tooltip" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap" style="position:relative">
+    <button class="theme-btn" id="themeBtn" title="Switch light / dark" aria-label="Switch light or dark theme">
+      <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true" fill="currentColor">
+        <path d="M10 2a8 8 0 100 16V2z"/><circle cx="10" cy="10" r="7.2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      </svg></button>
+    <a class="backlink" href="../">← Prototypes</a>
+    <p class="eyebrow">Bangladesh Police · Monthly Crime Statistics</p>
+    <h1>Crime in Bangladesh, month by month</h1>
+    <p class="lede">
+      Every crime-statistics sheet the Police Headquarters has published since January 2020 —
+      each one a scanned table of seventeen policing units against fifteen offence categories.
+      Transcribed, checked against the totals printed on the sheets themselves, and made
+      explorable here.
+    </p>
+    <div class="provenance" id="provenance"></div>
+  </div>
+</header>
+
+<div class="filters">
+  <div class="wrap filters-in">
+    <div class="field">
+      <label for="fCrime">Offence</label>
+      <select id="fCrime"></select>
+    </div>
+    <div class="field">
+      <label for="fFrom">From</label>
+      <select id="fFrom"></select>
+    </div>
+    <div class="field">
+      <label for="fTo">To</label>
+      <select id="fTo"></select>
+    </div>
+    <div class="field">
+      <label id="lblMeasure">Measure</label>
+      <div class="seg" role="group" aria-labelledby="lblMeasure">
+        <button class="segbtn" id="mCount"  aria-pressed="true">Cases</button>
+        <button class="segbtn" id="mRate"   aria-pressed="false">Per 100k</button>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="field">
+      <label id="lblGeo">Map view</label>
+      <div class="seg" role="group" aria-labelledby="lblGeo">
+        <button class="segbtn" id="gBoth"  aria-pressed="true">Both</button>
+        <button class="segbtn" id="gRange" aria-pressed="false">Divisions</button>
+        <button class="segbtn" id="gMetro" aria-pressed="false">Cities</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ══ 1 · headline ══ -->
+  <section id="s-now">
+    <div class="sec-head">
+      <h2>Where things stand</h2>
+      <p>The most recent twelve months of reported cases, against the twelve before them.
+         A rise here means more cases <em>recorded</em>, which is not the same as more crime committed —
+         see the note on reporting below.</p>
+    </div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <!-- ══ 2 · national trend ══ -->
+  <section id="s-trend">
+    <div class="sec-head">
+      <h2>The long view</h2>
+      <p>Monthly recorded cases nationwide. The thin line is each month as filed; the thick
+         line is a twelve-month rolling average, which strips out the seasonal swing and
+         shows the underlying level.</p>
+    </div>
+    <div class="card">
+      <header>
+        <div>
+          <h3 id="trendTitle">All offences · monthly cases</h3>
+          <p id="trendSub"></p>
+        </div>
+      </header>
+      <div class="legend" id="trendLegend"></div>
+      <div class="chart" id="trendChart"></div>
+      <div class="note warn">
+        <b>Two collapses in the record, both worth reading carefully.</b>
+        <span id="breakNote"></span>
+      </div>
+      <details class="tbl"><summary>Show the numbers</summary><div class="tablewrap" id="trendTable"></div></details>
+    </div>
+  </section>
+
+  <!-- ══ 3 · year on year ══ -->
+  <section id="s-years">
+    <div class="sec-head">
+      <h2>Year against year</h2>
+      <p>Every offence category, one small chart each, totalled by calendar year. The final
+         bar is a part-year and is marked as such — it is not a fall in crime.</p>
+    </div>
+    <div class="card">
+      <header><div>
+        <h3>Annual totals by offence</h3>
+        <p>Bars share no common scale between panels — each panel is scaled to its own maximum,
+           so read the shape within a panel, not the height across panels.</p>
+      </div></header>
+      <div id="smallMultiples"></div>
+      <details class="tbl"><summary>Show the numbers</summary><div class="tablewrap" id="yearTable"></div></details>
+    </div>
+    <div class="card">
+      <header><div>
+        <h3 id="seasonTitle">Seasonal shape, year by year</h3>
+        <p>The selected offence across the twelve months of each year. Earlier years sit back
+           in grey; the highlighted year is the one chosen below.</p>
+      </div>
+      <div class="field">
+        <label for="fYear">Highlight year</label>
+        <select id="fYear"></select>
+      </div></header>
+      <div class="legend" id="seasonLegend"></div>
+      <div class="chart" id="seasonChart"></div>
+    </div>
+  </section>
+
+  <!-- ══ 4 · map ══ -->
+  <section id="s-map">
+    <div class="sec-head">
+      <h2>Where it is reported</h2>
+      <p>Bangladesh Police reports by command, not by district. The eight metropolitan forces
+         each cover one city; the eight Ranges cover the rest of their division. Railway Range
+         runs along the rail network and has no territory, so it sits beside the map rather than on it.</p>
+    </div>
+    <div class="card">
+      <header>
+        <div>
+          <h3 id="mapTitle"></h3>
+          <p id="mapSub"></p>
+        </div>
+        <div class="scale-legend" id="mapLegend"></div>
+      </header>
+      <div class="grid2 split-map">
+        <div class="chart" id="mapChart"></div>
+        <div>
+          <div id="mapRank"></div>
+        </div>
+      </div>
+      <details class="tbl"><summary>Show the numbers</summary><div class="tablewrap" id="mapTable"></div></details>
+    </div>
+  </section>
+
+  <!-- ══ 5 · hotspots ══ -->
+  <section id="s-hot">
+    <div class="sec-head">
+      <h2>What each place is a hotspot <em>for</em></h2>
+      <p>Raw counts only ever say "Dhaka is biggest". This asks a different question:
+         given how much crime a unit records in total, which offences are over-represented
+         in its mix compared with the national mix?</p>
+    </div>
+    <div class="card">
+      <header>
+        <div>
+          <h3>Offence concentration by unit</h3>
+          <p>Each cell is a <b>location quotient</b>: the share of that unit's cases made up by
+             the offence, divided by the same share nationally. <b>2.0</b> means the offence is
+             twice as prominent in that unit's caseload as it is nationally; <b>0.5</b> means half.
+             Population does not enter this measure, so it is unaffected by how big a unit is.</p>
+        </div>
+        <div class="scale-legend" id="lqLegend"></div>
+      </header>
+      <div class="chart" id="lqChart"></div>
+      <div id="lqCallouts"></div>
+      <details class="tbl"><summary>Show the numbers</summary><div class="tablewrap" id="lqTable"></div></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bot">
+  <div class="wrap foot-in">
+    <span>Data: <a href="https://www.police.gov.bd/en/crime_statistic_home" target="_blank" rel="noopener">Bangladesh Police</a> · rebuilt automatically every 15 days</span>
+    <span><a href="https://github.com/sushmit0109/prototype">github.com/sushmit0109/prototype</a></span>
+  </div>
+</footer>
+
+<script id="crimeData" type="application/json">{"meta":{"source":"Bangladesh Police, monthly Crime Statistics","source_url":"https://www.police.gov.bd/en/crime_statistic_home","months":78,"first_month":"2020-01","last_month":"2026-06","units":17,"crimes":15,"verified_from_source":["2022-06","2022-11","2023-06","2025-01","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06"],"superseded_by_transcript":["2022-06","2022-11","2023-06","2025-01","2025-05"],"corrections":[{"date":"Jan-21","unit":"Chittagong Range","column":"Kidnapping","note":"read '0.9' as 9"},{"date":"Apr-22","unit":"Chittagong Range","column":"Dacoity","note":"read '0.2' as 2"},{"date":"Apr-22","unit":"Chittagong Range","column":"Woman & Child Repression","note":"read '18.1' as 181"},{"date":"May-22","unit":"Chittagong Range","column":"Burglary","note":"read '. 31' as 31"},{"date":"Jun-22","unit":"Mymensingh Range","column":"Kidnapping","note":"negative count '-5' rejected"},{"date":"Nov-22","unit":"CMP","column":"Police Assault","note":"read 'I' as 1"},{"date":"Nov-22","unit":"KMP","column":"Murder","note":"read 'I' as 1"},{"date":"Nov-22","unit":"KMP","column":"Speedy Trial","note":"read 'I' as 1"},{"date":"Nov-22","unit":"RMP","column":"RC Explosive Act","note":"read 'I' as 1"},{"date":"Nov-22","unit":"BMP","column":"Murder","note":"read 'I' as 1"},{"date":"Nov-22","unit":"SMP","column":"Murder","note":"read 'I' as 1"},{"date":"Nov-22","unit":"RPMP","column":"Kidnapping","note":"read 'I' as 1"},{"date":"Nov-22","unit":"GMP","column":"RC Explosive Act","note":"read 'I' as 1"},{"date":"Dec-22","unit":"Mymensingh Range","column":"Other Cases","note":"read '0.455' as 455"},{"date":"Jun-23","unit":"Mymensingh Range","column":"Robbery","note":"negative count '-1.0' rejected"},{"date":"Jun-23","unit":"Mymensingh Range","column":"Kidnapping","note":"negative count '-1' rejected"},{"date":"Dec-24","unit":"Sylhet Range","col"
