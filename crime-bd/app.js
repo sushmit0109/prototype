@@ -275,13 +275,24 @@ function renderKpis() {
   const n = months.length;
   const total = months.reduce((a, m) => a + s[m], 0);
 
-  // Compare with the equally long stretch immediately before, when there is
-  // one, counting the same way so the two are like for like.
-  const span = state.m1 - state.m0 + 1;
-  const pStart = state.m0 - span;
-  const prevMonths = pStart >= 0 ? statMonths(pStart, state.m0 - 1) : [];
-  const prev = prevMonths.length ? prevMonths.reduce((a, m) => a + s[m], 0) : null;
-  const delta = prev ? ((total - prev) / prev) * 100 : null;
+  // Compare against the same number of *counted* months immediately before.
+  // Stepping back a fixed number of calendar months and then filtering is what
+  // produced "5 months counted … vs previous 6": the current window loses a
+  // handover month, the earlier one does not, and the totals stop being
+  // comparable. Walk backwards collecting counted months instead, so both
+  // sides always hold the same number of them.
+  const prevMonths = [];
+  for (let m = state.m0 - 1; m >= 0 && prevMonths.length < n; m--)
+    if (inStats(m)) prevMonths.push(m);
+  prevMonths.reverse();
+
+  // Where the record runs out before we have n of them, fall back to the
+  // monthly average so a short tail still compares fairly.
+  const prevN = prevMonths.length;
+  const prevTotal = prevN ? prevMonths.reduce((a, m) => a + s[m], 0) : null;
+  const delta = prevTotal
+    ? (((total / n) - (prevTotal / prevN)) / (prevTotal / prevN)) * 100
+    : null;
 
   const natPop = DATA.units.reduce((a, u) => a + (u.population || 0), 0);
   const unitPop = state.unit != null ? DATA.units[state.unit].population : natPop;
@@ -291,7 +302,7 @@ function renderKpis() {
   $('#k1').textContent = isRate() ? fmt1(asRate(total)) : fmt(total);
   $('#k1-sub').innerHTML =
     (isRate() ? T.perHundredK : T.monthsCounted(num(n))) +
-    (delta == null ? '' : ` <span class="delta ${Math.abs(delta) < 1 ? 'flat' : delta > 0 ? 'up' : 'down'}">${pctStr(delta)}</span> ${T.vsPrevious(num(prevMonths.length))}`);
+    (delta == null ? '' : ` <span class="delta ${Math.abs(delta) < 1 ? 'flat' : delta > 0 ? 'up' : 'down'}">${pctStr(delta)}</span> ${T.vsPrevious(num(prevN))}`);
 
   $('#k2').textContent = fmt(total / n);
   $('#k2-sub').textContent = T.casesPerMonth + (state.unit != null ? ' · ' + unitName(state.unit) : '');
