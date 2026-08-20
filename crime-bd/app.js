@@ -14,31 +14,86 @@
 
 const $ = (s) => document.querySelector(s);
 const NS = 'http://www.w3.org/2000/svg';
-const fmt = (n) => (n == null || !isFinite(n) ? '—' : Math.round(n).toLocaleString('en-US'));
-const fmt1 = (n) => (n == null || !isFinite(n) ? '—' : n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }));
-const fmtCompact = (n) =>
-  n >= 1e6 ? (n / 1e6).toFixed(1) + 'm' : n >= 1e4 ? Math.round(n / 1e3) + 'k' : n >= 1e3 ? (n / 1e3).toFixed(1) + 'k' : String(Math.round(n));
+
+let LANG = 'en';
+let T = I18N.en;
+/** Bangla prose with Western digits reads like a machine wrote it. The locale
+ *  also brings the lakh-crore grouping — ১০,৪৪,৩৬০, not ১,০৪৪,৩৬০ — which is
+ *  what makes a large number scan correctly to a Bangla reader. */
+const LOC = () => (LANG === 'bn' ? 'bn-BD' : 'en-US');
+const num = (x) => (LANG === 'bn' ? toBnDigits(x) : String(x));
+
+const fmt = (n) => (n == null || !isFinite(n) ? '—' : Math.round(n).toLocaleString(LOC()));
+const fmt1 = (n) => (n == null || !isFinite(n) ? '—' : n.toLocaleString(LOC(), { minimumFractionDigits: 1, maximumFractionDigits: 1 }));
+/** Compact axis labels. Bangla gets লক্ষ rather than a Latin k, and below a
+ *  lakh it simply spells the number out — ১৫,০০০ is short enough to read and a
+ *  half-Latin label like ১৫k looks like a bug. */
+const fmtCompact = (n) => {
+  if (LANG === 'bn') {
+    return n >= 1e5
+      ? (n / 1e5).toLocaleString('bn-BD', { maximumFractionDigits: 1 }) + ' লক্ষ'
+      : Math.round(n).toLocaleString('bn-BD');
+  }
+  return n >= 1e6 ? (n / 1e6).toFixed(1) + 'm'
+       : n >= 1e4 ? Math.round(n / 1e3) + 'k'
+       : n >= 1e3 ? (n / 1e3).toFixed(1) + 'k'
+       : String(Math.round(n));
+};
 const pctStr = (v) => {
   const r = Math.abs(v) < 0.05 ? 0 : v;   // -0.0% reads as a fall that is not there
-  return (r > 0 ? '+' : '') + r.toFixed(1) + '%';
+  return num((r > 0 ? '+' : r < 0 ? '−' : '') + Math.abs(r).toFixed(1) + '%');
 };
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const mLabel = (ym) => MONTHS[+ym.slice(5, 7) - 1] + " '" + ym.slice(2, 4);
-const mLong = (ym) => MONTHS[+ym.slice(5, 7) - 1] + ' ' + ym.slice(0, 4);
+const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const mShort = (i) => T.months[i];
+const mLabel = (ym) => T.months[+ym.slice(5, 7) - 1] + (LANG === 'bn' ? " '" + num(ym.slice(2, 4)) : " '" + ym.slice(2, 4));
+const mLong = (ym) => T.monthsLong[+ym.slice(5, 7) - 1] + ' ' + num(ym.slice(0, 4));
+const yearLabel = (y) => num(y);
+
+/* Names that come off the data file rather than the string table. */
+const crimeLabel = (i) => T.crimes[i];
+const crimeShort = (i) => T.crimesShort[i];
+function unitLabel(u, short) {
+  if (LANG !== 'bn') return short ? (u.short || u.label) : u.label;
+  const pair = NAMES_BN.units[u.code] || NAMES_BN.units[u.label];
+  return pair ? pair[short ? 1 : 0] : u.label;
+}
+const divisionLabel = (d) => (LANG === 'bn' ? (NAMES_BN.divisions[d] || d) : d);
+const tenureName = (t) => T.tenures[t.id];
+const tenureShort = (t) => T.tenuresShort[t.id];
 
 /* Governments over the covered period. The dashboard is built around these
    because the interesting question in this data is what changed at each
    handover — and because the three run 55, 18 and 6 months, every comparison
    between them has to be per month rather than a total. */
 const TENURES = [
-  { id: 't1', name: 'Awami League',       short: 'AL',      from: '2020-01', to: '2024-07', ink: 'var(--t1-ink)', wash: 'var(--t1-wash)' },
-  { id: 't2', name: 'Interim government', short: 'Interim', from: '2024-08', to: '2026-01', ink: 'var(--t2-ink)', wash: 'var(--t2-wash)' },
-  { id: 't3', name: 'Elected government', short: 'Elected', from: '2026-02', to: '2026-07', ink: 'var(--t3-ink)', wash: 'var(--t3-wash)' },
+  { id: 't1', from: '2021-01', to: '2024-07', ink: 'var(--t1-ink)', wash: 'var(--t1-wash)' },
+  { id: 't2', from: '2024-08', to: '2026-01', ink: 'var(--t2-ink)', wash: 'var(--t2-wash)' },
+  { id: 't3', from: '2026-02', to: '2026-07', ink: 'var(--t3-ink)', wash: 'var(--t3-wash)' },
 ];
 
-let DATA = null, GEO = null;
+/* 2020 is in the data file but out of the analysis. The Covid general holiday
+   halved recorded crime for months, and leaving it in drags every trend and
+   every year-on-year comparison toward a recovery that is really a return to
+   normal reporting. The file keeps it; the dashboard starts in 2021. */
+const ANALYSIS_START = '2021-01';
+
+/* The two handover months themselves are excluded from every statistic while
+   still being drawn. Policing was interrupted in both — August 2024 is the
+   lowest month in the whole record — so averaging them in understates the
+   period they belong to and invents a fall that is an administrative gap. */
+const EXCLUDED_MONTHS = ['2024-08', '2026-02'];
+
+let DATA = null, GEO = null, RAW = null;
 let NM = 0, NU = 0, NC = 0, YEARS = [];
-const state = { offence: -1, measure: 'count', m0: 0, m1: 0, unit: null, season: 'grid' };
+let EX = new Set();                      // indices excluded from statistics
+const inStats = (m) => !EX.has(m);
+/** Months inside [a,b] that count toward a statistic. */
+function statMonths(a, b) {
+  const out = [];
+  for (let m = a; m <= b; m++) if (inStats(m)) out.push(m);
+  return out;
+}
+const state = { offence: -1, measure: 'count', m0: 0, m1: 0, unit: null, season: 'grid', sm: 'year' };
 let brush = null;
 
 /* ------------------------------------------------------------------ helpers */
@@ -144,7 +199,7 @@ function bboxOf(fc) {
 /* -------------------------------------------------------------- aggregation */
 
 const monthIdx = (ym) => DATA.months.indexOf(ym);
-const tenureRange = (t) => [monthIdx(t.from), monthIdx(t.to)];
+const tenureRange = (t) => [Math.max(0, monthIdx(t.from)), Math.min(NM - 1, monthIdx(t.to))];
 const isRate = () => state.measure === 'rate';
 
 /** One (month, unit) cell for the selected offence. */
@@ -174,12 +229,12 @@ function series(offence = state.offence, unit = state.unit) {
 }
 function unitTotals(m0 = state.m0, m1 = state.m1) {
   const out = new Array(NU).fill(0);
-  for (let m = m0; m <= m1; m++) for (let u = 0; u < NU; u++) out[u] += cell(m, u);
+  for (const m of statMonths(m0, m1)) for (let u = 0; u < NU; u++) out[u] += cell(m, u);
   return out;
 }
 function offenceTotals(m0 = state.m0, m1 = state.m1) {
   const out = new Array(NC).fill(0);
-  for (let m = m0; m <= m1; m++) {
+  for (const m of statMonths(m0, m1)) {
     if (state.unit != null) { for (let c = 0; c < NC; c++) out[c] += DATA.values[m][state.unit][c]; }
     else for (let u = 0; u < NU; u++) for (let c = 0; c < NC; c++) out[c] += DATA.values[m][u][c];
   }
@@ -190,25 +245,29 @@ function offenceTotals(m0 = state.m0, m1 = state.m1) {
 function rateOf(total, unit, m0 = state.m0, m1 = state.m1) {
   const pop = DATA.units[unit].population;
   if (!pop) return null;
-  return total / ((m1 - m0 + 1) / 12) / pop * 1e5;
+  const n = statMonths(m0, m1).length || 1;   // annualise over counted months
+  return total / (n / 12) / pop * 1e5;
 }
 function displayUnit(total, u) { return isRate() ? rateOf(total, u) : total; }
 
-const offenceName = () => (state.offence < 0 ? 'All offences' : DATA.crimes[state.offence]);
-const unitName = (u) => DATA.units[u].short || DATA.units[u].label;
-const scopeLabel = () => (state.unit == null ? 'Bangladesh' : DATA.units[state.unit].label);
+const offenceName = () => (state.offence < 0 ? T.allOffences : crimeLabel(state.offence));
+const unitName = (u) => unitLabel(DATA.units[u], true);
+const scopeLabel = () => (state.unit == null ? T.bangladesh : unitLabel(DATA.units[state.unit]));
 
 /* ------------------------------------------------------------------- KPIs */
 
 function renderKpis() {
   const s = series();
-  const win = s.slice(state.m0, state.m1 + 1);
-  const n = win.length;
-  const total = win.reduce((a, b) => a + b, 0);
+  const months = statMonths(state.m0, state.m1);
+  const n = months.length;
+  const total = months.reduce((a, m) => a + s[m], 0);
 
-  // Compare with the equally long stretch immediately before, when there is one.
-  const pStart = state.m0 - n;
-  const prev = pStart >= 0 ? s.slice(pStart, state.m0).reduce((a, b) => a + b, 0) : null;
+  // Compare with the equally long stretch immediately before, when there is
+  // one, counting the same way so the two are like for like.
+  const span = state.m1 - state.m0 + 1;
+  const pStart = state.m0 - span;
+  const prevMonths = pStart >= 0 ? statMonths(pStart, state.m0 - 1) : [];
+  const prev = prevMonths.length ? prevMonths.reduce((a, m) => a + s[m], 0) : null;
   const delta = prev ? ((total - prev) / prev) * 100 : null;
 
   const natPop = DATA.units.reduce((a, u) => a + (u.population || 0), 0);
@@ -218,26 +277,26 @@ function renderKpis() {
   $('#k1-label').textContent = offenceName();
   $('#k1').textContent = isRate() ? fmt1(asRate(total)) : fmt(total);
   $('#k1-sub').innerHTML =
-    (isRate() ? 'per 100k residents / yr' : `${n} months`) +
-    (delta == null ? '' : ` <span class="delta ${Math.abs(delta) < 1 ? 'flat' : delta > 0 ? 'up' : 'down'}">${pctStr(delta)}</span> vs previous ${n}`);
+    (isRate() ? T.perHundredK : T.monthsCounted(num(n))) +
+    (delta == null ? '' : ` <span class="delta ${Math.abs(delta) < 1 ? 'flat' : delta > 0 ? 'up' : 'down'}">${pctStr(delta)}</span> ${T.vsPrevious(num(prevMonths.length))}`);
 
   $('#k2').textContent = fmt(total / n);
-  $('#k2-sub').textContent = 'cases per month' + (state.unit != null ? ' in ' + unitName(state.unit) : '');
+  $('#k2-sub').textContent = T.casesPerMonth + (state.unit != null ? ' · ' + unitName(state.unit) : '');
 
   const totals = unitTotals();
   const ranked = DATA.units.map((u, i) => ({ u, i, v: displayUnit(totals[i], i) }))
     .filter((o) => o.v != null && isFinite(o.v) && o.v > 0)
     .sort((a, b) => b.v - a.v);
-  $('#k3-label').textContent = isRate() ? 'Highest rate' : 'Most cases';
+  $('#k3-label').textContent = isRate() ? T.kHighestRate : T.kMostCases;
   if (ranked.length) {
     $('#k3').textContent = unitName(ranked[0].i);
-    $('#k3-sub').textContent = isRate() ? fmt1(ranked[0].v) + ' per 100k / yr' : fmt(ranked[0].v) + ' cases';
+    $('#k3-sub').textContent = isRate() ? fmt1(ranked[0].v) + ' ' + T.per100kYr : fmt(ranked[0].v) + ' ' + T.casesWord;
   } else { $('#k3').textContent = '—'; $('#k3-sub').textContent = ''; }
 
-  let bi = state.m0;
-  for (let m = state.m0; m <= state.m1; m++) if (s[m] > s[bi]) bi = m;
+  let bi = months.length ? months[0] : state.m0;
+  for (const m of months) if (s[m] > s[bi]) bi = m;
   $('#k4').textContent = mLong(DATA.months[bi]);
-  $('#k4-sub').textContent = fmt(s[bi]) + ' cases';
+  $('#k4-sub').textContent = fmt(s[bi]) + ' ' + T.casesWord;
 
   $('#period-readout').textContent =
     `${mLong(DATA.months[state.m0])} – ${mLong(DATA.months[state.m1])}`;
@@ -272,12 +331,12 @@ function renderSelbar() {
 /* ----------------------------------------------------------- period presets */
 
 function presetList() {
-  const out = [{ id: 'all', label: 'All years', m0: 0, m1: NM - 1 }];
+  const out = [{ id: 'all', label: T.allYears, m0: 0, m1: NM - 1 }];
   TENURES.forEach((t) => {
     const [a, b] = tenureRange(t);
-    out.push({ id: t.id, label: t.short, m0: a, m1: b, ink: t.ink });
+    out.push({ id: t.id, label: tenureShort(t), m0: a, m1: b, ink: t.ink });
   });
-  out.push({ id: 'l12', label: 'Last 12 months', m0: Math.max(0, NM - 12), m1: NM - 1 });
+  out.push({ id: 'l12', label: T.last12, m0: Math.max(0, NM - 12), m1: NM - 1 });
   return out;
 }
 function renderPresets() {
@@ -321,7 +380,7 @@ function renderTimeline() {
       const lab = el('text', { x: x(a) + w / 2, y: padT - 9, 'text-anchor': 'middle', class: 'axis' });
       lab.setAttribute('fill', t.ink);
       lab.setAttribute('font-weight', '650');
-      svg.appendChild(txt(lab, t.short));
+      svg.appendChild(txt(lab, tenureShort(t)));
     }
   });
 
@@ -349,6 +408,15 @@ function renderTimeline() {
     lb.setAttribute('font-weight', '650');
     lb.setAttribute('dx', x(i) > W - 90 ? -4 : 4);
     svg.appendChild(txt(lb, mLabel(t.from)));
+  });
+
+  // The two handover months are plotted but not counted; hatch them so the dip
+  // is visible and its exclusion is visible too.
+  EX.forEach((i) => {
+    svg.appendChild(el('rect', {
+      x: x(i) - band / 2, y: padT, width: band, height: H - padT - padB,
+      fill: 'var(--text-muted)', 'fill-opacity': .16,
+    }));
   });
 
   if (state.m0 > 0)
@@ -382,7 +450,8 @@ function renderTimeline() {
     const ten = TENURES.find((t) => { const [a, b] = tenureRange(t); return i >= a && i <= b; });
     showTip(e, `<div class="t-name">${mLong(DATA.months[i])}</div>
       <div class="t-row"><span>${offenceName()}</span><b>${fmt(s[i])}</b></div>
-      <div class="t-sub">${scopeLabel()}${ten ? ' · ' + ten.name : ''}</div>`);
+      <div class="t-sub">${scopeLabel()}${ten ? ' · ' + tenureName(ten) : ''}${
+        inStats(i) ? '' : ' · ' + T.handoverNote}</div>`);
   });
   hit.addEventListener('pointerleave', hideTip);
   hit.addEventListener('pointerup', () => {
@@ -392,8 +461,9 @@ function renderTimeline() {
 
   host.replaceChildren(svg);
   $('#timeline-legend').innerHTML =
-    TENURES.map((t) => `<span class="key"><i class="sw" style="background:${t.ink};opacity:.55"></i>${t.name} · ${mLabel(t.from)}–${mLabel(t.to)}</span>`).join('') +
-    '<span class="key" style="color:var(--text-muted)">Drag the chart to choose a period</span>';
+    TENURES.map((t) => `<span class="key"><i class="sw" style="background:${t.ink};opacity:.55"></i>${tenureName(t)} · ${mLabel(t.from)}–${mLabel(t.to)}</span>`).join('') +
+    `<span class="key"><i class="sw" style="background:var(--text-muted);opacity:.4"></i>${T.handoverKey}</span>` +
+    `<span class="key" style="color:var(--text-muted)">${T.dragHint}</span>`;
 }
 
 /* ------------------------------------------------------------------- maps */
@@ -434,9 +504,9 @@ function renderRangeMap() {
       const pick = () => { state.unit = state.unit === d.i ? null : d.i; render(); };
       p.addEventListener('click', pick);
       p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
-      hoverable(p, () => `<div class="t-name">${DATA.units[d.i].label}</div>
+      hoverable(p, () => `<div class="t-name">${unitLabel(DATA.units[d.i])}</div>
         <div class="t-row"><span>${offenceName()}</span><b>${isRate() ? fmt1(d.v) : fmt(totals[d.i])}</b></div>
-        <div class="t-sub">${name} division, outside its metropolitan cities · click to filter</div>`);
+        <div class="t-sub">${divisionLabel(name)} ${T.divisionWord} · ${T.clickToFilter}</div>`);
     }
     svg.appendChild(p);
   });
@@ -497,10 +567,10 @@ function renderCityMap() {
     const pick = () => { state.unit = state.unit === i ? null : i; render(); };
     c.addEventListener('click', pick);
     c.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
-    hoverable(c, () => `<div class="t-name">${u.label}</div>
+    hoverable(c, () => `<div class="t-name">${unitLabel(u)}</div>
       <div class="t-row"><span>${offenceName()}</span><b>${isRate() ? fmt1(v) : fmt(totals[i])}</b></div>
-      <div class="t-row"><span>Population</span><b>${fmt(u.population)}</b></div>
-      <div class="t-sub">Marker shows the city, not the jurisdiction's extent · click to filter</div>`);
+      <div class="t-row"><span>${T.population}</span><b>${fmt(u.population)}</b></div>
+      <div class="t-sub">${T.markerNote}</div>`);
     svg.appendChild(c);
   });
 
@@ -536,10 +606,32 @@ function legendRamp(host, breaks, ramp, vals, dots) {
     `<span>${f(lo)}</span>` +
     `<span class="ramp">${ramp.map((r) => `<i style="background:var(${r})"></i>`).join('')}</span>` +
     `<span>${f(hi)}</span>` +
-    `<span style="color:var(--text-muted)">${isRate() ? 'per 100k / yr' : 'cases'} · equal-count bins</span>`;
+    `<span style="color:var(--text-muted)">${isRate() ? T.per100kYr : T.casesWord} · ${T.equalBins}</span>`;
 }
 
 /* -------------------------------------------------------------- rankings */
+
+/** Half-on-half change across the counted months of the window. Comparing the
+ *  ends of a noisy monthly series would report whatever the last month happened
+ *  to do; comparing the two halves reports the direction of the period. */
+function halfChange(ser, m0, m1) {
+  const ms = statMonths(m0, m1);
+  if (ms.length < 6) return null;
+  const mid = Math.floor(ms.length / 2);
+  const a = ms.slice(0, mid), b = ms.slice(ms.length - mid);
+  const av = a.reduce((x, m) => x + ser[m], 0) / a.length;
+  const bv = b.reduce((x, m) => x + ser[m], 0) / b.length;
+  return av > 0 ? ((bv - av) / av) * 100 : null;
+}
+
+function sparkPath(ser, m0, m1, w, h) {
+  const vals = [];
+  for (let m = m0; m <= m1; m++) vals.push(ser[m]);
+  const mx = Math.max(...vals), mn = Math.min(...vals);
+  const X = (i) => (i / Math.max(1, vals.length - 1)) * w;
+  const Y = (v) => h - 2 - (mx > mn ? (v - mn) / (mx - mn) : 0.5) * (h - 4);
+  return vals.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1)).join('');
+}
 
 function barPanel(host, items, ramp, onPick, selected, valueFmt) {
   host.replaceChildren();
@@ -550,10 +642,20 @@ function barPanel(host, items, ramp, onPick, selected, valueFmt) {
     row.setAttribute('role', 'button');
     row.tabIndex = 0;
     row.setAttribute('aria-pressed', String(it.key === selected));
+    const d = it.trend;
+    const cls = d == null ? 'flat' : Math.abs(d) < 3 ? 'flat' : d > 0 ? 'up' : 'down';
+    const mark = d == null ? '' : Math.abs(d) < 3 ? '±' : d > 0 ? '▲' : '▼';
     row.innerHTML =
       `<span class="nm">${it.name}</span>` +
       `<span class="track"><i style="width:${((it.v || 0) / max * 100).toFixed(1)}%;background:${it.color}"></i></span>` +
-      `<span class="val">${valueFmt(it.v)}</span>`;
+      `<span class="val">${valueFmt(it.v)}</span>` +
+      (it.spark
+        ? `<svg class="spark" viewBox="0 0 60 20" preserveAspectRatio="none" aria-hidden="true">
+             <path d="${it.spark}" fill="none" stroke="${it.color}" stroke-width="1.4"
+                   stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+           </svg>`
+        : '<span></span>') +
+      `<span class="trend delta ${cls}">${mark}${d == null ? '—' : Math.abs(d).toFixed(0) + '%'}</span>`;
     const go = () => onPick(it.key);
     row.addEventListener('click', go);
     row.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
@@ -564,42 +666,56 @@ function barPanel(host, items, ramp, onPick, selected, valueFmt) {
 
 function renderRanks() {
   const totals = unitTotals();
-  const items = DATA.units.map((u, i) => ({
+  const items = DATA.units.map((u, i) => {
+    const ser = series(state.offence, i);
+    return {
     key: i, name: unitName(i), v: displayUnit(totals[i], i),
+    spark: sparkPath(ser, state.m0, state.m1, 60, 20),
+    trend: halfChange(ser, state.m0, state.m1),
     color: u.kind === 'metro' ? 'var(--city)' : u.kind === 'range' ? 'var(--range)' : 'var(--text-muted)',
-    tip: () => `<div class="t-name">${u.label}</div>
-      <div class="t-row"><span>${offenceName()}</span><b>${fmt(totals[i])} cases</b></div>
-      ${u.population ? `<div class="t-row"><span>Per 100k / yr</span><b>${fmt1(rateOf(totals[i], i))}</b></div>` : ''}
-      <div class="t-sub">${u.kind === 'railway' ? 'Rail network — no territory or population' : (u.division || '') + (u.kind === 'metro' ? ' division · city force' : ' division · Range')}</div>`,
-  })).filter((o) => o.v != null && isFinite(o.v));
+    tip: () => `<div class="t-name">${unitLabel(u)}</div>
+      <div class="t-row"><span>${offenceName()}</span><b>${fmt(totals[i])} ${T.casesWord}</b></div>
+      ${u.population ? `<div class="t-row"><span>${T.per100kYr}</span><b>${fmt1(rateOf(totals[i], i))}</b></div>` : ''}
+      <div class="t-sub">${u.kind === 'railway' ? T.railNote : divisionLabel(u.division || '') + ' ' + (u.kind === 'metro' ? T.cityForce : T.rangeForce)}
+        · ${T.trendNote}</div>`,
+  }; }).filter((o) => o.v != null && isFinite(o.v));
   items.sort((a, b) => b.v - a.v);
   barPanel($('#rank-bars'), items, RAMP_R,
     (k) => { state.unit = state.unit === k ? null : k; render(); },
     state.unit, (v) => (isRate() ? fmt1(v) : fmtCompact(v)));
-  $('#rank-hint').textContent = isRate()
-    ? 'Cases per 100,000 residents a year. Railway Range has no population and is omitted.'
-    : 'All seventeen reporting units for the current offence and period. Click one to filter.';
+  $('#rank-hint').textContent = isRate() ? T.ranksHintRate : T.ranksHint;
 
   const oTot = offenceTotals();
   const grand = oTot.reduce((a, b) => a + b, 0) || 1;
-  const oItems = DATA.crimes.map((c, i) => ({
-    key: i, name: c, v: oTot[i], color: 'var(--range)',
-    tip: () => `<div class="t-name">${c}</div>
-      <div class="t-row"><span>Cases</span><b>${fmt(oTot[i])}</b></div>
-      <div class="t-row"><span>Share</span><b>${(oTot[i] / grand * 100).toFixed(1)}%</b></div>
-      <div class="t-sub">${scopeLabel()} · click to filter to this offence</div>`,
-  })).sort((a, b) => b.v - a.v);
+  const oItems = DATA.crimes.map((c, i) => {
+    const ser = series(i, state.unit);
+    return {
+      key: i, name: crimeLabel(i), v: oTot[i], color: 'var(--range)',
+      spark: sparkPath(ser, state.m0, state.m1, 60, 20),
+      trend: halfChange(ser, state.m0, state.m1),
+      tip: () => `<div class="t-name">${crimeLabel(i)}</div>
+        <div class="t-row"><span>${T.cases}</span><b>${fmt(oTot[i])}</b></div>
+        <div class="t-row"><span>${T.share}</span><b>${num((oTot[i] / grand * 100).toFixed(1))}%</b></div>
+        <div class="t-sub">${scopeLabel()} · ${T.trendNote} · ${T.clickToFilter}</div>`,
+    };
+  }).sort((a, b) => b.v - a.v);
   barPanel($('#offence-bars'), oItems, RAMP_R,
     (k) => { state.offence = state.offence === k ? -1 : k; $('#offence').value = String(state.offence); render(); },
     state.offence, fmtCompact);
-  $('#offence-hint').textContent = `What ${scopeLabel()}'s caseload is made of over the selected period. Click one to filter.`;
+  $('#offence-hint').textContent = T.offencesHint(scopeLabel());
 }
 
 /* -------------------------------------------------- year against year */
 
+/* Years get distinct hues rather than shades of one, because telling seven
+   blues apart in a tangle of lines is guesswork. Assigned in fixed order and
+   never cycled: once the record passes seven years the oldest fall back to a
+   context grey rather than repeating a hue already in use. */
 const YEAR_RAMP = ['--y1','--y2','--y3','--y4','--y5','--y6','--y7'];
-const yearColor = (yi, nYears) =>
-  `var(${YEAR_RAMP[Math.round((yi / Math.max(1, nYears - 1)) * (YEAR_RAMP.length - 1))]})`;
+function yearColor(yi, nYears) {
+  const slot = yi - Math.max(0, nYears - YEAR_RAMP.length);
+  return slot < 0 ? 'var(--ctx)' : `var(${YEAR_RAMP[slot]})`;
+}
 
 /** Values by [year][month]. Null where a month has not been published, so a
  *  part-year never draws a line down to zero. */
@@ -630,7 +746,7 @@ function seasonLines(host) {
     svg.appendChild(el('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(v), y2: y(v) }));
     svg.appendChild(txt(el('text', { x: padL - 7, y: y(v) + 4, 'text-anchor': 'end', class: 'axis' }), fmtCompact(v)));
   });
-  MONTHS.forEach((m, i) =>
+  T.months.forEach((m, i) =>
     svg.appendChild(txt(el('text', { x: x(i), y: H - 9, 'text-anchor': 'middle', class: 'axis' }), m)));
 
   const ends = [];
@@ -659,24 +775,23 @@ function seasonLines(host) {
     const t = el('text', { x: e.x + 9, y: e.ly, class: 'axis' });
     t.setAttribute('fill', 'var(--text-secondary)');
     t.setAttribute('font-weight', '650');
-    svg.appendChild(txt(t, e.yr));
+    svg.appendChild(txt(t, yearLabel(e.yr)));
   });
 
   // one hit column per month, covering the full height
   for (let i = 0; i < 12; i++) {
     const r = el('rect', { x: x(i) - (W - padL - padR) / 24, y: padT, width: (W - padL - padR) / 12, height: H - padT - padB, fill: 'transparent', style: 'cursor:crosshair' });
-    hoverable(r, () => `<div class="t-name">${MONTHS[i]} · ${offenceName()}</div>` +
+    hoverable(r, () => `<div class="t-name">${T.monthsLong[i]} · ${offenceName()}</div>` +
       YEARS.filter((y) => M[y][i] != null)
-        .map((y) => `<div class="t-row"><span>${y}</span><b>${fmt(M[y][i])}</b></div>`).join('') +
+        .map((y) => `<div class="t-row"><span>${yearLabel(y)}</span><b>${fmt(M[y][i])}</b></div>`).join('') +
       `<div class="t-sub">${scopeLabel()}</div>`);
     svg.appendChild(r);
   }
   host.replaceChildren(svg);
   $('#season-legend').innerHTML =
-    YEARS.map((y, i) => `<span class="key"><i class="sw" style="background:${yearColor(i, YEARS.length)}"></i>${y}</span>`).join('') +
-    `<span class="key" style="color:var(--text-muted)">2026 runs to ${mLabel(DATA.months[NM - 1])}</span>`;
-  $('#season-hint').textContent =
-    'Every year on the same twelve months, so a seasonal shape separates from a rising or falling level. Oldest year is palest.';
+    YEARS.map((y, i) => `<span class="key"><i class="sw" style="background:${yearColor(i, YEARS.length)}"></i>${yearLabel(y)}</span>`).join('') +
+    `<span class="key" style="color:var(--text-muted)">${T.runsTo(mLabel(DATA.months[NM - 1]))}</span>`;
+  $('#season-hint').textContent = T.seasonHintLines;
 }
 
 /** Month-by-year grid. With seven years the lines can tangle; the grid trades
@@ -692,10 +807,10 @@ function seasonGrid(host) {
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
   svg.setAttribute('aria-label', `${offenceName()} by month and year`);
 
-  MONTHS.forEach((m, i) =>
+  T.months.forEach((m, i) =>
     svg.appendChild(txt(el('text', { x: padL + i * cw + cw / 2, y: padT - 8, 'text-anchor': 'middle', class: 'axis' }), m)));
   YEARS.forEach((yr, yi) => {
-    svg.appendChild(txt(el('text', { x: padL - 8, y: padT + yi * ch + ch / 2 + 4, 'text-anchor': 'end', class: 'axis' }), yr));
+    svg.appendChild(txt(el('text', { x: padL - 8, y: padT + yi * ch + ch / 2 + 4, 'text-anchor': 'end', class: 'axis' }), yearLabel(yr)));
     for (let i = 0; i < 12; i++) {
       const v = M[yr][i];
       const b = v == null ? -1 : binOf(v, breaks);
@@ -704,7 +819,7 @@ function seasonGrid(host) {
         width: cw - gap, height: ch - gap, rx: 3,
         fill: v == null ? 'var(--empty)' : `var(${RAMP_R[b]})`,
       });
-      if (v != null) hoverable(r, `<div class="t-name">${MONTHS[i]} ${yr}</div>
+      if (v != null) hoverable(r, `<div class="t-name">${T.monthsLong[i]} ${yearLabel(yr)}</div>
         <div class="t-row"><span>${offenceName()}</span><b>${fmt(v)}</b></div>
         <div class="t-sub">${scopeLabel()}</div>`);
       svg.appendChild(r);
@@ -714,9 +829,8 @@ function seasonGrid(host) {
   const lo = Math.min(...all), hi = Math.max(...all);
   $('#season-legend').innerHTML =
     `<span>${fmtCompact(lo)}</span><span class="ramp">${RAMP_R.map((r) => `<i style="background:var(${r})"></i>`).join('')}</span><span>${fmtCompact(hi)}</span>` +
-    `<span style="color:var(--text-muted)">cases per month · equal-count bins · grey = not yet published</span>`;
-  $('#season-hint').textContent =
-    'One cell per month. Reading down a column shows how a given month changed year on year; reading across a row shows that year’s season.';
+    `<span style="color:var(--text-muted)">${T.casesPerMonth} · ${T.equalBins} · ${T.notPublished}</span>`;
+  $('#season-hint').textContent = T.seasonHintGrid;
 }
 
 /* ------------------------------------------------- across the transitions */
@@ -724,8 +838,9 @@ function seasonGrid(host) {
 /** Cases per month for one offence in one tenure, over the current scope. */
 function tenureRate(offence, t) {
   const [a, b] = tenureRange(t);
+  const months = statMonths(a, b);
   let s = 0;
-  for (let m = a; m <= b; m++) {
+  for (const m of months) {
     if (state.unit != null) {
       const row = DATA.values[m][state.unit];
       s += offence < 0 ? row.reduce((x, y) => x + y, 0) : row[offence];
@@ -736,7 +851,7 @@ function tenureRate(offence, t) {
       }
     }
   }
-  return s / (b - a + 1);
+  return months.length ? s / months.length : null;
 }
 
 function renderTenure() {
@@ -754,9 +869,9 @@ function renderTenure() {
     const box = document.createElement('div');
     box.style.cssText = `border:1px solid var(--border);border-left:3px solid ${o.t.ink};border-radius:9px;padding:11px 13px;background:var(--surface-2)`;
     box.innerHTML =
-      `<div style="font-size:.71rem;font-weight:650;letter-spacing:.05em;text-transform:uppercase;color:${o.t.ink}">${o.t.name}</div>
+      `<div style="font-size:.71rem;font-weight:650;letter-spacing:.05em;text-transform:uppercase;color:${o.t.ink}">${tenureName(o.t)}</div>
        <div style="font-size:1.45rem;font-weight:650;letter-spacing:-.02em;margin:2px 0 1px">${fmt(o.v)}</div>
-       <div style="font-size:.76rem;color:var(--text-muted)">cases per month · ${b - a + 1} months
+       <div style="font-size:.76rem;color:var(--text-muted)">${T.casesPerMonth} · ${num(statMonths(a, b).length)} ${T.monthsWord}
          ${d == null ? '' : `<span class="delta ${Math.abs(d) < 1 ? 'flat' : d > 0 ? 'up' : 'down'}">${pctStr(d)}</span>`}</div>`;
     head.appendChild(box);
   });
@@ -769,7 +884,7 @@ function renderTenure() {
     const A = TENURES[ai], B = TENURES[bi];
     const rows = DATA.crimes.map((c, i) => {
       const a = tenureRate(i, A), b = tenureRate(i, B);
-      return { c, a, b, d: a > 0.5 ? ((b - a) / a) * 100 : null };
+      return { c: crimeShort(i), full: crimeLabel(i), a, b, d: a > 0.5 ? ((b - a) / a) * 100 : null };
     }).filter((r) => r.d != null).sort((x, y) => y.d - x.d);
 
     const cap = Math.max(20, ...rows.map((r) => Math.abs(r.d)));
@@ -777,7 +892,7 @@ function renderTenure() {
     const H = rows.length * rowH + 34;
     const mid = padL + (W - padL - padR) / 2, half = (W - padL - padR) / 2;
     const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
-    svg.setAttribute('aria-label', `Change in cases per month from ${A.name} to ${B.name}, by offence`);
+    svg.setAttribute('aria-label', `${tenureName(A)} → ${tenureName(B)}`);
 
     svg.appendChild(el('line', { x1: mid, x2: mid, y1: 4, y2: H - 26, stroke: 'var(--border-strong)', 'stroke-width': 1 }));
     rows.forEach((r, i) => {
@@ -787,13 +902,12 @@ function renderTenure() {
         x: r.d >= 0 ? mid : mid - w, y: y + 3, width: Math.max(w, 1.5), height: rowH - 7, rx: 2.5,
         fill: r.d >= 0 ? 'var(--up)' : 'var(--down)', 'fill-opacity': .85,
       });
-      hoverable(rect, `<div class="t-name">${r.c}</div>
-        <div class="t-row"><span>${A.short}</span><b>${fmt1(r.a)} / month</b></div>
-        <div class="t-row"><span>${B.short}</span><b>${fmt1(r.b)} / month</b></div>
-        <div class="t-sub">${pctStr(r.d)} · ${scopeLabel()}</div>`);
+      hoverable(rect, `<div class="t-name">${r.full}</div>
+        <div class="t-row"><span>${tenureShort(A)}</span><b>${fmt1(r.a)}</b></div>
+        <div class="t-row"><span>${tenureShort(B)}</span><b>${fmt1(r.b)}</b></div>
+        <div class="t-sub">${pctStr(r.d)} · ${T.casesPerMonth} · ${scopeLabel()}</div>`);
       svg.appendChild(rect);
-      svg.appendChild(txt(el('text', { x: padL - 8, y: y + rowH / 2 + 3, 'text-anchor': 'end', class: 'axis' }),
-        r.c.replace('Woman & Child Repression', 'Woman & child').replace('RC ', '')));
+      svg.appendChild(txt(el('text', { x: padL - 8, y: y + rowH / 2 + 3, 'text-anchor': 'end', class: 'axis' }), r.c));
       const outside = r.d >= 0 ? mid + w + 5 : mid - w - 5;
       const fitsOutside = r.d >= 0 ? outside < W - 4 : outside > padL + 42;
       const v = el('text', {
@@ -806,13 +920,13 @@ function renderTenure() {
       v.setAttribute('font-weight', fitsOutside ? '400' : '650');
       svg.appendChild(txt(v, pctStr(r.d)));
     });
-    svg.appendChild(txt(el('text', { x: mid, y: H - 8, 'text-anchor': 'middle', class: 'axis' }), 'no change'));
-    svg.appendChild(txt(el('text', { x: mid - half * 0.94, y: H - 8, 'text-anchor': 'start', class: 'axis' }), '\u2212' + Math.round(cap) + '%'));
-    svg.appendChild(txt(el('text', { x: mid + half * 0.94, y: H - 8, 'text-anchor': 'end', class: 'axis' }), '+' + Math.round(cap) + '%'));
+    svg.appendChild(txt(el('text', { x: mid, y: H - 8, 'text-anchor': 'middle', class: 'axis' }), T.noChange));
+    svg.appendChild(txt(el('text', { x: mid - half * 0.94, y: H - 8, 'text-anchor': 'start', class: 'axis' }), num('\u2212' + Math.round(cap) + '%')));
+    svg.appendChild(txt(el('text', { x: mid + half * 0.94, y: H - 8, 'text-anchor': 'end', class: 'axis' }), num('+' + Math.round(cap) + '%')));
 
     const sec = document.createElement('section');
-    sec.innerHTML = `<h3 style="font-size:.9rem;font-weight:650;margin:0 0 2px">${A.short} → ${B.short}</h3>
-      <p class="hint" style="margin:0 0 8px">Change in cases per month at the ${mLong(B.from)} handover.</p>`;
+    sec.innerHTML = `<h3 style="font-size:.9rem;font-weight:650;margin:0 0 2px">${tenureShort(A)} → ${tenureShort(B)}</h3>
+      <p class="hint" style="margin:0 0 8px">${T.handoverAt(mLong(B.from))}</p>`;
     sec.appendChild(svg);
     grid.appendChild(sec);
   });
@@ -830,23 +944,62 @@ function render() {
   renderCityMap();
   renderRanks();
   renderSeason();
+  renderSmallMultiples();
   renderTenure();
 }
 
 /* -------------------------------------------------------------------- init */
 
+/** Push the current language into everything that is not redrawn by render():
+ *  the static markup, the offence list, the footer and the document itself. */
+function applyLanguage() {
+  T = I18N[LANG];
+  document.documentElement.lang = LANG === 'bn' ? 'bn' : 'en';
+  document.title = T.title;
+  document.querySelectorAll('[data-i18n]').forEach((n) => {
+    const v = T[n.dataset.i18n];
+    if (typeof v === 'string') n.textContent = v;
+  });
+  $('#lang-btn').textContent = T.langName;
+  $('#k1-label').textContent = offenceName();
+
+  const sel = $('#offence');
+  sel.innerHTML = `<option value="-1">${T.allOffences}</option>` +
+    DATA.crimes.map((c, i) => `<option value="${i}">${crimeLabel(i)}</option>`).join('');
+  sel.value = String(state.offence);
+
+  $('#foot-source').innerHTML =
+    `<strong>${T.sourceLead}</strong> ${T.sourceBody} ` +
+    `<a href="https://www.police.gov.bd/en/crime_statistic_home" rel="noopener" target="_blank">police.gov.bd</a>. ` +
+    `${T.sourceTail} <span id="foot-meta"></span>`;
+  $('#foot-caveat').innerHTML = `<strong>${T.caveatLead}</strong> ${T.caveatBody}`;
+  $('#foot-meta').textContent = T.footMeta(
+    mLong(DATA.months[0]), mLong(DATA.months[NM - 1]), num(NM), num(NU), num(NC),
+    num(RAW.meta.months), mLong(RAW.meta.first_month));
+}
+
 function wire() {
   const sel = $('#offence');
-  sel.innerHTML = '<option value="-1">All offences</option>' +
-    DATA.crimes.map((c, i) => `<option value="${i}">${c}</option>`).join('');
-  sel.value = String(state.offence);
   sel.addEventListener('change', (e) => { state.offence = +e.target.value; render(); });
+
+  $('#lang-btn').addEventListener('click', () => {
+    LANG = LANG === 'en' ? 'bn' : 'en';
+    localStorage.setItem('crimebd-lang', LANG);
+    applyLanguage();
+    render();
+  });
 
   document.querySelectorAll('[data-measure]').forEach((b) =>
     b.addEventListener('click', () => {
       state.measure = b.dataset.measure;
       document.querySelectorAll('[data-measure]').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
       render();
+    }));
+  document.querySelectorAll('[data-sm]').forEach((b) =>
+    b.addEventListener('click', () => {
+      state.sm = b.dataset.sm;
+      document.querySelectorAll('[data-sm]').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      renderSmallMultiples();
     }));
   document.querySelectorAll('[data-season]').forEach((b) =>
     b.addEventListener('click', () => {
@@ -881,15 +1034,135 @@ Promise.all([
   fetch('data/crime.json').then((r) => r.json()),
   fetch('data/bd_divisions.geojson').then((r) => r.json()),
 ]).then(([d, g]) => {
-  DATA = d; GEO = g;
+  RAW = d; GEO = g;
+  // Keep the whole file, analyse from 2021. Slicing here rather than filtering
+  // at every call site means no chart can accidentally reach back into 2020.
+  const cut = Math.max(0, d.months.indexOf(ANALYSIS_START));
+  DATA = { ...d, months: d.months.slice(cut), values: d.values.slice(cut) };
   NM = DATA.months.length; NU = DATA.units.length; NC = DATA.crimes.length;
   YEARS = [...new Set(DATA.months.map((m) => m.slice(0, 4)))];
+  EX = new Set(EXCLUDED_MONTHS.map((m) => DATA.months.indexOf(m)).filter((i) => i >= 0));
   state.m0 = 0; state.m1 = NM - 1;
-  $('#foot-meta').textContent =
-    `${DATA.meta.months} monthly sheets, ${mLong(DATA.meta.first_month)} to ${mLong(DATA.meta.last_month)}, across ${NU} jurisdictions and ${NC} offence categories.`;
+  LANG = localStorage.getItem('crimebd-lang') === 'bn' ? 'bn' : 'en';
   wire();
+  applyLanguage();
   render();
 }).catch((err) => {
   $('#timeline').innerHTML =
     `<p style="color:var(--up)">Could not load the data files (${err}). If you opened this page from disk, serve the folder over HTTP instead — browsers block fetch on file:// URLs.</p>`;
 });
+
+/* ------------------------------------------- every offence, month by month */
+
+/** Fifteen panels, one per offence, on a shared x-axis but independent y —
+ *  a small-multiple. Two readings of the same data: "By year" puts each year
+ *  on the same twelve months so seasonality separates from level, "By
+ *  government" runs the whole record with the tenure bands behind it so the
+ *  handovers line up across every category at once. */
+function renderSmallMultiples() {
+  const host = $('#smallmults');
+  host.replaceChildren();
+  const grid = document.createElement('div');
+  grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px';
+
+  DATA.crimes.forEach((name, ci) => {
+    const cardEl = document.createElement('button');
+    cardEl.type = 'button';
+    const on = state.offence === ci;
+    cardEl.style.cssText = `text-align:left;font:inherit;color:inherit;cursor:pointer;padding:9px 10px;
+      border-radius:9px;background:${on ? 'var(--surface-2)' : 'transparent'};
+      border:1px solid ${on ? 'var(--border-strong)' : 'var(--border)'};width:100%`;
+    cardEl.setAttribute('aria-pressed', String(on));
+    const head = document.createElement('div');
+    head.style.cssText = 'font-size:.78rem;font-weight:650;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+    head.textContent = crimeLabel(ci);
+    cardEl.appendChild(head);
+    cardEl.appendChild(state.sm === 'gov' ? smGov(ci) : smYear(ci));
+    cardEl.addEventListener('click', () => {
+      state.offence = state.offence === ci ? -1 : ci;
+      $('#offence').value = String(state.offence);
+      render();
+    });
+    grid.appendChild(cardEl);
+  });
+  host.appendChild(grid);
+
+  $('#sm-legend').innerHTML = state.sm === 'gov'
+    ? TENURES.map((t) => `<span class="key"><i class="sw" style="background:${t.ink};opacity:.55"></i>${tenureName(t)}</span>`).join('') +
+      `<span class="key" style="color:var(--text-muted)">${T.rulesAreHandovers}</span>`
+    : YEARS.map((y, i) => `<span class="key"><i class="sw" style="background:${yearColor(i, YEARS.length)}"></i>${yearLabel(y)}</span>`).join('');
+  $('#sm-hint').textContent = state.sm === 'gov' ? T.smallHintGov(scopeLabel()) : T.smallHintYear(scopeLabel());
+}
+
+/** One offence, twelve months, a line per year. */
+function smYear(ci) {
+  const s = series(ci);
+  const M = {};
+  YEARS.forEach((y) => (M[y] = new Array(12).fill(null)));
+  DATA.months.forEach((ym, i) => { M[ym.slice(0, 4)][+ym.slice(5, 7) - 1] = s[i]; });
+  const all = Object.values(M).flat().filter((v) => v != null);
+  const max = Math.max(1, ...all);
+  const W = 232, H = 96, padL = 4, padR = 4, padT = 6, padB = 13;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, width: '100%', role: 'img' });
+  svg.setAttribute('aria-label', `${crimeLabel(ci)}`);
+  const x = (i) => padL + (i / 11) * (W - padL - padR);
+  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  svg.appendChild(el('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(0), y2: y(0) }));
+  YEARS.forEach((yr, yi) => {
+    let d = '';
+    M[yr].forEach((v, i) => { if (v != null) d += (d ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); });
+    if (d) svg.appendChild(el('path', { d, fill: 'none', stroke: yearColor(yi, YEARS.length), 'stroke-width': 1.5, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+  });
+  [0, 3, 6, 9].forEach((i) => {
+    // anchor the end labels inward so neither is clipped by the viewBox
+    const anchor = i === 0 ? 'start' : 'middle';
+    svg.appendChild(txt(el('text', { x: x(i), y: H - 3, 'text-anchor': anchor, class: 'axis', 'font-size': 8.5 }), T.months[i]));
+  });
+  svg.appendChild(txt(el('text', { x: W - padR, y: padT + 7, 'text-anchor': 'end', class: 'axis', 'font-size': 8.5 }), T.maxWord + ' ' + fmtCompact(max)));
+  for (let i = 0; i < 12; i++) {
+    const r = el('rect', { x: x(i) - (W - padL - padR) / 24, y: padT, width: (W - padL - padR) / 12, height: H - padT - padB, fill: 'transparent' });
+    hoverable(r, () => `<div class="t-name">${crimeLabel(ci)} · ${T.monthsLong[i]}</div>` +
+      YEARS.filter((yy) => M[yy][i] != null).map((yy) => `<div class="t-row"><span>${yearLabel(yy)}</span><b>${fmt(M[yy][i])}</b></div>`).join('') +
+      `<div class="t-sub">${scopeLabel()}</div>`);
+    svg.appendChild(r);
+  }
+  return svg;
+}
+
+/** One offence across the whole record, with the governments shaded behind. */
+function smGov(ci) {
+  const s = series(ci);
+  const max = Math.max(1, ...s);
+  const W = 232, H = 96, padL = 4, padR = 4, padT = 6, padB = 13;
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, width: '100%', role: 'img' });
+  svg.setAttribute('aria-label', `${crimeLabel(ci)}`);
+  const x = (i) => padL + (i / Math.max(1, NM - 1)) * (W - padL - padR);
+  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  TENURES.forEach((t) => {
+    const [a, b] = tenureRange(t);
+    svg.appendChild(el('rect', { x: x(a), y: padT, width: Math.max(0, x(b) - x(a)), height: H - padT - padB, fill: t.wash }));
+  });
+  let d = '';
+  s.forEach((v, i) => { d += (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); });
+  svg.appendChild(el('path', { d, fill: 'none', stroke: 'var(--range)', 'stroke-width': 1.4, 'stroke-linejoin': 'round' }));
+  TENURES.slice(1).forEach((t) => {
+    const i = monthIdx(t.from);
+    svg.appendChild(el('line', { x1: x(i), x2: x(i), y1: padT, y2: H - padB, stroke: t.ink, 'stroke-width': 1.2 }));
+  });
+  svg.appendChild(txt(el('text', { x: padL, y: H - 3, 'text-anchor': 'start', class: 'axis', 'font-size': 8.5 }), yearLabel(YEARS[0])));
+  svg.appendChild(txt(el('text', { x: W - padR, y: H - 3, 'text-anchor': 'end', class: 'axis', 'font-size': 8.5 }), yearLabel(YEARS[YEARS.length - 1])));
+  svg.appendChild(txt(el('text', { x: W - padR, y: padT + 7, 'text-anchor': 'end', class: 'axis', 'font-size': 8.5 }), T.maxWord + ' ' + fmtCompact(max)));
+  const band = (W - padL - padR) / Math.max(1, NM - 1);
+  const hit = el('rect', { x: padL, y: padT, width: W - padL - padR, height: H - padT - padB, fill: 'transparent' });
+  hit.addEventListener('pointermove', (e) => {
+    const r = svg.getBoundingClientRect();
+    const i = Math.max(0, Math.min(NM - 1, Math.round((((e.clientX - r.left) / r.width) * W - padL) / band)));
+    const ten = TENURES.find((t) => { const [a, b] = tenureRange(t); return i >= a && i <= b; });
+    showTip(e, `<div class="t-name">${crimeLabel(ci)}</div>
+      <div class="t-row"><span>${mLong(DATA.months[i])}</span><b>${fmt(s[i])}</b></div>
+      <div class="t-sub">${scopeLabel()}${ten ? ' · ' + tenureName(ten) : ''}</div>`);
+  });
+  hit.addEventListener('pointerleave', hideTip);
+  svg.appendChild(hit);
+  return svg;
+}

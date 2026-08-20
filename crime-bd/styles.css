@@ -31,10 +31,14 @@
   --c-500:#e5763f; --c-600:#c65a26; --c-700:#9c441b; --c-800:#712f11;
   --city:#e5763f;
 
-  /* ordinal — years, oldest faintest. Validated: monotone L, all gaps
-     >= 0.06, surface end clears 2:1. */
-  --y1:#86b6ef; --y2:#6aa1e6; --y3:#4f8bda; --y4:#3773c2;
-  --y5:#245a9e; --y6:#16437a; --y7:#0c2d54;
+  /* Years are categorical here, not ordinal. Seven steps of one hue satisfy
+     the ramp checks but are miserable to actually read — telling 2022 from
+     2023 in a tangle of blues is guesswork. These are the reference
+     categorical order, validated on this surface: worst adjacent CVD dE 9.1,
+     normal-vision 19.6. Three sit below 3:1 contrast, so every line carries a
+     direct label at its end, which is the documented relief. */
+  --y1:#2a78d6; --y2:#eb6834; --y3:#1baf7a; --y4:#eda100;
+  --y5:#e87ba4; --y6:#008300; --y7:#4a3aa7;
 
   /* tenure washes: backgrounds, so barely-there tints, never saturated */
   --t1-wash:rgba(42,112,201,.055); --t1-ink:#2a70c9;
@@ -67,9 +71,9 @@
     --c-500:#bb6028; --c-600:#dd7f45; --c-700:#efa478; --c-800:#f8c8a8;
     --city:#dd7f45;
 
-    /* reversed for the dark surface: oldest dimmest, newest brightest */
-    --y1:#1c5091; --y2:#2e68b2; --y3:#4886d7; --y4:#6fa4ea;
-    --y5:#98bff2; --y6:#c0d9f8; --y7:#e4eefc;
+    /* same hues re-stepped for the dark surface; all seven clear 3:1 here */
+    --y1:#3987e5; --y2:#d95926; --y3:#199e70; --y4:#c98500;
+    --y5:#d55181; --y6:#008300; --y7:#9085e9;
 
     --t1-wash:rgba(91,152,224,.075); --t1-ink:#5b98e0;
     --t2-wash:rgba(221,127,69,.085); --t2-ink:#dd7f45;
@@ -91,8 +95,8 @@
   --c-100:#2a1509; --c-200:#40200d; --c-300:#5e3113; --c-400:#87451a;
   --c-500:#bb6028; --c-600:#dd7f45; --c-700:#efa478; --c-800:#f8c8a8;
   --city:#dd7f45;
-  --y1:#1c5091; --y2:#2e68b2; --y3:#4886d7; --y4:#6fa4ea;
-  --y5:#98bff2; --y6:#c0d9f8; --y7:#e4eefc;
+  --y1:#3987e5; --y2:#d95926; --y3:#199e70; --y4:#c98500;
+  --y5:#d55181; --y6:#008300; --y7:#9085e9;
   --t1-wash:rgba(91,152,224,.075); --t1-ink:#5b98e0;
   --t2-wash:rgba(221,127,69,.085); --t2-ink:#dd7f45;
   --t3-wash:rgba(34,176,131,.08); --t3-ink:#22b083;
@@ -211,8 +215,20 @@ svg{display:block;max-width:100%}
 /* ── ranked bars ────────────────────────────────────── */
 .bars{display:flex;flex-direction:column;gap:2px}
 .bar-row{
-  display:grid;grid-template-columns:minmax(0,8.6rem) minmax(0,1fr) 4.8rem;gap:10px;
+  display:grid;grid-template-columns:minmax(0,7.8rem) minmax(0,1fr) 4.2rem 3.4rem 3.1rem;gap:9px;
   align-items:center;padding:3px 5px;border-radius:7px;cursor:pointer;border:1px solid transparent;
+}
+.bar-row .spark{display:block;width:100%;height:20px}
+.bar-row .trend{font-size:.74rem;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:1180px) and (min-width:981px){
+  /* the two ranking panels sit side by side here; drop the sparkline rather
+     than squeeze the name column to nothing */
+  .bar-row{grid-template-columns:minmax(0,7.8rem) minmax(0,1fr) 4.2rem 3.1rem}
+  .bar-row .spark{display:none}
+}
+@media(max-width:520px){
+  .bar-row{grid-template-columns:minmax(0,6.6rem) minmax(0,1fr) 3.8rem 3rem}
+  .bar-row .spark{display:none}
 }
 .bar-row:hover{background:var(--surface-2)}
 .bar-row[aria-pressed="true"]{background:var(--surface-2);border-color:var(--border-strong)}

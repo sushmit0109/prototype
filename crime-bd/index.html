@@ -13,28 +13,27 @@
 
   <header class="top">
     <div class="grow">
-      <h1>Bangladesh Crime Statistics</h1>
-      <p>Every offence recorded by Bangladesh Police, by the jurisdiction that recorded it and the
-         month it was filed. Click a division or a city to follow it through every chart; drag the
-         timeline to change the period.</p>
+      <h1 data-i18n="title">Bangladesh Crime Statistics</h1>
+      <p data-i18n="intro">Every offence recorded by Bangladesh Police…</p>
     </div>
     <div class="acts">
-      <a class="icon-btn" href="../">← Prototypes</a>
-      <button class="icon-btn" id="theme-btn" aria-label="Switch between light and dark theme">◐ Theme</button>
+      <a class="icon-btn" href="../" data-i18n="backToPrototypes">← Prototypes</a>
+      <button class="icon-btn" id="lang-btn">বাংলা</button>
+      <button class="icon-btn" id="theme-btn" aria-label="Switch between light and dark theme" data-i18n="themeBtn">◐ Theme</button>
     </div>
   </header>
 
   <div class="controls">
     <div class="ctl">
-      <label for="offence">Offence</label>
+      <label for="offence" data-i18n="offence">Offence</label>
       <select id="offence"></select>
     </div>
     <div class="ctl">
-      <label id="measure-label">Measure</label>
+      <label id="measure-label" data-i18n="measure">Measure</label>
       <div class="seg" role="group" aria-labelledby="measure-label">
-        <button type="button" data-measure="count" aria-pressed="true">Cases</button>
+        <button type="button" data-measure="count" aria-pressed="true" data-i18n="cases">Cases</button>
         <button type="button" data-measure="rate" aria-pressed="false"
-                title="Cases per 100,000 residents per year">Per 100k</button>
+                data-i18n="per100k">Per 100k</button>
       </div>
     </div>
     <span class="spacer"></span>
@@ -42,25 +41,24 @@
   </div>
 
   <div class="selbar" id="selbar">
-    <span>Showing</span>
+    <span data-i18n="showing">Showing</span>
     <span id="sel-chips"></span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="reset-btn">Reset all</button>
+    <button class="icon-btn" id="reset-btn" data-i18n="resetAll">Reset all</button>
   </div>
 
   <section class="kpis" aria-label="Headline figures">
     <div class="kpi"><div class="label" id="k1-label">Cases</div><div class="value" id="k1">—</div><div class="sub" id="k1-sub">&nbsp;</div></div>
-    <div class="kpi"><div class="label">Per month</div><div class="value" id="k2">—</div><div class="sub" id="k2-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label" data-i18n="kPerMonth">Per month</div><div class="value" id="k2">—</div><div class="sub" id="k2-sub">&nbsp;</div></div>
     <div class="kpi"><div class="label" id="k3-label">Highest</div><div class="value" id="k3">—</div><div class="sub" id="k3-sub">&nbsp;</div></div>
-    <div class="kpi"><div class="label">Busiest month</div><div class="value" id="k4">—</div><div class="sub" id="k4-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label" data-i18n="kBusiest">Busiest month</div><div class="value" id="k4">—</div><div class="sub" id="k4-sub">&nbsp;</div></div>
   </section>
 
   <section class="panel">
     <div class="panel-head">
       <div>
-        <h2>Timeline</h2>
-        <p class="hint">Monthly cases for the current selection. Bands behind the line mark who was
-          governing; drag across the chart to choose a period, click once to clear.</p>
+        <h2 data-i18n="timeline">Timeline</h2>
+        <p class="hint" data-i18n="timelineHint">Monthly cases…</p>
       </div>
     </div>
     <div class="presets" id="presets" role="group" aria-label="Period"></div>
@@ -71,22 +69,18 @@
   <div class="grid2">
     <section class="panel">
       <div class="panel-head">
-        <h2>Divisions — Range jurisdictions</h2>
+        <h2 data-i18n="divisionsTitle">Divisions — Range jurisdictions</h2>
       </div>
-      <p class="hint">The eight Ranges police everything in a division outside its metropolitan
-        cities. Click one to filter the whole dashboard to it.</p>
+      <p class="hint" data-i18n="divisionsHint">The eight Ranges…</p>
       <div class="map-wrap" id="range-map"></div>
       <div class="legend" id="range-legend"></div>
     </section>
 
     <section class="panel">
       <div class="panel-head">
-        <h2>Cities — metropolitan forces</h2>
+        <h2 data-i18n="citiesTitle">Cities — metropolitan forces</h2>
       </div>
-      <p class="hint">Eight metropolitan forces, each policing one city. Colour is the value.
-        Markers mark where each city is, not how far its jurisdiction reaches — a metropolitan
-        area is a subset of its district, and those boundaries are not published as open data.
-        Click one to filter.</p>
+      <p class="hint" data-i18n="citiesHint">Eight metropolitan forces…</p>
       <div class="map-wrap" id="city-map"></div>
       <div class="legend" id="city-legend"></div>
     </section>
@@ -94,12 +88,12 @@
 
   <div class="grid2">
     <section class="panel">
-      <h2>Jurisdictions ranked</h2>
+      <h2 data-i18n="ranksTitle">Jurisdictions ranked</h2>
       <p class="hint" id="rank-hint">All seventeen reporting units for the current offence and period.</p>
       <div class="bars" id="rank-bars"></div>
     </section>
     <section class="panel">
-      <h2>Offences ranked</h2>
+      <h2 data-i18n="offencesTitle">Offences ranked</h2>
       <p class="hint" id="offence-hint">What the current selection is made of. Click one to filter.</p>
       <div class="bars" id="offence-bars"></div>
     </section>
@@ -108,13 +102,13 @@
   <section class="panel">
     <div class="panel-head">
       <div>
-        <h2>Year against year</h2>
+        <h2 data-i18n="seasonTitle">Year against year</h2>
         <p class="hint" id="season-hint">The same twelve months for every year, so seasonality
           separates from trend. Colour runs oldest to newest.</p>
       </div>
       <div class="seg" role="group" aria-label="Year view">
-        <button type="button" data-season="grid" aria-pressed="true">Grid</button>
-        <button type="button" data-season="lines" aria-pressed="false">Lines</button>
+        <button type="button" data-season="grid" aria-pressed="true" data-i18n="grid">Grid</button>
+        <button type="button" data-season="lines" aria-pressed="false" data-i18n="lines">Lines</button>
       </div>
     </div>
     <div id="season"></div>
@@ -124,41 +118,38 @@
   <section class="panel">
     <div class="panel-head">
       <div>
-        <h2>Across the two transitions</h2>
-        <p class="hint">Recorded crime under each government, as cases per month — the three
-          periods are 55, 18 and 6 months long, so totals would say nothing. Bars show how each
-          offence's monthly rate changed from one period to the next. This panel always compares
-          the full periods, so it does not follow the timeline selection; the offence and area
-          filters do apply.</p>
+        <h2 data-i18n="smallTitle">Every offence, month by month</h2>
+        <p class="hint" id="sm-hint">All fifteen categories at once. Each panel keeps its own
+          vertical scale, so read the shape inside a panel rather than the height between them.
+          Click a panel to filter the dashboard to that offence.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Small multiple view">
+        <button type="button" data-sm="year" aria-pressed="true" data-i18n="byYear">By year</button>
+        <button type="button" data-sm="gov" aria-pressed="false" data-i18n="byGovernment">By government</button>
+      </div>
+    </div>
+    <div id="smallmults"></div>
+    <div class="legend" id="sm-legend"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <div>
+        <h2 data-i18n="tenureTitle">Across the two transitions</h2>
+        <p class="hint" data-i18n="tenureHint">Recorded crime under each government…</p>
       </div>
     </div>
     <div id="tenure"></div>
   </section>
 
   <footer class="foot">
-    <p><strong>Source:</strong> Bangladesh Police, monthly Crime Statistics —
-      <a href="https://www.police.gov.bd/en/crime_statistic_home" rel="noopener" target="_blank">police.gov.bd</a>.
-      Division boundaries from geoBoundaries (BGD ADM1); population from the 2022 Population and
-      Housing Census (BBS). <span id="foot-meta"></span></p>
-    <div class="caveat">
-      <strong>Reading this data.</strong> These are cases <em>recorded</em> by police, not crimes
-      committed. A figure rises when more cases are filed — which can mean more offending, better
-      reporting, or a policing drive — and falls when people stop coming forward.
-      <strong>Two months are collapses in recording, not in crime:</strong> April 2020, under the
-      Covid general holiday, and August 2024, when police withdrew from stations nationwide around
-      the fall of the government. A trend drawn straight through either will mislead.
-      <em>Other Cases</em> carries about a third of all cases and is not broken down at source.
-      <em>Recovery</em> categories — arms, explosives, narcotics, smuggling — count police-initiated
-      seizures, so they track enforcement effort as much as underlying activity.
-      Per-100,000 rates use city-corporation populations for metropolitan forces and
-      division-minus-cities for Ranges; police boundaries do not follow those exactly, so rates are
-      sound for comparison but not exact. Railway Range polices the rail network nationwide, so it
-      appears in the rankings but has no territory on the map and no population denominator.
-    </div>
+    <p id="foot-source"></p>
+    <div class="caveat" id="foot-caveat"></div>
   </footer>
 </div>
 
 <div class="tip" id="tip" role="status" aria-live="polite"></div>
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
