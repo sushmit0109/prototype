@@ -90,11 +90,24 @@ const TENURES = [
    normal reporting. The file keeps it; the dashboard starts in 2021. */
 const ANALYSIS_START = '2021-01';
 
-/* The two handover months themselves are excluded from every statistic while
-   still being drawn. Policing was interrupted in both — August 2024 is the
-   lowest month in the whole record — so averaging them in understates the
-   period they belong to and invents a fall that is an administrative gap. */
-const EXCLUDED_MONTHS = ['2024-08', '2026-02'];
+/* The two handover months belong partly or wholly to a government that did not
+   hold power for all of them, so rather than discard them they are apportioned
+   between governments. This is an editorial judgement, not arithmetic, and the
+   page states it where the comparison is drawn.
+
+   August 2024 counts as an interim month, except for murder. Most of those
+   killings happened during the July crackdown under the outgoing government;
+   the cases were filed afterwards, so the filing date and the events sit on
+   opposite sides of the handover. Murder recorded that month is counted
+   against the Awami League period instead.
+
+   February 2026 is split evenly: the interim government held the first half of
+   the month, the elected government the second. */
+const ATTRIBUTION = [
+  { month: '2024-08', shares: { t2: 1 }, except: { Murder: { t1: 1 } } },
+  { month: '2026-02', shares: { t2: 0.5, t3: 0.5 } },
+];
+const HANDOVER_MONTHS = ATTRIBUTION.map((a) => a.month);
 
 /* Dacoity, robbery and burglary are reported as three columns but are one
    family of offence — property taken by force or by breaking in — and they are
@@ -124,13 +137,39 @@ function colsOf(catIdxs) {
   for (const c of catIdxs) out.push(...CATS[c].cols);
   return out;
 }
-let EX = new Set();                      // indices excluded from statistics
-const inStats = (m) => !EX.has(m);
-/** Months inside [a,b] that count toward a statistic. */
+let HANDOVER = new Set();                // the two handover month indices
+const isHandover = (m) => HANDOVER.has(m);
+/** Months inside [a,b] that count toward a statistic. Every month counts now:
+ *  the handover months are apportioned between governments rather than dropped. */
 function statMonths(a, b) {
   const out = [];
-  for (let m = a; m <= b; m++) if (inStats(m)) out.push(m);
+  for (let m = a; m <= b; m++) out.push(m);
   return out;
+}
+
+/** How much of month `m` belongs to tenure `id`, for a given display category.
+ *  Months outside a handover belong wholly to the tenure containing them. */
+function monthShare(m, id, catIdx) {
+  const rule = ATTRIBUTION.find((r) => r.month === DATA.months[m]);
+  if (rule) {
+    if (rule.except && catIdx != null) {
+      const cat = CATS[catIdx];
+      const name = cat && cat.raw != null ? DATA.crimes[cat.raw] : null;
+      if (name && rule.except[name]) return rule.except[name][id] || 0;
+    }
+    return rule.shares[id] || 0;
+  }
+  const t = TENURES.find((x) => { const [a, b] = tenureRange(x); return m >= a && m <= b; });
+  return t && t.id === id ? 1 : 0;
+}
+
+/** Months credited to a tenure, a split month counting as a fraction. The
+ *  denominator ignores the murder exception: August is an interim month even
+ *  though the murders recorded in it are counted elsewhere. */
+function tenureMonths(t) {
+  let n = 0;
+  for (let m = 0; m < NM; m++) n += monthShare(m, t.id, null);
+  return n;
 }
 const state = { offences: new Set(), measure: 'count', m0: 0, m1: 0, unit: null, season: 'grid', sm: 'year' };
 let brush = null;
@@ -326,7 +365,7 @@ function renderKpis() {
   // sides always hold the same number of them.
   const prevMonths = [];
   for (let m = state.m0 - 1; m >= 0 && prevMonths.length < n; m--)
-    if (inStats(m)) prevMonths.push(m);
+    prevMonths.push(m);
   prevMonths.reverse();
 
   // Where the record runs out before we have n of them, fall back to the
@@ -484,7 +523,7 @@ function renderTimeline() {
 
   // The two handover months are plotted but not counted; hatch them so the dip
   // is visible and its exclusion is visible too.
-  EX.forEach((i) => {
+  HANDOVER.forEach((i) => {
     svg.appendChild(el('rect', {
       x: x(i) - band / 2, y: padT, width: band, height: H - padT - padB,
       fill: 'var(--text-muted)', 'fill-opacity': .16,
@@ -523,7 +562,7 @@ function renderTimeline() {
     showTip(e, `<div class="t-name">${mLong(DATA.months[i])}</div>
       <div class="t-row"><span>${offenceName()}</span><b>${fmt(s[i])}</b></div>
       <div class="t-sub">${scopeLabel()}${ten ? ' · ' + tenureName(ten) : ''}${
-        inStats(i) ? '' : ' · ' + T.handoverNote}</div>`);
+        isHandover(i) ? ' · ' + T.handoverNote : ''}</div>`);
   });
   hit.addEventListener('pointerleave', hideTip);
   hit.addEventListener('pointerup', () => {
@@ -935,22 +974,26 @@ function seasonGrid(host) {
 /* ------------------------------------------------- across the transitions */
 
 /** Cases per month for one offence in one tenure, over the current scope. */
+/** Cases per month credited to a tenure, applying the handover attribution.
+ *  Every month in the record is visited: a month contributes in proportion to
+ *  the share of it that belongs to this government, which is 1, 0, or a half. */
 function tenureRate(offence, t) {
-  const [a, b] = tenureRange(t);
-  const months = statMonths(a, b);
-  let s = 0;
-  const sel = colsOf(offence == null ? selOffences() : [offence]);
-  const sum = (row) => {
-    if (!sel) return row.reduce((x, y) => x + y, 0);
-    let t = 0;
-    for (const c of sel) t += row[c];
-    return t;
-  };
-  for (const m of months) {
-    if (state.unit != null) s += sum(DATA.values[m][state.unit]);
-    else for (let u = 0; u < NU; u++) s += sum(DATA.values[m][u]);
+  const cats = offence == null ? (selOffences() || CATS.map((_, i) => i)) : [offence];
+  let total = 0;
+  for (let m = 0; m < NM; m++) {
+    for (const ci of cats) {
+      const share = monthShare(m, t.id, ci);
+      if (!share) continue;
+      let v = 0;
+      for (const c of CATS[ci].cols) {
+        if (state.unit != null) v += DATA.values[m][state.unit][c];
+        else for (let u = 0; u < NU; u++) v += DATA.values[m][u][c];
+      }
+      total += share * v;
+    }
   }
-  return months.length ? s / months.length : null;
+  const n = tenureMonths(t);
+  return n ? total / n : null;
 }
 
 function renderTenure() {
@@ -964,13 +1007,13 @@ function renderTenure() {
   overall.forEach((o, i) => {
     const prev = i ? overall[i - 1].v : null;
     const d = prev ? ((o.v - prev) / prev) * 100 : null;
-    const [a, b] = tenureRange(o.t);
+    const nMonths = tenureMonths(o.t);
     const box = document.createElement('div');
     box.style.cssText = `border:1px solid var(--border);border-left:3px solid ${o.t.ink};border-radius:9px;padding:11px 13px;background:var(--surface-2)`;
     box.innerHTML =
       `<div style="font-size:.71rem;font-weight:650;letter-spacing:.05em;text-transform:uppercase;color:${o.t.ink}">${tenureName(o.t)}</div>
        <div style="font-size:1.45rem;font-weight:650;letter-spacing:-.02em;margin:2px 0 1px">${fmt(o.v)}</div>
-       <div style="font-size:.76rem;color:var(--text-muted)">${T.casesPerMonth} · ${num(statMonths(a, b).length)} ${T.monthsWord}
+       <div style="font-size:.76rem;color:var(--text-muted)">${T.casesPerMonth} · ${num(nMonths % 1 ? nMonths.toFixed(1) : nMonths)} ${T.monthsWord}
          ${d == null ? '' : `<span class="delta ${Math.abs(d) < 1 ? 'flat' : d > 0 ? 'up' : 'down'}">${pctStr(d)}</span>`}</div>`;
     head.appendChild(box);
   });
@@ -1060,6 +1103,7 @@ function applyLanguage() {
     if (typeof v === 'string') n.textContent = v;
   });
   $('#lang-btn').textContent = T.langName;
+  $('#tenure-rule').innerHTML = T.tenureRule;
   $('#k1-label').textContent = offenceName();
 
   renderOffencePicker();
@@ -1180,7 +1224,7 @@ Promise.all([
   DATA = { ...d, months: d.months.slice(cut), values: d.values.slice(cut) };
   NM = DATA.months.length; NU = DATA.units.length; NCOL = DATA.crimes.length;
   YEARS = [...new Set(DATA.months.map((m) => m.slice(0, 4)))];
-  EX = new Set(EXCLUDED_MONTHS.map((m) => DATA.months.indexOf(m)).filter((i) => i >= 0));
+  HANDOVER = new Set(HANDOVER_MONTHS.map((m) => DATA.months.indexOf(m)).filter((i) => i >= 0));
   CATS = buildCategories();
   NC = CATS.length;                  // offence categories as presented
   state.m0 = 0; state.m1 = NM - 1;

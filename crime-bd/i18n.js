@@ -62,8 +62,8 @@ const I18N = {
     allYears: 'All years',
     last12: 'Last 12 months',
     dragHint: 'Drag the chart to choose a period',
-    handoverKey: 'Handover month — plotted, not counted',
-    handoverNote: 'handover month, shown but not counted in any statistic',
+    handoverKey: 'Handover month — split between governments',
+    handoverNote: 'handover month — see how it is apportioned below',
 
     divisionsTitle: 'Divisions — Range jurisdictions',
     divisionsHint: 'The eight Ranges police everything in a division outside its metropolitan cities. Click one to filter the whole dashboard to it.',
@@ -101,7 +101,9 @@ const I18N = {
     maxWord: 'max',
 
     tenureTitle: 'Across the two transitions',
-    tenureHint: 'Recorded crime under each government, as cases per month. The periods are of very different lengths, so totals would say nothing. The two handover months themselves are left out of every figure here — policing was interrupted in both. This panel always compares the full periods, so it does not follow the timeline selection; the offence and area filters do apply.',
+    tenureHint: 'Recorded crime under each government, as cases per month. The periods are of very different lengths, so totals would say nothing.',
+    tenureRule: 'The two handover months are apportioned rather than discarded. <b>August 2024</b> counts as an interim month, <b>except murder</b>: most of those killings happened during the July crackdown under the outgoing government and the cases were filed afterwards, so they are counted against the Awami League period. <b>February 2026</b> is split evenly, the interim government holding the first half of the month and the elected government the second. That is a judgement about when offences happened rather than when paperwork was filed, and it is the one place on this page where a number rests on an interpretation.',
+    tenureScope: 'This panel always compares the full periods, so it does not follow the timeline selection; the offence and area filters do apply.',
     handoverAt: (m) => `Change in cases per month at the ${m} handover.`,
     noChange: 'no change',
     monthsWord: 'months',
@@ -166,8 +168,8 @@ const I18N = {
     allYears: 'সব বছর',
     last12: 'শেষ ১২ মাস',
     dragHint: 'সময়সীমা বাছতে চার্টের উপর টানুন',
-    handoverKey: 'হস্তান্তরের মাস — চার্টে আছে, হিসাবে নেই',
-    handoverNote: 'ক্ষমতা হস্তান্তরের মাস; চার্টে দেখানো হলেও কোনো হিসাবে ধরা হয়নি',
+    handoverKey: 'হস্তান্তরের মাস — দুই সরকারের মধ্যে ভাগ করা',
+    handoverNote: 'ক্ষমতা হস্তান্তরের মাস — কীভাবে ভাগ করা হয়েছে তা নিচে দেখুন',
 
     divisionsTitle: 'বিভাগ — রেঞ্জ এখতিয়ার',
     divisionsHint: 'মহানগর এলাকার বাইরে গোটা বিভাগের দায়িত্ব আটটি রেঞ্জের। যেকোনো একটিতে ক্লিক করলে পুরো ড্যাশবোর্ড সেই রেঞ্জেই সীমাবদ্ধ হবে।',
@@ -205,7 +207,9 @@ const I18N = {
     maxWord: 'সর্বোচ্চ',
 
     tenureTitle: 'দুই দফা ক্ষমতা হস্তান্তরের হিসাব',
-    tenureHint: 'প্রতিটি সরকারের আমলে নথিভুক্ত অপরাধ, মাসে গড় মামলা হিসেবে। সময়কালগুলোর দৈর্ঘ্য এক নয়, তাই মোট সংখ্যা দিয়ে তুলনা চলে না। হস্তান্তরের দুটি মাস এখানকার কোনো হিসাবেই নেই — দুবারই পুলিশি কার্যক্রম ব্যাহত হয়েছিল। এই অংশটি সবসময় পুরো সময়কাল ধরেই তুলনা করে, তাই সময়রেখার বাছাই এখানে খাটে না; অপরাধ ও এলাকার বাছাই অবশ্য খাটে।',
+    tenureHint: 'প্রতিটি সরকারের আমলে নথিভুক্ত অপরাধ, মাসে গড় মামলা হিসেবে। সময়কালগুলোর দৈর্ঘ্য এক নয়, তাই মোট সংখ্যা দিয়ে তুলনা চলে না।',
+    tenureRule: 'হস্তান্তরের দুটি মাস বাদ না দিয়ে ভাগ করে দেওয়া হয়েছে। <b>২০২৪ সালের আগস্ট</b> ধরা হয়েছে অন্তর্বর্তী সরকারের মাস হিসেবে, <b>খুন ছাড়া</b>: ওই খুনগুলোর বেশিরভাগই হয়েছিল জুলাইয়ের দমন-পীড়নের সময়, বিদায়ী সরকারের আমলে, আর মামলা হয়েছে পরে — তাই সেগুলো আওয়ামী লীগের আমলের হিসাবে ধরা হয়েছে। <b>২০২৬ সালের ফেব্রুয়ারি</b> সমান দুই ভাগ: মাসের প্রথমার্ধে অন্তর্বর্তী সরকার, শেষার্ধে নির্বাচিত সরকার। এটি কাগজে মামলা কবে হয়েছে তা নয়, ঘটনা কখন ঘটেছে সেই বিচারে করা — এই পাতায় এটিই একমাত্র সংখ্যা যা একটি ব্যাখ্যার উপর দাঁড়িয়ে।',
+    tenureScope: 'এই অংশটি সবসময় পুরো সময়কাল ধরেই তুলনা করে, তাই সময়রেখার বাছাই এখানে খাটে না; অপরাধ ও এলাকার বাছাই অবশ্য খাটে।',
     handoverAt: (m) => `${m}-এর হস্তান্তরে মাসিক গড় মামলার পরিবর্তন।`,
     noChange: 'অপরিবর্তিত',
     monthsWord: 'মাস',
