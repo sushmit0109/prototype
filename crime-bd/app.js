@@ -15,6 +15,19 @@
 const $ = (s) => document.querySelector(s);
 const NS = 'http://www.w3.org/2000/svg';
 
+/* If a stale cache hands us this file without its string table, say so plainly
+   rather than throwing and leaving a blank page behind. */
+if (typeof I18N === 'undefined') {
+  addEventListener('DOMContentLoaded', () => {
+    const b = document.querySelector('.wrap') || document.body;
+    b.insertAdjacentHTML('afterbegin',
+      '<p style="padding:14px;margin:14px 0;border:1px solid #c5392f;border-radius:10px;color:#c5392f">' +
+      'A cached copy of this page is out of step with its scripts. ' +
+      'Reload with Ctrl/Cmd + Shift + R.</p>');
+  });
+  throw new Error('i18n.js did not load');
+}
+
 let LANG = 'en';
 let T = I18N.en;
 /** Bangla prose with Western digits reads like a machine wrote it. The locale
