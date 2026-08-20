@@ -31,14 +31,17 @@
   --c-500:#e5763f; --c-600:#c65a26; --c-700:#9c441b; --c-800:#712f11;
   --city:#e5763f;
 
-  /* Years are categorical here, not ordinal. Seven steps of one hue satisfy
-     the ramp checks but are miserable to actually read — telling 2022 from
-     2023 in a tangle of blues is guesswork. These are the reference
-     categorical order, validated on this surface: worst adjacent CVD dE 9.1,
-     normal-vision 19.6. Three sit below 3:1 contrast, so every line carries a
-     direct label at its end, which is the documented relief. */
-  --y1:#2a78d6; --y2:#eb6834; --y3:#1baf7a; --y4:#eda100;
-  --y5:#e87ba4; --y6:#008300; --y7:#4a3aa7;
+  /* Years, as distinct hues. Chosen by searching hue combinations against the
+     all-pairs gates rather than the adjacent ones: a reader of a line tangle
+     compares any two years, not just neighbours, and the previous set put
+     2023 (aqua) next to 2026 (green) — indistinguishable, and green vs orange
+     measured dE 3.2 under protanopia. This set clears all-pairs CVD 12.0 and
+     normal-vision 16.9 on this surface. Amber and pink sit under 3:1, which
+     the direct end-labels answer.
+     Six series still cannot clear the gates in dark mode — nothing can — so
+     hue is never the only channel: every year also has its own dash. */
+  --y1:#1a4fa8; --y2:#00879b; --y3:#eda100; --y4:#f0a3c8;
+  --y5:#9085e9; --y6:#d03b3b; --y7:#7d5a1f;
 
   /* tenure washes: backgrounds, so barely-there tints, never saturated */
   --t1-wash:rgba(42,112,201,.055); --t1-ink:#2a70c9;
@@ -71,9 +74,9 @@
     --c-500:#bb6028; --c-600:#dd7f45; --c-700:#efa478; --c-800:#f8c8a8;
     --city:#dd7f45;
 
-    /* same hues re-stepped for the dark surface; all seven clear 3:1 here */
-    --y1:#3987e5; --y2:#d95926; --y3:#199e70; --y4:#c98500;
-    --y5:#d55181; --y6:#008300; --y7:#9085e9;
+    /* the same hue families re-stepped for the dark surface */
+    --y1:#4a8ce8; --y2:#26a9be; --y3:#e8b13a; --y4:#f2a6cc;
+    --y5:#c08af5; --y6:#e5584f; --y7:#d0a468;
 
     --t1-wash:rgba(91,152,224,.075); --t1-ink:#5b98e0;
     --t2-wash:rgba(221,127,69,.085); --t2-ink:#dd7f45;
@@ -95,8 +98,8 @@
   --c-100:#2a1509; --c-200:#40200d; --c-300:#5e3113; --c-400:#87451a;
   --c-500:#bb6028; --c-600:#dd7f45; --c-700:#efa478; --c-800:#f8c8a8;
   --city:#dd7f45;
-  --y1:#3987e5; --y2:#d95926; --y3:#199e70; --y4:#c98500;
-  --y5:#d55181; --y6:#008300; --y7:#9085e9;
+  --y1:#4a8ce8; --y2:#26a9be; --y3:#e8b13a; --y4:#f2a6cc;
+  --y5:#c08af5; --y6:#e5584f; --y7:#d0a468;
   --t1-wash:rgba(91,152,224,.075); --t1-ink:#5b98e0;
   --t2-wash:rgba(221,127,69,.085); --t2-ink:#dd7f45;
   --t3-wash:rgba(34,176,131,.08); --t3-ink:#22b083;
@@ -149,6 +152,42 @@ select:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px s
 }
 .seg button[aria-pressed="true"]{background:var(--range);color:#fff;font-weight:600}
 .controls .spacer{flex:1}
+
+
+/* ── multi-select (offence) ─────────────────────────── */
+.ms{position:relative}
+.ms-btn{
+  font:inherit;font-size:.86rem;color:var(--text-primary);background:var(--surface-1);
+  border:1px solid var(--border-strong);border-radius:7px;padding:6px 26px 6px 10px;
+  cursor:pointer;min-width:172px;max-width:250px;text-align:left;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.ms-btn::after{
+  content:'';position:absolute;right:10px;top:50%;width:6px;height:6px;
+  border-right:1.6px solid var(--text-muted);border-bottom:1.6px solid var(--text-muted);
+  transform:translateY(-70%) rotate(45deg);pointer-events:none;
+}
+.ms-btn:hover{border-color:var(--focus)}
+.ms-pop{
+  position:absolute;z-index:80;top:calc(100% + 6px);left:0;min-width:250px;
+  background:var(--surface-1);border:1px solid var(--border-strong);border-radius:10px;
+  box-shadow:0 10px 34px rgba(0,0,0,.24);padding:8px;
+}
+.ms-actions{display:flex;gap:6px;padding:0 2px 7px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.ms-actions button{
+  font:inherit;font-size:.76rem;background:var(--surface-2);border:1px solid var(--border);
+  color:var(--text-secondary);border-radius:6px;padding:3px 9px;cursor:pointer;
+}
+.ms-actions button:hover{border-color:var(--border-strong);color:var(--text-primary)}
+.ms-list{max-height:min(52vh,340px);overflow:auto;display:flex;flex-direction:column;gap:1px}
+.ms-opt{
+  display:flex;align-items:center;gap:8px;padding:5px 7px;border-radius:6px;
+  cursor:pointer;font-size:.84rem;color:var(--text-secondary);
+}
+.ms-opt:hover{background:var(--surface-2);color:var(--text-primary)}
+.ms-opt input{accent-color:var(--range);width:14px;height:14px;margin:0;cursor:pointer;flex:none}
+.ms-opt[aria-selected="true"]{color:var(--text-primary);font-weight:550}
+@media(max-width:520px){.ms-btn{min-width:0;width:100%}.ms-pop{min-width:0;width:min(88vw,300px)}}
 
 /* ── selection breadcrumb ───────────────────────────── */
 .selbar{

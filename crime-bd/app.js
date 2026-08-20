@@ -106,7 +106,7 @@ function statMonths(a, b) {
   for (let m = a; m <= b; m++) if (inStats(m)) out.push(m);
   return out;
 }
-const state = { offence: -1, measure: 'count', m0: 0, m1: 0, unit: null, season: 'grid', sm: 'year' };
+const state = { offences: new Set(), measure: 'count', m0: 0, m1: 0, unit: null, season: 'grid', sm: 'year' };
 let brush = null;
 
 /* ------------------------------------------------------------------ helpers */
@@ -215,27 +215,38 @@ const monthIdx = (ym) => DATA.months.indexOf(ym);
 const tenureRange = (t) => [Math.max(0, monthIdx(t.from)), Math.min(NM - 1, monthIdx(t.to))];
 const isRate = () => state.measure === 'rate';
 
-/** One (month, unit) cell for the selected offence. */
+/* An empty set means every offence. Storing it that way rather than listing
+   all fifteen keeps "all" stable when the source adds a category. */
+const selOffences = () => (state.offences.size ? [...state.offences].sort((a, b) => a - b) : null);
+const offenceCount = () => (state.offences.size || NC);
+
+/** One (month, unit) cell, summed over whatever offences are selected. */
 function cell(m, u) {
   const row = DATA.values[m][u];
-  if (state.offence < 0) { let s = 0; for (let c = 0; c < NC; c++) s += row[c]; return s; }
-  return row[state.offence];
+  const sel = selOffences();
+  if (!sel) { let s = 0; for (let c = 0; c < NC; c++) s += row[c]; return s; }
+  let s = 0;
+  for (const c of sel) s += row[c];
+  return s;
 }
 /** Monthly national (or selected-unit) series across the whole record. Never
  *  sliced to the window, because a rolling mean needs the months either side. */
-function series(offence = state.offence, unit = state.unit) {
+function series(offence, unit = state.unit) {
+  // offence omitted -> whatever is currently selected; a number -> just that one
+  const sel = offence == null ? selOffences() : [offence];
+  const sum = (row) => {
+    if (!sel) return row.reduce((a, b) => a + b, 0);
+    let t = 0;
+    for (const c of sel) t += row[c];
+    return t;
+  };
   const out = new Array(NM).fill(0);
   for (let m = 0; m < NM; m++) {
-    if (unit != null) {
-      const row = DATA.values[m][unit];
-      out[m] = offence < 0 ? row.reduce((a, b) => a + b, 0) : row[offence];
-    } else {
-      let s = 0;
-      for (let u = 0; u < NU; u++) {
-        const row = DATA.values[m][u];
-        s += offence < 0 ? row.reduce((a, b) => a + b, 0) : row[offence];
-      }
-      out[m] = s;
+    if (unit != null) out[m] = sum(DATA.values[m][unit]);
+    else {
+      let t = 0;
+      for (let u = 0; u < NU; u++) t += sum(DATA.values[m][u]);
+      out[m] = t;
     }
   }
   return out;
@@ -263,7 +274,13 @@ function rateOf(total, unit, m0 = state.m0, m1 = state.m1) {
 }
 function displayUnit(total, u) { return isRate() ? rateOf(total, u) : total; }
 
-const offenceName = () => (state.offence < 0 ? T.allOffences : crimeLabel(state.offence));
+const offenceName = () => {
+  const sel = selOffences();
+  if (!sel) return T.allOffences;
+  if (sel.length === 1) return crimeLabel(sel[0]);
+  if (sel.length === 2) return sel.map(crimeLabel).join(' + ');
+  return T.nOffences(num(sel.length));
+};
 const unitName = (u) => unitLabel(DATA.units[u], true);
 const scopeLabel = () => (state.unit == null ? T.bangladesh : unitLabel(DATA.units[state.unit]));
 
@@ -345,7 +362,12 @@ function chip(label, onClear) {
 function renderSelbar() {
   const host = $('#sel-chips');
   host.replaceChildren();
-  host.appendChild(chip(offenceName(), state.offence < 0 ? null : () => { state.offence = -1; $('#offence').value = '-1'; render(); }));
+  const sel = selOffences();
+  if (!sel) host.appendChild(chip(T.allOffences, null));
+  else if (sel.length <= 3)
+    sel.forEach((c) => host.appendChild(chip(crimeLabel(c), () => { state.offences.delete(c); render(); })));
+  else
+    host.appendChild(chip(offenceName(), () => { state.offences.clear(); render(); }));
   host.appendChild(chip(scopeLabel(), state.unit == null ? null : () => { state.unit = null; render(); }));
   const full = state.m0 === 0 && state.m1 === NM - 1;
   host.appendChild(chip(`${mLabel(DATA.months[state.m0])} – ${mLabel(DATA.months[state.m1])}`,
@@ -657,7 +679,7 @@ function sparkPath(ser, m0, m1, w, h) {
   return vals.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1)).join('');
 }
 
-function barPanel(host, items, ramp, onPick, selected, valueFmt) {
+function barPanel(host, items, ramp, onPick, isSelected, valueFmt) {
   host.replaceChildren();
   const max = Math.max(1, ...items.map((i) => i.v || 0));
   items.forEach((it) => {
@@ -665,7 +687,7 @@ function barPanel(host, items, ramp, onPick, selected, valueFmt) {
     row.className = 'bar-row';
     row.setAttribute('role', 'button');
     row.tabIndex = 0;
-    row.setAttribute('aria-pressed', String(it.key === selected));
+    row.setAttribute('aria-pressed', String(isSelected(it.key)));
     const d = it.trend;
     const cls = d == null ? 'flat' : Math.abs(d) < 3 ? 'flat' : d > 0 ? 'up' : 'down';
     const mark = d == null ? '' : Math.abs(d) < 3 ? '±' : d > 0 ? '▲' : '▼';
@@ -691,7 +713,7 @@ function barPanel(host, items, ramp, onPick, selected, valueFmt) {
 function renderRanks() {
   const totals = unitTotals();
   const items = DATA.units.map((u, i) => {
-    const ser = series(state.offence, i);
+    const ser = series(null, i);
     return {
     key: i, name: unitName(i), v: displayUnit(totals[i], i),
     spark: sparkPath(ser, state.m0, state.m1, 60, 20),
@@ -706,7 +728,7 @@ function renderRanks() {
   items.sort((a, b) => b.v - a.v);
   barPanel($('#rank-bars'), items, RAMP_R,
     (k) => { state.unit = state.unit === k ? null : k; render(); },
-    state.unit, (v) => (isRate() ? fmt1(v) : fmtCompact(v)));
+    (k) => k === state.unit, (v) => (isRate() ? fmt1(v) : fmtCompact(v)));
   $('#rank-hint').textContent = isRate() ? T.ranksHintRate : T.ranksHint;
 
   const oTot = offenceTotals();
@@ -724,8 +746,8 @@ function renderRanks() {
     };
   }).sort((a, b) => b.v - a.v);
   barPanel($('#offence-bars'), oItems, RAMP_R,
-    (k) => { state.offence = state.offence === k ? -1 : k; $('#offence').value = String(state.offence); render(); },
-    state.offence, fmtCompact);
+    (k) => { toggleOffence(k); render(); },
+    (k) => state.offences.has(k), fmtCompact);
   $('#offence-hint').textContent = T.offencesHint(scopeLabel());
 }
 
@@ -736,9 +758,34 @@ function renderRanks() {
    never cycled: once the record passes seven years the oldest fall back to a
    context grey rather than repeating a hue already in use. */
 const YEAR_RAMP = ['--y1','--y2','--y3','--y4','--y5','--y6','--y7'];
+
+/* Hue alone cannot separate six years — on the dark surface no combination of
+   six clears the colourblind-safety gates, and on light it only just does. So
+   every year carries a dash pattern as well, and identity survives with no
+   colour vision at all. The latest year is the solid, heaviest line: it is the
+   one being read against the others. */
+const YEAR_DASH = ['5 3', '1.5 3', '10 3 1.5 3', '14 4', '2 5', null, '7 3 1.5 3'];
+
+function yearSlot(yi, nYears) { return yi - Math.max(0, nYears - YEAR_RAMP.length); }
 function yearColor(yi, nYears) {
-  const slot = yi - Math.max(0, nYears - YEAR_RAMP.length);
+  const slot = yearSlot(yi, nYears);
   return slot < 0 ? 'var(--ctx)' : `var(${YEAR_RAMP[slot]})`;
+}
+function yearDash(yi, nYears) {
+  const slot = yearSlot(yi, nYears);
+  if (slot < 0) return '2 4';
+  // the newest year is whichever slot the last year lands in
+  return slot === Math.min(nYears, YEAR_RAMP.length) - 1 ? null : YEAR_DASH[slot];
+}
+const yearWidth = (yi, nYears) =>
+  (yearSlot(yi, nYears) === Math.min(nYears, YEAR_RAMP.length) - 1 ? 2.8 : 1.9);
+
+/** A short line in the year's own colour and dash, for legends. */
+function yearKeySVG(yi, nYears) {
+  return `<svg width="20" height="10" aria-hidden="true" style="flex:none">
+    <line x1="1" y1="5" x2="19" y2="5" stroke="${yearColor(yi, nYears)}"
+      stroke-width="${yearWidth(yi, nYears)}" stroke-linecap="round"
+      ${yearDash(yi, nYears) ? `stroke-dasharray="${yearDash(yi, nYears)}"` : ''}/></svg>`;
 }
 
 /** Values by [year][month]. Null where a month has not been published, so a
@@ -779,7 +826,9 @@ function seasonLines(host) {
     let d = '';
     vals.forEach((v, i) => { if (v != null) d += (d ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); });
     if (!d) return;
-    svg.appendChild(el('path', { d, fill: 'none', stroke: yearColor(yi, YEARS.length), 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    svg.appendChild(el('path', { d, fill: 'none', stroke: yearColor(yi, YEARS.length),
+      'stroke-width': yearWidth(yi, YEARS.length), 'stroke-dasharray': yearDash(yi, YEARS.length),
+      'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
     let li = -1;
     vals.forEach((v, i) => { if (v != null) li = i; });
     if (li >= 0) ends.push({ yr, yi, x: x(li), y: y(vals[li]) });
@@ -813,7 +862,7 @@ function seasonLines(host) {
   }
   host.replaceChildren(svg);
   $('#season-legend').innerHTML =
-    YEARS.map((y, i) => `<span class="key"><i class="sw" style="background:${yearColor(i, YEARS.length)}"></i>${yearLabel(y)}</span>`).join('') +
+    YEARS.map((y, i) => `<span class="key">${yearKeySVG(i, YEARS.length)}${yearLabel(y)}</span>`).join('') +
     `<span class="key" style="color:var(--text-muted)">${T.runsTo(mLabel(DATA.months[NM - 1]))}</span>`;
   $('#season-hint').textContent = T.seasonHintLines;
 }
@@ -864,16 +913,16 @@ function tenureRate(offence, t) {
   const [a, b] = tenureRange(t);
   const months = statMonths(a, b);
   let s = 0;
+  const sel = offence == null ? selOffences() : [offence];
+  const sum = (row) => {
+    if (!sel) return row.reduce((x, y) => x + y, 0);
+    let t = 0;
+    for (const c of sel) t += row[c];
+    return t;
+  };
   for (const m of months) {
-    if (state.unit != null) {
-      const row = DATA.values[m][state.unit];
-      s += offence < 0 ? row.reduce((x, y) => x + y, 0) : row[offence];
-    } else {
-      for (let u = 0; u < NU; u++) {
-        const row = DATA.values[m][u];
-        s += offence < 0 ? row.reduce((x, y) => x + y, 0) : row[offence];
-      }
-    }
+    if (state.unit != null) s += sum(DATA.values[m][state.unit]);
+    else for (let u = 0; u < NU; u++) s += sum(DATA.values[m][u]);
   }
   return months.length ? s / months.length : null;
 }
@@ -883,7 +932,7 @@ function renderTenure() {
   host.replaceChildren();
 
   // headline: the three periods side by side, per month
-  const overall = TENURES.map((t) => ({ t, v: tenureRate(state.offence, t) }));
+  const overall = TENURES.map((t) => ({ t, v: tenureRate(null, t) }));
   const head = document.createElement('div');
   head.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:6px 0 18px';
   overall.forEach((o, i) => {
@@ -987,10 +1036,7 @@ function applyLanguage() {
   $('#lang-btn').textContent = T.langName;
   $('#k1-label').textContent = offenceName();
 
-  const sel = $('#offence');
-  sel.innerHTML = `<option value="-1">${T.allOffences}</option>` +
-    DATA.crimes.map((c, i) => `<option value="${i}">${crimeLabel(i)}</option>`).join('');
-  sel.value = String(state.offence);
+  renderOffencePicker();
 
   $('#foot-source').innerHTML =
     `<strong>${T.sourceLead}</strong> ${T.sourceBody} ` +
@@ -1002,9 +1048,53 @@ function applyLanguage() {
     num(RAW.meta.months), mLong(RAW.meta.first_month));
 }
 
+/** Toggle one offence in and out of the selection. */
+function toggleOffence(i) {
+  if (state.offences.has(i)) state.offences.delete(i);
+  else state.offences.add(i);
+  renderOffencePicker();
+}
+
+/** The multi-select: a button showing the current selection and a checkbox
+ *  list behind it. A native <select multiple> is unusable on a phone and gives
+ *  no room for the offence names, which run long in both languages. */
+function renderOffencePicker() {
+  const btn = $('#offence-btn');
+  const list = $('#offence-list');
+  btn.textContent = offenceName();
+  btn.title = offenceName();
+  list.replaceChildren();
+  DATA.crimes.forEach((c, i) => {
+    const on = state.offences.has(i);
+    const row = document.createElement('label');
+    row.className = 'ms-opt';
+    row.setAttribute('role', 'option');
+    row.setAttribute('aria-selected', String(on));
+    const box = document.createElement('input');
+    box.type = 'checkbox';
+    box.checked = on;
+    box.addEventListener('change', () => { toggleOffence(i); render(); });
+    row.appendChild(box);
+    row.appendChild(document.createTextNode(crimeLabel(i)));
+    list.appendChild(row);
+  });
+}
+
 function wire() {
-  const sel = $('#offence');
-  sel.addEventListener('change', (e) => { state.offence = +e.target.value; render(); });
+  const btn = $('#offence-btn'), pop = $('#offence-pop');
+  const setOpen = (open) => { pop.hidden = !open; btn.setAttribute('aria-expanded', String(open)); };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); setOpen(pop.hidden); });
+  pop.addEventListener('click', (e) => e.stopPropagation());
+  document.addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  $('#off-all').addEventListener('click', () => {
+    DATA.crimes.forEach((_, i) => state.offences.add(i));
+    renderOffencePicker(); render();
+  });
+  $('#off-none').addEventListener('click', () => {
+    state.offences.clear();
+    renderOffencePicker(); render();
+  });
 
   $('#lang-btn').addEventListener('click', () => {
     LANG = LANG === 'en' ? 'bn' : 'en';
@@ -1033,8 +1123,7 @@ function wire() {
     }));
 
   $('#reset-btn').addEventListener('click', () => {
-    state.offence = -1; state.unit = null; state.m0 = 0; state.m1 = NM - 1;
-    sel.value = '-1';
+    state.offences.clear(); state.unit = null; state.m0 = 0; state.m1 = NM - 1;
     render();
   });
 
@@ -1092,7 +1181,7 @@ function renderSmallMultiples() {
   DATA.crimes.forEach((name, ci) => {
     const cardEl = document.createElement('button');
     cardEl.type = 'button';
-    const on = state.offence === ci;
+    const on = state.offences.has(ci);
     cardEl.style.cssText = `text-align:left;font:inherit;color:inherit;cursor:pointer;padding:9px 10px;
       border-radius:9px;background:${on ? 'var(--surface-2)' : 'transparent'};
       border:1px solid ${on ? 'var(--border-strong)' : 'var(--border)'};width:100%`;
@@ -1102,11 +1191,7 @@ function renderSmallMultiples() {
     head.textContent = crimeLabel(ci);
     cardEl.appendChild(head);
     cardEl.appendChild(state.sm === 'gov' ? smGov(ci) : smYear(ci));
-    cardEl.addEventListener('click', () => {
-      state.offence = state.offence === ci ? -1 : ci;
-      $('#offence').value = String(state.offence);
-      render();
-    });
+    cardEl.addEventListener('click', () => { toggleOffence(ci); render(); });
     grid.appendChild(cardEl);
   });
   host.appendChild(grid);
@@ -1114,7 +1199,7 @@ function renderSmallMultiples() {
   $('#sm-legend').innerHTML = state.sm === 'gov'
     ? TENURES.map((t) => `<span class="key"><i class="sw" style="background:${t.ink};opacity:.55"></i>${tenureName(t)}</span>`).join('') +
       `<span class="key" style="color:var(--text-muted)">${T.rulesAreHandovers}</span>`
-    : YEARS.map((y, i) => `<span class="key"><i class="sw" style="background:${yearColor(i, YEARS.length)}"></i>${yearLabel(y)}</span>`).join('');
+    : YEARS.map((y, i) => `<span class="key">${yearKeySVG(i, YEARS.length)}${yearLabel(y)}</span>`).join('');
   $('#sm-hint').textContent = state.sm === 'gov' ? T.smallHintGov(scopeLabel()) : T.smallHintYear(scopeLabel());
 }
 
@@ -1135,7 +1220,9 @@ function smYear(ci) {
   YEARS.forEach((yr, yi) => {
     let d = '';
     M[yr].forEach((v, i) => { if (v != null) d += (d ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); });
-    if (d) svg.appendChild(el('path', { d, fill: 'none', stroke: yearColor(yi, YEARS.length), 'stroke-width': 1.5, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    if (d) svg.appendChild(el('path', { d, fill: 'none', stroke: yearColor(yi, YEARS.length),
+      'stroke-width': yearWidth(yi, YEARS.length) * 0.8, 'stroke-dasharray': yearDash(yi, YEARS.length),
+      'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
   });
   [0, 3, 6, 9].forEach((i) => {
     // anchor the end labels inward so neither is clipped by the viewBox

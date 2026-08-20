@@ -29,6 +29,9 @@ const I18N = {
 
     offence: 'Offence',
     allOffences: 'All offences',
+    nOffences: (n) => `${n} offences`,
+    selectAll: 'Select all',
+    clearSel: 'Clear',
     measure: 'Measure',
     cases: 'Cases',
     per100k: 'Per 100k',
@@ -128,6 +131,9 @@ const I18N = {
 
     offence: 'অপরাধ',
     allOffences: 'সব ধরনের অপরাধ',
+    nOffences: (n) => `${n} ধরনের অপরাধ`,
+    selectAll: 'সবগুলো',
+    clearSel: 'বাছাই মুছুন',
     measure: 'পরিমাপ',
     cases: 'মামলা',
     per100k: 'প্রতি লাখে',

@@ -25,8 +25,18 @@
 
   <div class="controls">
     <div class="ctl">
-      <label for="offence" data-i18n="offence">Offence</label>
-      <select id="offence"></select>
+      <label id="offence-label" data-i18n="offence">Offence</label>
+      <div class="ms">
+        <button type="button" id="offence-btn" class="ms-btn" aria-haspopup="listbox"
+                aria-expanded="false" aria-labelledby="offence-label offence-btn"></button>
+        <div class="ms-pop" id="offence-pop" role="listbox" aria-multiselectable="true" hidden>
+          <div class="ms-actions">
+            <button type="button" id="off-all" data-i18n="selectAll">Select all</button>
+            <button type="button" id="off-none" data-i18n="clearSel">Clear</button>
+          </div>
+          <div class="ms-list" id="offence-list"></div>
+        </div>
+      </div>
     </div>
     <div class="ctl">
       <label id="measure-label" data-i18n="measure">Measure</label>
