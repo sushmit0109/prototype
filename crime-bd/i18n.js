@@ -29,6 +29,9 @@ const I18N = {
 
     offence: 'Offence',
     allOffences: 'All offences',
+    // Dacoity, robbery and burglary reported as one family
+    robberyGroup: 'Dacoity, robbery & burglary',
+    robberyGroupShort: 'Robbery & burglary',
     nOffences: (n) => `${n} offences`,
     selectAll: 'Select all',
     clearSel: 'Clear',
@@ -109,7 +112,7 @@ const I18N = {
     caveatLead: 'Reading this data.',
     caveatBody: 'These are cases <em>recorded</em> by police, not crimes committed. A figure rises when more cases are filed — which can mean more offending, better reporting, or a policing drive — and falls when people stop coming forward. <strong>2020 is left out of the analysis</strong> because the Covid general holiday halved recorded crime for months and drags every comparison with it; the data is kept in the repository. <strong>August 2024 and February 2026 are drawn but never counted</strong> — policing was interrupted at both handovers, and averaging those months in would invent a fall that is an administrative gap. <em>Other Cases</em> carries about a third of all cases and is not broken down at source. <em>Recovery</em> categories — arms, explosives, narcotics, smuggling — count police-initiated seizures, so they track enforcement effort as much as underlying activity. Per-100,000 rates use city-corporation populations for metropolitan forces and division-minus-cities for Ranges; police boundaries do not follow those exactly, so rates are sound for comparison but not exact. Railway Range polices the rail network nationwide, so it appears in the rankings but has no territory on the map and no population denominator.',
     footMeta: (a, b, n, u, c, total, first) =>
-      `Analysis covers ${a} to ${b} — ${n} monthly sheets across ${u} jurisdictions and ${c} offence categories. ${total} sheets from ${first} are held in the repository.`,
+      `Analysis covers ${a} to ${b} — ${n} monthly sheets across ${u} jurisdictions and ${c} offence categories, counting dacoity, robbery and burglary as one. ${total} sheets from ${first} are held in the repository, with all fifteen source columns intact.`,
 
     tenures: { t1: 'Awami League', t2: 'Interim government', t3: 'Elected government' },
     tenuresShort: { t1: 'AL', t2: 'Interim', t3: 'Elected' },
@@ -131,6 +134,8 @@ const I18N = {
 
     offence: 'অপরাধ',
     allOffences: 'সব ধরনের অপরাধ',
+    robberyGroup: 'ডাকাতি, দস্যুতা ও সিঁধেল চুরি',
+    robberyGroupShort: 'ডাকাতি-দস্যুতা-সিঁধেল চুরি',
     nOffences: (n) => `${n} ধরনের অপরাধ`,
     selectAll: 'সবগুলো',
     clearSel: 'বাছাই মুছুন',
@@ -211,7 +216,7 @@ const I18N = {
     caveatLead: 'তথ্যগুলো কীভাবে পড়বেন।',
     caveatBody: 'এগুলো পুলিশের <em>নথিভুক্ত</em> মামলা, সংঘটিত অপরাধ নয়। মামলার সংখ্যা বাড়ে যখন বেশি মামলা হয় — তার কারণ হতে পারে অপরাধ বেড়েছে, কিংবা মানুষ আগের চেয়ে বেশি অভিযোগ করছে, কিংবা পুলিশ বিশেষ অভিযান চালাচ্ছে — আর কমে যখন মানুষ অভিযোগ করা ছেড়ে দেয়। <strong>২০২০ সাল এই বিশ্লেষণের বাইরে রাখা হয়েছে</strong>, কারণ কোভিডের সাধারণ ছুটিতে কয়েক মাস ধরে নথিভুক্ত অপরাধ অর্ধেকে নেমেছিল এবং তা সব তুলনাকেই টেনে নামায়; তথ্যটি অবশ্য সংরক্ষিত আছে। <strong>২০২৪ সালের আগস্ট আর ২০২৬ সালের ফেব্রুয়ারি চার্টে আছে, কিন্তু কোনো হিসাবে নেই</strong> — দুই হস্তান্তরেই পুলিশি কার্যক্রম ব্যাহত হয়েছিল, ফলে ওই মাসগুলো গড়ে ধরলে প্রশাসনিক শূন্যতাকেই অপরাধ কমা বলে ভুল হবে। <em>অন্যান্য মামলা</em> এককভাবে প্রায় এক-তৃতীয়াংশ, অথচ উৎসেই তার কোনো বিভাজন নেই। <em>উদ্ধার</em> সংক্রান্ত ধরনগুলো — অস্ত্র, বিস্ফোরক, মাদক, চোরাচালান — পুলিশের নিজের অভিযানে হওয়া মামলা, তাই এগুলো অপরাধের চেয়ে অভিযানের তৎপরতাই বেশি বোঝায়। প্রতি লাখের হিসাবে মহানগরের ক্ষেত্রে সিটি করপোরেশনের জনসংখ্যা আর রেঞ্জের ক্ষেত্রে বিভাগ থেকে মহানগর বাদ দিয়ে হিসাব করা হয়েছে; পুলিশি সীমানা ঠিক এভাবে চলে না, তাই হারগুলো তুলনার জন্য নির্ভরযোগ্য হলেও নিখুঁত নয়। রেলওয়ে রেঞ্জ সারা দেশের রেলপথ দেখে, তাই তালিকায় থাকলেও মানচিত্রে তার এলাকা নেই, জনসংখ্যার ভিত্তিও নেই।',
     footMeta: (a, b, n, u, c, total, first) =>
-      `বিশ্লেষণের সময়কাল ${a} থেকে ${b} — ${u}টি এখতিয়ার আর ${c} ধরনের অপরাধ নিয়ে মোট ${n} মাসের হিসাব। ${first} থেকে শুরু করে ${total} মাসের তথ্য সংরক্ষিত আছে।`,
+      `বিশ্লেষণের সময়কাল ${a} থেকে ${b} — ${u}টি এখতিয়ার আর ${c} ধরনের অপরাধ নিয়ে মোট ${n} মাসের হিসাব; ডাকাতি, দস্যুতা ও সিঁধেল চুরি একসঙ্গে ধরা হয়েছে। ${first} থেকে শুরু করে ${total} মাসের তথ্য সংরক্ষিত আছে, উৎসের পনেরোটি কলামই অক্ষত।`,
 
     tenures: { t1: 'আওয়ামী লীগ', t2: 'অন্তর্বর্তী সরকার', t3: 'নির্বাচিত সরকার' },
     tenuresShort: { t1: 'আ.লীগ', t2: 'অন্তর্বর্তী', t3: 'নির্বাচিত' },

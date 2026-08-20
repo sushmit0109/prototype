@@ -63,8 +63,8 @@ const mLong = (ym) => T.monthsLong[+ym.slice(5, 7) - 1] + ' ' + num(ym.slice(0, 
 const yearLabel = (y) => num(y);
 
 /* Names that come off the data file rather than the string table. */
-const crimeLabel = (i) => T.crimes[i];
-const crimeShort = (i) => T.crimesShort[i];
+const crimeLabel = (i) => catLabel(i);
+const crimeShort = (i) => catShort(i);
 function unitLabel(u, short) {
   if (LANG !== 'bn') return short ? (u.short || u.label) : u.label;
   const pair = NAMES_BN.units[u.code] || NAMES_BN.units[u.label];
@@ -96,8 +96,34 @@ const ANALYSIS_START = '2021-01';
    period they belong to and invents a fall that is an administrative gap. */
 const EXCLUDED_MONTHS = ['2024-08', '2026-02'];
 
+/* Dacoity, robbery and burglary are reported as three columns but are one
+   family of offence — property taken by force or by breaking in — and they are
+   read together, so the dashboard presents them as one category. The source
+   columns are untouched in the data file; only the presentation is merged. */
+const MERGED = { key: 'robberyGroup', members: ['Dacoity', 'Robbery', 'Burglary'] };
+
 let DATA = null, GEO = null, RAW = null;
-let NM = 0, NU = 0, NC = 0, YEARS = [];
+let NM = 0, NU = 0, NCOL = 0, NC = 0, YEARS = [];
+let CATS = [];                       // display categories -> source columns
+
+/** Build the display categories: the merged family first, then the rest in
+ *  source order. */
+function buildCategories() {
+  const merged = MERGED.members.map((n) => DATA.crimes.indexOf(n)).filter((i) => i >= 0);
+  const used = new Set(merged);
+  const cats = merged.length ? [{ key: MERGED.key, cols: merged }] : [];
+  DATA.crimes.forEach((_, i) => { if (!used.has(i)) cats.push({ key: null, raw: i, cols: [i] }); });
+  return cats;
+}
+const catLabel = (i) => (CATS[i].key ? T[CATS[i].key] : T.crimes[CATS[i].raw]);
+const catShort = (i) => (CATS[i].key ? T[CATS[i].key + 'Short'] : T.crimesShort[CATS[i].raw]);
+/** Source columns behind a selection of categories (null = every column). */
+function colsOf(catIdxs) {
+  if (!catIdxs) return null;
+  const out = [];
+  for (const c of catIdxs) out.push(...CATS[c].cols);
+  return out;
+}
 let EX = new Set();                      // indices excluded from statistics
 const inStats = (m) => !EX.has(m);
 /** Months inside [a,b] that count toward a statistic. */
@@ -223,17 +249,17 @@ const offenceCount = () => (state.offences.size || NC);
 /** One (month, unit) cell, summed over whatever offences are selected. */
 function cell(m, u) {
   const row = DATA.values[m][u];
-  const sel = selOffences();
-  if (!sel) { let s = 0; for (let c = 0; c < NC; c++) s += row[c]; return s; }
+  const cols = colsOf(selOffences());
+  if (!cols) { let s = 0; for (let c = 0; c < NCOL; c++) s += row[c]; return s; }
   let s = 0;
-  for (const c of sel) s += row[c];
+  for (const c of cols) s += row[c];
   return s;
 }
 /** Monthly national (or selected-unit) series across the whole record. Never
  *  sliced to the window, because a rolling mean needs the months either side. */
 function series(offence, unit = state.unit) {
-  // offence omitted -> whatever is currently selected; a number -> just that one
-  const sel = offence == null ? selOffences() : [offence];
+  // offence omitted -> whatever is currently selected; a number -> that category
+  const sel = colsOf(offence == null ? selOffences() : [offence]);
   const sum = (row) => {
     if (!sel) return row.reduce((a, b) => a + b, 0);
     let t = 0;
@@ -257,12 +283,12 @@ function unitTotals(m0 = state.m0, m1 = state.m1) {
   return out;
 }
 function offenceTotals(m0 = state.m0, m1 = state.m1) {
-  const out = new Array(NC).fill(0);
+  const raw = new Array(NCOL).fill(0);
   for (const m of statMonths(m0, m1)) {
-    if (state.unit != null) { for (let c = 0; c < NC; c++) out[c] += DATA.values[m][state.unit][c]; }
-    else for (let u = 0; u < NU; u++) for (let c = 0; c < NC; c++) out[c] += DATA.values[m][u][c];
+    if (state.unit != null) { for (let c = 0; c < NCOL; c++) raw[c] += DATA.values[m][state.unit][c]; }
+    else for (let u = 0; u < NU; u++) for (let c = 0; c < NCOL; c++) raw[c] += DATA.values[m][u][c];
   }
-  return out;
+  return CATS.map((cat) => cat.cols.reduce((a, c) => a + raw[c], 0));
 }
 /** Cases per 100,000 residents per year. Null where there is no population —
  *  Railway Range polices a network, not a place. */
@@ -733,7 +759,7 @@ function renderRanks() {
 
   const oTot = offenceTotals();
   const grand = oTot.reduce((a, b) => a + b, 0) || 1;
-  const oItems = DATA.crimes.map((c, i) => {
+  const oItems = CATS.map((cat, i) => {
     const ser = series(i, state.unit);
     return {
       key: i, name: crimeLabel(i), v: oTot[i], color: 'var(--range)',
@@ -913,7 +939,7 @@ function tenureRate(offence, t) {
   const [a, b] = tenureRange(t);
   const months = statMonths(a, b);
   let s = 0;
-  const sel = offence == null ? selOffences() : [offence];
+  const sel = colsOf(offence == null ? selOffences() : [offence]);
   const sum = (row) => {
     if (!sel) return row.reduce((x, y) => x + y, 0);
     let t = 0;
@@ -955,7 +981,7 @@ function renderTenure() {
   grid.className = 'grid2';
   [[0, 1], [1, 2]].forEach(([ai, bi]) => {
     const A = TENURES[ai], B = TENURES[bi];
-    const rows = DATA.crimes.map((c, i) => {
+    const rows = CATS.map((cat, i) => {
       const a = tenureRate(i, A), b = tenureRate(i, B);
       return { c: crimeShort(i), full: crimeLabel(i), a, b, d: a > 0.5 ? ((b - a) / a) * 100 : null };
     }).filter((r) => r.d != null).sort((x, y) => y.d - x.d);
@@ -1064,7 +1090,7 @@ function renderOffencePicker() {
   btn.textContent = offenceName();
   btn.title = offenceName();
   list.replaceChildren();
-  DATA.crimes.forEach((c, i) => {
+  CATS.forEach((cat, i) => {
     const on = state.offences.has(i);
     const row = document.createElement('label');
     row.className = 'ms-opt';
@@ -1088,7 +1114,7 @@ function wire() {
   document.addEventListener('click', () => setOpen(false));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
   $('#off-all').addEventListener('click', () => {
-    DATA.crimes.forEach((_, i) => state.offences.add(i));
+    CATS.forEach((_, i) => state.offences.add(i));
     renderOffencePicker(); render();
   });
   $('#off-none').addEventListener('click', () => {
@@ -1152,9 +1178,11 @@ Promise.all([
   // at every call site means no chart can accidentally reach back into 2020.
   const cut = Math.max(0, d.months.indexOf(ANALYSIS_START));
   DATA = { ...d, months: d.months.slice(cut), values: d.values.slice(cut) };
-  NM = DATA.months.length; NU = DATA.units.length; NC = DATA.crimes.length;
+  NM = DATA.months.length; NU = DATA.units.length; NCOL = DATA.crimes.length;
   YEARS = [...new Set(DATA.months.map((m) => m.slice(0, 4)))];
   EX = new Set(EXCLUDED_MONTHS.map((m) => DATA.months.indexOf(m)).filter((i) => i >= 0));
+  CATS = buildCategories();
+  NC = CATS.length;                  // offence categories as presented
   state.m0 = 0; state.m1 = NM - 1;
   LANG = localStorage.getItem('crimebd-lang') === 'bn' ? 'bn' : 'en';
   wire();
@@ -1178,7 +1206,7 @@ function renderSmallMultiples() {
   const grid = document.createElement('div');
   grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px';
 
-  DATA.crimes.forEach((name, ci) => {
+  CATS.forEach((cat, ci) => {
     const cardEl = document.createElement('button');
     cardEl.type = 'button';
     const on = state.offences.has(ci);
