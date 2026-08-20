@@ -1103,7 +1103,6 @@ function applyLanguage() {
     if (typeof v === 'string') n.textContent = v;
   });
   $('#lang-btn').textContent = T.langName;
-  $('#tenure-rule').innerHTML = T.tenureRule;
   $('#k1-label').textContent = offenceName();
 
   renderOffencePicker();
