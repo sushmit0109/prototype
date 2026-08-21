@@ -15,45 +15,107 @@
   <p class="eyebrow">sushmit0109 · prototype</p>
   <h1>Bangladesh e-GP Procurement Tracker</h1>
   <p class="subtitle">
-    Every award on the national e-Government Procurement portal, cross-referenced against the
-    debarment register: which debarred companies won government contracts anyway, and when.
-    Built from <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a>,
-    the source CPTU publishes.
+    Every government contract on the national e-Procurement portal, read together instead of as
+    six separate search pages -- so a debarred company still winning contracts shows up as a
+    finding, not something you'd have to notice by hand.
   </p>
-  <div class="coverage-banner" id="coverageBanner">Loading coverage…</div>
+  <p class="coverage-line" id="coverageBanner">Loading…</p>
 </header>
+
+<nav class="jump-nav" aria-label="Jump to section">
+  <a href="#headlines">Headlines</a>
+  <a href="#spending">Spending</a>
+  <a href="#vendors">Vendors</a>
+  <a href="#tenders">Tenders</a>
+  <a href="#debarment">Debarment</a>
+  <a href="#methodology">Methodology</a>
+</nav>
 
 <main>
 
-  <section id="kpis">
-    <div class="kpi-grid" id="kpiGrid"></div>
+  <section id="headlines" class="headline-section">
+    <div class="headline-grid" id="headlineGrid"></div>
   </section>
 
-  <section>
-    <h2>Debarments by severity</h2>
-    <p class="section-desc">
-      The source gives no severity rating of its own. This combines how broad the debarment's
-      scope is (a Single Tender ban vs. a nationwide e-GP Portal ban), how long it runs, and
-      whether the same company has been debarred more than once -- a first-pass heuristic, not
-      an official rating.
-    </p>
-    <div class="severity-bars" id="severityBars"></div>
+  <section id="spending">
+    <h2>Where the money goes</h2>
+    <p class="section-lede" id="spendingLede"></p>
+    <div class="two-col">
+      <div>
+        <h3>Contract value by year</h3>
+        <div id="yearChart"></div>
+        <p class="chart-note">2011-2017 undercounts real spend -- the portal's own coverage is
+          thinner that far back. Read the last several years as the complete picture.</p>
+      </div>
+      <div>
+        <h3>Top ministries, all-time</h3>
+        <div class="severity-bars" id="ministryBars"></div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2 id="flagsHeading">Flagged awards</h2>
-    <p class="section-desc" id="flagsDesc">
-      Contracts awarded to a company matched against the debarment register by normalised name,
-      corroborated by district (the contract's district must match a district taken from the
-      debarment record's own address) -- and only where that name isn't spread across more than
-      5 districts nationwide under other, unrelated contracts, which is the signature of a common
-      name pattern rather than one company. Both checks exist because an earlier, name-only pass
-      produced thousands of "violations" dominated by common surname+"Enterprise" style names
-      shared by many unrelated small firms. <strong>Active violation</strong> means the contract
-      was signed while the debarment was in force. <strong>Post-debarment award</strong> means it
-      was signed after the debarment period ended (recidivism tracking, not a violation by
-      itself). Treat every row as a lead to verify against the source, not a proven finding.
+  <section id="vendors">
+    <h2>Who wins, and how often</h2>
+    <p class="section-lede">
+      A company winning broadly across many offices is a different story from one that's
+      concentrated with a single buyer. Neither is proof of anything alone -- a specialised
+      supplier (a textbook printer, a school-feeding-program vendor) legitimately concentrates
+      too. Check the "top entity" column for an obvious reason before reading anything into it.
     </p>
+    <div class="tabs" id="vendorTabs" role="tablist">
+      <button class="tab active" data-tab="value" role="tab" aria-selected="true">By total value</button>
+      <button class="tab" data-tab="count" role="tab" aria-selected="false">By contract count</button>
+      <button class="tab" data-tab="concentrated" role="tab" aria-selected="false">Single-buyer concentration</button>
+    </div>
+    <input class="search-box" id="vendorSearch" type="search" placeholder="Filter by company name…">
+    <div class="table-wrap">
+      <table id="vendorsTable">
+        <thead id="vendorsHead"></thead>
+        <tbody id="vendorsBody"></tbody>
+      </table>
+    </div>
+    <button class="show-more" id="vendorsShowMore" type="button">Show 10 more</button>
+  </section>
+
+  <section id="tenders">
+    <h2>Tender outcomes</h2>
+    <p class="section-lede">
+      Every tender by its current status, not just the ones that got awarded -- the only source
+      on the portal that also has the ones still open, cancelled, or re-tendered, so this is a
+      real invited → processing → awarded funnel rather than just the award end of it.
+    </p>
+    <div class="severity-bars" id="funnelBars"></div>
+  </section>
+
+  <section id="debarment">
+    <h2>Debarment &amp; integrity flags</h2>
+    <p class="section-lede">
+      Contracts matched to the debarment register by company name, corroborated by district, and
+      excluding names too generic to trust (details in <a href="#methodology">Methodology</a>).
+      <strong>Active violation</strong> = signed while the debarment was in force.
+      <strong>Post-debarment</strong> = signed after it expired (recidivism tracking, not a
+      violation). Every row is a lead to verify against the source, not a proven finding.
+    </p>
+    <div class="two-col">
+      <div>
+        <h3>Debarments by severity</h3>
+        <div class="severity-bars" id="severityBars"></div>
+      </div>
+      <div>
+        <h3>Flags by type</h3>
+        <div class="severity-bars" id="flagTypeBars"></div>
+      </div>
+    </div>
+    <div class="table-controls">
+      <input class="search-box" id="flagSearch" type="search" placeholder="Filter by company or procuring entity…">
+      <select class="filter-select" id="flagSeverityFilter">
+        <option value="">All severities</option>
+        <option value="critical">Critical</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+    </div>
     <div class="table-wrap">
       <table id="flagsTable">
         <thead>
@@ -65,6 +127,53 @@
         <tbody id="flagsBody"></tbody>
       </table>
     </div>
+    <button class="show-more" id="flagsShowMore" type="button">Show 20 more</button>
+  </section>
+
+  <section id="methodology">
+    <h2>Methodology &amp; honest caveats</h2>
+    <details>
+      <summary>How the debarment-matching works, and why the first version was wrong</summary>
+      <p>
+        A name-only first pass -- match a contract's awardee against the debarment register by
+        normalised company name, no other check -- produced <strong>8,707</strong> "active
+        violation" flags worth <strong>৳53.4 billion</strong>. It was wrong. The single biggest
+        contributor, company_key <code>"khan enterprise"</code>, accounted for 637 of them: "Khan"
+        is one of the most common surnames in Bangladesh and "Enterprise" a generic small-firm
+        suffix, and that exact name string appears on 1,984 contracts across 15+ districts
+        nationwide, while the debarment register has exactly one such firm, registered at one
+        address in Mirpur, Dhaka. That's obviously dozens of unrelated small businesses sharing a
+        name pattern, not one company evading a ban -- and publishing that number would have been
+        a real, public false accusation against real, named companies.
+      </p>
+      <p>
+        A flag now requires two things, not one: the contract's district must match a district
+        taken from the debarment record's own address, and the company name must not appear, as
+        an awardee, in more than 5 districts nationwide under otherwise-unrelated contracts (the
+        signature of a common name pattern rather than one entity). That cut the result to 246
+        flags across 58 companies. This is still a heuristic, not proof, and it deliberately trades
+        missed real violations for fewer false accusations -- a real per-company ID (which none of
+        the portal's sources currently expose consistently across both the debarment register and
+        the award list) would be needed to do better.
+      </p>
+    </details>
+    <details>
+      <summary>What's derived vs. what the source actually says</summary>
+      <ul>
+        <li><strong>Debarment severity</strong> is not an official rating -- the source gives none.
+          It combines scope breadth (Single Tender vs. nationwide e-GP Portal ban), duration, and
+          repeat-offender count.</li>
+        <li><strong>Reason tags</strong> on debarment records are a keyword-tagged guess (collusion
+          / forgery / fraud / corruption / non-performance / misrepresentation), not an official
+          category -- "Reasons" is free text written by whichever office filed it.</li>
+        <li><strong>Vendor concentration</strong> flags single-buyer dependence, not wrongdoing --
+          specialised suppliers concentrate for entirely ordinary reasons.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Sources, coverage, and what isn't built yet</summary>
+      <p id="methodologyCoverage">Loading…</p>
+    </details>
   </section>
 
 </main>

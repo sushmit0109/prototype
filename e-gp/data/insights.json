@@ -1,0 +1,3078 @@
+{
+ "meta": {
+  "record_count": 871684,
+  "distinct_vendors": 56330
+ },
+ "national_by_year": {
+  "2011": {
+   "count": 1,
+   "value_bdt": 1270000.0
+  },
+  "2012": {
+   "count": 32,
+   "value_bdt": 481150000.0
+  },
+  "2013": {
+   "count": 2060,
+   "value_bdt": 9221010000.0
+  },
+  "2014": {
+   "count": 7722,
+   "value_bdt": 53967940000.0
+  },
+  "2015": {
+   "count": 16469,
+   "value_bdt": 124720770000.0
+  },
+  "2016": {
+   "count": 27453,
+   "value_bdt": 198719660000.0
+  },
+  "2017": {
+   "count": 37983,
+   "value_bdt": 314729330000.0
+  },
+  "2018": {
+   "count": 69147,
+   "value_bdt": 555580980000.0
+  },
+  "2019": {
+   "count": 81677,
+   "value_bdt": 886618760000.0
+  },
+  "2020": {
+   "count": 83234,
+   "value_bdt": 723920420000.0
+  },
+  "2021": {
+   "count": 76604,
+   "value_bdt": 744341410000.0
+  },
+  "2022": {
+   "count": 81769,
+   "value_bdt": 703961000000.0
+  },
+  "2023": {
+   "count": 97248,
+   "value_bdt": 901420270000.0
+  },
+  "2024": {
+   "count": 97059,
+   "value_bdt": 886347460000.0
+  },
+  "2025": {
+   "count": 101292,
+   "value_bdt": 724502930000.0
+  },
+  "2026": {
+   "count": 91934,
+   "value_bdt": 620923260000.0
+  }
+ },
+ "procurement_method_by_year": {
+  "2011": {
+   "OTM": {
+    "count": 1,
+    "value_bdt": 1270000.0
+   }
+  },
+  "2012": {
+   "OTM": {
+    "count": 30,
+    "value_bdt": 456900000.0
+   },
+   "LTM": {
+    "count": 2,
+    "value_bdt": 24250000.0
+   }
+  },
+  "2013": {
+   "OTM": {
+    "count": 1734,
+    "value_bdt": 8073210000.0
+   },
+   "LTM": {
+    "count": 326,
+    "value_bdt": 1147800000.0
+   }
+  },
+  "2014": {
+   "OTM": {
+    "count": 6685,
+    "value_bdt": 50968260000.0
+   },
+   "LTM": {
+    "count": 1037,
+    "value_bdt": 2999680000.0
+   }
+  },
+  "2015": {
+   "LTM": {
+    "count": 2070,
+    "value_bdt": 7226070000.0
+   },
+   "OTM": {
+    "count": 14373,
+    "value_bdt": 117226430000.0
+   },
+   "OSTETM": {
+    "count": 17,
+    "value_bdt": 266900000.0
+   },
+   "RFQU": {
+    "count": 7,
+    "value_bdt": 1160000.0
+   },
+   "RFQ": {
+    "count": 2,
+    "value_bdt": 210000.0
+   }
+  },
+  "2016": {
+   "OTM": {
+    "count": 23359,
+    "value_bdt": 184620290000.0
+   },
+   "LTM": {
+    "count": 3953,
+    "value_bdt": 13127420000.0
+   },
+   "RFQU": {
+    "count": 49,
+    "value_bdt": 6280000.0
+   },
+   "OSTETM": {
+    "count": 81,
+    "value_bdt": 956690000.0
+   },
+   "RFQ": {
+    "count": 9,
+    "value_bdt": 1360000.0
+   },
+   "SFB": {
+    "count": 2,
+    "value_bdt": 7620000.0
+   }
+  },
+  "2017": {
+   "OTM": {
+    "count": 26016,
+    "value_bdt": 289166360000.0
+   },
+   "LTM": {
+    "count": 11524,
+    "value_bdt": 22227220000.0
+   },
+   "OSTETM": {
+    "count": 88,
+    "value_bdt": 3292730000.0
+   },
+   "RFQU": {
+    "count": 300,
+    "value_bdt": 34790000.0
+   },
+   "RFQ": {
+    "count": 50,
+    "value_bdt": 7450000.0
+   },
+   "RFQL": {
+    "count": 5,
+    "value_bdt": 780000.0
+   }
+  },
+  "2018": {
+   "OTM": {
+    "count": 32697,
+    "value_bdt": 425234040000.0
+   },
+   "LTM": {
+    "count": 34932,
+    "value_bdt": 102667530000.0
+   },
+   "OSTETM": {
+    "count": 624,
+    "value_bdt": 27571280000.0
+   },
+   "RFQU": {
+    "count": 782,
+    "value_bdt": 88970000.0
+   },
+   "RFQL": {
+    "count": 30,
+    "value_bdt": 3890000.0
+   },
+   "RFQ": {
+    "count": 82,
+    "value_bdt": 15270000.0
+   }
+  },
+  "2019": {
+   "OTM": {
+    "count": 30363,
+    "value_bdt": 580656390000.0
+   },
+   "LTM": {
+    "count": 45978,
+    "value_bdt": 191977330000.0
+   },
+   "OSTETM": {
+    "count": 4383,
+    "value_bdt": 113818360000.0
+   },
+   "RFQU": {
+    "count": 787,
+    "value_bdt": 128950000.0
+   },
+   "RFQ": {
+    "count": 157,
+    "value_bdt": 35200000.0
+   },
+   "RFQL": {
+    "count": 9,
+    "value_bdt": 2530000.0
+   }
+  },
+  "2020": {
+   "OTM": {
+    "count": 37689,
+    "value_bdt": 511046440000.0
+   },
+   "LTM": {
+    "count": 41083,
+    "value_bdt": 110296240000.0
+   },
+   "OSTETM": {
+    "count": 3401,
+    "value_bdt": 102351940000.0
+   },
+   "RFQU": {
+    "count": 866,
+    "value_bdt": 189620000.0
+   },
+   "RFQ": {
+    "count": 183,
+    "value_bdt": 33810000.0
+   },
+   "RFQL": {
+    "count": 12,
+    "value_bdt": 2370000.0
+   }
+  },
+  "2021": {
+   "OTM": {
+    "count": 40366,
+    "value_bdt": 553621290000.0
+   },
+   "OSTETM": {
+    "count": 2389,
+    "value_bdt": 101634390000.0
+   },
+   "LTM": {
+    "count": 33080,
+    "value_bdt": 88930820000.0
+   },
+   "RFQU": {
+    "count": 556,
+    "value_bdt": 120380000.0
+   },
+   "RFQ": {
+    "count": 191,
+    "value_bdt": 30000000.0
+   },
+   "RFQL": {
+    "count": 22,
+    "value_bdt": 4530000.0
+   }
+  },
+  "2022": {
+   "LTM": {
+    "count": 35776,
+    "value_bdt": 93744310000.0
+   },
+   "OTM": {
+    "count": 44039,
+    "value_bdt": 508251030000.0
+   },
+   "OSTETM": {
+    "count": 1334,
+    "value_bdt": 101807980000.0
+   },
+   "RFQ": {
+    "count": 154,
+    "value_bdt": 24870000.0
+   },
+   "RFQU": {
+    "count": 450,
+    "value_bdt": 113690000.0
+   },
+   "RFQL": {
+    "count": 7,
+    "value_bdt": 1440000.0
+   },
+   "DPM": {
+    "count": 9,
+    "value_bdt": 17680000.0
+   }
+  },
+  "2023": {
+   "LTM": {
+    "count": 45714,
+    "value_bdt": 127138760000.0
+   },
+   "OTM": {
+    "count": 50132,
+    "value_bdt": 651165180000.0
+   },
+   "RFQU": {
+    "count": 509,
+    "value_bdt": 137660000.0
+   },
+   "RFQ": {
+    "count": 264,
+    "value_bdt": 44650000.0
+   },
+   "OSTETM": {
+    "count": 605,
+    "value_bdt": 122898140000.0
+   },
+   "DPM": {
+    "count": 14,
+    "value_bdt": 34340000.0
+   },
+   "RFQL": {
+    "count": 10,
+    "value_bdt": 1540000.0
+   }
+  },
+  "2024": {
+   "OTM": {
+    "count": 51158,
+    "value_bdt": 710127290000.0
+   },
+   "LTM": {
+    "count": 44089,
+    "value_bdt": 123197460000.0
+   },
+   "RFQU": {
+    "count": 858,
+    "value_bdt": 230790000.0
+   },
+   "RFQL": {
+    "count": 20,
+    "value_bdt": 4560000.0
+   },
+   "OSTETM": {
+    "count": 607,
+    "value_bdt": 52490140000.0
+   },
+   "RFQ": {
+    "count": 311,
+    "value_bdt": 54560000.0
+   },
+   "DPM": {
+    "count": 16,
+    "value_bdt": 242660000.0
+   }
+  },
+  "2025": {
+   "OTM": {
+    "count": 49272,
+    "value_bdt": 524221890000.0
+   },
+   "RFQ": {
+    "count": 1029,
+    "value_bdt": 242300000.0
+   },
+   "RFQU": {
+    "count": 1574,
+    "value_bdt": 453350000.0
+   },
+   "LTM": {
+    "count": 48585,
+    "value_bdt": 116916280000.0
+   },
+   "RFQL": {
+    "count": 66,
+    "value_bdt": 17530000.0
+   },
+   "OSTETM": {
+    "count": 752,
+    "value_bdt": 82578840000.0
+   },
+   "QCBS": {
+    "count": 4,
+    "value_bdt": 10520000.0
+   },
+   "IC": {
+    "count": 2,
+    "value_bdt": 2800000.0
+   },
+   "DPM": {
+    "count": 8,
+    "value_bdt": 59420000.0
+   }
+  },
+  "2026": {
+   "OTM": {
+    "count": 39433,
+    "value_bdt": 473457220000.0
+   },
+   "DPM": {
+    "count": 586,
+    "value_bdt": 3408220000.0
+   },
+   "LTM": {
+    "count": 36529,
+    "value_bdt": 91365710000.0
+   },
+   "RFQL": {
+    "count": 758,
+    "value_bdt": 264150000.0
+   },
+   "RFQ": {
+    "count": 6719,
+    "value_bdt": 1992640000.0
+   },
+   "RFQU": {
+    "count": 7635,
+    "value_bdt": 3010810000.0
+   },
+   "OSTETM": {
+    "count": 132,
+    "value_bdt": 45697440000.0
+   },
+   "SSS": {
+    "count": 42,
+    "value_bdt": 611550000.0
+   },
+   "QCBS": {
+    "count": 27,
+    "value_bdt": 838640000.0
+   },
+   "SFB": {
+    "count": 4,
+    "value_bdt": 26330000.0
+   },
+   "IC": {
+    "count": 69,
+    "value_bdt": 250550000.0
+   }
+  }
+ },
+ "top_ministries_by_value": [
+  {
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "value_bdt": 3036463640000.0
+  },
+  {
+   "ministry": "Ministry of Road Transport and Bridges",
+   "value_bdt": 986937880000.0
+  },
+  {
+   "ministry": "Ministry of Education",
+   "value_bdt": 738449710000.0
+  },
+  {
+   "ministry": "Ministry of Water Resources",
+   "value_bdt": 695662310000.0
+  },
+  {
+   "ministry": "Ministry of Housing and Public Works",
+   "value_bdt": 619497070000.0
+  },
+  {
+   "ministry": "Ministry of Energy, Power and Minearal Resources",
+   "value_bdt": 217948860000.0
+  },
+  {
+   "ministry": "Ministry of Shipping",
+   "value_bdt": 162965850000.0
+  },
+  {
+   "ministry": "Ministry of Health and Family Welfare",
+   "value_bdt": 149729500000.0
+  },
+  {
+   "ministry": "Ministry of Agriculture",
+   "value_bdt": 113080790000.0
+  },
+  {
+   "ministry": "Ministry of Home Affairs",
+   "value_bdt": 89494490000.0
+  },
+  {
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "value_bdt": 76493330000.0
+  },
+  {
+   "ministry": "Ministry of Disaster Management & Relief",
+   "value_bdt": 58801940000.0
+  },
+  {
+   "ministry": "Ministry of Fisheries & Livestock",
+   "value_bdt": 53775320000.0
+  },
+  {
+   "ministry": "Ministry of Post, Telecommunications & Information Technology",
+   "value_bdt": 52981080000.0
+  },
+  {
+   "ministry": "Ministry of Civil Aviation & Tourism",
+   "value_bdt": 50713690000.0
+  },
+  {
+   "ministry": "Ministry of Railways",
+   "value_bdt": 45517430000.0
+  },
+  {
+   "ministry": "Ministry of Food",
+   "value_bdt": 43633640000.0
+  },
+  {
+   "ministry": "Ministry of chittagong Hill Tract's Affairs",
+   "value_bdt": 36804700000.0
+  },
+  {
+   "ministry": "Ministry of Industries",
+   "value_bdt": 34434770000.0
+  },
+  {
+   "ministry": "Ministry of Primary and Mass Education",
+   "value_bdt": 33259410000.0
+  }
+ ],
+ "ministry_by_year": {
+  "Ministry of Local Government, Rural Development and Co-operatives": {
+   "2012": {
+    "count": 4,
+    "value_bdt": 68070000.0
+   },
+   "2013": {
+    "count": 1616,
+    "value_bdt": 6345590000.0
+   },
+   "2014": {
+    "count": 4839,
+    "value_bdt": 31166950000.0
+   },
+   "2015": {
+    "count": 9379,
+    "value_bdt": 67434210000.0
+   },
+   "2016": {
+    "count": 17977,
+    "value_bdt": 127586010000.0
+   },
+   "2017": {
+    "count": 19330,
+    "value_bdt": 147179540000.0
+   },
+   "2018": {
+    "count": 32938,
+    "value_bdt": 210661700000.0
+   },
+   "2019": {
+    "count": 32768,
+    "value_bdt": 314573030000.0
+   },
+   "2020": {
+    "count": 33957,
+    "value_bdt": 303682030000.0
+   },
+   "2021": {
+    "count": 29080,
+    "value_bdt": 267425820000.0
+   },
+   "2022": {
+    "count": 30656,
+    "value_bdt": 286262800000.0
+   },
+   "2023": {
+    "count": 46031,
+    "value_bdt": 383829100000.0
+   },
+   "2024": {
+    "count": 41222,
+    "value_bdt": 392147490000.0
+   },
+   "2025": {
+    "count": 34521,
+    "value_bdt": 271067860000.0
+   },
+   "2026": {
+    "count": 26199,
+    "value_bdt": 227033440000.0
+   }
+  },
+  "Ministry of Road Transport and Bridges": {
+   "2014": {
+    "count": 211,
+    "value_bdt": 392960000.0
+   },
+   "2015": {
+    "count": 2912,
+    "value_bdt": 26878050000.0
+   },
+   "2016": {
+    "count": 2696,
+    "value_bdt": 29743470000.0
+   },
+   "2017": {
+    "count": 2715,
+    "value_bdt": 48478490000.0
+   },
+   "2018": {
+    "count": 3975,
+    "value_bdt": 123711240000.0
+   },
+   "2019": {
+    "count": 4000,
+    "value_bdt": 127073990000.0
+   },
+   "2020": {
+    "count": 4863,
+    "value_bdt": 121735180000.0
+   },
+   "2021": {
+    "count": 4190,
+    "value_bdt": 102129600000.0
+   },
+   "2022": {
+    "count": 4854,
+    "value_bdt": 91205370000.0
+   },
+   "2023": {
+    "count": 5245,
+    "value_bdt": 123372260000.0
+   },
+   "2024": {
+    "count": 4206,
+    "value_bdt": 32762110000.0
+   },
+   "2025": {
+    "count": 5979,
+    "value_bdt": 83631110000.0
+   },
+   "2026": {
+    "count": 3577,
+    "value_bdt": 75824050000.0
+   }
+  },
+  "Ministry of Education": {
+   "2014": {
+    "count": 1,
+    "value_bdt": 18900000.0
+   },
+   "2015": {
+    "count": 108,
+    "value_bdt": 1087350000.0
+   },
+   "2016": {
+    "count": 407,
+    "value_bdt": 3819570000.0
+   },
+   "2017": {
+    "count": 2540,
+    "value_bdt": 21584970000.0
+   },
+   "2018": {
+    "count": 6435,
+    "value_bdt": 48122960000.0
+   },
+   "2019": {
+    "count": 12401,
+    "value_bdt": 155644840000.0
+   },
+   "2020": {
+    "count": 10900,
+    "value_bdt": 75558450000.0
+   },
+   "2021": {
+    "count": 10506,
+    "value_bdt": 76789610000.0
+   },
+   "2022": {
+    "count": 11991,
+    "value_bdt": 66661010000.0
+   },
+   "2023": {
+    "count": 9810,
+    "value_bdt": 54476150000.0
+   },
+   "2024": {
+    "count": 11057,
+    "value_bdt": 95777910000.0
+   },
+   "2025": {
+    "count": 12240,
+    "value_bdt": 86135380000.0
+   },
+   "2026": {
+    "count": 9927,
+    "value_bdt": 52772610000.0
+   }
+  },
+  "Ministry of Water Resources": {
+   "2012": {
+    "count": 3,
+    "value_bdt": 43660000.0
+   },
+   "2013": {
+    "count": 280,
+    "value_bdt": 1775890000.0
+   },
+   "2014": {
+    "count": 908,
+    "value_bdt": 5541220000.0
+   },
+   "2015": {
+    "count": 2000,
+    "value_bdt": 20374700000.0
+   },
+   "2016": {
+    "count": 1581,
+    "value_bdt": 16140310000.0
+   },
+   "2017": {
+    "count": 1540,
+    "value_bdt": 30998550000.0
+   },
+   "2018": {
+    "count": 1760,
+    "value_bdt": 33138540000.0
+   },
+   "2019": {
+    "count": 2419,
+    "value_bdt": 54388300000.0
+   },
+   "2020": {
+    "count": 2366,
+    "value_bdt": 49588150000.0
+   },
+   "2021": {
+    "count": 2688,
+    "value_bdt": 90375180000.0
+   },
+   "2022": {
+    "count": 2387,
+    "value_bdt": 74232910000.0
+   },
+   "2023": {
+    "count": 3227,
+    "value_bdt": 110092540000.0
+   },
+   "2024": {
+    "count": 3757,
+    "value_bdt": 110836560000.0
+   },
+   "2025": {
+    "count": 3641,
+    "value_bdt": 51559150000.0
+   },
+   "2026": {
+    "count": 4288,
+    "value_bdt": 46576650000.0
+   }
+  },
+  "Ministry of Housing and Public Works": {
+   "2015": {
+    "count": 68,
+    "value_bdt": 128680000.0
+   },
+   "2016": {
+    "count": 744,
+    "value_bdt": 445450000.0
+   },
+   "2017": {
+    "count": 4867,
+    "value_bdt": 12888600000.0
+   },
+   "2018": {
+    "count": 14010,
+    "value_bdt": 58994860000.0
+   },
+   "2019": {
+    "count": 15025,
+    "value_bdt": 120523660000.0
+   },
+   "2020": {
+    "count": 15070,
+    "value_bdt": 57874000000.0
+   },
+   "2021": {
+    "count": 13281,
+    "value_bdt": 84496150000.0
+   },
+   "2022": {
+    "count": 14914,
+    "value_bdt": 56896380000.0
+   },
+   "2023": {
+    "count": 14077,
+    "value_bdt": 72387270000.0
+   },
+   "2024": {
+    "count": 14451,
+    "value_bdt": 73177910000.0
+   },
+   "2025": {
+    "count": 15578,
+    "value_bdt": 44556880000.0
+   },
+   "2026": {
+    "count": 10612,
+    "value_bdt": 37127230000.0
+   }
+  },
+  "Ministry of Energy, Power and Minearal Resources": {
+   "2012": {
+    "count": 3,
+    "value_bdt": 125700000.0
+   },
+   "2013": {
+    "count": 6,
+    "value_bdt": 74580000.0
+   },
+   "2014": {
+    "count": 186,
+    "value_bdt": 973380000.0
+   },
+   "2015": {
+    "count": 1924,
+    "value_bdt": 5276430000.0
+   },
+   "2016": {
+    "count": 3500,
+    "value_bdt": 15680190000.0
+   },
+   "2017": {
+    "count": 4375,
+    "value_bdt": 29739020000.0
+   },
+   "2018": {
+    "count": 4468,
+    "value_bdt": 29881200000.0
+   },
+   "2019": {
+    "count": 4658,
+    "value_bdt": 25050510000.0
+   },
+   "2020": {
+    "count": 4002,
+    "value_bdt": 25985070000.0
+   },
+   "2021": {
+    "count": 3988,
+    "value_bdt": 16150730000.0
+   },
+   "2022": {
+    "count": 4114,
+    "value_bdt": 24177260000.0
+   },
+   "2023": {
+    "count": 3953,
+    "value_bdt": 24988390000.0
+   },
+   "2024": {
+    "count": 1981,
+    "value_bdt": 18612220000.0
+   },
+   "2025": {
+    "count": 4,
+    "value_bdt": 1234180000.0
+   }
+  },
+  "Ministry of Shipping": {
+   "2016": {
+    "count": 14,
+    "value_bdt": 333740000.0
+   },
+   "2017": {
+    "count": 230,
+    "value_bdt": 2663000000.0
+   },
+   "2018": {
+    "count": 689,
+    "value_bdt": 5272900000.0
+   },
+   "2019": {
+    "count": 1202,
+    "value_bdt": 21497850000.0
+   },
+   "2020": {
+    "count": 1244,
+    "value_bdt": 18289250000.0
+   },
+   "2021": {
+    "count": 1491,
+    "value_bdt": 17062860000.0
+   },
+   "2022": {
+    "count": 1500,
+    "value_bdt": 24255840000.0
+   },
+   "2023": {
+    "count": 1402,
+    "value_bdt": 22903960000.0
+   },
+   "2024": {
+    "count": 1340,
+    "value_bdt": 18710040000.0
+   },
+   "2025": {
+    "count": 2188,
+    "value_bdt": 18434060000.0
+   },
+   "2026": {
+    "count": 2054,
+    "value_bdt": 13542350000.0
+   }
+  },
+  "Ministry of Health and Family Welfare": {
+   "2015": {
+    "count": 1,
+    "value_bdt": 190000.0
+   },
+   "2016": {
+    "count": 26,
+    "value_bdt": 256960000.0
+   },
+   "2017": {
+    "count": 90,
+    "value_bdt": 2278310000.0
+   },
+   "2018": {
+    "count": 297,
+    "value_bdt": 15109940000.0
+   },
+   "2019": {
+    "count": 3009,
+    "value_bdt": 16164900000.0
+   },
+   "2020": {
+    "count": 2869,
+    "value_bdt": 16487760000.0
+   },
+   "2021": {
+    "count": 1713,
+    "value_bdt": 6986520000.0
+   },
+   "2022": {
+    "count": 2099,
+    "value_bdt": 13631480000.0
+   },
+   "2023": {
+    "count": 3088,
+    "value_bdt": 16647770000.0
+   },
+   "2024": {
+    "count": 3110,
+    "value_bdt": 14581520000.0
+   },
+   "2025": {
+    "count": 7367,
+    "value_bdt": 24655160000.0
+   },
+   "2026": {
+    "count": 6048,
+    "value_bdt": 22928990000.0
+   }
+  },
+  "Ministry of Agriculture": {
+   "2016": {
+    "count": 313,
+    "value_bdt": 1863770000.0
+   },
+   "2017": {
+    "count": 906,
+    "value_bdt": 3268280000.0
+   },
+   "2018": {
+    "count": 1268,
+    "value_bdt": 4406640000.0
+   },
+   "2019": {
+    "count": 1475,
+    "value_bdt": 5330800000.0
+   },
+   "2020": {
+    "count": 2303,
+    "value_bdt": 7154960000.0
+   },
+   "2021": {
+    "count": 3034,
+    "value_bdt": 13195590000.0
+   },
+   "2022": {
+    "count": 2343,
+    "value_bdt": 8648030000.0
+   },
+   "2023": {
+    "count": 2911,
+    "value_bdt": 16046290000.0
+   },
+   "2024": {
+    "count": 3974,
+    "value_bdt": 20612080000.0
+   },
+   "2025": {
+    "count": 3741,
+    "value_bdt": 19100390000.0
+   },
+   "2026": {
+    "count": 3380,
+    "value_bdt": 13453960000.0
+   }
+  },
+  "Ministry of Home Affairs": {
+   "2017": {
+    "count": 73,
+    "value_bdt": 2585160000.0
+   },
+   "2018": {
+    "count": 205,
+    "value_bdt": 2476160000.0
+   },
+   "2019": {
+    "count": 342,
+    "value_bdt": 11606460000.0
+   },
+   "2020": {
+    "count": 547,
+    "value_bdt": 5321450000.0
+   },
+   "2021": {
+    "count": 517,
+    "value_bdt": 8115700000.0
+   },
+   "2022": {
+    "count": 434,
+    "value_bdt": 3460050000.0
+   },
+   "2023": {
+    "count": 891,
+    "value_bdt": 4733040000.0
+   },
+   "2024": {
+    "count": 1503,
+    "value_bdt": 6838260000.0
+   },
+   "2025": {
+    "count": 3288,
+    "value_bdt": 16676510000.0
+   },
+   "2026": {
+    "count": 6990,
+    "value_bdt": 27681700000.0
+   }
+  },
+  "Ministry of Energy, Power and Mineral Resources": {
+   "2024": {
+    "count": 3058,
+    "value_bdt": 12150240000.0
+   },
+   "2025": {
+    "count": 5713,
+    "value_bdt": 33757940000.0
+   },
+   "2026": {
+    "count": 9157,
+    "value_bdt": 30585150000.0
+   }
+  },
+  "Ministry of Disaster Management & Relief": {
+   "2017": {
+    "count": 21,
+    "value_bdt": 435300000.0
+   },
+   "2018": {
+    "count": 114,
+    "value_bdt": 2265470000.0
+   },
+   "2019": {
+    "count": 200,
+    "value_bdt": 4507660000.0
+   },
+   "2020": {
+    "count": 219,
+    "value_bdt": 6551480000.0
+   },
+   "2021": {
+    "count": 106,
+    "value_bdt": 3357380000.0
+   },
+   "2022": {
+    "count": 105,
+    "value_bdt": 3853600000.0
+   },
+   "2023": {
+    "count": 344,
+    "value_bdt": 7457870000.0
+   },
+   "2024": {
+    "count": 894,
+    "value_bdt": 18413010000.0
+   },
+   "2025": {
+    "count": 264,
+    "value_bdt": 4684380000.0
+   },
+   "2026": {
+    "count": 581,
+    "value_bdt": 7275790000.0
+   }
+  },
+  "Ministry of Fisheries & Livestock": {
+   "2016": {
+    "count": 94,
+    "value_bdt": 746060000.0
+   },
+   "2017": {
+    "count": 360,
+    "value_bdt": 2718250000.0
+   },
+   "2018": {
+    "count": 330,
+    "value_bdt": 2373010000.0
+   },
+   "2019": {
+    "count": 550,
+    "value_bdt": 4092010000.0
+   },
+   "2020": {
+    "count": 493,
+    "value_bdt": 3951670000.0
+   },
+   "2021": {
+    "count": 469,
+    "value_bdt": 5359030000.0
+   },
+   "2022": {
+    "count": 520,
+    "value_bdt": 4913590000.0
+   },
+   "2023": {
+    "count": 513,
+    "value_bdt": 8668690000.0
+   },
+   "2024": {
+    "count": 619,
+    "value_bdt": 11086690000.0
+   },
+   "2025": {
+    "count": 680,
+    "value_bdt": 6745040000.0
+   },
+   "2026": {
+    "count": 773,
+    "value_bdt": 3121280000.0
+   }
+  },
+  "Ministry of Post, Telecommunications & Information Technology": {
+   "2015": {
+    "count": 2,
+    "value_bdt": 67640000.0
+   },
+   "2016": {
+    "count": 14,
+    "value_bdt": 1002870000.0
+   },
+   "2017": {
+    "count": 74,
+    "value_bdt": 2607770000.0
+   },
+   "2018": {
+    "count": 107,
+    "value_bdt": 5494880000.0
+   },
+   "2019": {
+    "count": 72,
+    "value_bdt": 2186690000.0
+   },
+   "2020": {
+    "count": 117,
+    "value_bdt": 5231750000.0
+   },
+   "2021": {
+    "count": 147,
+    "value_bdt": 13828680000.0
+   },
+   "2022": {
+    "count": 118,
+    "value_bdt": 2491860000.0
+   },
+   "2023": {
+    "count": 114,
+    "value_bdt": 7389130000.0
+   },
+   "2024": {
+    "count": 85,
+    "value_bdt": 6853720000.0
+   },
+   "2025": {
+    "count": 137,
+    "value_bdt": 2438370000.0
+   },
+   "2026": {
+    "count": 391,
+    "value_bdt": 3387720000.0
+   }
+  },
+  "Ministry of Civil Aviation & Tourism": {
+   "2016": {
+    "count": 6,
+    "value_bdt": 10390000.0
+   },
+   "2017": {
+    "count": 314,
+    "value_bdt": 1883500000.0
+   },
+   "2018": {
+    "count": 433,
+    "value_bdt": 2661580000.0
+   },
+   "2019": {
+    "count": 594,
+    "value_bdt": 2584500000.0
+   },
+   "2020": {
+    "count": 695,
+    "value_bdt": 3247970000.0
+   },
+   "2021": {
+    "count": 694,
+    "value_bdt": 3487740000.0
+   },
+   "2022": {
+    "count": 1054,
+    "value_bdt": 6878630000.0
+   },
+   "2023": {
+    "count": 1090,
+    "value_bdt": 12211240000.0
+   },
+   "2024": {
+    "count": 1162,
+    "value_bdt": 10541310000.0
+   },
+   "2025": {
+    "count": 771,
+    "value_bdt": 4933610000.0
+   },
+   "2026": {
+    "count": 512,
+    "value_bdt": 2273220000.0
+   }
+  },
+  "Ministry of Railways": {
+   "2017": {
+    "count": 186,
+    "value_bdt": 618220000.0
+   },
+   "2018": {
+    "count": 785,
+    "value_bdt": 3147630000.0
+   },
+   "2019": {
+    "count": 888,
+    "value_bdt": 3081960000.0
+   },
+   "2020": {
+    "count": 691,
+    "value_bdt": 3621730000.0
+   },
+   "2021": {
+    "count": 1145,
+    "value_bdt": 6233800000.0
+   },
+   "2022": {
+    "count": 902,
+    "value_bdt": 7246670000.0
+   },
+   "2023": {
+    "count": 981,
+    "value_bdt": 7765140000.0
+   },
+   "2024": {
+    "count": 1008,
+    "value_bdt": 5077580000.0
+   },
+   "2025": {
+    "count": 1031,
+    "value_bdt": 6188850000.0
+   },
+   "2026": {
+    "count": 1157,
+    "value_bdt": 2535850000.0
+   }
+  },
+  "Ministry of Food": {
+   "2015": {
+    "count": 7,
+    "value_bdt": 134050000.0
+   },
+   "2016": {
+    "count": 4,
+    "value_bdt": 69380000.0
+   },
+   "2017": {
+    "count": 58,
+    "value_bdt": 2644020000.0
+   },
+   "2018": {
+    "count": 45,
+    "value_bdt": 441510000.0
+   },
+   "2019": {
+    "count": 210,
+    "value_bdt": 2155790000.0
+   },
+   "2020": {
+    "count": 287,
+    "value_bdt": 3222700000.0
+   },
+   "2021": {
+    "count": 368,
+    "value_bdt": 6261280000.0
+   },
+   "2022": {
+    "count": 352,
+    "value_bdt": 4081320000.0
+   },
+   "2023": {
+    "count": 173,
+    "value_bdt": 2908570000.0
+   },
+   "2024": {
+    "count": 274,
+    "value_bdt": 5431690000.0
+   },
+   "2025": {
+    "count": 340,
+    "value_bdt": 9114140000.0
+   },
+   "2026": {
+    "count": 384,
+    "value_bdt": 7169190000.0
+   }
+  },
+  "Ministry of chittagong Hill Tract's Affairs": {
+   "2017": {
+    "count": 2,
+    "value_bdt": 2540000.0
+   },
+   "2018": {
+    "count": 535,
+    "value_bdt": 1739530000.0
+   },
+   "2019": {
+    "count": 620,
+    "value_bdt": 3445200000.0
+   },
+   "2020": {
+    "count": 944,
+    "value_bdt": 4548590000.0
+   },
+   "2021": {
+    "count": 882,
+    "value_bdt": 4481160000.0
+   },
+   "2022": {
+    "count": 1113,
+    "value_bdt": 5247300000.0
+   },
+   "2023": {
+    "count": 977,
+    "value_bdt": 4451300000.0
+   },
+   "2024": {
+    "count": 1016,
+    "value_bdt": 5635620000.0
+   },
+   "2025": {
+    "count": 647,
+    "value_bdt": 3050870000.0
+   },
+   "2026": {
+    "count": 887,
+    "value_bdt": 4202590000.0
+   }
+  },
+  "Ministry of Industries": {
+   "2017": {
+    "count": 7,
+    "value_bdt": 161660000.0
+   },
+   "2018": {
+    "count": 204,
+    "value_bdt": 752460000.0
+   },
+   "2019": {
+    "count": 488,
+    "value_bdt": 1383450000.0
+   },
+   "2020": {
+    "count": 559,
+    "value_bdt": 3471990000.0
+   },
+   "2021": {
+    "count": 721,
+    "value_bdt": 3705380000.0
+   },
+   "2022": {
+    "count": 540,
+    "value_bdt": 1359290000.0
+   },
+   "2023": {
+    "count": 468,
+    "value_bdt": 3234760000.0
+   },
+   "2024": {
+    "count": 512,
+    "value_bdt": 8209680000.0
+   },
+   "2025": {
+    "count": 624,
+    "value_bdt": 5680830000.0
+   },
+   "2026": {
+    "count": 786,
+    "value_bdt": 6475270000.0
+   }
+  },
+  "Ministry of Primary and Mass Education": {
+   "2018": {
+    "count": 35,
+    "value_bdt": 329910000.0
+   },
+   "2019": {
+    "count": 46,
+    "value_bdt": 465880000.0
+   },
+   "2020": {
+    "count": 37,
+    "value_bdt": 1365610000.0
+   },
+   "2021": {
+    "count": 56,
+    "value_bdt": 373070000.0
+   },
+   "2022": {
+    "count": 174,
+    "value_bdt": 1448830000.0
+   },
+   "2023": {
+    "count": 275,
+    "value_bdt": 3223730000.0
+   },
+   "2024": {
+    "count": 94,
+    "value_bdt": 3930390000.0
+   },
+   "2025": {
+    "count": 185,
+    "value_bdt": 10580990000.0
+   },
+   "2026": {
+    "count": 91,
+    "value_bdt": 11541000000.0
+   }
+  }
+ },
+ "top_districts_by_value": [
+  {
+   "district": "Dhaka",
+   "count": 176272,
+   "value_bdt": 1848422990000.0
+  },
+  {
+   "district": "Chattogram",
+   "count": 47835,
+   "value_bdt": 340696260000.0
+  },
+  {
+   "district": "Rajshahi",
+   "count": 21213,
+   "value_bdt": 240135440000.0
+  },
+  {
+   "district": "Mymensingh",
+   "count": 19502,
+   "value_bdt": 232443400000.0
+  },
+  {
+   "district": "Khulna",
+   "count": 21646,
+   "value_bdt": 215195510000.0
+  },
+  {
+   "district": "Sylhet",
+   "count": 20565,
+   "value_bdt": 191448030000.0
+  },
+  {
+   "district": "Cumilla",
+   "count": 21685,
+   "value_bdt": 189296640000.0
+  },
+  {
+   "district": "Rangpur",
+   "count": 13232,
+   "value_bdt": 157160990000.0
+  },
+  {
+   "district": "Gazipur",
+   "count": 15310,
+   "value_bdt": 144504440000.0
+  },
+  {
+   "district": "Barishal",
+   "count": 13920,
+   "value_bdt": 134358540000.0
+  },
+  {
+   "district": "Noakhali",
+   "count": 16220,
+   "value_bdt": 125030290000.0
+  },
+  {
+   "district": "Gopalganj",
+   "count": 10592,
+   "value_bdt": 123207650000.0
+  },
+  {
+   "district": "Bhola",
+   "count": 7719,
+   "value_bdt": 117281840000.0
+  },
+  {
+   "district": "Tangail",
+   "count": 15704,
+   "value_bdt": 108077790000.0
+  },
+  {
+   "district": "Jamalpur",
+   "count": 9948,
+   "value_bdt": 105962390000.0
+  },
+  {
+   "district": "Sunamganj",
+   "count": 7566,
+   "value_bdt": 104139740000.0
+  },
+  {
+   "district": "Cox's Bazar",
+   "count": 8515,
+   "value_bdt": 102662560000.0
+  },
+  {
+   "district": "Narayanganj",
+   "count": 12907,
+   "value_bdt": 99069480000.0
+  },
+  {
+   "district": "Dinajpur",
+   "count": 14607,
+   "value_bdt": 96412570000.0
+  },
+  {
+   "district": "Kishoreganj",
+   "count": 10915,
+   "value_bdt": 94492060000.0
+  }
+ ],
+ "top_vendors_by_value": [
+  {
+   "company_key": "mohammed eunus & brothers ()",
+   "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
+   "count": 3559,
+   "value_bdt": 78408350000.0,
+   "distinct_procuring_entities": 605,
+   "distinct_ministries": 23,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Netrokona",
+   "top_entity_share": 0.022
+  },
+  {
+   "company_key": "national development engineers",
+   "company": "NATIONAL DEVELOPMENT ENGINEERS LTD.",
+   "count": 179,
+   "value_bdt": 66956690000.0,
+   "distinct_procuring_entities": 85,
+   "distinct_ministries": 15,
+   "years_active": 10,
+   "top_entity": "Dhaka PWD Division-4, Dhaka",
+   "top_entity_share": 0.095
+  },
+  {
+   "company_key": "m m builders & engineers",
+   "company": "M. M. Builders & Engineers Ltd.",
+   "count": 342,
+   "value_bdt": 43259430000.0,
+   "distinct_procuring_entities": 120,
+   "distinct_ministries": 9,
+   "years_active": 14,
+   "top_entity": "Sariatpur Road Division",
+   "top_entity_share": 0.047
+  },
+  {
+   "company_key": "md moyenuddin (bashi)",
+   "company": "MD. MOYENUDDIN (BASHI) LIMITED",
+   "count": 1079,
+   "value_bdt": 41852040000.0,
+   "distinct_procuring_entities": 125,
+   "distinct_ministries": 9,
+   "years_active": 13,
+   "top_entity": "Rajshahi Road Division",
+   "top_entity_share": 0.039
+  },
+  {
+   "company_key": "muhammad aminul haque ()",
+   "company": "Muhammad Aminul Haque (Pvt.) Ltd.",
+   "count": 3988,
+   "value_bdt": 29819570000.0,
+   "distinct_procuring_entities": 88,
+   "distinct_ministries": 4,
+   "years_active": 9,
+   "top_entity": "Naogaon road Division",
+   "top_entity_share": 0.06
+  },
+  {
+   "company_key": "mozahar enterprise ()",
+   "company": "MOZAHAR ENTERPRISE (PVT.) LTD.",
+   "count": 1395,
+   "value_bdt": 29101150000.0,
+   "distinct_procuring_entities": 130,
+   "distinct_ministries": 8,
+   "years_active": 11,
+   "top_entity": "Office of the Executive Engineer, LGED, Chuadanga",
+   "top_entity_share": 0.066
+  },
+  {
+   "company_key": "spectra engineers",
+   "company": "Spectra Engineers Ltd.",
+   "count": 17,
+   "value_bdt": 29100520000.0,
+   "distinct_procuring_entities": 15,
+   "distinct_ministries": 4,
+   "years_active": 9,
+   "top_entity": "Dhaka Zone",
+   "top_entity_share": 0.118
+  },
+  {
+   "company_key": "toma construction &",
+   "company": "Toma Construction & Co. Limited",
+   "count": 158,
+   "value_bdt": 28965160000.0,
+   "distinct_procuring_entities": 66,
+   "distinct_ministries": 14,
+   "years_active": 8,
+   "top_entity": "Jamalpur pwd division",
+   "top_entity_share": 0.114
+  },
+  {
+   "company_key": "golam rabbani construction",
+   "company": "GOLAM RABBANI CONSTRUCTION LTD.",
+   "count": 135,
+   "value_bdt": 28628160000.0,
+   "distinct_procuring_entities": 31,
+   "distinct_ministries": 3,
+   "years_active": 8,
+   "top_entity": "Shariatpur O&M Division",
+   "top_entity_share": 0.178
+  },
+  {
+   "company_key": "wahid construction",
+   "company": "Wahid Construction Ltd.",
+   "count": 82,
+   "value_bdt": 26496980000.0,
+   "distinct_procuring_entities": 34,
+   "distinct_ministries": 7,
+   "years_active": 10,
+   "top_entity": "Shere Bangla Nagar PWD Division-1, Dhaka",
+   "top_entity_share": 0.11
+  },
+  {
+   "company_key": "shaikat enterprise",
+   "company": "Shaikat Enterprise",
+   "count": 1728,
+   "value_bdt": 24382840000.0,
+   "distinct_procuring_entities": 252,
+   "distinct_ministries": 11,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Kushtia",
+   "top_entity_share": 0.093
+  },
+  {
+   "company_key": "hassan techno builders",
+   "company": "Hassan Techno Builders Ltd.",
+   "count": 364,
+   "value_bdt": 23735310000.0,
+   "distinct_procuring_entities": 81,
+   "distinct_ministries": 7,
+   "years_active": 9,
+   "top_entity": "Road Division, Comilla",
+   "top_entity_share": 0.217
+  },
+  {
+   "company_key": "barendra construction",
+   "company": "Barendra Construction Ltd.",
+   "count": 863,
+   "value_bdt": 23348670000.0,
+   "distinct_procuring_entities": 126,
+   "distinct_ministries": 4,
+   "years_active": 4,
+   "top_entity": "Office of the Executive Engineer, LGED, Rangpur",
+   "top_entity_share": 0.073
+  },
+  {
+   "company_key": "s ananta bikash tripura",
+   "company": "S. Ananta Bikash Tripura",
+   "count": 1324,
+   "value_bdt": 22544360000.0,
+   "distinct_procuring_entities": 196,
+   "distinct_ministries": 15,
+   "years_active": 14,
+   "top_entity": "Unit Office, Khagrachari.",
+   "top_entity_share": 0.177
+  },
+  {
+   "company_key": "md jamil iqbal",
+   "company": "M/S. Md. Jamil Iqbal",
+   "count": 130,
+   "value_bdt": 21644930000.0,
+   "distinct_procuring_entities": 51,
+   "distinct_ministries": 7,
+   "years_active": 15,
+   "top_entity": "Shariatpur O&M Division",
+   "top_entity_share": 0.062
+  },
+  {
+   "company_key": "md khairul kabir rana",
+   "company": "Md. Khairul Kabir Rana",
+   "count": 803,
+   "value_bdt": 21480560000.0,
+   "distinct_procuring_entities": 162,
+   "distinct_ministries": 13,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Rangpur",
+   "top_entity_share": 0.107
+  },
+  {
+   "company_key": "taher brothers",
+   "company": "Taher Brothers Ltd.",
+   "count": 140,
+   "value_bdt": 21044770000.0,
+   "distinct_procuring_entities": 32,
+   "distinct_ministries": 7,
+   "years_active": 13,
+   "top_entity": "Chittagong Road Division",
+   "top_entity_share": 0.393
+  },
+  {
+   "company_key": "rana builders ()",
+   "company": "Rana Builders (Pvt.) Ltd.",
+   "count": 336,
+   "value_bdt": 20535580000.0,
+   "distinct_procuring_entities": 85,
+   "distinct_ministries": 6,
+   "years_active": 11,
+   "top_entity": "Kurigram Road Division",
+   "top_entity_share": 0.077
+  },
+  {
+   "company_key": "masud hi-tech engineering",
+   "company": "Masud Hi-Tech Engineering Ltd.",
+   "count": 113,
+   "value_bdt": 19707220000.0,
+   "distinct_procuring_entities": 42,
+   "distinct_ministries": 3,
+   "years_active": 10,
+   "top_entity": "Narayanganj Road Division",
+   "top_entity_share": 0.248
+  },
+  {
+   "company_key": "kusholi nirmata",
+   "company": "Kusholi Nirmata Limited",
+   "count": 77,
+   "value_bdt": 19634710000.0,
+   "distinct_procuring_entities": 37,
+   "distinct_ministries": 8,
+   "years_active": 11,
+   "top_entity": "Shere Bangla Nagar PWD Division-1, Dhaka",
+   "top_entity_share": 0.13
+  },
+  {
+   "company_key": "m jamal &",
+   "company": "M Jamal & Company Limited",
+   "count": 33,
+   "value_bdt": 19203390000.0,
+   "distinct_procuring_entities": 20,
+   "distinct_ministries": 8,
+   "years_active": 10,
+   "top_entity": "Chief Engineer",
+   "top_entity_share": 0.182
+  },
+  {
+   "company_key": "noorani construction",
+   "company": "Noorani Construction Ltd",
+   "count": 66,
+   "value_bdt": 18482910000.0,
+   "distinct_procuring_entities": 25,
+   "distinct_ministries": 3,
+   "years_active": 10,
+   "top_entity": "Tangail PWD Division",
+   "top_entity_share": 0.167
+  },
+  {
+   "company_key": "efteetcl ()",
+   "company": "EFTE.ETCL (PVT.) LIMITED",
+   "count": 584,
+   "value_bdt": 18329270000.0,
+   "distinct_procuring_entities": 33,
+   "distinct_ministries": 5,
+   "years_active": 7,
+   "top_entity": "Office of the Executive Engineer, LGED, Pirojpur",
+   "top_entity_share": 0.586
+  },
+  {
+   "company_key": "property development",
+   "company": "PROPERTY DEVELOPMENT LIMITED",
+   "count": 498,
+   "value_bdt": 18131920000.0,
+   "distinct_procuring_entities": 100,
+   "distinct_ministries": 18,
+   "years_active": 12,
+   "top_entity": "PWD EM Division-4, Dhaka",
+   "top_entity_share": 0.096
+  },
+  {
+   "company_key": "hamim international",
+   "company": "M/S Hamim International",
+   "count": 188,
+   "value_bdt": 18104940000.0,
+   "distinct_procuring_entities": 42,
+   "distinct_ministries": 10,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Madaripur",
+   "top_entity_share": 0.463
+  },
+  {
+   "company_key": "biswas trading & construction",
+   "company": "BISWAS TRADING & CONSTRUCTION",
+   "count": 49,
+   "value_bdt": 17226320000.0,
+   "distinct_procuring_entities": 23,
+   "distinct_ministries": 5,
+   "years_active": 7,
+   "top_entity": "Chattogram O&M Division -2",
+   "top_entity_share": 0.224
+  },
+  {
+   "company_key": "kohinoor enterprise",
+   "company": "M/S. Kohinoor Enterprise",
+   "count": 492,
+   "value_bdt": 17088670000.0,
+   "distinct_procuring_entities": 125,
+   "distinct_ministries": 15,
+   "years_active": 13,
+   "top_entity": "Narayangonj PWD Division, Narayangonj",
+   "top_entity_share": 0.215
+  },
+  {
+   "company_key": "mazid sons construction",
+   "company": "Mazid Sons Construction Ltd.",
+   "count": 139,
+   "value_bdt": 16987700000.0,
+   "distinct_procuring_entities": 48,
+   "distinct_ministries": 13,
+   "years_active": 9,
+   "top_entity": "Pabna PWD Division, Pabna",
+   "top_entity_share": 0.18
+  },
+  {
+   "company_key": "saleh ahmed",
+   "company": "M/S Saleh Ahmed",
+   "count": 301,
+   "value_bdt": 16849240000.0,
+   "distinct_procuring_entities": 85,
+   "distinct_ministries": 8,
+   "years_active": 12,
+   "top_entity": "Comilla Zone",
+   "top_entity_share": 0.056
+  },
+  {
+   "company_key": "orient trading & builders",
+   "company": "Orient Trading & Builders Ltd.",
+   "count": 151,
+   "value_bdt": 16544890000.0,
+   "distinct_procuring_entities": 55,
+   "distinct_ministries": 5,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Barisal",
+   "top_entity_share": 0.099
+  },
+  {
+   "company_key": "rfl plastics",
+   "company": "RFL Plastics Limited",
+   "count": 742,
+   "value_bdt": 16369710000.0,
+   "distinct_procuring_entities": 380,
+   "distinct_ministries": 32,
+   "years_active": 11,
+   "top_entity": "EIBA-2nd Phase, BMDA, Head Office, Rajshahi",
+   "top_entity_share": 0.02
+  },
+  {
+   "company_key": "amin &",
+   "company": "M/S. Amin & Co.",
+   "count": 964,
+   "value_bdt": 16310690000.0,
+   "distinct_procuring_entities": 127,
+   "distinct_ministries": 13,
+   "years_active": 14,
+   "top_entity": "Khulna O&M Division-2",
+   "top_entity_share": 0.09
+  },
+  {
+   "company_key": "western engineering ( )",
+   "company": "Western Engineering ( Pvt.) Ltd.",
+   "count": 67,
+   "value_bdt": 16279520000.0,
+   "distinct_procuring_entities": 29,
+   "distinct_ministries": 9,
+   "years_active": 11,
+   "top_entity": "Laksmipur O&M Division",
+   "top_entity_share": 0.164
+  },
+  {
+   "company_key": "brb cable industries",
+   "company": "BRB Cable Industries Ltd.",
+   "count": 165,
+   "value_bdt": 14919030000.0,
+   "distinct_procuring_entities": 29,
+   "distinct_ministries": 3,
+   "years_active": 13,
+   "top_entity": "Directorate of Purchase",
+   "top_entity_share": 0.285
+  },
+  {
+   "company_key": "dockyard & engineering works",
+   "company": "Dockyard & Engineering Works Limited",
+   "count": 99,
+   "value_bdt": 14899250000.0,
+   "distinct_procuring_entities": 65,
+   "distinct_ministries": 11,
+   "years_active": 8,
+   "top_entity": "Barguna O&M Division",
+   "top_entity_share": 0.061
+  },
+  {
+   "company_key": "jahirul",
+   "company": "Jahirul Limited",
+   "count": 171,
+   "value_bdt": 13920470000.0,
+   "distinct_procuring_entities": 37,
+   "distinct_ministries": 9,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Meherpur",
+   "top_entity_share": 0.339
+  },
+  {
+   "company_key": "the engineers & architects",
+   "company": "The Engineers & Architects Limited",
+   "count": 105,
+   "value_bdt": 13823040000.0,
+   "distinct_procuring_entities": 48,
+   "distinct_ministries": 14,
+   "years_active": 11,
+   "top_entity": "Shere Bangla Nagar PWD Division-2, Dhaka",
+   "top_entity_share": 0.114
+  },
+  {
+   "company_key": "padma associates & engineers",
+   "company": "Padma Associates & Engineers Ltd.",
+   "count": 159,
+   "value_bdt": 13816720000.0,
+   "distinct_procuring_entities": 23,
+   "distinct_ministries": 5,
+   "years_active": 10,
+   "top_entity": "Shere Bangla Nagar PWD Division-1, Dhaka",
+   "top_entity_share": 0.472
+  },
+  {
+   "company_key": "jakaullah and brothers",
+   "company": "JAKAULLAH AND BROTHERS LIMITED",
+   "count": 659,
+   "value_bdt": 13453160000.0,
+   "distinct_procuring_entities": 184,
+   "distinct_ministries": 19,
+   "years_active": 11,
+   "top_entity": "Office of the Executive Engineer, LGED, Gopalganj",
+   "top_entity_share": 0.071
+  },
+  {
+   "company_key": "mr utmong",
+   "company": "Mr. U.T.Mong",
+   "count": 952,
+   "value_bdt": 13274520000.0,
+   "distinct_procuring_entities": 116,
+   "distinct_ministries": 15,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Bandarban",
+   "top_entity_share": 0.101
+  }
+ ],
+ "top_vendors_by_count": [
+  {
+   "company_key": "muhammad aminul haque ()",
+   "company": "Muhammad Aminul Haque (Pvt.) Ltd.",
+   "count": 3988,
+   "value_bdt": 29819570000.0,
+   "distinct_procuring_entities": 88,
+   "distinct_ministries": 4,
+   "years_active": 9,
+   "top_entity": "Naogaon road Division",
+   "top_entity_share": 0.06
+  },
+  {
+   "company_key": "mohammed eunus & brothers ()",
+   "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
+   "count": 3559,
+   "value_bdt": 78408350000.0,
+   "distinct_procuring_entities": 605,
+   "distinct_ministries": 23,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Netrokona",
+   "top_entity_share": 0.022
+  },
+  {
+   "company_key": "khan enterprise",
+   "company": "M/S Khan Enterprise",
+   "count": 1984,
+   "value_bdt": 7792650000.0,
+   "distinct_procuring_entities": 489,
+   "distinct_ministries": 20,
+   "years_active": 14,
+   "top_entity": "Gazipur PWD Division, Gazipur",
+   "top_entity_share": 0.051
+  },
+  {
+   "company_key": "maa enterprise",
+   "company": "M/S Maa Enterprise",
+   "count": 1919,
+   "value_bdt": 8263520000.0,
+   "distinct_procuring_entities": 430,
+   "distinct_ministries": 18,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Noakhali",
+   "top_entity_share": 0.054
+  },
+  {
+   "company_key": "shaikat enterprise",
+   "company": "Shaikat Enterprise",
+   "count": 1728,
+   "value_bdt": 24382840000.0,
+   "distinct_procuring_entities": 252,
+   "distinct_ministries": 11,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Kushtia",
+   "top_entity_share": 0.093
+  },
+  {
+   "company_key": "abaid monsur constructions",
+   "company": "ABAID MONSUR CONSTRUCTIONS",
+   "count": 1627,
+   "value_bdt": 7142470000.0,
+   "distinct_procuring_entities": 75,
+   "distinct_ministries": 2,
+   "years_active": 8,
+   "top_entity": "Gazipur Road Division",
+   "top_entity_share": 0.274
+  },
+  {
+   "company_key": "mozahar enterprise ()",
+   "company": "MOZAHAR ENTERPRISE (PVT.) LTD.",
+   "count": 1395,
+   "value_bdt": 29101150000.0,
+   "distinct_procuring_entities": 130,
+   "distinct_ministries": 8,
+   "years_active": 11,
+   "top_entity": "Office of the Executive Engineer, LGED, Chuadanga",
+   "top_entity_share": 0.066
+  },
+  {
+   "company_key": "united brothers",
+   "company": "M/s. United Brothers",
+   "count": 1389,
+   "value_bdt": 5414920000.0,
+   "distinct_procuring_entities": 151,
+   "distinct_ministries": 8,
+   "years_active": 13,
+   "top_entity": "Teesta Mechanical Division",
+   "top_entity_share": 0.033
+  },
+  {
+   "company_key": "babor associates",
+   "company": "BABOR ASSOCIATES",
+   "count": 1384,
+   "value_bdt": 6679990000.0,
+   "distinct_procuring_entities": 115,
+   "distinct_ministries": 15,
+   "years_active": 10,
+   "top_entity": "Mohakhali PWD Division, Mohakhali, Dhaka",
+   "top_entity_share": 0.101
+  },
+  {
+   "company_key": "s ananta bikash tripura",
+   "company": "S. Ananta Bikash Tripura",
+   "count": 1324,
+   "value_bdt": 22544360000.0,
+   "distinct_procuring_entities": 196,
+   "distinct_ministries": 15,
+   "years_active": 14,
+   "top_entity": "Unit Office, Khagrachari.",
+   "top_entity_share": 0.177
+  },
+  {
+   "company_key": "khan traders",
+   "company": "M/S Khan Traders",
+   "count": 1149,
+   "value_bdt": 4164830000.0,
+   "distinct_procuring_entities": 361,
+   "distinct_ministries": 20,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer , DPHE, Sariatpur",
+   "top_entity_share": 0.052
+  },
+  {
+   "company_key": "sa enterprise",
+   "company": "M/S S.A. Enterprise",
+   "count": 1145,
+   "value_bdt": 2706100000.0,
+   "distinct_procuring_entities": 214,
+   "distinct_ministries": 19,
+   "years_active": 12,
+   "top_entity": "Netrokona pwd division",
+   "top_entity_share": 0.091
+  },
+  {
+   "company_key": "hasan enterprise",
+   "company": "M/S Hasan Enterprise",
+   "count": 1093,
+   "value_bdt": 9914940000.0,
+   "distinct_procuring_entities": 272,
+   "distinct_ministries": 17,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Brahmanbaria",
+   "top_entity_share": 0.18
+  },
+  {
+   "company_key": "md moyenuddin (bashi)",
+   "company": "MD. MOYENUDDIN (BASHI) LIMITED",
+   "count": 1079,
+   "value_bdt": 41852040000.0,
+   "distinct_procuring_entities": 125,
+   "distinct_ministries": 9,
+   "years_active": 13,
+   "top_entity": "Rajshahi Road Division",
+   "top_entity_share": 0.039
+  },
+  {
+   "company_key": "j s enterprise",
+   "company": "M/S J S Enterprise",
+   "count": 1073,
+   "value_bdt": 1057230000.0,
+   "distinct_procuring_entities": 105,
+   "distinct_ministries": 11,
+   "years_active": 12,
+   "top_entity": "PWD EM Division-5, Dhaka",
+   "top_entity_share": 0.13
+  },
+  {
+   "company_key": "ss enterprise",
+   "company": "M/S S.S Enterprise",
+   "count": 1020,
+   "value_bdt": 3990050000.0,
+   "distinct_procuring_entities": 229,
+   "distinct_ministries": 22,
+   "years_active": 14,
+   "top_entity": "Lalmonirhat PWD Division",
+   "top_entity_share": 0.059
+  },
+  {
+   "company_key": "chowdhury enterprise",
+   "company": "M/S. Chowdhury Enterprise",
+   "count": 985,
+   "value_bdt": 4414430000.0,
+   "distinct_procuring_entities": 268,
+   "distinct_ministries": 22,
+   "years_active": 14,
+   "top_entity": "Noakhali PWD Division",
+   "top_entity_share": 0.046
+  },
+  {
+   "company_key": "ma enterprise",
+   "company": "M/S Ma Enterprise",
+   "count": 982,
+   "value_bdt": 7550110000.0,
+   "distinct_procuring_entities": 321,
+   "distinct_ministries": 18,
+   "years_active": 13,
+   "top_entity": "Mymensingh PWD Division, Mymensingh",
+   "top_entity_share": 0.073
+  },
+  {
+   "company_key": "amin &",
+   "company": "M/S. Amin & Co.",
+   "count": 964,
+   "value_bdt": 16310690000.0,
+   "distinct_procuring_entities": 127,
+   "distinct_ministries": 13,
+   "years_active": 14,
+   "top_entity": "Khulna O&M Division-2",
+   "top_entity_share": 0.09
+  },
+  {
+   "company_key": "mr utmong",
+   "company": "Mr. U.T.Mong",
+   "count": 952,
+   "value_bdt": 13274520000.0,
+   "distinct_procuring_entities": 116,
+   "distinct_ministries": 15,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Bandarban",
+   "top_entity_share": 0.101
+  },
+  {
+   "company_key": "sheikh enterprise",
+   "company": "M/S Sheikh Enterprise",
+   "count": 924,
+   "value_bdt": 9531740000.0,
+   "distinct_procuring_entities": 222,
+   "distinct_ministries": 13,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, LGED, Shariatpur",
+   "top_entity_share": 0.141
+  },
+  {
+   "company_key": "asif enterprise",
+   "company": "M/S. Asif Enterprise",
+   "count": 893,
+   "value_bdt": 2056050000.0,
+   "distinct_procuring_entities": 169,
+   "distinct_ministries": 13,
+   "years_active": 14,
+   "top_entity": "Cox's Bazar Road Division",
+   "top_entity_share": 0.132
+  },
+  {
+   "company_key": "nahar enterprise",
+   "company": "M/S Nahar Enterprise",
+   "count": 878,
+   "value_bdt": 2312180000.0,
+   "distinct_procuring_entities": 265,
+   "distinct_ministries": 19,
+   "years_active": 14,
+   "top_entity": "Bogra pwd division",
+   "top_entity_share": 0.071
+  },
+  {
+   "company_key": "barendra construction",
+   "company": "Barendra Construction Ltd.",
+   "count": 863,
+   "value_bdt": 23348670000.0,
+   "distinct_procuring_entities": 126,
+   "distinct_ministries": 4,
+   "years_active": 4,
+   "top_entity": "Office of the Executive Engineer, LGED, Rangpur",
+   "top_entity_share": 0.073
+  },
+  {
+   "company_key": "rony enterprise",
+   "company": "M/S. Rony Enterprise",
+   "count": 851,
+   "value_bdt": 2839560000.0,
+   "distinct_procuring_entities": 204,
+   "distinct_ministries": 15,
+   "years_active": 15,
+   "top_entity": "Office of the Executive Engineer, EED, Jamalpur, District.",
+   "top_entity_share": 0.059
+  },
+  {
+   "company_key": "bismillah traders",
+   "company": "M/S. Bismillah Traders",
+   "count": 844,
+   "value_bdt": 1216620000.0,
+   "distinct_procuring_entities": 135,
+   "distinct_ministries": 12,
+   "years_active": 13,
+   "top_entity": "Workshop Division, Tejgaon, Dhaka",
+   "top_entity_share": 0.626
+  },
+  {
+   "company_key": "smart technologies (bd)",
+   "company": "Smart Technologies (BD) Ltd.",
+   "count": 827,
+   "value_bdt": 11930640000.0,
+   "distinct_procuring_entities": 357,
+   "distinct_ministries": 42,
+   "years_active": 13,
+   "top_entity": "Special Branch, Dhaka",
+   "top_entity_share": 0.03
+  },
+  {
+   "company_key": "shamim enterprise",
+   "company": "M/S Shamim Enterprise",
+   "count": 803,
+   "value_bdt": 4462430000.0,
+   "distinct_procuring_entities": 195,
+   "distinct_ministries": 19,
+   "years_active": 14,
+   "top_entity": "Office of the Executive Engineer, EED, Chapainawabanj District.",
+   "top_entity_share": 0.075
+  },
+  {
+   "company_key": "md khairul kabir rana",
+   "company": "Md. Khairul Kabir Rana",
+   "count": 803,
+   "value_bdt": 21480560000.0,
+   "distinct_procuring_entities": 162,
+   "distinct_ministries": 13,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Rangpur",
+   "top_entity_share": 0.107
+  },
+  {
+   "company_key": "alif enterprise",
+   "company": "M/S Alif Enterprise",
+   "count": 768,
+   "value_bdt": 2839550000.0,
+   "distinct_procuring_entities": 226,
+   "distinct_ministries": 22,
+   "years_active": 14,
+   "top_entity": "Pirojpur Road Division",
+   "top_entity_share": 0.043
+  },
+  {
+   "company_key": "mim enterprise",
+   "company": "M/S MIM ENTERPRISE",
+   "count": 747,
+   "value_bdt": 2975510000.0,
+   "distinct_procuring_entities": 244,
+   "distinct_ministries": 16,
+   "years_active": 14,
+   "top_entity": "Azimpur PWD Division, New Market, Dhaka",
+   "top_entity_share": 0.068
+  },
+  {
+   "company_key": "rfl plastics",
+   "company": "RFL Plastics Limited",
+   "count": 742,
+   "value_bdt": 16369710000.0,
+   "distinct_procuring_entities": 380,
+   "distinct_ministries": 32,
+   "years_active": 11,
+   "top_entity": "EIBA-2nd Phase, BMDA, Head Office, Rajshahi",
+   "top_entity_share": 0.02
+  },
+  {
+   "company_key": "nirmata kusholi",
+   "company": "Nirmata Kusholi",
+   "count": 723,
+   "value_bdt": 1001240000.0,
+   "distinct_procuring_entities": 154,
+   "distinct_ministries": 8,
+   "years_active": 12,
+   "top_entity": "Bogura WD Division",
+   "top_entity_share": 0.033
+  },
+  {
+   "company_key": "daffodil electric",
+   "company": "Daffodil Electric Company",
+   "count": 719,
+   "value_bdt": 2363760000.0,
+   "distinct_procuring_entities": 61,
+   "distinct_ministries": 11,
+   "years_active": 12,
+   "top_entity": "PWD EM Division-2, Dhaka",
+   "top_entity_share": 0.12
+  },
+  {
+   "company_key": "amanat enterprise",
+   "company": "M/S. Amanat Enterprise",
+   "count": 716,
+   "value_bdt": 8909510000.0,
+   "distinct_procuring_entities": 59,
+   "distinct_ministries": 6,
+   "years_active": 12,
+   "top_entity": "PWD EM Division-4, Dhaka",
+   "top_entity_share": 0.179
+  },
+  {
+   "company_key": "sadia enterprise",
+   "company": "M/S Sadia Enterprise",
+   "count": 704,
+   "value_bdt": 3409830000.0,
+   "distinct_procuring_entities": 228,
+   "distinct_ministries": 16,
+   "years_active": 12,
+   "top_entity": "Office of the Executive Engineer,DPHE,Munshiganj",
+   "top_entity_share": 0.104
+  },
+  {
+   "company_key": "ratan sen tanchangya",
+   "company": "Ratan Sen Tanchangya",
+   "count": 700,
+   "value_bdt": 3700690000.0,
+   "distinct_procuring_entities": 57,
+   "distinct_ministries": 12,
+   "years_active": 11,
+   "top_entity": "Office of the Executive Engineer , Bandarban, DPHE",
+   "top_entity_share": 0.311
+  },
+  {
+   "company_key": "rasel enterprise",
+   "company": "M/S Rasel Enterprise",
+   "count": 698,
+   "value_bdt": 2226220000.0,
+   "distinct_procuring_entities": 180,
+   "distinct_ministries": 16,
+   "years_active": 13,
+   "top_entity": "Gazipur PWD Division, Gazipur",
+   "top_entity_share": 0.12
+  },
+  {
+   "company_key": "basundhara house builders",
+   "company": "M/S Basundhara House Builders",
+   "count": 690,
+   "value_bdt": 11380760000.0,
+   "distinct_procuring_entities": 139,
+   "distinct_ministries": 11,
+   "years_active": 11,
+   "top_entity": "Naogaon pwd division",
+   "top_entity_share": 0.07
+  },
+  {
+   "company_key": "alam enterprise",
+   "company": "M/S. ALAM ENTERPRISE",
+   "count": 671,
+   "value_bdt": 1491560000.0,
+   "distinct_procuring_entities": 152,
+   "distinct_ministries": 19,
+   "years_active": 14,
+   "top_entity": "Workshop Division, Tejgaon, Dhaka",
+   "top_entity_share": 0.124
+  }
+ ],
+ "concentrated_vendors": [
+  {
+   "company_key": "print master printing & packaging",
+   "company": "PRINT MASTER PRINTING & PACKAGING LTD",
+   "count": 142,
+   "value_bdt": 4402140000.0,
+   "distinct_procuring_entities": 14,
+   "distinct_ministries": 4,
+   "years_active": 8,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.803
+  },
+  {
+   "company_key": "amzad traders",
+   "company": "M/S Amzad Traders",
+   "count": 117,
+   "value_bdt": 3535710000.0,
+   "distinct_procuring_entities": 9,
+   "distinct_ministries": 1,
+   "years_active": 13,
+   "top_entity": "Office of the Executive Engineer, LGED, Gazipur",
+   "top_entity_share": 0.812
+  },
+  {
+   "company_key": "nice fabrics processing",
+   "company": "Nice Fabrics Processing Ltd",
+   "count": 15,
+   "value_bdt": 3200230000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 4,
+   "top_entity": "Logistics Section, Police Headquarters, Dhaka",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "md mahmudur rahman",
+   "company": "M/S MD MAHMUDUR RAHMAN",
+   "count": 102,
+   "value_bdt": 2852050000.0,
+   "distinct_procuring_entities": 6,
+   "distinct_ministries": 3,
+   "years_active": 11,
+   "top_entity": "Office of the Executive Engineer, LGED, Noakhali",
+   "top_entity_share": 0.922
+  },
+  {
+   "company_key": "agrani printing press",
+   "company": "Agrani Printing Press",
+   "count": 163,
+   "value_bdt": 2841200000.0,
+   "distinct_procuring_entities": 3,
+   "distinct_ministries": 1,
+   "years_active": 5,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.822
+  },
+  {
+   "company_key": "chandradwip construction",
+   "company": "M/S. Chandradwip Construction",
+   "count": 149,
+   "value_bdt": 2730640000.0,
+   "distinct_procuring_entities": 9,
+   "distinct_ministries": 5,
+   "years_active": 10,
+   "top_entity": "Office of the Director Procurement",
+   "top_entity_share": 0.886
+  },
+  {
+   "company_key": "pran dairy",
+   "company": "PRAN DAIRY LTD",
+   "count": 9,
+   "value_bdt": 2664340000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 1,
+   "top_entity": "Government Primary School Feeding Programme",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "infratech-nzk jv",
+   "company": "INFRATECH-NZK JV",
+   "count": 7,
+   "value_bdt": 2634640000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 1,
+   "top_entity": "Bhola O&M Division-1",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "ohee jute fibres",
+   "company": "M/S OHEE JUTE FIBRES",
+   "count": 124,
+   "value_bdt": 2335970000.0,
+   "distinct_procuring_entities": 5,
+   "distinct_ministries": 3,
+   "years_active": 9,
+   "top_entity": "Office of the Director Procurement",
+   "top_entity_share": 0.831
+  },
+  {
+   "company_key": "sarker printing & publishing",
+   "company": "Sarker Printing & Publishing",
+   "count": 112,
+   "value_bdt": 2203910000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 7,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.964
+  },
+  {
+   "company_key": "letter n colour",
+   "company": "Letter n Colour Ltd.",
+   "count": 104,
+   "value_bdt": 2083960000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.885
+  },
+  {
+   "company_key": "ismail anzuman ara fabrics",
+   "company": "Ismail Anzuman Ara Fabrics Limited",
+   "count": 14,
+   "value_bdt": 2026770000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 4,
+   "top_entity": "Logistics Section, Police Headquarters, Dhaka",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "meghna star cables & electrical appliance",
+   "company": "Meghna Star Cables & Electrical Appliance Ltd.",
+   "count": 10,
+   "value_bdt": 1995440000.0,
+   "distinct_procuring_entities": 3,
+   "distinct_ministries": 2,
+   "years_active": 5,
+   "top_entity": "Directorate of Procurement",
+   "top_entity_share": 0.8
+  },
+  {
+   "company_key": "masud hi-tech engineering - tanvir constructions jv",
+   "company": "Masud Hi-Tech Engineering Ltd. - Tanvir Constructions Ltd. JV",
+   "count": 8,
+   "value_bdt": 1875260000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 1,
+   "top_entity": "Office of the Chief Engineer",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "karnaphuli art press",
+   "company": "KARNAPHULI ART PRESS",
+   "count": 67,
+   "value_bdt": 1865420000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 3,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "khokan construction & engineering - national development engineers jv (kcel - nde jv)",
+   "company": "Khokan Construction & Engineering Ltd. - National Development Engineers Ltd. JV (KCEL - NDE JV)",
+   "count": 5,
+   "value_bdt": 1860730000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 2,
+   "top_entity": "Bhola O&M Division-2",
+   "top_entity_share": 0.8
+  },
+  {
+   "company_key": "proma press & publications",
+   "company": "Proma Press & Publications LTD",
+   "count": 87,
+   "value_bdt": 1783800000.0,
+   "distinct_procuring_entities": 3,
+   "distinct_ministries": 1,
+   "years_active": 7,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.943
+  },
+  {
+   "company_key": "orpi engineering",
+   "company": "Orpi Engineering Ltd.",
+   "count": 7,
+   "value_bdt": 1683500000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 2,
+   "top_entity": "Office of the Executive Engineer - MCC-DSCC",
+   "top_entity_share": 0.857
+  },
+  {
+   "company_key": "auto printing and packaging",
+   "company": "Auto Printing and Packaging",
+   "count": 92,
+   "value_bdt": 1662190000.0,
+   "distinct_procuring_entities": 3,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.87
+  },
+  {
+   "company_key": "ksa & amel jv",
+   "company": "KSA & AMEL JV",
+   "count": 6,
+   "value_bdt": 1617700000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 2,
+   "top_entity": "Satkhira O&M Division-1",
+   "top_entity_share": 0.833
+  },
+  {
+   "company_key": "times media",
+   "company": "TIMES MEDIA LIMITED",
+   "count": 79,
+   "value_bdt": 1599770000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.911
+  },
+  {
+   "company_key": "masud hi-tech engineering - rana builders () - jv",
+   "company": "Masud Hi-Tech Engineering Ltd. - Rana Builders (Pvt.) Ltd. - JV",
+   "count": 6,
+   "value_bdt": 1552970000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 2,
+   "top_entity": "Mymensingh Zone",
+   "top_entity_share": 0.833
+  },
+  {
+   "company_key": "bright printing press",
+   "company": "Bright Printing Press Limited",
+   "count": 73,
+   "value_bdt": 1545250000.0,
+   "distinct_procuring_entities": 3,
+   "distinct_ministries": 2,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.904
+  },
+  {
+   "company_key": "mebl-sel (jv)",
+   "company": "MEBL-SEL (JV)",
+   "count": 5,
+   "value_bdt": 1513840000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 2,
+   "top_entity": "Barguna O&M Division",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "ananda printers",
+   "company": "Ananda Printers Limited",
+   "count": 81,
+   "value_bdt": 1500980000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.975
+  },
+  {
+   "company_key": "afil jute weaving mills",
+   "company": "AFIL JUTE WEAVING MILLS LIMITED",
+   "count": 89,
+   "value_bdt": 1500960000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 2,
+   "years_active": 5,
+   "top_entity": "Office of the Director Procurement",
+   "top_entity_share": 0.989
+  },
+  {
+   "company_key": "efte enterprise",
+   "company": "M/S Efte Enterprise",
+   "count": 61,
+   "value_bdt": 1439720000.0,
+   "distinct_procuring_entities": 3,
+   "distinct_ministries": 3,
+   "years_active": 9,
+   "top_entity": "Office of the Executive Engineer, LGED, Pirojpur",
+   "top_entity_share": 0.885
+  },
+  {
+   "company_key": "anannya printers",
+   "company": "Anannya Printers",
+   "count": 59,
+   "value_bdt": 1396800000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.898
+  },
+  {
+   "company_key": "hafsa textile",
+   "company": "Hafsa Textile",
+   "count": 94,
+   "value_bdt": 1373950000.0,
+   "distinct_procuring_entities": 4,
+   "distinct_ministries": 2,
+   "years_active": 8,
+   "top_entity": "Office of the Director Procurement",
+   "top_entity_share": 0.894
+  },
+  {
+   "company_key": "kachua press and publication",
+   "company": "KACHUA PRESS and PUBLICATION",
+   "count": 75,
+   "value_bdt": 1360630000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.84
+  },
+  {
+   "company_key": "siam textile and jute",
+   "company": "Siam Textile and Jute",
+   "count": 62,
+   "value_bdt": 1353560000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 2,
+   "years_active": 5,
+   "top_entity": "Office of the Director Procurement",
+   "top_entity_share": 0.935
+  },
+  {
+   "company_key": "sazzad barkat construction and engineers",
+   "company": "Sazzad Barkat Construction And Engineers Ltd",
+   "count": 77,
+   "value_bdt": 1330570000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 3,
+   "top_entity": "Office of the Executive Engineer, LGED, Faridpur",
+   "top_entity_share": 0.987
+  },
+  {
+   "company_key": "poly engineering corporation",
+   "company": "M/S. Poly Engineering Corporation",
+   "count": 136,
+   "value_bdt": 1327540000.0,
+   "distinct_procuring_entities": 18,
+   "distinct_ministries": 4,
+   "years_active": 11,
+   "top_entity": "Barisal PWD Division",
+   "top_entity_share": 0.801
+  },
+  {
+   "company_key": "hawladar offset press",
+   "company": "hawladar offset press",
+   "count": 59,
+   "value_bdt": 1302200000.0,
+   "distinct_procuring_entities": 7,
+   "distinct_ministries": 4,
+   "years_active": 8,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.864
+  },
+  {
+   "company_key": "macs jute fiber",
+   "company": "M.A.C.S Jute Fiber",
+   "count": 63,
+   "value_bdt": 1297020000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 2,
+   "years_active": 7,
+   "top_entity": "Office of the Director Procurement",
+   "top_entity_share": 0.937
+  },
+  {
+   "company_key": "sarker press",
+   "company": "Sarker Press",
+   "count": 51,
+   "value_bdt": 1275920000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "g m global trade",
+   "company": "G M Global Trade",
+   "count": 35,
+   "value_bdt": 1262390000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 5,
+   "top_entity": "Logistics Section, Police Headquarters, Dhaka",
+   "top_entity_share": 0.886
+  },
+  {
+   "company_key": "sibl-awr jv",
+   "company": "SIBL-AWR JV",
+   "count": 8,
+   "value_bdt": 1200940000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 2,
+   "top_entity": "Office of the Project Director, Development of Road and Drainage Network with Citizen Service of Mymensingh City Corporation.",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "kt-mc jv",
+   "company": "KT-MC JV",
+   "count": 9,
+   "value_bdt": 1188110000.0,
+   "distinct_procuring_entities": 1,
+   "distinct_ministries": 1,
+   "years_active": 3,
+   "top_entity": "Health Engineering Department (HED) Head Office",
+   "top_entity_share": 1.0
+  },
+  {
+   "company_key": "shimanto press & publication",
+   "company": "Shimanto Press & Publication",
+   "count": 61,
+   "value_bdt": 1173310000.0,
+   "distinct_procuring_entities": 2,
+   "distinct_ministries": 1,
+   "years_active": 6,
+   "top_entity": "Member (Textbook), NCTB",
+   "top_entity_share": 0.918
+  }
+ ],
+ "tender_funnel": {
+  "record_count": 620723,
+  "by_status": {
+   "Contract Awarded": 460075,
+   "Cancelled": 6347,
+   "Re-Tendered": 57383,
+   "To be Re-Tendered": 4851,
+   "Being processed": 82206,
+   "Rejected": 5850,
+   "Contract Terminated": 1742,
+   "Amendment/Corrigendum issued : 20": 1,
+   "Live": 1981,
+   "Amendment/Corrigendum issued : 1": 190,
+   "Amendment/Corrigendum issued : 2": 72,
+   "Amendment/Corrigendum issued : 3": 23,
+   "Amendment/Corrigendum issued : 4": 2
+  },
+  "by_year_status": {
+   "2011": {
+    "Contract Awarded": 6,
+    "Cancelled": 1
+   },
+   "2012": {
+    "Re-Tendered": 12,
+    "Contract Awarded": 120,
+    "To be Re-Tendered": 1,
+    "Being processed": 9,
+    "Rejected": 2
+   },
+   "2013": {
+    "Contract Awarded": 3361,
+    "Being processed": 92,
+    "Re-Tendered": 455,
+    "Rejected": 47,
+    "Cancelled": 18,
+    "To be Re-Tendered": 18,
+    "Contract Terminated": 27
+   },
+   "2014": {
+    "Contract Awarded": 7550,
+    "Re-Tendered": 1257,
+    "Being processed": 233,
+    "Cancelled": 133,
+    "Rejected": 191,
+    "To be Re-Tendered": 29,
+    "Contract Terminated": 22
+   },
+   "2015": {
+    "Contract Awarded": 17623,
+    "Re-Tendered": 2341,
+    "Being processed": 1415,
+    "To be Re-Tendered": 91,
+    "Cancelled": 160,
+    "Rejected": 162,
+    "Contract Terminated": 33
+   },
+   "2016": {
+    "Contract Awarded": 22915,
+    "Re-Tendered": 4182,
+    "Being processed": 2989,
+    "Cancelled": 245,
+    "To be Re-Tendered": 157,
+    "Contract Terminated": 104,
+    "Rejected": 172,
+    "Amendment/Corrigendum issued : 20": 1
+   },
+   "2017": {
+    "Contract Awarded": 29177,
+    "Re-Tendered": 6756,
+    "Being processed": 6381,
+    "Contract Terminated": 108,
+    "To be Re-Tendered": 230,
+    "Rejected": 266,
+    "Cancelled": 484
+   },
+   "2018": {
+    "Re-Tendered": 4934,
+    "Contract Awarded": 31377,
+    "Being processed": 7899,
+    "Rejected": 760,
+    "To be Re-Tendered": 307,
+    "Contract Terminated": 69,
+    "Cancelled": 380
+   },
+   "2019": {
+    "Contract Awarded": 37488,
+    "Contract Terminated": 205,
+    "Being processed": 6426,
+    "Re-Tendered": 5277,
+    "Cancelled": 566,
+    "To be Re-Tendered": 351,
+    "Rejected": 385
+   },
+   "2020": {
+    "Contract Awarded": 41317,
+    "Being processed": 6093,
+    "Rejected": 429,
+    "Re-Tendered": 4261,
+    "Cancelled": 593,
+    "Contract Terminated": 292,
+    "To be Re-Tendered": 428
+   },
+   "2021": {
+    "Being processed": 7914,
+    "Contract Awarded": 42557,
+    "Re-Tendered": 4205,
+    "To be Re-Tendered": 423,
+    "Cancelled": 702,
+    "Rejected": 596,
+    "Contract Terminated": 319
+   },
+   "2022": {
+    "Contract Awarded": 43648,
+    "Being processed": 10832,
+    "Rejected": 638,
+    "Re-Tendered": 5255,
+    "To be Re-Tendered": 446,
+    "Cancelled": 513,
+    "Contract Terminated": 222
+   },
+   "2023": {
+    "Contract Awarded": 55475,
+    "Re-Tendered": 6781,
+    "Being processed": 9531,
+    "Rejected": 560,
+    "To be Re-Tendered": 561,
+    "Cancelled": 427,
+    "Contract Terminated": 145
+   },
+   "2024": {
+    "Contract Awarded": 48708,
+    "Being processed": 6307,
+    "Re-Tendered": 4866,
+    "To be Re-Tendered": 722,
+    "Cancelled": 623,
+    "Rejected": 730,
+    "Contract Terminated": 121
+   },
+   "2025": {
+    "Contract Awarded": 52503,
+    "Rejected": 591,
+    "Being processed": 5729,
+    "Cancelled": 1066,
+    "Re-Tendered": 4607,
+    "To be Re-Tendered": 611,
+    "Contract Terminated": 53
+   },
+   "2026": {
+    "Live": 1981,
+    "Amendment/Corrigendum issued : 1": 190,
+    "Cancelled": 435,
+    "Amendment/Corrigendum issued : 2": 72,
+    "Being processed": 10355,
+    "Re-Tendered": 2194,
+    "Amendment/Corrigendum issued : 3": 23,
+    "To be Re-Tendered": 476,
+    "Contract Awarded": 26248,
+    "Rejected": 321,
+    "Amendment/Corrigendum issued : 4": 2,
+    "Contract Terminated": 22
+   },
+   "unknown": {
+    "Being processed": 1,
+    "Contract Awarded": 2,
+    "Cancelled": 1
+   }
+  }
+ }
+}
