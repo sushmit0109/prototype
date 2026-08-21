@@ -11,6 +11,7 @@ same fix, applied a third time now that the pattern is obvious.
 
     python3 build_ecms.py <raw/ecms.jsonl> <data/ecms/>
 """
+import gzip
 import json
 import os
 import sys
@@ -18,6 +19,10 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 
 from dates import parse_dmy
+
+
+def open_batch(path):
+    return gzip.open(path, "rt") if path.endswith(".gz") else open(path)
 
 TITLE_MAX = 160
 
@@ -54,7 +59,7 @@ def main(raw_path, out_dir):
     divisions, orgs, entities = Dimension(), Dimension(), Dimension()
     by_year = defaultdict(list)
 
-    with open(raw_path) as fh:
+    with open_batch(raw_path) as fh:
         for line in fh:
             r = json.loads(line)
             d = parse_dmy(r.get("contract_start_date"))

@@ -54,6 +54,22 @@ def bootstrap():
         r.read()
 
 
+def get(path, retries=4):
+    """GET a path under BASE; return the response body as text."""
+    last_err = None
+    for attempt in range(retries):
+        _throttle()
+        with _inflight:
+            try:
+                req = urllib.request.Request(BASE + path, headers={"User-Agent": UA})
+                with _opener.open(req, timeout=60) as r:
+                    return r.read().decode("utf-8", "replace")
+            except (urllib.error.URLError, TimeoutError) as e:
+                last_err = e
+                time.sleep(2 ** attempt)
+    raise last_err
+
+
 def post(path, fields, retries=4):
     """POST to a servlet path under BASE; return the response body as text.
 

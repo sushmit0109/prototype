@@ -140,6 +140,81 @@ function renderMinistryBars(insights) {
   }
 }
 
+function renderOffices(officeProfiles) {
+  document.getElementById("natureNote").textContent =
+    `"Goods / Works / Services" is joined in from the master tender list and only matches ` +
+    `${(officeProfiles.meta.nature_match_rate * 100).toFixed(0)}% of contracts (thinner coverage ` +
+    `pre-2018) -- read it as a sample, not the full picture, for any one office.`;
+  const body = document.getElementById("officesBody");
+  for (const o of officeProfiles.top_offices_by_value.slice(0, 20)) {
+    const nature = Object.entries(o.by_nature).sort((a, b) => b[1] - a[1])
+      .map(([n, c]) => `${n} ${c}`).join(" · ") || "—";
+    const topVendor = o.top_vendors[0] ? esc(o.top_vendors[0].company) : "—";
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${esc(o.procuring_entity)}</td>
+      <td>${esc(o.ministry)}</td>
+      <td>${fmtInt(o.count)}</td>
+      <td>${fmtBDTFull(o.value_bdt)}</td>
+      <td>${nature}</td>
+      <td>${topVendor}</td>
+    `;
+    body.appendChild(tr);
+  }
+}
+
+function renderCrossDepartmental(officeProfiles) {
+  const body = document.getElementById("crossDeptBody");
+  for (const v of officeProfiles.cross_departmental_vendors.slice(0, 25)) {
+    const top3 = v.ministries.slice(0, 3).map(m => `${esc(m.ministry)} (${fmtBDTFull(m.value_bdt)})`).join(", ");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${esc(v.company)}</td>
+      <td>${fmtInt(v.distinct_ministries)}</td>
+      <td>${fmtBDTFull(v.value_bdt)}</td>
+      <td class="desc">${top3}</td>
+    `;
+    body.appendChild(tr);
+  }
+}
+
+async function renderOwnership() {
+  const lede = document.getElementById("ownershipLede");
+  const body = document.getElementById("ownershipBody");
+  let ownership;
+  try {
+    ownership = await loadJSON("data/ownership.json");
+  } catch {
+    lede.innerHTML = "Not built yet in this update -- beneficial-ownership data is being crawled for the largest vendors and will appear here.";
+    document.getElementById("ownershipTable").style.display = "none";
+    return;
+  }
+  const m = ownership.meta;
+  lede.innerHTML = `
+    Beneficial-ownership data crawled for ${fmtInt(m.vendors_sampled)} of the largest vendors
+    (${(m.owner_data_coverage * 100).toFixed(0)}% of those had the field populated -- it's a
+    recent addition to the portal, so older award pages don't have it at all). Matched on the
+    owner's name as printed, at least three name-parts required to cut down on common-name
+    collisions -- but Bangladeshi names repeat often enough that this is still not reliable on
+    its own. <strong>"Abul Kalam Azad"</strong> is exactly the kind of match this produces that's
+    probably three unrelated people, not one -- while a group like "Ahsan Khan Chowdhury" tying
+    RFL Plastics to two of its real sister companies is the kind that's probably right. Read every
+    row as a lead, and check whether the companies look like a real group before concluding
+    anything.
+  `;
+  const groups = ownership.shared_owner_groups.filter(g => g.distinct_companies >= 2).slice(0, 30);
+  if (!groups.length) {
+    document.getElementById("ownershipTable").style.display = "none";
+    return;
+  }
+  for (const g of groups) {
+    const tr = document.createElement("tr");
+    const companies = g.companies.map(c => esc(c.company) + (c.designation ? ` <span style="color:var(--muted)">(${esc(c.designation)})</span>` : "")).join("<br>");
+    tr.innerHTML = `<td>${esc(g.companies[0].owner_name_as_shown)}</td><td class="desc">${companies}</td>`;
+    body.appendChild(tr);
+  }
+}
+
 /* ── Vendors: tabbed, searchable, paginated ───────────────────────── */
 
 const VENDOR_TABS = {
@@ -353,10 +428,13 @@ function renderCoverage(debarments, contractsSummary) {
   const cov = document.getElementById("methodologyCoverage");
   cov.innerHTML = `
     Built from the eContracts award list (${fmtInt(contractsSummary.meta.record_count)} records,
-    ${yearRange}) and the debarment register (${fmtInt(debarments.meta.record_count)} records),
-    both re-crawled from <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a>
-    daily. Not yet built: award detail pages (beneficial ownership), eExperience, registration,
-    and Annual Procurement Plans line items -- see the
+    ${yearRange}), the master tender list, the debarment register
+    (${fmtInt(debarments.meta.record_count)} records), eExperience, and Annual Procurement Plans --
+    all re-crawled from <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a>
+    daily. Beneficial-ownership data is crawled for the largest vendors by value, not the full
+    corpus (it's a per-contract detail page, and one vendor's ownership doesn't change contract to
+    contract, so this samples one contract per vendor rather than all 871K). Registration isn't
+    used -- the portal only exposes aggregate counts there, no per-record search. See the
     <a href="https://github.com/sushmit0109/prototype/tree/main/e-gp" target="_blank" rel="noopener">README</a>
     for full source-by-source status.
   `;
@@ -366,16 +444,20 @@ function renderCoverage(debarments, contractsSummary) {
 
 async function main() {
   try {
-    const [debarments, contractsSummary, flags, insights] = await Promise.all([
+    const [debarments, contractsSummary, flags, insights, officeProfiles] = await Promise.all([
       loadJSON("data/debarments.json"),
       loadJSON("data/contracts/summary.json"),
       loadJSON("data/flags.json"),
       loadJSON("data/insights.json"),
+      loadJSON("data/office_profiles.json"),
     ]);
     renderCoverage(debarments, contractsSummary);
     renderHeadlines(debarments, contractsSummary, flags, insights);
     renderYearChart(insights);
     renderMinistryBars(insights);
+    renderOffices(officeProfiles);
+    renderCrossDepartmental(officeProfiles);
+    renderOwnership();
     setupVendorTable(insights);
     renderFunnel(insights);
     renderSeverityBars(debarments);

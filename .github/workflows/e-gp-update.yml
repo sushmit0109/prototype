@@ -10,9 +10,13 @@ on:
   workflow_dispatch:
     inputs:
       full_backfill:
-        description: "Re-crawl the entire eContracts list instead of just what's new (slow, ~872 pages)"
+        description: "Re-crawl the entire eContracts/tenders lists instead of just what's new (slow, ~600-900 pages each)"
         type: boolean
         default: false
+      ownership_sample_size:
+        description: "How many of the largest vendors to have ownership data for (grows incrementally, resumable)"
+        type: string
+        default: "20000"
 
 permissions:
   contents: write
@@ -38,34 +42,72 @@ jobs:
       - name: Debarment register (re-crawled in full -- ~1,000 records, cheap)
         run: python3 scrape_debarment.py ../raw/debarments.jsonl
 
-      - name: Known tender IDs so far (for the incremental eContracts crawl)
+      - name: Annual Procurement Plans (re-crawled in full -- ~46K records across 18 FYs, cheap)
+        run: python3 scrape_app.py ../raw/app_plans.jsonl
+
+      - name: eExperience / eCMS (re-crawled in full -- ~186K records)
+        # Gzipped immediately: the plain file is ~150MB, well over GitHub's
+        # 100MB per-file push limit; gzipped it's ~24MB. build_ecms.py reads
+        # either transparently.
+        run: |
+          python3 scrape_ecms.py ../raw/ecms.jsonl
+          gzip -f ../raw/ecms.jsonl
+
+      - name: Known contract/tender IDs so far (for incremental crawls)
         if: ${{ !inputs.full_backfill }}
         run: |
           python3 -c "
-          import glob, json
-          ids = set()
-          for path in glob.glob('../raw/contracts/*.jsonl'):
-              with open(path) as fh:
-                  ids.update(json.loads(l)['tender_id'] for l in fh)
-          open('/tmp/known_ids.txt', 'w').write('\n'.join(ids))
-          print(len(ids), 'known contract IDs')
+          import glob, gzip, json
+
+          def ids(pattern, field):
+              out = set()
+              for path in glob.glob(pattern):
+                  opener = gzip.open if path.endswith('.gz') else open
+                  with opener(path, 'rt') as fh:
+                      out.update(json.loads(l)[field] for l in fh)
+              return out
+
+          contract_ids = ids('../raw/contracts/*.jsonl*', 'tender_id')
+          open('/tmp/known_contract_ids.txt', 'w').write('\n'.join(contract_ids))
+          print(len(contract_ids), 'known contract tender IDs')
+
+          tender_ids = ids('../raw/tenders/*.jsonl*', 'tender_id')
+          open('/tmp/known_tender_ids.txt', 'w').write('\n'.join(tender_ids))
+          print(len(tender_ids), 'known master-list tender IDs')
           "
 
       - name: eContracts -- incremental
         if: ${{ !inputs.full_backfill }}
-        run: |
-          python3 scrape_noa.py "../raw/contracts/incoming_$(date -u +%F).jsonl" --stop-known=/tmp/known_ids.txt
+        run: python3 scrape_noa.py "../raw/contracts/incoming_$(date -u +%F).jsonl" --stop-known=/tmp/known_contract_ids.txt
 
       - name: eContracts -- full backfill (manual trigger only)
         if: ${{ inputs.full_backfill }}
-        run: |
-          python3 scrape_noa.py "../raw/contracts/backfill_$(date -u +%F).jsonl"
+        run: python3 scrape_noa.py "../raw/contracts/backfill_$(date -u +%F).jsonl"
 
-      - name: Build dashboard JSON
+      - name: Master tender list -- incremental
+        if: ${{ !inputs.full_backfill }}
+        run: python3 scrape_tenders.py "../raw/tenders/incoming_$(date -u +%F).jsonl" --stop-known=/tmp/known_tender_ids.txt
+
+      - name: Master tender list -- full backfill (manual trigger only)
+        if: ${{ inputs.full_backfill }}
+        run: python3 scrape_tenders.py "../raw/tenders/backfill_$(date -u +%F).jsonl"
+
+      - name: Build contracts, tenders, debarments, APP, eCMS
         run: |
           python3 build_site.py ../raw/debarments.jsonl ../data/debarments.json
           python3 build_contracts.py ../raw/contracts ../data/contracts
+          python3 build_tenders.py ../raw/tenders ../data/tenders
+          python3 build_app.py ../raw/app_plans.jsonl ../data/app_plans.json
+          python3 build_ecms.py ../raw/ecms.jsonl.gz ../data/ecms
           python3 flag_debarred_awards.py ../data/debarments.json ../data/contracts ../data/flags.json
+          python3 build_insights.py ../data/contracts ../data/insights.json ../data/tenders
+          python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
+
+      - name: Ownership -- sample new/updated top vendors (resumable, largest first)
+        run: |
+          python3 pick_vendor_samples.py ../data/contracts /tmp/vendor_samples.jsonl --limit=${{ inputs.ownership_sample_size || 20000 }}
+          python3 scrape_award_details.py /tmp/vendor_samples.jsonl ../raw/award_details.jsonl --resume
+          python3 build_ownership.py ../raw/award_details.jsonl ../data/ownership.json
 
       - name: Commit if anything changed
         run: |
@@ -79,7 +121,8 @@ jobs:
             COUNTS=$(python3 -c "
             import json
             f = json.load(open('e-gp/data/flags.json'))
-            print(f\"{f['meta']['contracts_scanned']} contracts, {f['meta']['flag_count']} flags\")
+            o = json.load(open('e-gp/data/ownership.json'))
+            print(f\"{f['meta']['contracts_scanned']} contracts, {f['meta']['flag_count']} flags, {o['meta']['vendors_sampled']} vendors with ownership data\")
             ")
             git commit -m "e-gp: refresh $(date -u +%F) -- $COUNTS"
             git push

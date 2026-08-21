@@ -25,6 +25,7 @@
 <nav class="jump-nav" aria-label="Jump to section">
   <a href="#headlines">Headlines</a>
   <a href="#spending">Spending</a>
+  <a href="#networks">Networks</a>
   <a href="#vendors">Vendors</a>
   <a href="#tenders">Tenders</a>
   <a href="#debarment">Debarment</a>
@@ -51,6 +52,45 @@
         <h3>Top ministries, all-time</h3>
         <div class="severity-bars" id="ministryBars"></div>
       </div>
+    </div>
+
+    <h3 style="margin-top:28px;">Biggest-spending offices, and what they buy</h3>
+    <p class="chart-note" id="natureNote"></p>
+    <div class="table-wrap">
+      <table id="officesTable">
+        <thead>
+          <tr><th>Procuring entity</th><th>Ministry</th><th>Contracts</th><th>Total value (BDT)</th><th>Goods / Works / Services</th><th>Top vendor there</th></tr>
+        </thead>
+        <tbody id="officesBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="networks">
+    <h2>Vendors that cross departments</h2>
+    <p class="section-lede">
+      Companies awarded contracts by three or more different ministries, ranked by how many. A
+      wide footprint is normal for a large national supplier (see the caption below the table) --
+      it's a starting point for "who actually supplies government," not a red flag by itself.
+    </p>
+    <div class="table-wrap">
+      <table id="crossDeptTable">
+        <thead>
+          <tr><th>Company</th><th>Ministries</th><th>Total value (BDT)</th><th>Top 3 ministries</th></tr>
+        </thead>
+        <tbody id="crossDeptBody"></tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:28px;">Shared beneficial owners across companies</h3>
+    <p class="section-lede" id="ownershipLede"></p>
+    <div class="table-wrap">
+      <table id="ownershipTable">
+        <thead>
+          <tr><th>Owner (as matched)</th><th>Companies</th></tr>
+        </thead>
+        <tbody id="ownershipBody"></tbody>
+      </table>
     </div>
   </section>
 
