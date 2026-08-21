@@ -13,16 +13,15 @@ contracts anyway.
 
 ## Status
 
-Six of seven sources are wired end-to-end (crawl -> archive -> build).
-Registration turned out not to be a row-level source at all (see below).
-Award detail pages (Tenderer ID, beneficial ownership) are wired but
-sampled, not exhaustive -- the field is only meaningful for a fraction of
-history (see the ownership methodology section) and growing coverage of the
-largest vendors daily rather than crawling all 871,684 contracts for data
-that doesn't vary per-contract. One thing remains genuinely not started: the
-Annual Procurement Plan per-office line items with itemised cost estimates
-(see the source table). Coverage is tracked honestly in `data/*.json` `meta`
-blocks rather than implied by the presence of a dashboard.
+Every source the portal exposes at row level is now wired end-to-end
+(crawl -> archive -> build). Registration turned out not to be a row-level
+source at all (see below). Two sources are deliberately *sampled* rather than
+exhaustive, both for the same reason -- they are per-record detail pages
+holding data that doesn't vary per record, so they are crawled
+highest-value-first and resumed daily: award detail pages (Tenderer ID,
+beneficial ownership) and the itemised Annual Procurement Plan. Coverage is
+tracked honestly in `data/*.json` `meta` blocks rather than implied by the
+presence of a dashboard.
 
 | Source | Portal page | Status |
 |---|---|---|
@@ -30,7 +29,7 @@ blocks rather than implied by the presence of a dashboard.
 | eContracts (awards) | `SearchNOA.jsp` | **Live** -- 871,684 records, full history (2011-2026) |
 | Master tender list | `AllTenders.jsp` / `TenderDetailsServlet` | **Live** -- 620,723 records, full history -- gives the invited/processing/awarded/cancelled funnel, since SearchNOA alone only has the awarded ones |
 | eExperience (eCMS) | `SearcheCMS.jsp` | **Live** -- ~186K completed/ongoing work records, including the one real per-company ID (`company_unique_id`) anywhere on the site |
-| Annual Procurement Plans | `SearchAPP.jsp` | **Live** -- 45,719 records across 18 financial years (PE/project summary level; per-office line items are one level deeper, not crawled) |
+| Annual Procurement Plans | `SearchAPP.jsp` | **Live** -- 45,719 records across 18 financial years (PE/project summary level) |
 | Debarred-entity-won-a-contract flagging | -- | **Live** -- see "On the flagging methodology" below |
 | Spending, vendor recurrence & concentration, tender funnel | -- | **Live** -- `build_insights.py`, see the dashboard's Spending/Vendors/Tenders sections |
 | Registration | `RegistrationDetails.jsp` | **Resolved as out of scope** -- the page only exposes aggregate national counts, no per-record search or ID; would have been the source of a real tenderer ID for matching, but doesn't expose one |
@@ -38,7 +37,8 @@ blocks rather than implied by the presence of a dashboard.
 | Office spend profiles, cross-departmental vendors | -- | **Live** -- `build_office_profiles.py`, see the dashboard's Spending (offices table) and Networks sections |
 | Shared-beneficial-owner network | -- | **Live, heavily caveated** -- `build_ownership.py`, see "On the ownership-matching methodology" below |
 | Tender funnel counts | `Tenders.jsp` | **Skipped by design** -- the master tender list's own `status` field gives a richer breakdown (10 categories) than this page's 3 buckets, with no separate crawl needed |
-| Annual Procurement Plan per-office line items (itemised cost estimates) | `StdSearch.jsp?officeId=..&bTypeId=..` | Not started -- direct GET returns "Invalid Page" the same way `ViewTenderDetails.jsp` does; needs more session context than a plain GET provides. Would be a genuine cost-benchmark dataset (government's own pre-tender estimate per item) if solved -- worth another look. |
+| Annual Procurement Plan per-office line items (itemised estimates + planned method) | `resources/common/StdSearch.jsp` -> `SearchAPPServlet` (`action=advSearch`) | **Live, sampled** -- the government's own pre-tender cost estimate and planned procurement method, package by package. An earlier pass wrongly recorded this as unreachable: the link on SearchAPP.jsp is *relative*, so it resolves under `/resources/common/`, and requesting `/StdSearch.jsp` at the site root returns an "Invalid Page" shell. Crawled busiest-offices-first, resumable. |
+| Plan vs. outcome (estimate vs. award, planned vs. actual method) | -- | **Live** -- `build_plan_vs_actual.py`, see the dashboard's Finding 03 |
 
 ## Headline numbers (as of the last full build)
 
@@ -57,6 +57,27 @@ blocks rather than implied by the presence of a dashboard.
   *count* but only 15% by value, i.e. used mostly for smaller purchases),
   RFQ, or direct methods.
 - **2%** of tenders end up cancelled or rejected rather than awarded.
+- **26%** of contracts that can be matched to their Annual Procurement Plan
+  entry are awarded within half a percentage point of *exactly 10% below* the
+  government's own pre-tender estimate, and a further **18%** land on exactly
+  5% below -- so about **44% of awards sit on one of two round discounts**.
+  Genuine price competition against an estimate produces a smooth spread, not
+  narrow spikes on round numbers; the figure looks set by convention rather
+  than discovered by bidding. (This is also the likeliest explanation for the
+  repeated-price-point clustering above: plan estimates themselves cluster on
+  clean round figures -- Tk 3,00,000 / 5,00,000 / 10,00,000 -- and awards land
+  at a fixed discount underneath them.)
+- When a package's procurement method changes between plan and award, it
+  becomes **less** open than planned **10x** as often as it becomes more open
+  (568 vs 59) -- almost entirely open tendering turning into limited tendering.
+
+  *A note on both numbers:* an earlier pass over the first ~107k plan line
+  items gave 40% / 11% and a 28x method ratio. Widening coverage to ~301k
+  items moved them to 26% / 18% / 10x. The itemised-plan crawl is ordered
+  busiest-office-first, so a partial run is a biased sample, not a random one
+  -- treat any figure here as provisional until the crawl covers all 10,205
+  offices. The dashboard reads these from `data/plan_vs_actual.json` rather
+  than hardcoding them, so it self-corrects as coverage grows.
 - **30** vendors are awarded by three or more different ministries -- several
   well-known national conglomerates (Smart Technologies, RFL Plastics,
   Global Brand, Star Tech, Hatil) among them, none looking like a
@@ -71,7 +92,7 @@ blocks rather than implied by the presence of a dashboard.
 
 ## Dashboard design
 
-The page is structured as **seven findings**, not as a data browser. Earlier
+The page is structured as **eight findings**, not as a data browser. Earlier
 versions were a KPI wall over dumped tables -- which is strictly worse than
 the government's own portal, since that at least has a search box. If a
 reader wanted an info-dump they would go to eprocure.gov.bd; the only reason
@@ -141,6 +162,9 @@ python3 flag_debarred_awards.py ../data/debarments.json ../data/contracts ../dat
 python3 build_insights.py ../data/contracts ../data/insights.json ../data/tenders
 python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
 python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
+
+python3 scrape_app_items.py ../raw/app_plans.jsonl ../raw/app_items.jsonl --limit=1200 --resume
+python3 build_plan_vs_actual.py ../raw/app_items.jsonl ../data/contracts ../data/plan_vs_actual.json
 
 python3 pick_vendor_samples.py ../data/contracts ../raw/vendor_samples.jsonl --limit=20000
 python3 scrape_award_details.py ../raw/vendor_samples.jsonl ../raw/award_details.jsonl --resume

@@ -1,0 +1,492 @@
+{
+ "meta": {
+  "plan_line_items": 301185,
+  "plan_packages_with_estimate": 300543,
+  "contracts_scanned": 871684,
+  "matched_pairs": 43263,
+  "match_rate_of_plan": 0.1439
+ },
+ "award_vs_estimate": {
+  "median_ratio": 0.9333,
+  "p10": 0.8406,
+  "p25": 0.8991,
+  "p75": 0.9504,
+  "p90": 0.9992,
+  "share_above_estimate": 0.0607,
+  "buckets": {
+   "<70%": 1692,
+   "70-85%": 3251,
+   "85-95%": 25407,
+   "95-100%": 10287,
+   "100-115%": 2077,
+   ">115%": 549
+  },
+  "fine_histogram": {
+   "0.60": 48,
+   "0.61": 44,
+   "0.62": 45,
+   "0.63": 41,
+   "0.64": 68,
+   "0.65": 74,
+   "0.66": 75,
+   "0.67": 105,
+   "0.68": 94,
+   "0.69": 83,
+   "0.70": 170,
+   "0.71": 96,
+   "0.72": 136,
+   "0.73": 161,
+   "0.74": 132,
+   "0.75": 173,
+   "0.76": 125,
+   "0.77": 127,
+   "0.78": 175,
+   "0.79": 167,
+   "0.80": 346,
+   "0.81": 168,
+   "0.82": 206,
+   "0.83": 323,
+   "0.84": 351,
+   "0.85": 887,
+   "0.86": 412,
+   "0.87": 595,
+   "0.88": 881,
+   "0.89": 1349,
+   "0.90": 11069,
+   "0.91": 932,
+   "0.92": 525,
+   "0.93": 2484,
+   "0.94": 3198,
+   "0.95": 7948,
+   "0.96": 1330,
+   "0.97": 614,
+   "0.98": 616,
+   "0.99": 896,
+   "1.00": 3434,
+   "1.01": 316,
+   "1.02": 121,
+   "1.03": 75,
+   "1.04": 94,
+   "1.05": 96,
+   "1.06": 39,
+   "1.07": 39,
+   "1.08": 48,
+   "1.09": 63,
+   "1.10": 99,
+   "1.11": 21,
+   "1.12": 9,
+   "1.13": 13,
+   "1.14": 12,
+   "1.15": 7,
+   "1.16": 8,
+   "1.17": 7,
+   "1.18": 6,
+   "1.19": 8,
+   "1.20": 5
+  },
+  "discount_spikes": {
+   "at_10pct_below": {
+    "count": 11078,
+    "share": 0.2561
+   },
+   "at_5pct_below": {
+    "count": 7964,
+    "share": 0.1841
+   },
+   "at_15pct_below": {
+    "count": 888,
+    "share": 0.0205
+   },
+   "exactly_at_estimate": {
+    "count": 2185,
+    "share": 0.0505
+   }
+  }
+ },
+ "method_change": {
+  "unchanged": 42636,
+  "less_open_than_planned": 568,
+  "more_open_than_planned": 59,
+  "top_transitions": {
+   "OTM->OTM": 25876,
+   "LTM->LTM": 15766,
+   "RFQU->RFQU": 542,
+   "OTM->LTM": 445,
+   "OSTETM->OSTETM": 374,
+   "RFQ->RFQ": 75,
+   "OTM->RFQU": 57,
+   "LTM->OTM": 37,
+   "OTM->RFQ": 34,
+   "RFQU->LTM": 8,
+   "OTM->RFQL": 8,
+   "OSTETM->LTM": 7,
+   "RFQU->OTM": 6,
+   "OSTETM->OTM": 4,
+   "LTM->RFQU": 3
+  }
+ },
+ "biggest_overruns": [
+  {
+   "package_no": "W-01",
+   "description": "SDRIIP/GOL/2012-13/275",
+   "estimated_cost_bdt": 6401664.0,
+   "awarded_bdt": 439800000.0,
+   "ratio": 68.701,
+   "awarded_to": "Mazid Sons Construction Ltd.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "e-GP/RJZ/ADP/13/2017-2018",
+   "description": "Earth Work Widening of Pavement Surfacing 70mm DBS-BC & 50mm WC 7.30m CC Block Mattressing RCC U Drain Sign Signal KM Post & Road Marking at Ch.31420 ",
+   "estimated_cost_bdt": 411478732.27,
+   "awarded_bdt": 781420000.0,
+   "ratio": 1.899,
+   "awarded_to": "Shamim Enterprise (Pvt.) Ltd. and Orient Trading & Builders Ltd. and M/s. Turna Enterprise JV.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "01/e-GP/ADP-Rabnabad Bridge/Pat.RD/2024-2025",
+   "description": "Construction of 882.81m Long (18 x 42.68m PC Girder + 1x100m Steel BUG Truss) Rabnabad Bridge over Rabnabad River at 70th km. (Ch 69+289.265m.) of Leb",
+   "estimated_cost_bdt": 1476901500.0,
+   "awarded_bdt": 1640480000.0,
+   "ratio": 1.111,
+   "awarded_to": "M. M. Builders & Engineers Ltd, M/S Janmabumi Nirmata & Ohiduzzaman Chowdhury (MNO) JV",
+   "planned_method": "OSTETM",
+   "actual_method": "OSTETM"
+  },
+  {
+   "package_no": "08",
+   "description": "Seal coat work at chainage 11+000 to 13+000 KM at Tazumuddin-Kunjerhat (Fakirhat-Khasherhat Link) Road under Road Division Bhola during the Fiscal yea",
+   "estimated_cost_bdt": 1177110.75,
+   "awarded_bdt": 150000000.0,
+   "ratio": 127.431,
+   "awarded_to": "Sazin Construction Ltd.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "280",
+   "description": "Installation of 77 Nos Deep Tubewell & 11 Nos Deep Tara Tube Well Extractable with 6 Hand Pump at Nikli Upazila of Kishoreganj District during 2018-19",
+   "estimated_cost_bdt": 6534210.0,
+   "awarded_bdt": 140270000.0,
+   "ratio": 21.467,
+   "awarded_to": "MIM DEVELOPMENT ENGINEERING LTD.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "e-GP/10/GZ/2022-2023 Development WP-02",
+   "description": "Improvement of Ghonapara to Mausoleum of the Father of the Nation Bangabandhu Sheikh Mujibur Rahman (including Sheikh Lutfar Rahman Bridge Approach) R",
+   "estimated_cost_bdt": 1260000000.0,
+   "awarded_bdt": 1367480000.0,
+   "ratio": 1.085,
+   "awarded_to": "RELIABLE BUILDERS LTD.- M/S. KOHINOOR ENTERPRISE - JV",
+   "planned_method": "OSTETM",
+   "actual_method": "OSTETM"
+  },
+  {
+   "package_no": "567",
+   "description": "Installation of 14 nos Arsenic and Iron Removal unit FRP Vassel Type at Rajbari sadar upazila and Kalukhali upazila Rajbari Under Preferential Rural W",
+   "estimated_cost_bdt": 2100000.0,
+   "awarded_bdt": 97650000.0,
+   "ratio": 46.5,
+   "awarded_to": "Tecnotrade International Ltd.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "982",
+   "description": "construction of 06 nos Single storied RCC WASH Block for MT & boys and FT & girls including all associated construction sanitary plumbing & electrical",
+   "estimated_cost_bdt": 12500000.0,
+   "awarded_bdt": 105920000.0,
+   "ratio": 8.474,
+   "awarded_to": "KA & MBC (JV)",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "e-GP/RJZ/ADP/31/2018-2019",
+   "description": "Improvement of District Road as per proper standard and width from Ch 0000 to 14500 of Chatmohor - Parshadangha - Edilpur- Dangergaon - Pabna Road Z-6",
+   "estimated_cost_bdt": 220519000.0,
+   "awarded_bdt": 308950000.0,
+   "ratio": 1.401,
+   "awarded_to": "MOZAHAR ENTERPRISE (PVT.) LTD.- Dhrubo Construction Ltd.-JV",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "9",
+   "description": "Repair and Maintenance of Pump House of Chhatak Grid Substation",
+   "estimated_cost_bdt": 80000.0,
+   "awarded_bdt": 76940000.0,
+   "ratio": 961.75,
+   "awarded_to": "Smart Technologies (BD) Ltd.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "02",
+   "description": "Flexible Pavement for 4 lanning Road with Carpeting and Sealcoat Work",
+   "estimated_cost_bdt": 11475003.0,
+   "awarded_bdt": 83900000.0,
+   "ratio": 7.312,
+   "awarded_to": "M/s Prantik Traders",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "E-GP-11/GZ/2014-15 (WD2)",
+   "description": "Improvement of Goalando-Faridpur-Tarail Road (Z-7108) from 35th km(p) to 39th km & 42nd km (p) to 61st km providing widening",
+   "estimated_cost_bdt": 215000000.0,
+   "awarded_bdt": 282550000.0,
+   "ratio": 1.314,
+   "awarded_to": "Rana Builders (Pvt.) Ltd.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "507",
+   "description": "Construction of 2 nos Public Toilet Civil Sanitary Electrical works & Running water supply etc in different Upazila of Meherpur dist. under Preferenti",
+   "estimated_cost_bdt": 2734000.0,
+   "awarded_bdt": 69690000.0,
+   "ratio": 25.49,
+   "awarded_to": "N S CONSTRUCTION",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "08",
+   "description": "Seal coat work at chainage 11+000 to 13+000 KM at Tazumuddin-Kunjerhat (Fakirhat-Khasherhat Link) Road under Road Division Bhola during the Fiscal yea",
+   "estimated_cost_bdt": 1177110.75,
+   "awarded_bdt": 65540000.0,
+   "ratio": 55.679,
+   "awarded_to": "M/S S. M. Enterprise",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "eGP-39/EE/SRD/Syl/2025-26",
+   "description": "Emergency Cutting Road Side jungles and shrub including removing and cleaning the spot Work at Ch.30+593 to 35+600 & Ch",
+   "estimated_cost_bdt": 700000.0,
+   "awarded_bdt": 60730000.0,
+   "ratio": 86.757,
+   "awarded_to": "EPIC BUILDERS & ENGINEERING LTD.",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "12",
+   "description": "Seal coat work at Chainage 0+360 to 1+500 Km of Barisal- Bhola - Lakshmipur National Highways under Road Division Bhola during the Fiscal year 2013-14",
+   "estimated_cost_bdt": 753838.0,
+   "awarded_bdt": 58960000.0,
+   "ratio": 78.213,
+   "awarded_to": "M/S RAM TRADERS",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "28",
+   "description": "Supplying & Dumping synthetic bag filled with sand for protective work at 17th(p)Km of Barisal-Bhola-Laxmipur(Bhola Part) National Highways under Road",
+   "estimated_cost_bdt": 399640.0,
+   "awarded_bdt": 53700000.0,
+   "ratio": 134.371,
+   "awarded_to": "Global Enterprise",
+   "planned_method": "RFQU",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "03/2014-15",
+   "description": "Supplying of Materials to Stockyard for Emergency repairing works Different Roads under Road Division Bhola during the year 2014-15",
+   "estimated_cost_bdt": 995220.0,
+   "awarded_bdt": 50170000.0,
+   "ratio": 50.411,
+   "awarded_to": "M/S. Das & Eleis (JV)",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "01",
+   "description": "Construction of 4 lanning Road with flexiable pavement.",
+   "estimated_cost_bdt": 14971597.0,
+   "awarded_bdt": 63900000.0,
+   "ratio": 4.268,
+   "awarded_to": "Khandakar Enterprise",
+   "planned_method": "OTM",
+   "actual_method": "OTM"
+  },
+  {
+   "package_no": "02",
+   "description": "Flexible Pavement for 4 lanning Road with Carpeting and Sealcoat Work",
+   "estimated_cost_bdt": 11475003.0,
+   "awarded_bdt": 57250000.0,
+   "ratio": 4.989,
+   "awarded_to": "Infrastructure Investment Facilitation Company",
+   "planned_method": "OTM",
+   "actual_method": "QCBS"
+  }
+ ],
+ "biggest_openness_downgrades": [
+  {
+   "package_no": "02",
+   "description": "Flexible Pavement for 4 lanning Road with Carpeting and Sealcoat Work",
+   "planned_method": "OTM",
+   "actual_method": "QCBS",
+   "awarded_bdt": 57250000.0,
+   "awarded_to": "Infrastructure Investment Facilitation Company"
+  },
+  {
+   "package_no": "03",
+   "description": "e-TENDER:EE/RDD/e-gp-03",
+   "planned_method": "OTM",
+   "actual_method": "QCBS",
+   "awarded_bdt": 45100000.0,
+   "awarded_to": "Infrastructure Investment Facilitation Company"
+  },
+  {
+   "package_no": "01",
+   "description": "Construction of 4 lanning Road with flexiable pavement.",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 22850000.0,
+   "awarded_to": "M/S. Adarsha Sangstha"
+  },
+  {
+   "package_no": "01",
+   "description": "Construction of 4 lanning Road with flexiable pavement.",
+   "planned_method": "OTM",
+   "actual_method": "QCBS",
+   "awarded_bdt": 22500000.0,
+   "awarded_to": "Shahidul Consultant"
+  },
+  {
+   "package_no": "487",
+   "description": "Installation of 40 nos Deep Tube Well with #6 Hand Pump at Karpara Union",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 8610000.0,
+   "awarded_to": "M/S. Hasna Enterprise"
+  },
+  {
+   "package_no": "05/2017-18",
+   "description": "Establishment of 40forty Technical Training Centre TTC at upazila level and 01 one Institute of Marine Technology IMT at Chittagong - one at Chitalmar",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 8190000.0,
+   "awarded_to": "M/S. Monju Enterprise"
+  },
+  {
+   "package_no": "05/2017-18",
+   "description": "Establishment of 40forty Technical Training Centre TTC at upazila level and 01 one Institute of Marine Technology IMT at Chittagong - one at Chitalmar",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 7520000.0,
+   "awarded_to": "M/S KAMAL ENTERPRISE"
+  },
+  {
+   "package_no": "06/2017-18",
+   "description": "Construction of water distribution pipe line from port to coast guard station Mongla annex under ground water Reservoir for Bangladesh coast guard wes",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 7370000.0,
+   "awarded_to": "M/S SHAWON ENTERPRISE"
+  },
+  {
+   "package_no": "05/2017-18",
+   "description": "Establishment of 40forty Technical Training Centre TTC at upazila level and 01 one Institute of Marine Technology IMT at Chittagong - one at Chitalmar",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 7060000.0,
+   "awarded_to": "NOWAB PROPERTIES"
+  },
+  {
+   "package_no": "01",
+   "description": "Construction of 4 lanning Road with flexiable pavement.",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 6760000.0,
+   "awarded_to": "MD. ANWAR HOSSAIN"
+  },
+  {
+   "package_no": "S-26",
+   "description": "Excavation Construction and lining PC/FC of T4B Tertiary Canal",
+   "planned_method": "OTM",
+   "actual_method": "IC",
+   "awarded_bdt": 6750000.0,
+   "awarded_to": "ENGR. MD. SHAHADAT HOSSAIN"
+  },
+  {
+   "package_no": "05/2017-18",
+   "description": "Establishment of 40forty Technical Training Centre TTC at upazila level and 01 one Institute of Marine Technology IMT at Chittagong - one at Chitalmar",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 6480000.0,
+   "awarded_to": "Purnata Enterprise"
+  },
+  {
+   "package_no": "1",
+   "description": "Seal Coat with repair at 1st(P)",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 6040000.0,
+   "awarded_to": "M/S SIAM ENTERPRIZE"
+  },
+  {
+   "package_no": "4",
+   "description": "11KV lightning Arrester and 11KV Drop Out Fuse (DOFC) with 20A fuse element.",
+   "planned_method": "OSTETM",
+   "actual_method": "LTM",
+   "awarded_bdt": 5840000.0,
+   "awarded_to": "M/S SIAM ENTERPRIZE"
+  },
+  {
+   "package_no": "05/2017-18",
+   "description": "Establishment of 40forty Technical Training Centre TTC at upazila level and 01 one Institute of Marine Technology IMT at Chittagong - one at Chitalmar",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 5110000.0,
+   "awarded_to": "Dolon"
+  },
+  {
+   "package_no": "05/2017-18",
+   "description": "Establishment of 40forty Technical Training Centre TTC at upazila level and 01 one Institute of Marine Technology IMT at Chittagong - one at Chitalmar",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 4850000.0,
+   "awarded_to": "M/S Saki Traders"
+  },
+  {
+   "package_no": "e-Tender/LGED/MYM/GOBM/19-20/W-01",
+   "description": "Rehabilitation of Chechua GC-Hatkalir Bazar GC via Kalir Bazar & Shibgonj Bazar Road From Ch.7150m-11845m. Under Muktagacha Upazila District Mymensing",
+   "planned_method": "OSTETM",
+   "actual_method": "LTM",
+   "awarded_bdt": 4570000.0,
+   "awarded_to": "Ms-Nayem Enterprise"
+  },
+  {
+   "package_no": "06/2017-18",
+   "description": "Construction of water distribution pipe line from port to coast guard station Mongla annex under ground water Reservoir for Bangladesh coast guard wes",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 3500000.0,
+   "awarded_to": "Dream Traders"
+  },
+  {
+   "package_no": "12",
+   "description": "Seal coat work at Chainage 0+360 to 1+500 Km of Barisal- Bhola - Lakshmipur National Highways under Road Division Bhola during the Fiscal year 2013-14",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 3450000.0,
+   "awarded_to": "M/S Bithi Enterprise"
+  },
+  {
+   "package_no": "07/e-GP/2023-2024/JRD",
+   "description": "Labour Wages Of Skilled",
+   "planned_method": "OTM",
+   "actual_method": "LTM",
+   "awarded_bdt": 3320000.0,
+   "awarded_to": "M/S Mamun Enterprise"
+  }
+ ]
+}

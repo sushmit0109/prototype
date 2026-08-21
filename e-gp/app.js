@@ -117,7 +117,92 @@ function chartMethods(a) {
     "Share of contract value by procurement method, per year of signing. Lines are labelled at their latest value.";
 }
 
-/* ── 03 · Office concentration ────────────────────────────────────── */
+/* ── 03 · Plan vs outcome ─────────────────────────────────────────── */
+
+function chartPlanVsActual(p) {
+  const mc = p.method_change;
+  const rows = [
+    ["Bought exactly as planned", mc.unchanged, "var(--s1)", 0.5],
+    ["Ended up LESS open than planned", mc.less_open_than_planned, "var(--s2)", 1],
+    ["Ended up more open than planned", mc.more_open_than_planned, "var(--s3)", 0.8],
+  ];
+  const max = Math.max(...rows.map(r => r[1]), 1);
+  const W = 800, H = 150, padL = 240, padR = 110, padT = 8;
+  const rowH = (H - padT) / rows.length, bh = rowH * 0.5;
+  const pw = W - padL - padR;
+
+  let body = "";
+  rows.forEach(([label, n, colour, op], i) => {
+    const yy = padT + i * rowH + (rowH - bh) / 2;
+    const w = Math.max((n / max) * pw, 2);
+    body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${label}</text>
+             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="${colour}" opacity="${op}">
+               <title>${label}: ${int(n)} packages</title></rect>
+             <text class="val-label${i === 1 ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">${int(n)}</text>`;
+  });
+  document.getElementById("chartPva").innerHTML = svg(W, H, body);
+
+  const ratio = mc.more_open_than_planned
+    ? (mc.less_open_than_planned / mc.more_open_than_planned) : null;
+  document.getElementById("pvaRatio").textContent = ratio ? `${Math.round(ratio)}×` : "—";
+  document.getElementById("capPva").textContent =
+    `Planned procurement method against the method actually used, for the `
+    + `${int(p.meta.matched_pairs)} planned packages that match an awarded contract. `
+    + `The commonest single drift is open tendering becoming limited tendering.`;
+
+  // award / estimate — fine histogram. The whole point is the spikes, so this
+  // is drawn at 1-percentage-point resolution rather than in coarse buckets.
+  const av = p.award_vs_estimate;
+  const fine = av.fine_histogram;
+  const keys = Object.keys(fine).map(Number).sort((x, z) => x - z).filter(k => k >= 0.7 && k <= 1.15);
+  const fmax = Math.max(...keys.map(k => fine[k.toFixed(2)]), 1);
+  const W2 = 800, H2 = 280, pL = 44, pR = 16, pT = 40, pB = 46;
+  const pw2 = W2 - pL - pR, ph2 = H2 - pT - pB;
+  const step = pw2 / keys.length, bw = Math.max(step * 0.8, 1.5);
+  const SPIKES = { "0.90": "10% below", "0.95": "5% below", "1.00": "at estimate" };
+
+  let body2 = "";
+  for (let g = 0; g <= 1; g += 0.5) {
+    const gy = pT + ph2 - g * ph2;
+    body2 += `<line class="grid" x1="${pL}" y1="${gy}" x2="${W2 - pR}" y2="${gy}"/>
+              <text class="ax" x="${pL - 7}" y="${gy + 3}" text-anchor="end">${int(g * fmax)}</text>`;
+  }
+  keys.forEach((k, i) => {
+    const kk = k.toFixed(2);
+    const n = fine[kk] || 0;
+    const h = (n / fmax) * ph2;
+    const x = pL + i * step + (step - bw) / 2;
+    const yy = pT + ph2 - h;
+    const spike = SPIKES[kk];
+    body2 += `<rect x="${x}" y="${yy}" width="${bw}" height="${Math.max(h, 0.8)}"
+                fill="${spike ? "var(--s2)" : "var(--s1)"}" opacity="${spike ? 1 : 0.5}">
+                <title>${int(n)} contracts awarded at ${pct(k)} of the estimate</title></rect>`;
+    if (spike) {
+      body2 += `<text class="val-label hi" x="${x + bw / 2}" y="${yy - 20}" text-anchor="middle">${int(n)}</text>
+                <text class="val-label hi" x="${x + bw / 2}" y="${yy - 8}" text-anchor="middle">${spike}</text>`;
+    }
+    if (Math.abs(k * 100 - Math.round(k * 20) * 5) < 0.01) {
+      body2 += `<text class="ax" x="${x + bw / 2}" y="${H2 - 26}" text-anchor="middle">${pct(k)}</text>`;
+    }
+  });
+  body2 += `<text class="ax" x="${pL + pw2 / 2}" y="${H2 - 8}" text-anchor="middle">awarded price as a share of the government's pre-tender estimate</text>`;
+  document.getElementById("chartRatio").innerHTML = svg(W2, H2, body2);
+  document.getElementById("capRatio").textContent =
+    `Every matched package, at one-percentage-point resolution. Genuine price competition would `
+    + `spread smoothly across this range; instead ${pct(av.discount_spikes.at_10pct_below.share)} `
+    + `of contracts land within half a point of exactly 10% below the estimate.`;
+
+  document.getElementById("pvaSpike").textContent = pct(av.discount_spikes.at_10pct_below.share);
+  document.getElementById("pvaSpike5").textContent = pct(av.discount_spikes.at_5pct_below.share);
+  document.getElementById("pvaCoverage").textContent =
+    `Plan and award are typed into different forms, so they only join where the package reference `
+    + `matches exactly — ${int(p.meta.matched_pairs)} of ${int(p.meta.plan_packages_with_estimate)} `
+    + `planned packages (${pct(p.meta.match_rate_of_plan)}). These figures describe that matched `
+    + `subset, and the itemised plan itself is crawled for the busiest offices first, not all `
+    + `10,205 of them.`;
+}
+
+/* ── 04 · Office concentration ────────────────────────────────────── */
 
 function chartConc(a) {
   const b = a.concentration.office_top_vendor_share_buckets;
@@ -405,10 +490,13 @@ async function main() {
       loadJSON("data/contracts/summary.json"),
     ]);
     const own = await loadJSON("data/ownership.json").catch(() => null);
+    const pva = await loadJSON("data/plan_vs_actual.json").catch(() => null);
 
     renderHeader(a, summary, debar, insights);
     chartMonths(a);
     chartMethods(a);
+    if (pva) chartPlanVsActual(pva);
+    else document.getElementById("fplan").style.display = "none";
     chartConc(a);
     chartPrice(a);
     chartMinistries(insights, profiles, a);

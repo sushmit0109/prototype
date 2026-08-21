@@ -17,7 +17,7 @@
     <h1>What Bangladesh's<br>procurement data says</h1>
     <p class="standfirst">
       Every government contract on the national e-Procurement portal since 2011, read as one
-      dataset instead of six separate search pages. Seven findings, each with what it means —
+      dataset instead of six separate search pages. Eight findings, each with what it means —
       and what it doesn't.
     </p>
     <div class="scale-row" id="scaleRow"></div>
@@ -28,11 +28,12 @@
 <nav class="contents" aria-label="Findings">
   <a href="#f1">01 · The June rush</a>
   <a href="#f2">02 · Closing tenders</a>
-  <a href="#f3">03 · Nine offices</a>
-  <a href="#f4">04 · Repeated prices</a>
-  <a href="#f5">05 · Where money goes</a>
-  <a href="#f6">06 · Cross-ministry firms</a>
-  <a href="#f7">07 · Debarment gap</a>
+  <a href="#fplan">03 · Plan vs outcome</a>
+  <a href="#f3">04 · Nine offices</a>
+  <a href="#f4">05 · Repeated prices</a>
+  <a href="#f5">06 · Where money goes</a>
+  <a href="#f6">07 · Cross-ministry firms</a>
+  <a href="#f7">08 · Debarment gap</a>
   <a href="#method">Methodology</a>
 </nav>
 
@@ -104,9 +105,56 @@
     </div>
   </section>
 
-  <!-- ── 03 ─────────────────────────────────────────── -->
+  <!-- ── 03 · plan vs outcome ───────────────────────── -->
+  <section class="finding" id="fplan">
+    <p class="finding-no">Finding 03 — Plan vs outcome</p>
+    <h2 class="claim">
+      <em id="pvaSpike">—</em> of contracts are awarded at almost exactly <em>10% below</em> the
+      government's own estimate. Another <span class="up" id="pvaSpike5">—</span> land on exactly
+      5% below.
+    </h2>
+    <p class="sub">
+      The Annual Procurement Plan records, before any bidding happens, what each package should
+      cost. Competitive bidding against that estimate would produce a smooth spread of outcomes.
+      What the data shows instead is two narrow spikes on round discount rates — the signature of
+      a discount applied by convention rather than discovered by competition.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartRatio"></div></div>
+      <figcaption id="capRatio"></figcaption>
+    </figure>
+
+    <h3 style="margin-top:38px;font-size:0.95rem;font-weight:650">And when the buying method changes, it changes one way</h3>
+    <p class="sub">
+      Most packages are bought exactly as planned. Among those that aren't, a package becomes
+      <em>less</em> open than planned <span class="up" id="pvaRatio">—</span> times as often as it
+      becomes more open — overwhelmingly open tendering turning into limited tendering.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartPva"></div></div>
+      <figcaption id="capPva"></figcaption>
+    </figure>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>A price that lands on a fixed discount off a published estimate is a price nobody
+        competed for. And a method downgrade is the quietest way to narrow a competition: the
+        package is still procured, still recorded, still legal-looking — only fewer firms ever got
+        to bid. Neither is visible unless you hold the plan and the award side by side.</p>
+      </div>
+      <div class="caution">
+        <h4>Coverage &amp; caveats</h4>
+        <p id="pvaCoverage">—</p>
+        <p style="margin-top:8px">A conventional discount is not itself illegal, and some agencies
+        may set ceilings this way deliberately. The finding is that the number is being set, not
+        that a rule was broken.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 ─────────────────────────────────────────── -->
   <section class="finding" id="f3">
-    <p class="finding-no">Finding 03 — Concentration</p>
+    <p class="finding-no">Finding 04 — Concentration</p>
     <h2 class="claim">
       Most government buyers spread their money widely. <em>Nine offices</em> don't — each sends
       more than 60% of its budget to a single company.
@@ -146,7 +194,7 @@
 
   <!-- ── 04 ─────────────────────────────────────────── -->
   <section class="finding" id="f4">
-    <p class="finding-no">Finding 04 — Pricing</p>
+    <p class="finding-no">Finding 05 — Pricing</p>
     <h2 class="claim">
       <em>One in five</em> contracts is priced at one of just twenty values — and those cluster
       far more heavily on invitation-only awards than contracts generally do.
@@ -183,7 +231,7 @@
 
   <!-- ── 05 ─────────────────────────────────────────── -->
   <section class="finding" id="f5">
-    <p class="finding-no">Finding 05 — Distribution</p>
+    <p class="finding-no">Finding 06 — Distribution</p>
     <h2 class="claim">
       Four ministries take <em id="topFourShare">—</em> of all contract value. Local Government
       alone spends more than the next three combined.
@@ -211,7 +259,7 @@
 
   <!-- ── 06 ─────────────────────────────────────────── -->
   <section class="finding" id="f6">
-    <p class="finding-no">Finding 06 — Suppliers</p>
+    <p class="finding-no">Finding 07 — Suppliers</p>
     <h2 class="claim">
       A handful of firms sell to almost the entire government. One holds contracts from
       <em id="maxMinistries">—</em> different ministries.
@@ -253,7 +301,7 @@
 
   <!-- ── 07 ─────────────────────────────────────────── -->
   <section class="finding" id="f7">
-    <p class="finding-no">Finding 07 — Enforcement</p>
+    <p class="finding-no">Finding 08 — Enforcement</p>
     <h2 class="claim">
       <em id="flagCount">—</em> contracts were signed with companies that were, at that moment,
       formally barred from government bidding.

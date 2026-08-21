@@ -104,6 +104,16 @@ jobs:
           python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
           python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
 
+      - name: Itemised APP -- extend coverage of the pre-tender estimates (resumable)
+        # Busiest offices first, so a run cut short still covers the packages
+        # that matter. Gzipped for the same reason as eCMS: the plain file
+        # runs past GitHub's 100MB per-file limit.
+        run: |
+          if [ -f ../raw/app_items.jsonl.gz ]; then gunzip -f ../raw/app_items.jsonl.gz; fi
+          python3 scrape_app_items.py ../raw/app_plans.jsonl ../raw/app_items.jsonl --limit=1200 --resume
+          python3 build_plan_vs_actual.py ../raw/app_items.jsonl ../data/contracts ../data/plan_vs_actual.json
+          gzip -f ../raw/app_items.jsonl
+
       - name: Ownership -- sample new/updated top vendors (resumable, largest first)
         run: |
           python3 pick_vendor_samples.py ../data/contracts /tmp/vendor_samples.jsonl --limit=${{ inputs.ownership_sample_size || 20000 }}
