@@ -1,0 +1,86 @@
+name: e-GP — refresh procurement tracker
+
+# The awards list is sorted newest-first and updates continuously (contracts
+# get signed across the country every day), so a daily check is the right
+# cadence -- unlike crime-bd's twice-a-month sheet or electricity's hourly
+# feed. 20:00 UTC is after the Bangladesh working day (Asia/Dhaka is UTC+6).
+on:
+  schedule:
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+    inputs:
+      full_backfill:
+        description: "Re-crawl the entire eContracts list instead of just what's new (slow, ~872 pages)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: e-gp
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: e-gp/pipeline
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Debarment register (re-crawled in full -- ~1,000 records, cheap)
+        run: python3 scrape_debarment.py ../raw/debarments.jsonl
+
+      - name: Known tender IDs so far (for the incremental eContracts crawl)
+        if: ${{ !inputs.full_backfill }}
+        run: |
+          python3 -c "
+          import glob, json
+          ids = set()
+          for path in glob.glob('../raw/contracts/*.jsonl'):
+              with open(path) as fh:
+                  ids.update(json.loads(l)['tender_id'] for l in fh)
+          open('/tmp/known_ids.txt', 'w').write('\n'.join(ids))
+          print(len(ids), 'known contract IDs')
+          "
+
+      - name: eContracts -- incremental
+        if: ${{ !inputs.full_backfill }}
+        run: |
+          python3 scrape_noa.py "../raw/contracts/incoming_$(date -u +%F).jsonl" --stop-known=/tmp/known_ids.txt
+
+      - name: eContracts -- full backfill (manual trigger only)
+        if: ${{ inputs.full_backfill }}
+        run: |
+          python3 scrape_noa.py "../raw/contracts/backfill_$(date -u +%F).jsonl"
+
+      - name: Build dashboard JSON
+        run: |
+          python3 build_site.py ../raw/debarments.jsonl ../data/debarments.json
+          python3 build_contracts.py ../raw/contracts ../data/contracts
+          python3 flag_debarred_awards.py ../data/debarments.json ../data/contracts ../data/flags.json
+
+      - name: Commit if anything changed
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add e-gp
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            COUNTS=$(python3 -c "
+            import json
+            f = json.load(open('e-gp/data/flags.json'))
+            print(f\"{f['meta']['contracts_scanned']} contracts, {f['meta']['flag_count']} flags\")
+            ")
+            git commit -m "e-gp: refresh $(date -u +%F) -- $COUNTS"
+            git push
+          fi

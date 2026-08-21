@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangladesh e-GP Procurement Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">sushmit0109 · prototype</p>
+  <h1>Bangladesh e-GP Procurement Tracker</h1>
+  <p class="subtitle">
+    Every award on the national e-Government Procurement portal, cross-referenced against the
+    debarment register: which debarred companies won government contracts anyway, and when.
+    Built from <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a>,
+    the source CPTU publishes.
+  </p>
+  <div class="coverage-banner" id="coverageBanner">Loading coverage…</div>
+</header>
+
+<main>
+
+  <section id="kpis">
+    <div class="kpi-grid" id="kpiGrid"></div>
+  </section>
+
+  <section>
+    <h2>Debarments by severity</h2>
+    <p class="section-desc">
+      The source gives no severity rating of its own. This combines how broad the debarment's
+      scope is (a Single Tender ban vs. a nationwide e-GP Portal ban), how long it runs, and
+      whether the same company has been debarred more than once -- a first-pass heuristic, not
+      an official rating.
+    </p>
+    <div class="severity-bars" id="severityBars"></div>
+  </section>
+
+  <section>
+    <h2 id="flagsHeading">Flagged awards</h2>
+    <p class="section-desc" id="flagsDesc">
+      Contracts awarded to a company matched against the debarment register by normalised name,
+      corroborated by district (the contract's district must match a district taken from the
+      debarment record's own address) -- and only where that name isn't spread across more than
+      5 districts nationwide under other, unrelated contracts, which is the signature of a common
+      name pattern rather than one company. Both checks exist because an earlier, name-only pass
+      produced thousands of "violations" dominated by common surname+"Enterprise" style names
+      shared by many unrelated small firms. <strong>Active violation</strong> means the contract
+      was signed while the debarment was in force. <strong>Post-debarment award</strong> means it
+      was signed after the debarment period ended (recidivism tracking, not a violation by
+      itself). Treat every row as a lead to verify against the source, not a proven finding.
+    </p>
+    <div class="table-wrap">
+      <table id="flagsTable">
+        <thead>
+          <tr>
+            <th>Severity</th><th>Type</th><th>Company</th><th>District</th><th>Procuring entity</th>
+            <th>Signed</th><th>Debarment window</th><th>Value (BDT)</th><th>Reason</th>
+          </tr>
+        </thead>
+        <tbody id="flagsBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Data: <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a> (CPTU)</span>
+  <a href="https://github.com/sushmit0109/prototype/tree/main/e-gp">source &amp; pipeline</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

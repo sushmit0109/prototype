@@ -1,0 +1,5 @@
+# Deliberately empty. The crawler and build step use only the standard
+# library (urllib, re, json) -- the portal's pages are plain HTML row
+# fragments, no HTML parser needed. Add real dependencies here only when a
+# source actually requires one (e.g. rapidfuzz for cross-source entity
+# matching in a later pipeline stage).
