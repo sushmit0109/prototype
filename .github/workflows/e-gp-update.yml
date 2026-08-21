@@ -102,6 +102,7 @@ jobs:
           python3 flag_debarred_awards.py ../data/debarments.json ../data/contracts ../data/flags.json
           python3 build_insights.py ../data/contracts ../data/insights.json ../data/tenders
           python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
+          python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
 
       - name: Ownership -- sample new/updated top vendors (resumable, largest first)
         run: |

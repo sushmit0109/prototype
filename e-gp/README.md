@@ -71,19 +71,41 @@ blocks rather than implied by the presence of a dashboard.
 
 ## Dashboard design
 
-The first version of this page was a KPI wall followed by several fully-
-dumped tables (1,967 flag rows rendered at once, no search, no pagination) --
-information density with no hierarchy, which is a bad trade for a page meant
-to be read by people who don't already know what they're looking for. The
-current version leads with a handful of headline findings stated as plain
-sentences (`renderHeadlines` in `app.js`), then lets anyone go as deep as
-they want: tabbed + searchable vendor tables, a filterable + paginated flags
-table (20 rows at a time), and all the honest methodology caveats moved into
-one collapsible section at the bottom instead of a paragraph blocking every
-section. The headline numbers are computed from the real procurement-method
-mix, not guessed -- an early draft used `DPM` (direct, no-bid) as the
-"non-competitive" headline and got 0.1%, which undersells the real story:
-`LTM` (limited/invitation-only tendering) is 44% of contracts by count.
+The page is structured as **seven findings**, not as a data browser. Earlier
+versions were a KPI wall over dumped tables -- which is strictly worse than
+the government's own portal, since that at least has a search box. If a
+reader wanted an info-dump they would go to eprocure.gov.bd; the only reason
+to build this is to say something the raw source cannot.
+
+So each section states one claim in a sentence, supports it with exactly one
+chart chosen for that claim, and closes with a two-column "why it matters /
+what it isn't" note. `build_analysis.py` precomputes the findings into
+`data/analysis.json`; `app.js` renders hand-built inline SVG (no chart
+library, no build step). Series colours are the four validated slots from the
+`dataviz` reference palette, checked against this page's own dark surface
+(`#131620`): all pass the lightness band, chroma floor, adjacent CVD
+separation, normal-vision floor and 3:1 contrast.
+
+Three things this pass caught that are worth recording, because each was a
+claim that would have shipped wrong:
+
+- **The "concentration paradox" that wasn't.** Reading the top of a sorted
+  list of offices by top-vendor share suggested rampant local monopoly. The
+  actual distribution is the opposite: of 1,333 offices large enough to test,
+  1,001 give their biggest supplier under 20%, and only **9** exceed 60%. The
+  finding is a short named watchlist, not a systemic claim -- and the chart
+  shows the whole distribution so the reader can see that for themselves.
+- **"Open tendering never recovered"** was too strong: it fell 94% -> 66% by
+  2019, then partly rebounded into the 70-80% band. The claim now says that.
+- **"Those contracts are almost all invitation-only"** was too strong for the
+  top-20 repeated price points: the count-weighted LTM share is 70%, not
+  ~90% (the very top prices hit 87-93%, but Tk 3,00,000 is only 34% and drags
+  the aggregate down). The claim now gives 70% against the 44% baseline.
+
+Layout is verified by rendering the chart code headlessly against the real
+data and asserting no `NaN`/`undefined` geometry and no label overflowing its
+SVG viewBox -- which caught two real overflows (`chartConc`, `chartCross`)
+that a colour validator never would.
 
 ## Layout
 
@@ -118,6 +140,7 @@ python3 build_app.py ../raw/app_plans.jsonl ../data/app_plans.json
 python3 flag_debarred_awards.py ../data/debarments.json ../data/contracts ../data/flags.json
 python3 build_insights.py ../data/contracts ../data/insights.json ../data/tenders
 python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
+python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
 
 python3 pick_vendor_samples.py ../data/contracts ../raw/vendor_samples.jsonl --limit=20000
 python3 scrape_award_details.py ../raw/vendor_samples.jsonl ../raw/award_details.jsonl --resume

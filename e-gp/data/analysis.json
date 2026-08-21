@@ -1,0 +1,838 @@
+{
+ "meta": {
+  "contracts": 871684,
+  "total_value_bdt": 7449457620000.0,
+  "years": [
+   "2011",
+   "2012",
+   "2013",
+   "2014",
+   "2015",
+   "2016",
+   "2017",
+   "2018",
+   "2019",
+   "2020",
+   "2021",
+   "2022",
+   "2023",
+   "2024",
+   "2025",
+   "2026"
+  ]
+ },
+ "seasonality": {
+  "by_month": {
+   "01": {
+    "count": 91508,
+    "value_bdt": 763270250000.0,
+    "share": 0.105
+   },
+   "02": {
+    "count": 79249,
+    "value_bdt": 689023160000.0,
+    "share": 0.0909
+   },
+   "03": {
+    "count": 84931,
+    "value_bdt": 686944240000.0,
+    "share": 0.0974
+   },
+   "04": {
+    "count": 85795,
+    "value_bdt": 644570720000.0,
+    "share": 0.0984
+   },
+   "05": {
+    "count": 100990,
+    "value_bdt": 664585150000.0,
+    "share": 0.1159
+   },
+   "06": {
+    "count": 124401,
+    "value_bdt": 748810700000.0,
+    "share": 0.1427
+   },
+   "07": {
+    "count": 44231,
+    "value_bdt": 563316770000.0,
+    "share": 0.0507
+   },
+   "08": {
+    "count": 39212,
+    "value_bdt": 509895950000.0,
+    "share": 0.045
+   },
+   "09": {
+    "count": 38503,
+    "value_bdt": 409549300000.0,
+    "share": 0.0442
+   },
+   "10": {
+    "count": 48142,
+    "value_bdt": 484455420000.0,
+    "share": 0.0552
+   },
+   "11": {
+    "count": 59413,
+    "value_bdt": 611406550000.0,
+    "share": 0.0682
+   },
+   "12": {
+    "count": 75309,
+    "value_bdt": 673629410000.0,
+    "share": 0.0864
+   }
+  },
+  "june_share_by_year": {
+   "2013": {
+    "share": 0.033,
+    "total": 2060,
+    "partial_year": false
+   },
+   "2014": {
+    "share": 0.0733,
+    "total": 7722,
+    "partial_year": false
+   },
+   "2015": {
+    "share": 0.1072,
+    "total": 16469,
+    "partial_year": false
+   },
+   "2016": {
+    "share": 0.1004,
+    "total": 27453,
+    "partial_year": false
+   },
+   "2017": {
+    "share": 0.1168,
+    "total": 37983,
+    "partial_year": false
+   },
+   "2018": {
+    "share": 0.1347,
+    "total": 69147,
+    "partial_year": false
+   },
+   "2019": {
+    "share": 0.1346,
+    "total": 81677,
+    "partial_year": false
+   },
+   "2020": {
+    "share": 0.1528,
+    "total": 83234,
+    "partial_year": false
+   },
+   "2021": {
+    "share": 0.1417,
+    "total": 76604,
+    "partial_year": false
+   },
+   "2022": {
+    "share": 0.1557,
+    "total": 81769,
+    "partial_year": false
+   },
+   "2023": {
+    "share": 0.1434,
+    "total": 97248,
+    "partial_year": false
+   },
+   "2024": {
+    "share": 0.1246,
+    "total": 97059,
+    "partial_year": false
+   },
+   "2025": {
+    "share": 0.1289,
+    "total": 101292,
+    "partial_year": false
+   },
+   "2026": {
+    "share": 0.2077,
+    "total": 91934,
+    "partial_year": true
+   }
+  }
+ },
+ "method_mix": {
+  "overall": {
+   "OTM": {
+    "count": 447347,
+    "value_bdt": 5588293490000.0
+   },
+   "LTM": {
+    "count": 384678,
+    "value_bdt": 1092986880000.0
+   },
+   "OSTETM": {
+    "count": 14413,
+    "value_bdt": 755364830000.0
+   },
+   "RFQU": {
+    "count": 14373,
+    "value_bdt": 4516450000.0
+   },
+   "DPM": {
+    "count": 633,
+    "value_bdt": 3762320000.0
+   },
+   "RFQ": {
+    "count": 9151,
+    "value_bdt": 2482320000.0
+   },
+   "QCBS": {
+    "count": 31,
+    "value_bdt": 849160000.0
+   },
+   "SSS": {
+    "count": 42,
+    "value_bdt": 611550000.0
+   },
+   "RFQL": {
+    "count": 939,
+    "value_bdt": 303320000.0
+   },
+   "IC": {
+    "count": 71,
+    "value_bdt": 253350000.0
+   },
+   "SFB": {
+    "count": 6,
+    "value_bdt": 33950000.0
+   }
+  },
+  "value_share_by_year": {
+   "2011": {
+    "OTM": 1.0
+   },
+   "2012": {
+    "OTM": 0.9496,
+    "LTM": 0.0504
+   },
+   "2013": {
+    "OTM": 0.8755,
+    "LTM": 0.1245
+   },
+   "2014": {
+    "OTM": 0.9444,
+    "LTM": 0.0556
+   },
+   "2015": {
+    "LTM": 0.0579,
+    "OTM": 0.9399,
+    "OSTETM": 0.0021,
+    "RFQU": 0.0,
+    "RFQ": 0.0
+   },
+   "2016": {
+    "OTM": 0.929,
+    "LTM": 0.0661,
+    "RFQU": 0.0,
+    "OSTETM": 0.0048,
+    "RFQ": 0.0,
+    "SFB": 0.0
+   },
+   "2017": {
+    "OTM": 0.9188,
+    "LTM": 0.0706,
+    "OSTETM": 0.0105,
+    "RFQU": 0.0001,
+    "RFQ": 0.0,
+    "RFQL": 0.0
+   },
+   "2018": {
+    "OTM": 0.7654,
+    "LTM": 0.1848,
+    "OSTETM": 0.0496,
+    "RFQU": 0.0002,
+    "RFQL": 0.0,
+    "RFQ": 0.0
+   },
+   "2019": {
+    "OTM": 0.6549,
+    "LTM": 0.2165,
+    "OSTETM": 0.1284,
+    "RFQU": 0.0001,
+    "RFQ": 0.0,
+    "RFQL": 0.0
+   },
+   "2020": {
+    "OTM": 0.7059,
+    "LTM": 0.1524,
+    "OSTETM": 0.1414,
+    "RFQU": 0.0003,
+    "RFQ": 0.0,
+    "RFQL": 0.0
+   },
+   "2021": {
+    "OTM": 0.7438,
+    "OSTETM": 0.1365,
+    "LTM": 0.1195,
+    "RFQU": 0.0002,
+    "RFQ": 0.0,
+    "RFQL": 0.0
+   },
+   "2022": {
+    "LTM": 0.1332,
+    "OTM": 0.722,
+    "OSTETM": 0.1446,
+    "RFQ": 0.0,
+    "RFQU": 0.0002,
+    "RFQL": 0.0,
+    "DPM": 0.0
+   },
+   "2023": {
+    "LTM": 0.141,
+    "OTM": 0.7224,
+    "RFQU": 0.0002,
+    "RFQ": 0.0,
+    "OSTETM": 0.1363,
+    "DPM": 0.0,
+    "RFQL": 0.0
+   },
+   "2024": {
+    "OTM": 0.8012,
+    "LTM": 0.139,
+    "RFQU": 0.0003,
+    "RFQL": 0.0,
+    "OSTETM": 0.0592,
+    "RFQ": 0.0001,
+    "DPM": 0.0003
+   },
+   "2025": {
+    "OTM": 0.7236,
+    "RFQ": 0.0003,
+    "RFQU": 0.0006,
+    "LTM": 0.1614,
+    "RFQL": 0.0,
+    "OSTETM": 0.114,
+    "QCBS": 0.0,
+    "IC": 0.0,
+    "DPM": 0.0001
+   },
+   "2026": {
+    "OTM": 0.7625,
+    "DPM": 0.0055,
+    "LTM": 0.1471,
+    "RFQL": 0.0004,
+    "RFQ": 0.0032,
+    "RFQU": 0.0048,
+    "OSTETM": 0.0736,
+    "SSS": 0.001,
+    "QCBS": 0.0014,
+    "SFB": 0.0,
+    "IC": 0.0004
+   }
+  }
+ },
+ "concentration": {
+  "national": {
+   "vendors": 56330,
+   "hhi": 7.6,
+   "top10_share": 0.0541
+  },
+  "by_ministry": [
+   {
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "hhi": 8.1,
+    "vendors": 37072,
+    "value_bdt": 3034839540000.0,
+    "top5_share": 0.0392
+   },
+   {
+    "ministry": "Ministry of Road Transport and Bridges",
+    "hhi": 77.0,
+    "vendors": 5383,
+    "value_bdt": 986751980000.0,
+    "top5_share": 0.1341
+   },
+   {
+    "ministry": "Ministry of Education",
+    "hhi": 11.6,
+    "vendors": 14571,
+    "value_bdt": 737622850000.0,
+    "top5_share": 0.0436
+   },
+   {
+    "ministry": "Ministry of Water Resources",
+    "hhi": 67.7,
+    "vendors": 5635,
+    "value_bdt": 695636320000.0,
+    "top5_share": 0.1254
+   },
+   {
+    "ministry": "Ministry of Housing and Public Works",
+    "hhi": 50.2,
+    "vendors": 9677,
+    "value_bdt": 619241750000.0,
+    "top5_share": 0.103
+   },
+   {
+    "ministry": "Ministry of Energy, Power and Minearal Resources",
+    "hhi": 78.7,
+    "vendors": 4008,
+    "value_bdt": 217947440000.0,
+    "top5_share": 0.144
+   },
+   {
+    "ministry": "Ministry of Shipping",
+    "hhi": 80.6,
+    "vendors": 2105,
+    "value_bdt": 162910480000.0,
+    "top5_share": 0.1365
+   },
+   {
+    "ministry": "Ministry of Health and Family Welfare",
+    "hhi": 41.8,
+    "vendors": 4744,
+    "value_bdt": 147711870000.0,
+    "top5_share": 0.0913
+   },
+   {
+    "ministry": "Ministry of Agriculture",
+    "hhi": 66.6,
+    "vendors": 3745,
+    "value_bdt": 113041650000.0,
+    "top5_share": 0.1284
+   },
+   {
+    "ministry": "Ministry of Home Affairs",
+    "hhi": 119.5,
+    "vendors": 2139,
+    "value_bdt": 89416740000.0,
+    "top5_share": 0.1839
+   },
+   {
+    "ministry": "Ministry of Energy, Power and Mineral Resources",
+    "hhi": 96.9,
+    "vendors": 3342,
+    "value_bdt": 76483450000.0,
+    "top5_share": 0.1557
+   },
+   {
+    "ministry": "Ministry of Disaster Management & Relief",
+    "hhi": 32.9,
+    "vendors": 2090,
+    "value_bdt": 58779520000.0,
+    "top5_share": 0.0948
+   },
+   {
+    "ministry": "Ministry of Post, Telecommunications & Information Technology",
+    "hhi": 236.1,
+    "vendors": 668,
+    "value_bdt": 52981080000.0,
+    "top5_share": 0.2456
+   },
+   {
+    "ministry": "Ministry of Fisheries & Livestock",
+    "hhi": 200.0,
+    "vendors": 1119,
+    "value_bdt": 52752690000.0,
+    "top5_share": 0.2534
+   },
+   {
+    "ministry": "Ministry of Civil Aviation & Tourism",
+    "hhi": 372.1,
+    "vendors": 790,
+    "value_bdt": 50713690000.0,
+    "top5_share": 0.2952
+   }
+  ],
+  "office_top_vendor_share_buckets": {
+   "0-20": 1001,
+   "20-40": 279,
+   "40-60": 44,
+   "60-80": 7,
+   "80-100": 2
+  },
+  "offices_qualifying": 1333,
+  "most_concentrated_offices": [
+   {
+    "office": "Chandpur WD Division, BWDB",
+    "ministry": "Ministry of Water Resources",
+    "top_vendor_share": 0.8829,
+    "value_bdt": 1411300000.0,
+    "count": 113,
+    "top_vendor": "JV SEHA-KSAL"
+   },
+   {
+    "office": "Grid Maintenance Division, Chittagong-South",
+    "ministry": "Ministry of Energy, Power and Minearal Resources",
+    "top_vendor_share": 0.8423,
+    "value_bdt": 516670000.0,
+    "count": 105,
+    "top_vendor": "Confidence Steel Limited"
+   },
+   {
+    "office": "Logistics Section,Telecom & Information Management,Rajarbag, Dhaka",
+    "ministry": "Ministry of Home Affairs",
+    "top_vendor_share": 0.7817,
+    "value_bdt": 991100000.0,
+    "count": 87,
+    "top_vendor": "Confidence Steel Limited"
+   },
+   {
+    "office": "Narsingdi Paurashava",
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "top_vendor_share": 0.7779,
+    "value_bdt": 732030000.0,
+    "count": 73,
+    "top_vendor": "Masud Hi-Tech Engineering Ltd."
+   },
+   {
+    "office": "Strengthening Public Financial Management Program to Enable Service Delivery (SPFMS).",
+    "ministry": "Ministry of Finance",
+    "top_vendor_share": 0.7638,
+    "value_bdt": 1103580000.0,
+    "count": 85,
+    "top_vendor": "Smart Technologies (BD) Ltd."
+   },
+   {
+    "office": "Office of the University Engineer",
+    "ministry": "Ministry of Education",
+    "top_vendor_share": 0.7113,
+    "value_bdt": 2390190000.0,
+    "count": 102,
+    "top_vendor": "Noorani Construction Ltd"
+   },
+   {
+    "office": "Centre for Irrigation and Water Management (CIWM)",
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "top_vendor_share": 0.6834,
+    "value_bdt": 1296210000.0,
+    "count": 107,
+    "top_vendor": "SIGMA ENGINEERS LTD."
+   },
+   {
+    "office": "Maternal Neonatal Child & Adolescent Health (MNC&AH)",
+    "ministry": "Ministry of Health and Family Welfare",
+    "top_vendor_share": 0.6589,
+    "value_bdt": 1473740000.0,
+    "count": 57,
+    "top_vendor": "JMI SYRINGES AND MEDICAL DEVICES LIMITED"
+   },
+   {
+    "office": "Office of the Brahmanbaria Pourashava, Brahmanbaria",
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "top_vendor_share": 0.6353,
+    "value_bdt": 1255290000.0,
+    "count": 232,
+    "top_vendor": "Mazid Sons Construction Ltd & M/S. Mostafa Kamal. (JV)"
+   },
+   {
+    "office": "Chattogram PWD Division-4",
+    "ministry": "Ministry of Housing and Public Works",
+    "top_vendor_share": 0.5954,
+    "value_bdt": 547250000.0,
+    "count": 321,
+    "top_vendor": "Delta Engineers & Consortium Ltd."
+   },
+   {
+    "office": "Ghorasal Polash Urea Fertilizer Project",
+    "ministry": "Ministry of Industries",
+    "top_vendor_share": 0.5872,
+    "value_bdt": 4200120000.0,
+    "count": 62,
+    "top_vendor": "M Jamal & Company Limited"
+   },
+   {
+    "office": "EIDL Project, BMDA, Head Office, Rajshahi-6000.",
+    "ministry": "Ministry of Agriculture",
+    "top_vendor_share": 0.5658,
+    "value_bdt": 2952930000.0,
+    "count": 142,
+    "top_vendor": "RFL Plastics Limited"
+   },
+   {
+    "office": "Satkhira Road Division",
+    "ministry": "Ministry of Road Transport and Bridges",
+    "top_vendor_share": 0.5597,
+    "value_bdt": 7294590000.0,
+    "count": 406,
+    "top_vendor": "MD. MOYENUDDIN (BASHI)"
+   },
+   {
+    "office": "Barguna WD Division",
+    "ministry": "Ministry of Water Resources",
+    "top_vendor_share": 0.5535,
+    "value_bdt": 602300000.0,
+    "count": 104,
+    "top_vendor": "M. M. Builders & Engineers Ltd."
+   },
+   {
+    "office": "Office of the Vice Chancellor or Enginering Section,HSTU,Dinajpur",
+    "ministry": "Ministry of Education",
+    "top_vendor_share": 0.5501,
+    "value_bdt": 1631200000.0,
+    "count": 141,
+    "top_vendor": "Toma Construction & Co. Limited"
+   },
+   {
+    "office": "zilla parishad, Kushtia",
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "top_vendor_share": 0.5468,
+    "value_bdt": 909590000.0,
+    "count": 131,
+    "top_vendor": "NATIONTECH-BANGA (JV)"
+   },
+   {
+    "office": "Naogaon road Division",
+    "ministry": "Ministry of Road Transport and Bridges",
+    "top_vendor_share": 0.5434,
+    "value_bdt": 2559680000.0,
+    "count": 516,
+    "top_vendor": "Muhammad Aminul Haque (Pvt.) Ltd."
+   },
+   {
+    "office": "Agency Program Director, BMDA Part, BMDA, Head Office, Rajshahi",
+    "ministry": "Ministry of Agriculture",
+    "top_vendor_share": 0.5421,
+    "value_bdt": 879630000.0,
+    "count": 72,
+    "top_vendor": "Super Star Renewable Energy Limited"
+   },
+   {
+    "office": "Office of the Executive Engineer DPHE, Barguna",
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "top_vendor_share": 0.542,
+    "value_bdt": 1407020000.0,
+    "count": 198,
+    "top_vendor": "M/S Kamal Enterprise"
+   },
+   {
+    "office": "Add Chief Engr Office",
+    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+    "top_vendor_share": 0.5205,
+    "value_bdt": 553380000.0,
+    "count": 165,
+    "top_vendor": "Taher Brothers Ltd. - Mazid Sons Construction Ltd. JV"
+   }
+  ],
+  "thresholds": {
+   "min_contracts": 50,
+   "min_value_bdt": 500000000
+  }
+ },
+ "price_points": {
+  "top_price_points": [
+   {
+    "value_bdt": 290000.0,
+    "count": 17517,
+    "ltm_share": 0.8677,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 950000.0,
+    "count": 16464,
+    "ltm_share": 0.9336,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 280000.0,
+    "count": 14545,
+    "ltm_share": 0.8686,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 470000.0,
+    "count": 13150,
+    "ltm_share": 0.8819,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 480000.0,
+    "count": 12378,
+    "ltm_share": 0.8686,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 300000.0,
+    "count": 10592,
+    "ltm_share": 0.3353,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 190000.0,
+    "count": 9791,
+    "ltm_share": 0.781,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 380000.0,
+    "count": 9520,
+    "ltm_share": 0.8483,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 500000.0,
+    "count": 8930,
+    "ltm_share": 0.3577,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 1420000.0,
+    "count": 8629,
+    "ltm_share": 0.9341,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 200000.0,
+    "count": 8090,
+    "ltm_share": 0.288,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 450000.0,
+    "count": 7407,
+    "ltm_share": 0.326,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 570000.0,
+    "count": 6831,
+    "ltm_share": 0.8305,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 760000.0,
+    "count": 6820,
+    "ltm_share": 0.8452,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 1900000.0,
+    "count": 6717,
+    "ltm_share": 0.9162,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 270000.0,
+    "count": 6407,
+    "ltm_share": 0.1901,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 1140000.0,
+    "count": 5665,
+    "ltm_share": 0.8771,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 90000.0,
+    "count": 5643,
+    "ltm_share": 0.4632,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 400000.0,
+    "count": 5491,
+    "ltm_share": 0.3671,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 900000.0,
+    "count": 5484,
+    "ltm_share": 0.2768,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 1000000.0,
+    "count": 4871,
+    "ltm_share": 0.4798,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 670000.0,
+    "count": 4423,
+    "ltm_share": 0.7592,
+    "top_method": "LTM"
+   },
+   {
+    "value_bdt": 490000.0,
+    "count": 4157,
+    "ltm_share": 0.325,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 180000.0,
+    "count": 4144,
+    "ltm_share": 0.2449,
+    "top_method": "OTM"
+   },
+   {
+    "value_bdt": 140000.0,
+    "count": 4116,
+    "ltm_share": 0.6246,
+    "top_method": "LTM"
+   }
+  ],
+  "top20_share_of_all_contracts": 0.2136,
+  "distinct_values": 18486,
+  "ltm_share_overall": 0.4413,
+  "histogram_lakh_bins": {
+   "0": 14918,
+   "1": 35892,
+   "2": 62363,
+   "3": 44309,
+   "4": 58158,
+   "5": 36307,
+   "6": 26842,
+   "7": 26469,
+   "8": 22123,
+   "9": 36235,
+   "10": 19966,
+   "11": 17625,
+   "12": 12991,
+   "13": 13823,
+   "14": 19289,
+   "15": 10176,
+   "16": 8660,
+   "17": 9493,
+   "18": 10566,
+   "19": 14407,
+   "20": 8164,
+   "21": 6754,
+   "22": 7501,
+   "23": 8521,
+   "24": 7078,
+   "25": 5849,
+   "26": 5928,
+   "27": 6194,
+   "28": 7073,
+   "29": 5442,
+   "30": 4779,
+   "31": 4368,
+   "32": 4206,
+   "33": 4096,
+   "34": 3969,
+   "35": 4053,
+   "36": 4058,
+   "37": 3585,
+   "38": 3992,
+   "39": 3514,
+   "40": 3725,
+   "41": 3025,
+   "42": 3197,
+   "43": 3106,
+   "44": 3909,
+   "45": 3383,
+   "46": 2740,
+   "47": 3532,
+   "48": 2609,
+   "49": 3156,
+   "50": 2795,
+   "51": 2342,
+   "52": 2370,
+   "53": 2400,
+   "54": 2483,
+   "55": 2118,
+   "56": 2217,
+   "57": 2275,
+   "58": 2348,
+   "59": 2157
+  }
+ }
+}

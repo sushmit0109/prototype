@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bangladesh e-GP Procurement Tracker</title>
+<title>What Bangladesh's Procurement Data Says</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,216 +11,348 @@
 </head>
 <body>
 
-<header>
-  <p class="eyebrow">sushmit0109 · prototype</p>
-  <h1>Bangladesh e-GP Procurement Tracker</h1>
-  <p class="subtitle">
-    Every government contract on the national e-Procurement portal, read together instead of as
-    six separate search pages -- so a debarred company still winning contracts shows up as a
-    finding, not something you'd have to notice by hand.
-  </p>
-  <p class="coverage-line" id="coverageBanner">Loading…</p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="kicker">sushmit0109 · prototype</p>
+    <h1>What Bangladesh's<br>procurement data says</h1>
+    <p class="standfirst">
+      Every government contract on the national e-Procurement portal since 2011, read as one
+      dataset instead of six separate search pages. Seven findings, each with what it means —
+      and what it doesn't.
+    </p>
+    <div class="scale-row" id="scaleRow"></div>
+    <p class="updated" id="updated"></p>
+  </div>
 </header>
 
-<nav class="jump-nav" aria-label="Jump to section">
-  <a href="#headlines">Headlines</a>
-  <a href="#spending">Spending</a>
-  <a href="#networks">Networks</a>
-  <a href="#vendors">Vendors</a>
-  <a href="#tenders">Tenders</a>
-  <a href="#debarment">Debarment</a>
-  <a href="#methodology">Methodology</a>
+<nav class="contents" aria-label="Findings">
+  <a href="#f1">01 · The June rush</a>
+  <a href="#f2">02 · Closing tenders</a>
+  <a href="#f3">03 · Nine offices</a>
+  <a href="#f4">04 · Repeated prices</a>
+  <a href="#f5">05 · Where money goes</a>
+  <a href="#f6">06 · Cross-ministry firms</a>
+  <a href="#f7">07 · Debarment gap</a>
+  <a href="#method">Methodology</a>
 </nav>
 
 <main>
 
-  <section id="headlines" class="headline-section">
-    <div class="headline-grid" id="headlineGrid"></div>
-  </section>
-
-  <section id="spending">
-    <h2>Where the money goes</h2>
-    <p class="section-lede" id="spendingLede"></p>
-    <div class="two-col">
+  <!-- ── 01 ─────────────────────────────────────────── -->
+  <section class="finding" id="f1">
+    <p class="finding-no">Finding 01 — Timing</p>
+    <h2 class="claim">
+      One in every seven contracts is signed in <em>June</em> — the last month of the fiscal
+      year. In August, it's one in twenty-two.
+    </h2>
+    <p class="sub">
+      Bangladesh's fiscal year ends 30 June. Contract signings cluster hard against that
+      deadline and collapse immediately after it, the classic signature of year-end budget
+      flush: money that must be committed before it lapses.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartMonths"></div></div>
+      <figcaption id="capMonths"></figcaption>
+    </figure>
+    <div class="note">
       <div>
-        <h3>Contract value by year</h3>
-        <div id="yearChart"></div>
-        <p class="chart-note">2011-2017 undercounts real spend -- the portal's own coverage is
-          thinner that far back. Read the last several years as the complete picture.</p>
+        <h4>Why it matters</h4>
+        <p>Procurement rushed to beat a deadline gets less scrutiny, fewer bidders, and weaker
+        price discipline than the same purchase made in October. The spike is a standing
+        indicator of where quality risk concentrates.</p>
       </div>
-      <div>
-        <h3>Top ministries, all-time</h3>
-        <div class="severity-bars" id="ministryBars"></div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>Not evidence of wrongdoing. Some seasonality is legitimate — construction avoids the
+        monsoon, and annual supply contracts naturally renew on the fiscal calendar.</p>
       </div>
     </div>
+  </section>
 
-    <h3 style="margin-top:28px;">Biggest-spending offices, and what they buy</h3>
-    <p class="chart-note" id="natureNote"></p>
-    <div class="table-wrap">
-      <table id="officesTable">
-        <thead>
-          <tr><th>Procuring entity</th><th>Ministry</th><th>Contracts</th><th>Total value (BDT)</th><th>Goods / Works / Services</th><th>Top vendor there</th></tr>
-        </thead>
+  <!-- ── 02 ─────────────────────────────────────────── -->
+  <section class="finding" id="f2">
+    <p class="finding-no">Finding 02 — Competition</p>
+    <h2 class="claim">
+      In 2015, <span class="up">94%</span> of contract value went through fully open tendering.
+      It collapsed to <em>66%</em> in 2019 and has never returned to its old level.
+    </h2>
+    <p class="sub">
+      Open Tendering (OTM) is the default competitive route: anyone qualified may bid. The value
+      that left it went to limited, invitation-only tendering (LTM) and to two-envelope variants
+      (OSTETM) — both narrower processes. The share has partly rebounded since, ranging from 70%
+      to 80%, but it has not been near 90% in any year since 2017.
+    </p>
+    <figure>
+      <div class="chart-card">
+        <div class="legend" id="legendMethods"></div>
+        <div id="chartMethods"></div>
+      </div>
+      <figcaption id="capMethods"></figcaption>
+    </figure>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>Openness is the single strongest structural defence against both overpricing and
+        favouritism. A 20-point drop in the share of money exposed to open competition is a
+        material change in how the state buys.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>Limited tendering is legal and appropriate for small or urgent purchases. The chart
+        shows a shift in mix, not a count of violations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 ─────────────────────────────────────────── -->
+  <section class="finding" id="f3">
+    <p class="finding-no">Finding 03 — Concentration</p>
+    <h2 class="claim">
+      Most government buyers spread their money widely. <em>Nine offices</em> don't — each sends
+      more than 60% of its budget to a single company.
+    </h2>
+    <p class="sub">
+      Of <span class="num" id="qualOffices">—</span> offices large enough to test, three quarters
+      give their biggest supplier under a fifth of their spend. The interesting story is the tail,
+      not the average — so here is the tail, named.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartConc"></div></div>
+      <figcaption id="capConc"></figcaption>
+    </figure>
+    <div class="table-wrap" style="margin-top:22px">
+      <table>
+        <thead><tr>
+          <th>Procuring office</th><th>Ministry</th>
+          <th class="n">Spend</th><th class="n">Contracts</th>
+          <th>Dominant supplier</th><th class="n">Their share</th>
+        </tr></thead>
+        <tbody id="concBody"></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>A buyer that always picks the same seller has, in practice, stopped running a market —
+        whatever the paperwork says. These are the specific places to audit first.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>Concentration has innocent causes: sole regional suppliers, one multi-year project
+        split into many contracts, or genuinely specialised goods. Each row needs its own look.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 ─────────────────────────────────────────── -->
+  <section class="finding" id="f4">
+    <p class="finding-no">Finding 04 — Pricing</p>
+    <h2 class="claim">
+      <em>One in five</em> contracts is priced at one of just twenty values — and those cluster
+      far more heavily on invitation-only awards than contracts generally do.
+    </h2>
+    <p class="sub">
+      Tk 9,50,000 alone appears <span class="num" id="pp950">—</span> times, roughly eight times
+      its neighbouring prices. Across the top twenty repeated prices,
+      <span class="num" id="ppLtm">—</span> of contracts were awarded by limited tendering, against
+      a <span class="num" id="ppBase">—</span> baseline across all contracts. The single most
+      repeated prices run as high as 93% limited-tender.
+    </p>
+    <figure>
+      <div class="chart-card">
+        <div class="legend" id="legendPrice"></div>
+        <div id="chartPrice"></div>
+      </div>
+      <figcaption id="capPrice"></figcaption>
+    </figure>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>Identical prices recurring thousands of times across unrelated offices suggests a
+        price being set to a convention rather than discovered by competition — and the strong
+        tilt toward invitation-only awards is consistent with that.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>The portal quotes value in crore to three decimals, so all values snap to Tk 10,000
+        steps. That rounding is uniform and cannot manufacture a spike — but it does mean each
+        "price" is really a Tk 10,000-wide band.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 ─────────────────────────────────────────── -->
+  <section class="finding" id="f5">
+    <p class="finding-no">Finding 05 — Distribution</p>
+    <h2 class="claim">
+      Four ministries take <em id="topFourShare">—</em> of all contract value. Local Government
+      alone spends more than the next three combined.
+    </h2>
+    <p class="sub">
+      Procurement in Bangladesh is overwhelmingly infrastructure: roads, rural works, water and
+      buildings dominate every other category of state purchasing.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartMinistries"></div></div>
+      <figcaption id="capMinistries"></figcaption>
+    </figure>
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">The individual offices that spend the most</h3>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Procuring office</th><th>Ministry</th>
+          <th class="n">Spend</th><th class="n">Contracts</th><th>Mostly buys</th>
+        </tr></thead>
         <tbody id="officesBody"></tbody>
       </table>
     </div>
+    <p class="sub" style="margin-top:10px;font-size:0.8rem" id="natureNote"></p>
   </section>
 
-  <section id="networks">
-    <h2>Vendors that cross departments</h2>
-    <p class="section-lede">
-      Companies awarded contracts by three or more different ministries, ranked by how many. A
-      wide footprint is normal for a large national supplier (see the caption below the table) --
-      it's a starting point for "who actually supplies government," not a red flag by itself.
+  <!-- ── 06 ─────────────────────────────────────────── -->
+  <section class="finding" id="f6">
+    <p class="finding-no">Finding 06 — Suppliers</p>
+    <h2 class="claim">
+      A handful of firms sell to almost the entire government. One holds contracts from
+      <em id="maxMinistries">—</em> different ministries.
+    </h2>
+    <p class="sub">
+      Most of these are large, well-known national conglomerates, and a broad footprint is what
+      you would expect from them. It matters as a map of who actually supplies the state — and
+      as the baseline against which a genuinely odd spread would stand out.
     </p>
-    <div class="table-wrap">
-      <table id="crossDeptTable">
-        <thead>
-          <tr><th>Company</th><th>Ministries</th><th>Total value (BDT)</th><th>Top 3 ministries</th></tr>
-        </thead>
-        <tbody id="crossDeptBody"></tbody>
+    <figure>
+      <div class="chart-card"><div id="chartCross"></div></div>
+      <figcaption id="capCross"></figcaption>
+    </figure>
+
+    <h3 style="margin-top:36px;font-size:0.95rem;font-weight:650">Companies that share a beneficial owner</h3>
+    <p class="sub" id="ownLede"></p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr><th>Owner named on filings</th><th>Companies linked</th></tr></thead>
+        <tbody id="ownBody"></tbody>
       </table>
     </div>
-
-    <h3 style="margin-top:28px;">Shared beneficial owners across companies</h3>
-    <p class="section-lede" id="ownershipLede"></p>
-    <div class="table-wrap">
-      <table id="ownershipTable">
-        <thead>
-          <tr><th>Owner (as matched)</th><th>Companies</th></tr>
-        </thead>
-        <tbody id="ownershipBody"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="vendors">
-    <h2>Who wins, and how often</h2>
-    <p class="section-lede">
-      A company winning broadly across many offices is a different story from one that's
-      concentrated with a single buyer. Neither is proof of anything alone -- a specialised
-      supplier (a textbook printer, a school-feeding-program vendor) legitimately concentrates
-      too. Check the "top entity" column for an obvious reason before reading anything into it.
-    </p>
-    <div class="tabs" id="vendorTabs" role="tablist">
-      <button class="tab active" data-tab="value" role="tab" aria-selected="true">By total value</button>
-      <button class="tab" data-tab="count" role="tab" aria-selected="false">By contract count</button>
-      <button class="tab" data-tab="concentrated" role="tab" aria-selected="false">Single-buyer concentration</button>
-    </div>
-    <input class="search-box" id="vendorSearch" type="search" placeholder="Filter by company name…">
-    <div class="table-wrap">
-      <table id="vendorsTable">
-        <thead id="vendorsHead"></thead>
-        <tbody id="vendorsBody"></tbody>
-      </table>
-    </div>
-    <button class="show-more" id="vendorsShowMore" type="button">Show 10 more</button>
-  </section>
-
-  <section id="tenders">
-    <h2>Tender outcomes</h2>
-    <p class="section-lede">
-      Every tender by its current status, not just the ones that got awarded -- the only source
-      on the portal that also has the ones still open, cancelled, or re-tendered, so this is a
-      real invited → processing → awarded funnel rather than just the award end of it.
-    </p>
-    <div class="severity-bars" id="funnelBars"></div>
-  </section>
-
-  <section id="debarment">
-    <h2>Debarment &amp; integrity flags</h2>
-    <p class="section-lede">
-      Contracts matched to the debarment register by company name, corroborated by district, and
-      excluding names too generic to trust (details in <a href="#methodology">Methodology</a>).
-      <strong>Active violation</strong> = signed while the debarment was in force.
-      <strong>Post-debarment</strong> = signed after it expired (recidivism tracking, not a
-      violation). Every row is a lead to verify against the source, not a proven finding.
-    </p>
-    <div class="two-col">
+    <div class="note">
       <div>
-        <h3>Debarments by severity</h3>
-        <div class="severity-bars" id="severityBars"></div>
+        <h4>Why it matters</h4>
+        <p>Shared ownership is how a barred or disfavoured firm can keep bidding under a
+        different name. The portal began publishing beneficial owners only recently; this is the
+        first structured view of it.</p>
       </div>
-      <div>
-        <h3>Flags by type</h3>
-        <div class="severity-bars" id="flagTypeBars"></div>
+      <div class="caution">
+        <h4>Read these carefully</h4>
+        <p>Common Bangladeshi names collide constantly. <strong>"Abul Kalam Azad"</strong> here
+        links three firms that are almost certainly three different men;
+        <strong>"Ahsan Khan Chowdhury"</strong> correctly links the real PRAN-RFL group. Nothing
+        in the data separates them automatically.</p>
       </div>
     </div>
-    <div class="table-controls">
-      <input class="search-box" id="flagSearch" type="search" placeholder="Filter by company or procuring entity…">
-      <select class="filter-select" id="flagSeverityFilter">
-        <option value="">All severities</option>
-        <option value="critical">Critical</option>
-        <option value="high">High</option>
-        <option value="medium">Medium</option>
-        <option value="low">Low</option>
+  </section>
+
+  <!-- ── 07 ─────────────────────────────────────────── -->
+  <section class="finding" id="f7">
+    <p class="finding-no">Finding 07 — Enforcement</p>
+    <h2 class="claim">
+      <em id="flagCount">—</em> contracts were signed with companies that were, at that moment,
+      formally barred from government bidding.
+    </h2>
+    <p class="sub">
+      Worth <span id="flagValue">—</span> across <span id="flagFirms">—</span> firms. A debarment
+      is supposed to make this impossible; each of these is a case where it didn't.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartDebar"></div></div>
+      <figcaption id="capDebar"></figcaption>
+    </figure>
+    <div class="controls">
+      <input id="flagSearch" type="search" placeholder="Filter by company or office…">
+      <select id="flagType">
+        <option value="active_debarment_violation">Signed during a ban</option>
+        <option value="post_debarment_award">Signed after a ban expired</option>
       </select>
     </div>
     <div class="table-wrap">
-      <table id="flagsTable">
-        <thead>
-          <tr>
-            <th>Severity</th><th>Type</th><th>Company</th><th>District</th><th>Procuring entity</th>
-            <th>Signed</th><th>Debarment window</th><th>Value (BDT)</th><th>Reason</th>
-          </tr>
-        </thead>
+      <table>
+        <thead><tr>
+          <th>Company</th><th>District</th><th>Procuring office</th>
+          <th class="n">Signed</th><th class="n">Value</th><th>Ban window</th><th>Stated reason</th>
+        </tr></thead>
         <tbody id="flagsBody"></tbody>
       </table>
     </div>
-    <button class="show-more" id="flagsShowMore" type="button">Show 20 more</button>
+    <button class="more-btn" id="flagsMore" type="button">Show more</button>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>Debarment is the procurement system's only real sanction. Contracts signed straight
+        through an active ban measure whether that sanction actually binds.</p>
+      </div>
+      <div class="caution">
+        <h4>Confidence</h4>
+        <p>Matched on company name plus district, excluding names too generic to trust. An
+        earlier name-only pass produced 8,707 false "violations" — see Methodology. Treat each
+        row as a lead to verify, not a proven finding.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="methodology">
-    <h2>Methodology &amp; honest caveats</h2>
-    <details>
-      <summary>How the debarment-matching works, and why the first version was wrong</summary>
-      <p>
-        A name-only first pass -- match a contract's awardee against the debarment register by
-        normalised company name, no other check -- produced <strong>8,707</strong> "active
-        violation" flags worth <strong>৳53.4 billion</strong>. It was wrong. The single biggest
-        contributor, company_key <code>"khan enterprise"</code>, accounted for 637 of them: "Khan"
-        is one of the most common surnames in Bangladesh and "Enterprise" a generic small-firm
-        suffix, and that exact name string appears on 1,984 contracts across 15+ districts
-        nationwide, while the debarment register has exactly one such firm, registered at one
-        address in Mirpur, Dhaka. That's obviously dozens of unrelated small businesses sharing a
-        name pattern, not one company evading a ban -- and publishing that number would have been
-        a real, public false accusation against real, named companies.
-      </p>
-      <p>
-        A flag now requires two things, not one: the contract's district must match a district
-        taken from the debarment record's own address, and the company name must not appear, as
-        an awardee, in more than 5 districts nationwide under otherwise-unrelated contracts (the
-        signature of a common name pattern rather than one entity). That cut the result to 246
-        flags across 58 companies. This is still a heuristic, not proof, and it deliberately trades
-        missed real violations for fewer false accusations -- a real per-company ID (which none of
-        the portal's sources currently expose consistently across both the debarment register and
-        the award list) would be needed to do better.
-      </p>
-    </details>
-    <details>
-      <summary>What's derived vs. what the source actually says</summary>
-      <ul>
-        <li><strong>Debarment severity</strong> is not an official rating -- the source gives none.
-          It combines scope breadth (Single Tender vs. nationwide e-GP Portal ban), duration, and
-          repeat-offender count.</li>
-        <li><strong>Reason tags</strong> on debarment records are a keyword-tagged guess (collusion
-          / forgery / fraud / corruption / non-performance / misrepresentation), not an official
-          category -- "Reasons" is free text written by whichever office filed it.</li>
-        <li><strong>Vendor concentration</strong> flags single-buyer dependence, not wrongdoing --
-          specialised suppliers concentrate for entirely ordinary reasons.</li>
-      </ul>
-    </details>
-    <details>
-      <summary>Sources, coverage, and what isn't built yet</summary>
-      <p id="methodologyCoverage">Loading…</p>
-    </details>
+  <!-- ── Methodology ────────────────────────────────── -->
+  <section class="finding" id="method" style="border-bottom:none">
+    <p class="finding-no">Methodology</p>
+    <h2 class="claim" style="font-size:1.25rem">How this was built, and where it can be wrong</h2>
+    <div style="margin-top:24px">
+      <details>
+        <summary>The false-positive that nearly shipped</summary>
+        <p>Matching contract winners against the debarment register on company name alone
+        produced <strong>8,707</strong> "active violation" flags worth <strong>৳53.4 billion</strong>.
+        It was wrong. The largest contributor, <code>khan enterprise</code>, accounted for 637 of
+        them: "Khan" is among the most common surnames in Bangladesh and "Enterprise" a generic
+        suffix. That name appears on 1,984 contracts across 15+ districts, while the register holds
+        exactly one such firm at one Dhaka address — dozens of unrelated small businesses, not one
+        company evading a ban.</p>
+        <p>Flags now require the contract's district to match the debarred firm's registered
+        address, and exclude any name appearing as a winner in more than five districts
+        nationwide. That cut 8,707 to 246. The filter deliberately trades missed real violations
+        for fewer false accusations.</p>
+      </details>
+      <details>
+        <summary>Derived vs. reported — what the source never actually said</summary>
+        <ul>
+          <li><strong>Debarment severity</strong> is computed here (scope breadth × duration ×
+            repeat offences). The register publishes no rating.</li>
+          <li><strong>Reason categories</strong> are keyword-tagged from free text written by
+            whichever office filed the debarment.</li>
+          <li><strong>"Mostly buys"</strong> joins procurement nature from the tender list, which
+            matches only 53% of contracts — thinner before 2018.</li>
+          <li><strong>Concentration</strong> is tested only on offices with 50+ contracts and
+            50+ crore in spend; below that, one big contract looks like a monopoly.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Sources, coverage and update cadence</summary>
+        <p id="coverageText">—</p>
+      </details>
+      <details>
+        <summary>Ownership matching</summary>
+        <p>Award detail pages carry a Tenderer ID and a beneficial-ownership table, but only on
+        recent awards — a mid-2024 award page has neither field; an August 2026 one has both,
+        tracking a 2025-era rules change. Rather than fetch all 871,684 contract pages for data
+        that doesn't vary per contract, one representative (most recent) contract is sampled per
+        vendor, largest vendors first.</p>
+        <p>Owner names are matched only when the normalised name has three or more parts, which
+        reduces but does not remove collisions. Every group needs a human check that the
+        companies form a real corporate family before it means anything.</p>
+      </details>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  <span>Data: <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a> (CPTU)</span>
-  <a href="https://github.com/sushmit0109/prototype/tree/main/e-gp">source &amp; pipeline</a>
+  <span>Source: <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a> (CPTU) · rebuilt daily</span>
+  <a href="https://github.com/sushmit0109/prototype/tree/main/e-gp">Pipeline &amp; data on GitHub</a>
 </footer>
 
 <script src="app.js"></script>
