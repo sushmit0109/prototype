@@ -135,12 +135,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "nothing to commit"
           else
-            COUNTS=$(python3 -c "
-            import json
-            f = json.load(open('e-gp/data/flags.json'))
-            o = json.load(open('e-gp/data/ownership.json'))
-            print(f\"{f['meta']['contracts_scanned']} contracts, {f['meta']['flag_count']} flags, {o['meta']['vendors_sampled']} vendors with ownership data\")
-            ")
+            COUNTS=$(python3 <<'PYEOF'
+          import json
+          f = json.load(open('e-gp/data/flags.json'))
+          o = json.load(open('e-gp/data/ownership.json'))
+          print(f"{f['meta']['contracts_scanned']} contracts, {f['meta']['flag_count']} flags, {o['meta']['vendors_sampled']} vendors with ownership data")
+          PYEOF
+          )
             git commit -m "e-gp: refresh $(date -u +%F) -- $COUNTS"
             git push
           fi
