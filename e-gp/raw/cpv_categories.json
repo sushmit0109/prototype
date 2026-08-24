@@ -1,311 +1,621 @@
 {
  "source": "https://www.eprocure.gov.bd/resources/common/AllTenders.jsp (Category tree)",
  "all_tenders": 621538,
+ "all_tenders_by_era": {
+  "Awami League (2009–2024)": 490491,
+  "Interim Government (2024–2026)": 97555,
+  "Elected Government (2026–)": 33492
+ },
  "categories": [
   {
    "cpvcode": "45000000",
    "name": "Construction work",
-   "count": 337478
+   "count": 337478,
+   "by_era": {
+    "Interim Government (2024–2026)": 36955,
+    "Awami League (2009–2024)": 291584,
+    "Elected Government (2026–)": 8939
+   }
   },
   {
    "cpvcode": "50000000",
    "name": "Repair, maintenance and installation services",
-   "count": 56553
+   "count": 56553,
+   "by_era": {
+    "Elected Government (2026–)": 3923,
+    "Interim Government (2024–2026)": 10233,
+    "Awami League (2009–2024)": 42397
+   }
   },
   {
    "cpvcode": "31000000",
    "name": "Electrical machinery, apparatus, equipment and consumables",
-   "count": 41208
+   "count": 41208,
+   "by_era": {
+    "Interim Government (2024–2026)": 7837,
+    "Elected Government (2026–)": 3219,
+    "Awami League (2009–2024)": 30152
+   }
   },
   {
    "cpvcode": "29000000",
    "name": "Machinery, equipment, appliances, apparatus and associated products",
-   "count": 28891
+   "count": 28891,
+   "by_era": {
+    "Interim Government (2024–2026)": 6653,
+    "Elected Government (2026–)": 2465,
+    "Awami League (2009–2024)": 19773
+   }
   },
   {
    "cpvcode": "36000000",
    "name": "Manufactured goods, furniture, handicrafts, special-purpose products and associated consumables",
-   "count": 19124
+   "count": 19124,
+   "by_era": {
+    "Elected Government (2026–)": 1330,
+    "Interim Government (2024–2026)": 3814,
+    "Awami League (2009–2024)": 13980
+   }
   },
   {
    "cpvcode": "30000000",
    "name": "Office and computing machinery, equipment and supplies",
-   "count": 13975
+   "count": 13975,
+   "by_era": {
+    "Elected Government (2026–)": 1510,
+    "Interim Government (2024–2026)": 3647,
+    "Awami League (2009–2024)": 8818
+   }
   },
   {
    "cpvcode": "33000000",
    "name": "Medical and laboratory devices, optical and precision devices, watches and clocks, pharmaceuticals and related medical consumables",
-   "count": 13809
+   "count": 13809,
+   "by_era": {
+    "Interim Government (2024–2026)": 6416,
+    "Elected Government (2026–)": 1910,
+    "Awami League (2009–2024)": 5483
+   }
   },
   {
    "cpvcode": "65000000",
    "name": "Public utilities",
-   "count": 13258
+   "count": 13258,
+   "by_era": {
+    "Elected Government (2026–)": 685,
+    "Interim Government (2024–2026)": 1490,
+    "Awami League (2009–2024)": 11083
+   }
   },
   {
    "cpvcode": "34000000",
    "name": "Motor vehicles, trailers and vehicle parts",
-   "count": 12596
+   "count": 12596,
+   "by_era": {
+    "Elected Government (2026–)": 936,
+    "Interim Government (2024–2026)": 2746,
+    "Awami League (2009–2024)": 8914
+   }
   },
   {
    "cpvcode": "15000000",
    "name": "Food products and beverages",
-   "count": 11510
+   "count": 11510,
+   "by_era": {
+    "Elected Government (2026–)": 2867,
+    "Interim Government (2024–2026)": 4934,
+    "Awami League (2009–2024)": 3709
+   }
   },
   {
    "cpvcode": "78000000",
    "name": "Printing, publishing and related services",
-   "count": 9258
+   "count": 9258,
+   "by_era": {
+    "Interim Government (2024–2026)": 2983,
+    "Elected Government (2026–)": 1156,
+    "Awami League (2009–2024)": 5119
+   }
   },
   {
    "cpvcode": "22000000",
    "name": "Various types of printed matter and articles for printing",
-   "count": 8837
+   "count": 8837,
+   "by_era": {
+    "Elected Government (2026–)": 1208,
+    "Interim Government (2024–2026)": 3030,
+    "Awami League (2009–2024)": 4599
+   }
   },
   {
    "cpvcode": "24000000",
    "name": "Chemicals, chemical products and man-made fibres",
-   "count": 7894
+   "count": 7894,
+   "by_era": {
+    "Elected Government (2026–)": 860,
+    "Interim Government (2024–2026)": 2488,
+    "Awami League (2009–2024)": 4546
+   }
   },
   {
    "cpvcode": "72000000",
    "name": "Computer and related services",
-   "count": 7721
+   "count": 7721,
+   "by_era": {
+    "Elected Government (2026–)": 914,
+    "Interim Government (2024–2026)": 1862,
+    "Awami League (2009–2024)": 4945
+   }
   },
   {
    "cpvcode": "40000000",
    "name": "Electricity, gas, nuclear energy and fuels, steam, hot water and other sources of energy",
-   "count": 7320
+   "count": 7320,
+   "by_era": {
+    "Elected Government (2026–)": 583,
+    "Interim Government (2024–2026)": 1507,
+    "Awami League (2009–2024)": 5230
+   }
   },
   {
    "cpvcode": "93000000",
    "name": "Miscellaneous services",
-   "count": 6924
+   "count": 6924,
+   "by_era": {
+    "Interim Government (2024–2026)": 1613,
+    "Elected Government (2026–)": 1237,
+    "Awami League (2009–2024)": 4074
+   }
   },
   {
    "cpvcode": "35000000",
    "name": "Transport equipment",
-   "count": 6212
+   "count": 6212,
+   "by_era": {
+    "Elected Government (2026–)": 630,
+    "Interim Government (2024–2026)": 1264,
+    "Awami League (2009–2024)": 4318
+   }
   },
   {
    "cpvcode": "32000000",
    "name": "Radio, television, communication, telecommunication and related equipment and apparatus",
-   "count": 5935
+   "count": 5935,
+   "by_era": {
+    "Interim Government (2024–2026)": 1576,
+    "Elected Government (2026–)": 582,
+    "Awami League (2009–2024)": 3777
+   }
   },
   {
    "cpvcode": "01000000",
    "name": "Agricultural, horticultural, hunting and related products",
-   "count": 4909
+   "count": 4909,
+   "by_era": {
+    "Elected Government (2026–)": 954,
+    "Interim Government (2024–2026)": 1202,
+    "Awami League (2009–2024)": 2753
+   }
   },
   {
    "cpvcode": "41000000",
    "name": "Collected and purified water",
-   "count": 4857
+   "count": 4857,
+   "by_era": {
+    "Interim Government (2024–2026)": 678,
+    "Elected Government (2026–)": 144,
+    "Awami League (2009–2024)": 4035
+   }
   },
   {
    "cpvcode": "85000000",
    "name": "Health and social work services",
-   "count": 4435
+   "count": 4435,
+   "by_era": {
+    "Elected Government (2026–)": 600,
+    "Interim Government (2024–2026)": 2625,
+    "Awami League (2009–2024)": 1210
+   }
   },
   {
    "cpvcode": "18000000",
    "name": "Clothing and accessories",
-   "count": 4265
+   "count": 4265,
+   "by_era": {
+    "Elected Government (2026–)": 578,
+    "Awami League (2009–2024)": 2165,
+    "Interim Government (2024–2026)": 1522
+   }
   },
   {
    "cpvcode": "27000000",
    "name": "Basic metals and associated products",
-   "count": 3880
+   "count": 3880,
+   "by_era": {
+    "Awami League (2009–2024)": 2600,
+    "Elected Government (2026–)": 324,
+    "Interim Government (2024–2026)": 956
+   }
   },
   {
    "cpvcode": "20000000",
    "name": "Wood, wood products, cork products, basketware and wickerwork",
-   "count": 3697
+   "count": 3697,
+   "by_era": {
+    "Interim Government (2024–2026)": 716,
+    "Elected Government (2026–)": 382,
+    "Awami League (2009–2024)": 2599
+   }
   },
   {
    "cpvcode": "25000000",
    "name": "Rubber, plastic and film products",
-   "count": 3660
+   "count": 3660,
+   "by_era": {
+    "Elected Government (2026–)": 313,
+    "Interim Government (2024–2026)": 1013,
+    "Awami League (2009–2024)": 2334
+   }
   },
   {
    "cpvcode": "28000000",
    "name": "Fabricated products and materials",
-   "count": 3534
+   "count": 3534,
+   "by_era": {
+    "Elected Government (2026–)": 399,
+    "Interim Government (2024–2026)": 921,
+    "Awami League (2009–2024)": 2214
+   }
   },
   {
    "cpvcode": "90000000",
    "name": "Sewage- and refuse-disposal services, sanitation and environmental services",
-   "count": 3266
+   "count": 3266,
+   "by_era": {
+    "Interim Government (2024–2026)": 653,
+    "Elected Government (2026–)": 372,
+    "Awami League (2009–2024)": 2241
+   }
   },
   {
    "cpvcode": "17000000",
    "name": "Textiles and textile articles",
-   "count": 3252
+   "count": 3252,
+   "by_era": {
+    "Elected Government (2026–)": 293,
+    "Interim Government (2024–2026)": 1274,
+    "Awami League (2009–2024)": 1685
+   }
   },
   {
    "cpvcode": "74000000",
    "name": "Architectural, engineering, construction, legal, accounting and other professional services",
-   "count": 2967
+   "count": 2967,
+   "by_era": {
+    "Interim Government (2024–2026)": 579,
+    "Elected Government (2026–)": 431,
+    "Awami League (2009–2024)": 1957
+   }
   },
   {
    "cpvcode": "21000000",
    "name": "Various types of pulp, paper and paper products",
-   "count": 2957
+   "count": 2957,
+   "by_era": {
+    "Interim Government (2024–2026)": 847,
+    "Elected Government (2026–)": 372,
+    "Awami League (2009–2024)": 1738
+   }
   },
   {
    "cpvcode": "77000000",
    "name": "Agricultural, forestry and horticultural services",
-   "count": 2862
+   "count": 2862,
+   "by_era": {
+    "Interim Government (2024–2026)": 632,
+    "Elected Government (2026–)": 462,
+    "Awami League (2009–2024)": 1768
+   }
   },
   {
    "cpvcode": "61000000",
    "name": "Water transport services",
-   "count": 2649
+   "count": 2649,
+   "by_era": {
+    "Interim Government (2024–2026)": 630,
+    "Elected Government (2026–)": 170,
+    "Awami League (2009–2024)": 1849
+   }
   },
   {
    "cpvcode": "02000000",
    "name": "Forestry and logging products",
-   "count": 1718
+   "count": 1718,
+   "by_era": {
+    "Elected Government (2026–)": 137,
+    "Interim Government (2024–2026)": 309,
+    "Awami League (2009–2024)": 1272
+   }
   },
   {
    "cpvcode": "52000000",
    "name": "Retail trade services",
-   "count": 1611
+   "count": 1611,
+   "by_era": {
+    "Elected Government (2026–)": 284,
+    "Interim Government (2024–2026)": 541,
+    "Awami League (2009–2024)": 786
+   }
   },
   {
    "cpvcode": "11000000",
    "name": "Petroleum, natural gas, oil and associated products",
-   "count": 1434
+   "count": 1434,
+   "by_era": {
+    "Elected Government (2026–)": 158,
+    "Interim Government (2024–2026)": 359,
+    "Awami League (2009–2024)": 917
+   }
   },
   {
    "cpvcode": "26000000",
    "name": "Non-metallic mineral products",
-   "count": 1381
+   "count": 1381,
+   "by_era": {
+    "Interim Government (2024–2026)": 396,
+    "Elected Government (2026–)": 159,
+    "Awami League (2009–2024)": 826
+   }
   },
   {
    "cpvcode": "13000000",
    "name": "Metal ores",
-   "count": 1378
+   "count": 1378,
+   "by_era": {
+    "Elected Government (2026–)": 128,
+    "Interim Government (2024–2026)": 235,
+    "Awami League (2009–2024)": 1015
+   }
   },
   {
    "cpvcode": "19000000",
    "name": "Leather, leather products and footwear",
-   "count": 1152
+   "count": 1152,
+   "by_era": {
+    "Elected Government (2026–)": 158,
+    "Interim Government (2024–2026)": 363,
+    "Awami League (2009–2024)": 631
+   }
   },
   {
    "cpvcode": "80000000",
    "name": "Education services",
-   "count": 1145
+   "count": 1145,
+   "by_era": {
+    "Elected Government (2026–)": 73,
+    "Interim Government (2024–2026)": 180,
+    "Awami League (2009–2024)": 892
+   }
   },
   {
    "cpvcode": "14000000",
    "name": "Mining, quarrying and other associated products",
-   "count": 1044
+   "count": 1044,
+   "by_era": {
+    "Interim Government (2024–2026)": 211,
+    "Elected Government (2026–)": 87,
+    "Awami League (2009–2024)": 746
+   }
   },
   {
    "cpvcode": "60000000",
    "name": "Land transport services and transport via pipeline services",
-   "count": 937
+   "count": 937,
+   "by_era": {
+    "Elected Government (2026–)": 171,
+    "Interim Government (2024–2026)": 218,
+    "Awami League (2009–2024)": 548
+   }
   },
   {
    "cpvcode": "05000000",
    "name": "Fish, fishing products and other by-products of the fishing industry",
-   "count": 879
+   "count": 879,
+   "by_era": {
+    "Interim Government (2024–2026)": 473,
+    "Elected Government (2026–)": 173,
+    "Awami League (2009–2024)": 233
+   }
   },
   {
    "cpvcode": "95000000",
    "name": "Private households with employed persons",
-   "count": 871
+   "count": 871,
+   "by_era": {
+    "Interim Government (2024–2026)": 173,
+    "Elected Government (2026–)": 179,
+    "Awami League (2009–2024)": 519
+   }
   },
   {
    "cpvcode": "23000000",
    "name": "Petroleum products and fuels",
-   "count": 708
+   "count": 708,
+   "by_era": {
+    "Elected Government (2026–)": 75,
+    "Interim Government (2024–2026)": 178,
+    "Awami League (2009–2024)": 455
+   }
   },
   {
    "cpvcode": "37000000",
    "name": "Recovered secondary raw materials",
-   "count": 629
+   "count": 629,
+   "by_era": {
+    "Elected Government (2026–)": 46,
+    "Interim Government (2024–2026)": 187,
+    "Awami League (2009–2024)": 396
+   }
   },
   {
    "cpvcode": "73000000",
    "name": "Research and development services and related consultancy services.",
-   "count": 481
+   "count": 481,
+   "by_era": {
+    "Interim Government (2024–2026)": 101,
+    "Elected Government (2026–)": 123,
+    "Awami League (2009–2024)": 257
+   }
   },
   {
    "cpvcode": "63000000",
    "name": "Supporting and auxiliary transport services; travel agencies services",
-   "count": 466
+   "count": 466,
+   "by_era": {
+    "Elected Government (2026–)": 185,
+    "Interim Government (2024–2026)": 114,
+    "Awami League (2009–2024)": 167
+   }
   },
   {
    "cpvcode": "64000000",
    "name": "Postal and telecommunications services",
-   "count": 458
+   "count": 458,
+   "by_era": {
+    "Interim Government (2024–2026)": 214,
+    "Elected Government (2026–)": 72,
+    "Awami League (2009–2024)": 172
+   }
   },
   {
    "cpvcode": "76000000",
    "name": "Services related to the oil and gas industry",
-   "count": 399
+   "count": 399,
+   "by_era": {
+    "Interim Government (2024–2026)": 121,
+    "Elected Government (2026–)": 78,
+    "Awami League (2009–2024)": 200
+   }
   },
   {
    "cpvcode": "92000000",
    "name": "Recreational, cultural and sporting services",
-   "count": 381
+   "count": 381,
+   "by_era": {
+    "Elected Government (2026–)": 114,
+    "Interim Government (2024–2026)": 69,
+    "Awami League (2009–2024)": 198
+   }
   },
   {
    "cpvcode": "75000000",
    "name": "Administration, defence and social security services",
-   "count": 329
+   "count": 329,
+   "by_era": {
+    "Elected Government (2026–)": 76,
+    "Interim Government (2024–2026)": 54,
+    "Awami League (2009–2024)": 199
+   }
   },
   {
    "cpvcode": "99000000",
    "name": "Services provided by extra-territorial organisations and bodies",
-   "count": 317
+   "count": 317,
+   "by_era": {
+    "Interim Government (2024–2026)": 89,
+    "Elected Government (2026–)": 78,
+    "Awami League (2009–2024)": 150
+   }
   },
   {
    "cpvcode": "55000000",
    "name": "Hotel and restaurant services",
-   "count": 248
+   "count": 248,
+   "by_era": {
+    "Elected Government (2026–)": 66,
+    "Interim Government (2024–2026)": 109,
+    "Awami League (2009–2024)": 73
+   }
   },
   {
    "cpvcode": "10000000",
    "name": "Coal, lignite, peat and other coal-related products",
-   "count": 212
+   "count": 212,
+   "by_era": {
+    "Elected Government (2026–)": 31,
+    "Interim Government (2024–2026)": 51,
+    "Awami League (2009–2024)": 130
+   }
   },
   {
    "cpvcode": "70000000",
    "name": "Real estate services",
-   "count": 195
+   "count": 195,
+   "by_era": {
+    "Interim Government (2024–2026)": 43,
+    "Elected Government (2026–)": 24,
+    "Awami League (2009–2024)": 128
+   }
   },
   {
    "cpvcode": "62000000",
    "name": "Air transport services",
-   "count": 191
+   "count": 191,
+   "by_era": {
+    "Elected Government (2026–)": 34,
+    "Interim Government (2024–2026)": 60,
+    "Awami League (2009–2024)": 97
+   }
   },
   {
    "cpvcode": "16000000",
    "name": "Tobacco, tobacco goods and supplies",
-   "count": 163
+   "count": 163,
+   "by_era": {
+    "Elected Government (2026–)": 48,
+    "Interim Government (2024–2026)": 44,
+    "Awami League (2009–2024)": 71
+   }
   },
   {
    "cpvcode": "67000000",
    "name": "Services auxiliary to financial intermediation",
-   "count": 157
+   "count": 157,
+   "by_era": {
+    "Elected Government (2026–)": 68,
+    "Interim Government (2024–2026)": 34,
+    "Awami League (2009–2024)": 55
+   }
   },
   {
    "cpvcode": "66000000",
    "name": "Financial intermediation services",
-   "count": 139
+   "count": 139,
+   "by_era": {
+    "Interim Government (2024–2026)": 62,
+    "Elected Government (2026–)": 41,
+    "Awami League (2009–2024)": 36
+   }
   },
   {
    "cpvcode": "91000000",
    "name": "Membership organisation services",
-   "count": 95
+   "count": 95,
+   "by_era": {
+    "Interim Government (2024–2026)": 22,
+    "Elected Government (2026–)": 25,
+    "Awami League (2009–2024)": 48
+   }
   },
   {
    "cpvcode": "12000000",
    "name": "Uranium and thorium ores",
-   "count": 85
+   "count": 85,
+   "by_era": {
+    "Elected Government (2026–)": 16,
+    "Interim Government (2024–2026)": 10,
+    "Awami League (2009–2024)": 59
+   }
   }
  ]
 }

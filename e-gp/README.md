@@ -39,6 +39,10 @@ presence of a dashboard.
 | Tender funnel counts | `Tenders.jsp` | **Skipped by design** -- the master tender list's own `status` field gives a richer breakdown (10 categories) than this page's 3 buckets, with no separate crawl needed |
 | Annual Procurement Plan per-office line items (itemised estimates + planned method) | `resources/common/StdSearch.jsp` -> `SearchAPPServlet` (`action=advSearch`) | **Live, sampled** -- the government's own pre-tender cost estimate and planned procurement method, package by package. An earlier pass wrongly recorded this as unreachable: the link on SearchAPP.jsp is *relative*, so it resolves under `/resources/common/`, and requesting `/StdSearch.jsp` at the site root returns an "Invalid Page" shell. Crawled busiest-offices-first, resumable. |
 | Plan vs. outcome (estimate vs. award, planned vs. actual method) | -- | **Live** -- `build_plan_vs_actual.py`, see the dashboard's Finding 03 |
+| ৳50 crore administrative-ceiling bunching & split-pattern detection | -- | **Live** -- `build_ceiling.py`, see Finding 05 |
+| Tender topic mix (CPV category) | `GetCpvTree` / `TenderDetailsServlet` (`cpvCategory` filter) | **Live** -- 61 top-level categories, counted overall and per political era (see Sectors below) |
+| Geographic spend by district | derived from `district` on eContracts | **Live** -- `build_geo.py`; map geometry is a one-off static asset from an external open-data source, not eprocure.gov.bd -- see "Where the district map geometry comes from" in the dashboard's Methodology |
+| Political-era segmentation (Awami League / interim / elected government) | -- | **Live** -- `eras.py`, applied across contracts, plan-vs-actual, the ceiling analysis, debarment flags, and CPV counts; see the dashboard's Governments section |
 
 ## Headline numbers (as of the last full build)
 
@@ -127,6 +131,30 @@ presence of a dashboard.
   certainly just common-name collisions ("Abul Kalam Azad" across three
   unrelated small firms). See "On the ownership-matching methodology" --
   every one of these needs a human look before it means anything.
+- Contracts bunch **1.54x** more just under the Tk 50 crore administrative
+  approval ceiling (Tk 45-50cr) than just over it (Tk 50-55cr), and **402**
+  office-vendor pairs show multiple sub-threshold awards clustered within 45
+  days of each other summing past it -- the shape a threshold gets gamed
+  into. See `build_ceiling.py`.
+- By CPV category, **Construction work** is **54.3%** of all tenders
+  nationally; the whole of **Computer and related services** (government ICT
+  procurement) is **1.2%**. Split by political era, construction's own share
+  runs 59.4% (Awami League) -> 37.9% (interim) -> 26.7% (elected), while
+  categories like computing equipment and food products roughly double their
+  share over the same span -- the state's purchasing mix has genuinely
+  shifted, not just its total. See `scrape_cpv.py` / `data/cpv_categories.json`.
+- Split by district (`build_geo.py` + `build_district_geo.py`), spend varies
+  more than 10x between districts of otherwise comparable size, Dhaka aside.
+  Boundaries are traced from an external open-data source, not
+  eprocure.gov.bd -- see the dashboard's Methodology.
+- Split by government (`eras.py`: Awami League through 2024-08-07, an
+  interim government through 2026-02-16, an elected government since), the
+  pace of contracting has risen every era (141 -> 271 -> 378 contracts/day)
+  and open tendering's share has held or improved (75.1% -> 71.8% -> 81.7%
+  of value) -- though the elected-government window is, as of this build,
+  only a few months old and the smallest of the three. See the dashboard's
+  Governments section for the full comparison, including debarment
+  violations and the discount-convention share by era.
 
 ## Dashboard design
 
@@ -207,6 +235,14 @@ python3 build_plan_vs_actual.py ../raw/app_items.jsonl ../data/contracts ../data
 python3 pick_vendor_samples.py ../data/contracts ../raw/vendor_samples.jsonl --limit=20000
 python3 scrape_award_details.py ../raw/vendor_samples.jsonl ../raw/award_details.jsonl --resume
 python3 build_ownership.py ../raw/award_details.jsonl ../data/ownership.json
+
+python3 build_ceiling.py ../data/contracts ../data/ceiling.json
+python3 scrape_cpv.py ../raw/cpv_categories.json                              # ~250 lightweight requests, ~2min
+python3 build_cpv.py ../raw/cpv_categories.json ../data/cpv_categories.json
+python3 build_geo.py ../data/contracts ../data/geo.json                       # daily; geometry itself is not
+
+# One-off, not part of the daily job -- district boundaries don't change day to day:
+python3 build_district_geo.py <districts.geojson> ../data/bd_districts_geo.json
 ```
 
 `pipeline/common.py` holds the shared HTTP client used by every source: one
@@ -218,7 +254,12 @@ short of anything that would strain a government server). New source
 crawlers should use it rather than opening their own connections.
 
 `pipeline/entity.py` and `pipeline/dates.py` hold the name-normalisation and
-date-parsing every other stage shares.
+date-parsing every other stage shares. `pipeline/eras.py` holds the
+political-era boundaries (Awami League / interim / elected government) used
+by `build_analysis.py`, `build_plan_vs_actual.py`, `build_ceiling.py`,
+`flag_debarred_awards.py`, and `scrape_cpv.py`. `pipeline/districts.py`
+holds the district name normalisation (pre-/post-2018 spelling variants)
+shared by `build_geo.py` and `build_district_geo.py`.
 
 ### On the flagging methodology (read this before trusting a number)
 

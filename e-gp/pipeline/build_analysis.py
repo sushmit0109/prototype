@@ -18,6 +18,7 @@ import sys
 from collections import Counter, defaultdict
 
 from entity import normalize_company
+from eras import ERA_NAMES, era_of
 
 LAKH = 100_000
 CRORE = 10_000_000
@@ -158,6 +159,53 @@ def concentration(rows, dims):
     }
 
 
+def era_breakdown(rows):
+    """Spend, count, and OTM/LTM method mix by political era.
+
+    The three eras span very different lengths of time (the Awami League
+    era is ~15 years of data, the interim government ~18 months, the
+    elected government a few months as of this run) -- comparing raw totals
+    would mostly just measure duration. Everything here is reported as a
+    daily rate too, using each era's *actual observed* span in this dataset
+    (not its nominal calendar length), so the eras are comparable on pace,
+    not just on total.
+    """
+    from datetime import date
+
+    agg = {e: {"count": 0, "value_bdt": 0.0, "methods": defaultdict(float), "dates": []}
+           for e in ERA_NAMES}
+    for r in rows:
+        d = r.get("contract_signing_date")
+        era = era_of(d)
+        if not era:
+            continue
+        a = agg[era]
+        v = r.get("value_bdt") or 0
+        a["count"] += 1
+        a["value_bdt"] += v
+        a["methods"][r.get("procurement_method") or "Unknown"] += v
+        a["dates"].append(d)
+
+    out = {}
+    for e in ERA_NAMES:
+        a = agg[e]
+        total_method_value = sum(a["methods"].values()) or 1
+        span_days = 1
+        if a["dates"]:
+            lo, hi = min(a["dates"]), max(a["dates"])
+            span_days = max((date.fromisoformat(hi) - date.fromisoformat(lo)).days, 1)
+        out[e] = {
+            "count": a["count"],
+            "value_bdt": round(a["value_bdt"], 2),
+            "observed_span_days": span_days,
+            "contracts_per_day": round(a["count"] / span_days, 2),
+            "value_bdt_per_day": round(a["value_bdt"] / span_days, 2),
+            "otm_share": round(a["methods"].get("OTM", 0) / total_method_value, 4),
+            "ltm_share": round(a["methods"].get("LTM", 0) / total_method_value, 4),
+        }
+    return out
+
+
 def price_points(rows):
     """Contracts pile up on a few identical prices -- and those are mostly LTM.
 
@@ -220,6 +268,7 @@ def main(contracts_dir, tenders_dir, out_path):
         "method_mix": method_mix(rows),
         "concentration": concentration(rows, dims),
         "price_points": price_points(rows),
+        "by_era": era_breakdown(rows),
     }
     with open(out_path, "w") as fh:
         json.dump(payload, fh, ensure_ascii=False, indent=1)

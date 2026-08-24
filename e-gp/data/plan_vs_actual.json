@@ -671,6 +671,32 @@
     "share_at_10pct_below": 0.0688
    }
   ],
+  "by_era": [
+   {
+    "era": "Awami League (2009–2024)",
+    "matched_pairs": 31142,
+    "median_ratio": 0.9226,
+    "iqr": 0.0521,
+    "share_above_115": 0.0066,
+    "share_at_10pct_below": 0.2962
+   },
+   {
+    "era": "Interim Government (2024–2026)",
+    "matched_pairs": 7870,
+    "median_ratio": 0.9333,
+    "iqr": 0.0505,
+    "share_above_115": 0.0017,
+    "share_at_10pct_below": 0.2127
+   },
+   {
+    "era": "Elected Government (2026–)",
+    "matched_pairs": 3165,
+    "median_ratio": 0.9355,
+    "iqr": 0.0669,
+    "share_above_115": 0.0013,
+    "share_at_10pct_below": 0.0559
+   }
+  ],
   "min_pairs_for_ministry": 30
  }
 }

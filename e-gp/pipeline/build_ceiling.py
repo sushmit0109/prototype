@@ -31,6 +31,8 @@ import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 
+from eras import ERA_NAMES, era_of
+
 CRORE = 1e7
 THRESHOLD_BDT = 50 * CRORE
 WINDOW_DAYS = 45          # how close together sub-threshold awards must land
@@ -109,8 +111,23 @@ def find_split_clusters(contracts, dims):
         c["ministry"] = dims["ministries"][c["ministry_id"]] if c["ministry_id"] is not None else "Unknown"
         c["procuring_entity"] = dims["procuring_entities"][c["procuring_entity_id"]] \
             if c["procuring_entity_id"] is not None else "Unknown"
+        c["era"] = era_of(c["first_date"])
         del c["ministry_id"], c["procuring_entity_id"]
     return clusters
+
+
+def bunching_by_era(contracts):
+    by_era = defaultdict(list)
+    for c in contracts:
+        v = c.get("value_bdt")
+        era = era_of(c.get("contract_signing_date"))
+        if v and era:
+            by_era[era].append(v / CRORE)
+    return [
+        {"era": e, "just_under_45_50": band(by_era[e], 45, 50), "just_over_50_55": band(by_era[e], 50, 55),
+         "contracts_in_era": len(by_era[e])}
+        for e in ERA_NAMES if by_era.get(e)
+    ]
 
 
 def main(contracts_dir, out_path):
@@ -126,6 +143,7 @@ def main(contracts_dir, out_path):
     wide_over = band(values_crore, 50, 65)
 
     clusters = find_split_clusters(contracts, dims)
+    clusters_by_era = Counter(c["era"] for c in clusters if c["era"])
 
     payload = {
         "meta": {
@@ -142,9 +160,11 @@ def main(contracts_dir, out_path):
             "asymmetry_ratio": round(just_under / just_over, 2) if just_over else None,
             "wide_under_35_50": wide_under,
             "wide_over_50_65": wide_over,
+            "by_era": bunching_by_era(contracts),
         },
         "split_clusters": clusters[:40],
         "split_clusters_total_count": len(clusters),
+        "split_clusters_by_era": dict(clusters_by_era),
     }
     with open(out_path, "w") as fh:
         json.dump(payload, fh, ensure_ascii=False, indent=1)

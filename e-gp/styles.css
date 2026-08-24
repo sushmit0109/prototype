@@ -167,6 +167,84 @@ td.strong { font-weight: 600; }
 .more-btn:hover { border-color: var(--s1); }
 .more-btn[hidden] { display: none; }
 
+/* ── Collapsible finding cards ────────────────────────── */
+.finding-card { border-bottom: 1px solid var(--border-soft); scroll-margin-top: 20px; }
+.finding-card summary {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+  padding: 32px 0; cursor: pointer; list-style: none;
+}
+.finding-card summary::-webkit-details-marker { display: none; }
+.finding-card summary::marker { content: ""; }
+.finding-card .fc-toggle {
+  flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--border); color: var(--text-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; line-height: 1; margin-top: 2px;
+  transition: border-color .15s, color .15s, transform .15s;
+}
+.finding-card .fc-toggle::before { content: "+"; }
+.finding-card[open] .fc-toggle::before { content: "\2212"; }
+.finding-card summary:hover .fc-toggle { border-color: var(--s1); color: var(--s1); }
+.finding-card .fc-teaser {
+  margin-top: 8px; font-size: 0.85rem; color: var(--text-2);
+}
+.finding-card .fc-teaser .num { color: var(--s2); font-weight: 700; }
+.finding-card .fc-body { padding-bottom: 48px; }
+.finding-card:not([open]) .claim { max-width: 100%; }
+
+/* ── Section headers (Map / Governments / Sectors) ───────── */
+.section-head { padding: 56px 0 0; scroll-margin-top: 20px; }
+.section-kicker {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--s2); margin-bottom: 12px;
+}
+.section-title { font-size: clamp(1.3rem, 2.6vw, 1.85rem); font-weight: 650; letter-spacing: -0.015em; max-width: 760px; }
+
+/* ── Overview teaser grid ─────────────────────────────── */
+.teaser-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px; margin-top: 30px;
+}
+.teaser-card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px 20px; transition: border-color .15s, transform .15s;
+}
+.teaser-card:hover { border-color: var(--s1); transform: translateY(-1px); }
+.teaser-card .tc-num { font-size: 1.3rem; font-weight: 700; color: var(--s2); letter-spacing: -0.01em; }
+.teaser-card .tc-label { margin-top: 4px; font-size: 0.8rem; color: var(--text-2); }
+
+/* ── Map ──────────────────────────────────────────────── */
+.map-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-top: 24px; align-items: start; }
+@media (max-width: 800px) { .map-layout { grid-template-columns: 1fr; } }
+.map-controls { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 16px; }
+.map-control-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.map-control-group span.gl {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-3); align-self: center; margin-right: 4px;
+}
+.map-btn {
+  font: inherit; font-size: 0.78rem; color: var(--text-2);
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 100px;
+  padding: 5px 13px; cursor: pointer; transition: all .12s;
+}
+.map-btn:hover { border-color: var(--s1); color: var(--text); }
+.map-btn.active { background: var(--s1); border-color: var(--s1); color: #fff; }
+.district { stroke: var(--page); stroke-width: 0.75; cursor: pointer; transition: opacity .1s; }
+.district:hover { stroke: var(--text); stroke-width: 1.25; }
+.map-legend { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.72rem; color: var(--text-3); }
+.map-legend .swatches { display: flex; }
+.map-legend .swatches span { width: 22px; height: 10px; }
+.district-table th, .district-table td { padding: 8px 12px; }
+
+/* ── Era / governments comparison ────────────────────────── */
+.era-grid { overflow-x: auto; margin-top: 24px; }
+.era-grid table { min-width: 720px; }
+.era-grid .era-bar-cell { display: flex; align-items: center; gap: 8px; }
+.era-grid .era-bar-track { width: 90px; height: 7px; background: var(--surface-2); border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+.era-grid .era-bar-fill { height: 100%; border-radius: 4px; background: var(--s1); }
+.era-legend-note { margin-top: 14px; font-size: 0.78rem; color: var(--text-3); }
+
 /* ── Methodology ──────────────────────────────────────── */
 details {
   background: var(--surface); border: 1px solid var(--border);

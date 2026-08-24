@@ -24,11 +24,15 @@ def main(raw_path, out_path):
             "source": raw["source"],
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "all_tenders": raw["all_tenders"],
+            "all_tenders_by_era": raw.get("all_tenders_by_era", {}),
             "categories_tracked": len(raw["categories"]),
             "note": "A tender can carry more than one CPV category, so category "
                     "counts overlap and do not sum to all_tenders.",
         },
-        "top_categories": [{"name": c["name"], "count": c["count"]} for c in top],
+        "top_categories": [
+            {"name": c["name"], "count": c["count"], "by_era": c.get("by_era", {})}
+            for c in top
+        ],
     }
     with open(out_path, "w") as fh:
         json.dump(payload, fh, ensure_ascii=False, indent=1)

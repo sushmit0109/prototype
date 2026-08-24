@@ -49,6 +49,8 @@ import statistics
 import sys
 from collections import Counter, defaultdict
 
+from eras import ERA_NAMES, era_of
+
 # Methods ordered by how open the competition is, most open first. Used only
 # to say whether a change between plan and award opened the process up or
 # closed it down -- not to rank methods as good or bad in themselves.
@@ -94,15 +96,20 @@ def ministry_and_year_breakdown(pairs, dims):
     """
     by_ministry = defaultdict(list)
     by_year = defaultdict(list)
+    by_era = defaultdict(list)
     for p, c in pairs:
         r = c["value_bdt"] / p["estimated_cost_bdt"]
         mid = c.get("ministry_id")
         ministry = dims["ministries"][mid] if mid is not None and mid < len(dims["ministries"]) else None
         if ministry:
             by_ministry[ministry].append(r)
-        year = (c.get("contract_signing_date") or "")[:4]
+        date = c.get("contract_signing_date") or ""
+        year = date[:4]
         if year:
             by_year[year].append(r)
+        era = era_of(date)
+        if era:
+            by_era[era].append(r)
 
     def summarize(ratios):
         rs = sorted(ratios)
@@ -127,7 +134,10 @@ def ministry_and_year_breakdown(pairs, dims):
     ]
     years.sort(key=lambda x: x["year"])
 
-    return ministries, years
+    eras = [{"era": e, **summarize(rs)} for e, rs in by_era.items() if rs]
+    eras.sort(key=lambda x: ERA_NAMES.index(x["era"]))
+
+    return ministries, years, eras
 
 
 def main(items_path, contracts_dir, out_path):
@@ -290,7 +300,7 @@ def main(items_path, contracts_dir, out_path):
             and OPENNESS.get(c["procurement_method"], 0) < OPENNESS.get(p["planned_method"], 0)],
         key=lambda x: -(x["awarded_bdt"] or 0))[:20]
 
-    ministries, years = ministry_and_year_breakdown(pairs, dims)
+    ministries, years, eras = ministry_and_year_breakdown(pairs, dims)
 
     payload = {
         "meta": {
@@ -324,6 +334,7 @@ def main(items_path, contracts_dir, out_path):
         "cost_structure": {
             "by_ministry": ministries,
             "by_year": years,
+            "by_era": eras,
             "min_pairs_for_ministry": MIN_PAIRS_FOR_MINISTRY,
         },
     }

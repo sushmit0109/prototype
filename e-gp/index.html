@@ -17,39 +17,154 @@
     <h1>What Bangladesh's<br>procurement data says</h1>
     <p class="standfirst">
       Every government contract on the national e-Procurement portal since 2011, read as one
-      dataset instead of six separate search pages. Eleven findings, each with what it means —
-      and what it doesn't.
+      dataset instead of six separate search pages — where the money went, who got it, and how
+      that's shifted across three governments.
     </p>
     <div class="scale-row" id="scaleRow"></div>
     <p class="updated" id="updated"></p>
   </div>
 </header>
 
-<nav class="contents" aria-label="Findings">
-  <a href="#f1">01 · The June rush</a>
-  <a href="#f2">02 · Closing tenders</a>
-  <a href="#fplan">03 · Plan vs outcome</a>
-  <a href="#fcost">04 · Cost deviation by ministry</a>
-  <a href="#fceiling">05 · The ৳50 crore ceiling</a>
-  <a href="#f3">06 · Nine offices</a>
-  <a href="#f4">07 · Repeated prices</a>
-  <a href="#f5">08 · Where money goes</a>
-  <a href="#f6">09 · Cross-ministry firms</a>
-  <a href="#f7">10 · Debarment gap</a>
-  <a href="#ftopic">11 · Topic mix</a>
+<nav class="contents" aria-label="Sections">
+  <a href="#overview">Overview</a>
+  <a href="#map">Geography</a>
+  <a href="#governments">Governments</a>
+  <a href="#findings">Findings</a>
+  <a href="#sectors">Sectors</a>
   <a href="#method">Methodology</a>
 </nav>
 
 <main>
 
+  <!-- ── Overview ──────────────────────────────────── -->
+  <section class="section-head" id="overview" style="padding-top:40px">
+    <p class="section-kicker">Start here</p>
+    <h2 class="section-title">Ten findings, a map, and three governments' worth of buying habits</h2>
+    <p class="sub" style="margin-top:14px">
+      Everything below is closed by default — read the headline, open what interests you, skip
+      the rest. Each card carries its own "what this isn't" alongside the claim.
+    </p>
+    <div class="teaser-grid">
+      <a class="teaser-card" href="#map"><div class="tc-num">64 districts</div><div class="tc-label">mapped by spend — click through to explore</div></a>
+      <a class="teaser-card" href="#governments"><div class="tc-num">3 governments</div><div class="tc-label">same dataset, compared side by side</div></a>
+      <a class="teaser-card" href="#f1"><div class="tc-num">14.3%</div><div class="tc-label">of contracts signed in the last month of the fiscal year</div></a>
+      <a class="teaser-card" href="#fceiling"><div class="tc-num">1.54×</div><div class="tc-label">bunching just under the ৳50 crore approval ceiling</div></a>
+      <a class="teaser-card" href="#f7"><div class="tc-num">246 contracts</div><div class="tc-label">signed with a company under an active ban</div></a>
+      <a class="teaser-card" href="#sectors"><div class="tc-num">54.3% vs 1.2%</div><div class="tc-label">construction vs the whole of ICT procurement</div></a>
+    </div>
+  </section>
+
+  <!-- ── Geography ─────────────────────────────────── -->
+  <section class="section-head" id="map">
+    <p class="section-kicker">Geography</p>
+    <h2 class="section-title">Where the money actually goes, district by district</h2>
+    <p class="sub" style="margin-top:14px">
+      Every contract carries the district it was delivered in. Dhaka aside — it is the seat of
+      most national-level procurement, not just a big city — spend still varies more than
+      10× between districts of otherwise similar size.
+    </p>
+    <div class="map-controls">
+      <div class="map-control-group" id="mapMetricGroup">
+        <span class="gl">Shade by</span>
+        <button class="map-btn active" data-metric="value_bdt">Total value</button>
+        <button class="map-btn" data-metric="count">Contract count</button>
+      </div>
+      <div class="map-control-group" id="mapEraGroup">
+        <span class="gl">Era</span>
+        <button class="map-btn active" data-era="all">All time</button>
+        <button class="map-btn" data-era="Awami League (2009–2024)">Awami League</button>
+        <button class="map-btn" data-era="Interim Government (2024–2026)">Interim</button>
+        <button class="map-btn" data-era="Elected Government (2026–)">Elected</button>
+      </div>
+    </div>
+    <div class="map-layout">
+      <div class="chart-card">
+        <div id="chartMap"></div>
+        <div class="map-legend" id="mapLegend"></div>
+      </div>
+      <div class="table-wrap district-table">
+        <table>
+          <thead><tr><th>District</th><th class="n">Value</th><th class="n">Contracts</th></tr></thead>
+          <tbody id="mapTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <p class="sub" id="mapCaption" style="margin-top:14px;font-size:0.8rem"></p>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>A national total hides which parts of the country are actually being built up versus
+        which are being passed over. Filtering by era also surfaces whether a change of
+        government visibly redirected where money flows, or left the geography untouched while
+        the rest of procurement behaviour shifted.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>District of delivery, not district of the winning company — a Dhaka-based firm building
+        a bridge in Bhola shows up under Bhola. Boundaries are simplified for legibility, not
+        survey-accurate, and the newest district reclassifications may not all be reflected.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Governments ───────────────────────────────── -->
+  <section class="section-head" id="governments">
+    <p class="section-kicker">Three governments</p>
+    <h2 class="section-title">Same dataset, three governments — what changed and what didn't</h2>
+    <p class="sub" style="margin-top:14px" id="eraIntro"></p>
+    <div class="era-grid">
+      <table>
+        <thead><tr>
+          <th>Metric</th>
+          <th class="n">Awami League<br><span class="muted" style="font-weight:400">2009 – 07 Aug 2024</span></th>
+          <th class="n">Interim Government<br><span class="muted" style="font-weight:400">08 Aug 2024 – 16 Feb 2026</span></th>
+          <th class="n">Elected Government<br><span class="muted" style="font-weight:400">17 Feb 2026 –</span></th>
+        </tr></thead>
+        <tbody id="eraBody"></tbody>
+      </table>
+    </div>
+    <p class="era-legend-note" id="eraNote"></p>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>Procurement behaviour is usually described as one long national trend line. Splitting
+        it by government tests whether that's true, or whether it's really several distinct
+        regimes stitched together — each with its own pace, its own competitiveness, and its own
+        relationship to the estimate it started from.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>The three eras are wildly different lengths — roughly 15 years, 18 months, and (as of
+        this run) a few months. Rates (per day) make them comparable on pace; shares make them
+        comparable on mix. But the elected-government column is the newest, smallest, and most
+        likely to move as more of its own data accumulates — read it as early, not final.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Findings ──────────────────────────────────── -->
+  <section class="section-head" id="findings" style="padding-bottom:8px">
+    <p class="section-kicker">Findings</p>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <h2 class="section-title">Ten specific claims, each closed until you open it</h2>
+      <button class="map-btn" id="expandAllBtn" type="button" style="white-space:nowrap">Expand all</button>
+    </div>
+  </section>
+
   <!-- ── 01 ─────────────────────────────────────────── -->
-  <section class="finding" id="f1">
-    <p class="finding-no">Finding 01 — Timing</p>
+  <details class="finding-card" id="f1">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 01 — Timing</p>
     <h2 class="claim">
       One in every seven contracts is signed in <em>June</em> — the last month of the fiscal
       year. In August, it's one in twenty-two.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Bangladesh's fiscal year ends 30 June. Contract signings cluster hard against that
       deadline and collapse immediately after it, the classic signature of year-end budget
       flush: money that must be committed before it lapses.
@@ -71,16 +186,23 @@
         monsoon, and annual supply contracts naturally renew on the fiscal calendar.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 02 ─────────────────────────────────────────── -->
-  <section class="finding" id="f2">
-    <p class="finding-no">Finding 02 — Competition</p>
+  <details class="finding-card" id="f2">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 02 — Competition</p>
     <h2 class="claim">
       In 2015, <span class="up">94%</span> of contract value went through fully open tendering.
       It collapsed to <em>66%</em> in 2019 and has never returned to its old level.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Open Tendering (OTM) is the default competitive route: anyone qualified may bid. The value
       that left it went to limited, invitation-only tendering (LTM) and to two-envelope variants
       (OSTETM) — both narrower processes. The share has partly rebounded since, ranging from 70%
@@ -106,17 +228,24 @@
         shows a shift in mix, not a count of violations.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 03 · plan vs outcome ───────────────────────── -->
-  <section class="finding" id="fplan">
-    <p class="finding-no">Finding 03 — Plan vs outcome</p>
+  <details class="finding-card" id="fplan">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 03 — Plan vs outcome</p>
     <h2 class="claim">
       <em id="pvaSpike">—</em> of contracts are awarded at almost exactly <em>10% below</em> the
       government's own estimate. Another <span class="up" id="pvaSpike5">—</span> land on exactly
       5% below.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       The Annual Procurement Plan records, before any bidding happens, what each package should
       cost. Competitive bidding against that estimate would produce a smooth spread of outcomes.
       What the data shows instead is two narrow spikes on round discount rates — the signature of
@@ -165,16 +294,23 @@
         or a stale estimate — each row is a lead, not a verdict.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 04 · cost structure by ministry & time ────── -->
-  <section class="finding" id="fcost">
-    <p class="finding-no">Finding 04 — Cost structure</p>
+  <details class="finding-card" id="fcost">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 04 — Cost structure</p>
     <h2 class="claim">
       The size of the "discount" off the government's own estimate isn't one national number —
       it's a habit that differs by ministry, and it has a visible start date.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       This dataset has no independent, external cost benchmark to test estimates against — nothing
       here can say a price is objectively too high. What it can test is whether the typical gap
       between the government's <em>own</em> estimate and the award behaves like ordinary estimation
@@ -214,16 +350,23 @@
         before weighing it against its neighbours.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 05 · the ৳50 crore ceiling ─────────────────── -->
-  <section class="finding" id="fceiling">
-    <p class="finding-no">Finding 05 — Threshold effects</p>
+  <details class="finding-card" id="fceiling">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 05 — Threshold effects</p>
     <h2 class="claim">
       Contract values bunch just under <em>৳50 crore</em> and fall off sharply just above it — the
       shape a ceiling gets gamed into, not the shape a market prices into.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Packages above roughly this size enter a slower, higher-visibility approval chain; below it,
       an office can approve on its own. <span class="num" id="ceilAsym">—</span> as many contracts
       land just under ৳50 crore as land just over it.
@@ -265,16 +408,23 @@
         871,684 total), so treat the ratio as suggestive, not precise.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 04 ─────────────────────────────────────────── -->
-  <section class="finding" id="f3">
-    <p class="finding-no">Finding 06 — Concentration</p>
+  <details class="finding-card" id="f3">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 06 — Concentration</p>
     <h2 class="claim">
       Most government buyers spread their money widely. <em>Nine offices</em> don't — each sends
       more than 60% of its budget to a single company.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Of <span class="num" id="qualOffices">—</span> offices large enough to test, three quarters
       give their biggest supplier under a fifth of their spend. The interesting story is the tail,
       not the average — so here is the tail, named.
@@ -305,16 +455,23 @@
         split into many contracts, or genuinely specialised goods. Each row needs its own look.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 04 ─────────────────────────────────────────── -->
-  <section class="finding" id="f4">
-    <p class="finding-no">Finding 07 — Pricing</p>
+  <details class="finding-card" id="f4">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 07 — Pricing</p>
     <h2 class="claim">
       <em>One in five</em> contracts is priced at one of just twenty values — and those cluster
       far more heavily on invitation-only awards than contracts generally do.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Tk 9,50,000 alone appears <span class="num" id="pp950">—</span> times, roughly eight times
       its neighbouring prices. Across the top twenty repeated prices,
       <span class="num" id="ppLtm">—</span> of contracts were awarded by limited tendering, against
@@ -342,16 +499,23 @@
         "price" is really a Tk 10,000-wide band.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 05 ─────────────────────────────────────────── -->
-  <section class="finding" id="f5">
-    <p class="finding-no">Finding 08 — Distribution</p>
+  <details class="finding-card" id="f5">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 08 — Distribution</p>
     <h2 class="claim">
       Four ministries take <em id="topFourShare">—</em> of all contract value. Local Government
       alone spends more than the next three combined.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Procurement in Bangladesh is overwhelmingly infrastructure: roads, rural works, water and
       buildings dominate every other category of state purchasing.
     </p>
@@ -370,16 +534,23 @@
       </table>
     </div>
     <p class="sub" style="margin-top:10px;font-size:0.8rem" id="natureNote"></p>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 06 ─────────────────────────────────────────── -->
-  <section class="finding" id="f6">
-    <p class="finding-no">Finding 09 — Suppliers</p>
+  <details class="finding-card" id="f6">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 09 — Suppliers</p>
     <h2 class="claim">
       A handful of firms sell to almost the entire government. One holds contracts from
       <em id="maxMinistries">—</em> different ministries.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Most of these are large, well-known national conglomerates, and a broad footprint is what
       you would expect from them. It matters as a map of who actually supplies the state — and
       as the baseline against which a genuinely odd spread would stand out.
@@ -412,16 +583,23 @@
         in the data separates them automatically.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
   <!-- ── 07 ─────────────────────────────────────────── -->
-  <section class="finding" id="f7">
-    <p class="finding-no">Finding 10 — Enforcement</p>
+  <details class="finding-card" id="f7">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 10 — Enforcement</p>
     <h2 class="claim">
       <em id="flagCount">—</em> contracts were signed with companies that were, at that moment,
       formally barred from government bidding.
     </h2>
-    <p class="sub">
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+      <p class="sub">
       Worth <span id="flagValue">—</span> across <span id="flagFirms">—</span> firms. A debarment
       is supposed to make this impossible; each of these is a case where it didn't.
     </p>
@@ -459,16 +637,18 @@
         row as a lead to verify, not a proven finding.</p>
       </div>
     </div>
-  </section>
+    </div>
+  </details>
 
-  <!-- ── 11 · what the money is actually buying ─────── -->
-  <section class="finding" id="ftopic">
-    <p class="finding-no">Finding 11 — Topic mix</p>
-    <h2 class="claim">
-      Construction work alone accounts for <em id="topicTop">—</em> of all tenders. Computer and
-      related services — the whole of government ICT procurement — is <span class="up" id="topicIct">—</span>.
+  <!-- ── Sectors ───────────────────────────────────── -->
+  <section class="section-head" id="sectors">
+    <p class="section-kicker">Sectors</p>
+    <h2 class="section-title">
+      Construction work alone accounts for <em id="topicTop" style="color:var(--s2)">—</em> of all
+      tenders. Computer and related services — the whole of government ICT procurement — is
+      <span id="topicIct">—</span>.
     </h2>
-    <p class="sub">
+    <p class="sub" style="margin-top:14px">
       Every tender on the portal is tagged against CPV (Common Procurement Vocabulary), the same
       standardised category system used in EU procurement — the one source here with real topical
       detail, beyond the three-way Works/Goods/Services split used everywhere else. Ranked by
@@ -478,21 +658,32 @@
       <div class="chart-card"><div id="chartTopics"></div></div>
       <figcaption id="capTopics"></figcaption>
     </figure>
+
+    <h3 style="margin-top:38px;font-size:0.95rem;font-weight:650">The mix is shifting, era by era</h3>
+    <p class="sub" id="topicEraLede"></p>
+    <figure>
+      <div class="chart-card"><div id="chartTopicsEra"></div></div>
+      <figcaption id="capTopicsEra"></figcaption>
+    </figure>
+
     <div class="note">
       <div>
         <h4>Why it matters</h4>
         <p>A national procurement dataset that's read as one lump number obscures this entirely.
         Split by what's actually being bought, the picture is: Bangladesh's e-GP system is
         overwhelmingly a construction-procurement system that happens to also handle everything
-        else, not a general-purpose one where sectors compete for comparable shares of activity.</p>
+        else, not a general-purpose one where sectors compete for comparable shares of activity —
+        though that gap has been narrowing, not by construction volume collapsing so much as
+        everything else growing around it.</p>
       </div>
       <div class="caution">
         <h4>What it isn't</h4>
         <p>A tender can carry more than one CPV category, so shares are of all tenders, not of
         each other — they don't sum to 100%. This is a count of tenders, not a share of money: a
         handful of large construction contracts and a much larger number of small ICT purchases
-        would still show up as "construction dominates" here. And this is the top-level category
-        only; each one has its own subtree of finer detail not fetched yet.</p>
+        would still show up as "construction dominates" here. This is the top-level category only
+        (each has its own subtree of finer detail, not fetched here), and the era split reflects
+        <em>when a tender was published</em>, not when it was awarded or completed.</p>
       </div>
     </div>
   </section>
@@ -554,6 +745,18 @@
       <details>
         <summary>Sources, coverage and update cadence</summary>
         <p id="coverageText">—</p>
+      </details>
+      <details>
+        <summary>Where the district map geometry comes from</summary>
+        <p>District boundaries are not from eprocure.gov.bd — nothing there publishes shapes.
+        They're traced from <a href="https://github.com/nuhil/bangladesh-geocode" target="_blank" rel="noopener">nuhil/bangladesh-geocode</a>'s
+        district-level GeoJSON, itself derived from the standard UN OCHA/HDX Bangladesh
+        administrative boundary set, simplified from ~44,000 to ~11,700 coordinate points for
+        page weight (see <code>build_district_geo.py</code>) and projected with a plain
+        equirectangular transform corrected for Bangladesh's latitude. It's a one-off build step,
+        not re-run daily — only the spend/count data underneath it updates. Sixty-nine district
+        spellings across pre- and post-2018 renamings (Chittagong/Chattogram, Comilla/Cumilla, and
+        three more) collapse onto the 64 real districts in <code>districts.py</code>.</p>
       </details>
       <details>
         <summary>Ownership matching</summary>

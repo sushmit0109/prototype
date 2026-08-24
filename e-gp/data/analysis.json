@@ -834,5 +834,34 @@
    "58": 2348,
    "59": 2157
   }
+ },
+ "by_era": {
+  "Awami League (2009–2024)": {
+   "count": 651392,
+   "value_bdt": 5866312820000.0,
+   "observed_span_days": 4608,
+   "contracts_per_day": 141.36,
+   "value_bdt_per_day": 1273071358.51,
+   "otm_share": 0.7509,
+   "ltm_share": 0.1439
+  },
+  "Interim Government (2024–2026)": {
+   "count": 150714,
+   "value_bdt": 1116936710000.0,
+   "observed_span_days": 557,
+   "contracts_per_day": 270.58,
+   "value_bdt_per_day": 2005272369.84,
+   "otm_share": 0.7184,
+   "ltm_share": 0.1707
+  },
+  "Elected Government (2026–)": {
+   "count": 69578,
+   "value_bdt": 466208090000.0,
+   "observed_span_days": 184,
+   "contracts_per_day": 378.14,
+   "value_bdt_per_day": 2533739619.57,
+   "otm_share": 0.8166,
+   "ltm_share": 0.1245
+  }
  }
 }

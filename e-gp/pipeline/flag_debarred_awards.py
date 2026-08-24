@@ -55,6 +55,7 @@ from datetime import date, datetime, timezone
 
 from dates import parse_dmy
 from entity import normalize_company
+from eras import ERA_NAMES, era_of
 
 SKIP_FILES = {"summary.json", "dimensions.json"}
 MAX_DISTRICT_SPREAD = 5
@@ -157,10 +158,16 @@ def main(debarments_path, contracts_dir, out_path):
 
     by_type = defaultdict(int)
     value_at_risk = 0.0
+    active_by_era = defaultdict(lambda: {"count": 0, "value_bdt": 0.0})
     for f in flags:
         by_type[f["flag_type"]] += 1
-        if f["flag_type"] == "active_debarment_violation" and f["value_bdt"]:
-            value_at_risk += f["value_bdt"]
+        f["era"] = era_of(f.get("contract_signing_date"))
+        if f["flag_type"] == "active_debarment_violation":
+            if f["value_bdt"]:
+                value_at_risk += f["value_bdt"]
+            if f["era"]:
+                active_by_era[f["era"]]["count"] += 1
+                active_by_era[f["era"]]["value_bdt"] += f["value_bdt"] or 0
 
     payload = {
         "meta": {
@@ -171,6 +178,10 @@ def main(debarments_path, contracts_dir, out_path):
             "by_type": dict(by_type),
             "value_at_risk_bdt_active_violations": round(value_at_risk, 2),
             "company_names_excluded_as_generic": len(generic_keys),
+            "active_violations_by_era": [
+                {"era": e, "count": active_by_era[e]["count"], "value_bdt": round(active_by_era[e]["value_bdt"], 2)}
+                for e in ERA_NAMES if e in active_by_era
+            ],
         },
         "flags": sorted(flags, key=lambda f: (f["flag_type"] != "active_debarment_violation", f["company"])),
     }

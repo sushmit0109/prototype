@@ -84,7 +84,27 @@
   "just_over_50_55": 104,
   "asymmetry_ratio": 1.54,
   "wide_under_35_50": 632,
-  "wide_over_50_65": 286
+  "wide_over_50_65": 286,
+  "by_era": [
+   {
+    "era": "Awami League (2009–2024)",
+    "just_under_45_50": 134,
+    "just_over_50_55": 81,
+    "contracts_in_era": 651172
+   },
+   {
+    "era": "Interim Government (2024–2026)",
+    "just_under_45_50": 15,
+    "just_over_50_55": 17,
+    "contracts_in_era": 150539
+   },
+   {
+    "era": "Elected Government (2026–)",
+    "just_under_45_50": 11,
+    "just_over_50_55": 6,
+    "contracts_in_era": 69482
+   }
+  ]
  },
  "split_clusters": [
   {
@@ -104,7 +124,8 @@
    ],
    "vendor": "M. M. Builders & Engineers Ltd-M/S. Amir Engineering Corporation (JV)",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Barisal O&M Division"
+   "procuring_entity": "Barisal O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 2634640000.0,
@@ -122,7 +143,8 @@
    ],
    "vendor": "INFRATECH-NZK JV",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Bhola O&M Division-1"
+   "procuring_entity": "Bhola O&M Division-1",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1999010000.0,
@@ -141,7 +163,8 @@
    ],
    "vendor": "GOLAM RABBANI CONSTRUCTION LTD.",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Manikganj WD Division"
+   "procuring_entity": "Manikganj WD Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1875260000.0,
@@ -160,7 +183,8 @@
    ],
    "vendor": "Masud Hi-Tech Engineering Ltd. - Tanvir Constructions Ltd. JV",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "procuring_entity": "Office of the Chief Engineer"
+   "procuring_entity": "Office of the Chief Engineer",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1836710000.0,
@@ -179,7 +203,8 @@
    ],
    "vendor": "PRAN DAIRY LTD",
    "ministry": "Ministry of Primary and Mass Education",
-   "procuring_entity": "Government Primary School Feeding Programme"
+   "procuring_entity": "Government Primary School Feeding Programme",
+   "era": "Interim Government (2024–2026)"
   },
   {
    "total_bdt": 1713550000.0,
@@ -198,7 +223,8 @@
    ],
    "vendor": "Mamico Limited",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "procuring_entity": "Project Director (DDIP)"
+   "procuring_entity": "Project Director (DDIP)",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1670150000.0,
@@ -214,7 +240,8 @@
    ],
    "vendor": "Dockyard & Engineering Works Limited",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Barguna O&M Division"
+   "procuring_entity": "Barguna O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1628330000.0,
@@ -232,7 +259,8 @@
    ],
    "vendor": "NATIONTECH COMMUNICATIONS LTD",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Satkhira O&M Division-1"
+   "procuring_entity": "Satkhira O&M Division-1",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1597980000.0,
@@ -248,7 +276,8 @@
    ],
    "vendor": "MD. MOYENUDDIN (BASHI) LIMITED",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Rajshahi Zone"
+   "procuring_entity": "Rajshahi Zone",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1588360000.0,
@@ -264,7 +293,8 @@
    ],
    "vendor": "Western Engineering ( Pvt.) Ltd.",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Laksmipur O&M Division"
+   "procuring_entity": "Laksmipur O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1518190000.0,
@@ -280,7 +310,8 @@
    ],
    "vendor": "TOMA CONSTRUCTION & CO. LTD. - M/S. MD. JAMIL IQBAL - MD. MOYENUDDIN (BASHI) - JV",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Sylhet Zone"
+   "procuring_entity": "Sylhet Zone",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1509370000.0,
@@ -295,7 +326,8 @@
    ],
    "vendor": "M. M. Builders & Engineers Ltd.-M/S. Amir Engineering Corporation (JV)",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Barguna O&M Division"
+   "procuring_entity": "Barguna O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1477370000.0,
@@ -311,7 +343,8 @@
    ],
    "vendor": "Walton Digi-Tech Industries Limited",
    "ministry": "Ministry of Primary and Mass Education",
-   "procuring_entity": "Office of Program Director, Fourth Primary Education Development Program (PEDP 4)"
+   "procuring_entity": "Office of Program Director, Fourth Primary Education Development Program (PEDP 4)",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1452450000.0,
@@ -330,7 +363,8 @@
    ],
    "vendor": "GOLAM RABBANI CONSTRUCTION LTD.",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Dhaka O&M Division-2"
+   "procuring_entity": "Dhaka O&M Division-2",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1445320000.0,
@@ -345,7 +379,8 @@
    ],
    "vendor": "Rana Builders (Pvt.) Ltd.-M/S.Rezvi Construction-Mozahar Enterprise (Pvt.) Ltd. JV",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Mymensingh Zone"
+   "procuring_entity": "Mymensingh Zone",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1426930000.0,
@@ -364,7 +399,8 @@
    ],
    "vendor": "BRB Cable Industries Ltd.",
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "procuring_entity": "Directorate of Purchase"
+   "procuring_entity": "Directorate of Purchase",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1422290000.0,
@@ -381,7 +417,8 @@
    ],
    "vendor": "MATIN CONSTRUCTION LIMITED",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Jhalokathi WD Division"
+   "procuring_entity": "Jhalokathi WD Division",
+   "era": "Interim Government (2024–2026)"
   },
   {
    "total_bdt": 1367630000.0,
@@ -397,7 +434,8 @@
    ],
    "vendor": "S. S. Rahman International Limited",
    "ministry": "Ministry of Shipping",
-   "procuring_entity": "Office of the Project Director construction of walkway with other structures on both side of circular waterways (2nd phase)"
+   "procuring_entity": "Office of the Project Director construction of walkway with other structures on both side of circular waterways (2nd phase)",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1357980000.0,
@@ -413,7 +451,8 @@
    ],
    "vendor": "M/S. Md. Jamil Iqbal",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Shariatpur O&M Division"
+   "procuring_entity": "Shariatpur O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1333470000.0,
@@ -427,7 +466,8 @@
    ],
    "vendor": "Toma Construction & Co. Limited",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "procuring_entity": "Office of the Executive Engineer, LGED, Sunamganj"
+   "procuring_entity": "Office of the Executive Engineer, LGED, Sunamganj",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1333090000.0,
@@ -443,7 +483,8 @@
    ],
    "vendor": "NATIONTECH COMMUNICATIONS LTD",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Laksmipur O&M Division"
+   "procuring_entity": "Laksmipur O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1289170000.0,
@@ -459,7 +500,8 @@
    ],
    "vendor": "BRB Cable Industries Ltd.",
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "procuring_entity": "Directorate of Procurement"
+   "procuring_entity": "Directorate of Procurement",
+   "era": "Interim Government (2024–2026)"
   },
   {
    "total_bdt": 1271420000.0,
@@ -474,7 +516,8 @@
    ],
    "vendor": "M/S Saleh Ahmed",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Comilla Zone"
+   "procuring_entity": "Comilla Zone",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1259400000.0,
@@ -489,7 +532,8 @@
    ],
    "vendor": "Bangladesh Science House",
    "ministry": "Ministry of Disaster Management & Relief",
-   "procuring_entity": "Procurement of equipment for search, rescue, operation and emergency communication for earthquake and other disaster project (phase-3)"
+   "procuring_entity": "Procurement of equipment for search, rescue, operation and emergency communication for earthquake and other disaster project (phase-3)",
+   "era": "Interim Government (2024–2026)"
   },
   {
    "total_bdt": 1237670000.0,
@@ -508,7 +552,8 @@
    ],
    "vendor": "EFTE.ETCL (PVT.) LIMITED",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "procuring_entity": "Office of the Executive Engineer, LGED, Pirojpur"
+   "procuring_entity": "Office of the Executive Engineer, LGED, Pirojpur",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1228710000.0,
@@ -527,7 +572,8 @@
    ],
    "vendor": "M/S Hamim International",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "procuring_entity": "Office of the Executive Engineer, LGED, Madaripur"
+   "procuring_entity": "Office of the Executive Engineer, LGED, Madaripur",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1224950000.0,
@@ -543,7 +589,8 @@
    ],
    "vendor": "The Bangladesh Machine Tools Factory Limited",
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "procuring_entity": "Directorate of Procurement"
+   "procuring_entity": "Directorate of Procurement",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1222300000.0,
@@ -558,7 +605,8 @@
    ],
    "vendor": "M/S Saleh Ahmed",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Laksmipur O&M Division"
+   "procuring_entity": "Laksmipur O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1208510000.0,
@@ -572,7 +620,8 @@
    ],
    "vendor": "M. M. Builders & Engineers Ltd.",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Bogra Road Circle"
+   "procuring_entity": "Bogra Road Circle",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1197710000.0,
@@ -586,7 +635,8 @@
    ],
    "vendor": "NATIONTECH COMMUNICATIONS LTD",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Patuakhali O&M Division"
+   "procuring_entity": "Patuakhali O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1182870000.0,
@@ -601,7 +651,8 @@
    ],
    "vendor": "GOLAM RABBANI CONSTRUCTION LTD.",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Shariatpur O&M Division"
+   "procuring_entity": "Shariatpur O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1172770000.0,
@@ -620,7 +671,8 @@
    ],
    "vendor": "M/S. Puspa Construction",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "procuring_entity": "Engineering Department (Civil), Sylhet City Corporation."
+   "procuring_entity": "Engineering Department (Civil), Sylhet City Corporation.",
+   "era": "Elected Government (2026–)"
   },
   {
    "total_bdt": 1172750000.0,
@@ -635,7 +687,8 @@
    ],
    "vendor": "NATIONTECH-KKENT (JV)",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Bhola O&M Division-2"
+   "procuring_entity": "Bhola O&M Division-2",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1155020000.0,
@@ -650,7 +703,8 @@
    ],
    "vendor": "Spectra Engineers Ltd. - Wahid Construction Ltd. JV",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Sylhet Zone"
+   "procuring_entity": "Sylhet Zone",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1142610000.0,
@@ -666,7 +720,8 @@
    ],
    "vendor": "Mazid Sons Construction Ltd.",
    "ministry": "Ministry of Housing and Public Works",
-   "procuring_entity": "Pabna PWD Division, Pabna"
+   "procuring_entity": "Pabna PWD Division, Pabna",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1136050000.0,
@@ -681,7 +736,8 @@
    ],
    "vendor": "Shazin Enterprise",
    "ministry": "Ministry of Housing and Public Works",
-   "procuring_entity": "Pabna PWD Division, Pabna"
+   "procuring_entity": "Pabna PWD Division, Pabna",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1133090000.0,
@@ -696,7 +752,8 @@
    ],
    "vendor": "Khulna Shipyard Limited",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Shariatpur O&M Division"
+   "procuring_entity": "Shariatpur O&M Division",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1125460000.0,
@@ -710,7 +767,8 @@
    ],
    "vendor": "Masud Hi-Tech Engineering Ltd. - Hassan Techno Builders Ltd. - Rana Builders (Pvt.) Ltd. - JV",
    "ministry": "Ministry of Road Transport and Bridges",
-   "procuring_entity": "Dhaka Zone"
+   "procuring_entity": "Dhaka Zone",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1117690000.0,
@@ -725,7 +783,8 @@
    ],
    "vendor": "E-ENGINEERING LIMITED",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Chattogram O&M Division -2"
+   "procuring_entity": "Chattogram O&M Division -2",
+   "era": "Awami League (2009–2024)"
   },
   {
    "total_bdt": 1113940000.0,
@@ -740,8 +799,14 @@
    ],
    "vendor": "PROPERTY DEVELOPMENT LIMITED",
    "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Noakhali O&M Division"
+   "procuring_entity": "Noakhali O&M Division",
+   "era": "Awami League (2009–2024)"
   }
  ],
- "split_clusters_total_count": 402
+ "split_clusters_total_count": 402,
+ "split_clusters_by_era": {
+  "Awami League (2009–2024)": 324,
+  "Interim Government (2024–2026)": 57,
+  "Elected Government (2026–)": 21
+ }
 }

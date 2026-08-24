@@ -109,6 +109,7 @@ jobs:
           python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
           python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
           python3 build_ceiling.py ../data/contracts ../data/ceiling.json
+          python3 build_geo.py ../data/contracts ../data/geo.json
 
       - name: Itemised APP -- extend coverage of the pre-tender estimates (resumable)
         # Busiest offices first, so a run cut short still covers the packages

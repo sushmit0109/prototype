@@ -611,6 +611,195 @@ function chartTopics(cpv) {
     ? `just ${pct(ict.count / cpv.meta.all_tenders, 1)}` : "not in the top 25";
 }
 
+const ERA_SHORT = {
+  "Awami League (2009–2024)": "Awami", "Interim Government (2024–2026)": "Interim",
+  "Elected Government (2026–)": "Elected",
+};
+const ERA_COLOR = { "Awami League (2009–2024)": "var(--s1)", "Interim Government (2024–2026)": "var(--s4)",
+  "Elected Government (2026–)": "var(--s2)" };
+
+function chartTopicsEra(cpv) {
+  const eras = Object.keys(cpv.meta.all_tenders_by_era);
+  if (!eras.length) { document.getElementById("chartTopicsEra").parentElement.parentElement.style.display = "none"; return; }
+  // Share of era total, not raw count -- eras have very different volumes,
+  // so only a share is comparable across them.
+  const picks = ["Construction work", "Repair, maintenance and installation services",
+    "Office and computing machinery, equipment and supplies", "Medical and laboratory devices, optical and precision devices, watches and clocks, pharmaceuticals and related medical consumables",
+    "Food products and beverages", "Computer and related services"];
+  const rows = picks.map(name => cpv.top_categories.find(c => c.name === name)).filter(Boolean);
+
+  const W = 800, H = rows.length * 60 + 10, padL = 300, padR = 40, padT = 6;
+  const pw = W - padL - padR;
+  const groupH = 60, barH = 13, gap = 3;
+  const max = Math.max(...rows.flatMap(r => eras.map(e => (r.by_era[e] || 0) / cpv.meta.all_tenders_by_era[e])));
+
+  let body = "";
+  rows.forEach((r, i) => {
+    const gy = padT + i * groupH;
+    body += `<text class="ax-strong" x="${padL - 12}" y="${gy + groupH / 2 - 8}" text-anchor="end">${esc(r.name.slice(0, 42))}</text>`;
+    eras.forEach((e, j) => {
+      const share = (r.by_era[e] || 0) / cpv.meta.all_tenders_by_era[e];
+      const w = Math.max((share / max) * pw, 2);
+      const yy = gy + j * (barH + gap);
+      body += `<text class="ax" x="${padL - 12}" y="${yy + barH / 2 + 3.5}" text-anchor="end" font-size="9">${ERA_SHORT[e]}</text>
+               <rect x="${padL}" y="${yy}" width="${w}" height="${barH}" rx="2" fill="${ERA_COLOR[e]}">
+                 <title>${esc(r.name)} — ${ERA_SHORT[e]}: ${pct(share, 1)} of that era's tenders</title></rect>
+               <text class="val-label" x="${padL + w + 8}" y="${yy + barH / 2 + 3.5}" font-size="9">${pct(share, 1)}</text>`;
+    });
+  });
+  document.getElementById("chartTopicsEra").innerHTML = svg(W, H, body);
+  document.getElementById("capTopicsEra").textContent =
+    "Share of each era's own tenders (not raw counts, so the very different era lengths don't distort the comparison), for a representative handful of categories.";
+
+  const constr = rows[0];
+  const shares = eras.map(e => pct((constr.by_era[e] || 0) / cpv.meta.all_tenders_by_era[e], 1)).join(" → ");
+  document.getElementById("topicEraLede").textContent =
+    `Construction's share of all tenders runs ${shares} across the three eras, in order — while `
+    + `categories like computing equipment and food products roughly double or more their share `
+    + `over the same span. Not a claim about which is better: a shrinking construction share and a `
+    + `growing services share is also what "the same total pie, more spent on non-construction lines" `
+    + `looks like.`;
+}
+
+/* ── Geography ─────────────────────────────────────────────────────── */
+
+function chartMap(geo, districtGeo) {
+  const state = { metric: "value_bdt", era: "all" };
+
+  function districtStat(dispName) {
+    const d = geo.districts[dispName];
+    if (!d) return null;
+    return state.era === "all" ? d : d.by_era[state.era];
+  }
+
+  function render() {
+    const entries = Object.keys(districtGeo.paths).map(pathKey => {
+      const dispName = districtGeo.canonical_display[pathKey] || pathKey;
+      const stat = districtStat(dispName);
+      return { pathKey, dispName, stat, value: stat ? stat[state.metric] : 0 };
+    });
+    const positive = entries.map(e => e.value).filter(v => v > 0);
+    const logMin = Math.log(Math.min(...positive, 1) + 1);
+    const logMax = Math.log(Math.max(...positive, 1) + 1);
+    const opacityFor = v => v <= 0 ? 0.05
+      : 0.12 + ((Math.log(v + 1) - logMin) / ((logMax - logMin) || 1)) * 0.88;
+
+    let body = "";
+    for (const e of entries) {
+      const op = opacityFor(e.value).toFixed(3);
+      const label = state.metric === "value_bdt" ? taka(e.value) : `${int(e.value)} contracts`;
+      const extra = e.stat && e.stat.top_ministry ? ` · mostly ${e.stat.top_ministry.replace(/^Ministry of /, "")}` : "";
+      body += `<path class="district" d="${districtGeo.paths[e.pathKey]}" fill="var(--s1)" fill-opacity="${op}">
+        <title>${esc(e.dispName)}: ${label}${extra}</title></path>`;
+    }
+    document.getElementById("chartMap").innerHTML =
+      `<svg viewBox="${districtGeo.view_box}" role="img" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+
+    const steps = 5;
+    let legend = `<span>Less</span><span class="swatches">`;
+    for (let i = 0; i < steps; i++) {
+      legend += `<span style="background:var(--s1);opacity:${(0.12 + (i / (steps - 1)) * 0.88).toFixed(2)}"></span>`;
+    }
+    legend += `</span><span>More</span>`;
+    document.getElementById("mapLegend").innerHTML = legend;
+
+    const ranked = entries.filter(e => e.value > 0).sort((a, b) => b.value - a.value).slice(0, 15);
+    document.getElementById("mapTableBody").innerHTML = ranked.map(e => `
+      <tr><td class="strong">${esc(e.dispName)}</td>
+        <td class="n">${taka(e.stat.value_bdt)}</td>
+        <td class="n">${int(e.stat.count)}</td></tr>`).join("");
+
+    const eraLabel = state.era === "all" ? "all years, 2011–2026" : state.era;
+    document.getElementById("mapCaption").textContent =
+      `Shaded by ${state.metric === "value_bdt" ? "total contract value" : "contract count"} `
+      + `— ${eraLabel}. ${int(geo.meta.districts_mapped)} districts matched from `
+      + `${int(geo.meta.contracts_scanned)} contracts nationally.`;
+  }
+
+  document.querySelectorAll("#mapMetricGroup .map-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#mapMetricGroup .map-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.metric = btn.dataset.metric;
+      render();
+    });
+  });
+  document.querySelectorAll("#mapEraGroup .map-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#mapEraGroup .map-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.era = btn.dataset.era;
+      render();
+    });
+  });
+
+  render();
+}
+
+/* ── Three governments ────────────────────────────────────────────── */
+
+function eraRow(label, hint, values, fmt, barBasis) {
+  const max = Math.max(...barBasis, 0.0001);
+  const cells = values.map((v, i) => {
+    const w = Math.max((barBasis[i] / max) * 100, v == null ? 0 : 2);
+    return `<td class="n"><div class="era-bar-cell">
+      <div class="era-bar-track"><div class="era-bar-fill" style="width:${w}%"></div></div>
+      <span>${v == null ? "—" : fmt(v)}</span>
+    </div></td>`;
+  }).join("");
+  return `<tr><td class="strong">${esc(label)}${hint ? `<div class="muted" style="font-size:0.76em;font-weight:400;margin-top:2px">${esc(hint)}</div>` : ""}</td>${cells}</tr>`;
+}
+
+function renderEraComparison(analysis, pva, ceiling, flags) {
+  const eras = Object.keys(analysis.by_era);
+  const a = eras.map(e => analysis.by_era[e]);
+  document.getElementById("eraIntro").textContent =
+    `Same pipeline, same definitions, sliced at the two transition dates. ${int(a.reduce((s, x) => s + x.count, 0))} `
+    + `contracts fall into one of the three windows below.`;
+
+  const rows = [];
+  rows.push(eraRow("Contracts per day", "pace of signing, not total volume",
+    a.map(x => x.contracts_per_day), v => v.toFixed(0), a.map(x => x.contracts_per_day)));
+  rows.push(eraRow("Spend per day", null,
+    a.map(x => x.value_bdt_per_day), v => taka(v), a.map(x => x.value_bdt_per_day)));
+  rows.push(eraRow("Open tendering (OTM) share", "of contract value",
+    a.map(x => x.otm_share), v => pct(v, 1), a.map(x => x.otm_share)));
+  rows.push(eraRow("Limited tendering (LTM) share", "of contract value",
+    a.map(x => x.ltm_share), v => pct(v, 1), a.map(x => x.ltm_share)));
+
+  if (pva) {
+    const eraMap = Object.fromEntries(pva.cost_structure.by_era.map(e => [e.era, e]));
+    const get = (e, k) => eraMap[e] ? eraMap[e][k] : null;
+    rows.push(eraRow("Awards at ~10% below estimate", "the discount-convention finding, Finding 03",
+      eras.map(e => get(e, "share_at_10pct_below")), v => pct(v, 1),
+      eras.map(e => get(e, "share_at_10pct_below") || 0)));
+    rows.push(eraRow("Awards >115% over estimate", null,
+      eras.map(e => get(e, "share_above_115")), v => pct(v, 2),
+      eras.map(e => get(e, "share_above_115") || 0)));
+  }
+
+  if (flags) {
+    const eraMap = Object.fromEntries(flags.meta.active_violations_by_era.map(e => [e.era, e]));
+    rows.push(eraRow("Debarment violations", "contracts signed during an active ban",
+      eras.map(e => eraMap[e] ? eraMap[e].count : 0), v => int(v),
+      eras.map(e => eraMap[e] ? eraMap[e].count : 0)));
+  }
+
+  if (ceiling) {
+    const eraMap = Object.fromEntries(ceiling.bunching.by_era.map(e => [e.era, e]));
+    rows.push(eraRow("৳50cr ceiling: split-pattern clusters", "small sample per era — see Finding 05",
+      eras.map(e => ceiling.split_clusters_by_era[e] ?? 0), v => int(v),
+      eras.map(e => ceiling.split_clusters_by_era[e] ?? 0)));
+  }
+
+  document.getElementById("eraBody").innerHTML = rows.join("");
+  document.getElementById("eraNote").textContent =
+    `Observed span: Awami League ${int(a[0].observed_span_days)} days, Interim ${int(a[1].observed_span_days)} `
+    + `days, Elected ${int(a[2].observed_span_days)} days (of data seen so far) — "per day" figures divide by `
+    + `these, not by the nominal calendar length, so a government still accumulating its first weeks of data `
+    + `isn't compared against a full year.`;
+}
+
 /* ── Masthead + methodology text ──────────────────────────────────── */
 
 function renderHeader(a, summary, debar, insights) {
@@ -627,12 +816,13 @@ function renderHeader(a, summary, debar, insights) {
 
   document.getElementById("coverageText").innerHTML =
     `Awarded contracts (${int(summary.meta.record_count)}), the master tender list, the debarment `
-    + `register (${int(debar.meta.record_count)}), eExperience work records and Annual Procurement `
-    + `Plans — all re-crawled daily from `
-    + `<a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a>. `
-    + `Registration is not used: the portal publishes only aggregate counts there, with no `
-    + `per-record identifier. Everything here is rebuilt by a scheduled job; the pipeline and the `
-    + `raw archive are in the repository.`;
+    + `register (${int(debar.meta.record_count)}), eExperience work records, Annual Procurement `
+    + `Plans (both office-level and itemised), and the CPV category tree — all re-crawled daily `
+    + `from <a href="https://www.eprocure.gov.bd/" target="_blank" rel="noopener">eprocure.gov.bd</a>. `
+    + `District geometry for the map is the one static asset, from a separate open-data source — `
+    + `see Methodology. Registration is not used: the portal publishes only aggregate counts there, `
+    + `with no per-record identifier. Everything here is rebuilt by a scheduled job; the pipeline `
+    + `and the raw archive are in the repository.`;
 }
 
 /* ── Boot ─────────────────────────────────────────────────────────── */
@@ -651,6 +841,8 @@ async function main() {
     const pva = await loadJSON("data/plan_vs_actual.json").catch(() => null);
     const ceiling = await loadJSON("data/ceiling.json").catch(() => null);
     const cpv = await loadJSON("data/cpv_categories.json").catch(() => null);
+    const geo = await loadJSON("data/geo.json").catch(() => null);
+    const districtGeo = await loadJSON("data/bd_districts_geo.json").catch(() => null);
 
     renderHeader(a, summary, debar, insights);
     chartMonths(a);
@@ -669,11 +861,36 @@ async function main() {
     renderOwnership(own);
     chartDebar(flags);
     setupFlagsTable(flags);
-    if (cpv) chartTopics(cpv);
-    else document.getElementById("ftopic").style.display = "none";
+    if (cpv) { chartTopics(cpv); chartTopicsEra(cpv); }
+    else document.getElementById("sectors").style.display = "none";
+    if (geo && districtGeo) chartMap(geo, districtGeo);
+    else document.getElementById("map").style.display = "none";
+    renderEraComparison(a, pva, ceiling, flags);
   } catch (err) {
     document.getElementById("updated").textContent = `Could not load data: ${err.message}`;
     console.error(err);
   }
 }
 main();
+
+/* Deep links (nav, the Overview teaser cards) point at <details> elements.
+   Browsers scroll to the target but do not open it, which would land the
+   reader on an apparently-blank card -- so open it for them. */
+function openTargetCard() {
+  const id = location.hash.slice(1);
+  if (!id) return;
+  const el = document.getElementById(id);
+  if (el && el.tagName === "DETAILS") el.open = true;
+}
+window.addEventListener("hashchange", openTargetCard);
+openTargetCard();
+
+const expandBtn = document.getElementById("expandAllBtn");
+if (expandBtn) {
+  expandBtn.addEventListener("click", () => {
+    const cards = document.querySelectorAll(".finding-card");
+    const anyClosed = Array.from(cards).some(c => !c.open);
+    cards.forEach(c => { c.open = anyClosed; });
+    expandBtn.textContent = anyClosed ? "Collapse all" : "Expand all";
+  });
+}
