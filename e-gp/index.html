@@ -17,7 +17,7 @@
     <h1>What Bangladesh's<br>procurement data says</h1>
     <p class="standfirst">
       Every government contract on the national e-Procurement portal since 2011, read as one
-      dataset instead of six separate search pages. Eight findings, each with what it means —
+      dataset instead of six separate search pages. Eleven findings, each with what it means —
       and what it doesn't.
     </p>
     <div class="scale-row" id="scaleRow"></div>
@@ -29,11 +29,14 @@
   <a href="#f1">01 · The June rush</a>
   <a href="#f2">02 · Closing tenders</a>
   <a href="#fplan">03 · Plan vs outcome</a>
-  <a href="#f3">04 · Nine offices</a>
-  <a href="#f4">05 · Repeated prices</a>
-  <a href="#f5">06 · Where money goes</a>
-  <a href="#f6">07 · Cross-ministry firms</a>
-  <a href="#f7">08 · Debarment gap</a>
+  <a href="#fcost">04 · Cost deviation by ministry</a>
+  <a href="#fceiling">05 · The ৳50 crore ceiling</a>
+  <a href="#f3">06 · Nine offices</a>
+  <a href="#f4">07 · Repeated prices</a>
+  <a href="#f5">08 · Where money goes</a>
+  <a href="#f6">09 · Cross-ministry firms</a>
+  <a href="#f7">10 · Debarment gap</a>
+  <a href="#ftopic">11 · Topic mix</a>
   <a href="#method">Methodology</a>
 </nav>
 
@@ -124,37 +127,149 @@
       <figcaption id="capRatio"></figcaption>
     </figure>
 
-    <h3 style="margin-top:38px;font-size:0.95rem;font-weight:650">And when the buying method changes, it changes one way</h3>
+    <h3 style="margin-top:38px;font-size:0.95rem;font-weight:650">The other tail: when the award comes in over estimate</h3>
     <p class="sub">
-      Most packages are bought exactly as planned. Among those that aren't, a package becomes
-      <em>less</em> open than planned <span class="up" id="pvaRatio">—</span> times as often as it
-      becomes more open — overwhelmingly open tendering turning into limited tendering.
+      <span class="num" id="ovrCount">—</span> packages were awarded above their own estimate by
+      more than 15% — <span id="ovrValue">—</span> in total, above what was already budgeted for
+      them. That's a small share of the matched packages, and a large individual overrun can be a
+      legitimate re-scope rather than a red flag — but it's worth naming which ones they are.
     </p>
     <figure>
-      <div class="chart-card"><div id="chartPva"></div></div>
-      <figcaption id="capPva"></figcaption>
+      <div class="chart-card"><div id="chartOverrun"></div></div>
+      <figcaption id="capOverrun"></figcaption>
     </figure>
+    <div class="table-wrap" style="margin-top:22px">
+      <table>
+        <thead><tr>
+          <th>Package</th><th class="n">Estimate</th><th class="n">Awarded</th>
+          <th class="n">Over by</th><th>Awarded to</th><th>Method</th>
+        </tr></thead>
+        <tbody id="overrunBody"></tbody>
+      </table>
+    </div>
+
     <div class="note">
       <div>
         <h4>Why it matters</h4>
         <p>A price that lands on a fixed discount off a published estimate is a price nobody
-        competed for. And a method downgrade is the quietest way to narrow a competition: the
-        package is still procured, still recorded, still legal-looking — only fewer firms ever got
-        to bid. Neither is visible unless you hold the plan and the award side by side.</p>
+        competed for. Neither that nor an overrun is visible unless you hold the plan and the
+        award side by side — which is what the itemised procurement plan makes possible for the
+        first time here.</p>
       </div>
       <div class="caution">
         <h4>Coverage &amp; caveats</h4>
         <p id="pvaCoverage">—</p>
         <p style="margin-top:8px">A conventional discount is not itself illegal, and some agencies
         may set ceilings this way deliberately. The finding is that the number is being set, not
-        that a rule was broken.</p>
+        that a rule was broken. A large overrun can also be a legitimate re-scope, added quantity,
+        or a stale estimate — each row is a lead, not a verdict.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 · cost structure by ministry & time ────── -->
+  <section class="finding" id="fcost">
+    <p class="finding-no">Finding 04 — Cost structure</p>
+    <h2 class="claim">
+      The size of the "discount" off the government's own estimate isn't one national number —
+      it's a habit that differs by ministry, and it has a visible start date.
+    </h2>
+    <p class="sub">
+      This dataset has no independent, external cost benchmark to test estimates against — nothing
+      here can say a price is objectively too high. What it can test is whether the typical gap
+      between the government's <em>own</em> estimate and the award behaves like ordinary estimation
+      error (roughly the same everywhere) or like a locally-set convention. It's the latter: the
+      typical award sits anywhere from 1-2% below estimate to over 16% below, depending which
+      ministry bought it.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartCostMinistry"></div></div>
+      <figcaption id="capCostMinistry"></figcaption>
+    </figure>
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">And nationally, that convention has a start date</h3>
+    <p class="sub">
+      Share of matched packages landing within half a point of exactly 10% below estimate, by year
+      of signing. Before 2015 this pattern barely exists; it becomes routine from the late 2010s on.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartCostTrend"></div></div>
+      <figcaption id="capCostTrend"></figcaption>
+    </figure>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>A ministry running a consistent 16% haircut off its own estimates and one running barely
+        1-2% are not making the same kind of estimate, or bidding into the same kind of market —
+        yet both get reported the same way. And the national convention appearing from the late
+        2010s onward, rather than always having been there, suggests it was adopted rather than
+        discovered: something to trace back to a specific circular or practice, not an eternal
+        feature of how estimates work.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>Not a claim that any ministry's prices are "wrong" against some outside standard — no
+        such standard is in this data, only each ministry's own estimate. Ministries below the
+        30-matched-package floor aren't shown, and even the ones that qualify range from dozens of
+        matched packages to tens of thousands — read the hover text for each bar's actual count
+        before weighing it against its neighbours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 · the ৳50 crore ceiling ─────────────────── -->
+  <section class="finding" id="fceiling">
+    <p class="finding-no">Finding 05 — Threshold effects</p>
+    <h2 class="claim">
+      Contract values bunch just under <em>৳50 crore</em> and fall off sharply just above it — the
+      shape a ceiling gets gamed into, not the shape a market prices into.
+    </h2>
+    <p class="sub">
+      Packages above roughly this size enter a slower, higher-visibility approval chain; below it,
+      an office can approve on its own. <span class="num" id="ceilAsym">—</span> as many contracts
+      land just under ৳50 crore as land just over it.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartCeiling"></div></div>
+      <figcaption id="capCeiling"></figcaption>
+    </figure>
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">The same office, the same vendor, several awards, one clear pattern</h3>
+    <p class="sub">
+      <span class="num" id="ceilClusterCount">—</span> office–vendor pairs show two or more
+      contracts, each individually under ৳50 crore, signed within 45 days of each other, that
+      together clear it. A single genuine need does not usually arrive as several near-simultaneous
+      small ones.
+    </p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Procuring office</th><th>Vendor</th>
+          <th class="n">Combined value</th><th class="n">Contracts</th><th>Window</th>
+        </tr></thead>
+        <tbody id="ceilBody"></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>Splitting one job into several sub-threshold packages is a well-known way to keep a
+        procurement inside the fast, low-scrutiny lane. Both tests here are indirect — value
+        bunching and time-clustered awards — but they point the same direction, and a real
+        instance of splitting would leave exactly this signature.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>Neither test proves splitting on its own. A vendor can legitimately win several separate
+        small jobs from the same office in the same season — a regional supplier doing routine
+        repeat work. Each row here is a lead worth a specific look, not a finding of wrongdoing.
+        Bunching is measured on a modest sample (a few hundred contracts near this value out of
+        871,684 total), so treat the ratio as suggestive, not precise.</p>
       </div>
     </div>
   </section>
 
   <!-- ── 04 ─────────────────────────────────────────── -->
   <section class="finding" id="f3">
-    <p class="finding-no">Finding 04 — Concentration</p>
+    <p class="finding-no">Finding 06 — Concentration</p>
     <h2 class="claim">
       Most government buyers spread their money widely. <em>Nine offices</em> don't — each sends
       more than 60% of its budget to a single company.
@@ -194,7 +309,7 @@
 
   <!-- ── 04 ─────────────────────────────────────────── -->
   <section class="finding" id="f4">
-    <p class="finding-no">Finding 05 — Pricing</p>
+    <p class="finding-no">Finding 07 — Pricing</p>
     <h2 class="claim">
       <em>One in five</em> contracts is priced at one of just twenty values — and those cluster
       far more heavily on invitation-only awards than contracts generally do.
@@ -231,7 +346,7 @@
 
   <!-- ── 05 ─────────────────────────────────────────── -->
   <section class="finding" id="f5">
-    <p class="finding-no">Finding 06 — Distribution</p>
+    <p class="finding-no">Finding 08 — Distribution</p>
     <h2 class="claim">
       Four ministries take <em id="topFourShare">—</em> of all contract value. Local Government
       alone spends more than the next three combined.
@@ -259,7 +374,7 @@
 
   <!-- ── 06 ─────────────────────────────────────────── -->
   <section class="finding" id="f6">
-    <p class="finding-no">Finding 07 — Suppliers</p>
+    <p class="finding-no">Finding 09 — Suppliers</p>
     <h2 class="claim">
       A handful of firms sell to almost the entire government. One holds contracts from
       <em id="maxMinistries">—</em> different ministries.
@@ -301,7 +416,7 @@
 
   <!-- ── 07 ─────────────────────────────────────────── -->
   <section class="finding" id="f7">
-    <p class="finding-no">Finding 08 — Enforcement</p>
+    <p class="finding-no">Finding 10 — Enforcement</p>
     <h2 class="claim">
       <em id="flagCount">—</em> contracts were signed with companies that were, at that moment,
       formally barred from government bidding.
@@ -346,6 +461,42 @@
     </div>
   </section>
 
+  <!-- ── 11 · what the money is actually buying ─────── -->
+  <section class="finding" id="ftopic">
+    <p class="finding-no">Finding 11 — Topic mix</p>
+    <h2 class="claim">
+      Construction work alone accounts for <em id="topicTop">—</em> of all tenders. Computer and
+      related services — the whole of government ICT procurement — is <span class="up" id="topicIct">—</span>.
+    </h2>
+    <p class="sub">
+      Every tender on the portal is tagged against CPV (Common Procurement Vocabulary), the same
+      standardised category system used in EU procurement — the one source here with real topical
+      detail, beyond the three-way Works/Goods/Services split used everywhere else. Ranked by
+      volume, the state's purchasing is infrastructure with a long tail of everything else.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartTopics"></div></div>
+      <figcaption id="capTopics"></figcaption>
+    </figure>
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>A national procurement dataset that's read as one lump number obscures this entirely.
+        Split by what's actually being bought, the picture is: Bangladesh's e-GP system is
+        overwhelmingly a construction-procurement system that happens to also handle everything
+        else, not a general-purpose one where sectors compete for comparable shares of activity.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>A tender can carry more than one CPV category, so shares are of all tenders, not of
+        each other — they don't sum to 100%. This is a count of tenders, not a share of money: a
+        handful of large construction contracts and a much larger number of small ICT purchases
+        would still show up as "construction dominates" here. And this is the top-level category
+        only; each one has its own subtree of finer detail not fetched yet.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Methodology ────────────────────────────────── -->
   <section class="finding" id="method" style="border-bottom:none">
     <p class="finding-no">Methodology</p>
@@ -364,6 +515,28 @@
         address, and exclude any name appearing as a winner in more than five districts
         nationwide. That cut 8,707 to 246. The filter deliberately trades missed real violations
         for fewer false accusations.</p>
+      </details>
+      <details>
+        <summary>A finding this page briefly published and then retracted</summary>
+        <p>An earlier version of Finding 03 reported that a procurement package becomes
+        <strong>less open than planned about 10 times as often</strong> as it becomes more open
+        (568 vs 59), joining the itemised procurement plan to awarded contracts on package
+        reference text. The join had the same flaw as the debarment case above: some offices type
+        a bare running number ("01", "280"), office shorthand ("se", "ee"), or even the literal
+        placeholder "na" into that field instead of a real package code. Those aren't unique, so
+        the join was pairing a plan estimate with whichever unrelated contract happened to share
+        the same short text — one single "na"-to-"na" collision alone produced 16 of the original
+        568. After excluding references used by more than three procuring entities nationally,
+        references under six characters, and matches at an implausible ratio (a real
+        estimate-to-award relationship does not plausibly differ by two orders of magnitude), the
+        true count is <strong>19 less-open vs. 18 more-open</strong> — no detectable direction at
+        this sample size. The chart and claim have been removed rather than kept with a smaller
+        number, since there's nothing left to show. The same fix changed the &gt;115%-overrun
+        figures in this finding and the ministry breakdown in Finding 04 nearby: an earlier pass
+        at those showed sharp differences between ministries (Finance and Education standing out
+        as high-overrun) that turned out to be the identical artifact, not a real pattern — see
+        `GENERIC_PE_SPREAD`, `MIN_REF_LEN`, and `SANITY_RATIO_MIN`/`MAX` in
+        `build_plan_vs_actual.py`.</p>
       </details>
       <details>
         <summary>Derived vs. reported — what the source never actually said</summary>

@@ -41,7 +41,8 @@ from dates import parse_dmy
 def clean_ministry(m):
     if not m:
         return m
-    return re.sub(r"\s+and$", "", m.strip())
+    m = re.sub(r"\s+and$", "", m.strip())
+    return m.replace("Minearal", "Mineral")  # source-side typo splits one ministry into two
 
 
 def parse_value(raw):

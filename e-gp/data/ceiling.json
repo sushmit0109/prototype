@@ -1,0 +1,747 @@
+{
+ "meta": {
+  "source": "https://www.eprocure.gov.bd/resources/common/SearchNOA.jsp",
+  "threshold_bdt": 500000000.0,
+  "window_days": 45,
+  "contracts_scanned": 871684,
+  "contracts_with_value": 871193
+ },
+ "bunching": {
+  "fine_histogram_crore": {
+   "30.00": 21,
+   "30.50": 39,
+   "31.00": 49,
+   "31.50": 47,
+   "32.00": 53,
+   "32.50": 38,
+   "33.00": 41,
+   "33.50": 33,
+   "34.00": 50,
+   "34.50": 35,
+   "35.00": 45,
+   "35.50": 31,
+   "36.00": 37,
+   "36.50": 19,
+   "37.00": 20,
+   "37.50": 26,
+   "38.00": 31,
+   "38.50": 33,
+   "39.00": 28,
+   "39.50": 18,
+   "40.00": 15,
+   "40.50": 14,
+   "41.00": 26,
+   "41.50": 31,
+   "42.00": 19,
+   "42.50": 19,
+   "43.00": 21,
+   "43.50": 18,
+   "44.00": 23,
+   "44.50": 18,
+   "45.00": 9,
+   "45.50": 17,
+   "46.00": 9,
+   "46.50": 11,
+   "47.00": 18,
+   "47.50": 15,
+   "48.00": 16,
+   "48.50": 13,
+   "49.00": 26,
+   "49.50": 20,
+   "50.00": 17,
+   "50.50": 10,
+   "51.00": 8,
+   "51.50": 5,
+   "52.00": 13,
+   "52.50": 10,
+   "53.00": 9,
+   "53.50": 14,
+   "54.00": 9,
+   "54.50": 15,
+   "55.00": 11,
+   "55.50": 7,
+   "56.00": 10,
+   "56.50": 15,
+   "57.00": 12,
+   "57.50": 13,
+   "58.00": 8,
+   "58.50": 12,
+   "59.00": 10,
+   "59.50": 12,
+   "60.00": 8,
+   "60.50": 8,
+   "61.00": 9,
+   "61.50": 2,
+   "62.00": 7,
+   "62.50": 10,
+   "63.00": 6,
+   "63.50": 11,
+   "64.00": 8,
+   "64.50": 5,
+   "65.00": 4
+  },
+  "just_under_45_50": 160,
+  "just_over_50_55": 104,
+  "asymmetry_ratio": 1.54,
+  "wide_under_35_50": 632,
+  "wide_over_50_65": 286
+ },
+ "split_clusters": [
+  {
+   "total_bdt": 3744450000.0,
+   "count": 13,
+   "first_date": "2024-04-03",
+   "last_date": "2024-05-12",
+   "package_refs": [
+    "Barishal/Hizla/T-3/2837",
+    "Barishal/Hizla/T-3/2836",
+    "Barishal/Hizla/T-3/2835",
+    "Barishal/Hizla/T-3/2852",
+    "Barishal/Hizla/T-3/2855",
+    "Barishal/Hizla/T-3/2856",
+    "Barishal/Hizla/T-3/2843",
+    "ET/BSL/CSAWM/T-3/10"
+   ],
+   "vendor": "M. M. Builders & Engineers Ltd-M/S. Amir Engineering Corporation (JV)",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Barisal O&M Division"
+  },
+  {
+   "total_bdt": 2634640000.0,
+   "count": 7,
+   "first_date": "2017-01-17",
+   "last_date": "2017-02-02",
+   "package_refs": [
+    "T-2/688",
+    "T-2/711",
+    "T-2/710",
+    "T-2/709",
+    "T-2/706",
+    "T-2/708",
+    "T-2/707"
+   ],
+   "vendor": "INFRATECH-NZK JV",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Bhola O&M Division-1"
+  },
+  {
+   "total_bdt": 1999010000.0,
+   "count": 11,
+   "first_date": "2023-05-02",
+   "last_date": "2023-06-05",
+   "package_refs": [
+    "T-9/156;Dated 02/02/2023",
+    "T-9/309 Dated: 27-02-2023",
+    "T-9/308 Dated: 27-02-2023",
+    "T-9/306 Dated: 27-02-2023",
+    "T-9/304 Dated: 27-02-2023",
+    "T-9/316 Dated: 27-02-2023",
+    "T-9/315 Dated: 27-02-2023",
+    "T-9/371 Dated: 09-03-2023"
+   ],
+   "vendor": "GOLAM RABBANI CONSTRUCTION LTD.",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Manikganj WD Division"
+  },
+  {
+   "total_bdt": 1875260000.0,
+   "count": 8,
+   "first_date": "2020-12-20",
+   "last_date": "2020-12-20",
+   "package_refs": [
+    "46.12.0000.006.14.273.20.1445",
+    "46.12.0000.006.14.273.20.1444",
+    "46.12.0000.006.14.273.20.1446",
+    "46.12.0000.006.14.273.20.1443",
+    "46.12.0000.006.14.273.20.1442",
+    "46.12.0000.006.14.273.20.1441",
+    "46.12.0000.006.14.273.20.1440",
+    "46.12.0000.006.14.273.20.1439"
+   ],
+   "vendor": "Masud Hi-Tech Engineering Ltd. - Tanvir Constructions Ltd. JV",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Office of the Chief Engineer"
+  },
+  {
+   "total_bdt": 1836710000.0,
+   "count": 8,
+   "first_date": "2025-10-05",
+   "last_date": "2025-10-05",
+   "package_refs": [
+    "38.01.0000.012.07.025.25-71",
+    "38.01.0000.012.07.025.25-70",
+    "38.01.0000.012.07.025.25-70",
+    "38.01.0000.012.07.025.25-70",
+    "38.01.0000.012.07.025.25-70",
+    "38.01.0000.012.07.025.25-70",
+    "38.01.0000.012.07.025.25-70",
+    "38.01.0000.012.07.025.25-70"
+   ],
+   "vendor": "PRAN DAIRY LTD",
+   "ministry": "Ministry of Primary and Mass Education",
+   "procuring_entity": "Government Primary School Feeding Programme"
+  },
+  {
+   "total_bdt": 1713550000.0,
+   "count": 8,
+   "first_date": "2016-11-01",
+   "last_date": "2016-11-21",
+   "package_refs": [
+    "46.207.007.09.00.020.2016",
+    "46.207.007.09.00.019.2016",
+    "46.207.007.09.00.018.2016",
+    "46.207.007.09.00.031.2016",
+    "46.207.007.09.00.032.2016",
+    "46.207.007.09.00.033.2016",
+    "46.207.007.09.00.029.2016",
+    "46.207.007.09.00.030.2016"
+   ],
+   "vendor": "Mamico Limited",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Project Director (DDIP)"
+  },
+  {
+   "total_bdt": 1670150000.0,
+   "count": 5,
+   "first_date": "2023-10-01",
+   "last_date": "2023-10-29",
+   "package_refs": [
+    "Barguna/MQ-52/1167",
+    "MQ-52/1197",
+    "MQ-52/1192",
+    "MQ-52/1171; Date: 09/05/2023",
+    "Barguna/MQ-52/1165"
+   ],
+   "vendor": "Dockyard & Engineering Works Limited",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Barguna O&M Division"
+  },
+  {
+   "total_bdt": 1628330000.0,
+   "count": 7,
+   "first_date": "2023-04-17",
+   "last_date": "2023-05-21",
+   "package_refs": [
+    "1T-4/2139",
+    "1T-4/2137",
+    "1T-4/2138",
+    "1T-4/2143",
+    "1T-4/2136",
+    "1T-4/2140",
+    "1T-4/2343"
+   ],
+   "vendor": "NATIONTECH COMMUNICATIONS LTD",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Satkhira O&M Division-1"
+  },
+  {
+   "total_bdt": 1597980000.0,
+   "count": 5,
+   "first_date": "2019-04-11",
+   "last_date": "2019-05-19",
+   "package_refs": [
+    "e-GP/RJZ/ADP/24/2018-2019",
+    "e-GP/RJZ/ADP/22/2018-2019",
+    "e-GP/RJZ/ADP/35/2018-2019",
+    "e-GP/RJZ/ADP/29/2018-2019",
+    "e-GP/RJZ/ADP/16/2018-2019"
+   ],
+   "vendor": "MD. MOYENUDDIN (BASHI) LIMITED",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Rajshahi Zone"
+  },
+  {
+   "total_bdt": 1588360000.0,
+   "count": 5,
+   "first_date": "2024-02-20",
+   "last_date": "2024-03-19",
+   "package_refs": [
+    "ET/LAK/RKBLK/318",
+    "ET/LAK/RKBLK/317",
+    "ET/LAK/RKBLK/316",
+    "ET/LAK/RKBLK/397",
+    "ET/LAK/RKBLK/396"
+   ],
+   "vendor": "Western Engineering ( Pvt.) Ltd.",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Laksmipur O&M Division"
+  },
+  {
+   "total_bdt": 1518190000.0,
+   "count": 5,
+   "first_date": "2018-12-20",
+   "last_date": "2019-01-28",
+   "package_refs": [
+    "e-GP/06(six)/Zilla Road/ACE/SZ/Sylhet/2018-2019",
+    "e-GP/15(fifteen)/Zilla Road/ACE/SZ/Sylhet/2018-19",
+    "e-GP/16(sixteen)/Zilla Road/ACE/SZ/Sylhet/2018-19",
+    "e-GP/12(twelve\\)/Zilla Road/ACE/SZ/Sylhet/2018-201",
+    "e-GP/10(Ten)/Zilla Road/ACE/SZ/Sylhet/2018-2019"
+   ],
+   "vendor": "TOMA CONSTRUCTION & CO. LTD. - M/S. MD. JAMIL IQBAL - MD. MOYENUDDIN (BASHI) - JV",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Sylhet Zone"
+  },
+  {
+   "total_bdt": 1509370000.0,
+   "count": 4,
+   "first_date": "2023-09-17",
+   "last_date": "2023-09-24",
+   "package_refs": [
+    "Barguna/MQ-52/1166",
+    "MQ-52/1196",
+    "MQ-52/1199",
+    "MQ-52/1198"
+   ],
+   "vendor": "M. M. Builders & Engineers Ltd.-M/S. Amir Engineering Corporation (JV)",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Barguna O&M Division"
+  },
+  {
+   "total_bdt": 1477370000.0,
+   "count": 5,
+   "first_date": "2024-05-29",
+   "last_date": "2024-07-07",
+   "package_refs": [
+    "38.01.0000.005.07.387.23",
+    "38.01.0000.005.07.01.389.24",
+    "38.01.0000.005.07.01.389.24",
+    "38.01.0000.005.07.01.389.24",
+    "38.01.0000.005.07.01.389.24"
+   ],
+   "vendor": "Walton Digi-Tech Industries Limited",
+   "ministry": "Ministry of Primary and Mass Education",
+   "procuring_entity": "Office of Program Director, Fourth Primary Education Development Program (PEDP 4)"
+  },
+  {
+   "total_bdt": 1452450000.0,
+   "count": 8,
+   "first_date": "2023-06-01",
+   "last_date": "2023-06-01",
+   "package_refs": [
+    "T-26/2145 Dated: 07-03-2023",
+    "T-26/2046 Dated: 27-02-2023",
+    "T-26/2149 Dated: 07-03-2023",
+    "T-26/2047 Dated: 27-02-2023",
+    "T-26/2146 Dated: 07-03-2023",
+    "T-26/2151 Dated: 07-03-2023",
+    "T-26/2150 Dated: 07-03-2023",
+    "T-26/2045 Dated: 27-02-2023"
+   ],
+   "vendor": "GOLAM RABBANI CONSTRUCTION LTD.",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Dhaka O&M Division-2"
+  },
+  {
+   "total_bdt": 1445320000.0,
+   "count": 4,
+   "first_date": "2018-12-24",
+   "last_date": "2019-02-05",
+   "package_refs": [
+    "MZ(e-GP)-04/Dev(MC)/2018-2019",
+    "MZ(e-GP)-03/Dev(MC)/2018-2019",
+    "MZ(e-GP)-02/Dev(MC)/2018-2019",
+    "MZ(e-GP)-01/Dev(MC)/2018-2019"
+   ],
+   "vendor": "Rana Builders (Pvt.) Ltd.-M/S.Rezvi Construction-Mozahar Enterprise (Pvt.) Ltd. JV",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Mymensingh Zone"
+  },
+  {
+   "total_bdt": 1426930000.0,
+   "count": 8,
+   "first_date": "2020-02-25",
+   "last_date": "2020-03-03",
+   "package_refs": [
+    "Pur-211/ID-365973/Ctg(Phase-2)/Dog(Pkg-23) /19",
+    "Pur-214/ID-367949/Ctg(Phase-2)/Dog(Pkg-26) /19",
+    "Pur-212/ID-366691/Ctg(Phase-2)/Dog(Pkg-24) /19",
+    "Pur-213/ID-367543/Ctg(Phase-2)/Dog(Pkg-25)/19",
+    "Pur-220/ID-380786/Ctg(Phase-2)/Guy wire/19",
+    "Pur-218/ID-371735/Ctg(Phase-2)/WASP(Pkg-30)/19",
+    "Pur-217/ID-371697/Ctg(Phase-2)/WASP(Pkg-29)/19",
+    "Pur-216/ID-371565/Ctg(Phase-2)/WASP(Pkg-28)/19"
+   ],
+   "vendor": "BRB Cable Industries Ltd.",
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "procuring_entity": "Directorate of Purchase"
+  },
+  {
+   "total_bdt": 1422290000.0,
+   "count": 6,
+   "first_date": "2024-10-21",
+   "last_date": "2024-11-25",
+   "package_refs": [
+    "S-13/M-733; Date: 30/07/2024",
+    "S-13/M-732; Date: 30/07/2024",
+    "S-13/M-730; Date: 30/07/2024",
+    "S-13/M-748; Date: 01/08/2024",
+    "S-13/M-746; Date: 01/08/2024",
+    "S-13/M-747; Date: 01/08/2024"
+   ],
+   "vendor": "MATIN CONSTRUCTION LIMITED",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Jhalokathi WD Division"
+  },
+  {
+   "total_bdt": 1367630000.0,
+   "count": 5,
+   "first_date": "2022-07-18",
+   "last_date": "2022-08-08",
+   "package_refs": [
+    "18.11.0000.266.14.129(115)2022/978",
+    "18.11.0000.266.14.129.(84).21(Part-1)/101",
+    "18.11.0000.266.14.129.(82).21(Part-1)/1000",
+    "18.11.0000.266.14.129.(80).21(Part-1)/998",
+    "18.11.0000.266.14.129.(73).21(Part-1)/992"
+   ],
+   "vendor": "S. S. Rahman International Limited",
+   "ministry": "Ministry of Shipping",
+   "procuring_entity": "Office of the Project Director construction of walkway with other structures on both side of circular waterways (2nd phase)"
+  },
+  {
+   "total_bdt": 1357980000.0,
+   "count": 5,
+   "first_date": "2024-03-31",
+   "last_date": "2024-05-06",
+   "package_refs": [
+    "T-2/2316; 07/01/2024",
+    "T-2/2315; 07/01/2024",
+    "T-2/2319; 07/01/2024",
+    "T-2/2318; 07/01/2024",
+    "T-2/2317; 07/01/2024"
+   ],
+   "vendor": "M/S. Md. Jamil Iqbal",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Shariatpur O&M Division"
+  },
+  {
+   "total_bdt": 1333470000.0,
+   "count": 3,
+   "first_date": "2018-12-02",
+   "last_date": "2018-12-02",
+   "package_refs": [
+    "APP-102160",
+    "APP-102188",
+    "APP-102160"
+   ],
+   "vendor": "Toma Construction & Co. Limited",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Sunamganj"
+  },
+  {
+   "total_bdt": 1333090000.0,
+   "count": 5,
+   "first_date": "2024-05-14",
+   "last_date": "2024-05-14",
+   "package_refs": [
+    "42.01.5100.599.07.003.23-1516; Date: 24-12-2023",
+    "42.01.5100.599.07.003.23-1495; Date: 21-12-2023",
+    "42.01.5100.599.07.003.23-1517; Date: 24-12-2023",
+    "42.01.5100.599.07.003.23-1515; Date: 24-12-2023",
+    "42.01.5100.599.07.003.23-1493; Date: 21-12-2023"
+   ],
+   "vendor": "NATIONTECH COMMUNICATIONS LTD",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Laksmipur O&M Division"
+  },
+  {
+   "total_bdt": 1289170000.0,
+   "count": 5,
+   "first_date": "2025-01-19",
+   "last_date": "2025-02-17",
+   "package_refs": [
+    "27.12.0000.019.07.119.24.247 dt. 01/10/2024",
+    "27.12.0000.019.07.110.24.254; Date: 01/10/2024",
+    "27.12.0000.019.07.80.24.1001; Date: 07/ 05/2024",
+    "27.12.0000.019.07.117.24.251; Date: 01/10/2024",
+    "27.12.0000.019.07.120.24.246; Date:01/10/2024"
+   ],
+   "vendor": "BRB Cable Industries Ltd.",
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "procuring_entity": "Directorate of Procurement"
+  },
+  {
+   "total_bdt": 1271420000.0,
+   "count": 4,
+   "first_date": "2018-11-28",
+   "last_date": "2018-12-24",
+   "package_refs": [
+    "ADP/ACE/CZ/2018-2019/Zilla/Feni/PW-25",
+    "ADP/ACE/CZ/2018-2019/Zilla/Feni/PW-24",
+    "ADP/ACE/CZ/2018-2019/Zilla/Noakhali/PW-18",
+    "e-GP/ADP/ACE/CZ/2018-2019/SSKCB/Noakhali/PW-03"
+   ],
+   "vendor": "M/S Saleh Ahmed",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Comilla Zone"
+  },
+  {
+   "total_bdt": 1259400000.0,
+   "count": 4,
+   "first_date": "2025-04-21",
+   "last_date": "2025-04-21",
+   "package_refs": [
+    "Earthquake/2024-25/Package-GD-14A",
+    "Earthquake/2024-25/Package-GD-13",
+    "Earthquake/2024-25/Package-GD-12C",
+    "Earthquake/2024-25/Package-GD-12B"
+   ],
+   "vendor": "Bangladesh Science House",
+   "ministry": "Ministry of Disaster Management & Relief",
+   "procuring_entity": "Procurement of equipment for search, rescue, operation and emergency communication for earthquake and other disaster project (phase-3)"
+  },
+  {
+   "total_bdt": 1237670000.0,
+   "count": 36,
+   "first_date": "2021-12-19",
+   "last_date": "2022-01-30",
+   "package_refs": [
+    "e-APP/LGED/PIROJ/PDRIDP/21-22/03",
+    "e-APP/LGED/PIROJ/PDRIDP/21-22/03",
+    "e-APP/LGED/PIROJ/CBU-100/2021-2022/02",
+    "e-APP/LGED/PIROJ/PDRIDP/21-22/03",
+    "e-APP/LGED/PIROJ/PDRIDP/21-22/03",
+    "e-APP/LGED/PIROJ/BJP/21-22/06",
+    "e-APP/LGED/PIROJ/PDRIDP/21-22/03",
+    "e-APP/LGED/PIROJ/PDRIDP/21-22/03"
+   ],
+   "vendor": "EFTE.ETCL (PVT.) LIMITED",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Pirojpur"
+  },
+  {
+   "total_bdt": 1228710000.0,
+   "count": 8,
+   "first_date": "2021-12-29",
+   "last_date": "2022-01-18",
+   "package_refs": [
+    "APP ID : 168609",
+    "APP ID : 180164",
+    "APP ID : 168609",
+    "APP ID : 168609",
+    "APP ID : 168609",
+    "APP ID : 168609",
+    "APP ID : 168609",
+    "APP ID : 168609"
+   ],
+   "vendor": "M/S Hamim International",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Madaripur"
+  },
+  {
+   "total_bdt": 1224950000.0,
+   "count": 5,
+   "first_date": "2024-06-27",
+   "last_date": "2024-07-29",
+   "package_refs": [
+    "27.12.0000.019.07.40.24.775; Date:03/03/2024",
+    "27.12.0000.019.07.38.24.774; Date:03/03/2024",
+    "27.12.0000.019.07.24.769; Date:03/03/2024",
+    "27.12.0000.019.07.076.23.452; Date: 22.11.2023",
+    "27.12.0000.019.07.081.23.460; Date: 22/11/2023"
+   ],
+   "vendor": "The Bangladesh Machine Tools Factory Limited",
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "procuring_entity": "Directorate of Procurement"
+  },
+  {
+   "total_bdt": 1222300000.0,
+   "count": 4,
+   "first_date": "2023-11-30",
+   "last_date": "2023-12-04",
+   "package_refs": [
+    "ET/LAK/RKBLK/2852",
+    "ET/LAK/RKBLK/2857",
+    "ET/LAK/RKBLK/2858",
+    "ET/LAK/RKBLK/2856"
+   ],
+   "vendor": "M/S Saleh Ahmed",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Laksmipur O&M Division"
+  },
+  {
+   "total_bdt": 1208510000.0,
+   "count": 3,
+   "first_date": "2019-06-17",
+   "last_date": "2019-06-17",
+   "package_refs": [
+    "eGP-03/RHD/SE/BRC/2018-2019",
+    "eGP-02/RHD/SE/BRC/2018-2019",
+    "eGP-01/RHD/SE/BRC/2018-2019"
+   ],
+   "vendor": "M. M. Builders & Engineers Ltd.",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Bogra Road Circle"
+  },
+  {
+   "total_bdt": 1197710000.0,
+   "count": 3,
+   "first_date": "2021-09-12",
+   "last_date": "2021-09-12",
+   "package_refs": [
+    "ET/PWD/584 Dt :30/12/2020",
+    "ET/PWD/583 Dt :30/12/2020",
+    "ET/PWD/582 Dt :30/12/2020"
+   ],
+   "vendor": "NATIONTECH COMMUNICATIONS LTD",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Patuakhali O&M Division"
+  },
+  {
+   "total_bdt": 1182870000.0,
+   "count": 4,
+   "first_date": "2024-04-03",
+   "last_date": "2024-05-12",
+   "package_refs": [
+    "T-2/2312; 07/01/2024",
+    "T-2/2313; 07/01/2024",
+    "T-2/2314; 07/01/2024",
+    "T-2/2472; 21/01/2024"
+   ],
+   "vendor": "GOLAM RABBANI CONSTRUCTION LTD.",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Shariatpur O&M Division"
+  },
+  {
+   "total_bdt": 1172770000.0,
+   "count": 8,
+   "first_date": "2026-07-27",
+   "last_date": "2026-07-27",
+   "package_refs": [
+    "46.07.0000.018.14.422.26.473",
+    "46.07.0000.018.14.423.26.474",
+    "46.07.0000.018.14.413.26.496",
+    "46.07.0000.018.14.393.26.540",
+    "46.07.0000.018.14.394.26.543",
+    "46.07.0000.018.14.415.26.497",
+    "46.07.0000.018.14.412.26.502",
+    "46.07.0000.018.14.424.26.475"
+   ],
+   "vendor": "M/S. Puspa Construction",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Engineering Department (Civil), Sylhet City Corporation."
+  },
+  {
+   "total_bdt": 1172750000.0,
+   "count": 4,
+   "first_date": "2017-01-09",
+   "last_date": "2017-01-22",
+   "package_refs": [
+    "T-1/208 Dated: 24-08-2016",
+    "T-1/211 Dated: 24-08-2016",
+    "T-1/630 Date:24-11-2016",
+    "T-1/631 Date:24-11-2016"
+   ],
+   "vendor": "NATIONTECH-KKENT (JV)",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Bhola O&M Division-2"
+  },
+  {
+   "total_bdt": 1155020000.0,
+   "count": 4,
+   "first_date": "2018-12-20",
+   "last_date": "2018-12-27",
+   "package_refs": [
+    "e-GP/04(Four)/Zilla Road/ACE/SZ/Sylhet/2018-2019",
+    "e-GP/11(eleven)/Zilla Road/ACE/SZ/Sylhet/2018-2019",
+    "e-GP/08(eight)/Zilla Road/ACE/SZ/Sylhet/2018-2019",
+    "e-GP/07(seven)/Zilla Road/ACE/SZ/Sylhet/2018-2019"
+   ],
+   "vendor": "Spectra Engineers Ltd. - Wahid Construction Ltd. JV",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Sylhet Zone"
+  },
+  {
+   "total_bdt": 1142610000.0,
+   "count": 5,
+   "first_date": "2018-03-15",
+   "last_date": "2018-04-05",
+   "package_refs": [
+    "9/EM/2016-2017",
+    "12/EM/2017-2018",
+    "13/EM/2017-2018",
+    "8/EM/2016-2017",
+    "8/civil/egp/2017-2018"
+   ],
+   "vendor": "Mazid Sons Construction Ltd.",
+   "ministry": "Ministry of Housing and Public Works",
+   "procuring_entity": "Pabna PWD Division, Pabna"
+  },
+  {
+   "total_bdt": 1136050000.0,
+   "count": 4,
+   "first_date": "2018-03-14",
+   "last_date": "2018-03-15",
+   "package_refs": [
+    "03/EM/2017-2018",
+    "5/EM/2017-2018",
+    "6/EM/2017-2018",
+    "11/EM/2017-2018"
+   ],
+   "vendor": "Shazin Enterprise",
+   "ministry": "Ministry of Housing and Public Works",
+   "procuring_entity": "Pabna PWD Division, Pabna"
+  },
+  {
+   "total_bdt": 1133090000.0,
+   "count": 4,
+   "first_date": "2024-05-13",
+   "last_date": "2024-05-13",
+   "package_refs": [
+    "T-2/2471; 21/01/2024",
+    "T-2/2469; 21/01/2024",
+    "T-2/2468; 21/01/2024",
+    "T-2/2470; 21/01/2024"
+   ],
+   "vendor": "Khulna Shipyard Limited",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Shariatpur O&M Division"
+  },
+  {
+   "total_bdt": 1125460000.0,
+   "count": 3,
+   "first_date": "2018-11-12",
+   "last_date": "2018-12-27",
+   "package_refs": [
+    "DZ(e-GP)-03/Dev/2018-2019.",
+    "DZ(e-GP)-24/PMP(Road)/2018-2019(re-tender).",
+    "DZ(e-GP)-07/Dev/2018-2019."
+   ],
+   "vendor": "Masud Hi-Tech Engineering Ltd. - Hassan Techno Builders Ltd. - Rana Builders (Pvt.) Ltd. - JV",
+   "ministry": "Ministry of Road Transport and Bridges",
+   "procuring_entity": "Dhaka Zone"
+  },
+  {
+   "total_bdt": 1117690000.0,
+   "count": 4,
+   "first_date": "2024-02-22",
+   "last_date": "2024-02-22",
+   "package_refs": [
+    "42.01.1500.582.07.020.23-2825; Date: 29.10.2023",
+    "42.01.1500.582.07.020.23-2826; Date: 29.10.2023",
+    "42.01.1500.582.07.020.23-2827; Date: 29.10.2023",
+    "42.01.1500.582.07.020.23-2828; Date: 29.10.2023"
+   ],
+   "vendor": "E-ENGINEERING LIMITED",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Chattogram O&M Division -2"
+  },
+  {
+   "total_bdt": 1113940000.0,
+   "count": 4,
+   "first_date": "2024-05-06",
+   "last_date": "2024-05-06",
+   "package_refs": [
+    "EE/NOA/O&M/1T- 5/3113",
+    "EE/NOA/O&M/1T- 5/3113",
+    "EE/NOA/O&M/1T- 5/3113",
+    "EE/NOA/O&M/1T- 5/3113"
+   ],
+   "vendor": "PROPERTY DEVELOPMENT LIMITED",
+   "ministry": "Ministry of Water Resources",
+   "procuring_entity": "Noakhali O&M Division"
+  }
+ ],
+ "split_clusters_total_count": 402
+}

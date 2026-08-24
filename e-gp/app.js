@@ -120,35 +120,15 @@ function chartMethods(a) {
 /* ── 03 · Plan vs outcome ─────────────────────────────────────────── */
 
 function chartPlanVsActual(p) {
-  const mc = p.method_change;
-  const rows = [
-    ["Bought exactly as planned", mc.unchanged, "var(--s1)", 0.5],
-    ["Ended up LESS open than planned", mc.less_open_than_planned, "var(--s2)", 1],
-    ["Ended up more open than planned", mc.more_open_than_planned, "var(--s3)", 0.8],
-  ];
-  const max = Math.max(...rows.map(r => r[1]), 1);
-  const W = 800, H = 150, padL = 240, padR = 110, padT = 8;
-  const rowH = (H - padT) / rows.length, bh = rowH * 0.5;
-  const pw = W - padL - padR;
-
-  let body = "";
-  rows.forEach(([label, n, colour, op], i) => {
-    const yy = padT + i * rowH + (rowH - bh) / 2;
-    const w = Math.max((n / max) * pw, 2);
-    body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${label}</text>
-             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="${colour}" opacity="${op}">
-               <title>${label}: ${int(n)} packages</title></rect>
-             <text class="val-label${i === 1 ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">${int(n)}</text>`;
-  });
-  document.getElementById("chartPva").innerHTML = svg(W, H, body);
-
-  const ratio = mc.more_open_than_planned
-    ? (mc.less_open_than_planned / mc.more_open_than_planned) : null;
-  document.getElementById("pvaRatio").textContent = ratio ? `${Math.round(ratio)}×` : "—";
-  document.getElementById("capPva").textContent =
-    `Planned procurement method against the method actually used, for the `
-    + `${int(p.meta.matched_pairs)} planned packages that match an awarded contract. `
-    + `The commonest single drift is open tendering becoming limited tendering.`;
+  // Method-change (planned procurement method vs. the one actually used) is
+  // computed in the JSON but deliberately not charted here: on the matched
+  // subset that survives the generic-reference and sanity-ratio filters
+  // below, it comes out to 19 packages ending up less open vs. 18 ending up
+  // more open -- no detectable direction at this sample size. An earlier
+  // version of this page reported a 10x skew toward "less open," which
+  // turned out to be almost entirely package-reference join noise (see
+  // Methodology). The raw counts remain in `method_change` for anyone
+  // auditing, but nothing here is asserted as a finding.
 
   // award / estimate — fine histogram. The whole point is the spikes, so this
   // is drawn at 1-percentage-point resolution rather than in coarse buckets.
@@ -197,9 +177,155 @@ function chartPlanVsActual(p) {
   document.getElementById("pvaCoverage").textContent =
     `Plan and award are typed into different forms, so they only join where the package reference `
     + `matches exactly — ${int(p.meta.matched_pairs)} of ${int(p.meta.plan_packages_with_estimate)} `
-    + `planned packages (${pct(p.meta.match_rate_of_plan)}). These figures describe that matched `
-    + `subset, and the itemised plan itself is crawled for the busiest offices first, not all `
-    + `10,205 of them.`;
+    + `planned packages (${pct(p.meta.match_rate_of_plan)}), after excluding `
+    + `${int(p.meta.pairs_excluded_generic)} matches on a reference too generic to trust (see `
+    + `Methodology) and ${int(p.meta.pairs_excluded_sanity)} at an implausible ratio. These figures `
+    + `describe that matched subset, and the itemised plan itself is crawled for the busiest offices `
+    + `first, not all 10,205 of them.`;
+
+  // overrun tail — banded, not fine-grained: there's no round-number
+  // convention on this side, so a 1-point histogram would just be noise.
+  const OB_ORDER = ["100-105%", "105-110%", "110-115%", "115-125%", "125-150%", "150-200%", ">200%"];
+  const bands = av.overrun_bands;
+  const bmax = Math.max(...OB_ORDER.map(k => bands[k] || 0));
+  const W3 = 800, H3 = 190, pL3 = 78, pR3 = 60, pT3 = 8;
+  const rowH3 = (H3 - pT3) / OB_ORDER.length, bh3 = rowH3 * 0.56;
+  const pw3 = W3 - pL3 - pR3;
+  let body3 = "";
+  OB_ORDER.forEach((k, i) => {
+    const n = bands[k] || 0;
+    const yy = pT3 + i * rowH3 + (rowH3 - bh3) / 2;
+    const w = Math.max((n / bmax) * pw3, 2);
+    const extreme = k === ">200%" || k === "150-200%";
+    body3 += `<text class="ax-strong" x="${pL3 - 12}" y="${yy + bh3 / 2 + 4}" text-anchor="end">${k}</text>
+              <rect x="${pL3}" y="${yy}" width="${w}" height="${bh3}" rx="3"
+                fill="${extreme ? "var(--s2)" : "var(--s1)"}" ${extreme ? "" : 'opacity="0.55"'}>
+                <title>${int(n)} packages awarded ${k} of their estimate</title></rect>
+              <text class="val-label${extreme ? " hi" : ""}" x="${pL3 + w + 9}" y="${yy + bh3 / 2 + 4}">${int(n)}</text>`;
+  });
+  document.getElementById("chartOverrun").innerHTML = svg(W3, H3, body3);
+  document.getElementById("capOverrun").textContent =
+    `Matched packages awarded above their own estimate, banded by how far above. `
+    + `${int(bands[">200%"] || 0)} packages were awarded at more than double what was estimated for them.`;
+
+  const os_ = av.overrun_summary;
+  document.getElementById("ovrCount").textContent = int(os_.count_above_115);
+  document.getElementById("ovrValue").textContent = taka(os_.total_extra_bdt);
+  document.getElementById("overrunBody").innerHTML = p.biggest_overruns.slice(0, 15).map(o => `
+    <tr>
+      <td class="strong">${esc(o.package_no || "—")}<div class="muted" style="font-size:0.78em;margin-top:2px">${esc(o.description || "")}</div></td>
+      <td class="n">${taka(o.estimated_cost_bdt)}</td>
+      <td class="n">${taka(o.awarded_bdt)}</td>
+      <td class="n hi">${pct(o.ratio - 1)}</td>
+      <td class="muted">${esc(o.awarded_to || "—")}</td>
+      <td class="muted">${esc(o.actual_method || "—")}</td>
+    </tr>`).join("");
+}
+
+/* ── 04 · Cost structure by ministry & year ───────────────────────── */
+
+function chartCostStructure(p) {
+  const cs = p.cost_structure;
+  // Ranked by typical discount off estimate (1 - median ratio), deepest
+  // first. This is the median, not the >115%-overrun share: the median is
+  // stable on a small matched sample in a way a tail statistic isn't, which
+  // is why it's the one used for a per-ministry comparison at this scale.
+  const rows = cs.by_ministry.slice().sort((a, b) => (1 - a.median_ratio) < (1 - b.median_ratio) ? 1 : -1);
+  const discounts = rows.map(r => 1 - r.median_ratio);
+  const max = Math.max(...discounts.map(Math.abs), 0.01);
+  const W = 800, H = Math.max(rows.length * 34, 150), padL = 260, padR = 200, padT = 8;
+  const rowH = H / rows.length, bh = rowH * 0.56;
+  const pw = W - padL - padR;
+
+  let body = "";
+  rows.forEach((r, i) => {
+    const short = r.ministry.replace(/^Ministry of /, "");
+    const yy = i * rowH + (rowH - bh) / 2;
+    const d = discounts[i];
+    const w = Math.max((Math.abs(d) / max) * pw, 2);
+    body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(short.slice(0, 38))}</text>
+             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3"
+               fill="${i === 0 ? "var(--s2)" : "var(--s1)"}" ${i === 0 ? "" : 'opacity="0.55"'}>
+               <title>${esc(r.ministry)}: median award is ${pct(r.median_ratio, 1)} of estimate, across ${int(r.matched_pairs)} matched packages</title></rect>
+             <text class="val-label${i === 0 ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">
+               ${pct(d, 1)} below <tspan class="muted">· n=${int(r.matched_pairs)}</tspan></text>`;
+  });
+  document.getElementById("chartCostMinistry").innerHTML = svg(W, H, body);
+  document.getElementById("capCostMinistry").textContent =
+    `Typical discount off the government's own estimate (1 − median award/estimate ratio), by ministry `
+    + `(ministries with ${cs.min_pairs_for_ministry}+ matched packages only). Matched-package count on hover.`;
+
+  const yrs = cs.by_year;
+  const ymax = Math.max(...yrs.map(y => y.share_at_10pct_below));
+  const W2 = 800, H2 = 220, pL = 40, pR = 16, pT = 16, pB = 30;
+  const pw2 = W2 - pL - pR, ph2 = H2 - pT - pB;
+  const xx = i => pL + (i / (yrs.length - 1)) * pw2;
+  const yy2 = v => pT + ph2 - (v / ymax) * ph2;
+  let body2 = "";
+  for (let g = 0; g <= Math.ceil(ymax * 10) / 10; g += 0.1) {
+    const gy = yy2(g);
+    body2 += `<line class="grid" x1="${pL}" y1="${gy}" x2="${W2 - pR}" y2="${gy}"/>
+              <text class="ax" x="${pL - 7}" y="${gy + 3}" text-anchor="end">${pct(g)}</text>`;
+  }
+  const pts = yrs.map((y, i) => [xx(i), yy2(y.share_at_10pct_below)]);
+  body2 += `<polyline fill="none" stroke="var(--s2)" stroke-width="2" stroke-linejoin="round"
+             points="${pts.map(pt => pt.join(",")).join(" ")}"/>`;
+  yrs.forEach((y, i) => {
+    body2 += `<circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="2.5" fill="var(--s2)">
+                <title>${y.year}: ${pct(y.share_at_10pct_below, 1)} of ${int(y.matched_pairs)} matched packages at ~10% below estimate</title></circle>`;
+    if (i % 2 === 0 || i === yrs.length - 1)
+      body2 += `<text class="ax" x="${pts[i][0]}" y="${H2 - 8}" text-anchor="middle">${y.year}</text>`;
+  });
+  document.getElementById("chartCostTrend").innerHTML = svg(W2, H2, body2);
+  document.getElementById("capCostTrend").textContent =
+    "Share of matched packages landing within half a point of exactly 10% below the government's estimate, by year of contract signing.";
+}
+
+/* ── 05 · The ৳50 crore ceiling ───────────────────────────────────── */
+
+function chartCeiling(cl) {
+  const b = cl.bunching;
+  const hist = b.fine_histogram_crore;
+  const keys = Object.keys(hist).map(Number).sort((x, z) => x - z);
+  const max = Math.max(...keys.map(k => hist[k.toFixed(2)]), 1);
+  const W = 800, H = 260, pL = 40, pR = 16, pT = 16, pB = 40;
+  const pw = W - pL - pR, ph = H - pT - pB;
+  const step = pw / keys.length, bw = Math.max(step * 0.78, 1.5);
+
+  let body = "";
+  keys.forEach((k, i) => {
+    const kk = k.toFixed(2);
+    const n = hist[kk] || 0;
+    const h = (n / max) * ph;
+    const x = pL + i * step + (step - bw) / 2;
+    const yy = pT + ph - h;
+    const near = k >= 45 && k < 50;
+    body += `<rect x="${x}" y="${yy}" width="${bw}" height="${Math.max(h, 0.8)}" rx="1"
+               fill="${near ? "var(--s2)" : "var(--s1)"}" ${near ? "" : 'opacity="0.5"'}>
+               <title>৳${k} crore band: ${int(n)} contracts</title></rect>`;
+    if (Math.abs(k - Math.round(k)) < 0.01)
+      body += `<text class="ax" x="${x + bw / 2}" y="${H - 20}" text-anchor="middle">${k}</text>`;
+  });
+  const fx = pL + ((50 - keys[0]) / (keys[keys.length - 1] - keys[0])) * pw;
+  body += `<line x1="${fx}" y1="${pT}" x2="${fx}" y2="${pT + ph}" stroke="var(--critical)" stroke-width="1" stroke-dasharray="2 3"/>
+           <text class="val-label hi" x="${fx + 6}" y="${pT + 12}">৳50 crore</text>
+           <text class="ax" x="${pL + pw / 2}" y="${H - 6}" text-anchor="middle">contract value, crore taka</text>`;
+  document.getElementById("chartCeiling").innerHTML = svg(W, H, body);
+  document.getElementById("capCeiling").textContent =
+    `Contract count by value, in ৳0.5 crore bands, ৳30-65 crore. ${int(b.just_under_45_50)} contracts `
+    + `fall in the ৳45-50 crore band just under the line against ${int(b.just_over_50_55)} in the `
+    + `equivalent ৳50-55 crore band just over it.`;
+  document.getElementById("ceilAsym").textContent = `${b.asymmetry_ratio}×`;
+
+  document.getElementById("ceilClusterCount").textContent = int(cl.split_clusters_total_count);
+  document.getElementById("ceilBody").innerHTML = cl.split_clusters.slice(0, 15).map(c => `
+    <tr>
+      <td class="strong">${esc(c.procuring_entity)}<div class="muted" style="font-size:0.78em;margin-top:2px">${esc(c.ministry)}</div></td>
+      <td>${esc(c.vendor)}</td>
+      <td class="n hi">${taka(c.total_bdt)}</td>
+      <td class="n">${int(c.count)}</td>
+      <td class="muted">${esc(c.first_date)} → ${esc(c.last_date)}</td>
+    </tr>`).join("");
 }
 
 /* ── 04 · Office concentration ────────────────────────────────────── */
@@ -255,7 +381,7 @@ function chartPrice(a) {
   const pp = a.price_points;
   const top = pp.top_price_points.slice(0, 12);
   const max = Math.max(...top.map(p => p.count));
-  const W = 800, H = 330, padL = 96, padR = 128, padT = 8;
+  const W = 800, H = 330, padL = 96, padR = 186, padT = 8;
   const rowH = (H - padT) / top.length, bh = rowH * 0.58;
   const pw = W - padL - padR;
 
@@ -340,7 +466,7 @@ function chartMinistries(insights, profiles, a) {
 function chartCross(profiles) {
   const rows = profiles.cross_departmental_vendors.slice(0, 12);
   const max = Math.max(...rows.map(r => r.distinct_ministries));
-  const W = 800, H = 330, padL = 196, padR = 168, padT = 6;
+  const W = 800, H = 330, padL = 196, padR = 228, padT = 6;
   const rowH = (H - padT) / rows.length, bh = rowH * 0.58;
   const pw = W - padL - padR;
 
@@ -453,6 +579,38 @@ function setupFlagsTable(flags) {
   render();
 }
 
+/* ── 11 · Topic mix (CPV category) ────────────────────────────────── */
+
+function chartTopics(cpv) {
+  const rows = cpv.top_categories.slice(0, 15);
+  const max = Math.max(...rows.map(r => r.count));
+  const W = 800, H = 400, padL = 300, padR = 175, padT = 6;
+  const rowH = (H - padT) / rows.length, bh = rowH * 0.6;
+  const pw = W - padL - padR;
+
+  let body = "";
+  rows.forEach((r, i) => {
+    const yy = padT + i * rowH + (rowH - bh) / 2;
+    const w = Math.max((r.count / max) * pw, 2);
+    body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(r.name.slice(0, 46))}</text>
+             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="var(--s1)" opacity="${i === 0 ? 1 : 0.55}">
+               <title>${esc(r.name)}: ${int(r.count)} tenders (${pct(r.count / cpv.meta.all_tenders, 1)} of all tenders)</title></rect>
+             <text class="val-label${i === 0 ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">
+               ${int(r.count)} <tspan class="muted">· ${pct(r.count / cpv.meta.all_tenders, 1)}</tspan></text>`;
+  });
+  document.getElementById("chartTopics").innerHTML = svg(W, H, body);
+  document.getElementById("capTopics").textContent =
+    `Top 15 of ${int(cpv.meta.categories_tracked)} top-level CPV categories, by tender count, out of `
+    + `${int(cpv.meta.all_tenders)} tenders overall. Shares are of all tenders, not of each other — `
+    + `a tender can carry more than one category.`;
+
+  const top = rows[0];
+  const ict = cpv.top_categories.find(c => c.name === "Computer and related services");
+  document.getElementById("topicTop").textContent = pct(top.count / cpv.meta.all_tenders, 1);
+  document.getElementById("topicIct").textContent = ict
+    ? `just ${pct(ict.count / cpv.meta.all_tenders, 1)}` : "not in the top 25";
+}
+
 /* ── Masthead + methodology text ──────────────────────────────────── */
 
 function renderHeader(a, summary, debar, insights) {
@@ -491,12 +649,19 @@ async function main() {
     ]);
     const own = await loadJSON("data/ownership.json").catch(() => null);
     const pva = await loadJSON("data/plan_vs_actual.json").catch(() => null);
+    const ceiling = await loadJSON("data/ceiling.json").catch(() => null);
+    const cpv = await loadJSON("data/cpv_categories.json").catch(() => null);
 
     renderHeader(a, summary, debar, insights);
     chartMonths(a);
     chartMethods(a);
-    if (pva) chartPlanVsActual(pva);
-    else document.getElementById("fplan").style.display = "none";
+    if (pva) { chartPlanVsActual(pva); chartCostStructure(pva); }
+    else {
+      document.getElementById("fplan").style.display = "none";
+      document.getElementById("fcost").style.display = "none";
+    }
+    if (ceiling) chartCeiling(ceiling);
+    else document.getElementById("fceiling").style.display = "none";
     chartConc(a);
     chartPrice(a);
     chartMinistries(insights, profiles, a);
@@ -504,6 +669,8 @@ async function main() {
     renderOwnership(own);
     chartDebar(flags);
     setupFlagsTable(flags);
+    if (cpv) chartTopics(cpv);
+    else document.getElementById("ftopic").style.display = "none";
   } catch (err) {
     document.getElementById("updated").textContent = `Could not load data: ${err.message}`;
     console.error(err);

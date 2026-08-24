@@ -67,17 +67,55 @@ presence of a dashboard.
   repeated-price-point clustering above: plan estimates themselves cluster on
   clean round figures -- Tk 3,00,000 / 5,00,000 / 10,00,000 -- and awards land
   at a fixed discount underneath them.)
-- When a package's procurement method changes between plan and award, it
-  becomes **less** open than planned **10x** as often as it becomes more open
-  (568 vs 59) -- almost entirely open tendering turning into limited tendering.
+- **224** matched packages (0.5%) were awarded more than 15% over their own
+  estimate, ৳92.8 crore above what was budgeted for them on those alone.
+- The typical discount off estimate is not one national number -- it's a
+  habit that differs by ministry, from ~1.5% below (Water Resources) to
+  ~16.4% below (Communications), measured on the median ratio rather than
+  the overrun tail (see the retraction note below for why). The "10%-below"
+  convention itself only becomes routine from the late 2010s on -- under 4%
+  of matched packages in 2013-2014, 30%+ every year from 2020. See
+  `data/plan_vs_actual.json` -> `cost_structure`.
+- The **Tk 50 crore** administrative-approval ceiling shows the bunching
+  shape a threshold gets gamed into: 1.5x as many contracts land just under
+  it (Tk 45-50cr) as just over it (Tk 50-55cr), and 402 office-vendor pairs
+  show multiple sub-threshold awards within 45 days of each other summing
+  past it. See `pipeline/build_ceiling.py` / `data/ceiling.json`. Neither
+  test proves splitting on its own -- each is a lead, not a verdict.
+- By CPV (Common Procurement Vocabulary) category -- the only source here
+  with real topical detail, beyond the three-way Works/Goods/Services split
+  -- **Construction work** alone is 54.3% of all tenders nationally; the
+  entirety of **Computer and related services** (government ICT
+  procurement) is 1.2%. See `pipeline/scrape_cpv.py` / `data/cpv_categories.json`.
 
-  *A note on both numbers:* an earlier pass over the first ~107k plan line
-  items gave 40% / 11% and a 28x method ratio. Widening coverage to ~301k
-  items moved them to 26% / 18% / 10x. The itemised-plan crawl is ordered
-  busiest-office-first, so a partial run is a biased sample, not a random one
-  -- treat any figure here as provisional until the crawl covers all 10,205
-  offices. The dashboard reads these from `data/plan_vs_actual.json` rather
-  than hardcoding them, so it self-corrects as coverage grows.
+  *A note on the plan-vs-award figures above:* an earlier pass over the
+  first ~107k plan line items gave 40%/11%/28x on the discount-spike and
+  method-change numbers; ~301k items moved them to 26%/18%/10x. The
+  itemised-plan crawl is ordered busiest-office-first, so a partial run is a
+  biased sample, not a random one -- treat any figure here as provisional
+  until the crawl covers all 10,205 offices. The dashboard reads these from
+  `data/plan_vs_actual.json` rather than hardcoding them, so it self-corrects
+  as coverage grows.
+
+  *A retraction:* the plan/award join is on package reference text alone,
+  and some offices type office-shorthand ("se", "ee"), a bare running number
+  ("01", "280"), or even the literal placeholder "na" into that field
+  instead of a real package code. Those aren't unique, so the join was
+  pairing a plan estimate with whichever unrelated contract happened to
+  share the same short text -- the same false-positive shape as the
+  debarment name-collision bug below (one "na"-to-"na" collision alone
+  produced 16 bogus matches). This is what originally drove the reported
+  **"10x more downgrades than upgrades"** method-change claim (568 vs 59):
+  after excluding references shared by more than 3 procuring entities
+  nationally, references under 6 characters, and matches at an implausible
+  ratio (>10x or <0.1x -- no real estimate-to-award relationship differs by
+  two orders of magnitude), the true count is **19 vs 18** -- no detectable
+  direction at this sample size. The same bug had inflated the per-ministry
+  overrun comparison in an earlier draft (Finance and Education looked like
+  high-overrun outliers; that vanished once the false matches were removed).
+  Both claims have been removed from the dashboard rather than kept with
+  smaller numbers. See `GENERIC_PE_SPREAD`, `MIN_REF_LEN`, and
+  `SANITY_RATIO_MIN`/`MAX` in `build_plan_vs_actual.py`.
 - **30** vendors are awarded by three or more different ministries -- several
   well-known national conglomerates (Smart Technologies, RFL Plastics,
   Global Brand, Star Tech, Hatil) among them, none looking like a

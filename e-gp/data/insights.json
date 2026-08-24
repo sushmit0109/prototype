@@ -481,8 +481,8 @@
    "value_bdt": 619497070000.0
   },
   {
-   "ministry": "Ministry of Energy, Power and Minearal Resources",
-   "value_bdt": 217948860000.0
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "value_bdt": 294442190000.0
   },
   {
    "ministry": "Ministry of Shipping",
@@ -499,10 +499,6 @@
   {
    "ministry": "Ministry of Home Affairs",
    "value_bdt": 89494490000.0
-  },
-  {
-   "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "value_bdt": 76493330000.0
   },
   {
    "ministry": "Ministry of Disaster Management & Relief",
@@ -539,6 +535,10 @@
   {
    "ministry": "Ministry of Primary and Mass Education",
    "value_bdt": 33259410000.0
+  },
+  {
+   "ministry": "Prime Minister's Office",
+   "value_bdt": 32271960000.0
   }
  ],
  "ministry_by_year": {
@@ -824,7 +824,7 @@
     "value_bdt": 37127230000.0
    }
   },
-  "Ministry of Energy, Power and Minearal Resources": {
+  "Ministry of Energy, Power and Mineral Resources": {
    "2012": {
     "count": 3,
     "value_bdt": 125700000.0
@@ -874,12 +874,16 @@
     "value_bdt": 24988390000.0
    },
    "2024": {
-    "count": 1981,
-    "value_bdt": 18612220000.0
+    "count": 5039,
+    "value_bdt": 30762460000.0
    },
    "2025": {
-    "count": 4,
-    "value_bdt": 1234180000.0
+    "count": 5717,
+    "value_bdt": 34992120000.0
+   },
+   "2026": {
+    "count": 9157,
+    "value_bdt": 30585150000.0
    }
   },
   "Ministry of Shipping": {
@@ -1064,20 +1068,6 @@
    "2026": {
     "count": 6990,
     "value_bdt": 27681700000.0
-   }
-  },
-  "Ministry of Energy, Power and Mineral Resources": {
-   "2024": {
-    "count": 3058,
-    "value_bdt": 12150240000.0
-   },
-   "2025": {
-    "count": 5713,
-    "value_bdt": 33757940000.0
-   },
-   "2026": {
-    "count": 9157,
-    "value_bdt": 30585150000.0
    }
   },
   "Ministry of Disaster Management & Relief": {
@@ -1477,6 +1467,52 @@
     "count": 91,
     "value_bdt": 11541000000.0
    }
+  },
+  "Prime Minister's Office": {
+   "2016": {
+    "count": 1,
+    "value_bdt": 15890000.0
+   },
+   "2017": {
+    "count": 16,
+    "value_bdt": 60860000.0
+   },
+   "2018": {
+    "count": 33,
+    "value_bdt": 179710000.0
+   },
+   "2019": {
+    "count": 95,
+    "value_bdt": 1201230000.0
+   },
+   "2020": {
+    "count": 69,
+    "value_bdt": 1498270000.0
+   },
+   "2021": {
+    "count": 112,
+    "value_bdt": 3179770000.0
+   },
+   "2022": {
+    "count": 101,
+    "value_bdt": 2555130000.0
+   },
+   "2023": {
+    "count": 141,
+    "value_bdt": 2995500000.0
+   },
+   "2024": {
+    "count": 207,
+    "value_bdt": 3144930000.0
+   },
+   "2025": {
+    "count": 148,
+    "value_bdt": 7156010000.0
+   },
+   "2026": {
+    "count": 236,
+    "value_bdt": 10284660000.0
+   }
   }
  },
  "top_districts_by_value": [
@@ -1588,7 +1624,7 @@
    "count": 3559,
    "value_bdt": 78408350000.0,
    "distinct_procuring_entities": 605,
-   "distinct_ministries": 23,
+   "distinct_ministries": 22,
    "years_active": 13,
    "top_entity": "Office of the Executive Engineer, LGED, Netrokona",
    "top_entity_share": 0.022
@@ -1599,7 +1635,7 @@
    "count": 179,
    "value_bdt": 66956690000.0,
    "distinct_procuring_entities": 85,
-   "distinct_ministries": 15,
+   "distinct_ministries": 14,
    "years_active": 10,
    "top_entity": "Dhaka PWD Division-4, Dhaka",
    "top_entity_share": 0.095
@@ -1841,7 +1877,7 @@
    "count": 498,
    "value_bdt": 18131920000.0,
    "distinct_procuring_entities": 100,
-   "distinct_ministries": 18,
+   "distinct_ministries": 17,
    "years_active": 12,
    "top_entity": "PWD EM Division-4, Dhaka",
    "top_entity_share": 0.096
@@ -1918,7 +1954,7 @@
    "count": 742,
    "value_bdt": 16369710000.0,
    "distinct_procuring_entities": 380,
-   "distinct_ministries": 32,
+   "distinct_ministries": 31,
    "years_active": 11,
    "top_entity": "EIBA-2nd Phase, BMDA, Head Office, Rajshahi",
    "top_entity_share": 0.02
@@ -1951,7 +1987,7 @@
    "count": 165,
    "value_bdt": 14919030000.0,
    "distinct_procuring_entities": 29,
-   "distinct_ministries": 3,
+   "distinct_ministries": 2,
    "years_active": 13,
    "top_entity": "Directorate of Purchase",
    "top_entity_share": 0.285
@@ -2006,7 +2042,7 @@
    "count": 659,
    "value_bdt": 13453160000.0,
    "distinct_procuring_entities": 184,
-   "distinct_ministries": 19,
+   "distinct_ministries": 18,
    "years_active": 11,
    "top_entity": "Office of the Executive Engineer, LGED, Gopalganj",
    "top_entity_share": 0.071
@@ -2017,7 +2053,7 @@
    "count": 952,
    "value_bdt": 13274520000.0,
    "distinct_procuring_entities": 116,
-   "distinct_ministries": 15,
+   "distinct_ministries": 14,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer, LGED, Bandarban",
    "top_entity_share": 0.101
@@ -2041,7 +2077,7 @@
    "count": 3559,
    "value_bdt": 78408350000.0,
    "distinct_procuring_entities": 605,
-   "distinct_ministries": 23,
+   "distinct_ministries": 22,
    "years_active": 13,
    "top_entity": "Office of the Executive Engineer, LGED, Netrokona",
    "top_entity_share": 0.022
@@ -2052,7 +2088,7 @@
    "count": 1984,
    "value_bdt": 7792650000.0,
    "distinct_procuring_entities": 489,
-   "distinct_ministries": 20,
+   "distinct_ministries": 19,
    "years_active": 14,
    "top_entity": "Gazipur PWD Division, Gazipur",
    "top_entity_share": 0.051
@@ -2063,7 +2099,7 @@
    "count": 1919,
    "value_bdt": 8263520000.0,
    "distinct_procuring_entities": 430,
-   "distinct_ministries": 18,
+   "distinct_ministries": 17,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer, LGED, Noakhali",
    "top_entity_share": 0.054
@@ -2118,7 +2154,7 @@
    "count": 1384,
    "value_bdt": 6679990000.0,
    "distinct_procuring_entities": 115,
-   "distinct_ministries": 15,
+   "distinct_ministries": 14,
    "years_active": 10,
    "top_entity": "Mohakhali PWD Division, Mohakhali, Dhaka",
    "top_entity_share": 0.101
@@ -2140,7 +2176,7 @@
    "count": 1149,
    "value_bdt": 4164830000.0,
    "distinct_procuring_entities": 361,
-   "distinct_ministries": 20,
+   "distinct_ministries": 19,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer , DPHE, Sariatpur",
    "top_entity_share": 0.052
@@ -2151,7 +2187,7 @@
    "count": 1145,
    "value_bdt": 2706100000.0,
    "distinct_procuring_entities": 214,
-   "distinct_ministries": 19,
+   "distinct_ministries": 18,
    "years_active": 12,
    "top_entity": "Netrokona pwd division",
    "top_entity_share": 0.091
@@ -2162,7 +2198,7 @@
    "count": 1093,
    "value_bdt": 9914940000.0,
    "distinct_procuring_entities": 272,
-   "distinct_ministries": 17,
+   "distinct_ministries": 16,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer, LGED, Brahmanbaria",
    "top_entity_share": 0.18
@@ -2184,7 +2220,7 @@
    "count": 1073,
    "value_bdt": 1057230000.0,
    "distinct_procuring_entities": 105,
-   "distinct_ministries": 11,
+   "distinct_ministries": 10,
    "years_active": 12,
    "top_entity": "PWD EM Division-5, Dhaka",
    "top_entity_share": 0.13
@@ -2195,7 +2231,7 @@
    "count": 1020,
    "value_bdt": 3990050000.0,
    "distinct_procuring_entities": 229,
-   "distinct_ministries": 22,
+   "distinct_ministries": 21,
    "years_active": 14,
    "top_entity": "Lalmonirhat PWD Division",
    "top_entity_share": 0.059
@@ -2206,7 +2242,7 @@
    "count": 985,
    "value_bdt": 4414430000.0,
    "distinct_procuring_entities": 268,
-   "distinct_ministries": 22,
+   "distinct_ministries": 21,
    "years_active": 14,
    "top_entity": "Noakhali PWD Division",
    "top_entity_share": 0.046
@@ -2217,7 +2253,7 @@
    "count": 982,
    "value_bdt": 7550110000.0,
    "distinct_procuring_entities": 321,
-   "distinct_ministries": 18,
+   "distinct_ministries": 17,
    "years_active": 13,
    "top_entity": "Mymensingh PWD Division, Mymensingh",
    "top_entity_share": 0.073
@@ -2239,7 +2275,7 @@
    "count": 952,
    "value_bdt": 13274520000.0,
    "distinct_procuring_entities": 116,
-   "distinct_ministries": 15,
+   "distinct_ministries": 14,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer, LGED, Bandarban",
    "top_entity_share": 0.101
@@ -2250,7 +2286,7 @@
    "count": 924,
    "value_bdt": 9531740000.0,
    "distinct_procuring_entities": 222,
-   "distinct_ministries": 13,
+   "distinct_ministries": 12,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer, LGED, Shariatpur",
    "top_entity_share": 0.141
@@ -2261,7 +2297,7 @@
    "count": 893,
    "value_bdt": 2056050000.0,
    "distinct_procuring_entities": 169,
-   "distinct_ministries": 13,
+   "distinct_ministries": 12,
    "years_active": 14,
    "top_entity": "Cox's Bazar Road Division",
    "top_entity_share": 0.132
@@ -2272,7 +2308,7 @@
    "count": 878,
    "value_bdt": 2312180000.0,
    "distinct_procuring_entities": 265,
-   "distinct_ministries": 19,
+   "distinct_ministries": 18,
    "years_active": 14,
    "top_entity": "Bogra pwd division",
    "top_entity_share": 0.071
@@ -2305,7 +2341,7 @@
    "count": 844,
    "value_bdt": 1216620000.0,
    "distinct_procuring_entities": 135,
-   "distinct_ministries": 12,
+   "distinct_ministries": 11,
    "years_active": 13,
    "top_entity": "Workshop Division, Tejgaon, Dhaka",
    "top_entity_share": 0.626
@@ -2316,7 +2352,7 @@
    "count": 827,
    "value_bdt": 11930640000.0,
    "distinct_procuring_entities": 357,
-   "distinct_ministries": 42,
+   "distinct_ministries": 41,
    "years_active": 13,
    "top_entity": "Special Branch, Dhaka",
    "top_entity_share": 0.03
@@ -2327,7 +2363,7 @@
    "count": 803,
    "value_bdt": 4462430000.0,
    "distinct_procuring_entities": 195,
-   "distinct_ministries": 19,
+   "distinct_ministries": 18,
    "years_active": 14,
    "top_entity": "Office of the Executive Engineer, EED, Chapainawabanj District.",
    "top_entity_share": 0.075
@@ -2349,7 +2385,7 @@
    "count": 768,
    "value_bdt": 2839550000.0,
    "distinct_procuring_entities": 226,
-   "distinct_ministries": 22,
+   "distinct_ministries": 21,
    "years_active": 14,
    "top_entity": "Pirojpur Road Division",
    "top_entity_share": 0.043
@@ -2360,7 +2396,7 @@
    "count": 747,
    "value_bdt": 2975510000.0,
    "distinct_procuring_entities": 244,
-   "distinct_ministries": 16,
+   "distinct_ministries": 15,
    "years_active": 14,
    "top_entity": "Azimpur PWD Division, New Market, Dhaka",
    "top_entity_share": 0.068
@@ -2371,7 +2407,7 @@
    "count": 742,
    "value_bdt": 16369710000.0,
    "distinct_procuring_entities": 380,
-   "distinct_ministries": 32,
+   "distinct_ministries": 31,
    "years_active": 11,
    "top_entity": "EIBA-2nd Phase, BMDA, Head Office, Rajshahi",
    "top_entity_share": 0.02
@@ -2382,7 +2418,7 @@
    "count": 723,
    "value_bdt": 1001240000.0,
    "distinct_procuring_entities": 154,
-   "distinct_ministries": 8,
+   "distinct_ministries": 7,
    "years_active": 12,
    "top_entity": "Bogura WD Division",
    "top_entity_share": 0.033
@@ -2393,7 +2429,7 @@
    "count": 719,
    "value_bdt": 2363760000.0,
    "distinct_procuring_entities": 61,
-   "distinct_ministries": 11,
+   "distinct_ministries": 10,
    "years_active": 12,
    "top_entity": "PWD EM Division-2, Dhaka",
    "top_entity_share": 0.12
@@ -2415,7 +2451,7 @@
    "count": 704,
    "value_bdt": 3409830000.0,
    "distinct_procuring_entities": 228,
-   "distinct_ministries": 16,
+   "distinct_ministries": 15,
    "years_active": 12,
    "top_entity": "Office of the Executive Engineer,DPHE,Munshiganj",
    "top_entity_share": 0.104
@@ -2437,7 +2473,7 @@
    "count": 698,
    "value_bdt": 2226220000.0,
    "distinct_procuring_entities": 180,
-   "distinct_ministries": 16,
+   "distinct_ministries": 15,
    "years_active": 13,
    "top_entity": "Gazipur PWD Division, Gazipur",
    "top_entity_share": 0.12
@@ -2459,7 +2495,7 @@
    "count": 671,
    "value_bdt": 1491560000.0,
    "distinct_procuring_entities": 152,
-   "distinct_ministries": 19,
+   "distinct_ministries": 18,
    "years_active": 14,
    "top_entity": "Workshop Division, Tejgaon, Dhaka",
    "top_entity_share": 0.124
@@ -2472,7 +2508,7 @@
    "count": 142,
    "value_bdt": 4402140000.0,
    "distinct_procuring_entities": 14,
-   "distinct_ministries": 4,
+   "distinct_ministries": 3,
    "years_active": 8,
    "top_entity": "Member (Textbook), NCTB",
    "top_entity_share": 0.803
@@ -2604,7 +2640,7 @@
    "count": 10,
    "value_bdt": 1995440000.0,
    "distinct_procuring_entities": 3,
-   "distinct_ministries": 2,
+   "distinct_ministries": 1,
    "years_active": 5,
    "top_entity": "Directorate of Procurement",
    "top_entity_share": 0.8

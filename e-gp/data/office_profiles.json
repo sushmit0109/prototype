@@ -1119,30 +1119,31 @@
    ]
   },
   {
-   "ministry": "Ministry of Energy, Power and Minearal Resources",
-   "count": 37162,
-   "value_bdt": 217948860000.0,
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "count": 55090,
+   "value_bdt": 294442190000.0,
    "by_nature": {
-    "Goods": 12145,
-    "Works": 18162,
-    "Goods (Framework Agreement)": 2
+    "Goods": 17426,
+    "Works": 24850,
+    "Goods (Framework Agreement)": 43,
+    "Physical Services": 167
    },
    "top_vendors": [
     {
      "company": "BRB Cable Industries Ltd.",
-     "value_bdt": 11048710000.0
+     "value_bdt": 14725000000.0
+    },
+    {
+     "company": "Rangpur Metal Industries Ltd",
+     "value_bdt": 8686920000.0
     },
     {
      "company": "BBS Cables Ltd.",
      "value_bdt": 6383770000.0
     },
     {
-     "company": "Rangpur Metal Industries Ltd",
-     "value_bdt": 5432290000.0
-    },
-    {
      "company": "B&T Cables Limited",
-     "value_bdt": 4438690000.0
+     "value_bdt": 5693180000.0
     },
     {
      "company": "Confidence Steel Limited",
@@ -1280,39 +1281,6 @@
     {
      "company": "Multi Trade",
      "value_bdt": 2328330000.0
-    }
-   ]
-  },
-  {
-   "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 17928,
-   "value_bdt": 76493330000.0,
-   "by_nature": {
-    "Goods": 5281,
-    "Works": 6688,
-    "Goods (Framework Agreement)": 41,
-    "Physical Services": 167
-   },
-   "top_vendors": [
-    {
-     "company": "BRB Cable Industries Ltd.",
-     "value_bdt": 3676290000.0
-    },
-    {
-     "company": "Rangpur Metal Industries Ltd",
-     "value_bdt": 3254630000.0
-    },
-    {
-     "company": "The Bangladesh Machine Tools Factory Limited",
-     "value_bdt": 1768710000.0
-    },
-    {
-     "company": "B&T METER LIMITED",
-     "value_bdt": 1623710000.0
-    },
-    {
-     "company": "VICAR INTERNATIONAL",
-     "value_bdt": 1583540000.0
     }
    ]
   },
@@ -2532,7 +2500,7 @@
    "company": "Smart Technologies (BD) Ltd.",
    "value_bdt": 11930640000.0,
    "count": 827,
-   "distinct_ministries": 42,
+   "distinct_ministries": 41,
    "ministries": [
     {
      "ministry": "Ministry of Education",
@@ -2563,12 +2531,12 @@
      "value_bdt": 315450000.0
     },
     {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 233090000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 297510000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 218730000.0
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 233090000.0
     },
     {
      "ministry": "Ministry of Defence",
@@ -2580,7 +2548,7 @@
    "company": "Global Brand Private Limited",
    "value_bdt": 4950510000.0,
    "count": 516,
-   "distinct_ministries": 38,
+   "distinct_ministries": 37,
    "ministries": [
     {
      "ministry": "Ministry of Education",
@@ -2607,12 +2575,12 @@
      "value_bdt": 262310000.0
     },
     {
-     "ministry": "Ministry of Home Affairs",
-     "value_bdt": 235420000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 236930000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 218930000.0
+     "ministry": "Ministry of Home Affairs",
+     "value_bdt": 235420000.0
     },
     {
      "ministry": "Ministry of Social Welfare",
@@ -2621,54 +2589,6 @@
     {
      "ministry": "Ministry of Housing and Public Works",
      "value_bdt": 171590000.0
-    }
-   ]
-  },
-  {
-   "company": "Star Tech & Engineering Ltd.",
-   "value_bdt": 2561600000.0,
-   "count": 299,
-   "distinct_ministries": 35,
-   "ministries": [
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 704350000.0
-    },
-    {
-     "ministry": "Ministry of Finance",
-     "value_bdt": 612000000.0
-    },
-    {
-     "ministry": "Ministry of Health and Family Welfare",
-     "value_bdt": 185660000.0
-    },
-    {
-     "ministry": "Ministry of Primary and Mass Education",
-     "value_bdt": 138690000.0
-    },
-    {
-     "ministry": "Ministry of Home Affairs",
-     "value_bdt": 115770000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 96130000.0
-    },
-    {
-     "ministry": "Ministry of Public Administration",
-     "value_bdt": 93310000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 85960000.0
-    },
-    {
-     "ministry": "Ministry of Land",
-     "value_bdt": 74490000.0
-    },
-    {
-     "ministry": "Ministry of Commerce",
-     "value_bdt": 65250000.0
     }
    ]
   },
@@ -2707,7 +2627,7 @@
      "value_bdt": 86300000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
      "value_bdt": 76350000.0
     },
     {
@@ -2721,10 +2641,58 @@
    ]
   },
   {
+   "company": "Star Tech & Engineering Ltd.",
+   "value_bdt": 2561600000.0,
+   "count": 299,
+   "distinct_ministries": 34,
+   "ministries": [
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 704350000.0
+    },
+    {
+     "ministry": "Ministry of Finance",
+     "value_bdt": 612000000.0
+    },
+    {
+     "ministry": "Ministry of Health and Family Welfare",
+     "value_bdt": 185660000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 146830000.0
+    },
+    {
+     "ministry": "Ministry of Primary and Mass Education",
+     "value_bdt": 138690000.0
+    },
+    {
+     "ministry": "Ministry of Home Affairs",
+     "value_bdt": 115770000.0
+    },
+    {
+     "ministry": "Ministry of Road Transport and Bridges",
+     "value_bdt": 96130000.0
+    },
+    {
+     "ministry": "Ministry of Public Administration",
+     "value_bdt": 93310000.0
+    },
+    {
+     "ministry": "Ministry of Land",
+     "value_bdt": 74490000.0
+    },
+    {
+     "ministry": "Ministry of Commerce",
+     "value_bdt": 65250000.0
+    }
+   ]
+  },
+  {
    "company": "Hatil Complex Ltd",
    "value_bdt": 5248320000.0,
    "count": 375,
-   "distinct_ministries": 33,
+   "distinct_ministries": 32,
    "ministries": [
     {
      "ministry": "Ministry of Housing and Public Works",
@@ -2772,7 +2740,7 @@
    "company": "Unique Business Systems Ltd.",
    "value_bdt": 1316950000.0,
    "count": 212,
-   "distinct_ministries": 33,
+   "distinct_ministries": 32,
    "ministries": [
     {
      "ministry": "Ministry of Education",
@@ -2820,11 +2788,15 @@
    "company": "Intimacy Computer & Solutions",
    "value_bdt": 679490000.0,
    "count": 293,
-   "distinct_ministries": 33,
+   "distinct_ministries": 32,
    "ministries": [
     {
      "ministry": "Ministry of Education",
      "value_bdt": 314500000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 55480000.0
     },
     {
      "ministry": "Ministry of Post, Telecommunications & Information Technology",
@@ -2839,10 +2811,6 @@
      "value_bdt": 31250000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 31190000.0
-    },
-    {
      "ministry": "Ministry of Information",
      "value_bdt": 31180000.0
     },
@@ -2851,16 +2819,16 @@
      "value_bdt": 24990000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 24290000.0
-    },
-    {
      "ministry": "Ministry of Agriculture",
      "value_bdt": 19560000.0
     },
     {
      "ministry": "Ministry of Health and Family Welfare",
      "value_bdt": 19200000.0
+    },
+    {
+     "ministry": "Ministry of Youth & Sports",
+     "value_bdt": 13580000.0
     }
    ]
   },
@@ -2868,7 +2836,7 @@
    "company": "RFL Plastics Limited",
    "value_bdt": 16369710000.0,
    "count": 742,
-   "distinct_ministries": 32,
+   "distinct_ministries": 31,
    "ministries": [
     {
      "ministry": "Ministry of Agriculture",
@@ -2916,7 +2884,7 @@
    "company": "Otobi Limited",
    "value_bdt": 857740000.0,
    "count": 235,
-   "distinct_ministries": 29,
+   "distinct_ministries": 28,
    "ministries": [
     {
      "ministry": "Ministry of Education",
@@ -2955,8 +2923,8 @@
      "value_bdt": 25010000.0
     },
     {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 21070000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 22960000.0
     }
    ]
   },
@@ -2964,7 +2932,7 @@
    "company": "Hazi Traders",
    "value_bdt": 719490000.0,
    "count": 305,
-   "distinct_ministries": 29,
+   "distinct_ministries": 28,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -2995,16 +2963,16 @@
      "value_bdt": 20950000.0
     },
     {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 20470000.0
+    },
+    {
      "ministry": "Ministry of Home Affairs",
      "value_bdt": 15190000.0
     },
     {
      "ministry": "Cabinet Division",
      "value_bdt": 13830000.0
-    },
-    {
-     "ministry": "Ministry of Railways",
-     "value_bdt": 11440000.0
     }
    ]
   },
@@ -3027,7 +2995,7 @@
      "value_bdt": 10100000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
      "value_bdt": 9110000.0
     },
     {
@@ -3060,7 +3028,7 @@
    "company": "Akhtar Furnishers Ltd",
    "value_bdt": 2591280000.0,
    "count": 192,
-   "distinct_ministries": 26,
+   "distinct_ministries": 25,
    "ministries": [
     {
      "ministry": "Ministry of Housing and Public Works",
@@ -3105,10 +3073,58 @@
    ]
   },
   {
+   "company": "Navana Limited",
+   "value_bdt": 2316580000.0,
+   "count": 164,
+   "distinct_ministries": 25,
+   "ministries": [
+    {
+     "ministry": "Ministry of Home Affairs",
+     "value_bdt": 642830000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 344880000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 320630000.0
+    },
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 165220000.0
+    },
+    {
+     "ministry": "Ministry of Civil Aviation & Tourism",
+     "value_bdt": 150170000.0
+    },
+    {
+     "ministry": "Ministry of Finance",
+     "value_bdt": 104760000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 100090000.0
+    },
+    {
+     "ministry": "Ministry of Youth & Sports",
+     "value_bdt": 71330000.0
+    },
+    {
+     "ministry": "Ministry of Information",
+     "value_bdt": 56610000.0
+    },
+    {
+     "ministry": "Ministry of Women and Children Affairs",
+     "value_bdt": 49860000.0
+    }
+   ]
+  },
+  {
    "company": "Furniture Concept & Interior Ltd.",
    "value_bdt": 2466970000.0,
    "count": 204,
-   "distinct_ministries": 25,
+   "distinct_ministries": 24,
    "ministries": [
     {
      "ministry": "Ministry of Housing and Public Works",
@@ -3148,55 +3164,7 @@
     },
     {
      "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 14030000.0
-    }
-   ]
-  },
-  {
-   "company": "Navana Limited",
-   "value_bdt": 2316580000.0,
-   "count": 164,
-   "distinct_ministries": 25,
-   "ministries": [
-    {
-     "ministry": "Ministry of Home Affairs",
-     "value_bdt": 642830000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 344880000.0
-    },
-    {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 320630000.0
-    },
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 165220000.0
-    },
-    {
-     "ministry": "Ministry of Civil Aviation & Tourism",
-     "value_bdt": 150170000.0
-    },
-    {
-     "ministry": "Ministry of Finance",
-     "value_bdt": 104760000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 100090000.0
-    },
-    {
-     "ministry": "Ministry of Youth & Sports",
-     "value_bdt": 71330000.0
-    },
-    {
-     "ministry": "Ministry of Information",
-     "value_bdt": 56610000.0
-    },
-    {
-     "ministry": "Ministry of Women and Children Affairs",
-     "value_bdt": 49860000.0
+     "value_bdt": 18320000.0
     }
    ]
   },
@@ -3204,23 +3172,19 @@
    "company": "M/S. SHAPLA ENTERPRISE",
    "value_bdt": 882360000.0,
    "count": 419,
-   "distinct_ministries": 24,
+   "distinct_ministries": 23,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
      "value_bdt": 427420000.0
     },
     {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 164180000.0
+    },
+    {
      "ministry": "Ministry of Education",
      "value_bdt": 142720000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 85260000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 78920000.0
     },
     {
      "ministry": "Ministry of Health and Family Welfare",
@@ -3245,6 +3209,10 @@
     {
      "ministry": "Ministry of Railways",
      "value_bdt": 4530000.0
+    },
+    {
+     "ministry": "Ministry of Environment, Forest and Climate Change",
+     "value_bdt": 4500000.0
     }
    ]
   },
@@ -3252,7 +3220,7 @@
    "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
    "value_bdt": 78408350000.0,
    "count": 3559,
-   "distinct_ministries": 23,
+   "distinct_ministries": 22,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3279,12 +3247,12 @@
      "value_bdt": 787630000.0
     },
     {
-     "ministry": "Ministry of Shipping",
-     "value_bdt": 607200000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 624550000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 605060000.0
+     "ministry": "Ministry of Shipping",
+     "value_bdt": 607200000.0
     },
     {
      "ministry": "Ministry of Communications",
@@ -3300,19 +3268,15 @@
    "company": "MM Enterprise",
    "value_bdt": 3044690000.0,
    "count": 583,
-   "distinct_ministries": 23,
+   "distinct_ministries": 22,
    "ministries": [
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 1424890000.0
+    },
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
      "value_bdt": 1201180000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 1160990000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 263900000.0
     },
     {
      "ministry": "Ministry of Education",
@@ -3341,6 +3305,10 @@
     {
      "ministry": "Ministry of Road Transport and Bridges",
      "value_bdt": 14420000.0
+    },
+    {
+     "ministry": "Ministry of Finance",
+     "value_bdt": 11270000.0
     }
    ]
   },
@@ -3348,7 +3316,7 @@
    "company": "M/S Sikder Enterprise",
    "value_bdt": 2330010000.0,
    "count": 593,
-   "distinct_ministries": 23,
+   "distinct_ministries": 22,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3359,16 +3327,12 @@
      "value_bdt": 647330000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 186650000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 277790000.0
     },
     {
      "ministry": "Prime Minister's Office",
      "value_bdt": 132780000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 91140000.0
     },
     {
      "ministry": "Ministry of Road Transport and Bridges",
@@ -3389,246 +3353,10 @@
     {
      "ministry": "Ministry of Health and Family Welfare",
      "value_bdt": 25360000.0
-    }
-   ]
-  },
-  {
-   "company": "M/S. Ayan Enterprise",
-   "value_bdt": 1678220000.0,
-   "count": 434,
-   "distinct_ministries": 23,
-   "ministries": [
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 1091640000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 182820000.0
-    },
-    {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 101820000.0
-    },
-    {
-     "ministry": "Ministry of Housing and Public Works",
-     "value_bdt": 82470000.0
-    },
-    {
-     "ministry": "Prime Minister's Office",
-     "value_bdt": 43180000.0
-    },
-    {
-     "ministry": "Ministry of Post, Telecommunications & Information Technology",
-     "value_bdt": 28070000.0
-    },
-    {
-     "ministry": "Ministry of Disaster Management & Relief",
-     "value_bdt": 25920000.0
-    },
-    {
-     "ministry": "Ministry of Fisheries & Livestock",
-     "value_bdt": 21590000.0
-    },
-    {
-     "ministry": "Ministry of Railways",
-     "value_bdt": 18240000.0
-    },
-    {
-     "ministry": "Ministry of Health and Family Welfare",
-     "value_bdt": 17010000.0
-    }
-   ]
-  },
-  {
-   "company": "M/S. Chowdhury Enterprise",
-   "value_bdt": 4414430000.0,
-   "count": 985,
-   "distinct_ministries": 22,
-   "ministries": [
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 2436260000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 1076930000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 341640000.0
-    },
-    {
-     "ministry": "Ministry of Housing and Public Works",
-     "value_bdt": 175750000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 113690000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 74900000.0
-    },
-    {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 50100000.0
     },
     {
      "ministry": "Ministry of Home Affairs",
-     "value_bdt": 36220000.0
-    },
-    {
-     "ministry": "Ministry of Disaster Management & Relief",
-     "value_bdt": 20840000.0
-    },
-    {
-     "ministry": "Ministry of Railways",
-     "value_bdt": 19910000.0
-    }
-   ]
-  },
-  {
-   "company": "M/S S.S Enterprise",
-   "value_bdt": 3990050000.0,
-   "count": 1020,
-   "distinct_ministries": 22,
-   "ministries": [
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 1318950000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 1106080000.0
-    },
-    {
-     "ministry": "Ministry of Housing and Public Works",
-     "value_bdt": 895610000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 153820000.0
-    },
-    {
-     "ministry": "Ministry of Fisheries & Livestock",
-     "value_bdt": 133420000.0
-    },
-    {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 119720000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 81940000.0
-    },
-    {
-     "ministry": "Ministry of Health and Family Welfare",
-     "value_bdt": 56850000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 39610000.0
-    },
-    {
-     "ministry": "Ministry of Food",
-     "value_bdt": 26800000.0
-    }
-   ]
-  },
-  {
-   "company": "M/S M M Enterprise",
-   "value_bdt": 3282840000.0,
-   "count": 654,
-   "distinct_ministries": 22,
-   "ministries": [
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 2571570000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 391260000.0
-    },
-    {
-     "ministry": "Ministry of Housing and Public Works",
-     "value_bdt": 76940000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 72560000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 55550000.0
-    },
-    {
-     "ministry": "Ministry of Disaster Management & Relief",
-     "value_bdt": 34790000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 21650000.0
-    },
-    {
-     "ministry": "Ministry of Shipping",
-     "value_bdt": 16520000.0
-    },
-    {
-     "ministry": "Ministry of Railways",
-     "value_bdt": 8960000.0
-    },
-    {
-     "ministry": "Prime Minister's Office",
-     "value_bdt": 8220000.0
-    }
-   ]
-  },
-  {
-   "company": "M/S Alif Enterprise",
-   "value_bdt": 2839550000.0,
-   "count": 768,
-   "distinct_ministries": 22,
-   "ministries": [
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 1599060000.0
-    },
-    {
-     "ministry": "Ministry of Housing and Public Works",
-     "value_bdt": 455160000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 386190000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 113480000.0
-    },
-    {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 105270000.0
-    },
-    {
-     "ministry": "Ministry of Food",
-     "value_bdt": 52290000.0
-    },
-    {
-     "ministry": "Ministry of chittagong Hill Tract's Affairs",
-     "value_bdt": 38920000.0
-    },
-    {
-     "ministry": "Ministry of Water Resources",
-     "value_bdt": 35490000.0
-    },
-    {
-     "ministry": "Ministry of Disaster Management & Relief",
-     "value_bdt": 19710000.0
-    },
-    {
-     "ministry": "Ministry of Health and Family Welfare",
-     "value_bdt": 12870000.0
+     "value_bdt": 15270000.0
     }
    ]
   },
@@ -3681,10 +3409,250 @@
    ]
   },
   {
+   "company": "M/S. Ayan Enterprise",
+   "value_bdt": 1678220000.0,
+   "count": 434,
+   "distinct_ministries": 22,
+   "ministries": [
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 1091640000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 182820000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 101820000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 82470000.0
+    },
+    {
+     "ministry": "Prime Minister's Office",
+     "value_bdt": 43180000.0
+    },
+    {
+     "ministry": "Ministry of Post, Telecommunications & Information Technology",
+     "value_bdt": 28070000.0
+    },
+    {
+     "ministry": "Ministry of Disaster Management & Relief",
+     "value_bdt": 25920000.0
+    },
+    {
+     "ministry": "Ministry of Fisheries & Livestock",
+     "value_bdt": 21590000.0
+    },
+    {
+     "ministry": "Ministry of Railways",
+     "value_bdt": 18240000.0
+    },
+    {
+     "ministry": "Ministry of Health and Family Welfare",
+     "value_bdt": 17010000.0
+    }
+   ]
+  },
+  {
+   "company": "M/S. Chowdhury Enterprise",
+   "value_bdt": 4414430000.0,
+   "count": 985,
+   "distinct_ministries": 21,
+   "ministries": [
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 2436260000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 1076930000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 416540000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 175750000.0
+    },
+    {
+     "ministry": "Ministry of Road Transport and Bridges",
+     "value_bdt": 113690000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 50100000.0
+    },
+    {
+     "ministry": "Ministry of Home Affairs",
+     "value_bdt": 36220000.0
+    },
+    {
+     "ministry": "Ministry of Disaster Management & Relief",
+     "value_bdt": 20840000.0
+    },
+    {
+     "ministry": "Ministry of Railways",
+     "value_bdt": 19910000.0
+    },
+    {
+     "ministry": "Ministry of Industries",
+     "value_bdt": 15020000.0
+    }
+   ]
+  },
+  {
+   "company": "M/S S.S Enterprise",
+   "value_bdt": 3990050000.0,
+   "count": 1020,
+   "distinct_ministries": 21,
+   "ministries": [
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 1318950000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 1106080000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 895610000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 235760000.0
+    },
+    {
+     "ministry": "Ministry of Fisheries & Livestock",
+     "value_bdt": 133420000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 119720000.0
+    },
+    {
+     "ministry": "Ministry of Health and Family Welfare",
+     "value_bdt": 56850000.0
+    },
+    {
+     "ministry": "Ministry of Road Transport and Bridges",
+     "value_bdt": 39610000.0
+    },
+    {
+     "ministry": "Ministry of Food",
+     "value_bdt": 26800000.0
+    },
+    {
+     "ministry": "Ministry of Disaster Management & Relief",
+     "value_bdt": 15010000.0
+    }
+   ]
+  },
+  {
+   "company": "M/S M M Enterprise",
+   "value_bdt": 3282840000.0,
+   "count": 654,
+   "distinct_ministries": 21,
+   "ministries": [
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 2571570000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 391260000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 128110000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 76940000.0
+    },
+    {
+     "ministry": "Ministry of Disaster Management & Relief",
+     "value_bdt": 34790000.0
+    },
+    {
+     "ministry": "Ministry of Road Transport and Bridges",
+     "value_bdt": 21650000.0
+    },
+    {
+     "ministry": "Ministry of Shipping",
+     "value_bdt": 16520000.0
+    },
+    {
+     "ministry": "Ministry of Railways",
+     "value_bdt": 8960000.0
+    },
+    {
+     "ministry": "Prime Minister's Office",
+     "value_bdt": 8220000.0
+    },
+    {
+     "ministry": "Ministry of Health and Family Welfare",
+     "value_bdt": 4750000.0
+    }
+   ]
+  },
+  {
+   "company": "M/S Alif Enterprise",
+   "value_bdt": 2839550000.0,
+   "count": 768,
+   "distinct_ministries": 21,
+   "ministries": [
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 1599060000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 455160000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 386190000.0
+    },
+    {
+     "ministry": "Ministry of Road Transport and Bridges",
+     "value_bdt": 113480000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 105270000.0
+    },
+    {
+     "ministry": "Ministry of Food",
+     "value_bdt": 52290000.0
+    },
+    {
+     "ministry": "Ministry of chittagong Hill Tract's Affairs",
+     "value_bdt": 38920000.0
+    },
+    {
+     "ministry": "Ministry of Water Resources",
+     "value_bdt": 35490000.0
+    },
+    {
+     "ministry": "Ministry of Disaster Management & Relief",
+     "value_bdt": 19710000.0
+    },
+    {
+     "ministry": "Ministry of Health and Family Welfare",
+     "value_bdt": 12870000.0
+    }
+   ]
+  },
+  {
    "company": "M/S Bismillah Enterprise",
    "value_bdt": 1544040000.0,
    "count": 493,
-   "distinct_ministries": 22,
+   "distinct_ministries": 21,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3703,16 +3671,16 @@
      "value_bdt": 27620000.0
     },
     {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 22030000.0
+    },
+    {
      "ministry": "Ministry of Disaster Management & Relief",
      "value_bdt": 19820000.0
     },
     {
      "ministry": "Ministry of Fisheries & Livestock",
      "value_bdt": 16430000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 15210000.0
     },
     {
      "ministry": "Ministry of Agriculture",
@@ -3732,7 +3700,7 @@
    "company": "M/S Mahi Enterprise",
    "value_bdt": 1343740000.0,
    "count": 505,
-   "distinct_ministries": 22,
+   "distinct_ministries": 21,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3777,10 +3745,106 @@
    ]
   },
   {
+   "company": "Rangs Limited",
+   "value_bdt": 6513750000.0,
+   "count": 149,
+   "distinct_ministries": 20,
+   "ministries": [
+    {
+     "ministry": "Ministry of Home Affairs",
+     "value_bdt": 4915000000.0
+    },
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 440190000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 226980000.0
+    },
+    {
+     "ministry": "Ministry of Health and Family Welfare",
+     "value_bdt": 195760000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 177650000.0
+    },
+    {
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 135640000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 96690000.0
+    },
+    {
+     "ministry": "Ministry of Fisheries & Livestock",
+     "value_bdt": 84180000.0
+    },
+    {
+     "ministry": "Ministry of Finance",
+     "value_bdt": 46280000.0
+    },
+    {
+     "ministry": "Prime Minister's Office",
+     "value_bdt": 36760000.0
+    }
+   ]
+  },
+  {
+   "company": "SONEX INTERNATIONAL",
+   "value_bdt": 3965480000.0,
+   "count": 493,
+   "distinct_ministries": 20,
+   "ministries": [
+    {
+     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+     "value_bdt": 1224940000.0
+    },
+    {
+     "ministry": "Ministry of Housing and Public Works",
+     "value_bdt": 1110400000.0
+    },
+    {
+     "ministry": "Ministry of Education",
+     "value_bdt": 885950000.0
+    },
+    {
+     "ministry": "Ministry of Shipping",
+     "value_bdt": 292650000.0
+    },
+    {
+     "ministry": "Ministry of Disaster Management & Relief",
+     "value_bdt": 102580000.0
+    },
+    {
+     "ministry": "Ministry of Fisheries & Livestock",
+     "value_bdt": 66890000.0
+    },
+    {
+     "ministry": "Ministry of Agriculture",
+     "value_bdt": 63600000.0
+    },
+    {
+     "ministry": "Ministry of Primary and Mass Education",
+     "value_bdt": 47560000.0
+    },
+    {
+     "ministry": "Prime Minister's Office",
+     "value_bdt": 44170000.0
+    },
+    {
+     "ministry": "Ministry of Youth & Sports",
+     "value_bdt": 31770000.0
+    }
+   ]
+  },
+  {
    "company": "M/S Rahman Enterprise",
    "value_bdt": 3614350000.0,
    "count": 587,
-   "distinct_ministries": 21,
+   "distinct_ministries": 20,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3811,8 +3875,8 @@
      "value_bdt": 46200000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 30480000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 31290000.0
     },
     {
      "ministry": "Ministry of Housing and Public Works",
@@ -3828,7 +3892,7 @@
    "company": "M/S. Islam Enterprise",
    "value_bdt": 2723290000.0,
    "count": 583,
-   "distinct_ministries": 21,
+   "distinct_ministries": 20,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3843,8 +3907,8 @@
      "value_bdt": 223790000.0
     },
     {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 101450000.0
+     "ministry": "Ministry of Energy, Power and Mineral Resources",
+     "value_bdt": 113340000.0
     },
     {
      "ministry": "Ministry of Housing and Public Works",
@@ -3869,102 +3933,6 @@
     {
      "ministry": "Ministry of Women and Children Affairs",
      "value_bdt": 12960000.0
-    }
-   ]
-  },
-  {
-   "company": "M/S FAHIM ENTERPRISE",
-   "value_bdt": 1103600000.0,
-   "count": 410,
-   "distinct_ministries": 21,
-   "ministries": [
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 744810000.0
-    },
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 154570000.0
-    },
-    {
-     "ministry": "Ministry of Housing and Public Works",
-     "value_bdt": 46730000.0
-    },
-    {
-     "ministry": "Ministry of Disaster Management & Relief",
-     "value_bdt": 42040000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 37460000.0
-    },
-    {
-     "ministry": "Ministry of Food",
-     "value_bdt": 30140000.0
-    },
-    {
-     "ministry": "Ministry of Home Affairs",
-     "value_bdt": 12520000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 6720000.0
-    },
-    {
-     "ministry": "Ministry of Information",
-     "value_bdt": 6240000.0
-    },
-    {
-     "ministry": "Ministry of Health and Family Welfare",
-     "value_bdt": 5170000.0
-    }
-   ]
-  },
-  {
-   "company": "North Vision Ltd.",
-   "value_bdt": 425710000.0,
-   "count": 95,
-   "distinct_ministries": 21,
-   "ministries": [
-    {
-     "ministry": "Ministry of Education",
-     "value_bdt": 174150000.0
-    },
-    {
-     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 82470000.0
-    },
-    {
-     "ministry": "Ministry of Public Administration",
-     "value_bdt": 59080000.0
-    },
-    {
-     "ministry": "Ministry of Road Transport and Bridges",
-     "value_bdt": 23000000.0
-    },
-    {
-     "ministry": "Ministry of Agriculture",
-     "value_bdt": 22150000.0
-    },
-    {
-     "ministry": "Ministry of Environment, Forest and Climate Change",
-     "value_bdt": 15140000.0
-    },
-    {
-     "ministry": "Ministry of Religious Affairs",
-     "value_bdt": 7670000.0
-    },
-    {
-     "ministry": "Ministry of Health and Family Welfare",
-     "value_bdt": 7080000.0
-    },
-    {
-     "ministry": "Ministry of Energy, Power and Minearal Resources",
-     "value_bdt": 5850000.0
-    },
-    {
-     "ministry": "Ministry of Water Resources",
-     "value_bdt": 5610000.0
     }
    ]
   }
