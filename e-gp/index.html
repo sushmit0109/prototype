@@ -76,20 +76,47 @@
         <button class="map-btn" data-era="Interim Government (2024–2026)">Interim</button>
         <button class="map-btn" data-era="Elected Government (2026–)">Elected</button>
       </div>
+      <div class="map-control-group" id="mapTrendGroup">
+        <span class="gl">Trend window</span>
+        <button class="map-btn" data-years="3">Last 3 yrs</button>
+        <button class="map-btn active" data-years="5">Last 5 yrs</button>
+        <button class="map-btn" data-years="0">Full history</button>
+      </div>
     </div>
     <div class="map-layout">
       <div class="chart-card">
         <div id="chartMap"></div>
-        <div class="map-legend" id="mapLegend"></div>
+        <div class="legend" id="mapLegend" style="margin-top:14px;margin-bottom:0"></div>
       </div>
       <div class="table-wrap district-table">
         <table>
-          <thead><tr><th>District</th><th class="n">Value</th><th class="n">Contracts</th></tr></thead>
+          <thead><tr><th>District</th><th class="n">Value</th><th class="n">Contracts</th><th>Trend</th></tr></thead>
           <tbody id="mapTableBody"></tbody>
         </table>
       </div>
     </div>
     <p class="sub" id="mapCaption" style="margin-top:14px;font-size:0.8rem"></p>
+    <p class="sub" style="margin-top:10px;font-size:0.78rem;color:var(--text-3)">Click a district on the map, or a row in the table, for its own sector mix and trend.</p>
+
+    <div class="chart-card district-detail" id="districtDetail" hidden>
+      <div class="dd-head">
+        <h3 id="ddName">—</h3>
+        <button type="button" class="dd-close" id="ddClose" aria-label="Close">×</button>
+      </div>
+      <p class="sub" id="ddStats" style="margin-top:2px"></p>
+      <div class="dd-grid">
+        <div>
+          <p class="dd-label">Sector mix (procurement nature)</p>
+          <div id="chartDdNature"></div>
+        </div>
+        <div>
+          <p class="dd-label">Yearly trend</p>
+          <div id="chartDdTrend"></div>
+        </div>
+      </div>
+      <p class="sub" id="ddCaption" style="margin-top:10px;font-size:0.76rem"></p>
+    </div>
+
     <div class="note">
       <div>
         <h4>Why it matters</h4>
@@ -102,7 +129,10 @@
         <h4>What it isn't</h4>
         <p>District of delivery, not district of the winning company — a Dhaka-based firm building
         a bridge in Bhola shows up under Bhola. Boundaries are simplified for legibility, not
-        survey-accurate, and the newest district reclassifications may not all be reflected.</p>
+        survey-accurate, and the newest district reclassifications may not all be reflected. The
+        per-district sector mix (click a district) is procurement nature — Works/Goods/Services —
+        not the finer CPV categories used in Sectors below; the tender search has no location
+        filter, so CPV can't be attributed to a district without a much larger crawl.</p>
       </div>
     </div>
   </section>
@@ -654,6 +684,13 @@
       detail, beyond the three-way Works/Goods/Services split used everywhere else. Ranked by
       volume, the state's purchasing is infrastructure with a long tail of everything else.
     </p>
+    <div class="map-controls" style="margin-top:24px;margin-bottom:0">
+      <div class="map-control-group" id="topicMetricGroup">
+        <span class="gl">Rank by</span>
+        <button class="map-btn active" data-metric="count">Tender count</button>
+        <button class="map-btn" data-metric="value_bdt">Awarded value</button>
+      </div>
+    </div>
     <figure>
       <div class="chart-card"><div id="chartTopics"></div></div>
       <figcaption id="capTopics"></figcaption>
@@ -662,7 +699,10 @@
     <h3 style="margin-top:38px;font-size:0.95rem;font-weight:650">The mix is shifting, era by era</h3>
     <p class="sub" id="topicEraLede"></p>
     <figure>
-      <div class="chart-card"><div id="chartTopicsEra"></div></div>
+      <div class="chart-card">
+        <div class="legend" id="legendTopicsEra"></div>
+        <div id="chartTopicsEra"></div>
+      </div>
       <figcaption id="capTopicsEra"></figcaption>
     </figure>
 

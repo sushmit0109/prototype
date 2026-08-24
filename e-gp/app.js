@@ -582,33 +582,64 @@ function setupFlagsTable(flags) {
 /* ── 11 · Topic mix (CPV category) ────────────────────────────────── */
 
 function chartTopics(cpv) {
-  const rows = cpv.top_categories.slice(0, 15);
-  const max = Math.max(...rows.map(r => r.count));
-  const W = 800, H = 400, padL = 300, padR = 175, padT = 6;
-  const rowH = (H - padT) / rows.length, bh = rowH * 0.6;
-  const pw = W - padL - padR;
+  const state = { metric: "count" };
 
-  let body = "";
-  rows.forEach((r, i) => {
-    const yy = padT + i * rowH + (rowH - bh) / 2;
-    const w = Math.max((r.count / max) * pw, 2);
-    body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(r.name.slice(0, 46))}</text>
-             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="var(--s1)" opacity="${i === 0 ? 1 : 0.55}">
-               <title>${esc(r.name)}: ${int(r.count)} tenders (${pct(r.count / cpv.meta.all_tenders, 1)} of all tenders)</title></rect>
-             <text class="val-label${i === 0 ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">
-               ${int(r.count)} <tspan class="muted">· ${pct(r.count / cpv.meta.all_tenders, 1)}</tspan></text>`;
+  function render() {
+    const byMetric = cpv.top_categories.slice().sort((a, b) => b[state.metric] - a[state.metric]);
+    const rows = byMetric.slice(0, 15);
+    const max = Math.max(...rows.map(r => r[state.metric]));
+    const W = 800, H = 400, padL = 300, padR = 175, padT = 6;
+    const rowH = (H - padT) / rows.length, bh = rowH * 0.6;
+    const pw = W - padL - padR;
+
+    let body = "";
+    rows.forEach((r, i) => {
+      const yy = padT + i * rowH + (rowH - bh) / 2;
+      const v = r[state.metric];
+      const w = Math.max((v / max) * pw, 2);
+      const shareOfAll = state.metric === "count" ? r.count / cpv.meta.all_tenders : null;
+      const label = state.metric === "count"
+        ? `${int(v)} <tspan class="muted">· ${pct(shareOfAll, 1)}</tspan>`
+        : `${taka(v)} <tspan class="muted">· ${pct(r.awarded_match_rate, 0)} awarded</tspan>`;
+      const title = state.metric === "count"
+        ? `${esc(r.name)}: ${int(v)} tenders (${pct(shareOfAll, 1)} of all tenders)`
+        : `${esc(r.name)}: ${taka(v)} awarded so far, across ${int(r.awarded_matched)} of ${int(r.count)} tenders in this category`;
+      body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(r.name.slice(0, 46))}</text>
+               <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="var(--s1)" opacity="${i === 0 ? 1 : 0.55}">
+                 <title>${title}</title></rect>
+               <text class="val-label${i === 0 ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">${label}</text>`;
+    });
+    document.getElementById("chartTopics").innerHTML = svg(W, H, body);
+    document.getElementById("capTopics").textContent = state.metric === "count"
+      ? `Top 15 of ${int(cpv.meta.categories_tracked)} top-level CPV categories, by tender count, out of `
+        + `${int(cpv.meta.all_tenders)} tenders overall. Shares are of all tenders, not of each other — `
+        + `a tender can carry more than one category.`
+      : `The same top-25-by-count categories, ranked instead by awarded contract value (joined by `
+        + `tender ID against the contract list). A category's tenders that are still live, cancelled, `
+        + `or otherwise unawarded contribute nothing here — see each bar's "% awarded" on hover.`;
+
+    const top = byMetric[0];
+    const ict = cpv.top_categories.find(c => c.name === "Computer and related services");
+    if (state.metric === "count") {
+      document.getElementById("topicTop").textContent = pct(top.count / cpv.meta.all_tenders, 1);
+      document.getElementById("topicIct").textContent = ict
+        ? `just ${pct(ict.count / cpv.meta.all_tenders, 1)}` : "not in the top 25";
+    } else {
+      document.getElementById("topicTop").textContent = taka(top.value_bdt);
+      document.getElementById("topicIct").textContent = ict ? `just ${taka(ict.value_bdt)}` : "not in the top 25";
+    }
+  }
+
+  document.querySelectorAll("#topicMetricGroup .map-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#topicMetricGroup .map-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.metric = btn.dataset.metric;
+      render();
+    });
   });
-  document.getElementById("chartTopics").innerHTML = svg(W, H, body);
-  document.getElementById("capTopics").textContent =
-    `Top 15 of ${int(cpv.meta.categories_tracked)} top-level CPV categories, by tender count, out of `
-    + `${int(cpv.meta.all_tenders)} tenders overall. Shares are of all tenders, not of each other — `
-    + `a tender can carry more than one category.`;
 
-  const top = rows[0];
-  const ict = cpv.top_categories.find(c => c.name === "Computer and related services");
-  document.getElementById("topicTop").textContent = pct(top.count / cpv.meta.all_tenders, 1);
-  document.getElementById("topicIct").textContent = ict
-    ? `just ${pct(ict.count / cpv.meta.all_tenders, 1)}` : "not in the top 25";
+  render();
 }
 
 const ERA_SHORT = {
@@ -628,25 +659,29 @@ function chartTopicsEra(cpv) {
     "Food products and beverages", "Computer and related services"];
   const rows = picks.map(name => cpv.top_categories.find(c => c.name === name)).filter(Boolean);
 
-  const W = 800, H = rows.length * 60 + 10, padL = 300, padR = 40, padT = 6;
+  const W = 800, padL = 300, padR = 40, padT = 6;
   const pw = W - padL - padR;
-  const groupH = 60, barH = 13, gap = 3;
+  // Each group: a label row, then the three era bars stacked underneath --
+  // fixed, non-overlapping bands, not centred text that can drift into a bar.
+  const barH = 12, gap = 3, labelBand = 20;
+  const groupH = labelBand + eras.length * (barH + gap);
+  const H = rows.length * groupH + 10;
   const max = Math.max(...rows.flatMap(r => eras.map(e => (r.by_era[e] || 0) / cpv.meta.all_tenders_by_era[e])));
 
   let body = "";
   rows.forEach((r, i) => {
     const gy = padT + i * groupH;
-    body += `<text class="ax-strong" x="${padL - 12}" y="${gy + groupH / 2 - 8}" text-anchor="end">${esc(r.name.slice(0, 42))}</text>`;
+    body += `<text class="ax-strong" x="${padL - 12}" y="${gy + 11}" text-anchor="end">${esc(r.name.slice(0, 42))}</text>`;
     eras.forEach((e, j) => {
       const share = (r.by_era[e] || 0) / cpv.meta.all_tenders_by_era[e];
       const w = Math.max((share / max) * pw, 2);
-      const yy = gy + j * (barH + gap);
-      body += `<text class="ax" x="${padL - 12}" y="${yy + barH / 2 + 3.5}" text-anchor="end" font-size="9">${ERA_SHORT[e]}</text>
-               <rect x="${padL}" y="${yy}" width="${w}" height="${barH}" rx="2" fill="${ERA_COLOR[e]}">
+      const yy = gy + labelBand + j * (barH + gap);
+      body += `<rect x="${padL}" y="${yy}" width="${w}" height="${barH}" rx="2" fill="${ERA_COLOR[e]}">
                  <title>${esc(r.name)} — ${ERA_SHORT[e]}: ${pct(share, 1)} of that era's tenders</title></rect>
                <text class="val-label" x="${padL + w + 8}" y="${yy + barH / 2 + 3.5}" font-size="9">${pct(share, 1)}</text>`;
     });
   });
+  document.getElementById("legendTopicsEra").innerHTML = legend(eras.map(e => [ERA_COLOR[e], ERA_SHORT[e]]));
   document.getElementById("chartTopicsEra").innerHTML = svg(W, H, body);
   document.getElementById("capTopicsEra").textContent =
     "Share of each era's own tenders (not raw counts, so the very different era lengths don't distort the comparison), for a representative handful of categories.";
@@ -663,13 +698,44 @@ function chartTopicsEra(cpv) {
 
 /* ── Geography ─────────────────────────────────────────────────────── */
 
+const MAP_BUCKETS = 6;
+// One hue (blue), stepped in both lightness and saturation -- opacity alone
+// against a dark surface compresses too much in the middle of the range to
+// read as a spectrum, so this steps real HSL lightness/saturation instead.
+function bucketColor(i) {
+  const l = 20 + i * (46 / (MAP_BUCKETS - 1));
+  const s = 40 + i * (48 / (MAP_BUCKETS - 1));
+  return `hsl(212, ${s.toFixed(0)}%, ${l.toFixed(0)}%)`;
+}
+
+function sparklineSvg(series, w, h, color) {
+  if (series.length < 2) return "";
+  const max = Math.max(...series, 1);
+  const pts = series.map((v, i) => {
+    const x = (i / (series.length - 1)) * (w - 2) + 1;
+    const y = h - 1 - (v / max) * (h - 2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <polyline points="${pts.join(" ")}" fill="none" stroke="${color}" stroke-width="1.5"
+      stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+
 function chartMap(geo, districtGeo) {
-  const state = { metric: "value_bdt", era: "all" };
+  const state = { metric: "value_bdt", era: "all", trendYears: 5 };
 
   function districtStat(dispName) {
     const d = geo.districts[dispName];
     if (!d) return null;
     return state.era === "all" ? d : d.by_era[state.era];
+  }
+
+  function trendSeries(dispName) {
+    const d = geo.districts[dispName];
+    if (!d) return { years: [], values: [] };
+    let years = Object.keys(d.by_year).sort();
+    if (state.trendYears > 0) years = years.slice(-state.trendYears);
+    return { years, values: years.map(y => d.by_year[y][state.metric] || 0) };
   }
 
   function render() {
@@ -678,43 +744,147 @@ function chartMap(geo, districtGeo) {
       const stat = districtStat(dispName);
       return { pathKey, dispName, stat, value: stat ? stat[state.metric] : 0 };
     });
-    const positive = entries.map(e => e.value).filter(v => v > 0);
-    const logMin = Math.log(Math.min(...positive, 1) + 1);
-    const logMax = Math.log(Math.max(...positive, 1) + 1);
-    const opacityFor = v => v <= 0 ? 0.05
-      : 0.12 + ((Math.log(v + 1) - logMin) / ((logMax - logMin) || 1)) * 0.88;
+
+    // Rank-based (quantile) buckets, not value-range buckets: Dhaka is such
+    // an outlier by value that a value-range split would cram nearly every
+    // other district into one bucket. Ranking spreads color across the
+    // whole map regardless of how skewed the underlying values are.
+    const ranked = entries.filter(e => e.value > 0).sort((a, b) => a.value - b.value);
+    const bucketOf = new Map();
+    ranked.forEach((e, i) => bucketOf.set(e.pathKey, Math.min(Math.floor((i / ranked.length) * MAP_BUCKETS), MAP_BUCKETS - 1)));
 
     let body = "";
     for (const e of entries) {
-      const op = opacityFor(e.value).toFixed(3);
+      const bucket = bucketOf.has(e.pathKey) ? bucketOf.get(e.pathKey) : -1;
+      const fill = bucket === -1 ? "var(--surface-2)" : bucketColor(bucket);
       const label = state.metric === "value_bdt" ? taka(e.value) : `${int(e.value)} contracts`;
       const extra = e.stat && e.stat.top_ministry ? ` · mostly ${e.stat.top_ministry.replace(/^Ministry of /, "")}` : "";
-      body += `<path class="district" d="${districtGeo.paths[e.pathKey]}" fill="var(--s1)" fill-opacity="${op}">
+      body += `<path class="district" d="${districtGeo.paths[e.pathKey]}" fill="${fill}" data-name="${esc(e.dispName)}">
         <title>${esc(e.dispName)}: ${label}${extra}</title></path>`;
     }
     document.getElementById("chartMap").innerHTML =
       `<svg viewBox="${districtGeo.view_box}" role="img" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
 
-    const steps = 5;
-    let legend = `<span>Less</span><span class="swatches">`;
-    for (let i = 0; i < steps; i++) {
-      legend += `<span style="background:var(--s1);opacity:${(0.12 + (i / (steps - 1)) * 0.88).toFixed(2)}"></span>`;
-    }
-    legend += `</span><span>More</span>`;
-    document.getElementById("mapLegend").innerHTML = legend;
+    // Legend shows the actual value range each bucket covers, not just a
+    // vague "less/more" -- a reader should be able to look up a shade.
+    const buckets = Array.from({ length: MAP_BUCKETS }, () => []);
+    ranked.forEach(e => buckets[bucketOf.get(e.pathKey)].push(e.value));
+    let legendHtml = "";
+    buckets.forEach((vals, i) => {
+      if (!vals.length) return;
+      const lo = vals[0], hi = vals[vals.length - 1];
+      const fmt = state.metric === "value_bdt" ? taka : int;
+      legendHtml += `<span><i class="swatch" style="background:${bucketColor(i)}"></i>${fmt(lo)}${hi > lo ? `–${fmt(hi)}` : ""}</span>`;
+    });
+    document.getElementById("mapLegend").innerHTML = legendHtml;
 
-    const ranked = entries.filter(e => e.value > 0).sort((a, b) => b.value - a.value).slice(0, 15);
-    document.getElementById("mapTableBody").innerHTML = ranked.map(e => `
-      <tr><td class="strong">${esc(e.dispName)}</td>
+    const top = entries.filter(e => e.value > 0).sort((a, b) => b.value - a.value).slice(0, 15);
+    document.getElementById("mapTableBody").innerHTML = top.map(e => {
+      const { values } = trendSeries(e.dispName);
+      const color = bucketColor(bucketOf.get(e.pathKey));
+      const first = values[0], last = values[values.length - 1];
+      const change = first > 0 ? (last - first) / first : null;
+      const dir = change == null ? "flat" : change > 0.03 ? "up" : change < -0.03 ? "down" : "flat";
+      const arrow = dir === "up" ? "▲" : dir === "down" ? "▼" : "→";
+      const pctText = change == null ? "new" : pct(Math.abs(change), 0);
+      return `
+      <tr class="dist-row" data-name="${esc(e.dispName)}" style="cursor:pointer">
+        <td class="strong">${esc(e.dispName)}</td>
         <td class="n">${taka(e.stat.value_bdt)}</td>
-        <td class="n">${int(e.stat.count)}</td></tr>`).join("");
+        <td class="n">${int(e.stat.count)}</td>
+        <td><div class="trend-cell">${sparklineSvg(values, 56, 20, color)}
+          <span class="trend-pct ${dir}">${arrow} ${pctText}</span></div></td></tr>`;
+    }).join("");
 
     const eraLabel = state.era === "all" ? "all years, 2011–2026" : state.era;
+    const windowLabel = state.trendYears > 0 ? `last ${state.trendYears} years` : "full history";
     document.getElementById("mapCaption").textContent =
       `Shaded by ${state.metric === "value_bdt" ? "total contract value" : "contract count"} `
-      + `— ${eraLabel}. ${int(geo.meta.districts_mapped)} districts matched from `
-      + `${int(geo.meta.contracts_scanned)} contracts nationally.`;
+      + `— ${eraLabel}, into ${MAP_BUCKETS} equal-sized rank groups (so the map reads as a spectrum `
+      + `regardless of Dhaka's outlier size). Trend column: ${windowLabel}, first-to-last change. `
+      + `${int(geo.meta.districts_mapped)} districts matched from ${int(geo.meta.contracts_scanned)} contracts nationally.`;
+
+    if (selected) selectDistrict(selected);
   }
+
+  const NATURE_COLOR = { "Works": "var(--s1)", "Goods": "var(--s2)", "Services": "var(--s3)" };
+  function natureColor(name) { return NATURE_COLOR[name] || "var(--s4)"; }
+
+  let selected = null;
+
+  function selectDistrict(dispName) {
+    const d = geo.districts[dispName];
+    if (!d) return;
+    selected = dispName;
+
+    document.getElementById("ddName").textContent = dispName;
+    document.getElementById("ddStats").innerHTML =
+      `${taka(d.value_bdt)} across ${int(d.count)} contracts, all-time. `
+      + `Top ministry: <strong>${esc((d.top_ministry || "—").replace(/^Ministry of /, ""))}</strong>. `
+      + `Top vendor: <strong>${esc(d.top_vendor || "—")}</strong>.`;
+
+    const natureEntries = Object.entries(d.nature_count).sort((a, b) => b[1] - a[1]);
+    const natureTotal = natureEntries.reduce((s, [, n]) => s + n, 0);
+    if (natureTotal) {
+      const maxN = Math.max(...natureEntries.map(([, n]) => n));
+      const NW = 320, rowH = 26, NH = natureEntries.length * rowH + 4, padL = 100, padR = 44;
+      const npw = NW - padL - padR;
+      let nbody = "";
+      natureEntries.forEach(([name, n], i) => {
+        const yy = i * rowH + 4, bh = rowH * 0.55;
+        const w = Math.max((n / maxN) * npw, 2);
+        nbody += `<text class="ax" x="${padL - 10}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(name.replace(" (Framework Agreement)", " (FA)"))}</text>
+          <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="${natureColor(name)}">
+            <title>${esc(name)}: ${int(n)} contracts (${pct(n / natureTotal, 1)})</title></rect>
+          <text class="val-label" x="${padL + w + 8}" y="${yy + bh / 2 + 4}">${pct(n / natureTotal, 0)}</text>`;
+      });
+      document.getElementById("chartDdNature").innerHTML = svg(NW, NH, nbody);
+    } else {
+      document.getElementById("chartDdNature").innerHTML = `<p class="sub" style="font-size:0.8rem">No matched nature data for this district.</p>`;
+    }
+
+    const { years, values } = trendSeries(dispName);
+    if (years.length >= 2) {
+      const TW = 400, TH = 130, tpL = 8, tpR = 8, tpT = 8, tpB = 20;
+      const tpw = TW - tpL - tpR, tph = TH - tpT - tpB;
+      const maxV = Math.max(...values, 1);
+      const pts = values.map((v, i) => [tpL + (i / (values.length - 1)) * tpw, tpT + tph - (v / maxV) * tph]);
+      let tbody = `<polyline fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"
+        points="${pts.map(p => p.join(",")).join(" ")}"/>`;
+      pts.forEach(([x, y], i) => {
+        tbody += `<circle cx="${x}" cy="${y}" r="2.5" fill="var(--s1)">
+          <title>${years[i]}: ${state.metric === "value_bdt" ? taka(values[i]) : int(values[i]) + " contracts"}</title></circle>`;
+        if (i === 0 || i === pts.length - 1 || years.length <= 8) {
+          const anchor = i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle";
+          tbody += `<text class="ax" x="${x}" y="${TH - 5}" text-anchor="${anchor}">${years[i]}</text>`;
+        }
+      });
+      document.getElementById("chartDdTrend").innerHTML = svg(TW, TH, tbody);
+    } else {
+      document.getElementById("chartDdTrend").innerHTML = `<p class="sub" style="font-size:0.8rem">Not enough years in this window.</p>`;
+    }
+
+    document.getElementById("ddCaption").textContent =
+      `Sector mix is joined from the master tender list (${pct(geo.meta.nature_match_rate, 0)} of contracts nationally match); `
+      + `read shares as based on the matched subset. Trend follows the "Trend window" control above.`;
+
+    const panel = document.getElementById("districtDetail");
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  document.getElementById("chartMap").addEventListener("click", (ev) => {
+    const path = ev.target.closest(".district");
+    if (path) selectDistrict(path.dataset.name);
+  });
+  document.getElementById("mapTableBody").addEventListener("click", (ev) => {
+    const row = ev.target.closest(".dist-row");
+    if (row) selectDistrict(row.dataset.name);
+  });
+  document.getElementById("ddClose").addEventListener("click", () => {
+    document.getElementById("districtDetail").hidden = true;
+    selected = null;
+  });
 
   document.querySelectorAll("#mapMetricGroup .map-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -729,6 +899,14 @@ function chartMap(geo, districtGeo) {
       document.querySelectorAll("#mapEraGroup .map-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       state.era = btn.dataset.era;
+      render();
+    });
+  });
+  document.querySelectorAll("#mapTrendGroup .map-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#mapTrendGroup .map-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.trendYears = Number(btn.dataset.years);
       render();
     });
   });

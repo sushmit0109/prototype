@@ -31,6 +31,15 @@ it just gives nothing back, which looks identical to "zero matching
 tenders" unless you already know to be suspicious. The format it actually
 wants is DD/MM/YYYY ("07/08/2024").
 
+Counts alone can't answer "which sector gets the most money" -- the tender
+list carries no value field. For the top TOP_N_FOR_VALUE categories (by
+count), this also pages through the full tender_id list (size=1000, same
+row shape as scrape_tenders.py) so build_cpv.py can join those IDs against
+data/contracts and sum actual awarded value per category. This is the
+expensive part of the crawl -- Construction work alone is ~340 pages -- so
+it's deliberately capped to the categories that will actually be shown,
+not all 61.
+
     python3 scrape_cpv.py <out.json>
 """
 import json
@@ -40,6 +49,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import common
 from eras import ERAS
+from htmlrows import ROW_RE, CELL_RE, split_br_clean, total_pages
 
 SEARCH_DEFAULTS = {
     "funName": "AllTenders", "viewType": "AllTenders",
@@ -48,6 +58,7 @@ SEARCH_DEFAULTS = {
     "closeDtFrm": "", "closeDtTo": "", "isFrame": "", "h": "t",
 }
 TOTAL_PAGES_RE = re.compile(r'id="totalPages"\s+value="(\d+)"')
+TOP_N_FOR_VALUE = 25
 
 
 def fetch_categories():
@@ -68,6 +79,34 @@ def count_for(cpv_name, pub_from="", pub_to=""):
     })
     m = TOTAL_PAGES_RE.search(body)
     return int(m.group(1)) if m else 0
+
+
+def fetch_id_page(cpv_name, page_no):
+    body = common.post("/TenderDetailsServlet", {
+        **SEARCH_DEFAULTS, "cpvCategory": cpv_name, "pubDtFrm": "", "pubDtTo": "",
+        "pageNo": page_no, "size": 1000,
+    })
+    ids = []
+    for row in ROW_RE.findall(body):
+        cells = CELL_RE.findall(row)
+        if len(cells) < 2:
+            continue
+        id_parts = split_br_clean(cells[1])
+        if id_parts:
+            ids.append(id_parts[0])
+    return ids, total_pages(body)
+
+
+def fetch_all_tender_ids(cpv_name):
+    first_ids, pages = fetch_id_page(cpv_name, 1)
+    all_ids = list(first_ids)
+    if pages > 1:
+        with ThreadPoolExecutor(max_workers=common.MAX_CONCURRENCY) as pool:
+            futures = [pool.submit(fetch_id_page, cpv_name, p) for p in range(2, pages + 1)]
+            for fut in as_completed(futures):
+                ids, _ = fut.result()
+                all_ids.extend(ids)
+    return all_ids
 
 
 def main(out_path):
@@ -106,6 +145,12 @@ def main(out_path):
     all_tenders_by_era = {name: count_for("", frm, to) for name, frm, to in era_bounds}
     for c in categories[:15]:
         print(f"  {c['count']:>7,}  ({100*c['count']/all_tenders:4.1f}%)  {c['name']}")
+
+    print(f"\nfetching full tender-id lists for the top {TOP_N_FOR_VALUE} categories (for the value join)")
+    for i, c in enumerate(categories[:TOP_N_FOR_VALUE], 1):
+        ids = fetch_all_tender_ids(c["name"])
+        c["tender_ids"] = ids
+        print(f"  {i}/{TOP_N_FOR_VALUE}  {len(ids):>7,} ids  {c['name']}")
 
     payload = {
         "source": "https://www.eprocure.gov.bd/resources/common/AllTenders.jsp (Category tree)",

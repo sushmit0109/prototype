@@ -42,10 +42,8 @@ jobs:
       - name: Debarment register (re-crawled in full -- ~1,000 records, cheap)
         run: python3 scrape_debarment.py ../raw/debarments.jsonl
 
-      - name: CPV category mix (re-crawled in full -- 61 lightweight count requests)
-        run: |
-          python3 scrape_cpv.py ../raw/cpv_categories.json
-          python3 build_cpv.py ../raw/cpv_categories.json ../data/cpv_categories.json
+      - name: CPV category mix -- crawl (counts + top-25 tender-id lists for the value join)
+        run: python3 scrape_cpv.py ../raw/cpv_categories.json
 
       - name: Annual Procurement Plans (re-crawled in full -- ~46K records across 18 FYs, cheap)
         run: python3 scrape_app.py ../raw/app_plans.jsonl
@@ -109,7 +107,8 @@ jobs:
           python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
           python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
           python3 build_ceiling.py ../data/contracts ../data/ceiling.json
-          python3 build_geo.py ../data/contracts ../data/geo.json
+          python3 build_geo.py ../data/contracts ../data/tenders ../data/geo.json
+          python3 build_cpv.py ../raw/cpv_categories.json ../data/contracts ../data/cpv_categories.json
 
       - name: Itemised APP -- extend coverage of the pre-tender estimates (resumable)
         # Busiest offices first, so a run cut short still covers the packages
