@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20000,
-  "vendors_with_owner_data": 8347,
-  "vendors_with_tenderer_id": 8536,
+  "vendors_sampled": 20002,
+  "vendors_with_owner_data": 8349,
+  "vendors_with_tenderer_id": 8538,
   "owner_data_coverage": 0.417
  },
  "shared_owner_groups": [
@@ -3299,6 +3299,26 @@
      "owner_name_as_shown": "Md Towhidul Islam Azad",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "syed ziaul haque",
+   "companies": [
+    {
+     "company": "Syed Ziaul Hoque",
+     "tenderer_id": "1011552",
+     "owner_name_as_shown": "Syed Ziaul Haque",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "KRIBEX INFRASTRUCTURE LTD.",
+     "tenderer_id": "1237557",
+     "owner_name_as_shown": "SYED ZIAUL HAQUE",
+     "designation": "Director",
+     "ownership_pct": "10.43"
     }
    ],
    "distinct_companies": 2
