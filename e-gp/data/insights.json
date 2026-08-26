@@ -1,6 +1,6 @@
 {
  "meta": {
-  "record_count": 871765,
+  "record_count": 871770,
   "distinct_vendors": 56333
  },
  "national_by_year": {
@@ -65,8 +65,8 @@
    "value_bdt": 724502930000.0
   },
   "2026": {
-   "count": 92015,
-   "value_bdt": 621647860000.0
+   "count": 92020,
+   "value_bdt": 621695790000.0
   }
  },
  "procurement_method_by_year": {
@@ -414,8 +414,8 @@
   },
   "2026": {
    "OTM": {
-    "count": 39473,
-    "value_bdt": 474046400000.0
+    "count": 39477,
+    "value_bdt": 474094270000.0
    },
    "DPM": {
     "count": 586,
@@ -426,8 +426,8 @@
     "value_bdt": 91453660000.0
    },
    "RFQL": {
-    "count": 760,
-    "value_bdt": 264310000.0
+    "count": 761,
+    "value_bdt": 264370000.0
    },
    "RFQ": {
     "count": 6729,
@@ -470,7 +470,7 @@
   },
   {
    "ministry": "Ministry of Education",
-   "value_bdt": 738530550000.0
+   "value_bdt": 738578420000.0
   },
   {
    "ministry": "Ministry of Water Resources",
@@ -510,7 +510,7 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 52985640000.0
+   "value_bdt": 52985700000.0
   },
   {
    "ministry": "Ministry of Civil Aviation & Tourism",
@@ -708,8 +708,8 @@
     "value_bdt": 86135380000.0
    },
    "2026": {
-    "count": 9940,
-    "value_bdt": 52853450000.0
+    "count": 9944,
+    "value_bdt": 52901320000.0
    }
   },
   "Ministry of Water Resources": {
@@ -1204,8 +1204,8 @@
     "value_bdt": 2438370000.0
    },
    "2026": {
-    "count": 401,
-    "value_bdt": 3392280000.0
+    "count": 402,
+    "value_bdt": 3392340000.0
    }
   },
   "Ministry of Civil Aviation & Tourism": {
@@ -1518,8 +1518,8 @@
  "top_districts_by_value": [
   {
    "district": "Dhaka",
-   "count": 176293,
-   "value_bdt": 1848525860000.0
+   "count": 176294,
+   "value_bdt": 1848525920000.0
   },
   {
    "district": "Chattogram",
@@ -1588,8 +1588,8 @@
   },
   {
    "district": "Jamalpur",
-   "count": 9953,
-   "value_bdt": 105999540000.0
+   "count": 9957,
+   "value_bdt": 106047410000.0
   },
   {
    "district": "Sunamganj",
@@ -1951,9 +1951,9 @@
   {
    "company_key": "rfl plastics",
    "company": "RFL Plastics Limited",
-   "count": 742,
-   "value_bdt": 16369710000.0,
-   "distinct_procuring_entities": 380,
+   "count": 743,
+   "value_bdt": 16373380000.0,
+   "distinct_procuring_entities": 381,
    "distinct_ministries": 31,
    "years_active": 11,
    "top_entity": "EIBA-2nd Phase, BMDA, Head Office, Rajshahi",
@@ -2404,9 +2404,9 @@
   {
    "company_key": "rfl plastics",
    "company": "RFL Plastics Limited",
-   "count": 742,
-   "value_bdt": 16369710000.0,
-   "distinct_procuring_entities": 380,
+   "count": 743,
+   "value_bdt": 16373380000.0,
+   "distinct_procuring_entities": 381,
    "distinct_ministries": 31,
    "years_active": 11,
    "top_entity": "EIBA-2nd Phase, BMDA, Head Office, Rajshahi",
@@ -2944,7 +2944,7 @@
   }
  ],
  "tender_funnel": {
-  "record_count": 621045,
+  "record_count": 621052,
   "by_status": {
    "Contract Awarded": 460075,
    "Cancelled": 6347,
@@ -2954,7 +2954,7 @@
    "Rejected": 5850,
    "Contract Terminated": 1742,
    "Amendment/Corrigendum issued : 20": 1,
-   "Live": 2296,
+   "Live": 2303,
    "Amendment/Corrigendum issued : 1": 195,
    "Amendment/Corrigendum issued : 2": 74,
    "Amendment/Corrigendum issued : 3": 23,
@@ -3091,7 +3091,7 @@
     "Contract Terminated": 53
    },
    "2026": {
-    "Live": 2296,
+    "Live": 2303,
     "Amendment/Corrigendum issued : 1": 195,
     "Cancelled": 435,
     "Amendment/Corrigendum issued : 2": 74,

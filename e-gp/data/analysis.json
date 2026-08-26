@@ -1,7 +1,7 @@
 {
  "meta": {
-  "contracts": 871765,
-  "total_value_bdt": 7450182220000.0,
+  "contracts": 871770,
+  "total_value_bdt": 7450230150000.0,
   "years": [
    "2011",
    "2012",
@@ -59,8 +59,8 @@
     "share": 0.0507
    },
    "08": {
-    "count": 39293,
-    "value_bdt": 510620550000.0,
+    "count": 39298,
+    "value_bdt": 510668480000.0,
     "share": 0.0451
    },
    "09": {
@@ -152,7 +152,7 @@
    },
    "2026": {
     "share": 0.2075,
-    "total": 92015,
+    "total": 92020,
     "partial_year": true
    }
   }
@@ -160,8 +160,8 @@
  "method_mix": {
   "overall": {
    "OTM": {
-    "count": 447387,
-    "value_bdt": 5588882670000.0
+    "count": 447391,
+    "value_bdt": 5588930540000.0
    },
    "LTM": {
     "count": 384697,
@@ -192,8 +192,8 @@
     "value_bdt": 611550000.0
    },
    "RFQL": {
-    "count": 941,
-    "value_bdt": 303480000.0
+    "count": 942,
+    "value_bdt": 303540000.0
    },
    "IC": {
     "count": 73,
@@ -353,7 +353,7 @@
     "ministry": "Ministry of Education",
     "hhi": 11.6,
     "vendors": 14574,
-    "value_bdt": 737703690000.0,
+    "value_bdt": 737751560000.0,
     "top5_share": 0.0436
    },
    {
@@ -416,7 +416,7 @@
     "ministry": "Ministry of Post, Telecommunications & Information Technology",
     "hhi": 236.0,
     "vendors": 669,
-    "value_bdt": 52985640000.0,
+    "value_bdt": 52985700000.0,
     "top5_share": 0.2456
    },
    {
@@ -773,7 +773,7 @@
   "distinct_values": 18486,
   "ltm_share_overall": 0.4413,
   "histogram_lakh_bins": {
-   "0": 14928,
+   "0": 14929,
    "1": 35897,
    "2": 62367,
    "3": 44310,
@@ -809,9 +809,9 @@
    "33": 4097,
    "34": 3969,
    "35": 4054,
-   "36": 4058,
+   "36": 4059,
    "37": 3585,
-   "38": 3992,
+   "38": 3993,
    "39": 3515,
    "40": 3725,
    "41": 3025,
@@ -855,11 +855,11 @@
    "ltm_share": 0.1707
   },
   "Elected Government (2026–)": {
-   "count": 69659,
-   "value_bdt": 466932690000.0,
-   "observed_span_days": 189,
-   "contracts_per_day": 368.57,
-   "value_bdt_per_day": 2470543333.33,
+   "count": 69664,
+   "value_bdt": 466980620000.0,
+   "observed_span_days": 191,
+   "contracts_per_day": 364.73,
+   "value_bdt_per_day": 2444924712.04,
    "otm_share": 0.8166,
    "ltm_share": 0.1245
   }
