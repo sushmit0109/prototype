@@ -441,6 +441,16 @@ function renderSelbar() {
 
 /* ----------------------------------------------------------- period presets */
 
+/* The dashboard opens on the current government rather than the whole record:
+   the question people arrive with is what is happening now, and the full run is
+   one click away on the preset row. */
+const DEFAULT_PERIOD = 't3';
+function applyDefaultPeriod() {
+  const t = TENURES.find((x) => x.id === DEFAULT_PERIOD);
+  const [a, b] = t ? tenureRange(t) : [0, NM - 1];
+  state.m0 = a; state.m1 = b;
+}
+
 function presetList() {
   const out = [{ id: 'all', label: T.allYears, m0: 0, m1: NM - 1 }];
   TENURES.forEach((t) => {
@@ -1192,7 +1202,8 @@ function wire() {
     }));
 
   $('#reset-btn').addEventListener('click', () => {
-    state.offences.clear(); state.unit = null; state.m0 = 0; state.m1 = NM - 1;
+    state.offences.clear(); state.unit = null;
+    applyDefaultPeriod();
     render();
   });
 
@@ -1226,7 +1237,7 @@ Promise.all([
   HANDOVER = new Set(HANDOVER_MONTHS.map((m) => DATA.months.indexOf(m)).filter((i) => i >= 0));
   CATS = buildCategories();
   NC = CATS.length;                  // offence categories as presented
-  state.m0 = 0; state.m1 = NM - 1;
+  applyDefaultPeriod();
   LANG = localStorage.getItem('crimebd-lang') === 'bn' ? 'bn' : 'en';
   wire();
   applyLanguage();
