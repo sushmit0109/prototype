@@ -1,42 +1,42 @@
 {
  "meta": {
-  "plan_line_items": 727080,
-  "plan_packages_with_estimate": 724059,
-  "contracts_scanned": 871770,
-  "matched_pairs": 117309,
-  "match_rate_of_plan": 0.162,
+  "plan_line_items": 730121,
+  "plan_packages_with_estimate": 727100,
+  "contracts_scanned": 871902,
+  "matched_pairs": 117370,
+  "match_rate_of_plan": 0.1614,
   "generic_refs_excluded": 4057,
-  "pairs_excluded_generic": 2403,
+  "pairs_excluded_generic": 2404,
   "pairs_excluded_sanity": 268
  },
  "award_vs_estimate": {
   "median_ratio": 0.94,
-  "p10": 0.8625,
+  "p10": 0.8623,
   "p25": 0.9,
   "p75": 0.9556,
   "p90": 1.0,
-  "share_above_estimate": 0.0699,
+  "share_above_estimate": 0.0698,
   "buckets": {
-   "<70%": 2653,
-   "70-85%": 7319,
-   "85-95%": 63353,
-   "95-100%": 35789,
-   "100-115%": 7302,
-   ">115%": 893
+   "<70%": 2660,
+   "70-85%": 7329,
+   "85-95%": 63386,
+   "95-100%": 35797,
+   "100-115%": 7304,
+   ">115%": 894
   },
   "fine_histogram": {
    "0.60": 102,
    "0.61": 86,
-   "0.62": 121,
+   "0.62": 122,
    "0.63": 115,
    "0.64": 154,
    "0.65": 157,
-   "0.66": 164,
-   "0.67": 265,
+   "0.66": 167,
+   "0.67": 266,
    "0.68": 223,
-   "0.69": 195,
-   "0.70": 398,
-   "0.71": 232,
+   "0.69": 197,
+   "0.70": 399,
+   "0.71": 233,
    "0.72": 258,
    "0.73": 350,
    "0.74": 276,
@@ -48,29 +48,29 @@
    "0.80": 892,
    "0.81": 413,
    "0.82": 549,
-   "0.83": 740,
-   "0.84": 789,
-   "0.85": 1683,
-   "0.86": 1075,
-   "0.87": 1643,
-   "0.88": 2292,
-   "0.89": 3625,
-   "0.90": 23704,
-   "0.91": 2215,
+   "0.83": 741,
+   "0.84": 793,
+   "0.85": 1687,
+   "0.86": 1081,
+   "0.87": 1652,
+   "0.88": 2294,
+   "0.89": 3626,
+   "0.90": 23705,
+   "0.91": 2216,
    "0.92": 1560,
-   "0.93": 8930,
+   "0.93": 8931,
    "0.94": 9018,
-   "0.95": 22587,
+   "0.95": 22598,
    "0.96": 4165,
    "0.97": 2099,
    "0.98": 2260,
-   "0.99": 3827,
-   "1.00": 13079,
+   "0.99": 3831,
+   "1.00": 13084,
    "1.01": 1195,
    "1.02": 405,
    "1.03": 243,
    "1.04": 251,
-   "1.05": 252,
+   "1.05": 253,
    "1.06": 138,
    "1.07": 114,
    "1.08": 135,
@@ -88,50 +88,50 @@
    "1.20": 23
   },
   "overrun_bands": {
-   "100-105%": 6135,
+   "100-105%": 6137,
    "105-110%": 890,
    "110-115%": 277,
    "115-125%": 177,
    "125-150%": 220,
-   "150-200%": 169,
+   "150-200%": 170,
    ">200%": 327
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23713,
-    "share": 0.2021
+    "count": 23714,
+    "share": 0.202
    },
    "at_5pct_below": {
-    "count": 22634,
+    "count": 22645,
     "share": 0.1929
    },
    "at_15pct_below": {
-    "count": 1688,
+    "count": 1692,
     "share": 0.0144
    },
    "exactly_at_estimate": {
-    "count": 8338,
+    "count": 8342,
     "share": 0.0711
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8195,
-   "count_above_115": 893,
+   "count_above_estimate": 8198,
+   "count_above_115": 894,
    "share_above_115_of_matched": 0.0076,
-   "median_ratio_above_115": 1.6158,
-   "total_extra_bdt": 3424724648.87
+   "median_ratio_above_115": 1.617,
+   "total_extra_bdt": 3431074648.87
   }
  },
  "method_change": {
-  "unchanged": 117107,
+  "unchanged": 117168,
   "less_open_than_planned": 84,
   "more_open_than_planned": 118,
   "top_transitions": {
-   "OTM->OTM": 59908,
-   "LTM->LTM": 53867,
+   "OTM->OTM": 59948,
+   "LTM->LTM": 53887,
    "RFQU->RFQU": 2049,
    "OSTETM->OSTETM": 928,
-   "RFQ->RFQ": 304,
+   "RFQ->RFQ": 305,
    "LTM->OTM": 66,
    "OTM->LTM": 63,
    "DPM->DPM": 29,
@@ -543,6 +543,14 @@
     "share_at_10pct_below": 0.1137
    },
    {
+    "ministry": "Ministry of Agriculture",
+    "matched_pairs": 301,
+    "median_ratio": 0.9,
+    "iqr": 0.0775,
+    "share_above_115": 0.0166,
+    "share_at_10pct_below": 0.2193
+   },
+   {
     "ministry": "Ministry of Communications",
     "matched_pairs": 875,
     "median_ratio": 0.8445,
@@ -551,20 +559,12 @@
     "share_at_10pct_below": 0.024
    },
    {
-    "ministry": "Ministry of Agriculture",
-    "matched_pairs": 291,
-    "median_ratio": 0.9,
-    "iqr": 0.0739,
-    "share_above_115": 0.0137,
-    "share_at_10pct_below": 0.2268
-   },
-   {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 8794,
-    "median_ratio": 0.9475,
-    "iqr": 0.053,
+    "matched_pairs": 8822,
+    "median_ratio": 0.9474,
+    "iqr": 0.0532,
     "share_above_115": 0.0116,
-    "share_at_10pct_below": 0.0766
+    "share_at_10pct_below": 0.0764
    },
    {
     "ministry": "Ministry of Youth & Sports",
@@ -576,11 +576,11 @@
    },
    {
     "ministry": "Ministry of Education",
-    "matched_pairs": 4382,
+    "matched_pairs": 4403,
     "median_ratio": 0.9497,
-    "iqr": 0.055,
-    "share_above_115": 0.0071,
-    "share_at_10pct_below": 0.0582
+    "iqr": 0.0547,
+    "share_above_115": 0.007,
+    "share_at_10pct_below": 0.0579
    },
    {
     "ministry": "Ministry of Shipping",
@@ -592,7 +592,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70379,
+    "matched_pairs": 70380,
     "median_ratio": 0.9455,
     "iqr": 0.0536,
     "share_above_115": 0.0066,
@@ -608,7 +608,7 @@
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
-    "matched_pairs": 27292,
+    "matched_pairs": 27293,
     "median_ratio": 0.9,
     "iqr": 0.028,
     "share_above_115": 0.0052,
@@ -650,19 +650,19 @@
    },
    {
     "year": "2016",
-    "matched_pairs": 1819,
-    "median_ratio": 0.8999,
-    "iqr": 0.1088,
-    "share_above_115": 0.0176,
-    "share_at_10pct_below": 0.177
+    "matched_pairs": 1828,
+    "median_ratio": 0.8998,
+    "iqr": 0.1066,
+    "share_above_115": 0.0175,
+    "share_at_10pct_below": 0.1761
    },
    {
     "year": "2017",
-    "matched_pairs": 3383,
+    "matched_pairs": 3384,
     "median_ratio": 0.9118,
     "iqr": 0.061,
-    "share_above_115": 0.0189,
-    "share_at_10pct_below": 0.2959
+    "share_above_115": 0.0192,
+    "share_at_10pct_below": 0.2958
    },
    {
     "year": "2018",
@@ -682,11 +682,11 @@
    },
    {
     "year": "2020",
-    "matched_pairs": 13092,
+    "matched_pairs": 13110,
     "median_ratio": 0.9404,
-    "iqr": 0.0542,
+    "iqr": 0.0543,
     "share_above_115": 0.0082,
-    "share_at_10pct_below": 0.2143
+    "share_at_10pct_below": 0.214
    },
    {
     "year": "2021",
@@ -722,7 +722,7 @@
    },
    {
     "year": "2025",
-    "matched_pairs": 16475,
+    "matched_pairs": 16477,
     "median_ratio": 0.94,
     "iqr": 0.05,
     "share_above_115": 0.0024,
@@ -730,9 +730,9 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11332,
+    "matched_pairs": 11363,
     "median_ratio": 0.9429,
-    "iqr": 0.0519,
+    "iqr": 0.0518,
     "share_above_115": 0.0016,
     "share_at_10pct_below": 0.0597
    }
@@ -740,15 +740,15 @@
   "by_era": [
    {
     "era": "Awami League (2009–2024)",
-    "matched_pairs": 86115,
+    "matched_pairs": 86143,
     "median_ratio": 0.9389,
-    "iqr": 0.0605,
+    "iqr": 0.0606,
     "share_above_115": 0.0095,
-    "share_at_10pct_below": 0.2306
+    "share_at_10pct_below": 0.2305
    },
    {
     "era": "Interim Government (2024–2026)",
-    "matched_pairs": 22241,
+    "matched_pairs": 22243,
     "median_ratio": 0.94,
     "iqr": 0.05,
     "share_above_115": 0.0028,
@@ -756,11 +756,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 8953,
+    "matched_pairs": 8984,
     "median_ratio": 0.9444,
-    "iqr": 0.0545,
+    "iqr": 0.0544,
     "share_above_115": 0.0016,
-    "share_at_10pct_below": 0.0525
+    "share_at_10pct_below": 0.0524
    }
   ],
   "min_pairs_for_ministry": 30
