@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 871902,
-  "nature_matched": 461847,
+  "record_count": 871772,
+  "nature_matched": 461781,
   "nature_match_rate": 0.53
  },
  "top_offices_by_value": [
@@ -322,10 +322,10 @@
   {
    "procuring_entity": "Office of the Executive Engineer, LGED, Dhaka",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 2636,
-   "value_bdt": 45642410000.0,
+   "count": 2635,
+   "value_bdt": 45015790000.0,
    "by_nature": {
-    "Works": 1340,
+    "Works": 1339,
     "Goods": 6
    },
    "top_vendors": [
@@ -824,38 +824,6 @@
    ]
   },
   {
-   "procuring_entity": "Office of the Executive Engineer, LGED, Cox'sbazar",
-   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 1691,
-   "value_bdt": 31773460000.0,
-   "by_nature": {
-    "Works": 687,
-    "Goods": 1
-   },
-   "top_vendors": [
-    {
-     "company": "Hassan Techno Builders Ltd.",
-     "value_bdt": 1478380000.0
-    },
-    {
-     "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
-     "value_bdt": 1416340000.0
-    },
-    {
-     "company": "M/S. Nipa Enterprise",
-     "value_bdt": 903450000.0
-    },
-    {
-     "company": "Delta Engineers & Consortium Ltd. - Hasan Enterprise (JV)",
-     "value_bdt": 871600000.0
-    },
-    {
-     "company": "M/S ASAD ENTERPRISE-M.M.BUILDERS & ENGINEERS LTD(JV)",
-     "value_bdt": 790100000.0
-    }
-   ]
-  },
-  {
    "procuring_entity": "Office of the Executive Engineer, LGED, Bagerhat",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "count": 3017,
@@ -883,6 +851,38 @@
     {
      "company": "M/S Jhorna Enterprise",
      "value_bdt": 688610000.0
+    }
+   ]
+  },
+  {
+   "procuring_entity": "Office of the Executive Engineer, LGED, Cox'sbazar",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "count": 1690,
+   "value_bdt": 31026940000.0,
+   "by_nature": {
+    "Works": 686,
+    "Goods": 1
+   },
+   "top_vendors": [
+    {
+     "company": "Hassan Techno Builders Ltd.",
+     "value_bdt": 1478380000.0
+    },
+    {
+     "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
+     "value_bdt": 1416340000.0
+    },
+    {
+     "company": "M/S. Nipa Enterprise",
+     "value_bdt": 903450000.0
+    },
+    {
+     "company": "Delta Engineers & Consortium Ltd. - Hasan Enterprise (JV)",
+     "value_bdt": 871600000.0
+    },
+    {
+     "company": "M/S ASAD ENTERPRISE-M.M.BUILDERS & ENGINEERS LTD(JV)",
+     "value_bdt": 790100000.0
     }
    ]
   },
@@ -953,11 +953,11 @@
  "ministries_by_value": [
   {
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 360587,
-   "value_bdt": 3038282940000.0,
+   "count": 360536,
+   "value_bdt": 3036829490000.0,
    "by_nature": {
-    "Works": 138987,
-    "Goods": 10759,
+    "Works": 138952,
+    "Goods": 10758,
     "Goods (Framework Agreement)": 86,
     "Services": 13,
     "Physical Services": 11
@@ -987,12 +987,12 @@
   },
   {
    "ministry": "Ministry of Road Transport and Bridges",
-   "count": 49428,
-   "value_bdt": 987214990000.0,
+   "count": 49423,
+   "value_bdt": 986937880000.0,
    "by_nature": {
-    "Works": 29814,
-    "Goods": 15694,
-    "Goods (Framework Agreement)": 8,
+    "Works": 29812,
+    "Goods": 15693,
+    "Goods (Framework Agreement)": 7,
     "Physical Services": 20,
     "Services": 10
    },
@@ -1021,10 +1021,10 @@
   },
   {
    "ministry": "Ministry of Education",
-   "count": 98343,
-   "value_bdt": 738687490000.0,
+   "count": 98340,
+   "value_bdt": 738578420000.0,
    "by_nature": {
-    "Goods": 26289,
+    "Goods": 26287,
     "Works": 18256,
     "Goods (Framework Agreement)": 74,
     "Physical Services": 15,
@@ -1087,8 +1087,8 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "count": 132700,
-   "value_bdt": 619501890000.0,
+   "count": 132699,
+   "value_bdt": 619501440000.0,
    "by_nature": {
     "Works": 47581,
     "Goods": 3118,
@@ -1120,11 +1120,11 @@
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 55108,
-   "value_bdt": 294583580000.0,
+   "count": 55099,
+   "value_bdt": 294513920000.0,
    "by_nature": {
-    "Goods": 17432,
-    "Works": 24855,
+    "Goods": 17427,
+    "Works": 24853,
     "Goods (Framework Agreement)": 43,
     "Physical Services": 169
    },
@@ -1186,12 +1186,12 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "count": 29725,
-   "value_bdt": 149756010000.0,
+   "count": 29717,
+   "value_bdt": 149729500000.0,
    "by_nature": {
-    "Goods": 11947,
+    "Goods": 11941,
     "Works": 4691,
-    "Goods (Framework Agreement)": 885,
+    "Goods (Framework Agreement)": 883,
     "Physical Services": 126
    },
    "top_vendors": [
@@ -1219,8 +1219,8 @@
   },
   {
    "ministry": "Ministry of Agriculture",
-   "count": 25649,
-   "value_bdt": 113081540000.0,
+   "count": 25648,
+   "value_bdt": 113080790000.0,
    "by_nature": {
     "Goods": 4367,
     "Works": 18846,
@@ -1253,12 +1253,12 @@
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "count": 14829,
-   "value_bdt": 89582900000.0,
+   "count": 14801,
+   "value_bdt": 89565450000.0,
    "by_nature": {
-    "Goods": 11336,
+    "Goods": 11331,
     "Works": 1328,
-    "Goods (Framework Agreement)": 583,
+    "Goods (Framework Agreement)": 582,
     "Physical Services": 40
    },
    "top_vendors": [
@@ -1319,12 +1319,12 @@
   },
   {
    "ministry": "Ministry of Fisheries & Livestock",
-   "count": 5402,
-   "value_bdt": 53778530000.0,
+   "count": 5401,
+   "value_bdt": 53775320000.0,
    "by_nature": {
     "Works": 1337,
     "Goods": 3501,
-    "Goods (Framework Agreement)": 110,
+    "Goods (Framework Agreement)": 109,
     "Physical Services": 9,
     "Services": 1
    },
@@ -1353,8 +1353,8 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "count": 1406,
-   "value_bdt": 52987200000.0,
+   "count": 1389,
+   "value_bdt": 52985700000.0,
    "by_nature": {
     "Goods": 686,
     "Works": 392,
@@ -1453,8 +1453,8 @@
   },
   {
    "ministry": "Ministry of Food",
-   "count": 2504,
-   "value_bdt": 43634180000.0,
+   "count": 2502,
+   "value_bdt": 43633640000.0,
    "by_nature": {
     "Works": 148,
     "Goods": 1731,
@@ -1516,10 +1516,10 @@
   },
   {
    "ministry": "Ministry of Industries",
-   "count": 4915,
-   "value_bdt": 34485030000.0,
+   "count": 4914,
+   "value_bdt": 34438210000.0,
    "by_nature": {
-    "Goods": 2291,
+    "Goods": 2290,
     "Works": 344,
     "Goods (Framework Agreement)": 13,
     "Physical Services": 52
@@ -1781,8 +1781,8 @@
   },
   {
    "ministry": "Ministry of Public Administration",
-   "count": 1246,
-   "value_bdt": 7582660000.0,
+   "count": 1245,
+   "value_bdt": 7582320000.0,
    "by_nature": {
     "Goods": 862,
     "Works": 97,
@@ -2040,39 +2040,6 @@
    ]
   },
   {
-   "ministry": "Ministry of Defence",
-   "count": 341,
-   "value_bdt": 1789170000.0,
-   "by_nature": {
-    "Goods": 245,
-    "Works": 47,
-    "Goods (Framework Agreement)": 1,
-    "Physical Services": 6
-   },
-   "top_vendors": [
-    {
-     "company": "MAZZAK INTER-TRADE",
-     "value_bdt": 280810000.0
-    },
-    {
-     "company": "EUTECH SYSTEMS LTD.",
-     "value_bdt": 189200000.0
-    },
-    {
-     "company": "Smart Technologies (BD) Ltd.",
-     "value_bdt": 185360000.0
-    },
-    {
-     "company": "M/S. BD-T CORPORATION",
-     "value_bdt": 153370000.0
-    },
-    {
-     "company": "Arc Bangladesh Ltd.",
-     "value_bdt": 69550000.0
-    }
-   ]
-  },
-  {
    "ministry": "Ministry of Textiles & Jute",
    "count": 209,
    "value_bdt": 1786550000.0,
@@ -2138,9 +2105,42 @@
    ]
   },
   {
+   "ministry": "Ministry of Defence",
+   "count": 340,
+   "value_bdt": 1736790000.0,
+   "by_nature": {
+    "Goods": 245,
+    "Works": 47,
+    "Goods (Framework Agreement)": 1,
+    "Physical Services": 5
+   },
+   "top_vendors": [
+    {
+     "company": "MAZZAK INTER-TRADE",
+     "value_bdt": 280810000.0
+    },
+    {
+     "company": "EUTECH SYSTEMS LTD.",
+     "value_bdt": 189200000.0
+    },
+    {
+     "company": "Smart Technologies (BD) Ltd.",
+     "value_bdt": 185360000.0
+    },
+    {
+     "company": "M/S. BD-T CORPORATION",
+     "value_bdt": 153370000.0
+    },
+    {
+     "company": "Arc Bangladesh Ltd.",
+     "value_bdt": 69550000.0
+    }
+   ]
+  },
+  {
    "ministry": "Ministry of Information And Broadcasting",
-   "count": 502,
-   "value_bdt": 1039510000.0,
+   "count": 501,
+   "value_bdt": 1039260000.0,
    "by_nature": {
     "Goods": 241,
     "Works": 93,
@@ -2498,8 +2498,8 @@
  "cross_departmental_vendors": [
   {
    "company": "Smart Technologies (BD) Ltd.",
-   "value_bdt": 11932740000.0,
-   "count": 828,
+   "value_bdt": 11930640000.0,
+   "count": 827,
    "distinct_ministries": 41,
    "ministries": [
     {
@@ -2532,7 +2532,7 @@
     },
     {
      "ministry": "Ministry of Energy, Power and Mineral Resources",
-     "value_bdt": 299610000.0
+     "value_bdt": 297510000.0
     },
     {
      "ministry": "Ministry of Agriculture",
@@ -3842,8 +3842,8 @@
   },
   {
    "company": "M/S Rahman Enterprise",
-   "value_bdt": 3614850000.0,
-   "count": 589,
+   "value_bdt": 3614350000.0,
+   "count": 587,
    "distinct_ministries": 20,
    "ministries": [
     {
@@ -3883,8 +3883,8 @@
      "value_bdt": 27060000.0
     },
     {
-     "ministry": "Ministry of Home Affairs",
-     "value_bdt": 27060000.0
+     "ministry": "Ministry of Religious Affairs",
+     "value_bdt": 26790000.0
     }
    ]
   },
