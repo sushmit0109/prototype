@@ -1,10 +1,10 @@
 {
- "built_at":"2026-08-30T23:32:03+00:00",
+ "built_at":"2026-08-31T05:39:35+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
-   "to":"2026-08-30T23:00",
-   "rows":98600,
+   "to":"2026-08-31T09:00",
+   "rows":98609,
    "months":[
     "2015-04",
     "2015-05",
@@ -147,8 +147,8 @@
   },
   "daily":{
    "from":"2015-04-17",
-   "to":"2026-08-30",
-   "days":4133
+   "to":"2026-08-31",
+   "days":4134
   },
   "bpdb":{
    "days":734,
@@ -156,8 +156,8 @@
    "to":"2026-08-29"
   },
   "areawise":{
-   "days":4183,
-   "usable":3842,
+   "days":4185,
+   "usable":3844,
    "suspect":341
   }
  },
@@ -167,7 +167,7 @@
    "name_en":"PGCB / NLDC hourly demand-supply-loadshed",
    "name_bn":"পিজিসিবি / এনএলডিসি ঘণ্টাভিত্তিক চাহিদা-সরবরাহ-লোডশেড",
    "url":"https://erp.powergrid.gov.bd/web/generations/view_demand_supply_loadshed_bn",
-   "latest":"2026-08-30"
+   "latest":"2026-08-31"
   },
   {
    "id":"bpdb_archive",
@@ -181,7 +181,7 @@
    "name_en":"BPDB area-wise demand",
    "name_bn":"বিপিডিবি এলাকাভিত্তিক চাহিদা",
    "url":"https://misc.bpdb.gov.bd/area-wise-demand",
-   "latest":"2026-08-25"
+   "latest":"2026-08-27"
   },
   {
    "id":"pgcb_erp",
@@ -201,6 +201,6 @@
   "demand_identity_rate":0.9949,
   "energy_identity_rate":1.0,
   "areawise_zero_days":1,
-  "areawise_days_compared":581
+  "areawise_days_compared":583
  }
 }
