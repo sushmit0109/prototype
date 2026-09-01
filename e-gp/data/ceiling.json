@@ -3,8 +3,8 @@
   "source": "https://www.eprocure.gov.bd/resources/common/SearchNOA.jsp",
   "threshold_bdt": 500000000.0,
   "window_days": 45,
-  "contracts_scanned": 871967,
-  "contracts_with_value": 871475
+  "contracts_scanned": 871900,
+  "contracts_with_value": 871408
  },
  "bunching": {
   "fine_histogram_crore": {
@@ -36,7 +36,7 @@
    "42.50": 19,
    "43.00": 21,
    "43.50": 18,
-   "44.00": 23,
+   "44.00": 24,
    "44.50": 18,
    "45.00": 9,
    "45.50": 17,
@@ -83,7 +83,7 @@
   "just_under_45_50": 160,
   "just_over_50_55": 104,
   "asymmetry_ratio": 1.54,
-  "wide_under_35_50": 632,
+  "wide_under_35_50": 633,
   "wide_over_50_65": 286,
   "by_era": [
    {
@@ -102,7 +102,7 @@
     "era": "Elected Government (2026–)",
     "just_under_45_50": 11,
     "just_over_50_55": 6,
-    "contracts_in_era": 69764
+    "contracts_in_era": 69697
    }
   ]
  },

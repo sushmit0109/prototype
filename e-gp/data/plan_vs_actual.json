@@ -1,10 +1,10 @@
 {
  "meta": {
-  "plan_line_items": 730494,
-  "plan_packages_with_estimate": 727473,
-  "contracts_scanned": 871967,
-  "matched_pairs": 117525,
-  "match_rate_of_plan": 0.1616,
+  "plan_line_items": 731072,
+  "plan_packages_with_estimate": 728048,
+  "contracts_scanned": 871900,
+  "matched_pairs": 117517,
+  "match_rate_of_plan": 0.1614,
   "generic_refs_excluded": 4057,
   "pairs_excluded_generic": 2403,
   "pairs_excluded_sanity": 268
@@ -19,9 +19,9 @@
   "buckets": {
    "<70%": 2666,
    "70-85%": 7330,
-   "85-95%": 63444,
-   "95-100%": 35876,
-   "100-115%": 7314,
+   "85-95%": 63443,
+   "95-100%": 35871,
+   "100-115%": 7312,
    ">115%": 895
   },
   "fine_histogram": {
@@ -53,19 +53,19 @@
    "0.85": 1683,
    "0.86": 1075,
    "0.87": 1643,
-   "0.88": 2294,
+   "0.88": 2293,
    "0.89": 3628,
    "0.90": 23710,
    "0.91": 2218,
    "0.92": 1562,
    "0.93": 8938,
    "0.94": 9043,
-   "0.95": 22655,
+   "0.95": 22654,
    "0.96": 4185,
    "0.97": 2109,
-   "0.98": 2265,
-   "0.99": 3836,
-   "1.00": 13105,
+   "0.98": 2264,
+   "0.99": 3835,
+   "1.00": 13101,
    "1.01": 1197,
    "1.02": 405,
    "1.03": 243,
@@ -88,7 +88,7 @@
    "1.20": 24
   },
   "overrun_bands": {
-   "100-105%": 6147,
+   "100-105%": 6145,
    "105-110%": 890,
    "110-115%": 277,
    "115-125%": 178,
@@ -102,7 +102,7 @@
     "share": 0.2018
    },
    "at_5pct_below": {
-    "count": 22702,
+    "count": 22701,
     "share": 0.1932
    },
    "at_15pct_below": {
@@ -110,12 +110,12 @@
     "share": 0.0144
    },
    "exactly_at_estimate": {
-    "count": 8353,
+    "count": 8351,
     "share": 0.0711
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8209,
+   "count_above_estimate": 8207,
    "count_above_115": 895,
    "share_above_115_of_matched": 0.0076,
    "median_ratio_above_115": 1.6158,
@@ -123,15 +123,15 @@
   }
  },
  "method_change": {
-  "unchanged": 117323,
+  "unchanged": 117315,
   "less_open_than_planned": 84,
   "more_open_than_planned": 118,
   "top_transitions": {
-   "OTM->OTM": 59967,
-   "LTM->LTM": 54001,
-   "RFQU->RFQU": 2060,
+   "OTM->OTM": 59966,
+   "LTM->LTM": 53996,
+   "RFQU->RFQU": 2059,
    "OSTETM->OSTETM": 928,
-   "RFQ->RFQ": 313,
+   "RFQ->RFQ": 312,
    "LTM->OTM": 66,
    "OTM->LTM": 63,
    "DPM->DPM": 32,
@@ -600,7 +600,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70513,
+    "matched_pairs": 70505,
     "median_ratio": 0.9455,
     "iqr": 0.0535,
     "share_above_115": 0.0065,
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11389,
+    "matched_pairs": 11381,
     "median_ratio": 0.9429,
-    "iqr": 0.052,
+    "iqr": 0.0519,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0595
+    "share_at_10pct_below": 0.0596
    }
   ],
   "by_era": [
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9005,
+    "matched_pairs": 8997,
     "median_ratio": 0.9444,
     "iqr": 0.0547,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0523
+    "share_at_10pct_below": 0.0524
    }
   ],
   "min_pairs_for_ministry": 30

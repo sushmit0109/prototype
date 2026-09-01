@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20009,
-  "vendors_with_owner_data": 8356,
-  "vendors_with_tenderer_id": 8545,
+  "vendors_sampled": 20011,
+  "vendors_with_owner_data": 8358,
+  "vendors_with_tenderer_id": 8547,
   "owner_data_coverage": 0.418
  },
  "shared_owner_groups": [
@@ -479,61 +479,6 @@
    "distinct_companies": 9
   },
   {
-   "owner_key": "niaz ahmed khan",
-   "companies": [
-    {
-     "company": "M/S. Niaz Traders",
-     "tenderer_id": "1000248",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "NIAZ-NOONA JV.",
-     "tenderer_id": "1224735",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M Niaz & G Faruk (JV)",
-     "tenderer_id": "1215532",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "AT-NT JV",
-     "tenderer_id": "1235224",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "NT-JKE JOINT VENTURE",
-     "tenderer_id": "1215230",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M/s Niaz Traders & Abul & Brothers pvt Ltd JV",
-     "tenderer_id": "1232418",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M/S. Niaz Traders-M/S Shajalal Mision (JV)",
-     "tenderer_id": "-",
-     "owner_name_as_shown": "Niaz Ahmed Khan",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    }
-   ],
-   "distinct_companies": 7
-  },
-  {
    "owner_key": "shafiqul haque talukder",
    "companies": [
     {
@@ -583,6 +528,68 @@
      "tenderer_id": "1221634",
      "owner_name_as_shown": "Engr. Shafiqul Haque Talukder",
      "designation": "Managing Director",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Starlite-EHA(JV)",
+     "tenderer_id": "1220946",
+     "owner_name_as_shown": "Engr. Shafiqul Haque Talukder",
+     "designation": "Managing Director",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 8
+  },
+  {
+   "owner_key": "niaz ahmed khan",
+   "companies": [
+    {
+     "company": "M/S. Niaz Traders",
+     "tenderer_id": "1000248",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "NIAZ-NOONA JV.",
+     "tenderer_id": "1224735",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M Niaz & G Faruk (JV)",
+     "tenderer_id": "1215532",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "AT-NT JV",
+     "tenderer_id": "1235224",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "NT-JKE JOINT VENTURE",
+     "tenderer_id": "1215230",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M/s Niaz Traders & Abul & Brothers pvt Ltd JV",
+     "tenderer_id": "1232418",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M/S. Niaz Traders-M/S Shajalal Mision (JV)",
+     "tenderer_id": "-",
+     "owner_name_as_shown": "Niaz Ahmed Khan",
+     "designation": "Proprietor",
      "ownership_pct": "100.00"
     }
    ],
