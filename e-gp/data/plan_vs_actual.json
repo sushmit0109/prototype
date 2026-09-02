@@ -1,11 +1,11 @@
 {
  "meta": {
-  "plan_line_items": 731072,
-  "plan_packages_with_estimate": 728048,
-  "contracts_scanned": 871900,
-  "matched_pairs": 117517,
-  "match_rate_of_plan": 0.1614,
-  "generic_refs_excluded": 4057,
+  "plan_line_items": 731883,
+  "plan_packages_with_estimate": 728859,
+  "contracts_scanned": 871967,
+  "matched_pairs": 117524,
+  "match_rate_of_plan": 0.1612,
+  "generic_refs_excluded": 4058,
   "pairs_excluded_generic": 2403,
   "pairs_excluded_sanity": 268
  },
@@ -19,8 +19,8 @@
   "buckets": {
    "<70%": 2666,
    "70-85%": 7330,
-   "85-95%": 63443,
-   "95-100%": 35871,
+   "85-95%": 63446,
+   "95-100%": 35875,
    "100-115%": 7312,
    ">115%": 895
   },
@@ -58,10 +58,10 @@
    "0.90": 23710,
    "0.91": 2218,
    "0.92": 1562,
-   "0.93": 8938,
-   "0.94": 9043,
-   "0.95": 22654,
-   "0.96": 4185,
+   "0.93": 8939,
+   "0.94": 9044,
+   "0.95": 22658,
+   "0.96": 4186,
    "0.97": 2109,
    "0.98": 2264,
    "0.99": 3835,
@@ -102,7 +102,7 @@
     "share": 0.2018
    },
    "at_5pct_below": {
-    "count": 22701,
+    "count": 22705,
     "share": 0.1932
    },
    "at_15pct_below": {
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 117315,
+  "unchanged": 117322,
   "less_open_than_planned": 84,
   "more_open_than_planned": 118,
   "top_transitions": {
-   "OTM->OTM": 59966,
-   "LTM->LTM": 53996,
+   "OTM->OTM": 59969,
+   "LTM->LTM": 54000,
    "RFQU->RFQU": 2059,
    "OSTETM->OSTETM": 928,
    "RFQ->RFQ": 312,
@@ -568,7 +568,7 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 8794,
+    "matched_pairs": 8795,
     "median_ratio": 0.9475,
     "iqr": 0.053,
     "share_above_115": 0.0116,
@@ -584,7 +584,7 @@
    },
    {
     "ministry": "Ministry of Education",
-    "matched_pairs": 4402,
+    "matched_pairs": 4405,
     "median_ratio": 0.9497,
     "iqr": 0.0547,
     "share_above_115": 0.007,
@@ -600,7 +600,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70505,
+    "matched_pairs": 70508,
     "median_ratio": 0.9455,
     "iqr": 0.0535,
     "share_above_115": 0.0065,
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11381,
+    "matched_pairs": 11388,
     "median_ratio": 0.9429,
     "iqr": 0.0519,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0596
+    "share_at_10pct_below": 0.0595
    }
   ],
   "by_era": [
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 8997,
+    "matched_pairs": 9004,
     "median_ratio": 0.9444,
     "iqr": 0.0547,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0524
+    "share_at_10pct_below": 0.0523
    }
   ],
   "min_pairs_for_ministry": 30

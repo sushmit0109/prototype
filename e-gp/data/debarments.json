@@ -1,18 +1,18 @@
 {
  "meta": {
   "source": "https://www.eprocure.gov.bd/resources/common/DebarmentRpt.jsp",
-  "generated_at": "2026-09-01T23:07:22.387871+00:00",
-  "record_count": 1021
+  "generated_at": "2026-09-02T23:07:23.375749+00:00",
+  "record_count": 1022
  },
  "summary": {
   "by_severity": {
+   "medium": 278,
    "low": 177,
    "critical": 344,
-   "medium": 277,
    "high": 223
   },
   "by_reason": {
-   "unspecified": 585,
+   "unspecified": 586,
    "forgery_false_document": 78,
    "fraud": 404,
    "corruption": 11,
@@ -106,6 +106,25 @@
   ]
  },
  "records": [
+  {
+   "company": "M/S TALUKDER ENGINEERING AND NETWORK REMITTANCE SERVICE",
+   "country": "Bangladesh",
+   "address": "Bahirgola Road,Bahirgola, Sirajganj Sadar, Sirajganj.,Sirajganj Sadar,Sirajganj.",
+   "debarred_by": "Division Name: Power Division ;",
+   "debar_start": "03-Sep-2026",
+   "debar_end": "11-May-2028",
+   "stay_order_note": null,
+   "scope": "Titas Gas Transmission & Distribution PLC , Energy & Mineral Resources Division , Ministry of Energy, Power and Mineral Resources",
+   "reason": "The explanation and documents submitted by the tenderer is not satisfactory.",
+   "company_key": "talukder engineering and network remittance service",
+   "scope_label": "Unspecified",
+   "reason_tags": [
+    "unspecified"
+   ],
+   "duration_days": 616,
+   "repeat_offender_count": 1,
+   "severity": "medium"
+  },
   {
    "company": "a2z sourcing",
    "country": "Bangladesh",

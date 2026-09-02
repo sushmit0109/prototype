@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 871900,
-  "nature_matched": 461844,
+  "record_count": 871967,
+  "nature_matched": 461868,
   "nature_match_rate": 0.53
  },
  "top_offices_by_value": [
@@ -824,6 +824,37 @@
    ]
   },
   {
+   "procuring_entity": "Office of the Executive Engineer, LGED, Bagerhat",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "count": 3019,
+   "value_bdt": 31173230000.0,
+   "by_nature": {
+    "Works": 1635
+   },
+   "top_vendors": [
+    {
+     "company": "M/S Alif Store",
+     "value_bdt": 1959350000.0
+    },
+    {
+     "company": "M/S Sohel Construction",
+     "value_bdt": 1565720000.0
+    },
+    {
+     "company": "M/S Shovo Enterprise",
+     "value_bdt": 802720000.0
+    },
+    {
+     "company": "M/S. ALIF TRADERS",
+     "value_bdt": 698160000.0
+    },
+    {
+     "company": "M/S Jhorna Enterprise",
+     "value_bdt": 688610000.0
+    }
+   ]
+  },
+  {
    "procuring_entity": "Office of the Executive Engineer, LGED, Cox'sbazar",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "count": 1691,
@@ -852,37 +883,6 @@
     {
      "company": "M/S ASAD ENTERPRISE-M.M.BUILDERS & ENGINEERS LTD(JV)",
      "value_bdt": 790100000.0
-    }
-   ]
-  },
-  {
-   "procuring_entity": "Office of the Executive Engineer, LGED, Bagerhat",
-   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 3017,
-   "value_bdt": 31132740000.0,
-   "by_nature": {
-    "Works": 1633
-   },
-   "top_vendors": [
-    {
-     "company": "M/S Alif Store",
-     "value_bdt": 1959350000.0
-    },
-    {
-     "company": "M/S Sohel Construction",
-     "value_bdt": 1565720000.0
-    },
-    {
-     "company": "M/S Shovo Enterprise",
-     "value_bdt": 802720000.0
-    },
-    {
-     "company": "M/S. ALIF TRADERS",
-     "value_bdt": 698160000.0
-    },
-    {
-     "company": "M/S Jhorna Enterprise",
-     "value_bdt": 688610000.0
     }
    ]
   },
@@ -953,10 +953,10 @@
  "ministries_by_value": [
   {
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 360564,
-   "value_bdt": 3037422070000.0,
+   "count": 360570,
+   "value_bdt": 3037508880000.0,
    "by_nature": {
-    "Works": 138964,
+    "Works": 138967,
     "Goods": 10759,
     "Goods (Framework Agreement)": 86,
     "Services": 13,
@@ -1021,11 +1021,11 @@
   },
   {
    "ministry": "Ministry of Education",
-   "count": 98358,
-   "value_bdt": 739071410000.0,
+   "count": 98368,
+   "value_bdt": 739150170000.0,
    "by_nature": {
-    "Goods": 26291,
-    "Works": 18260,
+    "Goods": 26292,
+    "Works": 18262,
     "Goods (Framework Agreement)": 74,
     "Physical Services": 15,
     "Services": 15
@@ -1055,11 +1055,11 @@
   },
   {
    "ministry": "Ministry of Water Resources",
-   "count": 32846,
-   "value_bdt": 695734590000.0,
+   "count": 32847,
+   "value_bdt": 695736130000.0,
    "by_nature": {
     "Works": 22345,
-    "Goods": 799,
+    "Goods": 800,
     "Physical Services": 17
    },
    "top_vendors": [
@@ -1087,10 +1087,10 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "count": 132710,
-   "value_bdt": 619516860000.0,
+   "count": 132714,
+   "value_bdt": 619523760000.0,
    "by_nature": {
-    "Works": 47581,
+    "Works": 47585,
     "Goods": 3118,
     "Goods (Framework Agreement)": 54,
     "Physical Services": 107
@@ -1120,13 +1120,13 @@
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 55112,
-   "value_bdt": 294560410000.0,
+   "count": 55124,
+   "value_bdt": 294681110000.0,
    "by_nature": {
-    "Goods": 17432,
+    "Goods": 17435,
     "Works": 24855,
     "Goods (Framework Agreement)": 43,
-    "Physical Services": 169
+    "Physical Services": 170
    },
    "top_vendors": [
     {
@@ -1153,8 +1153,8 @@
   },
   {
    "ministry": "Ministry of Shipping",
-   "count": 13356,
-   "value_bdt": 163007150000.0,
+   "count": 13360,
+   "value_bdt": 163024560000.0,
    "by_nature": {
     "Works": 3632,
     "Goods": 3855,
@@ -1186,10 +1186,10 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "count": 29724,
-   "value_bdt": 149835060000.0,
+   "count": 29726,
+   "value_bdt": 149840820000.0,
    "by_nature": {
-    "Goods": 11948,
+    "Goods": 11950,
     "Works": 4691,
     "Goods (Framework Agreement)": 883,
     "Physical Services": 126
@@ -1219,8 +1219,8 @@
   },
   {
    "ministry": "Ministry of Agriculture",
-   "count": 25653,
-   "value_bdt": 113118980000.0,
+   "count": 25654,
+   "value_bdt": 113119670000.0,
    "by_nature": {
     "Goods": 4369,
     "Works": 18848,
@@ -1353,8 +1353,8 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "count": 1394,
-   "value_bdt": 52986440000.0,
+   "count": 1397,
+   "value_bdt": 52986740000.0,
    "by_nature": {
     "Goods": 686,
     "Works": 392,
@@ -1387,11 +1387,11 @@
   },
   {
    "ministry": "Ministry of Civil Aviation & Tourism",
-   "count": 7330,
-   "value_bdt": 50724170000.0,
+   "count": 7331,
+   "value_bdt": 50725480000.0,
    "by_nature": {
     "Works": 3147,
-    "Goods": 1533,
+    "Goods": 1534,
     "Goods (Framework Agreement)": 32,
     "Physical Services": 16
    },
@@ -1516,10 +1516,10 @@
   },
   {
    "ministry": "Ministry of Industries",
-   "count": 4922,
-   "value_bdt": 34468780000.0,
+   "count": 4927,
+   "value_bdt": 34476260000.0,
    "by_nature": {
-    "Goods": 2294,
+    "Goods": 2297,
     "Works": 344,
     "Goods (Framework Agreement)": 13,
     "Physical Services": 53
@@ -1582,11 +1582,11 @@
   },
   {
    "ministry": "Prime Minister's Office",
-   "count": 1160,
-   "value_bdt": 32272860000.0,
+   "count": 1162,
+   "value_bdt": 32280610000.0,
    "by_nature": {
-    "Goods": 124,
-    "Works": 897,
+    "Goods": 125,
+    "Works": 898,
     "Goods (Framework Agreement)": 32,
     "Physical Services": 4,
     "Services": 1
@@ -1616,8 +1616,8 @@
   },
   {
    "ministry": "Ministry of Finance",
-   "count": 2694,
-   "value_bdt": 23672120000.0,
+   "count": 2699,
+   "value_bdt": 23674250000.0,
    "by_nature": {
     "Goods": 1202,
     "Works": 210,
@@ -1747,10 +1747,10 @@
   },
   {
    "ministry": "Ministry of Environment, Forest and Climate Change",
-   "count": 3569,
-   "value_bdt": 8895080000.0,
+   "count": 3577,
+   "value_bdt": 8898890000.0,
    "by_nature": {
-    "Goods": 1609,
+    "Goods": 1610,
     "Works": 1190,
     "Physical Services": 35,
     "Goods (Framework Agreement)": 46,
@@ -1814,8 +1814,8 @@
   },
   {
    "ministry": "Ministry of Planning",
-   "count": 519,
-   "value_bdt": 7360570000.0,
+   "count": 520,
+   "value_bdt": 7361310000.0,
    "by_nature": {
     "Goods": 406,
     "Works": 17,
@@ -1911,8 +1911,8 @@
   },
   {
    "ministry": "Ministry of Expatriates' Welfare and Overseas Employment",
-   "count": 522,
-   "value_bdt": 4144920000.0,
+   "count": 523,
+   "value_bdt": 4145510000.0,
    "by_nature": {
     "Goods": 203,
     "Works": 29,
@@ -2139,8 +2139,8 @@
   },
   {
    "ministry": "Ministry of Information And Broadcasting",
-   "count": 503,
-   "value_bdt": 1039460000.0,
+   "count": 504,
+   "value_bdt": 1039510000.0,
    "by_nature": {
     "Goods": 241,
     "Works": 93,
