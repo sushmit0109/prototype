@@ -31,24 +31,24 @@
   "post_period_placebo": "interim"
  },
  "main_did": {
-  "coefficient": 0.1951,
-  "std_error": 0.143,
-  "t_stat": 1.364,
-  "p_value": 0.1775,
+  "coefficient": 0.192,
+  "std_error": 0.1432,
+  "t_stat": 1.34,
+  "p_value": 0.1849,
   "df": 63,
   "n_obs": 768,
   "n_districts": 64,
   "n_periods": 12,
-  "approx_proportional_effect": 0.2154
+  "approx_proportional_effect": 0.2116
  },
  "main_did_simple": {
   "cell_means_bdt_per_voter": {
    "bnp_won=0_post=0": 4691.87,
-   "bnp_won=0_post=1": 3419.21,
+   "bnp_won=0_post=1": 3435.16,
    "bnp_won=1_post=0": 4497.8,
-   "bnp_won=1_post=1": 3450.45
+   "bnp_won=1_post=1": 3451.54
   },
-  "did_bdt_per_voter": 225.31
+  "did_bdt_per_voter": 210.45
  },
  "placebo_did": {
   "coefficient": 0.161,
@@ -71,15 +71,15 @@
   "did_bdt_per_voter": 1129.54
  },
  "continuous_vote_share_did": {
-  "coefficient": 1.5242,
-  "std_error": 0.804,
-  "t_stat": 1.896,
-  "p_value": 0.0626,
+  "coefficient": 1.5431,
+  "std_error": 0.8064,
+  "t_stat": 1.913,
+  "p_value": 0.0602,
   "df": 63,
   "n_obs": 768,
   "n_districts": 64,
   "n_periods": 12,
-  "approx_proportional_effect": 3.5915
+  "approx_proportional_effect": 3.679
  },
  "continuous_vote_share_placebo_did": {
   "coefficient": 1.4043,
@@ -99,7 +99,7 @@
    "bnp_seat_share": 0.2,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 11946.88,
-   "elected_value_per_voter_bdt": 5167.45,
+   "elected_value_per_voter_bdt": 5198.05,
    "total_voters": 1236632
   },
   {
@@ -117,7 +117,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5493.52,
-   "elected_value_per_voter_bdt": 3504.07,
+   "elected_value_per_voter_bdt": 3509.17,
    "total_voters": 721767
   },
   {
@@ -126,7 +126,7 @@
    "bnp_seat_share": 1.0,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 8077.46,
-   "elected_value_per_voter_bdt": 5570.67,
+   "elected_value_per_voter_bdt": 5582.35,
    "total_voters": 2121539
   },
   {
@@ -171,7 +171,7 @@
    "bnp_seat_share": 0.7059,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 11290.6,
-   "elected_value_per_voter_bdt": 3907.7,
+   "elected_value_per_voter_bdt": 3907.91,
    "total_voters": 5332742
   },
   {
@@ -207,7 +207,7 @@
    "bnp_seat_share": 0.4062,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 43026.92,
-   "elected_value_per_voter_bdt": 20222.55,
+   "elected_value_per_voter_bdt": 20233.38,
    "total_voters": 7899388
   },
   {
@@ -234,7 +234,7 @@
    "bnp_seat_share": 0.75,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 15516.62,
-   "elected_value_per_voter_bdt": 4385.04,
+   "elected_value_per_voter_bdt": 4385.19,
    "total_voters": 1117711
   },
   {
@@ -243,7 +243,7 @@
    "bnp_seat_share": 0.1667,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 3357.2,
-   "elected_value_per_voter_bdt": 1840.51,
+   "elected_value_per_voter_bdt": 1841.2,
    "total_voters": 2059091
   },
   {
@@ -315,7 +315,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 7196.89,
-   "elected_value_per_voter_bdt": 2010.66,
+   "elected_value_per_voter_bdt": 2017.2,
    "total_voters": 752146
   },
   {
@@ -324,7 +324,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 10607.2,
-   "elected_value_per_voter_bdt": 7897.24,
+   "elected_value_per_voter_bdt": 7899.15,
    "total_voters": 529709
   },
   {
@@ -351,7 +351,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 6232.39,
-   "elected_value_per_voter_bdt": 1457.89,
+   "elected_value_per_voter_bdt": 1459.26,
    "total_voters": 1769886
   },
   {
@@ -360,7 +360,7 @@
    "bnp_seat_share": 0.1429,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 6638.64,
-   "elected_value_per_voter_bdt": 1925.44,
+   "elected_value_per_voter_bdt": 1925.76,
    "total_voters": 1692058
   },
   {
@@ -369,7 +369,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 12245.6,
-   "elected_value_per_voter_bdt": 5494.55,
+   "elected_value_per_voter_bdt": 5495.43,
    "total_voters": 1440668
   },
   {
@@ -477,7 +477,7 @@
    "bnp_seat_share": 0.4167,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4930.18,
-   "elected_value_per_voter_bdt": 1594.27,
+   "elected_value_per_voter_bdt": 1594.7,
    "total_voters": 1878016
   },
   {
@@ -513,7 +513,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 6061.51,
-   "elected_value_per_voter_bdt": 1470.56,
+   "elected_value_per_voter_bdt": 1474.28,
    "total_voters": 1355577
   },
   {
@@ -522,7 +522,7 @@
    "bnp_seat_share": 0.5556,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 6621.3,
-   "elected_value_per_voter_bdt": 4056.66,
+   "elected_value_per_voter_bdt": 4057.07,
    "total_voters": 2648499
   },
   {
@@ -540,7 +540,7 @@
    "bnp_seat_share": 0.6667,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 7691.92,
-   "elected_value_per_voter_bdt": 4752.04,
+   "elected_value_per_voter_bdt": 4753.49,
    "total_voters": 539492
   },
   {
@@ -549,7 +549,7 @@
    "bnp_seat_share": 0.4286,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 8339.2,
-   "elected_value_per_voter_bdt": 2886.35,
+   "elected_value_per_voter_bdt": 2891.97,
    "total_voters": 1454885
   },
   {
@@ -576,7 +576,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 11551.92,
-   "elected_value_per_voter_bdt": 3662.2,
+   "elected_value_per_voter_bdt": 3673.57,
    "total_voters": 2227705
   },
   {
@@ -585,7 +585,7 @@
    "bnp_seat_share": 0.3333,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 21060.74,
-   "elected_value_per_voter_bdt": 16400.45,
+   "elected_value_per_voter_bdt": 16651.45,
    "total_voters": 485727
   },
   {
@@ -630,7 +630,7 @@
    "bnp_seat_share": 0.5455,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4240.53,
-   "elected_value_per_voter_bdt": 1557.26,
+   "elected_value_per_voter_bdt": 1558.22,
    "total_voters": 2120394
   },
   {
@@ -639,7 +639,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 14631.28,
-   "elected_value_per_voter_bdt": 2793.32,
+   "elected_value_per_voter_bdt": 3064.6,
    "total_voters": 1888440
   },
   {
@@ -648,7 +648,7 @@
    "bnp_seat_share": 0.4545,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 11109.81,
-   "elected_value_per_voter_bdt": 4752.99,
+   "elected_value_per_voter_bdt": 4753.89,
    "total_voters": 2730610
   },
   {
@@ -657,7 +657,7 @@
    "bnp_seat_share": 0.7,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 3382.37,
-   "elected_value_per_voter_bdt": 1670.74,
+   "elected_value_per_voter_bdt": 1673.01,
    "total_voters": 3223557
   },
   {

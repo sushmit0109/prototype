@@ -3,8 +3,8 @@
   "source": "https://www.eprocure.gov.bd/resources/common/SearchNOA.jsp",
   "threshold_bdt": 500000000.0,
   "window_days": 45,
-  "contracts_scanned": 871967,
-  "contracts_with_value": 871475
+  "contracts_scanned": 872028,
+  "contracts_with_value": 871536
  },
  "bunching": {
   "fine_histogram_crore": {
@@ -50,7 +50,7 @@
    "49.50": 20,
    "50.00": 17,
    "50.50": 10,
-   "51.00": 8,
+   "51.00": 9,
    "51.50": 5,
    "52.00": 13,
    "52.50": 10,
@@ -81,10 +81,10 @@
    "65.00": 4
   },
   "just_under_45_50": 160,
-  "just_over_50_55": 104,
-  "asymmetry_ratio": 1.54,
+  "just_over_50_55": 105,
+  "asymmetry_ratio": 1.52,
   "wide_under_35_50": 633,
-  "wide_over_50_65": 286,
+  "wide_over_50_65": 287,
   "by_era": [
    {
     "era": "Awami League (2009–2024)",
@@ -101,8 +101,8 @@
    {
     "era": "Elected Government (2026–)",
     "just_under_45_50": 11,
-    "just_over_50_55": 6,
-    "contracts_in_era": 69764
+    "just_over_50_55": 7,
+    "contracts_in_era": 69825
    }
   ]
  },

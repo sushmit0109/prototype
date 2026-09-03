@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-09-02T23:08:22.806383+00:00",
-  "contracts_scanned": 871967,
+  "generated_at": "2026-09-03T23:02:30.665380+00:00",
+  "contracts_scanned": 872028,
   "debarment_records": 1022,
-  "flag_count": 1967,
+  "flag_count": 1968,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1721
+   "post_debarment_award": 1722
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 343,
@@ -30333,6 +30333,25 @@
    "debarment_reason": "Dear Tenderer, With reference to your tender submitted on 19 October, 2016 (e-Tender ID No:64793; Contract Package No: e-Tender/PEDP-III/SLT/2016-17/W16.7) for Renovation and Extension of Sylhet Divisional Deputy Director Office(Primary Education), we would like to inform you that, it is clear from the verification report issued by the Manager (Executive Engineer), Sylhet 20 MW Power Station, Bangladesh Power Development Board, Kumargaon, Sylhet, Vide Memo No. : 6.12/2016-17/170 Dated: 2/11/2016, you have submitted a fraud work completion certificate with your tender. That means, you have done a Fraudulent Practice pursuant to Rules 127.2(b) of PPR-2008. In this situation please clarify the actual fact and explain why PE will not take further legal steps for submitting such fraud work completion certificate pursuant to the PPR-2008 and ITT clause 4.3 of TD, within 03(Three) working days.",
    "debarment_scope": "Unspecified",
    "era": "Interim Government (2024–2026)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "low",
+   "company": "M/s. Monir Metal",
+   "company_key": "monir metal",
+   "tender_id": "1316514",
+   "pkg_lot_id": "2114234",
+   "procuring_entity": "Executive Engineer (I&C),Sylhet 225 MW Combined Cycle Power Plant, BPDB, Sylhet.",
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "district": "Sylhet",
+   "contract_signing_date": "2026-09-03",
+   "value_bdt": 290000.0,
+   "debar_start": "11-Jan-2017",
+   "debar_end": "10-Jan-2018",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "Dear Tenderer, With reference to your tender submitted on 19 October, 2016 (e-Tender ID No:64793; Contract Package No: e-Tender/PEDP-III/SLT/2016-17/W16.7) for Renovation and Extension of Sylhet Divisional Deputy Director Office(Primary Education), we would like to inform you that, it is clear from the verification report issued by the Manager (Executive Engineer), Sylhet 20 MW Power Station, Bangladesh Power Development Board, Kumargaon, Sylhet, Vide Memo No. : 6.12/2016-17/170 Dated: 2/11/2016, you have submitted a fraud work completion certificate with your tender. That means, you have done a Fraudulent Practice pursuant to Rules 127.2(b) of PPR-2008. In this situation please clarify the actual fact and explain why PE will not take further legal steps for submitting such fraud work completion certificate pursuant to the PPR-2008 and ITT clause 4.3 of TD, within 03(Three) working days.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
   },
   {
    "flag_type": "post_debarment_award",

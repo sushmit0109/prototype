@@ -1,10 +1,10 @@
 {
  "meta": {
-  "plan_line_items": 731883,
-  "plan_packages_with_estimate": 728859,
-  "contracts_scanned": 871967,
-  "matched_pairs": 117524,
-  "match_rate_of_plan": 0.1612,
+  "plan_line_items": 732362,
+  "plan_packages_with_estimate": 729338,
+  "contracts_scanned": 872028,
+  "matched_pairs": 117768,
+  "match_rate_of_plan": 0.1615,
   "generic_refs_excluded": 4058,
   "pairs_excluded_generic": 2403,
   "pairs_excluded_sanity": 268
@@ -13,16 +13,16 @@
   "median_ratio": 0.94,
   "p10": 0.8625,
   "p25": 0.9,
-  "p75": 0.9556,
+  "p75": 0.9559,
   "p90": 1.0,
-  "share_above_estimate": 0.0698,
+  "share_above_estimate": 0.0702,
   "buckets": {
    "<70%": 2666,
-   "70-85%": 7330,
-   "85-95%": 63446,
-   "95-100%": 35875,
-   "100-115%": 7312,
-   ">115%": 895
+   "70-85%": 7336,
+   "85-95%": 63461,
+   "95-100%": 36040,
+   "100-115%": 7369,
+   ">115%": 896
   },
   "fine_histogram": {
    "0.60": 103,
@@ -37,45 +37,45 @@
    "0.69": 197,
    "0.70": 399,
    "0.71": 234,
-   "0.72": 259,
+   "0.72": 260,
    "0.73": 350,
    "0.74": 276,
-   "0.75": 403,
+   "0.75": 404,
    "0.76": 290,
-   "0.77": 342,
+   "0.77": 343,
    "0.78": 365,
    "0.79": 389,
    "0.80": 894,
    "0.81": 414,
-   "0.82": 550,
-   "0.83": 740,
+   "0.82": 551,
+   "0.83": 741,
    "0.84": 789,
-   "0.85": 1683,
+   "0.85": 1684,
    "0.86": 1075,
-   "0.87": 1643,
-   "0.88": 2293,
-   "0.89": 3628,
-   "0.90": 23710,
-   "0.91": 2218,
-   "0.92": 1562,
+   "0.87": 1644,
+   "0.88": 2295,
+   "0.89": 3630,
+   "0.90": 23712,
+   "0.91": 2220,
+   "0.92": 1563,
    "0.93": 8939,
-   "0.94": 9044,
-   "0.95": 22658,
-   "0.96": 4186,
-   "0.97": 2109,
-   "0.98": 2264,
-   "0.99": 3835,
-   "1.00": 13101,
-   "1.01": 1197,
-   "1.02": 405,
-   "1.03": 243,
-   "1.04": 251,
-   "1.05": 253,
-   "1.06": 138,
-   "1.07": 114,
+   "0.94": 9047,
+   "0.95": 22663,
+   "0.96": 4197,
+   "0.97": 2124,
+   "0.98": 2286,
+   "0.99": 3898,
+   "1.00": 13157,
+   "1.01": 1210,
+   "1.02": 412,
+   "1.03": 254,
+   "1.04": 259,
+   "1.05": 261,
+   "1.06": 139,
+   "1.07": 116,
    "1.08": 135,
-   "1.09": 221,
-   "1.10": 262,
+   "1.09": 222,
+   "1.10": 263,
    "1.11": 70,
    "1.12": 52,
    "1.13": 38,
@@ -84,51 +84,51 @@
    "1.16": 19,
    "1.17": 18,
    "1.18": 25,
-   "1.19": 27,
+   "1.19": 28,
    "1.20": 24
   },
   "overrun_bands": {
-   "100-105%": 6145,
-   "105-110%": 890,
-   "110-115%": 277,
-   "115-125%": 178,
+   "100-105%": 6196,
+   "105-110%": 895,
+   "110-115%": 278,
+   "115-125%": 179,
    "125-150%": 220,
    "150-200%": 170,
    ">200%": 327
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23719,
-    "share": 0.2018
+    "count": 23721,
+    "share": 0.2014
    },
    "at_5pct_below": {
-    "count": 22705,
-    "share": 0.1932
+    "count": 22710,
+    "share": 0.1928
    },
    "at_15pct_below": {
-    "count": 1688,
-    "share": 0.0144
+    "count": 1689,
+    "share": 0.0143
    },
    "exactly_at_estimate": {
-    "count": 8351,
+    "count": 8375,
     "share": 0.0711
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8207,
-   "count_above_115": 895,
+   "count_above_estimate": 8265,
+   "count_above_115": 896,
    "share_above_115_of_matched": 0.0076,
-   "median_ratio_above_115": 1.6158,
-   "total_extra_bdt": 3431374648.87
+   "median_ratio_above_115": 1.6156,
+   "total_extra_bdt": 3431734648.87
   }
  },
  "method_change": {
-  "unchanged": 117322,
+  "unchanged": 117566,
   "less_open_than_planned": 84,
   "more_open_than_planned": 118,
   "top_transitions": {
-   "OTM->OTM": 59969,
-   "LTM->LTM": 54000,
+   "OTM->OTM": 60170,
+   "LTM->LTM": 54043,
    "RFQU->RFQU": 2059,
    "OSTETM->OSTETM": 928,
    "RFQ->RFQ": 312,
@@ -544,11 +544,11 @@
    },
    {
     "ministry": "Ministry of Energy, Power and Mineral Resources",
-    "matched_pairs": 1628,
+    "matched_pairs": 1641,
     "median_ratio": 0.8941,
-    "iqr": 0.1427,
-    "share_above_115": 0.0166,
-    "share_at_10pct_below": 0.1136
+    "iqr": 0.1425,
+    "share_above_115": 0.0171,
+    "share_at_10pct_below": 0.114
    },
    {
     "ministry": "Ministry of Agriculture",
@@ -591,14 +591,6 @@
     "share_at_10pct_below": 0.0579
    },
    {
-    "ministry": "Ministry of Shipping",
-    "matched_pairs": 896,
-    "median_ratio": 0.98,
-    "iqr": 0.0925,
-    "share_above_115": 0.0067,
-    "share_at_10pct_below": 0.0346
-   },
-   {
     "ministry": "Ministry of Housing and Public Works",
     "matched_pairs": 70508,
     "median_ratio": 0.9455,
@@ -613,6 +605,14 @@
     "iqr": 0.017,
     "share_above_115": 0.0062,
     "share_at_10pct_below": 0.0472
+   },
+   {
+    "ministry": "Ministry of Shipping",
+    "matched_pairs": 1127,
+    "median_ratio": 0.9876,
+    "iqr": 0.0618,
+    "share_above_115": 0.0053,
+    "share_at_10pct_below": 0.0275
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
@@ -666,109 +666,109 @@
    },
    {
     "year": "2017",
-    "matched_pairs": 3384,
-    "median_ratio": 0.9118,
-    "iqr": 0.061,
-    "share_above_115": 0.0192,
-    "share_at_10pct_below": 0.2958
+    "matched_pairs": 3395,
+    "median_ratio": 0.9129,
+    "iqr": 0.0609,
+    "share_above_115": 0.0191,
+    "share_at_10pct_below": 0.2948
    },
    {
     "year": "2018",
-    "matched_pairs": 8170,
-    "median_ratio": 0.9421,
-    "iqr": 0.088,
-    "share_above_115": 0.0138,
-    "share_at_10pct_below": 0.2421
+    "matched_pairs": 8244,
+    "median_ratio": 0.9428,
+    "iqr": 0.0893,
+    "share_above_115": 0.0137,
+    "share_at_10pct_below": 0.2399
    },
    {
     "year": "2019",
-    "matched_pairs": 10260,
+    "matched_pairs": 10294,
     "median_ratio": 0.9455,
-    "iqr": 0.0791,
+    "iqr": 0.0792,
     "share_above_115": 0.0062,
-    "share_at_10pct_below": 0.2047
+    "share_at_10pct_below": 0.2041
    },
    {
     "year": "2020",
-    "matched_pairs": 13119,
+    "matched_pairs": 13125,
     "median_ratio": 0.9404,
     "iqr": 0.0543,
     "share_above_115": 0.0082,
-    "share_at_10pct_below": 0.2139
+    "share_at_10pct_below": 0.2138
    },
    {
     "year": "2021",
-    "matched_pairs": 11378,
+    "matched_pairs": 11385,
     "median_ratio": 0.9333,
     "iqr": 0.0521,
     "share_above_115": 0.0119,
-    "share_at_10pct_below": 0.2471
+    "share_at_10pct_below": 0.247
    },
    {
     "year": "2022",
-    "matched_pairs": 12902,
+    "matched_pairs": 12912,
     "median_ratio": 0.9357,
     "iqr": 0.0556,
     "share_above_115": 0.0072,
-    "share_at_10pct_below": 0.2364
+    "share_at_10pct_below": 0.2362
    },
    {
     "year": "2023",
-    "matched_pairs": 13220,
+    "matched_pairs": 13236,
     "median_ratio": 0.9355,
     "iqr": 0.0667,
     "share_above_115": 0.0085,
-    "share_at_10pct_below": 0.2753
+    "share_at_10pct_below": 0.275
    },
    {
     "year": "2024",
-    "matched_pairs": 12949,
+    "matched_pairs": 12954,
     "median_ratio": 0.9412,
     "iqr": 0.06,
-    "share_above_115": 0.0051,
+    "share_above_115": 0.0052,
     "share_at_10pct_below": 0.1823
    },
    {
     "year": "2025",
-    "matched_pairs": 16504,
+    "matched_pairs": 16563,
     "median_ratio": 0.94,
     "iqr": 0.05,
     "share_above_115": 0.0024,
-    "share_at_10pct_below": 0.1684
+    "share_at_10pct_below": 0.1678
    },
    {
     "year": "2026",
-    "matched_pairs": 11388,
+    "matched_pairs": 11410,
     "median_ratio": 0.9429,
-    "iqr": 0.0519,
+    "iqr": 0.0521,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0595
+    "share_at_10pct_below": 0.0594
    }
   ],
   "by_era": [
    {
     "era": "Awami League (2009–2024)",
-    "matched_pairs": 86228,
-    "median_ratio": 0.939,
-    "iqr": 0.0605,
+    "matched_pairs": 86390,
+    "median_ratio": 0.9393,
+    "iqr": 0.061,
     "share_above_115": 0.0095,
-    "share_at_10pct_below": 0.2303
+    "share_at_10pct_below": 0.2299
    },
    {
     "era": "Interim Government (2024–2026)",
-    "matched_pairs": 22292,
+    "matched_pairs": 22352,
     "median_ratio": 0.94,
     "iqr": 0.05,
     "share_above_115": 0.0028,
-    "share_at_10pct_below": 0.1521
+    "share_at_10pct_below": 0.1517
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9004,
+    "matched_pairs": 9026,
     "median_ratio": 0.9444,
-    "iqr": 0.0547,
+    "iqr": 0.0548,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0523
+    "share_at_10pct_below": 0.0522
    }
   ],
   "min_pairs_for_ministry": 30
