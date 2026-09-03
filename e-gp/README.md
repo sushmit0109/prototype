@@ -43,6 +43,7 @@ presence of a dashboard.
 | Tender topic mix (CPV category) | `GetCpvTree` / `TenderDetailsServlet` (`cpvCategory` filter) | **Live** -- 61 top-level categories, counted overall and per political era (see Sectors below); the top 25 also have their full tender-id lists crawled and joined against `data/contracts` to rank by *awarded value*, not just tender count |
 | Geographic spend by district | derived from `district` on eContracts | **Live** -- `build_geo.py`; map geometry is a one-off static asset from an external open-data source, not eprocure.gov.bd -- see "Where the district map geometry comes from" in the dashboard's Methodology. Each district also carries a yearly time series (for the map's trend sparklines) and a procurement-nature mix (the closest thing to a per-district sector breakdown this data supports -- CPV category can't be attributed to a district, since the tender search has no location filter) |
 | Political-era segmentation (Awami League / interim / elected government) | -- | **Live** -- `eras.py`, applied across contracts, plan-vs-actual, the ceiling analysis, debarment flags, and CPV counts; see the dashboard's Governments section |
+| Vendor growth (fastest growers, new dominants, combined owner-portfolio trend) | -- | **Live** -- `build_growth.py`, joined against the existing beneficial-ownership sample; see the dashboard's Rising vendors finding |
 
 ## Headline numbers (as of the last full build)
 
@@ -155,6 +156,21 @@ presence of a dashboard.
   only a few months old and the smallest of the three. See the dashboard's
   Governments section for the full comparison, including debarment
   violations and the discount-convention share by era.
+- **Rising vendors** (`build_growth.py`): comparing 2016-2019 to 2024-2026
+  as per-year averages, the fastest-growing vendor with a real prior
+  footprint went from ৳37.7 lakh/year to ৳89 crore/year (235x); 40 vendors
+  went from zero contracts before 2020 to ৳10+ crore since. Cross-referenced
+  against the existing beneficial-ownership data: one owner's 4 companies
+  (a legitimate, correctly-identified conglomerate -- RFL/Property
+  Development/Rangpur Metal) brought in a combined ৳2,904 crore over
+  2024-2026, a 6.5x rise on their combined 2016-2019 baseline. The point of
+  summing by owner rather than reading each company alone: a person running
+  several modest-looking companies can have a large and growing combined
+  footprint that no single company's numbers would reveal. See the
+  dashboard's Rising vendors finding for the full lists and caveats --
+  most fast growth here is presumably ordinary business success, not
+  wrongdoing, and a joint venture legitimately "shares" ownership with the
+  firms that formed it.
 
 ## Dashboard design
 
@@ -235,11 +251,12 @@ python3 build_plan_vs_actual.py ../raw/app_items.jsonl ../data/contracts ../data
 python3 pick_vendor_samples.py ../data/contracts ../raw/vendor_samples.jsonl --limit=20000
 python3 scrape_award_details.py ../raw/vendor_samples.jsonl ../raw/award_details.jsonl --resume
 python3 build_ownership.py ../raw/award_details.jsonl ../data/ownership.json
+python3 build_growth.py ../data/contracts ../data/ownership.json ../data/growth.json
 
 python3 build_ceiling.py ../data/contracts ../data/ceiling.json
-python3 scrape_cpv.py ../raw/cpv_categories.json                              # ~250 lightweight requests, ~2min
-python3 build_cpv.py ../raw/cpv_categories.json ../data/cpv_categories.json
-python3 build_geo.py ../data/contracts ../data/geo.json                       # daily; geometry itself is not
+python3 scrape_cpv.py ../raw/cpv_categories.json                              # counts + top-25 tender-id lists, ~5min
+python3 build_cpv.py ../raw/cpv_categories.json ../data/contracts ../data/cpv_categories.json
+python3 build_geo.py ../data/contracts ../data/tenders ../data/geo.json       # daily; geometry itself is not
 
 # One-off, not part of the daily job -- district boundaries don't change day to day:
 python3 build_district_geo.py <districts.geojson> ../data/bd_districts_geo.json

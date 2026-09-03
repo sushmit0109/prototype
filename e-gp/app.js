@@ -505,6 +505,71 @@ function renderOwnership(own) {
     </tr>`).join("");
 }
 
+/* ── 10 · Rising vendors ──────────────────────────────────────────── */
+
+function renderGrowth(growth) {
+  if (!growth) {
+    document.getElementById("fgrowth").style.display = "none";
+    return;
+  }
+  const ratioFmt = v => `${v.toFixed(v >= 10 ? 0 : 1)}×`;
+  const ownerNameByKey = new Map(growth.owner_group_growth.map(o => [o.owner_key, o.owner_name]));
+  const m = growth.meta;
+  const baseYears = m.baseline_years.length, recYears = m.recent_years.length;
+
+  document.getElementById("growersBody").innerHTML = growth.top_growers.slice(0, 15).map(g => {
+    const owners = g.shared_owner_keys.map(k => ownerNameByKey.get(k)).filter(Boolean);
+    return `<tr>
+      <td class="strong">${esc(g.company)}</td>
+      <td class="n muted">${taka(g.baseline_value_bdt / baseYears)}</td>
+      <td class="n">${taka(g.recent_value_bdt / recYears)}</td>
+      <td class="n hi">${ratioFmt(g.growth_ratio_value)}</td>
+      <td class="muted">${owners.length ? esc(owners.join(", ")) : "—"}</td>
+    </tr>`;
+  }).join("");
+
+  document.getElementById("dominantsLede").textContent =
+    `Zero contracts in 2016-2019, first appearance no earlier than ${m.new_dominant_first_year_floor}, `
+    + `at least ${taka(m.new_dominant_min_recent_value_bdt)} awarded since. ${int(growth.new_dominants.length)} qualify.`;
+  document.getElementById("dominantsBody").innerHTML = growth.new_dominants.slice(0, 15).map(g => {
+    const conc = g.recent_top_office_share
+      ? `<span class="mini"><span class="mini-track"><span class="mini-fill" style="width:${g.recent_top_office_share * 100}%"></span></span>${pct(g.recent_top_office_share)}</span>`
+      : "—";
+    return `<tr>
+      <td class="strong">${esc(g.company)}</td>
+      <td class="n muted">${esc(g.first_year)}</td>
+      <td class="n">${taka(g.recent_value_bdt)}</td>
+      <td class="n">${int(g.recent_count)}</td>
+      <td>${conc}<div class="muted" style="font-size:0.76em">${esc(g.recent_top_office || "")}</div></td>
+    </tr>`;
+  }).join("");
+
+  document.getElementById("ownerGrowthLede").textContent =
+    `Beneficial owners (from the ${int(m.ownership_groups_checked)} multi-company owner names already `
+    + `identified in Suppliers, above) whose companies' combined activity is summed rather than read `
+    + `one at a time. ${int(growth.owner_group_growth.length)} owners have 2+ of their companies active `
+    + `in this data.`;
+  document.getElementById("ownerGrowthBody").innerHTML = growth.owner_group_growth.slice(0, 15).map(o => `
+    <tr>
+      <td class="strong">${esc(o.owner_name)}</td>
+      <td class="muted">${o.companies.map(c => esc(c.company)).join(", ")}</td>
+      <td class="n">${taka(o.combined_recent_value_bdt)}</td>
+      <td class="n hi">${o.combined_growth_ratio_value ? ratioFmt(o.combined_growth_ratio_value) : "new"}</td>
+    </tr>`).join("");
+
+  const topGrower = growth.top_growers[0];
+  const topOwner = growth.owner_group_growth[0];
+  if (topGrower) {
+    document.getElementById("growTopBaseline").textContent = taka(topGrower.baseline_value_bdt / baseYears);
+    document.getElementById("growTopRecent").textContent = taka(topGrower.recent_value_bdt / recYears);
+    document.getElementById("growTopRatio").textContent = ratioFmt(topGrower.growth_ratio_value);
+  }
+  if (topOwner) {
+    document.getElementById("growOwnerCompanies").textContent = int(topOwner.member_companies_matched);
+    document.getElementById("growOwnerValue").textContent = taka(topOwner.combined_recent_value_bdt);
+  }
+}
+
 /* ── 07 · Debarment enforcement ───────────────────────────────────── */
 
 function chartDebar(flags) {
@@ -1021,6 +1086,7 @@ async function main() {
     const cpv = await loadJSON("data/cpv_categories.json").catch(() => null);
     const geo = await loadJSON("data/geo.json").catch(() => null);
     const districtGeo = await loadJSON("data/bd_districts_geo.json").catch(() => null);
+    const growth = await loadJSON("data/growth.json").catch(() => null);
 
     renderHeader(a, summary, debar, insights);
     chartMonths(a);
@@ -1037,6 +1103,7 @@ async function main() {
     chartMinistries(insights, profiles, a);
     chartCross(profiles);
     renderOwnership(own);
+    renderGrowth(growth);
     chartDebar(flags);
     setupFlagsTable(flags);
     if (cpv) { chartTopics(cpv); chartTopicsEra(cpv); }

@@ -125,6 +125,7 @@ jobs:
           python3 pick_vendor_samples.py ../data/contracts /tmp/vendor_samples.jsonl --limit=${{ inputs.ownership_sample_size || 20000 }}
           python3 scrape_award_details.py /tmp/vendor_samples.jsonl ../raw/award_details.jsonl --resume
           python3 build_ownership.py ../raw/award_details.jsonl ../data/ownership.json
+          python3 build_growth.py ../data/contracts ../data/ownership.json ../data/growth.json
 
       - name: Commit if anything changed
         run: |

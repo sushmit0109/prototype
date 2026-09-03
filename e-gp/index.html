@@ -39,7 +39,7 @@
   <!-- ── Overview ──────────────────────────────────── -->
   <section class="section-head" id="overview" style="padding-top:40px">
     <p class="section-kicker">Start here</p>
-    <h2 class="section-title">Ten findings, a map, and three governments' worth of buying habits</h2>
+    <h2 class="section-title">Eleven findings, a map, and three governments' worth of buying habits</h2>
     <p class="sub" style="margin-top:14px">
       Everything below is closed by default — read the headline, open what interests you, skip
       the rest. Each card carries its own "what this isn't" alongside the claim.
@@ -51,6 +51,7 @@
       <a class="teaser-card" href="#fceiling"><div class="tc-num">1.54×</div><div class="tc-label">bunching just under the ৳50 crore approval ceiling</div></a>
       <a class="teaser-card" href="#f7"><div class="tc-num">246 contracts</div><div class="tc-label">signed with a company under an active ban</div></a>
       <a class="teaser-card" href="#sectors"><div class="tc-num">54.3% vs 1.2%</div><div class="tc-label">construction vs the whole of ICT procurement</div></a>
+      <a class="teaser-card" href="#fgrowth"><div class="tc-num">Rising vendors</div><div class="tc-label">fastest growers, sudden risers, and shared owners whose combined footprint is expanding</div></a>
     </div>
   </section>
 
@@ -176,7 +177,7 @@
   <section class="section-head" id="findings" style="padding-bottom:8px">
     <p class="section-kicker">Findings</p>
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
-      <h2 class="section-title">Ten specific claims, each closed until you open it</h2>
+      <h2 class="section-title">Eleven specific claims, each closed until you open it</h2>
       <button class="map-btn" id="expandAllBtn" type="button" style="white-space:nowrap">Expand all</button>
     </div>
   </section>
@@ -616,11 +617,92 @@
     </div>
   </details>
 
+  <!-- ── 10 · rising vendors ───────────────────────── -->
+  <details class="finding-card" id="fgrowth">
+    <summary>
+      <div>
+        <p class="finding-no">Finding 10 — Rising vendors</p>
+        <h2 class="claim">
+          One firm went from <em id="growTopBaseline">—</em> to <em id="growTopRecent">—</em> a year
+          — a <span class="up" id="growTopRatio">—</span> jump. And one beneficial owner's
+          <em id="growOwnerCompanies">—</em> companies together brought in
+          <span class="up" id="growOwnerValue">—</span> over 2024-2026.
+        </h2>
+      </div>
+      <span class="fc-toggle" aria-hidden="true"></span>
+    </summary>
+    <div class="fc-body">
+    <p class="sub">
+      Two ways for a vendor to look ordinary individually and remarkable in aggregate: growing fast
+      on its own, or being one of several companies quietly run by the same beneficial owner whose
+      <em>combined</em> footprint is what's actually expanding. Baseline is 2016-2019, recent is
+      2024-2026, both as per-year averages so the different window lengths are comparable.
+    </p>
+    <h3 style="margin-top:8px;font-size:0.95rem;font-weight:650">Fastest-growing vendors</h3>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Company</th><th class="n">2016-19 avg/yr</th><th class="n">2024-26 avg/yr</th>
+          <th class="n">Growth</th><th>Shared owner?</th>
+        </tr></thead>
+        <tbody id="growersBody"></tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">Appeared from nowhere, already major</h3>
+    <p class="sub" id="dominantsLede"></p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Company</th><th class="n">First contract</th><th class="n">2024-26 value</th>
+          <th class="n">Contracts</th><th>Concentration</th>
+        </tr></thead>
+        <tbody id="dominantsBody"></tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">One owner, several companies, one combined trend</h3>
+    <p class="sub" id="ownerGrowthLede"></p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Beneficial owner</th><th>Companies</th>
+          <th class="n">Combined 2024-26 value</th><th class="n">Combined growth</th>
+        </tr></thead>
+        <tbody id="ownerGrowthBody"></tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>A single fast-growing firm might just be a well-run business. A cluster of otherwise
+        unremarkable companies that happen to share a beneficial owner, all trending up at once, is
+        a different shape entirely — the kind of pattern that only becomes visible once ownership
+        and growth are read together rather than as separate tables. High single-office
+        concentration (see the "Concentration" column) on a company that appeared only recently is
+        the narrowest version of that same shape: one relationship, not a market.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>Fast, organic growth is normal and common — most names here are probably exactly that,
+        not a red flag. A joint venture legitimately shares "ownership" with its parent companies,
+        which is why some owner groups below list a JV alongside the firms that formed it; that's a
+        real corporate structure, not evidence of anything. Ratios are floored (a real baseline
+        footprint must already exist) to avoid the near-zero-base problem that inflates a ratio into
+        nonsense, and ownership coverage is the same sampled ~20,000-vendor set as the Suppliers
+        finding above — a company outside that sample simply won't show a shared-owner flag even if
+        one exists. Every row is a lead worth a specific look, not a proven finding.</p>
+      </div>
+    </div>
+    </div>
+  </details>
+
   <!-- ── 07 ─────────────────────────────────────────── -->
   <details class="finding-card" id="f7">
     <summary>
       <div>
-        <p class="finding-no">Finding 10 — Enforcement</p>
+        <p class="finding-no">Finding 11 — Enforcement</p>
     <h2 class="claim">
       <em id="flagCount">—</em> contracts were signed with companies that were, at that moment,
       formally barred from government bidding.
