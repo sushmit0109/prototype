@@ -29,6 +29,7 @@
   <a href="#overview">Overview</a>
   <a href="#map">Geography</a>
   <a href="#governments">Governments</a>
+  <a href="#political">Does winning pay?</a>
   <a href="#findings">Findings</a>
   <a href="#sectors">Sectors</a>
   <a href="#method">Methodology</a>
@@ -52,6 +53,7 @@
       <a class="teaser-card" href="#f7"><div class="tc-num">246 contracts</div><div class="tc-label">signed with a company under an active ban</div></a>
       <a class="teaser-card" href="#sectors"><div class="tc-num">54.3% vs 1.2%</div><div class="tc-label">construction vs the whole of ICT procurement</div></a>
       <a class="teaser-card" href="#fgrowth"><div class="tc-num">Rising vendors</div><div class="tc-label">fastest growers, sudden risers, and shared owners whose combined footprint is expanding</div></a>
+      <a class="teaser-card" href="#political"><div class="tc-num">Does winning pay?</div><div class="tc-label">a causal test of election results against district spending — with its own placebo check</div></a>
     </div>
   </section>
 
@@ -171,6 +173,85 @@
         likely to move as more of its own data accumulates — read it as early, not final.</p>
       </div>
     </div>
+  </section>
+
+  <!-- ── Political spending: does winning translate to money? ── -->
+  <section class="section-head" id="political">
+    <p class="section-kicker">A specific hypothesis, tested</p>
+    <h2 class="section-title" id="polHeadline">—</h2>
+    <p class="sub" style="margin-top:14px">
+      The hypothesis: districts that did not elect a BNP-led-alliance seat majority in February
+      2026 are underrepresented in e-GP development spending. A raw comparison of "BNP districts
+      vs. the rest" would confuse cause with a hundred things that make a district both likely to
+      vote BNP and likely to receive money for unrelated historical reasons — so this runs a
+      panel difference-in-differences instead: district and time-period fixed effects absorb
+      everything time-invariant about a district and everything that moved every district
+      together, leaving only whether a district's <em>own</em> spending moved differently,
+      specifically in the period it went BNP, relative to districts that didn't.
+    </p>
+    <p class="sub" style="margin-top:10px">
+      That test has one make-or-break check: run the identical regression as if the "treatment"
+      had happened at the start of the interim government instead of the real election — a moment
+      when nobody's seats had been won yet. If a gap already opens up in that fake period, the real
+      result can't be trusted as caused by the election. <strong>It does.</strong>
+    </p>
+
+    <figure>
+      <div class="chart-card"><div id="chartPolDid"></div></div>
+      <figcaption id="capPolDid"></figcaption>
+    </figure>
+
+    <div class="table-wrap" style="margin-top:20px">
+      <table>
+        <thead><tr>
+          <th>Test</th><th class="n">Regression estimate</th><th class="n">p-value</th>
+          <th class="n">Simple group-means DiD</th>
+        </tr></thead>
+        <tbody id="polRegBody"></tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">Every district, before and after</h3>
+    <p class="sub" id="polScatterLede"></p>
+    <figure>
+      <div class="chart-card">
+        <div class="legend" id="legendPolScatter"></div>
+        <div id="chartPolScatter"></div>
+      </div>
+      <figcaption id="capPolScatter"></figcaption>
+    </figure>
+
+    <div class="note">
+      <div>
+        <h4>Why this design</h4>
+        <p>This is the difference between a correlation and a causal-shaped test, made concrete:
+        a naive comparison here would have reported exactly what the hypothesis predicts (both
+        raw group-mean gaps are positive, in the "BNP districts get more" direction). The placebo
+        check is what a correlation-only analysis skips — and it's what reveals that the gap
+        predates the election it's supposed to be caused by, which is the single most important
+        result on this page for anyone trying to reason about political favouritism from
+        procurement data.</p>
+      </div>
+      <div class="caution">
+        <h4>What this isn't</h4>
+        <p>Not proof that no favouritism exists — this tests one specific, falsifiable version of
+        the hypothesis (seat-level election outcome → district-level e-GP spending) and that
+        version doesn't hold up. It doesn't explain <em>why</em> BNP vote share correlates with
+        spending at all (regional development history, geography, and disaster exposure are all
+        candidates untested here). The post-election window is, as of this build, only a few
+        months — genuinely too short to rule out a real effect that simply hasn't shown up in the
+        data yet, only to say this analysis can't currently detect one. And spending is only known
+        to district level; the underlying election results go all the way to union level (5,034 of
+        them) and are published in full in the repository, but e-GP contracts don't carry union or
+        upazila detail, so the causal test itself is necessarily coarser than the election data
+        feeding it.</p>
+      </div>
+    </div>
+
+    <details style="margin-top:20px">
+      <summary>Full method</summary>
+      <p id="polMethodText">—</p>
+    </details>
   </section>
 
   <!-- ── Findings ──────────────────────────────────── -->

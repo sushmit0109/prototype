@@ -1,0 +1,673 @@
+{
+ "meta": {
+  "hypothesis": "Districts that did not elect a BNP-led-alliance seat majority in the Feb 2026 election are underrepresented in e-GP development spending.",
+  "method": "Two-way fixed effects (district + period) panel difference-in-differences, asinh(value per registered voter), cluster-robust SEs by district.",
+  "districts_matched": 64,
+  "pre_years_main": [
+   "2015",
+   "2016",
+   "2017",
+   "2018",
+   "2019",
+   "2020",
+   "2021",
+   "2022",
+   "2023",
+   "2024",
+   "2025"
+  ],
+  "post_period_main": "elected",
+  "pre_years_placebo": [
+   "2015",
+   "2016",
+   "2017",
+   "2018",
+   "2019",
+   "2020",
+   "2021",
+   "2022",
+   "2023"
+  ],
+  "post_period_placebo": "interim"
+ },
+ "main_did": {
+  "coefficient": 0.1951,
+  "std_error": 0.143,
+  "t_stat": 1.364,
+  "p_value": 0.1775,
+  "df": 63,
+  "n_obs": 768,
+  "n_districts": 64,
+  "n_periods": 12,
+  "approx_proportional_effect": 0.2154
+ },
+ "main_did_simple": {
+  "cell_means_bdt_per_voter": {
+   "bnp_won=0_post=0": 4691.87,
+   "bnp_won=0_post=1": 3419.21,
+   "bnp_won=1_post=0": 4497.8,
+   "bnp_won=1_post=1": 3450.45
+  },
+  "did_bdt_per_voter": 225.31
+ },
+ "placebo_did": {
+  "coefficient": 0.161,
+  "std_error": 0.1366,
+  "t_stat": 1.178,
+  "p_value": 0.2431,
+  "df": 63,
+  "n_obs": 640,
+  "n_districts": 64,
+  "n_periods": 10,
+  "approx_proportional_effect": 0.1747
+ },
+ "placebo_did_simple": {
+  "cell_means_bdt_per_voter": {
+   "bnp_won=0_post=0": 4447.81,
+   "bnp_won=0_post=1": 7987.49,
+   "bnp_won=1_post=0": 4092.93,
+   "bnp_won=1_post=1": 8762.15
+  },
+  "did_bdt_per_voter": 1129.54
+ },
+ "continuous_vote_share_did": {
+  "coefficient": 1.5242,
+  "std_error": 0.804,
+  "t_stat": 1.896,
+  "p_value": 0.0626,
+  "df": 63,
+  "n_obs": 768,
+  "n_districts": 64,
+  "n_periods": 12,
+  "approx_proportional_effect": 3.5915
+ },
+ "continuous_vote_share_placebo_did": {
+  "coefficient": 1.4043,
+  "std_error": 0.6806,
+  "t_stat": 2.063,
+  "p_value": 0.0432,
+  "df": 63,
+  "n_obs": 640,
+  "n_districts": 64,
+  "n_periods": 10,
+  "approx_proportional_effect": 3.0726
+ },
+ "district_scatter": [
+  {
+   "district": "Bagerhat",
+   "bnp_vote_share": 0.4279,
+   "bnp_seat_share": 0.2,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 11946.88,
+   "elected_value_per_voter_bdt": 5167.45,
+   "total_voters": 1236632
+  },
+  {
+   "district": "Bandarban",
+   "bnp_vote_share": 0.7975,
+   "bnp_seat_share": 1.0,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 37261.78,
+   "elected_value_per_voter_bdt": 11450.84,
+   "total_voters": 230398
+  },
+  {
+   "district": "Barguna",
+   "bnp_vote_share": 0.4813,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5493.52,
+   "elected_value_per_voter_bdt": 3504.07,
+   "total_voters": 721767
+  },
+  {
+   "district": "Barishal",
+   "bnp_vote_share": 0.5304,
+   "bnp_seat_share": 1.0,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 8077.46,
+   "elected_value_per_voter_bdt": 5570.67,
+   "total_voters": 2121539
+  },
+  {
+   "district": "Bhola",
+   "bnp_vote_share": 0.6031,
+   "bnp_seat_share": 1.0,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4239.12,
+   "elected_value_per_voter_bdt": 1110.81,
+   "total_voters": 1557049
+  },
+  {
+   "district": "Bogura",
+   "bnp_vote_share": 0.6374,
+   "bnp_seat_share": 0.7,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 5586.32,
+   "elected_value_per_voter_bdt": 2873.11,
+   "total_voters": 2817684
+  },
+  {
+   "district": "Brahamanbaria",
+   "bnp_vote_share": 0.5235,
+   "bnp_seat_share": 0.5556,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4672.81,
+   "elected_value_per_voter_bdt": 2432.8,
+   "total_voters": 2513754
+  },
+  {
+   "district": "Chandpur",
+   "bnp_vote_share": 0.5902,
+   "bnp_seat_share": 0.5714,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 7346.09,
+   "elected_value_per_voter_bdt": 1578.75,
+   "total_voters": 2176531
+  },
+  {
+   "district": "Chattogram",
+   "bnp_vote_share": 0.5733,
+   "bnp_seat_share": 0.7059,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 11290.6,
+   "elected_value_per_voter_bdt": 3907.7,
+   "total_voters": 5332742
+  },
+  {
+   "district": "Chuadanga",
+   "bnp_vote_share": 0.4232,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 3778.49,
+   "elected_value_per_voter_bdt": 1005.73,
+   "total_voters": 937946
+  },
+  {
+   "district": "Cox's Bazar",
+   "bnp_vote_share": 0.5564,
+   "bnp_seat_share": 0.8,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 13690.36,
+   "elected_value_per_voter_bdt": 5562.94,
+   "total_voters": 1663540
+  },
+  {
+   "district": "Cumilla",
+   "bnp_vote_share": 0.4918,
+   "bnp_seat_share": 0.5333,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 7441.72,
+   "elected_value_per_voter_bdt": 2728.53,
+   "total_voters": 4573807
+  },
+  {
+   "district": "Dhaka",
+   "bnp_vote_share": 0.5122,
+   "bnp_seat_share": 0.4062,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 43026.92,
+   "elected_value_per_voter_bdt": 20222.55,
+   "total_voters": 7899388
+  },
+  {
+   "district": "Dinajpur",
+   "bnp_vote_share": 0.4917,
+   "bnp_seat_share": 0.625,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4505.77,
+   "elected_value_per_voter_bdt": 1808.52,
+   "total_voters": 2471386
+  },
+  {
+   "district": "Faridpur",
+   "bnp_vote_share": 0.4856,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5440.28,
+   "elected_value_per_voter_bdt": 2744.4,
+   "total_voters": 1686453
+  },
+  {
+   "district": "Feni",
+   "bnp_vote_share": 0.585,
+   "bnp_seat_share": 0.75,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 15516.62,
+   "elected_value_per_voter_bdt": 4385.04,
+   "total_voters": 1117711
+  },
+  {
+   "district": "Gaibandha",
+   "bnp_vote_share": 0.3719,
+   "bnp_seat_share": 0.1667,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 3357.2,
+   "elected_value_per_voter_bdt": 1840.51,
+   "total_voters": 2059091
+  },
+  {
+   "district": "Gazipur",
+   "bnp_vote_share": 0.5381,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 8788.48,
+   "elected_value_per_voter_bdt": 4567.01,
+   "total_voters": 2538136
+  },
+  {
+   "district": "Gopalganj",
+   "bnp_vote_share": 0.3639,
+   "bnp_seat_share": 0.2,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 8610.71,
+   "elected_value_per_voter_bdt": 1897.32,
+   "total_voters": 1018788
+  },
+  {
+   "district": "Habiganj",
+   "bnp_vote_share": 0.6258,
+   "bnp_seat_share": 0.6,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 9025.7,
+   "elected_value_per_voter_bdt": 3002.4,
+   "total_voters": 1742930
+  },
+  {
+   "district": "Jamalpur",
+   "bnp_vote_share": 0.6472,
+   "bnp_seat_share": 0.4545,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5369.18,
+   "elected_value_per_voter_bdt": 1612.07,
+   "total_voters": 2029757
+  },
+  {
+   "district": "Jashore",
+   "bnp_vote_share": 0.4062,
+   "bnp_seat_share": 0.125,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 7765.84,
+   "elected_value_per_voter_bdt": 2602.28,
+   "total_voters": 2377246
+  },
+  {
+   "district": "Jhalokati",
+   "bnp_vote_share": 0.5198,
+   "bnp_seat_share": 0.6667,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 20230.13,
+   "elected_value_per_voter_bdt": 5964.87,
+   "total_voters": 539863
+  },
+  {
+   "district": "Jhenaidah",
+   "bnp_vote_share": 0.4852,
+   "bnp_seat_share": 0.125,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4758.03,
+   "elected_value_per_voter_bdt": 1769.52,
+   "total_voters": 1493773
+  },
+  {
+   "district": "Joypurhat",
+   "bnp_vote_share": 0.5403,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 7196.89,
+   "elected_value_per_voter_bdt": 2010.66,
+   "total_voters": 752146
+  },
+  {
+   "district": "Khagrachhari",
+   "bnp_vote_share": 0.4608,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 10607.2,
+   "elected_value_per_voter_bdt": 7897.24,
+   "total_voters": 529709
+  },
+  {
+   "district": "Khulna",
+   "bnp_vote_share": 0.4941,
+   "bnp_seat_share": 0.4444,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 11574.9,
+   "elected_value_per_voter_bdt": 3108.17,
+   "total_voters": 1931217
+  },
+  {
+   "district": "Kishoreganj",
+   "bnp_vote_share": 0.546,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 3017.07,
+   "elected_value_per_voter_bdt": 1191.33,
+   "total_voters": 2657952
+  },
+  {
+   "district": "Kurigram",
+   "bnp_vote_share": 0.3841,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 6232.39,
+   "elected_value_per_voter_bdt": 1457.89,
+   "total_voters": 1769886
+  },
+  {
+   "district": "Kushtia",
+   "bnp_vote_share": 0.4677,
+   "bnp_seat_share": 0.1429,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 6638.64,
+   "elected_value_per_voter_bdt": 1925.44,
+   "total_voters": 1692058
+  },
+  {
+   "district": "Lakshmipur",
+   "bnp_vote_share": 0.5144,
+   "bnp_seat_share": 0.5714,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 12245.6,
+   "elected_value_per_voter_bdt": 5494.55,
+   "total_voters": 1440668
+  },
+  {
+   "district": "Lalmonirhat",
+   "bnp_vote_share": 0.5306,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4802.36,
+   "elected_value_per_voter_bdt": 1812.05,
+   "total_voters": 1093492
+  },
+  {
+   "district": "Madaripur",
+   "bnp_vote_share": 0.4005,
+   "bnp_seat_share": 0.3333,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4634.8,
+   "elected_value_per_voter_bdt": 979.62,
+   "total_voters": 1129719
+  },
+  {
+   "district": "Magura",
+   "bnp_vote_share": 0.5776,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 6169.23,
+   "elected_value_per_voter_bdt": 2330.24,
+   "total_voters": 816956
+  },
+  {
+   "district": "Manikganj",
+   "bnp_vote_share": 0.5823,
+   "bnp_seat_share": 0.6,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 5646.19,
+   "elected_value_per_voter_bdt": 2569.18,
+   "total_voters": 1243487
+  },
+  {
+   "district": "Maulvibazar",
+   "bnp_vote_share": 0.5808,
+   "bnp_seat_share": 0.8,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4396.6,
+   "elected_value_per_voter_bdt": 1466.89,
+   "total_voters": 1536182
+  },
+  {
+   "district": "Meherpur",
+   "bnp_vote_share": 0.4657,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4072.85,
+   "elected_value_per_voter_bdt": 1372.03,
+   "total_voters": 557285
+  },
+  {
+   "district": "Munshiganj",
+   "bnp_vote_share": 0.5333,
+   "bnp_seat_share": 0.75,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 8264.85,
+   "elected_value_per_voter_bdt": 4142.46,
+   "total_voters": 1341744
+  },
+  {
+   "district": "Mymensingh",
+   "bnp_vote_share": 0.4358,
+   "bnp_seat_share": 0.5333,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4186.04,
+   "elected_value_per_voter_bdt": 2108.27,
+   "total_voters": 4397116
+  },
+  {
+   "district": "Naogaon",
+   "bnp_vote_share": 0.5139,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5076.4,
+   "elected_value_per_voter_bdt": 2425.72,
+   "total_voters": 2132948
+  },
+  {
+   "district": "Narail",
+   "bnp_vote_share": 0.3511,
+   "bnp_seat_share": 0.25,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5695.14,
+   "elected_value_per_voter_bdt": 2836.34,
+   "total_voters": 572989
+  },
+  {
+   "district": "Narayanganj",
+   "bnp_vote_share": 0.4722,
+   "bnp_seat_share": 0.2857,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4300.11,
+   "elected_value_per_voter_bdt": 2140.89,
+   "total_voters": 2316810
+  },
+  {
+   "district": "Narsingdi",
+   "bnp_vote_share": 0.5721,
+   "bnp_seat_share": 0.4167,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4930.18,
+   "elected_value_per_voter_bdt": 1594.27,
+   "total_voters": 1878016
+  },
+  {
+   "district": "Natore",
+   "bnp_vote_share": 0.5005,
+   "bnp_seat_share": 0.8,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4113.04,
+   "elected_value_per_voter_bdt": 2405.8,
+   "total_voters": 1511809
+  },
+  {
+   "district": "Nawabganj",
+   "bnp_vote_share": 0.4352,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 7400.03,
+   "elected_value_per_voter_bdt": 3184.11,
+   "total_voters": 1386548
+  },
+  {
+   "district": "Netrakona",
+   "bnp_vote_share": 0.6143,
+   "bnp_seat_share": 0.5714,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 6723.6,
+   "elected_value_per_voter_bdt": 2479.05,
+   "total_voters": 1871114
+  },
+  {
+   "district": "Nilphamari",
+   "bnp_vote_share": 0.3973,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 6061.51,
+   "elected_value_per_voter_bdt": 1470.56,
+   "total_voters": 1355577
+  },
+  {
+   "district": "Noakhali",
+   "bnp_vote_share": 0.5073,
+   "bnp_seat_share": 0.5556,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 6621.3,
+   "elected_value_per_voter_bdt": 4056.66,
+   "total_voters": 2648499
+  },
+  {
+   "district": "Pabna",
+   "bnp_vote_share": 0.5109,
+   "bnp_seat_share": 0.25,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4401.43,
+   "elected_value_per_voter_bdt": 1465.61,
+   "total_voters": 2207755
+  },
+  {
+   "district": "Panchagarh",
+   "bnp_vote_share": 0.5175,
+   "bnp_seat_share": 0.6667,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 7691.92,
+   "elected_value_per_voter_bdt": 4752.04,
+   "total_voters": 539492
+  },
+  {
+   "district": "Patuakhali",
+   "bnp_vote_share": 0.5024,
+   "bnp_seat_share": 0.4286,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 8339.2,
+   "elected_value_per_voter_bdt": 2886.35,
+   "total_voters": 1454885
+  },
+  {
+   "district": "Pirojpur",
+   "bnp_vote_share": 0.4567,
+   "bnp_seat_share": 0.2222,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5820.5,
+   "elected_value_per_voter_bdt": 3575.48,
+   "total_voters": 981986
+  },
+  {
+   "district": "Rajbari",
+   "bnp_vote_share": 0.6346,
+   "bnp_seat_share": 0.6667,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 3977.59,
+   "elected_value_per_voter_bdt": 1010.81,
+   "total_voters": 951455
+  },
+  {
+   "district": "Rajshahi",
+   "bnp_vote_share": 0.5535,
+   "bnp_seat_share": 0.5714,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 11551.92,
+   "elected_value_per_voter_bdt": 3662.2,
+   "total_voters": 2227705
+  },
+  {
+   "district": "Rangamati",
+   "bnp_vote_share": 0.7601,
+   "bnp_seat_share": 0.3333,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 21060.74,
+   "elected_value_per_voter_bdt": 16400.45,
+   "total_voters": 485727
+  },
+  {
+   "district": "Rangpur",
+   "bnp_vote_share": 0.362,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 5722.8,
+   "elected_value_per_voter_bdt": 1903.9,
+   "total_voters": 2433482
+  },
+  {
+   "district": "Satkhira",
+   "bnp_vote_share": 0.3349,
+   "bnp_seat_share": 0.0,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 8800.24,
+   "elected_value_per_voter_bdt": 2611.38,
+   "total_voters": 1761571
+  },
+  {
+   "district": "Shariatpur",
+   "bnp_vote_share": 0.5571,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4490.22,
+   "elected_value_per_voter_bdt": 4287.71,
+   "total_voters": 1089303
+  },
+  {
+   "district": "Sherpur",
+   "bnp_vote_share": 0.3958,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 4415.87,
+   "elected_value_per_voter_bdt": 1164.07,
+   "total_voters": 854221
+  },
+  {
+   "district": "Sirajganj",
+   "bnp_vote_share": 0.558,
+   "bnp_seat_share": 0.5455,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4240.53,
+   "elected_value_per_voter_bdt": 1557.26,
+   "total_voters": 2120394
+  },
+  {
+   "district": "Sunamganj",
+   "bnp_vote_share": 0.5858,
+   "bnp_seat_share": 0.5,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 14631.28,
+   "elected_value_per_voter_bdt": 2793.32,
+   "total_voters": 1888440
+  },
+  {
+   "district": "Sylhet",
+   "bnp_vote_share": 0.5634,
+   "bnp_seat_share": 0.4545,
+   "bnp_won": 0,
+   "interim_value_per_voter_bdt": 11109.81,
+   "elected_value_per_voter_bdt": 4752.99,
+   "total_voters": 2730610
+  },
+  {
+   "district": "Tangail",
+   "bnp_vote_share": 0.5326,
+   "bnp_seat_share": 0.7,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 3382.37,
+   "elected_value_per_voter_bdt": 1670.74,
+   "total_voters": 3223557
+  },
+  {
+   "district": "Thakurgaon",
+   "bnp_vote_share": 0.554,
+   "bnp_seat_share": 0.75,
+   "bnp_won": 1,
+   "interim_value_per_voter_bdt": 4652.0,
+   "elected_value_per_voter_bdt": 3409.3,
+   "total_voters": 1131414
+  }
+ ]
+}

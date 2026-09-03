@@ -1,0 +1,6107 @@
+{
+ "meta": {
+  "source": "https://interactive.netra.news/bangladesh-election-2026-map/ (Nazmul Ahasan & Aaqib Md. Shatil, netra.news)",
+  "election_date": "2026-02",
+  "results_as_of": "2026-03-11",
+  "vote_data_source": "Bangladesh Election Commission publications",
+  "boundary_source": "geoBoundaries (CC-BY 4.0)",
+  "polling_stations_in_source": 39761,
+  "polling_stations_nationwide": 42779,
+  "constituencies_covered": 297,
+  "constituencies_total": 300,
+  "constituencies_suspended": [
+   145,
+   279,
+   281
+  ],
+  "constituencies_suspended_reason": "candidate death or court dispute (source's own note)",
+  "districts_covered": 64,
+  "unions_covered": 5034,
+  "note": "No Awami League column exists in the source: the party did not contest this election, barred from registering after the 2024 political transition (see eras.py). Votes split across BNP-led alliance, Jamaat-led alliance, Independent, and Other party."
+ },
+ "national": {
+  "votes": {
+   "BNP-led alliance": 35301132,
+   "Independent": 4104577,
+   "Jamaat-led alliance": 26292656,
+   "Other party": 3473433
+  },
+  "total_voters": 117503835,
+  "seats": {
+   "BNP-led alliance": 213,
+   "Independent": 10,
+   "Jamaat-led alliance": 74
+  },
+  "vote_winner": "BNP-led alliance",
+  "vote_share": 0.5103
+ },
+ "districts": [
+  {
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 1904120,
+    "Independent": 111252,
+    "Jamaat-led alliance": 1556481,
+    "Other party": 145467
+   },
+   "total_voters": 7899388,
+   "valid_votes": 3717320,
+   "seats_total": 32,
+   "seats_won": {
+    "Jamaat-led alliance": 7,
+    "BNP-led alliance": 13
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5122,
+   "vote_margin": 0.0935,
+   "bnp_vote_share": 0.5122,
+   "bnp_seat_share": 0.4062
+  },
+  {
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 1516855,
+    "Independent": 51637,
+    "Jamaat-led alliance": 772505,
+    "Other party": 304704
+   },
+   "total_voters": 5332742,
+   "valid_votes": 2645701,
+   "seats_total": 17,
+   "seats_won": {
+    "BNP-led alliance": 12,
+    "Jamaat-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5733,
+   "vote_margin": 0.2813,
+   "bnp_vote_share": 0.5733,
+   "bnp_seat_share": 0.7059
+  },
+  {
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 1240368,
+    "Independent": 149695,
+    "Jamaat-led alliance": 1002866,
+    "Other party": 129138
+   },
+   "total_voters": 4573807,
+   "valid_votes": 2522067,
+   "seats_total": 15,
+   "seats_won": {
+    "BNP-led alliance": 8,
+    "Jamaat-led alliance": 2,
+    "Independent": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4918,
+   "vote_margin": 0.0942,
+   "bnp_vote_share": 0.4918,
+   "bnp_seat_share": 0.5333
+  },
+  {
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 1048711,
+    "Independent": 459864,
+    "Jamaat-led alliance": 813975,
+    "Other party": 84041
+   },
+   "total_voters": 4397116,
+   "valid_votes": 2406591,
+   "seats_total": 15,
+   "seats_won": {
+    "BNP-led alliance": 8,
+    "Independent": 2,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4358,
+   "vote_margin": 0.0975,
+   "bnp_vote_share": 0.4358,
+   "bnp_seat_share": 0.5333
+  },
+  {
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 1045164,
+    "Independent": 357869,
+    "Jamaat-led alliance": 517757,
+    "Other party": 41707
+   },
+   "total_voters": 3223557,
+   "valid_votes": 1962497,
+   "seats_total": 10,
+   "seats_won": {
+    "BNP-led alliance": 7,
+    "Independent": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5326,
+   "vote_margin": 0.2687,
+   "bnp_vote_share": 0.5326,
+   "bnp_seat_share": 0.7
+  },
+  {
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 1257472,
+    "Independent": 945,
+    "Jamaat-led alliance": 687398,
+    "Other party": 26965
+   },
+   "total_voters": 2817684,
+   "valid_votes": 1972780,
+   "seats_total": 10,
+   "seats_won": {
+    "BNP-led alliance": 7
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.6374,
+   "vote_margin": 0.289,
+   "bnp_vote_share": 0.6374,
+   "bnp_seat_share": 0.7
+  },
+  {
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 728502,
+    "Independent": 81351,
+    "Jamaat-led alliance": 464112,
+    "Other party": 19169
+   },
+   "total_voters": 2730610,
+   "valid_votes": 1293134,
+   "seats_total": 11,
+   "seats_won": {
+    "BNP-led alliance": 5,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5634,
+   "vote_margin": 0.2045,
+   "bnp_vote_share": 0.5634,
+   "bnp_seat_share": 0.4545
+  },
+  {
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 751568,
+    "Independent": 124788,
+    "Jamaat-led alliance": 464335,
+    "Other party": 35829
+   },
+   "total_voters": 2657952,
+   "valid_votes": 1376520,
+   "seats_total": 10,
+   "seats_won": {
+    "BNP-led alliance": 5,
+    "Independent": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.546,
+   "vote_margin": 0.2087,
+   "bnp_vote_share": 0.546,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 732294,
+    "Independent": 51935,
+    "Jamaat-led alliance": 586571,
+    "Other party": 72744
+   },
+   "total_voters": 2648499,
+   "valid_votes": 1443544,
+   "seats_total": 9,
+   "seats_won": {
+    "BNP-led alliance": 5,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5073,
+   "vote_margin": 0.1009,
+   "bnp_vote_share": 0.5073,
+   "bnp_seat_share": 0.5556
+  },
+  {
+   "district": "Gazipur",
+   "votes": {
+    "BNP-led alliance": 717668,
+    "Independent": 35708,
+    "Jamaat-led alliance": 525779,
+    "Other party": 54438
+   },
+   "total_voters": 2538136,
+   "valid_votes": 1333593,
+   "seats_total": 8,
+   "seats_won": {
+    "BNP-led alliance": 4,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5381,
+   "vote_margin": 0.1439,
+   "bnp_vote_share": 0.5381,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 658820,
+    "Independent": 263498,
+    "Jamaat-led alliance": 277037,
+    "Other party": 59243
+   },
+   "total_voters": 2513754,
+   "valid_votes": 1258598,
+   "seats_total": 9,
+   "seats_won": {
+    "BNP-led alliance": 5,
+    "Independent": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5235,
+   "vote_margin": 0.3033,
+   "bnp_vote_share": 0.5235,
+   "bnp_seat_share": 0.5556
+  },
+  {
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 863337,
+    "Independent": 136503,
+    "Jamaat-led alliance": 725859,
+    "Other party": 30245
+   },
+   "total_voters": 2471386,
+   "valid_votes": 1755944,
+   "seats_total": 8,
+   "seats_won": {
+    "BNP-led alliance": 5,
+    "Independent": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4917,
+   "vote_margin": 0.0783,
+   "bnp_vote_share": 0.4917,
+   "bnp_seat_share": 0.625
+  },
+  {
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 569288,
+    "Independent": 2173,
+    "Jamaat-led alliance": 846567,
+    "Other party": 154582
+   },
+   "total_voters": 2433482,
+   "valid_votes": 1572610,
+   "seats_total": 9,
+   "seats_won": {
+    "Jamaat-led alliance": 6
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.5383,
+   "vote_margin": 0.1763,
+   "bnp_vote_share": 0.362,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 679277,
+    "Independent": 92649,
+    "Jamaat-led alliance": 847916,
+    "Other party": 52412
+   },
+   "total_voters": 2377246,
+   "valid_votes": 1672254,
+   "seats_total": 8,
+   "seats_won": {
+    "BNP-led alliance": 1,
+    "Jamaat-led alliance": 5
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.507,
+   "vote_margin": 0.1008,
+   "bnp_vote_share": 0.4062,
+   "bnp_seat_share": 0.125
+  },
+  {
+   "district": "Narayanganj",
+   "votes": {
+    "BNP-led alliance": 614922,
+    "Independent": 119808,
+    "Jamaat-led alliance": 493794,
+    "Other party": 73639
+   },
+   "total_voters": 2316810,
+   "valid_votes": 1302163,
+   "seats_total": 14,
+   "seats_won": {
+    "BNP-led alliance": 4,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4722,
+   "vote_margin": 0.093,
+   "bnp_vote_share": 0.4722,
+   "bnp_seat_share": 0.2857
+  },
+  {
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 863321,
+    "Independent": 11822,
+    "Jamaat-led alliance": 669771,
+    "Other party": 14953
+   },
+   "total_voters": 2227705,
+   "valid_votes": 1559867,
+   "seats_total": 7,
+   "seats_won": {
+    "BNP-led alliance": 4,
+    "Jamaat-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5535,
+   "vote_margin": 0.1241,
+   "bnp_vote_share": 0.5535,
+   "bnp_seat_share": 0.5714
+  },
+  {
+   "district": "Pabna",
+   "votes": {
+    "BNP-led alliance": 752850,
+    "Independent": 65118,
+    "Jamaat-led alliance": 632776,
+    "Other party": 22860
+   },
+   "total_voters": 2207755,
+   "valid_votes": 1473604,
+   "seats_total": 8,
+   "seats_won": {
+    "Jamaat-led alliance": 3,
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5109,
+   "vote_margin": 0.0815,
+   "bnp_vote_share": 0.5109,
+   "bnp_seat_share": 0.25
+  },
+  {
+   "district": "Chandpur",
+   "votes": {
+    "BNP-led alliance": 677458,
+    "Independent": 72979,
+    "Jamaat-led alliance": 337423,
+    "Other party": 60026
+   },
+   "total_voters": 2176531,
+   "valid_votes": 1147886,
+   "seats_total": 7,
+   "seats_won": {
+    "Independent": 1,
+    "BNP-led alliance": 4
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5902,
+   "vote_margin": 0.2962,
+   "bnp_vote_share": 0.5902,
+   "bnp_seat_share": 0.5714
+  },
+  {
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 780039,
+    "Independent": 54990,
+    "Jamaat-led alliance": 647382,
+    "Other party": 35557
+   },
+   "total_voters": 2132948,
+   "valid_votes": 1517968,
+   "seats_total": 10,
+   "seats_won": {
+    "Jamaat-led alliance": 1,
+    "BNP-led alliance": 5
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5139,
+   "vote_margin": 0.0874,
+   "bnp_vote_share": 0.5139,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 619305,
+    "Independent": 63948,
+    "Jamaat-led alliance": 283977,
+    "Other party": 200305
+   },
+   "total_voters": 2121539,
+   "valid_votes": 1167535,
+   "seats_total": 6,
+   "seats_won": {
+    "BNP-led alliance": 6
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5304,
+   "vote_margin": 0.2872,
+   "bnp_vote_share": 0.5304,
+   "bnp_seat_share": 1.0
+  },
+  {
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 751260,
+    "Independent": 3157,
+    "Jamaat-led alliance": 570908,
+    "Other party": 21099
+   },
+   "total_voters": 2120394,
+   "valid_votes": 1346424,
+   "seats_total": 11,
+   "seats_won": {
+    "BNP-led alliance": 6
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.558,
+   "vote_margin": 0.1339,
+   "bnp_vote_share": 0.558,
+   "bnp_seat_share": 0.5455
+  },
+  {
+   "district": "Gaibandha",
+   "votes": {
+    "BNP-led alliance": 454063,
+    "Independent": 77171,
+    "Jamaat-led alliance": 613765,
+    "Other party": 75889
+   },
+   "total_voters": 2059091,
+   "valid_votes": 1220888,
+   "seats_total": 6,
+   "seats_won": {
+    "Jamaat-led alliance": 4,
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.5027,
+   "vote_margin": 0.1308,
+   "bnp_vote_share": 0.3719,
+   "bnp_seat_share": 0.1667
+  },
+  {
+   "district": "Jamalpur",
+   "votes": {
+    "BNP-led alliance": 780860,
+    "Independent": 23033,
+    "Jamaat-led alliance": 378753,
+    "Other party": 23877
+   },
+   "total_voters": 2029757,
+   "valid_votes": 1206523,
+   "seats_total": 11,
+   "seats_won": {
+    "BNP-led alliance": 5
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.6472,
+   "vote_margin": 0.3333,
+   "bnp_vote_share": 0.6472,
+   "bnp_seat_share": 0.4545
+  },
+  {
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 623825,
+    "Independent": 3342,
+    "Jamaat-led alliance": 588836,
+    "Other party": 46492
+   },
+   "total_voters": 1931217,
+   "valid_votes": 1262495,
+   "seats_total": 9,
+   "seats_won": {
+    "BNP-led alliance": 4,
+    "Jamaat-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4941,
+   "vote_margin": 0.0277,
+   "bnp_vote_share": 0.4941,
+   "bnp_seat_share": 0.4444
+  },
+  {
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 550793,
+    "Independent": 68522,
+    "Jamaat-led alliance": 305727,
+    "Other party": 15218
+   },
+   "total_voters": 1888440,
+   "valid_votes": 940260,
+   "seats_total": 12,
+   "seats_won": {
+    "BNP-led alliance": 6
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5858,
+   "vote_margin": 0.2606,
+   "bnp_vote_share": 0.5858,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Narsingdi",
+   "votes": {
+    "BNP-led alliance": 605675,
+    "Independent": 72158,
+    "Jamaat-led alliance": 254141,
+    "Other party": 126695
+   },
+   "total_voters": 1878016,
+   "valid_votes": 1058669,
+   "seats_total": 12,
+   "seats_won": {
+    "BNP-led alliance": 5
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5721,
+   "vote_margin": 0.3321,
+   "bnp_vote_share": 0.5721,
+   "bnp_seat_share": 0.4167
+  },
+  {
+   "district": "Netrakona",
+   "votes": {
+    "BNP-led alliance": 625365,
+    "Independent": 65233,
+    "Jamaat-led alliance": 288174,
+    "Other party": 39252
+   },
+   "total_voters": 1871114,
+   "valid_votes": 1018024,
+   "seats_total": 7,
+   "seats_won": {
+    "BNP-led alliance": 4,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.6143,
+   "vote_margin": 0.3312,
+   "bnp_vote_share": 0.6143,
+   "bnp_seat_share": 0.5714
+  },
+  {
+   "district": "Kurigram",
+   "votes": {
+    "BNP-led alliance": 428012,
+    "Independent": 17452,
+    "Jamaat-led alliance": 500258,
+    "Other party": 168605
+   },
+   "total_voters": 1769886,
+   "valid_votes": 1114327,
+   "seats_total": 4,
+   "seats_won": {
+    "Jamaat-led alliance": 4
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.4489,
+   "vote_margin": 0.0648,
+   "bnp_vote_share": 0.3841,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Satkhira",
+   "votes": {
+    "BNP-led alliance": 421224,
+    "Independent": 95455,
+    "Jamaat-led alliance": 719837,
+    "Other party": 21148
+   },
+   "total_voters": 1761571,
+   "valid_votes": 1257664,
+   "seats_total": 10,
+   "seats_won": {
+    "Jamaat-led alliance": 4
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.5724,
+   "vote_margin": 0.2374,
+   "bnp_vote_share": 0.3349,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Habiganj",
+   "votes": {
+    "BNP-led alliance": 544714,
+    "Independent": 34780,
+    "Jamaat-led alliance": 179814,
+    "Other party": 111169
+   },
+   "total_voters": 1742930,
+   "valid_votes": 870477,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.6258,
+   "vote_margin": 0.4192,
+   "bnp_vote_share": 0.6258,
+   "bnp_seat_share": 0.6
+  },
+  {
+   "district": "Kushtia",
+   "votes": {
+    "BNP-led alliance": 560172,
+    "Independent": 16069,
+    "Jamaat-led alliance": 589646,
+    "Other party": 31891
+   },
+   "total_voters": 1692058,
+   "valid_votes": 1197778,
+   "seats_total": 7,
+   "seats_won": {
+    "Jamaat-led alliance": 3,
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.4923,
+   "vote_margin": 0.0246,
+   "bnp_vote_share": 0.4677,
+   "bnp_seat_share": 0.1429
+  },
+  {
+   "district": "Faridpur",
+   "votes": {
+    "BNP-led alliance": 501826,
+    "Independent": 89820,
+    "Jamaat-led alliance": 418403,
+    "Other party": 23405
+   },
+   "total_voters": 1686453,
+   "valid_votes": 1033454,
+   "seats_total": 8,
+   "seats_won": {
+    "BNP-led alliance": 4,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4856,
+   "vote_margin": 0.0807,
+   "bnp_vote_share": 0.4856,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Cox's Bazar",
+   "votes": {
+    "BNP-led alliance": 590246,
+    "Independent": 903,
+    "Jamaat-led alliance": 446982,
+    "Other party": 22792
+   },
+   "total_voters": 1663540,
+   "valid_votes": 1060923,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 4
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5564,
+   "vote_margin": 0.135,
+   "bnp_vote_share": 0.5564,
+   "bnp_seat_share": 0.8
+  },
+  {
+   "district": "Bhola",
+   "votes": {
+    "BNP-led alliance": 516204,
+    "Independent": 2066,
+    "Jamaat-led alliance": 278616,
+    "Other party": 59102
+   },
+   "total_voters": 1557049,
+   "valid_votes": 855988,
+   "seats_total": 4,
+   "seats_won": {
+    "BNP-led alliance": 4
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.6031,
+   "vote_margin": 0.2776,
+   "bnp_vote_share": 0.6031,
+   "bnp_seat_share": 1.0
+  },
+  {
+   "district": "Maulvibazar",
+   "votes": {
+    "BNP-led alliance": 471867,
+    "Independent": 80434,
+    "Jamaat-led alliance": 246144,
+    "Other party": 13943
+   },
+   "total_voters": 1536182,
+   "valid_votes": 812388,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 4
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5808,
+   "vote_margin": 0.2779,
+   "bnp_vote_share": 0.5808,
+   "bnp_seat_share": 0.8
+  },
+  {
+   "district": "Natore",
+   "votes": {
+    "BNP-led alliance": 542913,
+    "Independent": 138617,
+    "Jamaat-led alliance": 367418,
+    "Other party": 35831
+   },
+   "total_voters": 1511809,
+   "valid_votes": 1084779,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 4
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5005,
+   "vote_margin": 0.1618,
+   "bnp_vote_share": 0.5005,
+   "bnp_seat_share": 0.8
+  },
+  {
+   "district": "Jhenaidah",
+   "votes": {
+    "BNP-led alliance": 538170,
+    "Independent": 54972,
+    "Jamaat-led alliance": 500333,
+    "Other party": 15692
+   },
+   "total_voters": 1493773,
+   "valid_votes": 1109167,
+   "seats_total": 8,
+   "seats_won": {
+    "BNP-led alliance": 1,
+    "Jamaat-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4852,
+   "vote_margin": 0.0341,
+   "bnp_vote_share": 0.4852,
+   "bnp_seat_share": 0.125
+  },
+  {
+   "district": "Patuakhali",
+   "votes": {
+    "BNP-led alliance": 430913,
+    "Independent": 78712,
+    "Jamaat-led alliance": 172023,
+    "Other party": 176121
+   },
+   "total_voters": 1454885,
+   "valid_votes": 857769,
+   "seats_total": 7,
+   "seats_won": {
+    "Jamaat-led alliance": 1,
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5024,
+   "vote_margin": 0.297,
+   "bnp_vote_share": 0.5024,
+   "bnp_seat_share": 0.4286
+  },
+  {
+   "district": "Lakshmipur",
+   "votes": {
+    "BNP-led alliance": 427651,
+    "Independent": 3239,
+    "Jamaat-led alliance": 336938,
+    "Other party": 63463
+   },
+   "total_voters": 1440668,
+   "valid_votes": 831291,
+   "seats_total": 7,
+   "seats_won": {
+    "BNP-led alliance": 4
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5144,
+   "vote_margin": 0.1091,
+   "bnp_vote_share": 0.5144,
+   "bnp_seat_share": 0.5714
+  },
+  {
+   "district": "Nawabganj",
+   "votes": {
+    "BNP-led alliance": 434781,
+    "Independent": 0,
+    "Jamaat-led alliance": 548774,
+    "Other party": 15531
+   },
+   "total_voters": 1386548,
+   "valid_votes": 999086,
+   "seats_total": 3,
+   "seats_won": {
+    "Jamaat-led alliance": 3
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.5493,
+   "vote_margin": 0.1141,
+   "bnp_vote_share": 0.4352,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Nilphamari",
+   "votes": {
+    "BNP-led alliance": 364589,
+    "Independent": 5191,
+    "Jamaat-led alliance": 456522,
+    "Other party": 91358
+   },
+   "total_voters": 1355577,
+   "valid_votes": 917660,
+   "seats_total": 6,
+   "seats_won": {
+    "Jamaat-led alliance": 4
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.4975,
+   "vote_margin": 0.1002,
+   "bnp_vote_share": 0.3973,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Munshiganj",
+   "votes": {
+    "BNP-led alliance": 389592,
+    "Independent": 113068,
+    "Jamaat-led alliance": 194853,
+    "Other party": 32971
+   },
+   "total_voters": 1341744,
+   "valid_votes": 730484,
+   "seats_total": 4,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5333,
+   "vote_margin": 0.2666,
+   "bnp_vote_share": 0.5333,
+   "bnp_seat_share": 0.75
+  },
+  {
+   "district": "Manikganj",
+   "votes": {
+    "BNP-led alliance": 452553,
+    "Independent": 98360,
+    "Jamaat-led alliance": 202565,
+    "Other party": 23714
+   },
+   "total_voters": 1243487,
+   "valid_votes": 777192,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5823,
+   "vote_margin": 0.3217,
+   "bnp_vote_share": 0.5823,
+   "bnp_seat_share": 0.6
+  },
+  {
+   "district": "Bagerhat",
+   "votes": {
+    "BNP-led alliance": 349469,
+    "Independent": 55426,
+    "Jamaat-led alliance": 393395,
+    "Other party": 18469
+   },
+   "total_voters": 1236632,
+   "valid_votes": 816759,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 1,
+    "Jamaat-led alliance": 3
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.4817,
+   "vote_margin": 0.0538,
+   "bnp_vote_share": 0.4279,
+   "bnp_seat_share": 0.2
+  },
+  {
+   "district": "Thakurgaon",
+   "votes": {
+    "BNP-led alliance": 453961,
+    "Independent": 275,
+    "Jamaat-led alliance": 324327,
+    "Other party": 40812
+   },
+   "total_voters": 1131414,
+   "valid_votes": 819375,
+   "seats_total": 4,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.554,
+   "vote_margin": 0.1582,
+   "bnp_vote_share": 0.554,
+   "bnp_seat_share": 0.75
+  },
+  {
+   "district": "Madaripur",
+   "votes": {
+    "BNP-led alliance": 221754,
+    "Independent": 109331,
+    "Jamaat-led alliance": 180455,
+    "Other party": 42200
+   },
+   "total_voters": 1129719,
+   "valid_votes": 553740,
+   "seats_total": 6,
+   "seats_won": {
+    "Independent": 1,
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4005,
+   "vote_margin": 0.0746,
+   "bnp_vote_share": 0.4005,
+   "bnp_seat_share": 0.3333
+  },
+  {
+   "district": "Feni",
+   "votes": {
+    "BNP-led alliance": 346505,
+    "Independent": 1162,
+    "Jamaat-led alliance": 222590,
+    "Other party": 22028
+   },
+   "total_voters": 1117711,
+   "valid_votes": 592285,
+   "seats_total": 4,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.585,
+   "vote_margin": 0.2092,
+   "bnp_vote_share": 0.585,
+   "bnp_seat_share": 0.75
+  },
+  {
+   "district": "Lalmonirhat",
+   "votes": {
+    "BNP-led alliance": 385466,
+    "Independent": 11473,
+    "Jamaat-led alliance": 288798,
+    "Other party": 40800
+   },
+   "total_voters": 1093492,
+   "valid_votes": 726537,
+   "seats_total": 6,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5306,
+   "vote_margin": 0.1331,
+   "bnp_vote_share": 0.5306,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Shariatpur",
+   "votes": {
+    "BNP-led alliance": 298958,
+    "Independent": 14554,
+    "Jamaat-led alliance": 189687,
+    "Other party": 33398
+   },
+   "total_voters": 1089303,
+   "valid_votes": 536597,
+   "seats_total": 6,
+   "seats_won": {
+    "BNP-led alliance": 3
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5571,
+   "vote_margin": 0.2036,
+   "bnp_vote_share": 0.5571,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Gopalganj",
+   "votes": {
+    "BNP-led alliance": 161565,
+    "Independent": 125720,
+    "Jamaat-led alliance": 84239,
+    "Other party": 72463
+   },
+   "total_voters": 1018788,
+   "valid_votes": 443987,
+   "seats_total": 5,
+   "seats_won": {
+    "BNP-led alliance": 1,
+    "Independent": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.3639,
+   "vote_margin": 0.0807,
+   "bnp_vote_share": 0.3639,
+   "bnp_seat_share": 0.2
+  },
+  {
+   "district": "Pirojpur",
+   "votes": {
+    "BNP-led alliance": 259492,
+    "Independent": 16019,
+    "Jamaat-led alliance": 247387,
+    "Other party": 45283
+   },
+   "total_voters": 981986,
+   "valid_votes": 568181,
+   "seats_total": 9,
+   "seats_won": {
+    "BNP-led alliance": 2,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4567,
+   "vote_margin": 0.0213,
+   "bnp_vote_share": 0.4567,
+   "bnp_seat_share": 0.2222
+  },
+  {
+   "district": "Rajbari",
+   "votes": {
+    "BNP-led alliance": 378262,
+    "Independent": 36636,
+    "Jamaat-led alliance": 159543,
+    "Other party": 21595
+   },
+   "total_voters": 951455,
+   "valid_votes": 596036,
+   "seats_total": 3,
+   "seats_won": {
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.6346,
+   "vote_margin": 0.367,
+   "bnp_vote_share": 0.6346,
+   "bnp_seat_share": 0.6667
+  },
+  {
+   "district": "Chuadanga",
+   "votes": {
+    "BNP-led alliance": 297612,
+    "Independent": 0,
+    "Jamaat-led alliance": 390248,
+    "Other party": 15442
+   },
+   "total_voters": 937946,
+   "valid_votes": 703302,
+   "seats_total": 3,
+   "seats_won": {
+    "Jamaat-led alliance": 2
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.5549,
+   "vote_margin": 0.1317,
+   "bnp_vote_share": 0.4232,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Sherpur",
+   "votes": {
+    "BNP-led alliance": 190201,
+    "Independent": 58450,
+    "Jamaat-led alliance": 224989,
+    "Other party": 6869
+   },
+   "total_voters": 854221,
+   "valid_votes": 480509,
+   "seats_total": 2,
+   "seats_won": {
+    "BNP-led alliance": 1,
+    "Jamaat-led alliance": 1
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.4682,
+   "vote_margin": 0.0724,
+   "bnp_vote_share": 0.3958,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Magura",
+   "votes": {
+    "BNP-led alliance": 320930,
+    "Independent": 2114,
+    "Jamaat-led alliance": 198395,
+    "Other party": 34222
+   },
+   "total_voters": 816956,
+   "valid_votes": 555661,
+   "seats_total": 4,
+   "seats_won": {
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5776,
+   "vote_margin": 0.2205,
+   "bnp_vote_share": 0.5776,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Joypurhat",
+   "votes": {
+    "BNP-led alliance": 290809,
+    "Independent": 12824,
+    "Jamaat-led alliance": 232547,
+    "Other party": 2024
+   },
+   "total_voters": 752146,
+   "valid_votes": 538204,
+   "seats_total": 2,
+   "seats_won": {
+    "Jamaat-led alliance": 1,
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5403,
+   "vote_margin": 0.1083,
+   "bnp_vote_share": 0.5403,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Barguna",
+   "votes": {
+    "BNP-led alliance": 194205,
+    "Independent": 231,
+    "Jamaat-led alliance": 80331,
+    "Other party": 128741
+   },
+   "total_voters": 721767,
+   "valid_votes": 403508,
+   "seats_total": 4,
+   "seats_won": {
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4813,
+   "vote_margin": 0.1622,
+   "bnp_vote_share": 0.4813,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Narail",
+   "votes": {
+    "BNP-led alliance": 127430,
+    "Independent": 64783,
+    "Jamaat-led alliance": 159876,
+    "Other party": 10818
+   },
+   "total_voters": 572989,
+   "valid_votes": 362907,
+   "seats_total": 4,
+   "seats_won": {
+    "Jamaat-led alliance": 1,
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.4405,
+   "vote_margin": 0.0894,
+   "bnp_vote_share": 0.3511,
+   "bnp_seat_share": 0.25
+  },
+  {
+   "district": "Meherpur",
+   "votes": {
+    "BNP-led alliance": 182657,
+    "Independent": 157,
+    "Jamaat-led alliance": 205648,
+    "Other party": 3797
+   },
+   "total_voters": 557285,
+   "valid_votes": 392259,
+   "seats_total": 5,
+   "seats_won": {
+    "Jamaat-led alliance": 2
+   },
+   "vote_winner": "Jamaat-led alliance",
+   "vote_share": 0.5243,
+   "vote_margin": 0.0586,
+   "bnp_vote_share": 0.4657,
+   "bnp_seat_share": 0.0
+  },
+  {
+   "district": "Jhalokati",
+   "votes": {
+    "BNP-led alliance": 160916,
+    "Independent": 3696,
+    "Jamaat-led alliance": 110905,
+    "Other party": 34053
+   },
+   "total_voters": 539863,
+   "valid_votes": 309570,
+   "seats_total": 3,
+   "seats_won": {
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5198,
+   "vote_margin": 0.1615,
+   "bnp_vote_share": 0.5198,
+   "bnp_seat_share": 0.6667
+  },
+  {
+   "district": "Panchagarh",
+   "votes": {
+    "BNP-led alliance": 210589,
+    "Independent": 281,
+    "Jamaat-led alliance": 188654,
+    "Other party": 7436
+   },
+   "total_voters": 539492,
+   "valid_votes": 406960,
+   "seats_total": 3,
+   "seats_won": {
+    "BNP-led alliance": 2
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.5175,
+   "vote_margin": 0.0539,
+   "bnp_vote_share": 0.5175,
+   "bnp_seat_share": 0.6667
+  },
+  {
+   "district": "Khagrachhari",
+   "votes": {
+    "BNP-led alliance": 146033,
+    "Independent": 109330,
+    "Jamaat-led alliance": 55231,
+    "Other party": 6351
+   },
+   "total_voters": 529709,
+   "valid_votes": 316945,
+   "seats_total": 2,
+   "seats_won": {
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.4608,
+   "vote_margin": 0.1158,
+   "bnp_vote_share": 0.4608,
+   "bnp_seat_share": 0.5
+  },
+  {
+   "district": "Rangamati",
+   "votes": {
+    "BNP-led alliance": 190978,
+    "Independent": 31829,
+    "Jamaat-led alliance": 20770,
+    "Other party": 7691
+   },
+   "total_voters": 485727,
+   "valid_votes": 251268,
+   "seats_total": 3,
+   "seats_won": {
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.7601,
+   "vote_margin": 0.6334,
+   "bnp_vote_share": 0.7601,
+   "bnp_seat_share": 0.3333
+  },
+  {
+   "district": "Bandarban",
+   "votes": {
+    "BNP-led alliance": 104733,
+    "Independent": 0,
+    "Jamaat-led alliance": 20930,
+    "Other party": 5659
+   },
+   "total_voters": 230398,
+   "valid_votes": 131322,
+   "seats_total": 1,
+   "seats_won": {
+    "BNP-led alliance": 1
+   },
+   "vote_winner": "BNP-led alliance",
+   "vote_share": 0.7975,
+   "vote_margin": 0.6381,
+   "bnp_vote_share": 0.7975,
+   "bnp_seat_share": 1.0
+  }
+ ],
+ "constituencies": [
+  {
+   "constituency_id": "1",
+   "name": "Panchagarh-1",
+   "district": "Panchagarh",
+   "votes": {
+    "BNP-led alliance": 170160,
+    "Independent": 0,
+    "Jamaat-led alliance": 161398,
+    "Other party": 5522
+   },
+   "total_voters": 446629,
+   "valid_votes": 337080,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5048,
+   "margin": 0.026
+  },
+  {
+   "constituency_id": "2",
+   "name": "Panchagarh-2",
+   "district": "Panchagarh",
+   "votes": {
+    "BNP-led alliance": 39225,
+    "Independent": 281,
+    "Jamaat-led alliance": 26660,
+    "Other party": 1900
+   },
+   "total_voters": 90618,
+   "valid_votes": 68066,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5763,
+   "margin": 0.1846
+  },
+  {
+   "constituency_id": "3",
+   "name": "Thakurgaon-1",
+   "district": "Thakurgaon",
+   "votes": {
+    "BNP-led alliance": 209237,
+    "Independent": 0,
+    "Jamaat-led alliance": 123611,
+    "Other party": 3634
+   },
+   "total_voters": 449533,
+   "valid_votes": 336482,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6218,
+   "margin": 0.2545
+  },
+  {
+   "constituency_id": "4",
+   "name": "Thakurgaon-2",
+   "district": "Thakurgaon",
+   "votes": {
+    "BNP-led alliance": 119602,
+    "Independent": 0,
+    "Jamaat-led alliance": 113584,
+    "Other party": 5867
+   },
+   "total_voters": 334972,
+   "valid_votes": 239053,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5003,
+   "margin": 0.0252
+  },
+  {
+   "constituency_id": "5",
+   "name": "Thakurgaon-3",
+   "district": "Thakurgaon",
+   "votes": {
+    "BNP-led alliance": 131232,
+    "Independent": 275,
+    "Jamaat-led alliance": 90420,
+    "Other party": 31396
+   },
+   "total_voters": 359271,
+   "valid_votes": 253323,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.518,
+   "margin": 0.1611
+  },
+  {
+   "constituency_id": "6",
+   "name": "Dinajpur-1",
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 170133,
+    "Independent": 0,
+    "Jamaat-led alliance": 110753,
+    "Other party": 6912
+   },
+   "total_voters": 394860,
+   "valid_votes": 287798,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5912,
+   "margin": 0.2063
+  },
+  {
+   "constituency_id": "7",
+   "name": "Dinajpur-2",
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 134925,
+    "Independent": 19266,
+    "Jamaat-led alliance": 102671,
+    "Other party": 6979
+   },
+   "total_voters": 361142,
+   "valid_votes": 263841,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5114,
+   "margin": 0.1222
+  },
+  {
+   "constituency_id": "8",
+   "name": "Dinajpur-3",
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 135681,
+    "Independent": 275,
+    "Jamaat-led alliance": 130225,
+    "Other party": 6312
+   },
+   "total_voters": 400501,
+   "valid_votes": 272493,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4979,
+   "margin": 0.02
+  },
+  {
+   "constituency_id": "9",
+   "name": "Dinajpur-4",
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 160359,
+    "Independent": 0,
+    "Jamaat-led alliance": 123088,
+    "Other party": 4635
+   },
+   "total_voters": 403941,
+   "valid_votes": 288082,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5566,
+   "margin": 0.1294
+  },
+  {
+   "constituency_id": "10",
+   "name": "Dinajpur-5",
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 93489,
+    "Independent": 116194,
+    "Jamaat-led alliance": 103391,
+    "Other party": 1416
+   },
+   "total_voters": 451174,
+   "valid_votes": 314490,
+   "winner": "Independent",
+   "winner_share": 0.3695,
+   "margin": 0.0407
+  },
+  {
+   "constituency_id": "11",
+   "name": "Dinajpur-6",
+   "district": "Dinajpur",
+   "votes": {
+    "BNP-led alliance": 172225,
+    "Independent": 821,
+    "Jamaat-led alliance": 155880,
+    "Other party": 3782
+   },
+   "total_voters": 464355,
+   "valid_votes": 332708,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5176,
+   "margin": 0.0491
+  },
+  {
+   "constituency_id": "12",
+   "name": "Nilphamari-1",
+   "district": "Nilphamari",
+   "votes": {
+    "BNP-led alliance": 82439,
+    "Independent": 0,
+    "Jamaat-led alliance": 104040,
+    "Other party": 16623
+   },
+   "total_voters": 319410,
+   "valid_votes": 203102,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5123,
+   "margin": 0.1064
+  },
+  {
+   "constituency_id": "13",
+   "name": "Nilphamari-2",
+   "district": "Nilphamari",
+   "votes": {
+    "BNP-led alliance": 120547,
+    "Independent": 268,
+    "Jamaat-led alliance": 131441,
+    "Other party": 3473
+   },
+   "total_voters": 344989,
+   "valid_votes": 255729,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.514,
+   "margin": 0.0426
+  },
+  {
+   "constituency_id": "14",
+   "name": "Nilphamari-3",
+   "district": "Nilphamari",
+   "votes": {
+    "BNP-led alliance": 86621,
+    "Independent": 0,
+    "Jamaat-led alliance": 106210,
+    "Other party": 4263
+   },
+   "total_voters": 284441,
+   "valid_votes": 197094,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5389,
+   "margin": 0.0994
+  },
+  {
+   "constituency_id": "15",
+   "name": "Nilphamari-4",
+   "district": "Nilphamari",
+   "votes": {
+    "BNP-led alliance": 74477,
+    "Independent": 4953,
+    "Jamaat-led alliance": 114508,
+    "Other party": 67343
+   },
+   "total_voters": 406267,
+   "valid_votes": 261281,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4383,
+   "margin": 0.1532
+  },
+  {
+   "constituency_id": "16",
+   "name": "Lalmonirhat-1",
+   "district": "Lalmonirhat",
+   "votes": {
+    "BNP-led alliance": 131099,
+    "Independent": 8475,
+    "Jamaat-led alliance": 120938,
+    "Other party": 6734
+   },
+   "total_voters": 377351,
+   "valid_votes": 267246,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4906,
+   "margin": 0.038
+  },
+  {
+   "constituency_id": "17",
+   "name": "Lalmonirhat-2",
+   "district": "Lalmonirhat",
+   "votes": {
+    "BNP-led alliance": 113711,
+    "Independent": 2998,
+    "Jamaat-led alliance": 106342,
+    "Other party": 27081
+   },
+   "total_voters": 396670,
+   "valid_votes": 250132,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4546,
+   "margin": 0.0295
+  },
+  {
+   "constituency_id": "18",
+   "name": "Lalmonirhat-3",
+   "district": "Lalmonirhat",
+   "votes": {
+    "BNP-led alliance": 137841,
+    "Independent": 0,
+    "Jamaat-led alliance": 55063,
+    "Other party": 6635
+   },
+   "total_voters": 303343,
+   "valid_votes": 199539,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6908,
+   "margin": 0.4148
+  },
+  {
+   "constituency_id": "19",
+   "name": "Rangpur-1",
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 68631,
+    "Independent": 0,
+    "Jamaat-led alliance": 145543,
+    "Other party": 6700
+   },
+   "total_voters": 371968,
+   "valid_votes": 220874,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.6589,
+   "margin": 0.3482
+  },
+  {
+   "constituency_id": "20",
+   "name": "Rangpur-2",
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 75543,
+    "Independent": 0,
+    "Jamaat-led alliance": 127020,
+    "Other party": 37940
+   },
+   "total_voters": 356829,
+   "valid_votes": 240503,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5281,
+   "margin": 0.214
+  },
+  {
+   "constituency_id": "21",
+   "name": "Rangpur-3",
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 82613,
+    "Independent": 1095,
+    "Jamaat-led alliance": 173163,
+    "Other party": 51182
+   },
+   "total_voters": 491238,
+   "valid_votes": 308053,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5621,
+   "margin": 0.2939
+  },
+  {
+   "constituency_id": "22",
+   "name": "Rangpur-4",
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 129614,
+    "Independent": 274,
+    "Jamaat-led alliance": 139731,
+    "Other party": 37240
+   },
+   "total_voters": 474624,
+   "valid_votes": 306859,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4554,
+   "margin": 0.033
+  },
+  {
+   "constituency_id": "23",
+   "name": "Rangpur-5",
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 99431,
+    "Independent": 232,
+    "Jamaat-led alliance": 151276,
+    "Other party": 18147
+   },
+   "total_voters": 405559,
+   "valid_votes": 269086,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5622,
+   "margin": 0.1927
+  },
+  {
+   "constituency_id": "24",
+   "name": "Rangpur-6",
+   "district": "Rangpur",
+   "votes": {
+    "BNP-led alliance": 114331,
+    "Independent": 529,
+    "Jamaat-led alliance": 116324,
+    "Other party": 3477
+   },
+   "total_voters": 345216,
+   "valid_votes": 234661,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4957,
+   "margin": 0.0085
+  },
+  {
+   "constituency_id": "25",
+   "name": "Kurigram-1",
+   "district": "Kurigram",
+   "votes": {
+    "BNP-led alliance": 118417,
+    "Independent": 0,
+    "Jamaat-led alliance": 135438,
+    "Other party": 89657
+   },
+   "total_voters": 543681,
+   "valid_votes": 343512,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.3943,
+   "margin": 0.0495
+  },
+  {
+   "constituency_id": "26",
+   "name": "Kurigram-2",
+   "district": "Kurigram",
+   "votes": {
+    "BNP-led alliance": 156703,
+    "Independent": 293,
+    "Jamaat-led alliance": 164102,
+    "Other party": 35368
+   },
+   "total_voters": 548489,
+   "valid_votes": 356466,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4604,
+   "margin": 0.0208
+  },
+  {
+   "constituency_id": "27",
+   "name": "Kurigram-3",
+   "district": "Kurigram",
+   "votes": {
+    "BNP-led alliance": 77725,
+    "Independent": 234,
+    "Jamaat-led alliance": 105291,
+    "Other party": 35671
+   },
+   "total_voters": 360377,
+   "valid_votes": 218921,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.481,
+   "margin": 0.1259
+  },
+  {
+   "constituency_id": "28",
+   "name": "Kurigram-4",
+   "district": "Kurigram",
+   "votes": {
+    "BNP-led alliance": 76944,
+    "Independent": 16931,
+    "Jamaat-led alliance": 98506,
+    "Other party": 8130
+   },
+   "total_voters": 325587,
+   "valid_votes": 200511,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4913,
+   "margin": 0.1075
+  },
+  {
+   "constituency_id": "29",
+   "name": "Gaibandha-1",
+   "district": "Gaibandha",
+   "votes": {
+    "BNP-led alliance": 36262,
+    "Independent": 26856,
+    "Jamaat-led alliance": 133624,
+    "Other party": 33724
+   },
+   "total_voters": 397510,
+   "valid_votes": 230466,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5798,
+   "margin": 0.4225
+  },
+  {
+   "constituency_id": "30",
+   "name": "Gaibandha-2",
+   "district": "Gaibandha",
+   "votes": {
+    "BNP-led alliance": 91762,
+    "Independent": 0,
+    "Jamaat-led alliance": 120120,
+    "Other party": 26481
+   },
+   "total_voters": 405435,
+   "valid_votes": 238363,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5039,
+   "margin": 0.119
+  },
+  {
+   "constituency_id": "31",
+   "name": "Gaibandha-3",
+   "district": "Gaibandha",
+   "votes": {
+    "BNP-led alliance": 117090,
+    "Independent": 2708,
+    "Jamaat-led alliance": 139264,
+    "Other party": 5547
+   },
+   "total_voters": 428828,
+   "valid_votes": 264609,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5263,
+   "margin": 0.0838
+  },
+  {
+   "constituency_id": "32",
+   "name": "Gaibandha-4",
+   "district": "Gaibandha",
+   "votes": {
+    "BNP-led alliance": 137831,
+    "Independent": 1501,
+    "Jamaat-led alliance": 134401,
+    "Other party": 3953
+   },
+   "total_voters": 451623,
+   "valid_votes": 277686,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4964,
+   "margin": 0.0124
+  },
+  {
+   "constituency_id": "33",
+   "name": "Gaibandha-5",
+   "district": "Gaibandha",
+   "votes": {
+    "BNP-led alliance": 72402,
+    "Independent": 46241,
+    "Jamaat-led alliance": 87739,
+    "Other party": 6255
+   },
+   "total_voters": 380512,
+   "valid_votes": 212637,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4126,
+   "margin": 0.0721
+  },
+  {
+   "constituency_id": "34",
+   "name": "Joypurhat-1",
+   "district": "Joypurhat",
+   "votes": {
+    "BNP-led alliance": 143205,
+    "Independent": 12921,
+    "Jamaat-led alliance": 146636,
+    "Other party": 581
+   },
+   "total_voters": 424113,
+   "valid_votes": 303343,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4834,
+   "margin": 0.0113
+  },
+  {
+   "constituency_id": "35",
+   "name": "Joypurhat-2",
+   "district": "Joypurhat",
+   "votes": {
+    "BNP-led alliance": 148520,
+    "Independent": 0,
+    "Jamaat-led alliance": 86973,
+    "Other party": 1454
+   },
+   "total_voters": 330881,
+   "valid_votes": 236947,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6268,
+   "margin": 0.2598
+  },
+  {
+   "constituency_id": "36",
+   "name": "Bogra-1",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 165317,
+    "Independent": 0,
+    "Jamaat-led alliance": 55275,
+    "Other party": 1835
+   },
+   "total_voters": 362570,
+   "valid_votes": 222427,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7432,
+   "margin": 0.4947
+  },
+  {
+   "constituency_id": "37",
+   "name": "Bogra-2",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 140646,
+    "Independent": 180,
+    "Jamaat-led alliance": 89620,
+    "Other party": 4941
+   },
+   "total_voters": 329707,
+   "valid_votes": 235387,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5975,
+   "margin": 0.2168
+  },
+  {
+   "constituency_id": "38",
+   "name": "Bogra-3",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 118161,
+    "Independent": 0,
+    "Jamaat-led alliance": 101264,
+    "Other party": 3012
+   },
+   "total_voters": 311039,
+   "valid_votes": 222437,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5312,
+   "margin": 0.076
+  },
+  {
+   "constituency_id": "39",
+   "name": "Bogra-4",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 151405,
+    "Independent": 0,
+    "Jamaat-led alliance": 105094,
+    "Other party": 3977
+   },
+   "total_voters": 348580,
+   "valid_votes": 260476,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5813,
+   "margin": 0.1778
+  },
+  {
+   "constituency_id": "40",
+   "name": "Bogra-5",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 239647,
+    "Independent": 0,
+    "Jamaat-led alliance": 138705,
+    "Other party": 8202
+   },
+   "total_voters": 551489,
+   "valid_votes": 386554,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.62,
+   "margin": 0.2611
+  },
+  {
+   "constituency_id": "41",
+   "name": "Bogra-6",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 189467,
+    "Independent": 689,
+    "Jamaat-led alliance": 85522,
+    "Other party": 2405
+   },
+   "total_voters": 398106,
+   "valid_votes": 278083,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6813,
+   "margin": 0.3738
+  },
+  {
+   "constituency_id": "42",
+   "name": "Bogra-7",
+   "district": "Bogra",
+   "votes": {
+    "BNP-led alliance": 250782,
+    "Independent": 0,
+    "Jamaat-led alliance": 109505,
+    "Other party": 2403
+   },
+   "total_voters": 508563,
+   "valid_votes": 362690,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6914,
+   "margin": 0.3895
+  },
+  {
+   "constituency_id": "43",
+   "name": "ChapaiNababgonj-1",
+   "district": "Nawabganj",
+   "votes": {
+    "BNP-led alliance": 160898,
+    "Independent": 0,
+    "Jamaat-led alliance": 202984,
+    "Other party": 4201
+   },
+   "total_voters": 492835,
+   "valid_votes": 368083,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5515,
+   "margin": 0.1143
+  },
+  {
+   "constituency_id": "44",
+   "name": "ChapaiNababgonj-2",
+   "district": "Nawabganj",
+   "votes": {
+    "BNP-led alliance": 154053,
+    "Independent": 0,
+    "Jamaat-led alliance": 168821,
+    "Other party": 9686
+   },
+   "total_voters": 456367,
+   "valid_votes": 332560,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5076,
+   "margin": 0.0444
+  },
+  {
+   "constituency_id": "45",
+   "name": "ChapaiNababgonj-3",
+   "district": "Nawabganj",
+   "votes": {
+    "BNP-led alliance": 121078,
+    "Independent": 0,
+    "Jamaat-led alliance": 178120,
+    "Other party": 1679
+   },
+   "total_voters": 440578,
+   "valid_votes": 300877,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.592,
+   "margin": 0.1896
+  },
+  {
+   "constituency_id": "46",
+   "name": "Noagoan-1",
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 169602,
+    "Independent": 17716,
+    "Jamaat-led alliance": 149517,
+    "Other party": 12513
+   },
+   "total_voters": 461465,
+   "valid_votes": 349348,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4855,
+   "margin": 0.0575
+  },
+  {
+   "constituency_id": "47",
+   "name": "Noagoan-2",
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 133994,
+    "Independent": 0,
+    "Jamaat-led alliance": 140447,
+    "Other party": 2550
+   },
+   "total_voters": 370259,
+   "valid_votes": 276991,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.507,
+   "margin": 0.0233
+  },
+  {
+   "constituency_id": "48",
+   "name": "Noagoan-3",
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 153989,
+    "Independent": 17952,
+    "Jamaat-led alliance": 111076,
+    "Other party": 8135
+   },
+   "total_voters": 408543,
+   "valid_votes": 291152,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5289,
+   "margin": 0.1474
+  },
+  {
+   "constituency_id": "49",
+   "name": "Noagoan-4",
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 129168,
+    "Independent": 690,
+    "Jamaat-led alliance": 93636,
+    "Other party": 4117
+   },
+   "total_voters": 321245,
+   "valid_votes": 227611,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5675,
+   "margin": 0.1561
+  },
+  {
+   "constituency_id": "50",
+   "name": "Noagoan-5",
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 121140,
+    "Independent": 0,
+    "Jamaat-led alliance": 98768,
+    "Other party": 6605
+   },
+   "total_voters": 340660,
+   "valid_votes": 226513,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5348,
+   "margin": 0.0988
+  },
+  {
+   "constituency_id": "51",
+   "name": "Noagoan-6",
+   "district": "Naogaon",
+   "votes": {
+    "BNP-led alliance": 102364,
+    "Independent": 18444,
+    "Jamaat-led alliance": 91624,
+    "Other party": 2204
+   },
+   "total_voters": 324091,
+   "valid_votes": 214636,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4769,
+   "margin": 0.05
+  },
+  {
+   "constituency_id": "52",
+   "name": "Rajshahi-1",
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 167242,
+    "Independent": 641,
+    "Jamaat-led alliance": 168036,
+    "Other party": 1456
+   },
+   "total_voters": 459921,
+   "valid_votes": 337375,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4981,
+   "margin": 0.0024
+  },
+  {
+   "constituency_id": "53",
+   "name": "Rajshahi-2",
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 125342,
+    "Independent": 736,
+    "Jamaat-led alliance": 96733,
+    "Other party": 1654
+   },
+   "total_voters": 358347,
+   "valid_votes": 224465,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5584,
+   "margin": 0.1275
+  },
+  {
+   "constituency_id": "54",
+   "name": "Rajshahi-3",
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 173079,
+    "Independent": 1144,
+    "Jamaat-led alliance": 135468,
+    "Other party": 3747
+   },
+   "total_voters": 416012,
+   "valid_votes": 313438,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5522,
+   "margin": 0.12
+  },
+  {
+   "constituency_id": "55",
+   "name": "Rajshahi-4",
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 101152,
+    "Independent": 0,
+    "Jamaat-led alliance": 106445,
+    "Other party": 2158
+   },
+   "total_voters": 294831,
+   "valid_votes": 209755,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5075,
+   "margin": 0.0252
+  },
+  {
+   "constituency_id": "56",
+   "name": "Rajshahi-5",
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 152677,
+    "Independent": 9298,
+    "Jamaat-led alliance": 72535,
+    "Other party": 1540
+   },
+   "total_voters": 350212,
+   "valid_votes": 236050,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6468,
+   "margin": 0.3395
+  },
+  {
+   "constituency_id": "57",
+   "name": "Rajshahi-6",
+   "district": "Rajshahi",
+   "votes": {
+    "BNP-led alliance": 144488,
+    "Independent": 0,
+    "Jamaat-led alliance": 90181,
+    "Other party": 4356
+   },
+   "total_voters": 347554,
+   "valid_votes": 239025,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6045,
+   "margin": 0.2272
+  },
+  {
+   "constituency_id": "58",
+   "name": "Natore-1",
+   "district": "Natore",
+   "votes": {
+    "BNP-led alliance": 102197,
+    "Independent": 73078,
+    "Jamaat-led alliance": 89431,
+    "Other party": 2647
+   },
+   "total_voters": 365482,
+   "valid_votes": 267353,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.3823,
+   "margin": 0.0477
+  },
+  {
+   "constituency_id": "59",
+   "name": "Natore-2",
+   "district": "Natore",
+   "votes": {
+    "BNP-led alliance": 158359,
+    "Independent": 591,
+    "Jamaat-led alliance": 126247,
+    "Other party": 5620
+   },
+   "total_voters": 395722,
+   "valid_votes": 290817,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5445,
+   "margin": 0.1104
+  },
+  {
+   "constituency_id": "60",
+   "name": "Natore-3",
+   "district": "Natore",
+   "votes": {
+    "BNP-led alliance": 116825,
+    "Independent": 65136,
+    "Jamaat-led alliance": 19452,
+    "Other party": 20876
+   },
+   "total_voters": 317653,
+   "valid_votes": 222289,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5256,
+   "margin": 0.2325
+  },
+  {
+   "constituency_id": "61",
+   "name": "Natore-4",
+   "district": "Natore",
+   "votes": {
+    "BNP-led alliance": 167920,
+    "Independent": 0,
+    "Jamaat-led alliance": 133561,
+    "Other party": 6819
+   },
+   "total_voters": 438890,
+   "valid_votes": 308300,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5447,
+   "margin": 0.1114
+  },
+  {
+   "constituency_id": "62",
+   "name": "Sirajgong-1",
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 114987,
+    "Independent": 256,
+    "Jamaat-led alliance": 106287,
+    "Other party": 3622
+   },
+   "total_voters": 378011,
+   "valid_votes": 225152,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5107,
+   "margin": 0.0386
+  },
+  {
+   "constituency_id": "63",
+   "name": "Sirajgonj-2",
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 156095,
+    "Independent": 629,
+    "Jamaat-led alliance": 119349,
+    "Other party": 3035
+   },
+   "total_voters": 408565,
+   "valid_votes": 279108,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5593,
+   "margin": 0.1317
+  },
+  {
+   "constituency_id": "64",
+   "name": "Sirajgonj-3",
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 164463,
+    "Independent": 907,
+    "Jamaat-led alliance": 109712,
+    "Other party": 1551
+   },
+   "total_voters": 417173,
+   "valid_votes": 276633,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5945,
+   "margin": 0.1979
+  },
+  {
+   "constituency_id": "65",
+   "name": "Sirajgonj-4",
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 103222,
+    "Independent": 0,
+    "Jamaat-led alliance": 100316,
+    "Other party": 2524
+   },
+   "total_voters": 300149,
+   "valid_votes": 206062,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5009,
+   "margin": 0.0141
+  },
+  {
+   "constituency_id": "66",
+   "name": "Sirajgonj-5",
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 41579,
+    "Independent": 0,
+    "Jamaat-led alliance": 35573,
+    "Other party": 2865
+   },
+   "total_voters": 136049,
+   "valid_votes": 80017,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5196,
+   "margin": 0.0751
+  },
+  {
+   "constituency_id": "67",
+   "name": "Sirajgonj-6",
+   "district": "Sirajganj",
+   "votes": {
+    "BNP-led alliance": 168791,
+    "Independent": 1040,
+    "Jamaat-led alliance": 101641,
+    "Other party": 6500
+   },
+   "total_voters": 477770,
+   "valid_votes": 277972,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6072,
+   "margin": 0.2416
+  },
+  {
+   "constituency_id": "68",
+   "name": "Pabna-1",
+   "district": "Pabna",
+   "votes": {
+    "BNP-led alliance": 102968,
+    "Independent": 1016,
+    "Jamaat-led alliance": 127291,
+    "Other party": 1098
+   },
+   "total_voters": 335055,
+   "valid_votes": 232373,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5478,
+   "margin": 0.1047
+  },
+  {
+   "constituency_id": "69",
+   "name": "Pabna-2",
+   "district": "Pabna",
+   "votes": {
+    "BNP-led alliance": 200259,
+    "Independent": 0,
+    "Jamaat-led alliance": 67034,
+    "Other party": 7538
+   },
+   "total_voters": 455052,
+   "valid_votes": 274831,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7287,
+   "margin": 0.4848
+  },
+  {
+   "constituency_id": "70",
+   "name": "Pabna-3",
+   "district": "Pabna",
+   "votes": {
+    "BNP-led alliance": 142841,
+    "Independent": 37138,
+    "Jamaat-led alliance": 145291,
+    "Other party": 5359
+   },
+   "total_voters": 479935,
+   "valid_votes": 330629,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4394,
+   "margin": 0.0074
+  },
+  {
+   "constituency_id": "71",
+   "name": "Pabna-4",
+   "district": "Pabna",
+   "votes": {
+    "BNP-led alliance": 129255,
+    "Independent": 26963,
+    "Jamaat-led alliance": 132562,
+    "Other party": 4139
+   },
+   "total_voters": 424298,
+   "valid_votes": 292919,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4526,
+   "margin": 0.0113
+  },
+  {
+   "constituency_id": "72",
+   "name": "Pabna-5",
+   "district": "Pabna",
+   "votes": {
+    "BNP-led alliance": 178991,
+    "Independent": 0,
+    "Jamaat-led alliance": 161208,
+    "Other party": 4574
+   },
+   "total_voters": 518133,
+   "valid_votes": 344773,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5192,
+   "margin": 0.0516
+  },
+  {
+   "constituency_id": "73",
+   "name": "Meherpur-1",
+   "district": "Meherpur",
+   "votes": {
+    "BNP-led alliance": 92490,
+    "Independent": 0,
+    "Jamaat-led alliance": 107591,
+    "Other party": 1917
+   },
+   "total_voters": 277648,
+   "valid_votes": 201998,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5326,
+   "margin": 0.0748
+  },
+  {
+   "constituency_id": "74",
+   "name": "Meherpur-2",
+   "district": "Meherpur",
+   "votes": {
+    "BNP-led alliance": 85455,
+    "Independent": 0,
+    "Jamaat-led alliance": 94658,
+    "Other party": 1791
+   },
+   "total_voters": 267563,
+   "valid_votes": 181904,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5204,
+   "margin": 0.0506
+  },
+  {
+   "constituency_id": "75",
+   "name": "Kushtia-1",
+   "district": "Kushtia",
+   "votes": {
+    "BNP-led alliance": 160670,
+    "Independent": 15800,
+    "Jamaat-led alliance": 82930,
+    "Other party": 6052
+   },
+   "total_voters": 388686,
+   "valid_votes": 265452,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6053,
+   "margin": 0.2929
+  },
+  {
+   "constituency_id": "76",
+   "name": "Kustia-2",
+   "district": "Kushtia",
+   "votes": {
+    "BNP-led alliance": 142373,
+    "Independent": 0,
+    "Jamaat-led alliance": 188166,
+    "Other party": 5668
+   },
+   "total_voters": 469841,
+   "valid_votes": 336207,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5597,
+   "margin": 0.1362
+  },
+  {
+   "constituency_id": "77",
+   "name": "Kustia-3",
+   "district": "Kushtia",
+   "votes": {
+    "BNP-led alliance": 122465,
+    "Independent": 427,
+    "Jamaat-led alliance": 174327,
+    "Other party": 5637
+   },
+   "total_voters": 421105,
+   "valid_votes": 302856,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5756,
+   "margin": 0.1712
+  },
+  {
+   "constituency_id": "78",
+   "name": "Kustia-4",
+   "district": "Kushtia",
+   "votes": {
+    "BNP-led alliance": 137957,
+    "Independent": 0,
+    "Jamaat-led alliance": 145327,
+    "Other party": 14780
+   },
+   "total_voters": 417843,
+   "valid_votes": 298064,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4876,
+   "margin": 0.0247
+  },
+  {
+   "constituency_id": "79",
+   "name": "Chaudanga-1",
+   "district": "Chuadanga",
+   "votes": {
+    "BNP-led alliance": 145670,
+    "Independent": 0,
+    "Jamaat-led alliance": 198841,
+    "Other party": 9491
+   },
+   "total_voters": 483529,
+   "valid_votes": 354002,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5617,
+   "margin": 0.1502
+  },
+  {
+   "constituency_id": "80",
+   "name": "Chaudanga-2",
+   "district": "Chuadanga",
+   "votes": {
+    "BNP-led alliance": 152789,
+    "Independent": 0,
+    "Jamaat-led alliance": 193712,
+    "Other party": 5953
+   },
+   "total_voters": 458536,
+   "valid_votes": 352454,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5496,
+   "margin": 0.1161
+  },
+  {
+   "constituency_id": "81",
+   "name": "Jhenidha-1",
+   "district": "Jhenaidah",
+   "votes": {
+    "BNP-led alliance": 170197,
+    "Independent": 0,
+    "Jamaat-led alliance": 54994,
+    "Other party": 1833
+   },
+   "total_voters": 317573,
+   "valid_votes": 227024,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7497,
+   "margin": 0.5074
+  },
+  {
+   "constituency_id": "82",
+   "name": "Jheniadha-2",
+   "district": "Jhenaidah",
+   "votes": {
+    "BNP-led alliance": 173665,
+    "Independent": 330,
+    "Jamaat-led alliance": 191310,
+    "Other party": 5996
+   },
+   "total_voters": 497270,
+   "valid_votes": 371301,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5152,
+   "margin": 0.0475
+  },
+  {
+   "constituency_id": "83",
+   "name": "Jheniadha-3",
+   "district": "Jhenaidah",
+   "votes": {
+    "BNP-led alliance": 148051,
+    "Independent": 0,
+    "Jamaat-led alliance": 172602,
+    "Other party": 4128
+   },
+   "total_voters": 424282,
+   "valid_votes": 324781,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5314,
+   "margin": 0.0756
+  },
+  {
+   "constituency_id": "84",
+   "name": "Jheniadha-4",
+   "district": "Jhenaidah",
+   "votes": {
+    "BNP-led alliance": 54938,
+    "Independent": 72905,
+    "Jamaat-led alliance": 101052,
+    "Other party": 4648
+   },
+   "total_voters": 319370,
+   "valid_votes": 233543,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4327,
+   "margin": 0.1205
+  },
+  {
+   "constituency_id": "85",
+   "name": "Jessor-1",
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 92995,
+    "Independent": 0,
+    "Jamaat-led alliance": 117377,
+    "Other party": 3108
+   },
+   "total_voters": 308417,
+   "valid_votes": 213480,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5498,
+   "margin": 0.1142
+  },
+  {
+   "constituency_id": "86",
+   "name": "Jessor-2",
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 137897,
+    "Independent": 982,
+    "Jamaat-led alliance": 169447,
+    "Other party": 5919
+   },
+   "total_voters": 455113,
+   "valid_votes": 314245,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5392,
+   "margin": 0.1004
+  },
+  {
+   "constituency_id": "87",
+   "name": "Jessor-3",
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 198694,
+    "Independent": 0,
+    "Jamaat-led alliance": 183302,
+    "Other party": 18980
+   },
+   "total_voters": 603005,
+   "valid_votes": 400976,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4955,
+   "margin": 0.0384
+  },
+  {
+   "constituency_id": "88",
+   "name": "Jessor-4",
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 129925,
+    "Independent": 784,
+    "Jamaat-led alliance": 172563,
+    "Other party": 15317
+   },
+   "total_voters": 448119,
+   "valid_votes": 318589,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5416,
+   "margin": 0.1338
+  },
+  {
+   "constituency_id": "89",
+   "name": "Jessor-5",
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 53167,
+    "Independent": 83554,
+    "Jamaat-led alliance": 124192,
+    "Other party": 6433
+   },
+   "total_voters": 355117,
+   "valid_votes": 267346,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4645,
+   "margin": 0.152
+  },
+  {
+   "constituency_id": "90",
+   "name": "Jessor-6",
+   "district": "Jessore",
+   "votes": {
+    "BNP-led alliance": 62935,
+    "Independent": 0,
+    "Jamaat-led alliance": 73823,
+    "Other party": 2318
+   },
+   "total_voters": 182241,
+   "valid_votes": 139076,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5308,
+   "margin": 0.0783
+  },
+  {
+   "constituency_id": "91",
+   "name": "Magura-1",
+   "district": "Magura",
+   "votes": {
+    "BNP-led alliance": 176851,
+    "Independent": 1162,
+    "Jamaat-led alliance": 84664,
+    "Other party": 15531
+   },
+   "total_voters": 410083,
+   "valid_votes": 278208,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6357,
+   "margin": 0.3314
+  },
+  {
+   "constituency_id": "92",
+   "name": "Magura-2",
+   "district": "Magura",
+   "votes": {
+    "BNP-led alliance": 143100,
+    "Independent": 0,
+    "Jamaat-led alliance": 112736,
+    "Other party": 18667
+   },
+   "total_voters": 402473,
+   "valid_votes": 274503,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5213,
+   "margin": 0.1106
+  },
+  {
+   "constituency_id": "93",
+   "name": "Narail-1",
+   "district": "Narail",
+   "votes": {
+    "BNP-led alliance": 87047,
+    "Independent": 2834,
+    "Jamaat-led alliance": 63387,
+    "Other party": 5947
+   },
+   "total_voters": 255048,
+   "valid_votes": 159215,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5467,
+   "margin": 0.1486
+  },
+  {
+   "constituency_id": "94",
+   "name": "Narail-2",
+   "district": "Narail",
+   "votes": {
+    "BNP-led alliance": 37062,
+    "Independent": 62497,
+    "Jamaat-led alliance": 95838,
+    "Other party": 4835
+   },
+   "total_voters": 312744,
+   "valid_votes": 200232,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4786,
+   "margin": 0.1665
+  },
+  {
+   "constituency_id": "95",
+   "name": "Bagerhat-1",
+   "district": "Bagerhat",
+   "votes": {
+    "BNP-led alliance": 97228,
+    "Independent": 9517,
+    "Jamaat-led alliance": 100299,
+    "Other party": 986
+   },
+   "total_voters": 317415,
+   "valid_votes": 208030,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4821,
+   "margin": 0.0148
+  },
+  {
+   "constituency_id": "96",
+   "name": "Bagerhat-2",
+   "district": "Bagerhat",
+   "votes": {
+    "BNP-led alliance": 58927,
+    "Independent": 45370,
+    "Jamaat-led alliance": 105227,
+    "Other party": 3964
+   },
+   "total_voters": 303635,
+   "valid_votes": 213488,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4929,
+   "margin": 0.2169
+  },
+  {
+   "constituency_id": "97",
+   "name": "Bagerhat-3",
+   "district": "Bagerhat",
+   "votes": {
+    "BNP-led alliance": 99968,
+    "Independent": 408,
+    "Jamaat-led alliance": 81183,
+    "Other party": 3865
+   },
+   "total_voters": 259794,
+   "valid_votes": 185424,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5391,
+   "margin": 0.1013
+  },
+  {
+   "constituency_id": "98",
+   "name": "Bagerhat-4",
+   "district": "Bagerhat",
+   "votes": {
+    "BNP-led alliance": 91214,
+    "Independent": 207,
+    "Jamaat-led alliance": 107693,
+    "Other party": 9463
+   },
+   "total_voters": 355148,
+   "valid_votes": 208577,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5163,
+   "margin": 0.079
+  },
+  {
+   "constituency_id": "99",
+   "name": "Khulna-1",
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 112129,
+    "Independent": 1453,
+    "Jamaat-led alliance": 67159,
+    "Other party": 12215
+   },
+   "total_voters": 287408,
+   "valid_votes": 192956,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5811,
+   "margin": 0.2331
+  },
+  {
+   "constituency_id": "100",
+   "name": "Khulna-2",
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 78304,
+    "Independent": 0,
+    "Jamaat-led alliance": 82875,
+    "Other party": 6398
+   },
+   "total_voters": 297646,
+   "valid_votes": 167577,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4945,
+   "margin": 0.0273
+  },
+  {
+   "constituency_id": "101",
+   "name": "Khulna-3",
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 62702,
+    "Independent": 1111,
+    "Jamaat-led alliance": 53060,
+    "Other party": 5772
+   },
+   "total_voters": 209832,
+   "valid_votes": 122645,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5112,
+   "margin": 0.0786
+  },
+  {
+   "constituency_id": "102",
+   "name": "Khulna-4",
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 118060,
+    "Independent": 786,
+    "Jamaat-led alliance": 104084,
+    "Other party": 12687
+   },
+   "total_voters": 361048,
+   "valid_votes": 235617,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5011,
+   "margin": 0.0593
+  },
+  {
+   "constituency_id": "103",
+   "name": "Khulna-5",
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 138706,
+    "Independent": 0,
+    "Jamaat-led alliance": 135898,
+    "Other party": 2848
+   },
+   "total_voters": 375255,
+   "valid_votes": 277452,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4999,
+   "margin": 0.0101
+  },
+  {
+   "constituency_id": "104",
+   "name": "Khulna-6",
+   "district": "Khulna",
+   "votes": {
+    "BNP-led alliance": 120183,
+    "Independent": 0,
+    "Jamaat-led alliance": 146918,
+    "Other party": 6928
+   },
+   "total_voters": 411447,
+   "valid_votes": 274029,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5361,
+   "margin": 0.0976
+  },
+  {
+   "constituency_id": "105",
+   "name": "Satkhira-1",
+   "district": "Satkhira",
+   "votes": {
+    "BNP-led alliance": 167223,
+    "Independent": 0,
+    "Jamaat-led alliance": 190263,
+    "Other party": 5232
+   },
+   "total_voters": 487879,
+   "valid_votes": 362718,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5245,
+   "margin": 0.0635
+  },
+  {
+   "constituency_id": "106",
+   "name": "Satkhira-2",
+   "district": "Satkhira",
+   "votes": {
+    "BNP-led alliance": 114066,
+    "Independent": 0,
+    "Jamaat-led alliance": 260784,
+    "Other party": 6362
+   },
+   "total_voters": 523900,
+   "valid_votes": 381212,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.6841,
+   "margin": 0.3849
+  },
+  {
+   "constituency_id": "107",
+   "name": "Satkhira-3",
+   "district": "Satkhira",
+   "votes": {
+    "BNP-led alliance": 51003,
+    "Independent": 90867,
+    "Jamaat-led alliance": 158457,
+    "Other party": 3385
+   },
+   "total_voters": 437463,
+   "valid_votes": 303712,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5217,
+   "margin": 0.2225
+  },
+  {
+   "constituency_id": "108",
+   "name": "Satkhira-4",
+   "district": "Satkhira",
+   "votes": {
+    "BNP-led alliance": 83291,
+    "Independent": 0,
+    "Jamaat-led alliance": 101562,
+    "Other party": 5864
+   },
+   "total_voters": 286424,
+   "valid_votes": 190717,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5325,
+   "margin": 0.0958
+  },
+  {
+   "constituency_id": "109",
+   "name": "Barguna-1",
+   "district": "Barguna",
+   "votes": {
+    "BNP-led alliance": 112057,
+    "Independent": 0,
+    "Jamaat-led alliance": 4390,
+    "Other party": 111872
+   },
+   "total_voters": 417511,
+   "valid_votes": 228319,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4908,
+   "margin": 0.0008
+  },
+  {
+   "constituency_id": "110",
+   "name": "Barguna-2",
+   "district": "Barguna",
+   "votes": {
+    "BNP-led alliance": 84075,
+    "Independent": 241,
+    "Jamaat-led alliance": 78658,
+    "Other party": 17198
+   },
+   "total_voters": 314081,
+   "valid_votes": 180172,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4666,
+   "margin": 0.0301
+  },
+  {
+   "constituency_id": "111",
+   "name": "Patuakhali-1",
+   "district": "Patuakhali",
+   "votes": {
+    "BNP-led alliance": 145514,
+    "Independent": 0,
+    "Jamaat-led alliance": 43483,
+    "Other party": 56889
+   },
+   "total_voters": 480876,
+   "valid_votes": 245886,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5918,
+   "margin": 0.3604
+  },
+  {
+   "constituency_id": "112",
+   "name": "Patuakhali-2",
+   "district": "Patuakhali",
+   "votes": {
+    "BNP-led alliance": 71796,
+    "Independent": 0,
+    "Jamaat-led alliance": 99040,
+    "Other party": 15065
+   },
+   "total_voters": 311255,
+   "valid_votes": 185901,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5328,
+   "margin": 0.1466
+  },
+  {
+   "constituency_id": "113",
+   "name": "patuakhali-3",
+   "district": "Patuakhali",
+   "votes": {
+    "BNP-led alliance": 95225,
+    "Independent": 79595,
+    "Jamaat-led alliance": 15363,
+    "Other party": 37404
+   },
+   "total_voters": 365740,
+   "valid_votes": 227587,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4184,
+   "margin": 0.0687
+  },
+  {
+   "constituency_id": "114",
+   "name": "Patuakhali-4",
+   "district": "Patuakhali",
+   "votes": {
+    "BNP-led alliance": 118374,
+    "Independent": 0,
+    "Jamaat-led alliance": 13056,
+    "Other party": 66903
+   },
+   "total_voters": 295689,
+   "valid_votes": 198333,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5968,
+   "margin": 0.2595
+  },
+  {
+   "constituency_id": "115",
+   "name": "Bhola-1",
+   "district": "Bhola",
+   "votes": {
+    "BNP-led alliance": 100328,
+    "Independent": 122,
+    "Jamaat-led alliance": 70687,
+    "Other party": 26329
+   },
+   "total_voters": 386699,
+   "valid_votes": 197466,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5081,
+   "margin": 0.1501
+  },
+  {
+   "constituency_id": "116",
+   "name": "Bhola-2",
+   "district": "Bhola",
+   "votes": {
+    "BNP-led alliance": 106546,
+    "Independent": 1246,
+    "Jamaat-led alliance": 83056,
+    "Other party": 1006
+   },
+   "total_voters": 352997,
+   "valid_votes": 191854,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5553,
+   "margin": 0.1224
+  },
+  {
+   "constituency_id": "117",
+   "name": "Bhola-3",
+   "district": "Bhola",
+   "votes": {
+    "BNP-led alliance": 132890,
+    "Independent": 474,
+    "Jamaat-led alliance": 51712,
+    "Other party": 7292
+   },
+   "total_voters": 352865,
+   "valid_votes": 192368,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6908,
+   "margin": 0.422
+  },
+  {
+   "constituency_id": "118",
+   "name": "Bhola-4",
+   "district": "Bhola",
+   "votes": {
+    "BNP-led alliance": 177079,
+    "Independent": 224,
+    "Jamaat-led alliance": 74391,
+    "Other party": 24944
+   },
+   "total_voters": 469392,
+   "valid_votes": 276638,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6401,
+   "margin": 0.3712
+  },
+  {
+   "constituency_id": "119",
+   "name": "Barishal-1",
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 97902,
+    "Independent": 43319,
+    "Jamaat-led alliance": 44519,
+    "Other party": 8344
+   },
+   "total_voters": 318897,
+   "valid_votes": 194084,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5044,
+   "margin": 0.2751
+  },
+  {
+   "constituency_id": "120",
+   "name": "Barishal-2",
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 129804,
+    "Independent": 0,
+    "Jamaat-led alliance": 68074,
+    "Other party": 9889
+   },
+   "total_voters": 356048,
+   "valid_votes": 207767,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6248,
+   "margin": 0.2971
+  },
+  {
+   "constituency_id": "121",
+   "name": "Barishal-3",
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 77099,
+    "Independent": 190,
+    "Jamaat-led alliance": 57304,
+    "Other party": 29869
+   },
+   "total_voters": 314976,
+   "valid_votes": 164462,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4688,
+   "margin": 0.1204
+  },
+  {
+   "constituency_id": "122",
+   "name": "Barishal-4",
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 118375,
+    "Independent": 0,
+    "Jamaat-led alliance": 67218,
+    "Other party": 34723
+   },
+   "total_voters": 386056,
+   "valid_votes": 220316,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5373,
+   "margin": 0.2322
+  },
+  {
+   "constituency_id": "123",
+   "name": "Barishal-5",
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 128020,
+    "Independent": 21306,
+    "Jamaat-led alliance": 0,
+    "Other party": 91651
+   },
+   "total_voters": 478156,
+   "valid_votes": 240977,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5313,
+   "margin": 0.1509
+  },
+  {
+   "constituency_id": "124",
+   "name": "Barishal-6",
+   "district": "Barisal",
+   "votes": {
+    "BNP-led alliance": 75756,
+    "Independent": 336,
+    "Jamaat-led alliance": 51126,
+    "Other party": 27511
+   },
+   "total_voters": 292995,
+   "valid_votes": 154729,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4896,
+   "margin": 0.1592
+  },
+  {
+   "constituency_id": "125",
+   "name": "Jhalokhati-1",
+   "district": "Jhalokati",
+   "votes": {
+    "BNP-led alliance": 56166,
+    "Independent": 769,
+    "Jamaat-led alliance": 48566,
+    "Other party": 9964
+   },
+   "total_voters": 205039,
+   "valid_votes": 115465,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4864,
+   "margin": 0.0658
+  },
+  {
+   "constituency_id": "126",
+   "name": "Jhalokhati-2",
+   "district": "Jhalokati",
+   "votes": {
+    "BNP-led alliance": 104447,
+    "Independent": 2953,
+    "Jamaat-led alliance": 63112,
+    "Other party": 23476
+   },
+   "total_voters": 334335,
+   "valid_votes": 193988,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5384,
+   "margin": 0.2131
+  },
+  {
+   "constituency_id": "127",
+   "name": "Pirojpur-1",
+   "district": "Pirojpur",
+   "votes": {
+    "BNP-led alliance": 97835,
+    "Independent": 0,
+    "Jamaat-led alliance": 119599,
+    "Other party": 0
+   },
+   "total_voters": 356507,
+   "valid_votes": 217434,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.55,
+   "margin": 0.1001
+  },
+  {
+   "constituency_id": "128",
+   "name": "Pirojpur-2",
+   "district": "Pirojpur",
+   "votes": {
+    "BNP-led alliance": 97051,
+    "Independent": 15650,
+    "Jamaat-led alliance": 89300,
+    "Other party": 11281
+   },
+   "total_voters": 380922,
+   "valid_votes": 213282,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.455,
+   "margin": 0.0363
+  },
+  {
+   "constituency_id": "129",
+   "name": "Pirojpur-3",
+   "district": "Pirojpur",
+   "votes": {
+    "BNP-led alliance": 59583,
+    "Independent": 219,
+    "Jamaat-led alliance": 33368,
+    "Other party": 33127
+   },
+   "total_voters": 222784,
+   "valid_votes": 126297,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4718,
+   "margin": 0.2076
+  },
+  {
+   "constituency_id": "130",
+   "name": "Tangail-1",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 152207,
+    "Independent": 28663,
+    "Jamaat-led alliance": 92307,
+    "Other party": 3833
+   },
+   "total_voters": 430756,
+   "valid_votes": 277010,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5495,
+   "margin": 0.2162
+  },
+  {
+   "constituency_id": "131",
+   "name": "Tangail-2",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 191923,
+    "Independent": 0,
+    "Jamaat-led alliance": 59317,
+    "Other party": 6431
+   },
+   "total_voters": 407326,
+   "valid_votes": 257671,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7448,
+   "margin": 0.5146
+  },
+  {
+   "constituency_id": "132",
+   "name": "Tangail-3",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 80611,
+    "Independent": 104590,
+    "Jamaat-led alliance": 32463,
+    "Other party": 3873
+   },
+   "total_voters": 368370,
+   "valid_votes": 221537,
+   "winner": "Independent",
+   "winner_share": 0.4721,
+   "margin": 0.1082
+  },
+  {
+   "constituency_id": "133",
+   "name": "Tangail-4",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 104243,
+    "Independent": 66027,
+    "Jamaat-led alliance": 48560,
+    "Other party": 2546
+   },
+   "total_voters": 370039,
+   "valid_votes": 221376,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4709,
+   "margin": 0.1726
+  },
+  {
+   "constituency_id": "134",
+   "name": "Tangail-5",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 130133,
+    "Independent": 69027,
+    "Jamaat-led alliance": 78539,
+    "Other party": 7005
+   },
+   "total_voters": 457173,
+   "valid_votes": 284704,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4571,
+   "margin": 0.1812
+  },
+  {
+   "constituency_id": "135",
+   "name": "Tangail-6",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 145487,
+    "Independent": 17858,
+    "Jamaat-led alliance": 87375,
+    "Other party": 16156
+   },
+   "total_voters": 451310,
+   "valid_votes": 266876,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5451,
+   "margin": 0.2177
+  },
+  {
+   "constituency_id": "136",
+   "name": "Tangail-7",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 138419,
+    "Independent": 0,
+    "Jamaat-led alliance": 70112,
+    "Other party": 1477
+   },
+   "total_voters": 364150,
+   "valid_votes": 210008,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6591,
+   "margin": 0.3253
+  },
+  {
+   "constituency_id": "137",
+   "name": "Tangail-8",
+   "district": "Tangail",
+   "votes": {
+    "BNP-led alliance": 107404,
+    "Independent": 71373,
+    "Jamaat-led alliance": 50654,
+    "Other party": 1321
+   },
+   "total_voters": 386143,
+   "valid_votes": 230752,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4655,
+   "margin": 0.1561
+  },
+  {
+   "constituency_id": "138",
+   "name": "Jamalpur-1",
+   "district": "Jamalpur",
+   "votes": {
+    "BNP-led alliance": 167705,
+    "Independent": 0,
+    "Jamaat-led alliance": 93323,
+    "Other party": 5062
+   },
+   "total_voters": 416117,
+   "valid_votes": 266090,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6303,
+   "margin": 0.2795
+  },
+  {
+   "constituency_id": "139",
+   "name": "Jamalpur-2",
+   "district": "Jamalpur",
+   "votes": {
+    "BNP-led alliance": 83272,
+    "Independent": 164,
+    "Jamaat-led alliance": 57582,
+    "Other party": 1632
+   },
+   "total_voters": 254018,
+   "valid_votes": 142650,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5838,
+   "margin": 0.1801
+  },
+  {
+   "constituency_id": "140",
+   "name": "Jamaljpur-3",
+   "district": "Jamalpur",
+   "votes": {
+    "BNP-led alliance": 185757,
+    "Independent": 22120,
+    "Jamaat-led alliance": 71960,
+    "Other party": 4071
+   },
+   "total_voters": 485622,
+   "valid_votes": 283908,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6543,
+   "margin": 0.4008
+  },
+  {
+   "constituency_id": "141",
+   "name": "Jamalpur-4",
+   "district": "Jamalpur",
+   "votes": {
+    "BNP-led alliance": 144697,
+    "Independent": 0,
+    "Jamaat-led alliance": 43435,
+    "Other party": 3302
+   },
+   "total_voters": 298498,
+   "valid_votes": 191434,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7559,
+   "margin": 0.529
+  },
+  {
+   "constituency_id": "142",
+   "name": "Jamalpur-5",
+   "district": "Jamalpur",
+   "votes": {
+    "BNP-led alliance": 192885,
+    "Independent": 571,
+    "Jamaat-led alliance": 108183,
+    "Other party": 9516
+   },
+   "total_voters": 555725,
+   "valid_votes": 311155,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6199,
+   "margin": 0.2722
+  },
+  {
+   "constituency_id": "143",
+   "name": "Sherpur-1",
+   "district": "Sherpur",
+   "votes": {
+    "BNP-led alliance": 72760,
+    "Independent": 58450,
+    "Jamaat-led alliance": 118407,
+    "Other party": 1118
+   },
+   "total_voters": 418337,
+   "valid_votes": 250735,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4722,
+   "margin": 0.1821
+  },
+  {
+   "constituency_id": "144",
+   "name": "Sherpur-2",
+   "district": "Sherpur",
+   "votes": {
+    "BNP-led alliance": 117441,
+    "Independent": 0,
+    "Jamaat-led alliance": 106582,
+    "Other party": 5751
+   },
+   "total_voters": 435884,
+   "valid_votes": 229774,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5111,
+   "margin": 0.0473
+  },
+  {
+   "constituency_id": "146",
+   "name": "Mymensingh-1",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 51397,
+    "Independent": 56052,
+    "Jamaat-led alliance": 30771,
+    "Other party": 2438
+   },
+   "total_voters": 261024,
+   "valid_votes": 140658,
+   "winner": "Independent",
+   "winner_share": 0.3985,
+   "margin": 0.0331
+  },
+  {
+   "constituency_id": "147",
+   "name": "Mymensingh-2",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 116343,
+    "Independent": 48504,
+    "Jamaat-led alliance": 143081,
+    "Other party": 5517
+   },
+   "total_voters": 566419,
+   "valid_votes": 313445,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4565,
+   "margin": 0.0853
+  },
+  {
+   "constituency_id": "148",
+   "name": "Mymensingh-3",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 69344,
+    "Independent": 60323,
+    "Jamaat-led alliance": 23772,
+    "Other party": 2897
+   },
+   "total_voters": 275545,
+   "valid_votes": 156336,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4436,
+   "margin": 0.0577
+  },
+  {
+   "constituency_id": "149",
+   "name": "Mymensingh-4",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 169675,
+    "Independent": 0,
+    "Jamaat-led alliance": 161607,
+    "Other party": 15524
+   },
+   "total_voters": 655126,
+   "valid_votes": 346806,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4893,
+   "margin": 0.0233
+  },
+  {
+   "constituency_id": "150",
+   "name": "Mymensingh-5",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 123416,
+    "Independent": 0,
+    "Jamaat-led alliance": 97652,
+    "Other party": 4372
+   },
+   "total_voters": 370794,
+   "valid_votes": 225440,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5474,
+   "margin": 0.1143
+  },
+  {
+   "constituency_id": "151",
+   "name": "Mymensingh-6",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 48930,
+    "Independent": 103091,
+    "Jamaat-led alliance": 75533,
+    "Other party": 1935
+   },
+   "total_voters": 410968,
+   "valid_votes": 229489,
+   "winner": "Independent",
+   "winner_share": 0.4492,
+   "margin": 0.1201
+  },
+  {
+   "constituency_id": "152",
+   "name": "Mymensingh-7",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 95964,
+    "Independent": 32981,
+    "Jamaat-led alliance": 81676,
+    "Other party": 4474
+   },
+   "total_voters": 390372,
+   "valid_votes": 215095,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4461,
+   "margin": 0.0664
+  },
+  {
+   "constituency_id": "153",
+   "name": "Mymensingh-8",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 106428,
+    "Independent": 0,
+    "Jamaat-led alliance": 45457,
+    "Other party": 34003
+   },
+   "total_voters": 342642,
+   "valid_votes": 185888,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5725,
+   "margin": 0.328
+  },
+  {
+   "constituency_id": "154",
+   "name": "Mymensingh-9",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 83467,
+    "Independent": 29866,
+    "Jamaat-led alliance": 68617,
+    "Other party": 6410
+   },
+   "total_voters": 373151,
+   "valid_votes": 188360,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4431,
+   "margin": 0.0788
+  },
+  {
+   "constituency_id": "155",
+   "name": "Mymensingh-10",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 72360,
+    "Independent": 64958,
+    "Jamaat-led alliance": 62668,
+    "Other party": 4148
+   },
+   "total_voters": 392876,
+   "valid_votes": 204134,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.3545,
+   "margin": 0.0363
+  },
+  {
+   "constituency_id": "156",
+   "name": "Mymensingh-11",
+   "district": "Mymensingh",
+   "votes": {
+    "BNP-led alliance": 107233,
+    "Independent": 63458,
+    "Jamaat-led alliance": 20764,
+    "Other party": 2136
+   },
+   "total_voters": 344349,
+   "valid_votes": 193591,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5539,
+   "margin": 0.2261
+  },
+  {
+   "constituency_id": "157",
+   "name": "Netrokona-1",
+   "district": "Netrakona",
+   "votes": {
+    "BNP-led alliance": 130330,
+    "Independent": 0,
+    "Jamaat-led alliance": 71307,
+    "Other party": 6209
+   },
+   "total_voters": 377339,
+   "valid_votes": 207846,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6271,
+   "margin": 0.284
+  },
+  {
+   "constituency_id": "158",
+   "name": "Netrokona-2",
+   "district": "Netrakona",
+   "votes": {
+    "BNP-led alliance": 167093,
+    "Independent": 0,
+    "Jamaat-led alliance": 65396,
+    "Other party": 21545
+   },
+   "total_voters": 491045,
+   "valid_votes": 254034,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6578,
+   "margin": 0.4003
+  },
+  {
+   "constituency_id": "159",
+   "name": "Netrokona-3",
+   "district": "Netrakona",
+   "votes": {
+    "BNP-led alliance": 110815,
+    "Independent": 65233,
+    "Jamaat-led alliance": 38277,
+    "Other party": 3413
+   },
+   "total_voters": 393439,
+   "valid_votes": 217738,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5089,
+   "margin": 0.2093
+  },
+  {
+   "constituency_id": "160",
+   "name": "Netrokona-4",
+   "district": "Netrakona",
+   "votes": {
+    "BNP-led alliance": 141064,
+    "Independent": 0,
+    "Jamaat-led alliance": 32283,
+    "Other party": 4923
+   },
+   "total_voters": 326129,
+   "valid_votes": 178270,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7913,
+   "margin": 0.6102
+  },
+  {
+   "constituency_id": "161",
+   "name": "Netrokona-5",
+   "district": "Netrakona",
+   "votes": {
+    "BNP-led alliance": 77340,
+    "Independent": 0,
+    "Jamaat-led alliance": 79353,
+    "Other party": 3258
+   },
+   "total_voters": 282185,
+   "valid_votes": 159951,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4961,
+   "margin": 0.0126
+  },
+  {
+   "constituency_id": "162",
+   "name": "Kishorgonj-1",
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 120635,
+    "Independent": 37124,
+    "Jamaat-led alliance": 98192,
+    "Other party": 2692
+   },
+   "total_voters": 540894,
+   "valid_votes": 258643,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4664,
+   "margin": 0.0868
+  },
+  {
+   "constituency_id": "163",
+   "name": "Kishorgonj-2",
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 142616,
+    "Independent": 1659,
+    "Jamaat-led alliance": 117961,
+    "Other party": 6176
+   },
+   "total_voters": 525004,
+   "valid_votes": 268412,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5313,
+   "margin": 0.0919
+  },
+  {
+   "constituency_id": "164",
+   "name": "Kishorgonj-3",
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 109633,
+    "Independent": 1453,
+    "Jamaat-led alliance": 99466,
+    "Other party": 12088
+   },
+   "total_voters": 437518,
+   "valid_votes": 222640,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4924,
+   "margin": 0.0457
+  },
+  {
+   "constituency_id": "165",
+   "name": "Kishorgonj-4",
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 127988,
+    "Independent": 5177,
+    "Jamaat-led alliance": 54534,
+    "Other party": 3906
+   },
+   "total_voters": 393547,
+   "valid_votes": 191605,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.668,
+   "margin": 0.3834
+  },
+  {
+   "constituency_id": "166",
+   "name": "Kishorgonj-5",
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 64822,
+    "Independent": 79570,
+    "Jamaat-led alliance": 51651,
+    "Other party": 4298
+   },
+   "total_voters": 341083,
+   "valid_votes": 200341,
+   "winner": "Independent",
+   "winner_share": 0.3972,
+   "margin": 0.0736
+  },
+  {
+   "constituency_id": "167",
+   "name": "Kishorgonj-6",
+   "district": "Kishoreganj",
+   "votes": {
+    "BNP-led alliance": 185795,
+    "Independent": 0,
+    "Jamaat-led alliance": 42980,
+    "Other party": 6639
+   },
+   "total_voters": 423647,
+   "valid_votes": 235414,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7892,
+   "margin": 0.6067
+  },
+  {
+   "constituency_id": "168",
+   "name": "Manikgonj-1",
+   "district": "Manikganj",
+   "votes": {
+    "BNP-led alliance": 124330,
+    "Independent": 75335,
+    "Jamaat-led alliance": 64086,
+    "Other party": 3942
+   },
+   "total_voters": 413961,
+   "valid_votes": 267693,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4644,
+   "margin": 0.183
+  },
+  {
+   "constituency_id": "169",
+   "name": "Manikgonj-2",
+   "district": "Manikganj",
+   "votes": {
+    "BNP-led alliance": 170882,
+    "Independent": 0,
+    "Jamaat-led alliance": 78647,
+    "Other party": 10648
+   },
+   "total_voters": 456871,
+   "valid_votes": 260177,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6568,
+   "margin": 0.3545
+  },
+  {
+   "constituency_id": "170",
+   "name": "Manikgonj-3",
+   "district": "Manikganj",
+   "votes": {
+    "BNP-led alliance": 158226,
+    "Independent": 23750,
+    "Jamaat-led alliance": 60299,
+    "Other party": 9148
+   },
+   "total_voters": 378307,
+   "valid_votes": 251423,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6293,
+   "margin": 0.3895
+  },
+  {
+   "constituency_id": "171",
+   "name": "Munshigonj-1",
+   "district": "Munshiganj",
+   "votes": {
+    "BNP-led alliance": 155955,
+    "Independent": 28129,
+    "Jamaat-led alliance": 92186,
+    "Other party": 9085
+   },
+   "total_voters": 503647,
+   "valid_votes": 285355,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5465,
+   "margin": 0.2235
+  },
+  {
+   "constituency_id": "172",
+   "name": "Munshigonj-2",
+   "district": "Munshiganj",
+   "votes": {
+    "BNP-led alliance": 119145,
+    "Independent": 0,
+    "Jamaat-led alliance": 56319,
+    "Other party": 16612
+   },
+   "total_voters": 370638,
+   "valid_votes": 192076,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6203,
+   "margin": 0.3271
+  },
+  {
+   "constituency_id": "173",
+   "name": "Munshigonj-3",
+   "district": "Munshiganj",
+   "votes": {
+    "BNP-led alliance": 121915,
+    "Independent": 87471,
+    "Jamaat-led alliance": 51318,
+    "Other party": 7748
+   },
+   "total_voters": 496477,
+   "valid_votes": 268452,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4541,
+   "margin": 0.1283
+  },
+  {
+   "constituency_id": "174",
+   "name": "Dhaka-1",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 171587,
+    "Independent": 4797,
+    "Jamaat-led alliance": 108381,
+    "Other party": 8098
+   },
+   "total_voters": 533813,
+   "valid_votes": 292863,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5859,
+   "margin": 0.2158
+  },
+  {
+   "constituency_id": "175",
+   "name": "Dhaka-2",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 160796,
+    "Independent": 0,
+    "Jamaat-led alliance": 77547,
+    "Other party": 6170
+   },
+   "total_voters": 409470,
+   "valid_votes": 244513,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6576,
+   "margin": 0.3405
+  },
+  {
+   "constituency_id": "176",
+   "name": "Dhaka-3",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 96557,
+    "Independent": 498,
+    "Jamaat-led alliance": 80326,
+    "Other party": 7915
+   },
+   "total_voters": 351241,
+   "valid_votes": 185296,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5211,
+   "margin": 0.0876
+  },
+  {
+   "constituency_id": "177",
+   "name": "Dhaka-4",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 65055,
+    "Independent": 2470,
+    "Jamaat-led alliance": 67042,
+    "Other party": 6163
+   },
+   "total_voters": 318371,
+   "valid_votes": 140730,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4764,
+   "margin": 0.0141
+  },
+  {
+   "constituency_id": "178",
+   "name": "Dhaka-5",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 80423,
+    "Independent": 0,
+    "Jamaat-led alliance": 87650,
+    "Other party": 15985
+   },
+   "total_voters": 384733,
+   "valid_votes": 184058,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4762,
+   "margin": 0.0393
+  },
+  {
+   "constituency_id": "179",
+   "name": "Dhaka-6",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 78142,
+    "Independent": 0,
+    "Jamaat-led alliance": 54665,
+    "Other party": 2582
+   },
+   "total_voters": 289435,
+   "valid_votes": 135389,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5772,
+   "margin": 0.1734
+  },
+  {
+   "constituency_id": "180",
+   "name": "Dhaka-7",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 90847,
+    "Independent": 9019,
+    "Jamaat-led alliance": 84728,
+    "Other party": 10176
+   },
+   "total_voters": 415237,
+   "valid_votes": 194770,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4664,
+   "margin": 0.0314
+  },
+  {
+   "constituency_id": "181",
+   "name": "Dhaka-8",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 54844,
+    "Independent": 0,
+    "Jamaat-led alliance": 49888,
+    "Other party": 3703
+   },
+   "total_voters": 257598,
+   "valid_votes": 108435,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5058,
+   "margin": 0.0457
+  },
+  {
+   "constituency_id": "182",
+   "name": "Dhaka-9",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 99377,
+    "Independent": 40084,
+    "Jamaat-led alliance": 47931,
+    "Other party": 7429
+   },
+   "total_voters": 422814,
+   "valid_votes": 194821,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5101,
+   "margin": 0.2641
+  },
+  {
+   "constituency_id": "183",
+   "name": "Dhaka-10",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 77190,
+    "Independent": 0,
+    "Jamaat-led alliance": 72782,
+    "Other party": 7963
+   },
+   "total_voters": 372475,
+   "valid_votes": 157935,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4887,
+   "margin": 0.0279
+  },
+  {
+   "constituency_id": "184",
+   "name": "Dhaka-11",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 87634,
+    "Independent": 733,
+    "Jamaat-led alliance": 87795,
+    "Other party": 6008
+   },
+   "total_voters": 416767,
+   "valid_votes": 182170,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4819,
+   "margin": 0.0009
+  },
+  {
+   "constituency_id": "185",
+   "name": "Dhaka-12",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 29510,
+    "Independent": 28641,
+    "Jamaat-led alliance": 50421,
+    "Other party": 7180
+   },
+   "total_voters": 317451,
+   "valid_votes": 115752,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4356,
+   "margin": 0.1807
+  },
+  {
+   "constituency_id": "186",
+   "name": "Dhaka-13",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 68736,
+    "Independent": 1705,
+    "Jamaat-led alliance": 65896,
+    "Other party": 1257
+   },
+   "total_voters": 319148,
+   "valid_votes": 137594,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4996,
+   "margin": 0.0206
+  },
+  {
+   "constituency_id": "187",
+   "name": "Dhaka-14",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 78484,
+    "Independent": 15608,
+    "Jamaat-led alliance": 94791,
+    "Other party": 5845
+   },
+   "total_voters": 432225,
+   "valid_votes": 194728,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4868,
+   "margin": 0.0837
+  },
+  {
+   "constituency_id": "188",
+   "name": "Dhaka-15",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 61468,
+    "Independent": 0,
+    "Jamaat-led alliance": 81712,
+    "Other party": 3204
+   },
+   "total_voters": 341311,
+   "valid_votes": 146384,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5582,
+   "margin": 0.1383
+  },
+  {
+   "constituency_id": "189",
+   "name": "Dhaka-16",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 78620,
+    "Independent": 0,
+    "Jamaat-led alliance": 80556,
+    "Other party": 5974
+   },
+   "total_voters": 367896,
+   "valid_votes": 165150,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4878,
+   "margin": 0.0117
+  },
+  {
+   "constituency_id": "190",
+   "name": "Dhaka-17",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 68175,
+    "Independent": 254,
+    "Jamaat-led alliance": 62876,
+    "Other party": 4146
+   },
+   "total_voters": 314234,
+   "valid_votes": 135451,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5033,
+   "margin": 0.0391
+  },
+  {
+   "constituency_id": "191",
+   "name": "Dhaka-18",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 128751,
+    "Independent": 3673,
+    "Jamaat-led alliance": 97581,
+    "Other party": 8444
+   },
+   "total_voters": 547347,
+   "valid_votes": 238449,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.54,
+   "margin": 0.1307
+  },
+  {
+   "constituency_id": "192",
+   "name": "Dhaka-19",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 189478,
+    "Independent": 0,
+    "Jamaat-led alliance": 123641,
+    "Other party": 14935
+   },
+   "total_voters": 731848,
+   "valid_votes": 328054,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5776,
+   "margin": 0.2007
+  },
+  {
+   "constituency_id": "193",
+   "name": "Dhaka-20",
+   "district": "Dhaka",
+   "votes": {
+    "BNP-led alliance": 101639,
+    "Independent": 0,
+    "Jamaat-led alliance": 34906,
+    "Other party": 8042
+   },
+   "total_voters": 229330,
+   "valid_votes": 144587,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.703,
+   "margin": 0.4615
+  },
+  {
+   "constituency_id": "194",
+   "name": "Gazipur-1",
+   "district": "Gazipur",
+   "votes": {
+    "BNP-led alliance": 194685,
+    "Independent": 6260,
+    "Jamaat-led alliance": 140486,
+    "Other party": 8929
+   },
+   "total_voters": 681086,
+   "valid_votes": 350360,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5557,
+   "margin": 0.1547
+  },
+  {
+   "constituency_id": "195",
+   "name": "Gazipur-2",
+   "district": "Gazipur",
+   "votes": {
+    "BNP-led alliance": 177951,
+    "Independent": 1522,
+    "Jamaat-led alliance": 131575,
+    "Other party": 18726
+   },
+   "total_voters": 756420,
+   "valid_votes": 329774,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5396,
+   "margin": 0.1406
+  },
+  {
+   "constituency_id": "196",
+   "name": "Gazipur-3",
+   "district": "Gazipur",
+   "votes": {
+    "BNP-led alliance": 154331,
+    "Independent": 21635,
+    "Jamaat-led alliance": 95003,
+    "Other party": 9807
+   },
+   "total_voters": 500616,
+   "valid_votes": 280776,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5497,
+   "margin": 0.2113
+  },
+  {
+   "constituency_id": "197",
+   "name": "Gazipur-4",
+   "district": "Gazipur",
+   "votes": {
+    "BNP-led alliance": 79969,
+    "Independent": 1249,
+    "Jamaat-led alliance": 91598,
+    "Other party": 5343
+   },
+   "total_voters": 296604,
+   "valid_votes": 178159,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5141,
+   "margin": 0.0653
+  },
+  {
+   "constituency_id": "198",
+   "name": "Gazipur-5",
+   "district": "Gazipur",
+   "votes": {
+    "BNP-led alliance": 109406,
+    "Independent": 0,
+    "Jamaat-led alliance": 63505,
+    "Other party": 10046
+   },
+   "total_voters": 288352,
+   "valid_votes": 182957,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.598,
+   "margin": 0.2509
+  },
+  {
+   "constituency_id": "199",
+   "name": "Narshingdi-1",
+   "district": "Narsingdi",
+   "votes": {
+    "BNP-led alliance": 159405,
+    "Independent": 0,
+    "Jamaat-led alliance": 92873,
+    "Other party": 15932
+   },
+   "total_voters": 469359,
+   "valid_votes": 268210,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5943,
+   "margin": 0.2481
+  },
+  {
+   "constituency_id": "200",
+   "name": "Narshingdi-2",
+   "district": "Narsingdi",
+   "votes": {
+    "BNP-led alliance": 85038,
+    "Independent": 0,
+    "Jamaat-led alliance": 17880,
+    "Other party": 51950
+   },
+   "total_voters": 260755,
+   "valid_votes": 154868,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5491,
+   "margin": 0.2137
+  },
+  {
+   "constituency_id": "201",
+   "name": "Narshingdi-3",
+   "district": "Narsingdi",
+   "votes": {
+    "BNP-led alliance": 81415,
+    "Independent": 45401,
+    "Jamaat-led alliance": 24968,
+    "Other party": 13519
+   },
+   "total_voters": 280929,
+   "valid_votes": 165303,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4925,
+   "margin": 0.2179
+  },
+  {
+   "constituency_id": "202",
+   "name": "Narshingdi-4",
+   "district": "Narsingdi",
+   "votes": {
+    "BNP-led alliance": 147262,
+    "Independent": 0,
+    "Jamaat-led alliance": 72712,
+    "Other party": 10900
+   },
+   "total_voters": 388776,
+   "valid_votes": 230874,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6378,
+   "margin": 0.3229
+  },
+  {
+   "constituency_id": "203",
+   "name": "Narshingdi-5",
+   "district": "Narsingdi",
+   "votes": {
+    "BNP-led alliance": 129018,
+    "Independent": 24865,
+    "Jamaat-led alliance": 42406,
+    "Other party": 35689
+   },
+   "total_voters": 465548,
+   "valid_votes": 231978,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5562,
+   "margin": 0.3734
+  },
+  {
+   "constituency_id": "204",
+   "name": "Narayangonj-1",
+   "district": "Narayanganj",
+   "votes": {
+    "BNP-led alliance": 150022,
+    "Independent": 437,
+    "Jamaat-led alliance": 86970,
+    "Other party": 7581
+   },
+   "total_voters": 391106,
+   "valid_votes": 245010,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6123,
+   "margin": 0.2573
+  },
+  {
+   "constituency_id": "205",
+   "name": "Narayangonj-2",
+   "district": "Narayanganj",
+   "votes": {
+    "BNP-led alliance": 120331,
+    "Independent": 17482,
+    "Jamaat-led alliance": 77370,
+    "Other party": 5455
+   },
+   "total_voters": 345871,
+   "valid_votes": 220638,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5454,
+   "margin": 0.1947
+  },
+  {
+   "constituency_id": "206",
+   "name": "Narayangonj-3",
+   "district": "Narayanganj",
+   "votes": {
+    "BNP-led alliance": 149203,
+    "Independent": 24071,
+    "Jamaat-led alliance": 127099,
+    "Other party": 16683
+   },
+   "total_voters": 565819,
+   "valid_votes": 317056,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4706,
+   "margin": 0.0697
+  },
+  {
+   "constituency_id": "207",
+   "name": "Narayangonj-4",
+   "district": "Narayanganj",
+   "votes": {
+    "BNP-led alliance": 80138,
+    "Independent": 44389,
+    "Jamaat-led alliance": 104482,
+    "Other party": 30989
+   },
+   "total_voters": 536086,
+   "valid_votes": 259998,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4019,
+   "margin": 0.0936
+  },
+  {
+   "constituency_id": "208",
+   "name": "Narayangonj-5",
+   "district": "Narayanganj",
+   "votes": {
+    "BNP-led alliance": 113413,
+    "Independent": 34049,
+    "Jamaat-led alliance": 98592,
+    "Other party": 15597
+   },
+   "total_voters": 477055,
+   "valid_votes": 261651,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4335,
+   "margin": 0.0566
+  },
+  {
+   "constituency_id": "209",
+   "name": "Rajbari-1",
+   "district": "Rajbari",
+   "votes": {
+    "BNP-led alliance": 148860,
+    "Independent": 0,
+    "Jamaat-led alliance": 95604,
+    "Other party": 10437
+   },
+   "total_voters": 412267,
+   "valid_votes": 254901,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.584,
+   "margin": 0.2089
+  },
+  {
+   "constituency_id": "210",
+   "name": "Rajbari-2",
+   "district": "Rajbari",
+   "votes": {
+    "BNP-led alliance": 227558,
+    "Independent": 35984,
+    "Jamaat-led alliance": 62920,
+    "Other party": 11144
+   },
+   "total_voters": 534205,
+   "valid_votes": 337606,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.674,
+   "margin": 0.4877
+  },
+  {
+   "constituency_id": "211",
+   "name": "Faridpur-1",
+   "district": "Faridpur",
+   "votes": {
+    "BNP-led alliance": 119103,
+    "Independent": 34566,
+    "Jamaat-led alliance": 144808,
+    "Other party": 1158
+   },
+   "total_voters": 480054,
+   "valid_votes": 299635,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.4833,
+   "margin": 0.0858
+  },
+  {
+   "constituency_id": "212",
+   "name": "Faridpur-2",
+   "district": "Faridpur",
+   "votes": {
+    "BNP-led alliance": 117220,
+    "Independent": 0,
+    "Jamaat-led alliance": 85229,
+    "Other party": 3802
+   },
+   "total_voters": 318897,
+   "valid_votes": 206251,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5683,
+   "margin": 0.1551
+  },
+  {
+   "constituency_id": "213",
+   "name": "Faridpur-3",
+   "district": "Faridpur",
+   "votes": {
+    "BNP-led alliance": 147846,
+    "Independent": 1236,
+    "Jamaat-led alliance": 122449,
+    "Other party": 5171
+   },
+   "total_voters": 428778,
+   "valid_votes": 276702,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5343,
+   "margin": 0.0918
+  },
+  {
+   "constituency_id": "214",
+   "name": "Faridpur-4",
+   "district": "Faridpur",
+   "votes": {
+    "BNP-led alliance": 121461,
+    "Independent": 54676,
+    "Jamaat-led alliance": 69523,
+    "Other party": 13015
+   },
+   "total_voters": 469053,
+   "valid_votes": 258675,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4696,
+   "margin": 0.2008
+  },
+  {
+   "constituency_id": "215",
+   "name": "Gopalgonj-1",
+   "district": "Faridpur",
+   "votes": {
+    "BNP-led alliance": 68635,
+    "Independent": 26176,
+    "Jamaat-led alliance": 33517,
+    "Other party": 60635
+   },
+   "total_voters": 393985,
+   "valid_votes": 188963,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.3632,
+   "margin": 0.0423
+  },
+  {
+   "constituency_id": "216",
+   "name": "Gopalgonj-2",
+   "district": "Gopalganj",
+   "votes": {
+    "BNP-led alliance": 35753,
+    "Independent": 65598,
+    "Jamaat-led alliance": 24252,
+    "Other party": 4554
+   },
+   "total_voters": 336659,
+   "valid_votes": 130157,
+   "winner": "Independent",
+   "winner_share": 0.504,
+   "margin": 0.2293
+  },
+  {
+   "constituency_id": "217",
+   "name": "Gopalgonj-3",
+   "district": "Gopalganj",
+   "votes": {
+    "BNP-led alliance": 54398,
+    "Independent": 33806,
+    "Jamaat-led alliance": 23350,
+    "Other party": 7524
+   },
+   "total_voters": 281622,
+   "valid_votes": 119078,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4568,
+   "margin": 0.1729
+  },
+  {
+   "constituency_id": "218",
+   "name": "Madaripur-1",
+   "district": "Madaripur",
+   "votes": {
+    "BNP-led alliance": 63799,
+    "Independent": 39398,
+    "Jamaat-led alliance": 62587,
+    "Other party": 9582
+   },
+   "total_voters": 318074,
+   "valid_votes": 175366,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.3638,
+   "margin": 0.0069
+  },
+  {
+   "constituency_id": "219",
+   "name": "Madaripur-2",
+   "district": "Madaripur",
+   "votes": {
+    "BNP-led alliance": 60426,
+    "Independent": 68385,
+    "Jamaat-led alliance": 34401,
+    "Other party": 17391
+   },
+   "total_voters": 425135,
+   "valid_votes": 180603,
+   "winner": "Independent",
+   "winner_share": 0.3786,
+   "margin": 0.0441
+  },
+  {
+   "constituency_id": "220",
+   "name": "Madaripur-3",
+   "district": "Madaripur",
+   "votes": {
+    "BNP-led alliance": 93165,
+    "Independent": 339,
+    "Jamaat-led alliance": 79738,
+    "Other party": 14859
+   },
+   "total_voters": 371610,
+   "valid_votes": 188101,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4953,
+   "margin": 0.0714
+  },
+  {
+   "constituency_id": "221",
+   "name": "Sariatpur-1",
+   "district": "Shariatpur",
+   "votes": {
+    "BNP-led alliance": 70145,
+    "Independent": 14118,
+    "Jamaat-led alliance": 56863,
+    "Other party": 11284
+   },
+   "total_voters": 360808,
+   "valid_votes": 152410,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4602,
+   "margin": 0.0871
+  },
+  {
+   "constituency_id": "222",
+   "name": "Sariatpur-2",
+   "district": "Shariatpur",
+   "votes": {
+    "BNP-led alliance": 121988,
+    "Independent": 436,
+    "Jamaat-led alliance": 65958,
+    "Other party": 9766
+   },
+   "total_voters": 393125,
+   "valid_votes": 198148,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6156,
+   "margin": 0.2828
+  },
+  {
+   "constituency_id": "223",
+   "name": "Sariatpur-3",
+   "district": "Shariatpur",
+   "votes": {
+    "BNP-led alliance": 100931,
+    "Independent": 0,
+    "Jamaat-led alliance": 64650,
+    "Other party": 11095
+   },
+   "total_voters": 317796,
+   "valid_votes": 176676,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5713,
+   "margin": 0.2054
+  },
+  {
+   "constituency_id": "224",
+   "name": "Sunamgonj-1",
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 126671,
+    "Independent": 0,
+    "Jamaat-led alliance": 72547,
+    "Other party": 951
+   },
+   "total_voters": 394231,
+   "valid_votes": 200169,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6328,
+   "margin": 0.2704
+  },
+  {
+   "constituency_id": "225",
+   "name": "Sunamgonj-2",
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 82602,
+    "Independent": 0,
+    "Jamaat-led alliance": 53390,
+    "Other party": 1035
+   },
+   "total_voters": 254809,
+   "valid_votes": 137027,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6028,
+   "margin": 0.2132
+  },
+  {
+   "constituency_id": "226",
+   "name": "Sunamgonj-3",
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 95697,
+    "Independent": 40720,
+    "Jamaat-led alliance": 13449,
+    "Other party": 5625
+   },
+   "total_voters": 364115,
+   "valid_votes": 155491,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6155,
+   "margin": 0.3536
+  },
+  {
+   "constituency_id": "227",
+   "name": "Sunamgonj-4",
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 97404,
+    "Independent": 26073,
+    "Jamaat-led alliance": 74365,
+    "Other party": 3686
+   },
+   "total_voters": 368398,
+   "valid_votes": 201528,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4833,
+   "margin": 0.1143
+  },
+  {
+   "constituency_id": "228",
+   "name": "Sunamgonj-5",
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 137497,
+    "Independent": 0,
+    "Jamaat-led alliance": 90641,
+    "Other party": 3777
+   },
+   "total_voters": 476019,
+   "valid_votes": 231915,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5929,
+   "margin": 0.202
+  },
+  {
+   "constituency_id": "229",
+   "name": "Sylhet-1",
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 168842,
+    "Independent": 1065,
+    "Jamaat-led alliance": 125641,
+    "Other party": 4610
+   },
+   "total_voters": 649439,
+   "valid_votes": 300158,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5625,
+   "margin": 0.1439
+  },
+  {
+   "constituency_id": "230",
+   "name": "Sylhet-2",
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 105792,
+    "Independent": 0,
+    "Jamaat-led alliance": 33660,
+    "Other party": 2914
+   },
+   "total_voters": 327340,
+   "valid_votes": 142366,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7431,
+   "margin": 0.5067
+  },
+  {
+   "constituency_id": "231",
+   "name": "Sylhet-3",
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 103825,
+    "Independent": 4047,
+    "Jamaat-led alliance": 66938,
+    "Other party": 3734
+   },
+   "total_voters": 372840,
+   "valid_votes": 178544,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5815,
+   "margin": 0.2066
+  },
+  {
+   "constituency_id": "232",
+   "name": "Sylhet-4",
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 178513,
+    "Independent": 0,
+    "Jamaat-led alliance": 67498,
+    "Other party": 4973
+   },
+   "total_voters": 490328,
+   "valid_votes": 250984,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7113,
+   "margin": 0.4423
+  },
+  {
+   "constituency_id": "233",
+   "name": "Sylhet-5",
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 64220,
+    "Independent": 53082,
+    "Jamaat-led alliance": 72621,
+    "Other party": 357
+   },
+   "total_voters": 397370,
+   "valid_votes": 190280,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.3817,
+   "margin": 0.0442
+  },
+  {
+   "constituency_id": "234",
+   "name": "Sylhet-6",
+   "district": "Sylhet",
+   "votes": {
+    "BNP-led alliance": 106918,
+    "Independent": 22723,
+    "Jamaat-led alliance": 95780,
+    "Other party": 2452
+   },
+   "total_voters": 487967,
+   "valid_votes": 227873,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4692,
+   "margin": 0.0489
+  },
+  {
+   "constituency_id": "235",
+   "name": "Moulavibazar-1",
+   "district": "Maulvibazar",
+   "votes": {
+    "BNP-led alliance": 93479,
+    "Independent": 6229,
+    "Jamaat-led alliance": 76515,
+    "Other party": 1691
+   },
+   "total_voters": 318382,
+   "valid_votes": 177914,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5254,
+   "margin": 0.0953
+  },
+  {
+   "constituency_id": "236",
+   "name": "Moulavibazar-2",
+   "district": "Maulvibazar",
+   "votes": {
+    "BNP-led alliance": 65055,
+    "Independent": 40156,
+    "Jamaat-led alliance": 49685,
+    "Other party": 1465
+   },
+   "total_voters": 287663,
+   "valid_votes": 156361,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4161,
+   "margin": 0.0983
+  },
+  {
+   "constituency_id": "237",
+   "name": "Moulavibazar-3",
+   "district": "Maulvibazar",
+   "votes": {
+    "BNP-led alliance": 155342,
+    "Independent": 0,
+    "Jamaat-led alliance": 75397,
+    "Other party": 5960
+   },
+   "total_voters": 479458,
+   "valid_votes": 236699,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6563,
+   "margin": 0.3377
+  },
+  {
+   "constituency_id": "238",
+   "name": "Moulavibazar-4",
+   "district": "Maulvibazar",
+   "votes": {
+    "BNP-led alliance": 160614,
+    "Independent": 34075,
+    "Jamaat-led alliance": 45867,
+    "Other party": 4907
+   },
+   "total_voters": 458328,
+   "valid_votes": 245463,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6543,
+   "margin": 0.4675
+  },
+  {
+   "constituency_id": "239",
+   "name": "Hobigonj-1",
+   "district": "Sunamganj",
+   "votes": {
+    "BNP-led alliance": 105923,
+    "Independent": 33004,
+    "Jamaat-led alliance": 52334,
+    "Other party": 5788
+   },
+   "total_voters": 442667,
+   "valid_votes": 197049,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5375,
+   "margin": 0.272
+  },
+  {
+   "constituency_id": "240",
+   "name": "Hobigonj-2",
+   "district": "Habiganj",
+   "votes": {
+    "BNP-led alliance": 125971,
+    "Independent": 2270,
+    "Jamaat-led alliance": 64851,
+    "Other party": 931
+   },
+   "total_voters": 391917,
+   "valid_votes": 194023,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6493,
+   "margin": 0.315
+  },
+  {
+   "constituency_id": "241",
+   "name": "Hobigonj-3",
+   "district": "Habiganj",
+   "votes": {
+    "BNP-led alliance": 132523,
+    "Independent": 0,
+    "Jamaat-led alliance": 40402,
+    "Other party": 19187
+   },
+   "total_voters": 386913,
+   "valid_votes": 192112,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6898,
+   "margin": 0.4795
+  },
+  {
+   "constituency_id": "242",
+   "name": "Hobigonj-4",
+   "district": "Habiganj",
+   "votes": {
+    "BNP-led alliance": 186678,
+    "Independent": 1582,
+    "Jamaat-led alliance": 25423,
+    "Other party": 85387
+   },
+   "total_voters": 547747,
+   "valid_votes": 299070,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6242,
+   "margin": 0.3387
+  },
+  {
+   "constituency_id": "243",
+   "name": "Brahmanbaria-1",
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 67783,
+    "Independent": 52841,
+    "Jamaat-led alliance": 23888,
+    "Other party": 1296
+   },
+   "total_voters": 273827,
+   "valid_votes": 145808,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4649,
+   "margin": 0.1025
+  },
+  {
+   "constituency_id": "244",
+   "name": "Brahmanbaria-2",
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 76862,
+    "Independent": 125514,
+    "Jamaat-led alliance": 18144,
+    "Other party": 5565
+   },
+   "total_voters": 476239,
+   "valid_votes": 226085,
+   "winner": "Independent",
+   "winner_share": 0.5552,
+   "margin": 0.2152
+  },
+  {
+   "constituency_id": "245",
+   "name": "Brahmanbaria-3",
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 205833,
+    "Independent": 259,
+    "Jamaat-led alliance": 58734,
+    "Other party": 14473
+   },
+   "total_voters": 609098,
+   "valid_votes": 279299,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.737,
+   "margin": 0.5267
+  },
+  {
+   "constituency_id": "246",
+   "name": "Brahmanbaria-4",
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 132295,
+    "Independent": 0,
+    "Jamaat-led alliance": 82455,
+    "Other party": 5364
+   },
+   "total_voters": 415635,
+   "valid_votes": 220114,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.601,
+   "margin": 0.2264
+  },
+  {
+   "constituency_id": "247",
+   "name": "Brahmanbaria-5",
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 84185,
+    "Independent": 83536,
+    "Jamaat-led alliance": 56707,
+    "Other party": 21569
+   },
+   "total_voters": 462773,
+   "valid_votes": 245997,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.3422,
+   "margin": 0.0026
+  },
+  {
+   "constituency_id": "248",
+   "name": "Brahmanbaria-6",
+   "district": "Brahamanbaria",
+   "votes": {
+    "BNP-led alliance": 93522,
+    "Independent": 2543,
+    "Jamaat-led alliance": 37756,
+    "Other party": 11460
+   },
+   "total_voters": 282614,
+   "valid_votes": 145281,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6437,
+   "margin": 0.3838
+  },
+  {
+   "constituency_id": "249",
+   "name": "Comilla-1",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 127682,
+    "Independent": 373,
+    "Jamaat-led alliance": 83333,
+    "Other party": 7675
+   },
+   "total_voters": 394348,
+   "valid_votes": 219063,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5829,
+   "margin": 0.2024
+  },
+  {
+   "constituency_id": "250",
+   "name": "Comilla-2",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 70538,
+    "Independent": 59746,
+    "Jamaat-led alliance": 46095,
+    "Other party": 7483
+   },
+   "total_voters": 344629,
+   "valid_votes": 183862,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.3836,
+   "margin": 0.0587
+  },
+  {
+   "constituency_id": "251",
+   "name": "Comilla-3",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 142786,
+    "Independent": 0,
+    "Jamaat-led alliance": 95500,
+    "Other party": 4693
+   },
+   "total_voters": 445322,
+   "valid_votes": 242979,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5876,
+   "margin": 0.1946
+  },
+  {
+   "constituency_id": "252",
+   "name": "Comilla-4",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 0,
+    "Independent": 0,
+    "Jamaat-led alliance": 158561,
+    "Other party": 51871
+   },
+   "total_voters": 396059,
+   "valid_votes": 210432,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.7535,
+   "margin": 0.507
+  },
+  {
+   "constituency_id": "253",
+   "name": "Comilla-5",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 132132,
+    "Independent": 0,
+    "Jamaat-led alliance": 117809,
+    "Other party": 4997
+   },
+   "total_voters": 462218,
+   "valid_votes": 254938,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5183,
+   "margin": 0.0562
+  },
+  {
+   "constituency_id": "254",
+   "name": "Comilla-6",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 184376,
+    "Independent": 445,
+    "Jamaat-led alliance": 103635,
+    "Other party": 8780
+   },
+   "total_voters": 579458,
+   "valid_votes": 297236,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6203,
+   "margin": 0.2716
+  },
+  {
+   "constituency_id": "255",
+   "name": "Comilla-7",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 47528,
+    "Independent": 89972,
+    "Jamaat-led alliance": 24454,
+    "Other party": 14284
+   },
+   "total_voters": 320633,
+   "valid_votes": 176238,
+   "winner": "Independent",
+   "winner_share": 0.5105,
+   "margin": 0.2408
+  },
+  {
+   "constituency_id": "256",
+   "name": "Comilla-8",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 162188,
+    "Independent": 153,
+    "Jamaat-led alliance": 40276,
+    "Other party": 6363
+   },
+   "total_voters": 361247,
+   "valid_votes": 208980,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7761,
+   "margin": 0.5834
+  },
+  {
+   "constituency_id": "257",
+   "name": "Comilla-9",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 151902,
+    "Independent": 635,
+    "Jamaat-led alliance": 101669,
+    "Other party": 10804
+   },
+   "total_voters": 418797,
+   "valid_votes": 265010,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5732,
+   "margin": 0.1896
+  },
+  {
+   "constituency_id": "258",
+   "name": "Comilla-10",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 147397,
+    "Independent": 0,
+    "Jamaat-led alliance": 106948,
+    "Other party": 8318
+   },
+   "total_voters": 480879,
+   "valid_votes": 262663,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5612,
+   "margin": 0.154
+  },
+  {
+   "constituency_id": "259",
+   "name": "Comilla-11",
+   "district": "Comilla",
+   "votes": {
+    "BNP-led alliance": 70878,
+    "Independent": 0,
+    "Jamaat-led alliance": 122973,
+    "Other party": 3645
+   },
+   "total_voters": 366210,
+   "valid_votes": 197496,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.6227,
+   "margin": 0.2638
+  },
+  {
+   "constituency_id": "260",
+   "name": "Chandpur-1",
+   "district": "Chandpur",
+   "votes": {
+    "BNP-led alliance": 128720,
+    "Independent": 0,
+    "Jamaat-led alliance": 66342,
+    "Other party": 5371
+   },
+   "total_voters": 344120,
+   "valid_votes": 200433,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6422,
+   "margin": 0.3112
+  },
+  {
+   "constituency_id": "261",
+   "name": "Chandpur-2",
+   "district": "Chandpur",
+   "votes": {
+    "BNP-led alliance": 166813,
+    "Independent": 0,
+    "Jamaat-led alliance": 53669,
+    "Other party": 14154
+   },
+   "total_voters": 482874,
+   "valid_votes": 234636,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7109,
+   "margin": 0.4822
+  },
+  {
+   "constituency_id": "262",
+   "name": "Chandpur-3",
+   "district": "Chandpur",
+   "votes": {
+    "BNP-led alliance": 158142,
+    "Independent": 0,
+    "Jamaat-led alliance": 95420,
+    "Other party": 16958
+   },
+   "total_voters": 522010,
+   "valid_votes": 270520,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5846,
+   "margin": 0.2319
+  },
+  {
+   "constituency_id": "263",
+   "name": "Chandpur-4",
+   "district": "Chandpur",
+   "votes": {
+    "BNP-led alliance": 67335,
+    "Independent": 73042,
+    "Jamaat-led alliance": 61850,
+    "Other party": 6037
+   },
+   "total_voters": 388181,
+   "valid_votes": 208264,
+   "winner": "Independent",
+   "winner_share": 0.3507,
+   "margin": 0.0274
+  },
+  {
+   "constituency_id": "264",
+   "name": "Chandpur-5",
+   "district": "Chandpur",
+   "votes": {
+    "BNP-led alliance": 164175,
+    "Independent": 229,
+    "Jamaat-led alliance": 64423,
+    "Other party": 18544
+   },
+   "total_voters": 462945,
+   "valid_votes": 247371,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6637,
+   "margin": 0.4032
+  },
+  {
+   "constituency_id": "265",
+   "name": "Feni-1",
+   "district": "Feni",
+   "votes": {
+    "BNP-led alliance": 110282,
+    "Independent": 0,
+    "Jamaat-led alliance": 76076,
+    "Other party": 6422
+   },
+   "total_voters": 352854,
+   "valid_votes": 192780,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5721,
+   "margin": 0.1774
+  },
+  {
+   "constituency_id": "266",
+   "name": "Feni-2",
+   "district": "Feni",
+   "votes": {
+    "BNP-led alliance": 102370,
+    "Independent": 566,
+    "Jamaat-led alliance": 60235,
+    "Other party": 7574
+   },
+   "total_voters": 340605,
+   "valid_votes": 170745,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5995,
+   "margin": 0.2468
+  },
+  {
+   "constituency_id": "267",
+   "name": "Feni-3",
+   "district": "Feni",
+   "votes": {
+    "BNP-led alliance": 130628,
+    "Independent": 579,
+    "Jamaat-led alliance": 83640,
+    "Other party": 7791
+   },
+   "total_voters": 413424,
+   "valid_votes": 222638,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5867,
+   "margin": 0.2111
+  },
+  {
+   "constituency_id": "268",
+   "name": "Noakhali-1",
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 119621,
+    "Independent": 0,
+    "Jamaat-led alliance": 88850,
+    "Other party": 19719
+   },
+   "total_voters": 421812,
+   "valid_votes": 228190,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5242,
+   "margin": 0.1348
+  },
+  {
+   "constituency_id": "269",
+   "name": "Noakhali-2",
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 79315,
+    "Independent": 42662,
+    "Jamaat-led alliance": 61426,
+    "Other party": 6425
+   },
+   "total_voters": 338384,
+   "valid_votes": 189828,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4178,
+   "margin": 0.0942
+  },
+  {
+   "constituency_id": "270",
+   "name": "Noakhali-3",
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 127186,
+    "Independent": 701,
+    "Jamaat-led alliance": 107305,
+    "Other party": 10264
+   },
+   "total_voters": 456788,
+   "valid_votes": 245456,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5182,
+   "margin": 0.081
+  },
+  {
+   "constituency_id": "271",
+   "name": "Noakhali-4",
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 207207,
+    "Independent": 0,
+    "Jamaat-led alliance": 138344,
+    "Other party": 18266
+   },
+   "total_voters": 660700,
+   "valid_votes": 363817,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5695,
+   "margin": 0.1893
+  },
+  {
+   "constituency_id": "272",
+   "name": "Noakhali-5",
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 138808,
+    "Independent": 854,
+    "Jamaat-led alliance": 107846,
+    "Other party": 12755
+   },
+   "total_voters": 466869,
+   "valid_votes": 260263,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5333,
+   "margin": 0.119
+  },
+  {
+   "constituency_id": "273",
+   "name": "Noakhali-6",
+   "district": "Noakhali",
+   "votes": {
+    "BNP-led alliance": 55588,
+    "Independent": 7461,
+    "Jamaat-led alliance": 78351,
+    "Other party": 3716
+   },
+   "total_voters": 285162,
+   "valid_votes": 145116,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5399,
+   "margin": 0.1569
+  },
+  {
+   "constituency_id": "274",
+   "name": "Lakshmipur-1",
+   "district": "Lakshmipur",
+   "votes": {
+    "BNP-led alliance": 79808,
+    "Independent": 188,
+    "Jamaat-led alliance": 52675,
+    "Other party": 10587
+   },
+   "total_voters": 255724,
+   "valid_votes": 143258,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5571,
+   "margin": 0.1894
+  },
+  {
+   "constituency_id": "275",
+   "name": "Lakshmipur-2",
+   "district": "Lakshmipur",
+   "votes": {
+    "BNP-led alliance": 131459,
+    "Independent": 0,
+    "Jamaat-led alliance": 117842,
+    "Other party": 8638
+   },
+   "total_voters": 441179,
+   "valid_votes": 257939,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5097,
+   "margin": 0.0528
+  },
+  {
+   "constituency_id": "276",
+   "name": "Lakshmipur-3",
+   "district": "Lakshmipur",
+   "votes": {
+    "BNP-led alliance": 119574,
+    "Independent": 0,
+    "Jamaat-led alliance": 106827,
+    "Other party": 6071
+   },
+   "total_voters": 390099,
+   "valid_votes": 232472,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5144,
+   "margin": 0.0548
+  },
+  {
+   "constituency_id": "277",
+   "name": "Lakshmipur-4",
+   "district": "Lakshmipur",
+   "votes": {
+    "BNP-led alliance": 104801,
+    "Independent": 1503,
+    "Jamaat-led alliance": 65965,
+    "Other party": 39973
+   },
+   "total_voters": 380404,
+   "valid_votes": 212242,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4938,
+   "margin": 0.183
+  },
+  {
+   "constituency_id": "278",
+   "name": "Chittagong-1",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 125282,
+    "Independent": 0,
+    "Jamaat-led alliance": 79426,
+    "Other party": 4886
+   },
+   "total_voters": 372664,
+   "valid_votes": 209594,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5977,
+   "margin": 0.2188
+  },
+  {
+   "constituency_id": "280",
+   "name": "Chittagong-3",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 70329,
+    "Independent": 278,
+    "Jamaat-led alliance": 35836,
+    "Other party": 4813
+   },
+   "total_voters": 247067,
+   "valid_votes": 111256,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6321,
+   "margin": 0.31
+  },
+  {
+   "constituency_id": "282",
+   "name": "Chittagong-5",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 140215,
+    "Independent": 1038,
+    "Jamaat-led alliance": 42740,
+    "Other party": 17031
+   },
+   "total_voters": 473820,
+   "valid_votes": 201024,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6975,
+   "margin": 0.4849
+  },
+  {
+   "constituency_id": "283",
+   "name": "Chittagong-6",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 93969,
+    "Independent": 0,
+    "Jamaat-led alliance": 17755,
+    "Other party": 21541
+   },
+   "total_voters": 281620,
+   "valid_votes": 133265,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7051,
+   "margin": 0.5435
+  },
+  {
+   "constituency_id": "284",
+   "name": "Chittagong-7",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 96518,
+    "Independent": 0,
+    "Jamaat-led alliance": 37263,
+    "Other party": 30642
+   },
+   "total_voters": 300091,
+   "valid_votes": 164423,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.587,
+   "margin": 0.3604
+  },
+  {
+   "constituency_id": "285",
+   "name": "Chittagong-8",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 144854,
+    "Independent": 0,
+    "Jamaat-led alliance": 2810,
+    "Other party": 91519
+   },
+   "total_voters": 526576,
+   "valid_votes": 239183,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6056,
+   "margin": 0.223
+  },
+  {
+   "constituency_id": "286",
+   "name": "Chittagong-9",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 106765,
+    "Independent": 0,
+    "Jamaat-led alliance": 51342,
+    "Other party": 7400
+   },
+   "total_voters": 403262,
+   "valid_votes": 165507,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6451,
+   "margin": 0.3349
+  },
+  {
+   "constituency_id": "287",
+   "name": "Chittagong-10",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 108487,
+    "Independent": 288,
+    "Jamaat-led alliance": 65359,
+    "Other party": 7786
+   },
+   "total_voters": 428423,
+   "valid_votes": 181920,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5963,
+   "margin": 0.2371
+  },
+  {
+   "constituency_id": "288",
+   "name": "Chittagong-11",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 108680,
+    "Independent": 273,
+    "Jamaat-led alliance": 70266,
+    "Other party": 8862
+   },
+   "total_voters": 464428,
+   "valid_votes": 188081,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5778,
+   "margin": 0.2042
+  },
+  {
+   "constituency_id": "289",
+   "name": "Chittagong-12",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 128577,
+    "Independent": 230,
+    "Jamaat-led alliance": 19844,
+    "Other party": 30363
+   },
+   "total_voters": 335142,
+   "valid_votes": 179014,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7183,
+   "margin": 0.5486
+  },
+  {
+   "constituency_id": "290",
+   "name": "Chittagong-13",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 116219,
+    "Independent": 0,
+    "Jamaat-led alliance": 31441,
+    "Other party": 48178
+   },
+   "total_voters": 362894,
+   "valid_votes": 195838,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5934,
+   "margin": 0.3474
+  },
+  {
+   "constituency_id": "291",
+   "name": "Chittagong-14",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 74722,
+    "Independent": 4707,
+    "Jamaat-led alliance": 72000,
+    "Other party": 24279
+   },
+   "total_voters": 304311,
+   "valid_votes": 175708,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4253,
+   "margin": 0.0155
+  },
+  {
+   "constituency_id": "292",
+   "name": "Chittagong-15",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 129091,
+    "Independent": 0,
+    "Jamaat-led alliance": 171302,
+    "Other party": 2870
+   },
+   "total_voters": 490584,
+   "valid_votes": 303263,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.5649,
+   "margin": 0.1392
+  },
+  {
+   "constituency_id": "293",
+   "name": "Chittagong-16",
+   "district": "Chittagong",
+   "votes": {
+    "BNP-led alliance": 70530,
+    "Independent": 43835,
+    "Jamaat-led alliance": 74151,
+    "Other party": 4497
+   },
+   "total_voters": 334913,
+   "valid_votes": 193013,
+   "winner": "Jamaat-led alliance",
+   "winner_share": 0.3842,
+   "margin": 0.0188
+  },
+  {
+   "constituency_id": "294",
+   "name": "Coxs Bazar-1",
+   "district": "Cox's Bazar",
+   "votes": {
+    "BNP-led alliance": 192077,
+    "Independent": 0,
+    "Jamaat-led alliance": 109477,
+    "Other party": 3888
+   },
+   "total_voters": 464971,
+   "valid_votes": 305442,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.6288,
+   "margin": 0.2704
+  },
+  {
+   "constituency_id": "295",
+   "name": "Coxs Bazar-2",
+   "district": "Cox's Bazar",
+   "votes": {
+    "BNP-led alliance": 115711,
+    "Independent": 0,
+    "Jamaat-led alliance": 85406,
+    "Other party": 8838
+   },
+   "total_voters": 358460,
+   "valid_votes": 209955,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5511,
+   "margin": 0.1443
+  },
+  {
+   "constituency_id": "296",
+   "name": "Coxs Bazar-3",
+   "district": "Cox's Bazar",
+   "votes": {
+    "BNP-led alliance": 171269,
+    "Independent": 903,
+    "Jamaat-led alliance": 147032,
+    "Other party": 5703
+   },
+   "total_voters": 507216,
+   "valid_votes": 324907,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.5271,
+   "margin": 0.0746
+  },
+  {
+   "constituency_id": "297",
+   "name": "Coxs Bazar-4",
+   "district": "Cox's Bazar",
+   "votes": {
+    "BNP-led alliance": 107086,
+    "Independent": 0,
+    "Jamaat-led alliance": 104455,
+    "Other party": 3862
+   },
+   "total_voters": 323022,
+   "valid_votes": 215403,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4971,
+   "margin": 0.0122
+  },
+  {
+   "constituency_id": "298",
+   "name": "Khagrachhari",
+   "district": "Khagrachhari",
+   "votes": {
+    "BNP-led alliance": 145443,
+    "Independent": 112097,
+    "Jamaat-led alliance": 55183,
+    "Other party": 6372
+   },
+   "total_voters": 532827,
+   "valid_votes": 319095,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.4558,
+   "margin": 0.1045
+  },
+  {
+   "constituency_id": "299",
+   "name": "Rangamati",
+   "district": "Rangamati",
+   "votes": {
+    "BNP-led alliance": 193676,
+    "Independent": 30060,
+    "Jamaat-led alliance": 20784,
+    "Other party": 7701
+   },
+   "total_voters": 487528,
+   "valid_votes": 252221,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.7679,
+   "margin": 0.6487
+  },
+  {
+   "constituency_id": "300",
+   "name": "Bandarban",
+   "district": "Bandarban",
+   "votes": {
+    "BNP-led alliance": 110285,
+    "Independent": 0,
+    "Jamaat-led alliance": 22594,
+    "Other party": 6195
+   },
+   "total_voters": 243738,
+   "valid_votes": 139074,
+   "winner": "BNP-led alliance",
+   "winner_share": 0.793,
+   "margin": 0.6305
+  }
+ ]
+}

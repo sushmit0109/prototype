@@ -570,6 +570,113 @@ function renderGrowth(growth) {
   }
 }
 
+/* ── Political spending: does winning translate to money? ─────────── */
+
+function renderPoliticalSpending(pol) {
+  if (!pol) {
+    document.getElementById("political").style.display = "none";
+    return;
+  }
+  const real = pol.main_did_simple.did_bdt_per_voter;
+  const placebo = pol.placebo_did_simple.did_bdt_per_voter;
+  const failsPlacebo = Math.abs(placebo) >= Math.abs(real) * 0.5; // placebo isn't small relative to the real effect
+
+  document.getElementById("polHeadline").textContent = failsPlacebo
+    ? "No credible causal effect — the same gap already existed before anyone had won anything"
+    : "A real gap that survives its own placebo test";
+
+  // Grouped bar: real vs. placebo, simple Tk/voter DiD -- the whole point
+  // is that these two bars look similar, which a correlation-only analysis
+  // would never have shown you.
+  const rows = [
+    ["Real: interim → elected government", real, "the actual 2026 election"],
+    ["Placebo: pre-interim → interim government", placebo, "before anyone had won anything — should be ~zero"],
+  ];
+  const max = Math.max(...rows.map(r => Math.abs(r[1])), 1);
+  const W = 800, H = 150, padL = 300, padR = 90, padT = 10;
+  const rowH = (H - padT) / rows.length, bh = rowH * 0.5;
+  const pw = W - padL - padR;
+  let body = "";
+  rows.forEach(([label, v, sub], i) => {
+    const yy = padT + i * rowH + (rowH - bh) / 2;
+    const w = Math.max((Math.abs(v) / max) * pw, 2);
+    const isPlacebo = i === 1;
+    body += `<text class="ax-strong" x="${padL - 12}" y="${yy + bh / 2 + 2}" text-anchor="end">${esc(label)}</text>
+             <text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 14}" text-anchor="end" font-size="9">${esc(sub)}</text>
+             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="${isPlacebo ? "var(--s4)" : "var(--s1)"}">
+               <title>${esc(label)}: ${taka(v)}/voter difference-in-differences</title></rect>
+             <text class="val-label${isPlacebo ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">${taka(v)}/voter</text>`;
+  });
+  document.getElementById("chartPolDid").innerHTML = svg(W, H, body);
+  document.getElementById("capPolDid").textContent =
+    "Simple group-means difference-in-differences (no fixed effects, easy to verify by hand): "
+    + "(BNP districts, after − before) − (non-BNP districts, after − before), in taka per registered voter. "
+    + "The placebo bar uses the identical formula and the identical BNP/non-BNP grouping, just moved to a period before the 2026 election happened.";
+
+  const rp = pol.meta;
+  document.getElementById("polRegBody").innerHTML = [
+    ["Main (BNP won district, binary)", pol.main_did, pol.main_did_simple],
+    ["Placebo (same grouping, pre-election)", pol.placebo_did, pol.placebo_did_simple],
+    ["Main, continuous vote share", pol.continuous_vote_share_did, null],
+    ["Placebo, continuous vote share", pol.continuous_vote_share_placebo_did, null],
+  ].map(([label, reg, simple]) => `
+    <tr>
+      <td class="strong">${esc(label)}</td>
+      <td class="n">${reg.coefficient}</td>
+      <td class="n${reg.p_value < 0.05 ? " hi" : ""}">${reg.p_value}</td>
+      <td class="n muted">${simple ? taka(simple.did_bdt_per_voter) + "/voter" : "—"}</td>
+    </tr>`).join("");
+
+  document.getElementById("polScatterLede").textContent =
+    "Each of the 64 matched districts: BNP-led alliance's share of the district's vote (x) against "
+    + "how its per-voter e-GP spending changed from the interim government to the elected government (y). "
+    + "If winning paid off, BNP strongholds (right side) should sit above the line more than BNP-weak districts (left side).";
+
+  const scatter = pol.district_scatter;
+  const W2 = 800, H2 = 320, pL = 50, pR = 20, pT = 16, pB = 34;
+  const pw2 = W2 - pL - pR, ph2 = H2 - pT - pB;
+  const changes = scatter.map(d => d.elected_value_per_voter_bdt - d.interim_value_per_voter_bdt);
+  const yMax = Math.max(...changes.map(Math.abs), 1) * 1.08;
+  const xOf = v => pL + v * pw2;
+  const yOf = v => pT + ph2 / 2 - (v / yMax) * (ph2 / 2);
+  let body2 = "";
+  body2 += `<line x1="${pL}" y1="${yOf(0)}" x2="${W2 - pR}" y2="${yOf(0)}" class="grid"/>`;
+  for (let gx = 0; gx <= 1; gx += 0.25) {
+    body2 += `<text class="ax" x="${xOf(gx)}" y="${H2 - 16}" text-anchor="middle">${pct(gx)}</text>`;
+  }
+  body2 += `<text class="ax" x="${pL + pw2 / 2}" y="${H2 - 2}" text-anchor="middle">BNP-led alliance vote share</text>`;
+  scatter.forEach((d, i) => {
+    const x = xOf(d.bnp_vote_share);
+    const y = yOf(changes[i]);
+    const color = d.bnp_won ? "var(--s1)" : "var(--s4)";
+    body2 += `<circle cx="${x}" cy="${y}" r="4" fill="${color}" fill-opacity="0.75">
+      <title>${esc(d.district)}: ${pct(d.bnp_vote_share, 1)} BNP vote share, ${d.bnp_won ? "won" : "did not win"} the district; `
+      + `per-voter spending ${changes[i] >= 0 ? "up" : "down"} ${taka(Math.abs(changes[i]))} from interim to elected</title></circle>`;
+  });
+  document.getElementById("chartPolScatter").innerHTML = svg(W2, H2, body2);
+  document.getElementById("legendPolScatter").innerHTML =
+    legend([["var(--s1)", "won the district"], ["var(--s4)", "did not win the district"]]);
+  document.getElementById("capPolScatter").textContent =
+    "Blue = district elected a BNP-led-alliance seat majority; amber = it didn't. No visible upward slope on "
+    + "the blue points relative to the amber ones is exactly what the regression's non-significant interaction term says numerically.";
+
+  document.getElementById("polMethodText").innerHTML =
+    `<strong>Design:</strong> panel difference-in-differences, two-way fixed effects (64 districts × `
+    + `${pol.main_did.n_periods} periods), outcome asinh(contract value ÷ registered voters), standard errors `
+    + `clustered by district (t-distribution, ${pol.main_did.df} degrees of freedom). Pre-period: calendar years `
+    + `${pol.meta.pre_years_main[0]}-${pol.meta.pre_years_main[pol.meta.pre_years_main.length - 1]}. Post-period: `
+    + `the "${pol.meta.post_period_main}" era as defined elsewhere on this page (Feb 2026-present), not a partial `
+    + `calendar year. The placebo repeats this exactly, with the post-period moved to the interim government `
+    + `(pre-period ${pol.meta.pre_years_placebo[0]}-${pol.meta.pre_years_placebo[pol.meta.pre_years_placebo.length - 1]}) `
+    + `and the identical BNP-won classification, which is fixed at each district's real 2026 outcome throughout — `
+    + `only the period being tested moves. <strong>Source:</strong> election results from `
+    + `<a href="https://interactive.netra.news/bangladesh-election-2026-map/" target="_blank" rel="noopener">netra.news's interactive results map</a> `
+    + `(Nazmul Ahasan &amp; Aaqib Md. Shatil), vote counts from Election Commission publications, union boundaries `
+    + `from geoBoundaries (CC-BY 4.0) — the one non-eprocure.gov.bd source in this whole pipeline. Full results down `
+    + `to union level (5,034 of them) are in <code>data/election_2026_unions.json</code> in the repository; three `
+    + `constituencies (of 300) were suspended for candidate death or court dispute and aren't in the results at all.`;
+}
+
 /* ── 07 · Debarment enforcement ───────────────────────────────────── */
 
 function chartDebar(flags) {
@@ -1087,6 +1194,7 @@ async function main() {
     const geo = await loadJSON("data/geo.json").catch(() => null);
     const districtGeo = await loadJSON("data/bd_districts_geo.json").catch(() => null);
     const growth = await loadJSON("data/growth.json").catch(() => null);
+    const politicalSpending = await loadJSON("data/political_spending.json").catch(() => null);
 
     renderHeader(a, summary, debar, insights);
     chartMonths(a);
@@ -1104,6 +1212,7 @@ async function main() {
     chartCross(profiles);
     renderOwnership(own);
     renderGrowth(growth);
+    renderPoliticalSpending(politicalSpending);
     chartDebar(flags);
     setupFlagsTable(flags);
     if (cpv) { chartTopics(cpv); chartTopicsEra(cpv); }

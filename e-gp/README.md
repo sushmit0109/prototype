@@ -44,6 +44,8 @@ presence of a dashboard.
 | Geographic spend by district | derived from `district` on eContracts | **Live** -- `build_geo.py`; map geometry is a one-off static asset from an external open-data source, not eprocure.gov.bd -- see "Where the district map geometry comes from" in the dashboard's Methodology. Each district also carries a yearly time series (for the map's trend sparklines) and a procurement-nature mix (the closest thing to a per-district sector breakdown this data supports -- CPV category can't be attributed to a district, since the tender search has no location filter) |
 | Political-era segmentation (Awami League / interim / elected government) | -- | **Live** -- `eras.py`, applied across contracts, plan-vs-actual, the ceiling analysis, debarment flags, and CPV counts; see the dashboard's Governments section |
 | Vendor growth (fastest growers, new dominants, combined owner-portfolio trend) | -- | **Live** -- `build_growth.py`, joined against the existing beneficial-ownership sample; see the dashboard's Rising vendors finding |
+| 2026 election results, polling-station to union to district level | [netra.news interactive map](https://interactive.netra.news/bangladesh-election-2026-map/) -- **not eprocure.gov.bd**, the one external source in this pipeline | **Live, one-off** -- `scrape_election_2026.py` / `build_election.py`; 39,761 polling stations, 297 of 300 constituencies, all 64 districts, 5,034 unions |
+| Does winning a district's seats translate to e-GP spending? | -- | **Live** -- `build_political_spending.py`, a panel difference-in-differences with a placebo pre-trend test, not a correlation; see the dashboard's "Does winning pay?" section -- the honest answer, as tested, is no |
 
 ## Headline numbers (as of the last full build)
 
@@ -171,6 +173,26 @@ presence of a dashboard.
   most fast growth here is presumably ordinary business success, not
   wrongdoing, and a joint venture legitimately "shares" ownership with the
   firms that formed it.
+- **Does winning pay?** (`build_political_spending.py`): a specific,
+  falsifiable test of a specific hypothesis -- do districts that elected a
+  BNP-led-alliance seat majority in Feb 2026 get more e-GP spending per
+  registered voter than districts that didn't. A naive comparison would
+  say yes: both raw group-mean gaps are positive (Tk 225/voter across the
+  real interim-to-elected transition, Tk 1,130/voter across a placebo
+  transition run on the *same* districts *before* the election happened).
+  That placebo result is the finding -- a fake "effect" nearly as large
+  (if anything larger) than the real one, in a period when nobody had won
+  anything yet, means the apparent gap predates the 2026 election and
+  can't be attributed to it. The panel difference-in-differences
+  regression (two-way fixed effects, clustered SEs) agrees: neither the
+  real nor the placebo estimate clears conventional significance on the
+  binary treatment, and where the continuous vote-share version comes
+  close to significance, it's the *placebo* version that clears it
+  (p=0.043) and not the real one (p=0.063). This is deliberately reported
+  as a negative result rather than reframed into a positive-sounding one --
+  see the dashboard section for the full regression table, the
+  district-level scatter, and everything this test does and doesn't rule
+  out.
 
 ## Dashboard design
 
@@ -257,8 +279,15 @@ python3 build_ceiling.py ../data/contracts ../data/ceiling.json
 python3 scrape_cpv.py ../raw/cpv_categories.json                              # counts + top-25 tender-id lists, ~5min
 python3 build_cpv.py ../raw/cpv_categories.json ../data/contracts ../data/cpv_categories.json
 python3 build_geo.py ../data/contracts ../data/tenders ../data/geo.json       # daily; geometry itself is not
+python3 build_political_spending.py ../data/geo.json ../data/election_2026.json ../data/political_spending.json
+                                                                               # daily -- re-run so the post-election
+                                                                               # window's statistical power keeps
+                                                                               # growing; needs numpy+scipy
 
-# One-off, not part of the daily job -- district boundaries don't change day to day:
+# One-off, not part of the daily job -- neither district boundaries nor a
+# past election change day to day:
+python3 scrape_election_2026.py ../raw/election_2026_centers.csv.gz
+python3 build_election.py ../raw/election_2026_centers.csv.gz ../data/election_2026.json ../data/election_2026_unions.json
 python3 build_district_geo.py <districts.geojson> ../data/bd_districts_geo.json
 ```
 
