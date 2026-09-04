@@ -616,23 +616,23 @@ function renderPoliticalSpending(pol) {
   body += `<line x1="${zeroX}" y1="${padT - 4}" x2="${zeroX}" y2="${H - padT + 4}" class="grid"/>`;
   document.getElementById("chartPolDid").innerHTML = svg(W, H, body);
   document.getElementById("capPolDid").textContent =
-    "Regression coefficient (asinh scale) for each treatment definition, real test and placebo side by side. "
-    + "* marks p<0.05. Bars near zero on both sides, for all three ways of defining \"won\", is what a genuine null looks like — "
-    + "not one bar that happens to be small.";
+    "Regression coefficient (asinh scale) for each treatment definition, real test and its run-up-to-election "
+    + "placebo side by side (see the table below for the midpoint-split placebo too). * marks p<0.05. Bars near "
+    + "zero on both sides, for all three ways of defining \"won\", is what a genuine null looks like — not one bar that happens to be small.";
 
-  document.getElementById("polRegBody").innerHTML = ["bnp_won", "bnp_vote_share", "bnp_seat_share"].flatMap(t => [
-    [`${POL_TREATMENT_LABEL[t]} — real (interim → elected)`, pol.main[t]],
-    [`${POL_TREATMENT_LABEL[t]} — placebo (within interim)`, pol.placebo[t]],
-  ]).map(([label, reg]) => `
+  const pCell = reg => `<td class="n">${reg.coefficient}</td><td class="n${reg.p_value < 0.05 ? " hi" : ""}">${reg.p_value}</td>`;
+  document.getElementById("polRegBody").innerHTML = ["bnp_won", "bnp_vote_share", "bnp_seat_share"].map(t => `
     <tr>
-      <td class="strong">${esc(label)}</td>
-      <td class="n">${reg.coefficient}</td>
-      <td class="n${reg.p_value < 0.05 ? " hi" : ""}">${reg.p_value}</td>
+      <td class="strong">${esc(POL_TREATMENT_LABEL[t])}</td>
+      ${pCell(pol.main[t])}
+      ${pCell(pol.placebo[t])}
+      ${pCell(pol.placebo_midpoint[t])}
     </tr>`).join("");
 
   document.getElementById("polSimpleDidNote").textContent =
-    `For reference, the plain group-means version (binary treatment, no fixed effects, easy to verify by hand): `
-    + `real transition ${taka(pol.main_simple.did_bdt_per_voter)}/voter, placebo ${taka(pol.placebo_simple.did_bdt_per_voter)}/voter.`;
+    `For reference, the plain group-means version (binary treatment, no fixed effects, easy to verify by hand), in `
+    + `taka per registered voter: real ${taka(pol.main_simple.did_bdt_per_voter)}, run-up placebo `
+    + `${taka(pol.placebo_simple.did_bdt_per_voter)}, midpoint placebo ${taka(pol.placebo_midpoint_simple.did_bdt_per_voter)}.`;
 
   document.getElementById("polScatterLede").textContent =
     "Each of the 64 matched districts: BNP-led alliance's share of the district's vote (x) against "
@@ -673,23 +673,32 @@ function renderPoliticalSpending(pol) {
     + `outcome asinh(contract value ÷ registered voters), standard errors clustered by district `
     + `(t-distribution, ${pol.main.bnp_won.df} degrees of freedom). <strong>Real test:</strong> ${nInterim} `
     + `interim-government months (${pol.meta.interim_months[0]} to ${pol.meta.interim_months[nInterim - 1]}) as `
-    + `pre-period, ${nElected} elected-government months as post. <strong>Placebo:</strong> the identical `
-    + `districts and treatment values, but the interim government's own span split at its midpoint `
-    + `(${pol.meta.placebo_split_month}) — the second half stands in for "post", and no election happened `
-    + `anywhere in this window. Confined to interim-onward deliberately: e-GP use was hybrid before the interim `
-    + `government made it obligatory (and the platform didn't support every tender type earlier), so national `
-    + `contract counts climb roughly 6x from 2015 to 2023 purely from more of the same government activity `
-    + `being captured by this data source — comparing that expansion era against anything recent would confuse `
-    + `coverage growth with a spending effect. All three treatment definitions (seat-majority binary, district `
-    + `vote share, district seat share) are tested on both panels, not just whichever looks best.<br><br>`
+    + `pre-period, ${nElected} elected-government months as post. <strong>Placebo (primary):</strong> the `
+    + `identical districts and treatment values, but the interim government's own span split at `
+    + `${pol.meta.placebo_split_month} — a short run-up window right before the real election stands in for `
+    + `"post", with no election anywhere in this window. This split, rather than an even one, is deliberate for `
+    + `two reasons: it targets anticipatory favouritism specifically (a government expecting to lose office `
+    + `would plausibly reward its expected base closest to the vote, not evenly across its whole term), and it `
+    + `keeps Bangladesh's fiscal year-end (30 June — see Finding 01's spending spike) entirely inside the `
+    + `"pre" side rather than straddling the split. The two-way fixed effects give every calendar month its own `
+    + `dummy either way, so that spike can't bias the estimate regardless of where the split falls, but keeping `
+    + `it on one side keeps the comparison legible without leaning on that argument alone. <strong>Placebo `
+    + `(secondary):</strong> the same design with an even midpoint split (${pol.meta.placebo_midpoint_split_month}) `
+    + `instead, reported alongside rather than dropped. Confined to interim-onward deliberately: e-GP use was `
+    + `hybrid before the interim government made it obligatory (and the platform didn't support every tender `
+    + `type earlier), so national contract counts climb roughly 6x from 2015 to 2023 purely from more of the `
+    + `same government activity being captured by this data source — comparing that expansion era against `
+    + `anything recent would confuse coverage growth with a spending effect. All three treatment definitions `
+    + `(seat-majority binary, district vote share, district seat share) are tested on every panel, not just `
+    + `whichever looks best.<br><br>`
     + `<strong>An earlier version of this test got this wrong</strong> and used 2015-2025 as a single pre-period `
     + `for both the real and placebo tests. That version's placebo (Tk 1,130/voter, and p=0.043 on the continuous `
     + `vote-share specification) was <em>larger</em> than its real result (Tk 225/voter, p=0.063) — which looked `
     + `like it already invalidated the hypothesis, but for the wrong reason: both numbers were picking up e-GP's `
     + `own coverage expansion, not anything about districts or elections. Confining the panel to the stable-coverage `
-    + `period fixes that, and the result changes again: all six estimates above are small and none clears `
-    + `significance on both sides of its own placebo, which is a cleaner null than the flawed version produced. `
-    + `<strong>Source:</strong> election results from `
+    + `period fixes that, and the result changes again: every estimate above is small and none clears `
+    + `significance on both sides of its own placebo (either placebo), which is a cleaner null than the flawed `
+    + `version produced. <strong>Source:</strong> election results from `
     + `<a href="https://interactive.netra.news/bangladesh-election-2026-map/" target="_blank" rel="noopener">netra.news's interactive results map</a> `
     + `(Nazmul Ahasan &amp; Aaqib Md. Shatil), vote counts from Election Commission publications, union boundaries `
     + `from geoBoundaries (CC-BY 4.0) — the one non-eprocure.gov.bd source in this whole pipeline. Full results down `

@@ -92,6 +92,23 @@ from eras import era_of
 MIN_VOTERS_FOR_INCLUSION = 1000  # guards against a data-join sliver, not a real filter at district level
 TREATMENTS = ["bnp_won", "bnp_vote_share", "bnp_seat_share"]
 
+# The primary placebo split: post = this month onward, within the interim
+# government's span. Two reasons this beats an even midpoint split:
+# (1) it's the more targeted test of anticipatory favouritism -- if a
+#     government due to lose office rewarded its expected base before an
+#     election it saw coming, that would concentrate in the run-up to the
+#     vote, not spread evenly across the whole interim period;
+# (2) Bangladesh's fiscal year ends 30 June, and this portal shows a real,
+#     large June spend spike every year (see Finding 01) -- the two-way
+#     fixed effects give every calendar month its own dummy, so that spike
+#     is absorbed for either split choice, but keeping it entirely on one
+#     side (here, inside "pre") makes the comparison legible without
+#     leaning on that argument at all. A November split does that; a
+#     midpoint split (May) does not -- May-Feb includes the June 2025 spike
+#     inside "post" instead. The midpoint version is kept below as a
+#     secondary check, not the headline.
+PLACEBO_SPLIT = "2025-11"
+
 LEGACY_PRE_YEARS_MAIN = [str(y) for y in range(2015, 2026)]
 LEGACY_PRE_YEARS_PLACEBO = [str(y) for y in range(2015, 2024)]
 
@@ -240,15 +257,24 @@ def main(geo_path, election_path, out_path):
 
     main_rows = build_monthly_panel(geo["districts"], election_by_district, stable_months, elected_months)
 
-    # Placebo: split the interim government's own span at its midpoint.
-    mid = len(interim_months) // 2
-    placebo_post_months = interim_months[mid:]
+    # Primary placebo: split the interim government's own span at
+    # PLACEBO_SPLIT (2025-11) -- see the comment on that constant for why
+    # this beats an even midpoint split.
+    placebo_post_months = [m for m in interim_months if m >= PLACEBO_SPLIT]
     placebo_rows = build_monthly_panel(geo["districts"], election_by_district, interim_months, placebo_post_months)
+
+    # Secondary placebo, kept for robustness rather than as the headline:
+    # the same interim-only span split at its even midpoint instead.
+    mid = len(interim_months) // 2
+    placebo_mid_post_months = interim_months[mid:]
+    placebo_mid_rows = build_monthly_panel(geo["districts"], election_by_district, interim_months, placebo_mid_post_months)
 
     main_results = all_treatments(main_rows)
     placebo_results = all_treatments(placebo_rows)
+    placebo_midpoint_results = all_treatments(placebo_mid_rows)
     main_simple = simple_group_means(main_rows)
     placebo_simple = simple_group_means(placebo_rows)
+    placebo_midpoint_simple = simple_group_means(placebo_mid_rows)
 
     # Legacy panel -- kept and clearly labelled, not used as the headline.
     legacy_main_rows = build_legacy_panel(geo["districts"], election_by_district, LEGACY_PRE_YEARS_MAIN,
@@ -286,10 +312,12 @@ def main(geo_path, election_path, out_path):
                       "cluster-robust SEs by district.",
             "districts_matched": len(common_districts),
             "stable_months": stable_months, "interim_months": interim_months, "elected_months": elected_months,
-            "placebo_split_month": interim_months[mid] if interim_months else None,
+            "placebo_split_month": PLACEBO_SPLIT,
+            "placebo_midpoint_split_month": interim_months[mid] if interim_months else None,
         },
         "main": main_results, "main_simple": main_simple,
         "placebo": placebo_results, "placebo_simple": placebo_simple,
+        "placebo_midpoint": placebo_midpoint_results, "placebo_midpoint_simple": placebo_midpoint_simple,
         "legacy": {
             "note": "The original design: 2015-2025 (or 2015-2023 for the placebo) averaged as the "
                     "pre-period. Confounded by e-GP's own decade-long coverage expansion (hybrid, "
@@ -305,11 +333,15 @@ def main(geo_path, election_path, out_path):
 
     print(f"{len(common_districts)} districts matched; {len(interim_months)} interim months, "
           f"{len(elected_months)} elected months in the stable-coverage panel")
+    print(f"placebo split (primary, run-up to election): {PLACEBO_SPLIT}; "
+          f"placebo split (secondary, midpoint): {interim_months[mid]}")
     for t in TREATMENTS:
-        m, p = main_results[t], placebo_results[t]
+        m, p, pm = main_results[t], placebo_results[t], placebo_midpoint_results[t]
         print(f"  {t:16s} main b={m['coefficient']:>8.4f} p={m['p_value']:.4f}   "
-              f"placebo b={p['coefficient']:>8.4f} p={p['p_value']:.4f}")
-    print(f"  simple DiD (Tk/voter): main={main_simple['did_bdt_per_voter']} placebo={placebo_simple['did_bdt_per_voter']}")
+              f"placebo b={p['coefficient']:>8.4f} p={p['p_value']:.4f}   "
+              f"placebo(midpoint) b={pm['coefficient']:>8.4f} p={pm['p_value']:.4f}")
+    print(f"  simple DiD (Tk/voter): main={main_simple['did_bdt_per_voter']} "
+          f"placebo={placebo_simple['did_bdt_per_voter']} placebo(midpoint)={placebo_midpoint_simple['did_bdt_per_voter']}")
     print(f"legacy (coverage-confounded) design, kept for transparency: main b={legacy_main_did['coefficient']} "
           f"p={legacy_main_did['p_value']}; placebo b={legacy_placebo_did['coefficient']} p={legacy_placebo_did['p_value']}")
     print(f"wrote -> {out_path}")

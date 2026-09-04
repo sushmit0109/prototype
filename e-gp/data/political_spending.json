@@ -61,7 +61,8 @@
    "2026-08",
    "2026-09"
   ],
-  "placebo_split_month": "2025-05"
+  "placebo_split_month": "2025-11",
+  "placebo_midpoint_split_month": "2025-05"
  },
  "main": {
   "bnp_won": {
@@ -109,6 +110,50 @@
  },
  "placebo": {
   "bnp_won": {
+   "coefficient": 0.0459,
+   "std_error": 0.1448,
+   "t_stat": 0.317,
+   "p_value": 0.7524,
+   "df": 63,
+   "n_obs": 1216,
+   "n_districts": 64,
+   "n_periods": 19,
+   "approx_proportional_effect": 0.0469
+  },
+  "bnp_vote_share": {
+   "coefficient": -0.2172,
+   "std_error": 1.0133,
+   "t_stat": -0.214,
+   "p_value": 0.8309,
+   "df": 63,
+   "n_obs": 1216,
+   "n_districts": 64,
+   "n_periods": 19,
+   "approx_proportional_effect": -0.1953
+  },
+  "bnp_seat_share": {
+   "coefficient": -0.1899,
+   "std_error": 0.3179,
+   "t_stat": -0.597,
+   "p_value": 0.5524,
+   "df": 63,
+   "n_obs": 1216,
+   "n_districts": 64,
+   "n_periods": 19,
+   "approx_proportional_effect": -0.1729
+  }
+ },
+ "placebo_simple": {
+  "cell_means_bdt_per_voter": {
+   "bnp_won=0_post=0": 403.89,
+   "bnp_won=0_post=1": 547.48,
+   "bnp_won=1_post=0": 453.57,
+   "bnp_won=1_post=1": 564.94
+  },
+  "did_bdt_per_voter": -32.22
+ },
+ "placebo_midpoint": {
+  "bnp_won": {
    "coefficient": 0.0534,
    "std_error": 0.1166,
    "t_stat": 0.458,
@@ -142,7 +187,7 @@
    "approx_proportional_effect": -0.1434
   }
  },
- "placebo_simple": {
+ "placebo_midpoint_simple": {
   "cell_means_bdt_per_voter": {
    "bnp_won=0_post=0": 403.55,
    "bnp_won=0_post=1": 461.63,
