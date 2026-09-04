@@ -242,6 +242,12 @@ treatments:
   chart shows the input, across its real range (81% down to 43%) by pairing the
   six most concentrated districts with the four least.
 
+**The daily workflow does not rebuild the findings.** It refreshes
+`dashboard.json` only; `insights.json` is a snapshot, because the analyses it
+draws on live outside this repo and are not rerun nightly. The tab therefore
+prints the date it was generated, and the two tabs will legitimately disagree
+about the most recent month.
+
 **Findings are built, not typed.** `build_insights.py` re-reads the corridor
 benchmark, the Malaysia difference-in-differences and the network horse race
 from `../../bbs census/causal/`, plus the crawl database and the Bangladesh Bank

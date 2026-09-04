@@ -285,7 +285,12 @@ function render() {
   $('#insights').hidden = !ins;
   const note = $('#lens-note');
   if (ins) {
-    if (note) note.textContent = 'Analysis · not a live view';
+    // The daily refresh rebuilds the cube, not the findings, so the two tabs
+    // drift apart in date. Name the date these stand on rather than let the
+    // page imply they moved with the data.
+    if (note) note.textContent = INSIGHTS && INSIGHTS.generated
+      ? `Analysis · not a live view · as of ${INSIGHTS.generated}`
+      : 'Analysis · not a live view';
     if (!INSIGHTS_DRAWN) renderInsights();
     return;
   }
