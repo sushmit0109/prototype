@@ -117,11 +117,29 @@ def asinh(x):
     return np.log(x + np.sqrt(x ** 2 + 1))
 
 
+def district_category(e):
+    """Swept out (BNP won zero of the district's seats), swept in (BNP won
+    every seat), or split -- distinct from the continuous seat/vote share,
+    since the hypothesis "shut out entirely" is not obviously the same
+    claim as "won a below-average share"."""
+    s = e["bnp_seat_share"]
+    if s is None:
+        return None
+    if s == 0:
+        return "none"
+    if s == 1:
+        return "all"
+    return "some"
+
+
 def treatment_values(e):
+    cat = district_category(e)
     return {
         "bnp_won": 1 if (e["bnp_seat_share"] or 0) > 0.5 else 0,
         "bnp_vote_share": e["bnp_vote_share"],
         "bnp_seat_share": e["bnp_seat_share"],
+        "bnp_some": 1 if cat == "some" else 0,
+        "bnp_all": 1 if cat == "all" else 0,
     }
 
 
@@ -241,6 +259,76 @@ def all_treatments(rows):
     return {t: two_way_fe_did(rows, treatment_key=t) for t in TREATMENTS}
 
 
+def category_comparisons(geo_districts, election_by_district, months, post_months):
+    """Two separate binary comparisons against the same reference group
+    (districts BNP won zero seats in) rather than one three-level
+    regression -- "some vs none" and "all vs none" use naturally different
+    subsamples (the "all" group is tiny, 3 districts; a shared design would
+    obscure that rather than surface it)."""
+    none_or_some = {d: e for d, e in election_by_district.items() if district_category(e) in ("none", "some")}
+    none_or_all = {d: e for d, e in election_by_district.items() if district_category(e) in ("none", "all")}
+
+    some_rows = build_monthly_panel(geo_districts, none_or_some, months, post_months)
+    all_rows = build_monthly_panel(geo_districts, none_or_all, months, post_months)
+
+    def simple_binary_means(rows, key):
+        cells = defaultdict(list)
+        for r in rows:
+            cells[(r[key], r["post"])].append(r["value_bdt"] / r["total_voters"])
+        try:
+            did = ((np.mean(cells[(1, 1)]) - np.mean(cells[(1, 0)])) - (np.mean(cells[(0, 1)]) - np.mean(cells[(0, 0)])))
+        except KeyError:
+            did = None
+        return round(float(did), 2) if did is not None else None
+
+    return {
+        "some_vs_none": {
+            "n_districts": len(none_or_some), "n_some": sum(1 for e in none_or_some.values() if district_category(e) == "some"),
+            "regression": two_way_fe_did(some_rows, treatment_key="bnp_some"),
+            "simple_did_bdt_per_voter": simple_binary_means(some_rows, "bnp_some"),
+        },
+        "all_vs_none": {
+            "n_districts": len(none_or_all), "n_all": sum(1 for e in none_or_all.values() if district_category(e) == "all"),
+            "regression": two_way_fe_did(all_rows, treatment_key="bnp_all"),
+            "simple_did_bdt_per_voter": simple_binary_means(all_rows, "bnp_all"),
+        },
+    }
+
+
+def category_descriptive(geo_districts, election_by_district):
+    """Plain description, no fixed effects: for each of the three groups
+    (shut out / split / swept), how many districts, and what interim vs.
+    elected spending per voter looks like on average."""
+    groups = defaultdict(list)
+    for dist, e in election_by_district.items():
+        cat = district_category(e)
+        g = geo_districts.get(dist)
+        if not cat or not g or e["total_voters"] < MIN_VOTERS_FOR_INCLUSION:
+            continue
+        interim = g["by_era"].get("Interim Government (2024–2026)", {"value_bdt": 0, "count": 0})
+        elected = g["by_era"].get("Elected Government (2026–)", {"value_bdt": 0, "count": 0})
+        groups[cat].append({
+            "district": dist,
+            "interim_value_per_voter_bdt": interim["value_bdt"] / e["total_voters"],
+            "elected_value_per_voter_bdt": elected["value_bdt"] / e["total_voters"],
+        })
+
+    out = {}
+    for cat in ["none", "some", "all"]:
+        rows = groups.get(cat, [])
+        if not rows:
+            continue
+        interim_avg = float(np.mean([r["interim_value_per_voter_bdt"] for r in rows]))
+        elected_avg = float(np.mean([r["elected_value_per_voter_bdt"] for r in rows]))
+        out[cat] = {
+            "n_districts": len(rows), "districts": sorted(r["district"] for r in rows),
+            "avg_interim_value_per_voter_bdt": round(interim_avg, 2),
+            "avg_elected_value_per_voter_bdt": round(elected_avg, 2),
+            "avg_change_bdt_per_voter": round(elected_avg - interim_avg, 2),
+        }
+    return out
+
+
 def main(geo_path, election_path, out_path):
     geo = json.load(open(geo_path))
     election = json.load(open(election_path))
@@ -275,6 +363,14 @@ def main(geo_path, election_path, out_path):
     main_simple = simple_group_means(main_rows)
     placebo_simple = simple_group_means(placebo_rows)
     placebo_midpoint_simple = simple_group_means(placebo_mid_rows)
+
+    # Shut out entirely vs. swept entirely vs. split -- is "some" the same
+    # story as "all", or does collapsing to a share hide something the
+    # extremes don't?
+    category_descriptive_stats = category_descriptive(geo["districts"], election_by_district)
+    category_main = category_comparisons(geo["districts"], election_by_district, stable_months, elected_months)
+    category_placebo = category_comparisons(geo["districts"], election_by_district, interim_months, placebo_post_months)
+    category_placebo_midpoint = category_comparisons(geo["districts"], election_by_district, interim_months, placebo_mid_post_months)
 
     # Legacy panel -- kept and clearly labelled, not used as the headline.
     legacy_main_rows = build_legacy_panel(geo["districts"], election_by_district, LEGACY_PRE_YEARS_MAIN,
@@ -318,6 +414,10 @@ def main(geo_path, election_path, out_path):
         "main": main_results, "main_simple": main_simple,
         "placebo": placebo_results, "placebo_simple": placebo_simple,
         "placebo_midpoint": placebo_midpoint_results, "placebo_midpoint_simple": placebo_midpoint_simple,
+        "by_category": {
+            "descriptive": category_descriptive_stats,
+            "main": category_main, "placebo": category_placebo, "placebo_midpoint": category_placebo_midpoint,
+        },
         "legacy": {
             "note": "The original design: 2015-2025 (or 2015-2023 for the placebo) averaged as the "
                     "pre-period. Confounded by e-GP's own decade-long coverage expansion (hybrid, "
@@ -344,6 +444,17 @@ def main(geo_path, election_path, out_path):
           f"placebo={placebo_simple['did_bdt_per_voter']} placebo(midpoint)={placebo_midpoint_simple['did_bdt_per_voter']}")
     print(f"legacy (coverage-confounded) design, kept for transparency: main b={legacy_main_did['coefficient']} "
           f"p={legacy_main_did['p_value']}; placebo b={legacy_placebo_did['coefficient']} p={legacy_placebo_did['p_value']}")
+
+    print("\nby category (shut out / split / swept):")
+    for cat, stats_ in category_descriptive_stats.items():
+        print(f"  {cat:5s} n={stats_['n_districts']:3d}  interim=Tk{stats_['avg_interim_value_per_voter_bdt']:>9,.0f}/voter  "
+              f"elected=Tk{stats_['avg_elected_value_per_voter_bdt']:>9,.0f}/voter  change=Tk{stats_['avg_change_bdt_per_voter']:>9,.0f}/voter")
+    for label, cat_result in [("real", category_main), ("placebo", category_placebo), ("placebo(midpoint)", category_placebo_midpoint)]:
+        sv, av = cat_result["some_vs_none"], cat_result["all_vs_none"]
+        print(f"  {label:18s} some-vs-none: b={sv['regression']['coefficient']:>8.4f} p={sv['regression']['p_value']:.4f} "
+              f"(n={sv['n_districts']}, {sv['n_some']} 'some')   "
+              f"all-vs-none: b={av['regression']['coefficient']:>8.4f} p={av['regression']['p_value']:.4f} "
+              f"(n={av['n_districts']}, {av['n_all']} 'all' -- tiny sample)")
     print(f"wrote -> {out_path}")
 
 

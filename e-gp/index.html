@@ -231,6 +231,38 @@
       <figcaption id="capPolScatter"></figcaption>
     </figure>
 
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">Shut out, split, or swept — does the shape of the win matter?</h3>
+    <p class="sub">
+      The three treatment definitions above are all smooth in vote or seat share. But "a district
+      that elected zero BNP MPs" might not be the same claim as "a district with a below-average
+      BNP vote share" — so this splits the 64 districts into three groups instead: BNP won none of
+      the district's seats, some of them, or all of them, and compares each of the other two
+      against "none" as the reference.
+    </p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Group</th><th class="n">Districts</th><th class="n">Interim avg</th>
+          <th class="n">Elected avg</th><th class="n">Change</th>
+        </tr></thead>
+        <tbody id="polCategoryBody"></tbody>
+      </table>
+    </div>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Comparison</th>
+          <th class="n" colspan="2">Real</th><th class="n" colspan="2">Placebo (run-up)</th>
+          <th class="n" colspan="2">Placebo (midpoint)</th>
+        </tr>
+        <tr class="muted" style="font-size:0.72rem">
+          <th></th><th class="n">b</th><th class="n">p</th><th class="n">b</th><th class="n">p</th><th class="n">b</th><th class="n">p</th>
+        </tr></thead>
+        <tbody id="polCategoryRegBody"></tbody>
+      </table>
+    </div>
+    <p class="sub" id="polCategoryNote" style="margin-top:10px;font-size:0.78rem"></p>
+
     <div class="note">
       <div>
         <h4>Why this design</h4>
@@ -239,25 +271,27 @@
         plain group-mean gap is positive, in the "BNP districts get more" direction). Once the
         panel is confined to periods where e-GP's own platform coverage is stable — see "Full
         method" for why that confinement is necessary — that gap is not statistically
-        distinguishable from zero, on any of three different ways of defining "won", and neither
-        is its own placebo. A real effect that a correlation-only analysis would have reported
-        with confidence does not survive being tested properly.</p>
+        distinguishable from zero on the three smooth treatment definitions, and neither is its
+        own placebo. A real effect that a correlation-only analysis would have reported with
+        confidence does not survive being tested properly. The one exception is the "some vs.
+        none" split-districts comparison directly above, which does clear conventional
+        significance on the real test and not on either placebo — see the caution alongside it
+        for why that's flagged as worth watching rather than reported as a finding.</p>
       </div>
       <div class="caution">
         <h4>What this isn't</h4>
-        <p>Not proof that no favouritism exists anywhere, in any form — this tests one specific,
-        falsifiable version of the hypothesis (seat-level election outcome → district-level e-GP
-        spending, in the months since the interim government made e-GP use obligatory) and that
-        version finds nothing. A null result from six estimates is more informative than a null
-        result from one, but it is still a null result: it doesn't rule out an effect too small or
-        too recent to detect, a mechanism that doesn't run through e-GP procurement specifically,
-        or favouritism operating below the district level (a party rewarding specific constituencies
-        or unions within a district it also lost, say) that a district-level test can't see at all.
-        The post-election window is, as of this build, only a few months. And spending is only
-        known to district level; the underlying election results go all the way to union level
-        (5,034 of them) and are published in full in the repository, but e-GP contracts don't carry
-        union or upazila detail, so the causal test itself is necessarily coarser than the election
-        data feeding it.</p>
+        <p>Not proof that no favouritism exists anywhere, in any form — this tests specific,
+        falsifiable versions of the hypothesis (seat-level election outcome → district-level e-GP
+        spending, in the months since the interim government made e-GP use obligatory) and nearly
+        all of them find nothing. It doesn't rule out an effect too small or too recent to detect,
+        a mechanism that doesn't run through e-GP procurement specifically, or favouritism
+        operating below the district level (a party rewarding specific constituencies or unions
+        within a district it also lost, say) that a district-level test can't see at all. The
+        post-election window is, as of this build, only a few months. And spending is only known
+        to district level; the underlying election results go all the way to union level (5,034
+        of them) and are published in full in the repository, but e-GP contracts don't carry
+        union or upazila detail, so the causal test itself is necessarily coarser than the
+        election data feeding it.</p>
       </div>
     </div>
 

@@ -200,14 +200,37 @@ presence of a dashboard.
   stable -- interim government onward only, monthly resolution -- and
   build the placebo by splitting the interim government's own span at its
   midpoint, so it can never touch the pre-mandate hybrid era at all. Redone
-  this way, the result changes again: all six estimates (three treatment
-  definitions x real/placebo) are small and none is statistically
-  significant on both sides of its own placebo test -- a genuinely clean
-  null, not a coincidentally-small number sitting on top of a confound.
-  Both the corrected numbers and the superseded ones are in
+  this way, the result changes again: every estimate is small and none is
+  statistically significant on both sides of its own placebo test -- a
+  genuinely clean null, not a coincidentally-small number sitting on top
+  of a confound. Both the corrected numbers and the superseded ones are in
   `data/political_spending.json` (`main`/`placebo` vs. `legacy`) and on the
   dashboard's "Full method" disclosure, not just the corrected version
-  alone -- see that section for the full regression table, the
+  alone.
+
+  The placebo split itself moved once more, from an even midpoint (May
+  2025) to a short run-up window right before the real election (Nov
+  2025): the two-way fixed effects give every calendar month its own
+  dummy, so Bangladesh's 30 June fiscal year-end spike (Finding 01) can't
+  bias either version, but keeping that spike entirely on one side of the
+  split rather than straddling it makes the comparison legible without
+  relying on that argument alone. The midpoint split is kept as a
+  secondary check, not dropped.
+
+  One more cut of the data: splitting districts into "won none of the
+  district's seats" / "won some" / "won all", rather than assuming the
+  effect is smooth in vote or seat share. "Some vs. none" comes back
+  significant on the real test (p=0.029) and clean on both placebos
+  (p=0.99 and p=0.13) -- the one result on this entire page that behaves
+  like a real, placebo-passing effect. It's flagged, not reported as a
+  finding: this analysis has now run 15 regressions in total, roughly one
+  "significant" result at a 5% threshold is what chance alone predicts
+  from that many tests, and a Bonferroni correction for 15 tests would
+  need p<0.0033 -- this doesn't clear it. "All vs. none" shows nothing,
+  though with only 3 districts that BNP swept entirely (their unusually
+  high absolute spending is far more plausibly coastal/hill-tract
+  disaster-exposure infrastructure than politics), it barely could either
+  way. See the dashboard section for the full regression table, the
   district-level scatter, and everything this test does and doesn't rule
   out.
 

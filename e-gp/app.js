@@ -582,11 +582,27 @@ function renderPoliticalSpending(pol) {
     document.getElementById("political").style.display = "none";
     return;
   }
-  const anySignificant = ["bnp_won", "bnp_vote_share", "bnp_seat_share"].some(
-    t => pol.main[t].p_value < 0.05 && pol.placebo[t].p_value >= 0.05);
+  // Every p-value from every specification run in this analysis (smooth
+  // treatments x 3 panels, plus the two category comparisons x 3 panels) --
+  // used only to size up how much multiple-testing slack a single flagged
+  // p-value should get, not cherry-picked to the ones that look good.
+  const allPValues = [];
+  for (const t of Object.keys(POL_TREATMENT_LABEL)) for (const panel of [pol.main, pol.placebo, pol.placebo_midpoint]) allPValues.push(panel[t].p_value);
+  for (const cmp of ["some_vs_none", "all_vs_none"]) for (const panel of [pol.by_category.main, pol.by_category.placebo, pol.by_category.placebo_midpoint]) allPValues.push(panel[cmp].regression.p_value);
+  const nTests = allPValues.length;
+  const bonferroni = 0.05 / nTests;
+  const minP = Math.min(...allPValues);
 
-  document.getElementById("polHeadline").textContent = anySignificant
-    ? "A gap that survives its own placebo test — on at least one measure"
+  const smoothSignificant = Object.keys(POL_TREATMENT_LABEL).some(t => pol.main[t].p_value < 0.05 && pol.placebo[t].p_value >= 0.05);
+  const categorySignificant = ["some_vs_none", "all_vs_none"].some(
+    cmp => pol.by_category.main[cmp].regression.p_value < 0.05
+      && pol.by_category.placebo[cmp].regression.p_value >= 0.05
+      && pol.by_category.placebo_midpoint[cmp].regression.p_value >= 0.05);
+
+  document.getElementById("polHeadline").textContent = (smoothSignificant || categorySignificant)
+    ? (minP < bonferroni
+      ? "A gap that survives its own placebo test — on at least one measure"
+      : "One flagged signal, but it doesn't survive scrutiny — no confirmed effect")
     : "No detectable effect, on any measure — real or placebo alike";
 
   // Grouped bars: main vs. placebo regression coefficient, one row per
@@ -666,6 +682,49 @@ function renderPoliticalSpending(pol) {
   document.getElementById("capPolScatter").textContent =
     "Blue = district elected a BNP-led-alliance seat majority; amber = it didn't. No visible upward slope on "
     + "the blue points relative to the amber ones is exactly what the regression's non-significant interaction term says numerically.";
+
+  const CAT_LABEL = { none: "Won none of the district's seats", some: "Won some of the district's seats", all: "Won all of the district's seats" };
+  const desc = pol.by_category.descriptive;
+  document.getElementById("polCategoryBody").innerHTML = ["none", "some", "all"].filter(c => desc[c]).map(c => {
+    const d = desc[c];
+    return `<tr>
+      <td class="strong">${esc(CAT_LABEL[c])}</td>
+      <td class="n">${int(d.n_districts)}</td>
+      <td class="n">${taka(d.avg_interim_value_per_voter_bdt)}/voter</td>
+      <td class="n">${taka(d.avg_elected_value_per_voter_bdt)}/voter</td>
+      <td class="n">${taka(d.avg_change_bdt_per_voter)}/voter</td>
+    </tr>`;
+  }).join("");
+
+  const catCell = reg => `<td class="n">${reg.coefficient}</td><td class="n${reg.p_value < 0.05 ? " hi" : ""}">${reg.p_value}</td>`;
+  document.getElementById("polCategoryRegBody").innerHTML = [
+    ["some_vs_none", `Some seats vs. none (n=${pol.by_category.main.some_vs_none.n_districts}, ${pol.by_category.main.some_vs_none.n_some} "some")`],
+    ["all_vs_none", `All seats vs. none (n=${pol.by_category.main.all_vs_none.n_districts}, ${pol.by_category.main.all_vs_none.n_all} "all" — tiny sample)`],
+  ].map(([cmp, label]) => `
+    <tr>
+      <td class="strong">${esc(label)}</td>
+      ${catCell(pol.by_category.main[cmp].regression)}
+      ${catCell(pol.by_category.placebo[cmp].regression)}
+      ${catCell(pol.by_category.placebo_midpoint[cmp].regression)}
+    </tr>`).join("");
+
+  const someReal = pol.by_category.main.some_vs_none.regression;
+  const someSig = someReal.p_value < 0.05
+    && pol.by_category.placebo.some_vs_none.regression.p_value >= 0.05
+    && pol.by_category.placebo_midpoint.some_vs_none.regression.p_value >= 0.05;
+  document.getElementById("polCategoryNote").innerHTML = someSig
+    ? `<strong>The "some vs. none" real-test estimate (p=${someReal.p_value}) clears conventional significance and neither `
+      + `placebo does</strong> — the one result across every specification tested on this page that behaves like a real, `
+      + `placebo-passing effect. But this analysis has now run ${nTests} regressions in total across both treatment styles `
+      + `and all three panels; at a 5% threshold, roughly one "significant" result out of ${nTests} is what pure chance would `
+      + `produce on its own, and a conservative Bonferroni correction for ${nTests} tests would require p<${bonferroni.toFixed(4)} `
+      + `to trust any single one of them — this one doesn't clear that bar. Flagged as worth watching as more elected-government `
+      + `data accumulates, not reported as a confirmed effect. The "all vs. none" comparison, notably, shows nothing — and with `
+      + `only 3 "swept" districts, it barely could.`
+    : `Neither comparison clears conventional significance on the real test with both placebos clean at once. The "all vs. none" `
+      + `comparison in particular rests on just 3 "swept" districts (Barishal, Bhola, Bandarban) — too few for its estimate to `
+      + `mean much either way; their unusually high absolute spending in the table above is very plausibly coastal/hill-tract `
+      + `infrastructure and disaster exposure, not anything to do with the election.`;
 
   const nInterim = pol.meta.interim_months.length, nElected = pol.meta.elected_months.length;
   document.getElementById("polMethodText").innerHTML =
