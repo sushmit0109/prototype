@@ -329,6 +329,536 @@
    }
   }
  },
+ "event_study": {
+  "bnp_won": {
+   "treatment": "bnp_won",
+   "reference_period": "2024-08",
+   "n_districts": 64,
+   "n_periods": 26,
+   "df": 63,
+   "rank_deficient": false,
+   "points": [
+    {
+     "period": "2024-08",
+     "coefficient": 0.0,
+     "std_error": 0.0,
+     "p_value": null,
+     "is_reference": true
+    },
+    {
+     "period": "2024-09",
+     "coefficient": -0.7223,
+     "std_error": 0.2827,
+     "p_value": 0.0131,
+     "is_reference": false
+    },
+    {
+     "period": "2024-10",
+     "coefficient": -0.1458,
+     "std_error": 0.2325,
+     "p_value": 0.533,
+     "is_reference": false
+    },
+    {
+     "period": "2024-11",
+     "coefficient": -0.2053,
+     "std_error": 0.24,
+     "p_value": 0.3956,
+     "is_reference": false
+    },
+    {
+     "period": "2024-12",
+     "coefficient": -0.4103,
+     "std_error": 0.2082,
+     "p_value": 0.0531,
+     "is_reference": false
+    },
+    {
+     "period": "2025-01",
+     "coefficient": -0.4913,
+     "std_error": 0.2107,
+     "p_value": 0.0229,
+     "is_reference": false
+    },
+    {
+     "period": "2025-02",
+     "coefficient": -0.5003,
+     "std_error": 0.2189,
+     "p_value": 0.0256,
+     "is_reference": false
+    },
+    {
+     "period": "2025-03",
+     "coefficient": -0.4613,
+     "std_error": 0.2112,
+     "p_value": 0.0326,
+     "is_reference": false
+    },
+    {
+     "period": "2025-04",
+     "coefficient": -0.5682,
+     "std_error": 0.2302,
+     "p_value": 0.0163,
+     "is_reference": false
+    },
+    {
+     "period": "2025-05",
+     "coefficient": -0.4182,
+     "std_error": 0.1812,
+     "p_value": 0.0243,
+     "is_reference": false
+    },
+    {
+     "period": "2025-06",
+     "coefficient": -0.5179,
+     "std_error": 0.2678,
+     "p_value": 0.0576,
+     "is_reference": false
+    },
+    {
+     "period": "2025-07",
+     "coefficient": -0.4557,
+     "std_error": 0.2945,
+     "p_value": 0.1267,
+     "is_reference": false
+    },
+    {
+     "period": "2025-08",
+     "coefficient": -0.1902,
+     "std_error": 0.2962,
+     "p_value": 0.5233,
+     "is_reference": false
+    },
+    {
+     "period": "2025-09",
+     "coefficient": -0.1514,
+     "std_error": 0.2315,
+     "p_value": 0.5155,
+     "is_reference": false
+    },
+    {
+     "period": "2025-10",
+     "coefficient": -0.3266,
+     "std_error": 0.2893,
+     "p_value": 0.2632,
+     "is_reference": false
+    },
+    {
+     "period": "2025-11",
+     "coefficient": -0.1883,
+     "std_error": 0.301,
+     "p_value": 0.5339,
+     "is_reference": false
+    },
+    {
+     "period": "2025-12",
+     "coefficient": -0.2617,
+     "std_error": 0.3504,
+     "p_value": 0.458,
+     "is_reference": false
+    },
+    {
+     "period": "2026-01",
+     "coefficient": -0.4002,
+     "std_error": 0.2335,
+     "p_value": 0.0914,
+     "is_reference": false
+    },
+    {
+     "period": "2026-02",
+     "coefficient": -0.4502,
+     "std_error": 0.2326,
+     "p_value": 0.0574,
+     "is_reference": false
+    },
+    {
+     "period": "2026-03",
+     "coefficient": -0.3281,
+     "std_error": 0.21,
+     "p_value": 0.1232,
+     "is_reference": false
+    },
+    {
+     "period": "2026-04",
+     "coefficient": -0.2381,
+     "std_error": 0.2405,
+     "p_value": 0.3259,
+     "is_reference": false
+    },
+    {
+     "period": "2026-05",
+     "coefficient": -0.2863,
+     "std_error": 0.2433,
+     "p_value": 0.2438,
+     "is_reference": false
+    },
+    {
+     "period": "2026-06",
+     "coefficient": -0.3789,
+     "std_error": 0.2297,
+     "p_value": 0.1039,
+     "is_reference": false
+    },
+    {
+     "period": "2026-07",
+     "coefficient": -0.5905,
+     "std_error": 0.285,
+     "p_value": 0.0424,
+     "is_reference": false
+    },
+    {
+     "period": "2026-08",
+     "coefficient": -0.275,
+     "std_error": 0.3435,
+     "p_value": 0.4264,
+     "is_reference": false
+    },
+    {
+     "period": "2026-09",
+     "coefficient": -0.3076,
+     "std_error": 0.4664,
+     "p_value": 0.512,
+     "is_reference": false
+    }
+   ]
+  },
+  "bnp_seat_share": {
+   "treatment": "bnp_seat_share",
+   "reference_period": "2024-08",
+   "n_districts": 64,
+   "n_periods": 26,
+   "df": 63,
+   "rank_deficient": false,
+   "points": [
+    {
+     "period": "2024-08",
+     "coefficient": 0.0,
+     "std_error": 0.0,
+     "p_value": null,
+     "is_reference": true
+    },
+    {
+     "period": "2024-09",
+     "coefficient": -1.0985,
+     "std_error": 0.5015,
+     "p_value": 0.0322,
+     "is_reference": false
+    },
+    {
+     "period": "2024-10",
+     "coefficient": -0.3576,
+     "std_error": 0.3977,
+     "p_value": 0.372,
+     "is_reference": false
+    },
+    {
+     "period": "2024-11",
+     "coefficient": -0.5872,
+     "std_error": 0.4322,
+     "p_value": 0.1791,
+     "is_reference": false
+    },
+    {
+     "period": "2024-12",
+     "coefficient": -0.6439,
+     "std_error": 0.3326,
+     "p_value": 0.0574,
+     "is_reference": false
+    },
+    {
+     "period": "2025-01",
+     "coefficient": -0.7564,
+     "std_error": 0.3627,
+     "p_value": 0.041,
+     "is_reference": false
+    },
+    {
+     "period": "2025-02",
+     "coefficient": -1.1475,
+     "std_error": 0.3502,
+     "p_value": 0.0017,
+     "is_reference": false
+    },
+    {
+     "period": "2025-03",
+     "coefficient": -0.5909,
+     "std_error": 0.4016,
+     "p_value": 0.1462,
+     "is_reference": false
+    },
+    {
+     "period": "2025-04",
+     "coefficient": -1.027,
+     "std_error": 0.4558,
+     "p_value": 0.0277,
+     "is_reference": false
+    },
+    {
+     "period": "2025-05",
+     "coefficient": -0.499,
+     "std_error": 0.3255,
+     "p_value": 0.1303,
+     "is_reference": false
+    },
+    {
+     "period": "2025-06",
+     "coefficient": -1.0209,
+     "std_error": 0.4859,
+     "p_value": 0.0396,
+     "is_reference": false
+    },
+    {
+     "period": "2025-07",
+     "coefficient": -0.7465,
+     "std_error": 0.5784,
+     "p_value": 0.2015,
+     "is_reference": false
+    },
+    {
+     "period": "2025-08",
+     "coefficient": -1.1155,
+     "std_error": 0.5464,
+     "p_value": 0.0454,
+     "is_reference": false
+    },
+    {
+     "period": "2025-09",
+     "coefficient": -0.4403,
+     "std_error": 0.4378,
+     "p_value": 0.3184,
+     "is_reference": false
+    },
+    {
+     "period": "2025-10",
+     "coefficient": -0.94,
+     "std_error": 0.6472,
+     "p_value": 0.1514,
+     "is_reference": false
+    },
+    {
+     "period": "2025-11",
+     "coefficient": -0.7481,
+     "std_error": 0.6081,
+     "p_value": 0.2232,
+     "is_reference": false
+    },
+    {
+     "period": "2025-12",
+     "coefficient": -1.3777,
+     "std_error": 0.8227,
+     "p_value": 0.099,
+     "is_reference": false
+    },
+    {
+     "period": "2026-01",
+     "coefficient": -0.8368,
+     "std_error": 0.3975,
+     "p_value": 0.0393,
+     "is_reference": false
+    },
+    {
+     "period": "2026-02",
+     "coefficient": -0.7227,
+     "std_error": 0.4372,
+     "p_value": 0.1033,
+     "is_reference": false
+    },
+    {
+     "period": "2026-03",
+     "coefficient": -0.6429,
+     "std_error": 0.364,
+     "p_value": 0.0822,
+     "is_reference": false
+    },
+    {
+     "period": "2026-04",
+     "coefficient": -0.414,
+     "std_error": 0.3785,
+     "p_value": 0.2783,
+     "is_reference": false
+    },
+    {
+     "period": "2026-05",
+     "coefficient": 0.0292,
+     "std_error": 0.3728,
+     "p_value": 0.9377,
+     "is_reference": false
+    },
+    {
+     "period": "2026-06",
+     "coefficient": -0.6108,
+     "std_error": 0.3663,
+     "p_value": 0.1003,
+     "is_reference": false
+    },
+    {
+     "period": "2026-07",
+     "coefficient": -0.6357,
+     "std_error": 0.5255,
+     "p_value": 0.2309,
+     "is_reference": false
+    },
+    {
+     "period": "2026-08",
+     "coefficient": -1.3134,
+     "std_error": 0.6445,
+     "p_value": 0.0458,
+     "is_reference": false
+    },
+    {
+     "period": "2026-09",
+     "coefficient": -0.0023,
+     "std_error": 0.9256,
+     "p_value": 0.998,
+     "is_reference": false
+    }
+   ]
+  }
+ },
+ "vendor_concentration": {
+  "note": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district). Same district+month fixed effects, real/placebo split months, and treatment definitions as the spending test above; outcome is the HHI level directly (0-1 scale), not asinh-transformed.",
+  "main": {
+   "bnp_won": {
+    "coefficient": 0.0185,
+    "std_error": 0.0161,
+    "t_stat": 1.152,
+    "p_value": 0.2537,
+    "df": 63,
+    "n_obs": 1616,
+    "n_districts": 64,
+    "n_periods": 26,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   },
+   "bnp_vote_share": {
+    "coefficient": 0.0196,
+    "std_error": 0.1118,
+    "t_stat": 0.176,
+    "p_value": 0.8612,
+    "df": 63,
+    "n_obs": 1616,
+    "n_districts": 64,
+    "n_periods": 26,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   },
+   "bnp_seat_share": {
+    "coefficient": 0.0261,
+    "std_error": 0.0372,
+    "t_stat": 0.702,
+    "p_value": 0.4855,
+    "df": 63,
+    "n_obs": 1616,
+    "n_districts": 64,
+    "n_periods": 26,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   }
+  },
+  "placebo": {
+   "bnp_won": {
+    "coefficient": 0.0325,
+    "std_error": 0.0229,
+    "t_stat": 1.417,
+    "p_value": 0.1615,
+    "df": 63,
+    "n_obs": 1216,
+    "n_districts": 64,
+    "n_periods": 19,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   },
+   "bnp_vote_share": {
+    "coefficient": 0.0985,
+    "std_error": 0.1129,
+    "t_stat": 0.873,
+    "p_value": 0.3861,
+    "df": 63,
+    "n_obs": 1216,
+    "n_districts": 64,
+    "n_periods": 19,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   },
+   "bnp_seat_share": {
+    "coefficient": 0.0745,
+    "std_error": 0.0318,
+    "t_stat": 2.345,
+    "p_value": 0.0222,
+    "df": 63,
+    "n_obs": 1216,
+    "n_districts": 64,
+    "n_periods": 19,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   }
+  },
+  "placebo_midpoint": {
+   "bnp_won": {
+    "coefficient": 0.0214,
+    "std_error": 0.0177,
+    "t_stat": 1.206,
+    "p_value": 0.2324,
+    "df": 63,
+    "n_obs": 1216,
+    "n_districts": 64,
+    "n_periods": 19,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   },
+   "bnp_vote_share": {
+    "coefficient": -0.036,
+    "std_error": 0.0779,
+    "t_stat": -0.462,
+    "p_value": 0.6455,
+    "df": 63,
+    "n_obs": 1216,
+    "n_districts": 64,
+    "n_periods": 19,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   },
+   "bnp_seat_share": {
+    "coefficient": 0.052,
+    "std_error": 0.0332,
+    "t_stat": 1.569,
+    "p_value": 0.1216,
+    "df": 63,
+    "n_obs": 1216,
+    "n_districts": 64,
+    "n_periods": 19,
+    "approx_proportional_effect": null,
+    "division_controlled": false,
+    "n_divisions": null,
+    "rank_deficient": false,
+    "denominator": "hhi"
+   }
+  }
+ },
  "by_category": {
   "descriptive": {
    "none": {

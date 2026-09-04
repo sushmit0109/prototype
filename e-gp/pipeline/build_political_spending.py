@@ -170,6 +170,31 @@ def build_monthly_panel(geo_districts, election_by_district, months, post_months
     return rows
 
 
+def build_hhi_panel(vc_districts, election_by_district, months, post_months):
+    """One row per (district, month) with that month's vendor-concentration
+    HHI as the outcome (see build_vendor_concentration.py) instead of
+    spending -- a district-month with too few contracts to compute a
+    meaningful HHI (dropped upstream, not present in the source data at
+    all) is skipped here rather than backfilled with a fake value, so this
+    panel is naturally unbalanced in exactly the months/districts where
+    the concentration figure wouldn't have meant anything anyway."""
+    post_set = set(post_months)
+    rows = []
+    for dist, e in election_by_district.items():
+        vc = vc_districts.get(dist)
+        if not vc or e["total_voters"] < MIN_VOTERS_FOR_INCLUSION:
+            continue
+        tv = treatment_values(e)
+        for m in months:
+            cell = vc["by_month"].get(m)
+            if cell is None:
+                continue
+            rows.append({"district": dist, "period": m, "post": 1 if m in post_set else 0,
+                         **tv, "hhi": cell["hhi"], "n_contracts": cell["n_contracts"],
+                         "top_vendor_share": cell["top_vendor_share"]})
+    return rows
+
+
 def build_legacy_panel(geo_districts, election_by_district, pre_years, post_label, post_era_name):
     rows = []
     for dist, e in election_by_district.items():
@@ -187,7 +212,7 @@ def build_legacy_panel(geo_districts, election_by_district, pre_years, post_labe
     return rows
 
 
-def two_way_fe_did(rows, treatment_key="bnp_won", division_lookup=None, denom_key="total_voters"):
+def two_way_fe_did(rows, treatment_key="bnp_won", division_lookup=None, denom_key="total_voters", outcome_key=None):
     """OLS with district + period fixed effects (explicit dummies) plus a
     treatment x post interaction, cluster-robust (by district) SEs.
 
@@ -209,8 +234,17 @@ def two_way_fe_did(rows, treatment_key="bnp_won", division_lookup=None, denom_ke
     nothing to do with development need. Running the same regression on
     both is a check that the result isn't an artifact of which denominator
     was chosen. Rows without a value for denom_key are dropped rather than
-    silently zero-filled."""
-    rows = [r for r in rows if r.get(denom_key)]
+    silently zero-filled.
+
+    outcome_key, if given, uses that row field directly as the regression
+    outcome (no asinh, no denominator) -- for an outcome that's already a
+    bounded share/index rather than a taka amount, e.g. a district-month's
+    vendor-concentration HHI (see build_vendor_concentration.py). denom_key
+    is ignored when outcome_key is set."""
+    if outcome_key:
+        rows = [r for r in rows if r.get(outcome_key) is not None]
+    else:
+        rows = [r for r in rows if r.get(denom_key)]
     districts = sorted({r["district"] for r in rows})
     periods = sorted({r["period"] for r in rows})
     dist_idx = {d: i for i, d in enumerate(districts)}
@@ -240,8 +274,7 @@ def two_way_fe_did(rows, treatment_key="bnp_won", division_lookup=None, denom_ke
             if dvi > 0 and pi > 0:
                 X[i, div_period_col0 + (dvi - 1) * (len(periods) - 1) + (pi - 1)] = 1.0
         X[i, -1] = (r[treatment_key] or 0) * r["post"]
-        per_capita = r["value_bdt"] / r[denom_key]
-        y[i] = asinh(per_capita)
+        y[i] = r[outcome_key] if outcome_key else asinh(r["value_bdt"] / r[denom_key])
         cluster[i] = di
 
     beta, _, rank, _ = np.linalg.lstsq(X, y, rcond=None)
@@ -270,11 +303,92 @@ def two_way_fe_did(rows, treatment_key="bnp_won", division_lookup=None, denom_ke
         "coefficient": round(float(b), 4), "std_error": round(float(se), 4),
         "t_stat": round(float(t), 3), "p_value": round(float(p), 4),
         "df": df, "n_obs": n, "n_districts": G, "n_periods": len(periods),
-        "approx_proportional_effect": round(float(np.exp(b) - 1), 4),
+        "approx_proportional_effect": None if outcome_key else round(float(np.exp(b) - 1), 4),
         "division_controlled": bool(divisions),
         "n_divisions": len(divisions) if divisions else None,
         "rank_deficient": bool(rank_deficient),
-        "denominator": denom_key,
+        "denominator": outcome_key or denom_key,
+    }
+
+
+def event_study_did(rows, treatment_key, reference_period, denom_key="total_voters"):
+    """Same panel, same fixed-effects logic as two_way_fe_did, but instead
+    of collapsing every pre-period month into one "post=0" and every
+    post-period month into one "post=1", this interacts the treatment with
+    EVERY month's own dummy (except reference_period, whose interaction is
+    fixed at zero by construction -- the standard event-study normalisation).
+
+    The point: two_way_fe_did can only ever answer "is spending different,
+    on average, across the whole post window" -- it cannot show WHEN a
+    difference starts. If a real political favour was being paid out, it
+    should show up as a level shift beginning in a specific month (right
+    after the election, or right before it if anticipatory) with periods
+    before that sitting flat near zero. A gentle, gradual drift with no
+    kink anywhere -- or a shift that starts inside the placebo run-up
+    window itself -- argues against a political explanation before a
+    single p-value is even read."""
+    rows = [r for r in rows if r.get(denom_key)]
+    districts = sorted({r["district"] for r in rows})
+    periods = sorted({r["period"] for r in rows})
+    if reference_period not in periods:
+        raise ValueError(f"reference_period {reference_period!r} not among panel periods")
+    other_periods = [p for p in periods if p != reference_period]
+    dist_idx = {d: i for i, d in enumerate(districts)}
+    per_pos = {p: i for i, p in enumerate(other_periods)}
+
+    n = len(rows)
+    G = len(districts)
+    k = 1 + (G - 1) + len(other_periods) + len(other_periods)
+    X = np.zeros((n, k))
+    y = np.zeros(n)
+    cluster = np.zeros(n, dtype=int)
+    period_col0 = 1 + (G - 1)
+    inter_col0 = period_col0 + len(other_periods)
+
+    for i, r in enumerate(rows):
+        X[i, 0] = 1.0
+        di = dist_idx[r["district"]]
+        if di > 0:
+            X[i, 1 + di - 1] = 1.0
+        p = r["period"]
+        if p != reference_period:
+            pi = per_pos[p]
+            X[i, period_col0 + pi] = 1.0
+            X[i, inter_col0 + pi] = (r[treatment_key] or 0)
+        per_capita = r["value_bdt"] / r[denom_key]
+        y[i] = asinh(per_capita)
+        cluster[i] = di
+
+    beta, _, rank, _ = np.linalg.lstsq(X, y, rcond=None)
+    resid = y - X @ beta
+    XtX_inv = np.linalg.pinv(X.T @ X)
+
+    meat = np.zeros((k, k))
+    for g in range(G):
+        mask = cluster == g
+        Xg = X[mask]
+        ug = resid[mask]
+        score = Xg.T @ ug
+        meat += np.outer(score, score)
+    correction = (G / (G - 1)) * ((n - 1) / (n - k))
+    vcov = correction * XtX_inv @ meat @ XtX_inv
+    df = G - 1
+
+    points = [{"period": reference_period, "coefficient": 0.0, "std_error": 0.0, "p_value": None, "is_reference": True}]
+    for p in other_periods:
+        col = inter_col0 + per_pos[p]
+        b = beta[col]
+        se = np.sqrt(max(vcov[col, col], 0))
+        t = b / se if se > 0 else 0.0
+        pv = 2 * (1 - stats.t.cdf(abs(t), df)) if se > 0 else 1.0
+        points.append({"period": p, "coefficient": round(float(b), 4), "std_error": round(float(se), 4),
+                       "p_value": round(float(pv), 4), "is_reference": False})
+    points.sort(key=lambda pt: pt["period"])
+
+    return {
+        "treatment": treatment_key, "reference_period": reference_period,
+        "n_districts": G, "n_periods": len(periods), "df": df, "rank_deficient": bool(rank < min(X.shape)),
+        "points": points,
     }
 
 
@@ -370,9 +484,10 @@ def category_descriptive(geo_districts, election_by_district):
     return out
 
 
-def main(geo_path, election_path, out_path):
+def main(geo_path, election_path, out_path, vendor_conc_path=None):
     geo = json.load(open(geo_path))
     election = json.load(open(election_path))
+    vendor_conc = json.load(open(vendor_conc_path)) if vendor_conc_path else None
 
     election_by_district = {display_name(d["district"]): d for d in election["districts"]}
     common_districts = sorted(set(election_by_district) & set(geo["districts"]))
@@ -410,6 +525,39 @@ def main(geo_path, election_path, out_path):
     # docstring for why the two denominators can disagree).
     main_results_population = all_treatments(main_rows, denom_key="population")
     placebo_results_population = all_treatments(placebo_rows, denom_key="population")
+
+    # A second, independent way a favour could show up: not more total
+    # money, but the same money going to a narrower set of vendors. Uses
+    # the identical real/placebo split months as the spending test above,
+    # just with vendor-concentration HHI as the outcome instead of taka
+    # per voter (see build_vendor_concentration.py).
+    vendor_concentration = None
+    if vendor_conc is not None:
+        vc_districts = vendor_conc["districts"]
+        hhi_main_rows = build_hhi_panel(vc_districts, election_by_district, stable_months, elected_months)
+        hhi_placebo_rows = build_hhi_panel(vc_districts, election_by_district, interim_months, placebo_post_months)
+        hhi_placebo_mid_rows = build_hhi_panel(vc_districts, election_by_district, interim_months, placebo_mid_post_months)
+        vendor_concentration = {
+            "note": vendor_conc["meta"]["method"] + " Same district+month fixed effects, real/placebo "
+                    "split months, and treatment definitions as the spending test above; outcome is the "
+                    "HHI level directly (0-1 scale), not asinh-transformed.",
+            "main": {t: two_way_fe_did(hhi_main_rows, treatment_key=t, outcome_key="hhi") for t in TREATMENTS},
+            "placebo": {t: two_way_fe_did(hhi_placebo_rows, treatment_key=t, outcome_key="hhi") for t in TREATMENTS},
+            "placebo_midpoint": {t: two_way_fe_did(hhi_placebo_mid_rows, treatment_key=t, outcome_key="hhi") for t in TREATMENTS},
+        }
+
+    # Event study: does the treatment x period gap have a shape at all, or
+    # is collapsing to one "post" number hiding a story? Reference month is
+    # the first month of the stable-coverage panel, so every point reads as
+    # "relative to where this district started, in the interim government's
+    # very first month." bnp_won is the primary, easiest-to-read line;
+    # bnp_seat_share (continuous) is reported alongside it since it's a
+    # different way of drawing the same treatment.
+    event_study_reference = interim_months[0]
+    event_study = {
+        "bnp_won": event_study_did(main_rows, "bnp_won", event_study_reference),
+        "bnp_seat_share": event_study_did(main_rows, "bnp_seat_share", event_study_reference),
+    }
 
     # Shut out entirely vs. swept entirely vs. split -- is "some" the same
     # story as "all", or does collapsing to a share hide something the
@@ -473,6 +621,8 @@ def main(geo_path, election_path, out_path):
             "main_population": main_results_population,
             "placebo_population": placebo_results_population,
         },
+        "event_study": event_study,
+        "vendor_concentration": vendor_concentration,
         "by_category": {
             "descriptive": category_descriptive_stats,
             "main": category_main, "placebo": category_placebo, "placebo_midpoint": category_placebo_midpoint,
@@ -524,8 +674,15 @@ def main(geo_path, election_path, out_path):
         print(f"  {'  +division FE':18s} some-vs-none: b={svd['coefficient']:>8.4f} p={svd['p_value']:.4f} "
               f"(rank_deficient={svd['rank_deficient']})   "
               f"all-vs-none: b={avd['coefficient']:>8.4f} p={avd['p_value']:.4f} (rank_deficient={avd['rank_deficient']})")
+    if vendor_concentration:
+        print("\nvendor-concentration (HHI) DiD -- same treatment, months, and placebos as above:")
+        for t in TREATMENTS:
+            m, pl, plm = vendor_concentration["main"][t], vendor_concentration["placebo"][t], vendor_concentration["placebo_midpoint"][t]
+            print(f"  {t:16s} main b={m['coefficient']:>8.4f} p={m['p_value']:.4f}   "
+                  f"placebo b={pl['coefficient']:>8.4f} p={pl['p_value']:.4f}   "
+                  f"placebo(mid) b={plm['coefficient']:>8.4f} p={plm['p_value']:.4f}")
     print(f"wrote -> {out_path}")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2], sys.argv[3])
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else None)

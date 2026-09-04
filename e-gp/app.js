@@ -577,6 +577,58 @@ const POL_TREATMENT_LABEL = {
   bnp_seat_share: "District seat share (continuous)",
 };
 
+/** Short "Sep '24" label from a "2024-09" period key. */
+function monthLabel(key) {
+  const [y, m] = key.split("-");
+  return `${MONTHS[parseInt(m, 10) - 1]} '${y.slice(2)}`;
+}
+
+/** Event-study line: treatment x month-dummy coefficient (asinh scale,
+ * relative to the panel's first month) with a 95% CI band, so a reader can
+ * see WHEN any gap opens up rather than one collapsed before/after number.
+ * markers = [[periodKey, label], ...] for vertical reference lines
+ * (the election transition, the placebo split). */
+function chartEventStudy(es, markers) {
+  const pts = es.points;
+  const W = 800, H = 260, padL = 46, padR = 16, padT = 20, padB = 34;
+  const pw = W - padL - padR, ph = H - padT - padB;
+  const n = pts.length;
+  const xOf = i => padL + (n === 1 ? pw / 2 : (i / (n - 1)) * pw);
+  const bounds = pts.map(p => [p.coefficient - 1.96 * p.std_error, p.coefficient + 1.96 * p.std_error]);
+  const lo = Math.min(...bounds.map(b => b[0]), 0);
+  const hi = Math.max(...bounds.map(b => b[1]), 0);
+  const pad = (hi - lo) * 0.1 || 0.1;
+  const yMin = lo - pad, yMax = hi + pad;
+  const yOf = v => padT + ph - ((v - yMin) / (yMax - yMin)) * ph;
+
+  const upper = pts.map((p, i) => `${xOf(i).toFixed(1)},${yOf(bounds[i][1]).toFixed(1)}`).join(" ");
+  const lower = pts.slice().reverse().map((p, i) => `${xOf(n - 1 - i).toFixed(1)},${yOf(bounds[n - 1 - i][0]).toFixed(1)}`).join(" ");
+  const line = pts.map((p, i) => `${xOf(i).toFixed(1)},${yOf(p.coefficient).toFixed(1)}`).join(" ");
+
+  let body = "";
+  body += `<polygon points="${upper} ${lower}" fill="var(--s1)" fill-opacity="0.12"/>`;
+  body += `<line x1="${padL}" y1="${yOf(0)}" x2="${W - padR}" y2="${yOf(0)}" class="grid" stroke-dasharray="2 3"/>`;
+  markers.forEach(([key, label]) => {
+    const idx = pts.findIndex(p => p.period >= key);
+    if (idx < 0) return;
+    const x = xOf(idx);
+    body += `<line x1="${x}" y1="${padT - 6}" x2="${x}" y2="${padT + ph}" stroke="var(--s2)" stroke-width="1" stroke-dasharray="2 3" opacity="0.75"/>
+             <text class="val-label hi" x="${x + 4}" y="${padT + 4}">${esc(label)}</text>`;
+  });
+  body += `<polyline points="${line}" fill="none" stroke="var(--s4)" stroke-width="2" stroke-linejoin="round"/>`;
+  pts.forEach((p, i) => {
+    const x = xOf(i), y = yOf(p.coefficient);
+    const sig = p.p_value != null && p.p_value < 0.05;
+    body += `<circle cx="${x}" cy="${y}" r="${sig ? 3.5 : 2.5}" fill="${sig ? "var(--s4)" : "var(--surface)"}" stroke="var(--s4)" stroke-width="1.5">
+      <title>${esc(p.period)}: coefficient ${p.coefficient}${p.is_reference ? " (reference month, fixed at 0)" : `, p=${p.p_value}`}</title></circle>`;
+  });
+  pts.forEach((p, i) => {
+    if (i % 3 !== 0 && i !== n - 1) return;
+    body += `<text class="ax" x="${xOf(i)}" y="${H - 10}" text-anchor="middle">${esc(monthLabel(p.period))}</text>`;
+  });
+  return svg(W, H, body);
+}
+
 function renderPoliticalSpending(pol) {
   if (!pol) {
     document.getElementById("political").style.display = "none";
@@ -656,6 +708,22 @@ function renderPoliticalSpending(pol) {
     `For reference, the plain group-means version (binary treatment, no fixed effects, easy to verify by hand), in `
     + `taka per registered voter: real ${taka(pol.main_simple.did_bdt_per_voter)}, run-up placebo `
     + `${taka(pol.placebo_simple.did_bdt_per_voter)}, midpoint placebo ${taka(pol.placebo_midpoint_simple.did_bdt_per_voter)}.`;
+
+  // Event study: does the gap have a shape, or is "before/after" hiding one?
+  const esPoints = pol.event_study.bnp_won.points;
+  const electionMonth = pol.meta.elected_months[0];
+  const markers = [[pol.meta.placebo_split_month, "placebo split"], [electionMonth, "election"]];
+  document.getElementById("chartPolEventStudy").innerHTML = chartEventStudy(pol.event_study.bnp_won, markers);
+  const firstSig = esPoints.find(p => !p.is_reference && p.p_value < 0.05);
+  document.getElementById("capPolEventStudy").textContent =
+    `Won-districts-vs-not gap, month by month, relative to ${monthLabel(pol.event_study.bnp_won.reference_period)} `
+    + `(shaded band = 95% CI; filled dot = p<0.05). If winning the Feb 2026 election changed how a district was `
+    + `treated, this line should sit near zero before the election and move at the election marker — instead `
+    + (firstSig
+      ? `the gap is already there by ${monthLabel(firstSig.period)}, over a year before the vote, `
+      : `no month clears significance on its own, `)
+    + `and there's no visible step at the election line itself. A gap that predates the election it's supposed `
+    + `to be caused by isn't evidence for the hypothesis, whatever else it is.`;
 
   document.getElementById("polScatterLede").textContent =
     "Each of the 64 matched districts: BNP-led alliance's share of the district's vote (x) against "
@@ -746,6 +814,33 @@ function renderPoliticalSpending(pol) {
       + `infrastructure and disaster exposure than anything to do with the election.`;
   }
 
+  if (pol.vendor_concentration) {
+    const vcRegCell = reg => `<td class="n">${reg.coefficient}</td><td class="n${reg.p_value < 0.05 ? " hi" : ""}">${reg.p_value}</td>`;
+    document.getElementById("polHhiRegBody").innerHTML = Object.keys(POL_TREATMENT_LABEL).map(t => `
+      <tr>
+        <td class="strong">${esc(POL_TREATMENT_LABEL[t])}</td>
+        ${vcRegCell(pol.vendor_concentration.main[t])}
+        ${vcRegCell(pol.vendor_concentration.placebo[t])}
+        ${vcRegCell(pol.vendor_concentration.placebo_midpoint[t])}
+      </tr>`).join("");
+    const vcSig = Object.keys(POL_TREATMENT_LABEL).some(t => pol.vendor_concentration.main[t].p_value < 0.05
+      && pol.vendor_concentration.placebo[t].p_value >= 0.05 && pol.vendor_concentration.placebo_midpoint[t].p_value >= 0.05);
+    const placeboLouder = Object.keys(POL_TREATMENT_LABEL).some(t => pol.vendor_concentration.main[t].p_value >= 0.05
+      && pol.vendor_concentration.placebo[t].p_value < 0.05);
+    document.getElementById("polHhiNote").textContent = vcSig
+      ? `At least one treatment definition shows a concentration shift on the real test that neither placebo shows — `
+        + `worth the same scrutiny the spending numbers above got before treating it as anything.`
+      : placeboLouder
+        ? `No treatment definition clears significance on the real test with both placebos clean — and on seat share, `
+          + `it's the run-up placebo that comes back significant (p=${pol.vendor_concentration.placebo.bnp_seat_share.p_value}) `
+          + `while the real test doesn't (p=${pol.vendor_concentration.main.bnp_seat_share.p_value}). A placebo period `
+          + `showing more of an effect than the real one is the opposite of what a genuine election-driven shift would `
+          + `produce — read as further evidence against, not for, vendor capture tied to this election.`
+        : `No treatment definition shows a concentration shift on the real test, on either the election-driven "who wins" `
+          + `measure or its own placebo. Whatever else is happening to who wins contracts in a district, it isn't showing `
+          + `up as fewer vendors taking a larger share of the money after the election.`;
+  }
+
   const nInterim = pol.meta.interim_months.length, nElected = pol.meta.elected_months.length;
   document.getElementById("polMethodText").innerHTML =
     `<strong>Design:</strong> panel difference-in-differences, two-way fixed effects (64 districts × month), `
@@ -784,7 +879,17 @@ function renderPoliticalSpending(pol) {
     + `by voters). The other direction — adding a division×month fixed effect to check whether a result is really `
     + `district-level rather than regional — is the more consequential one and is reported inline next to the `
     + `"shut out, split, or swept" comparison above rather than here, since it's what overturns that section's `
-    + `single flagged result. <strong>Source:</strong> election results from `
+    + `single flagged result. <strong>Two further framings, not just further robustness checks on the same `
+    + `design:</strong> the event study above re-estimates the treatment gap separately for every month instead `
+    + `of collapsing to one before/after number, which is what actually shows this analysis's most useful negative `
+    + `result — any gap that exists was already present before the interim government's own placebo window, let `
+    + `alone the election, which a single collapsed p-value could never have revealed. The vendor-concentration `
+    + `test asks a different question entirely (does the same money go to fewer contractors, rather than does more `
+    + `money arrive) using an independent outcome variable (HHI, from `
+    + `<code>build_vendor_concentration.py</code>) on the identical panel and placebo structure — also a clean `
+    + `null, and notably one where a placebo period comes back "significant" more often than the real one does, `
+    + `which is itself informative about how much weight any single p-value in this whole analysis should carry. `
+    + `<strong>Source:</strong> election results from `
     + `<a href="https://interactive.netra.news/bangladesh-election-2026-map/" target="_blank" rel="noopener">netra.news's interactive results map</a> `
     + `(Nazmul Ahasan &amp; Aaqib Md. Shatil), vote counts from Election Commission publications, union boundaries `
     + `from geoBoundaries (CC-BY 4.0), and district population from BBS's 2022 Population &amp; Housing Census — the `

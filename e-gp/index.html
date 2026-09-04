@@ -221,6 +221,19 @@
     </div>
     <p class="sub" id="polSimpleDidNote" style="margin-top:10px;font-size:0.78rem"></p>
 
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">Does the gap have a shape? An event study, month by month</h3>
+    <p class="sub">
+      The test above collapses everything before the election into "pre" and everything after into
+      "post" — which can hide exactly the thing that would make this causal: <em>when</em> a gap
+      appears. This reruns the same regression with every month interacted with treatment
+      separately, so a real election effect should show up as a level shift right at the election
+      marker below, not before it.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartPolEventStudy"></div></div>
+      <figcaption id="capPolEventStudy"></figcaption>
+    </figure>
+
     <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">Every district, before and after</h3>
     <p class="sub" id="polScatterLede"></p>
     <figure>
@@ -274,10 +287,11 @@
         method" for why that confinement is necessary — that gap is not statistically
         distinguishable from zero on the three smooth treatment definitions, and neither is its
         own placebo. A real effect that a correlation-only analysis would have reported with
-        confidence does not survive being tested properly. The one exception is the "some vs.
-        none" split-districts comparison directly above, which does clear conventional
-        significance on the real test and not on either placebo — see the caution alongside it
-        for why that's flagged as worth watching rather than reported as a finding.</p>
+        confidence does not survive being tested properly. The "some vs. none" split-districts
+        comparison directly above looked like the one exception at first — clearing conventional
+        significance on the real test and not on either placebo — until a division-level control
+        made the p-value collapse too; see the note alongside it for the full account of why
+        that's reported as explained-away, not as a finding.</p>
       </div>
       <div class="caution">
         <h4>What this isn't</h4>
@@ -295,6 +309,31 @@
         election data feeding it.</p>
       </div>
     </div>
+
+    <h3 style="margin-top:34px;font-size:0.95rem;font-weight:650">A different kind of favour: same money, fewer vendors?</h3>
+    <p class="sub">
+      Winning could pay off without a district's total envelope changing at all, if the same money
+      started going to a narrower set of contractors instead. This runs the identical
+      district+month regression, real test and both placebos, with a district-month's
+      vendor-concentration index (HHI — the sum of each vendor's squared share of that month's
+      contract value; 1.0 would mean one vendor took everything) as the outcome instead of taka
+      per voter.
+    </p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Treatment definition</th>
+          <th class="n" colspan="2">Real (interim → elected)</th>
+          <th class="n" colspan="2">Placebo — run-up to election</th>
+          <th class="n" colspan="2">Placebo — midpoint split</th>
+        </tr>
+        <tr class="muted" style="font-size:0.72rem">
+          <th></th><th class="n">b</th><th class="n">p</th><th class="n">b</th><th class="n">p</th><th class="n">b</th><th class="n">p</th>
+        </tr></thead>
+        <tbody id="polHhiRegBody"></tbody>
+      </table>
+    </div>
+    <p class="sub" id="polHhiNote" style="margin-top:10px;font-size:0.78rem"></p>
 
     <details style="margin-top:20px">
       <summary>Full method</summary>

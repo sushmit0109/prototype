@@ -111,7 +111,8 @@ jobs:
           python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
           python3 build_ceiling.py ../data/contracts ../data/ceiling.json
           python3 build_geo.py ../data/contracts ../data/tenders ../data/geo.json
-          python3 build_political_spending.py ../data/geo.json ../data/election_2026.json ../data/political_spending.json
+          python3 build_vendor_concentration.py ../data/contracts ../data/vendor_concentration.json
+          python3 build_political_spending.py ../data/geo.json ../data/election_2026.json ../data/political_spending.json ../data/vendor_concentration.json
           python3 build_cpv.py ../raw/cpv_categories.json ../data/contracts ../data/cpv_categories.json
 
       - name: Itemised APP -- extend coverage of the pre-tender estimates (resumable)
