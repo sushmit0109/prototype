@@ -3,62 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bangladesh Census Dashboard</title>
-<meta http-equiv="refresh" content="0; url=https://bbs-census.vercel.app/">
-<link rel="canonical" href="https://bbs-census.vercel.app/">
+<title>Development &amp; the Vote — Bangladesh, upazila by upazila</title>
+<meta name="description" content="Does a decade of development delivery, measured by BBS's 2022 census, predict how an upazila voted in Bangladesh's February 2026 election? A sub-district companion to the e-GP project's district-level causal study.">
+<link rel="stylesheet" href="styles.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --border: #2e3350;
-    --accent: #4fc3a1;
-    --text: #e8eaf6;
-    --muted: #8890b0;
-  }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    text-align: center;
-  }
-  .box {
-    max-width: 420px;
-  }
-  .spinner {
-    width: 28px;
-    height: 28px;
-    border: 3px solid var(--border);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  h1 { font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; }
-  p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .back { display: block; margin-top: 20px; font-size: 0.8rem; color: var(--muted); }
+  .table-wrap table { min-width: 900px; }
+  .swatch { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; }
+  .legend { display:flex; flex-wrap:wrap; gap:14px; font-size:0.78rem; color:var(--text-2); margin-bottom:8px; }
+  .legend span { display:inline-flex; align-items:center; }
 </style>
 </head>
 <body>
-  <div class="box">
-    <div class="spinner"></div>
-    <h1>Redirecting to the Census Dashboard…</h1>
-    <p>
-      This prototype now runs on its own deployment.
-      If you're not redirected automatically, <a href="https://bbs-census.vercel.app/">continue to bbs-census.vercel.app →</a>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="kicker">Bangladesh census × election 2026</div>
+    <h1>Did development predict the vote?</h1>
+    <p class="standfirst">
+      A sub-district companion to the <a href="../e-gp/#political">e-GP project's district-level "does winning
+      pay?" study</a> — but run in the opposite direction. The 2022 census is the last one taken, entirely before
+      this election, so there's no post-election wave to test whether winning changed development. What the data
+      can test instead: did the development conditions a decade of rule left behind predict which party an
+      upazila's voters turned to once given a competitive choice.
     </p>
-    <a class="back" href="../">← All prototypes</a>
+    <div class="scale-row">
+      <div class="scale-item"><div class="v num" id="statUpazilas">—</div><div class="k">upazilas matched, census ↔ election</div></div>
+      <div class="scale-item"><div class="v num" id="statIndicators">—</div><div class="k">development indicators in the composite index</div></div>
+      <div class="scale-item"><div class="v num" id="statExcluded">—</div><div class="k">upazilas excluded (metro or missing data)</div></div>
+      <div class="scale-item"><div class="v num">4</div><div class="k">competing alliances/parties tested</div></div>
+    </div>
+    <p class="updated">
+      <a href="https://bbs-census.vercel.app/" target="_blank" rel="noopener">Full census dashboard ↗</a>
+      &nbsp;·&nbsp; <a href="../e-gp/" target="_blank" rel="noopener">e-GP procurement dashboard ↗</a>
+      &nbsp;·&nbsp; <a href="../">← All prototypes</a>
+    </p>
   </div>
-  <script>
-    location.replace("https://bbs-census.vercel.app/");
-  </script>
+</header>
+
+<main style="max-width:var(--maxw);margin:0 auto;padding:0 24px 80px">
+
+  <section style="margin-top:40px">
+    <h2 style="font-size:1.3rem;font-weight:700" id="headline">—</h2>
+    <p class="sub" id="headlineSub" style="margin-top:8px">—</p>
+  </section>
+
+  <section style="margin-top:40px">
+    <h3 style="font-size:0.95rem;font-weight:650">The design, in short</h3>
+    <p class="sub" style="margin-top:8px">
+      A composite development index — literacy (15+), electricity access, safe sanitation, pucca (permanent)
+      housing, and internet use, each z-scored and averaged — built from BBS's 2022 Population &amp; Housing
+      Census at upazila level, regressed against each party's Feb 2026 vote share with division fixed effects, a
+      log(registered voters) control, and standard errors clustered by district. 449 of 542 election-side upazilas
+      matched cleanly against the census's 507 upazila-level places (name variants resolved automatically; the six
+      city-corporation metro areas — Dhaka, Chattogram, Cumilla, Barishal, Khulna, Rajshahi — are excluded outright,
+      since the public 2022 tables report those as one aggregate unit each rather than by the individual thana the
+      election data uses).
+    </p>
+    <div class="note" style="margin-top:16px">
+      <div class="caution">
+        <h4>This is not the e-GP study's kind of causal</h4>
+        <p>
+          The district-level spending study earns "causal" by comparing the same districts to themselves before
+          and after a real event, with a placebo period as the falsification check. Nothing here does that: one
+          census wave, one election, no way to construct a placebo the way a panel allows. Division fixed effects
+          and a population-size control are covariate adjustment, not identification — an omitted
+          regional-political-culture variable, a historic party stronghold, or simple reverse causality (an area's
+          politics shaping how services got delivered to it, not the other way round) could produce the same
+          pattern this data would show. Read every coefficient below as an association net of those controls, not
+          a proven effect.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:40px">
+    <h3 style="font-size:0.95rem;font-weight:650">The composite index, against every party</h3>
+    <p class="sub" style="margin-top:8px">
+      Vote-share points per one standard-deviation increase in the development index, one bar per party. * marks
+      p&lt;0.05 — none does, at any conventional multiple-testing threshold.
+    </p>
+    <figure>
+      <div class="chart-card"><div id="chartDevIndex"></div></div>
+      <figcaption>Coefficient (division fixed effects, cluster-robust by district, n shown in the table below).</figcaption>
+    </figure>
+  </section>
+
+  <section style="margin-top:40px">
+    <h3 style="font-size:0.95rem;font-weight:650">Every indicator, on its own, against every party</h3>
+    <p class="sub" style="margin-top:8px">
+      Not just the composite: each of the five index components, plus five contextual indicators (mobile banking,
+      remittances, religion mix, household size, youth idleness) tested individually — so a real relationship
+      hiding inside the composite, or a spurious one driving it, isn't averaged away either direction.
+    </p>
+    <div class="table-wrap" style="margin-top:12px">
+      <table>
+        <thead><tr>
+          <th>Indicator</th>
+          <th class="n" colspan="2">BNP-led alliance</th>
+          <th class="n" colspan="2">Jamaat-led alliance</th>
+          <th class="n" colspan="2">Independent</th>
+          <th class="n" colspan="2">Other party</th>
+        </tr>
+        <tr class="muted" style="font-size:0.72rem">
+          <th></th><th class="n">b</th><th class="n">p</th><th class="n">b</th><th class="n">p</th>
+          <th class="n">b</th><th class="n">p</th><th class="n">b</th><th class="n">p</th>
+        </tr></thead>
+        <tbody id="regTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section style="margin-top:40px">
+    <h3 style="font-size:0.95rem;font-weight:650">Two things that do line up</h3>
+    <p class="sub" style="margin-top:8px">One expected, one worth watching — neither overturns the headline null.</p>
+
+    <h4 style="margin-top:24px;font-size:0.85rem;font-weight:650">Religion mix and the religious-alliance vote</h4>
+    <figure>
+      <div class="chart-card"><div id="chartScatterMuslim"></div></div>
+    </figure>
+    <p class="sub" id="muslimNote" style="margin-top:8px"></p>
+
+    <h4 style="margin-top:28px;font-size:0.85rem;font-weight:650">Idle youth and the BNP-led vote</h4>
+    <figure>
+      <div class="chart-card"><div id="chartScatterNeet"></div></div>
+    </figure>
+    <p class="sub" id="neetNote" style="margin-top:8px"></p>
+  </section>
+
+  <section style="margin-top:40px">
+    <details>
+      <summary>Full method &amp; data notes</summary>
+      <p class="sub" style="margin-top:10px">
+        <strong>Join:</strong> election_2026_unions.json (5,034 unions, netra.news / Election Commission
+        publications, union-level with its own upazila field) aggregated up to upazila by summing votes, matched
+        against the 2022 census's 507 upazila-level places by district+name (case/whitespace-insensitive, plus a
+        handful of known spelling aliases — "Roypur"/"Raipur", "Kotwali"/"Jashore Sadar", and so on). Of
+        <span id="nTotal">—</span> election-side upazilas: <span id="nMetro">—</span> excluded as metro
+        city-corporation areas (no thana-level census breakdown exists publicly), <span id="nMissing">—</span>
+        dropped for a missing value on one of the five core indicators (mostly electricity-access, which BBS
+        didn't tabulate for every upazila), <span id="nUnmatched">—</span> genuinely unmatched.
+      </p>
+      <p class="sub" style="margin-top:10px">
+        <strong>Why 2022, not 2011→2022 change:</strong> the two censuses use incompatible table structures for
+        the indicators that matter here — 2011 measures literacy at the household-head level, 2022 at the whole
+        population; 2011 doesn't tabulate internet use or mobile banking at all. Comparing constructed "changes"
+        between two different measurement definitions is a worse trap than using only the more recent, richer
+        snapshot and saying plainly that it's a level, not a change.
+      </p>
+      <p class="sub" style="margin-top:10px">
+        <strong>Regression:</strong> OLS, y = a + b·x + division dummies + c·log(registered voters) + e, x
+        z-scored per indicator, cluster-robust (CR1 sandwich, small-sample corrected) standard errors by district,
+        t-distribution p-values. No panel dimension, no placebo test is possible in a single cross-section — the
+        closest substitute for a robustness check here is that five different, independently-measured indicators
+        (plus their composite) mostly agree with each other on finding nothing, rather than one convenient
+        indicator being the only thing tested.
+      </p>
+      <p class="sub" style="margin-top:10px">
+        <strong>Sources:</strong> election results from
+        <a href="https://interactive.netra.news/bangladesh-election-2026-map/" target="_blank" rel="noopener">netra.news's interactive results map</a>
+        (Nazmul Ahasan &amp; Aaqib Md. Shatil), vote counts from Election Commission publications; census indicators
+        from BBS's 2022 Population &amp; Housing Census, parsed and curated in the
+        <a href="https://bbs-census.vercel.app/" target="_blank" rel="noopener">companion census project</a>.
+      </p>
+    </details>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>
