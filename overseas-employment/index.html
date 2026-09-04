@@ -23,17 +23,18 @@
   <nav class="lens" role="tablist" aria-label="Dataset">
     <button role="tab" data-lens="people" aria-selected="true">People</button>
     <button role="tab" data-lens="money" aria-selected="false">Money</button>
+    <button role="tab" data-lens="insights" aria-selected="false">Insights</button>
     <span class="lens-note" id="lens-note"></span>
   </nav>
 
-  <section class="kpis" aria-label="Headline figures">
-    <div class="kpi"><div class="label">Clearances</div><div class="value" id="kpi-total">—</div><div class="sub" id="kpi-total-sub">in view</div></div>
+  <section class="kpis dash" aria-label="Headline figures">
+    <div class="kpi"><div class="label" id="kpi-total-label">Clearances</div><div class="value" id="kpi-total">—</div><div class="sub" id="kpi-total-sub">in view</div></div>
     <div class="kpi"><div class="label" id="kpi-district-label">Top origin</div><div class="value" id="kpi-district">—</div><div class="sub" id="kpi-district-sub">&nbsp;</div></div>
-    <div class="kpi"><div class="label">Top destination</div><div class="value" id="kpi-country">—</div><div class="sub" id="kpi-country-sub">&nbsp;</div></div>
-    <div class="kpi"><div class="label">Busiest month</div><div class="value" id="kpi-peak">—</div><div class="sub" id="kpi-peak-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label" id="kpi-country-label">Top destination</div><div class="value" id="kpi-country">—</div><div class="sub" id="kpi-country-sub">&nbsp;</div></div>
+    <div class="kpi"><div class="label" id="kpi-peak-label">Busiest month</div><div class="value" id="kpi-peak">—</div><div class="sub" id="kpi-peak-sub">&nbsp;</div></div>
   </section>
 
-  <div class="corridor" id="corridor">
+  <div class="corridor dash" id="corridor">
     <span class="lead">Showing</span>
     <span id="corridor-from"></span>
     <span class="arrow" aria-hidden="true">→</span>
@@ -48,7 +49,7 @@
     <button class="icon-btn" id="reset-btn">Reset all</button>
   </div>
 
-  <section class="panel">
+  <section class="panel dash">
     <div class="panel-head">
       <div>
         <h2>Timeline</h2>
@@ -64,7 +65,7 @@
     <div id="timeline"></div>
   </section>
 
-  <div class="grid2 maps" style="margin-bottom:16px">
+  <div class="grid2 maps dash" style="margin-bottom:16px">
     <section class="panel">
       <div class="panel-head">
         <h2>Origin — districts</h2>
@@ -89,7 +90,7 @@
     </section>
   </div>
 
-  <div class="grid2">
+  <div class="grid2 dash">
     <section class="panel">
       <h2 id="bars-districts-title">Top districts</h2>
       <p class="hint" id="bars-d-hint">Ranked by clearances in the current view.</p>
@@ -102,7 +103,7 @@
     </section>
   </div>
 
-  <section class="panel" id="wvm-panel" style="margin-top:16px" hidden>
+  <section class="panel dash" id="wvm-panel" style="margin-top:16px" hidden>
     <h2>Remittance per migrant</h2>
     <p class="hint">Money sent home divided by the number of Bangladeshis actually living in each
       country (UN DESA, 2024) — not by recent clearances. Clearances count new workers over three
@@ -114,13 +115,15 @@
     <div id="wvm"></div>
   </section>
 
-  <section class="panel" style="margin-top:16px">
+  <section class="panel dash" style="margin-top:16px">
     <h2>Data table</h2>
     <p class="hint">The same numbers as the charts above, for screen readers and for copying.
       <button class="icon-btn" id="table-btn" aria-expanded="false" aria-controls="table-body">Show table</button>
     </p>
     <div id="table-body" hidden></div>
   </section>
+
+  <section id="insights" hidden aria-label="Findings"></section>
 
   <footer class="foot">
     <p><strong>Source:</strong> Bureau of Manpower, Employment and Training (BMET) /

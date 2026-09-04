@@ -50,6 +50,7 @@ const genderLabel = () =>
 const PER = 100000;
 const DENOM = { rate: 'p', rateW: 'pw' };     // total population / working age 15-64
 const isRem = () => state.lens === 'money';
+const isIns = () => state.lens === 'insights';
 
 /* Remittance lens.
  *
@@ -276,6 +277,18 @@ function trendOf(series) {
 /* ------------------------------------------------------------- rendering */
 
 function render() {
+  // The Insights tab is a different kind of page: prose and static charts, no
+  // maps, no filters. Swap the whole body rather than layering a panel onto a
+  // dashboard whose controls would not apply to it.
+  const ins = isIns();
+  document.querySelectorAll('.dash').forEach((e) => { e.style.display = ins ? 'none' : ''; });
+  $('#insights').hidden = !ins;
+  const note = $('#lens-note');
+  if (ins) {
+    if (note) note.textContent = 'Analysis · not a live view';
+    if (!INSIGHTS_DRAWN) renderInsights();
+    return;
+  }
   if (isRem()) { state.gender = 'all'; state.cSel = null; }
   aggregate();
   REM_FYS = isRem() ? remFYs() : [];
@@ -318,14 +331,189 @@ function render() {
   if (!$('#table-body').hidden) renderTable();
 }
 
+/* ------------------------------------------------------------------
+   Insights tab.
+   The findings are an argument, so this is a reading column rather than a
+   dashboard, rendered once from data/insights.json and never re-rendered on
+   filter changes — nothing on this tab responds to a selection. The charts
+   are intentionally plainer than the ones on People and Money: no tooltips,
+   no legends to decode, every value printed at the end of its own bar. Each
+   one exists to make a single sentence checkable, not to be explored.
+   ------------------------------------------------------------------ */
+let INSIGHTS = null, INSIGHTS_DRAWN = false;
+
+const esc = (t) => String(t).replace(/[<>&]/g, (c) =>
+  ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+
+function insBars(c) {
+  const max = Math.max(...c.rows.map((r) => Math.abs(r.v))) || 1;
+  const rows = c.rows.map((r) => `<div class="k" title="${esc(r.k)}">${esc(r.k)}</div>
+    <div class="t"><div class="f${r.hi ? ' hi' : ''}" style="width:${
+      Math.max(1.5, 100 * Math.abs(r.v) / max)}%"></div></div>
+    <div class="v">${esc(r.l)}</div>`).join('');
+  return `<div class="ins-chart"><div class="hb">${rows}</div>${
+    c.note ? `<p class="ins-note">${c.note}</p>` : ''}</div>`;
+}
+
+function insStack(parts) {
+  const bars = parts.map((p) => `<div style="width:${p.v}%"></div>`).join('');
+  const key = parts.map((p, i) =>
+    `<span><i style="background:var(--${['o-400', 'o-200', 'd-200'][i]})"></i>${
+      esc(p.k)} <b>${p.v.toFixed(1)}%</b></span>`).join('');
+  return `<div class="ins-chart"><div class="stack">${bars}</div>
+    <div class="stack-key">${key}</div></div>`;
+}
+
+/* Coefficient plot. The two estimates share one axis and one zero line,
+   because the finding is not "0.739 is big" — it is that one interval clears
+   zero and the other contains it. A bar whose error bar crosses zero is drawn
+   in muted grey so that reads without arithmetic. */
+function insCoef(pairs) {
+  const hi = Math.max(...pairs.map((p) => p.v + 2 * p.e)) * 1.08;
+  const lo = Math.min(0, ...pairs.map((p) => p.v - 2 * p.e)) * 1.08;
+  const x = (v) => 100 * (v - lo) / (hi - lo);
+  const rows = pairs.map((p) => {
+    // An interval that contains zero is drawn muted, so "cannot be told apart
+    // from nothing" reads before anyone parses the numbers.
+    const nul = p.v - 1.96 * p.e <= 0;
+    const l = x(p.v - 1.96 * p.e), r = x(p.v + 1.96 * p.e);
+    return `<div class="k">${esc(p.k)}</div><div class="axis">
+      <div class="zero" style="left:${x(0)}%"></div>
+      <div class="pt${nul ? ' null' : ''}" style="left:${l}%;width:${Math.max(2, r - l)}%"></div>
+      </div><div class="v">${p.v.toFixed(3)}<span class="pm"> ± ${
+        (1.96 * p.e).toFixed(3)}</span></div>`;
+  }).join('');
+  return `<div class="ins-chart"><div class="coef">${rows}</div>
+    <p class="ins-note">Bars are 95% confidence intervals, standard errors clustered by
+      district; the vertical rule is zero. Grey means the interval contains zero.</p></div>`;
+}
+
+/* Two share tables side by side. Same encoding on both sides, different hue,
+   because the point is that the two portfolios do not match: the money side is
+   flat and the flow side is one long bar. */
+function insDuo(card) {
+  const side = (o, cls) => {
+    const max = Math.max(...o.rows.map((r) => r.v)) || 1;
+    const rows = o.rows.map((r) => `<div class="k" title="${esc(r.k)}">${esc(r.k)}</div>
+      <div class="t"><div class="f" style="width:${Math.max(1.5, 100 * r.v / max)}%"></div></div>
+      <div class="v">${r.v.toFixed(0)}%</div>`).join('');
+    return `<div class="duo-side ${cls}"><h4>${esc(o.title)}</h4>
+      <p class="hhi">concentration index ${o.hhi.toFixed(2)}</p>
+      <div class="hb">${rows}</div></div>`;
+  };
+  return `<div class="ins-chart duo">${side(card.left, 'money-side')}${
+    side(card.right, 'flow-side')}</div>`;
+}
+
+/* Monthly series, the one chart on this tab with a real axis: the finding is
+   about when things happened, so the events are ruled onto it directly. */
+function insLine(card, w) {
+  const h = 200, pad = { t: w > 560 ? 34 : 14, r: 8, b: 22, l: 42 };
+  const n = card.x.length;
+  const max = Math.max(...card.series.flatMap((s) => s.v)) * 1.08;
+  const px = (i) => pad.l + (w - pad.l - pad.r) * (n < 2 ? 0 : i / (n - 1));
+  const py = (v) => pad.t + (h - pad.t - pad.b) * (1 - v / max);
+  const cls = ['a', 'b', 'c'];
+  const paths = card.series.map((s, k) =>
+    `<path class="ln ${cls[k] || 'a'}" d="${
+      s.v.map((v, i) => `${i ? 'L' : 'M'}${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join('')}"/>`
+  ).join('');
+  // Two of the three events are one month apart, so the labels are stacked on
+  // alternating rows rather than laid on the same baseline where they collide.
+  // Two of the three events are one month apart. On a wide chart the labels are
+  // stacked on alternating rows; on a phone there is no width for any of them,
+  // so the rules stay and the labels move to the caption in the same order.
+  const wide = w > 560;
+  let row = 0;
+  const marks = (card.marks || []).map((m) => {
+    const i = card.x.indexOf(m.at);
+    if (i < 0) return '';
+    const anchor = i > n * 0.68 ? 'end' : 'start';
+    const y = pad.t - 14 + (row++ % 2) * 11;
+    return `<line class="mk" x1="${px(i)}" x2="${px(i)}" y1="${
+      wide ? y + 3 : pad.t - 6}" y2="${h - pad.b}"/>${wide ? `
+      <text class="mkl" x="${px(i) + (anchor === 'end' ? -4 : 4)}" y="${y}"
+        text-anchor="${anchor}">${esc(m.label)}</text>` : ''}`;
+  }).join('');
+  const mnote = wide || !(card.marks || []).length ? '' :
+    `<p class="ins-note">Dashed rules, left to right: ${
+      card.marks.map((m) => esc(m.label)).join('; ')}.</p>`;
+  const ticks = [0, max / 2, max].map((v) =>
+    `<text x="${pad.l - 6}" y="${py(v) + 3.5}" text-anchor="end">${fmtCompact(v)}</text>`).join('');
+  const xt = card.x.map((m, i) => [m, i]).filter(([m]) => m.endsWith('-01')).map(([m, i]) =>
+    `<text x="${px(i)}" y="${h - 6}" text-anchor="middle">${m.slice(0, 4)}</text>`).join('');
+  const key = card.series.map((s, k) =>
+    `<span><i style="background:var(--${
+      ['text-secondary', 'dest', 'origin'][k]})"></i>${esc(s.name)}</span>`).join('');
+  return `<div class="ins-chart"><svg class="ins-line" viewBox="0 0 ${w} ${h}"
+    role="img" aria-label="${esc(card.title)}">${ticks}${xt}${marks}${paths}</svg>
+    <div class="ins-key">${key}</div>${mnote}</div>`;
+}
+
+function renderInsights() {
+  const host = $('#insights');
+  if (!INSIGHTS) { host.innerHTML = '<div class="caveat">Findings unavailable.</div>'; return; }
+  // Drawn once. Nothing here reacts to a filter, and the line chart is the only
+  // width-sensitive element, so a redraw on resize is all that is needed.
+  const w = Math.max(320, Math.min(780, host.clientWidth || 780));
+  let out = '', band = null;
+  for (const c of INSIGHTS.cards) {
+    if (c.band !== band) { band = c.band; out += `<h2 class="band">${esc(band)}</h2>`; }
+    let chart = '';
+    if (c.kind === 'stat') {
+      chart = `<div class="big"><div class="n">${c.stat}</div><div class="s">${c.sub}</div></div>`;
+    } else if (c.kind === 'split' || c.kind === 'split3') {
+      chart = insStack(c.parts);
+    } else if (c.kind === 'pairs') {
+      chart = insCoef(c.pairs);
+    } else if (c.kind === 'pairs2') {
+      chart = insDuo(c);
+    } else if (c.kind === 'line') {
+      chart = insLine(c, w);
+    }
+    const body = `<p>${c.body}</p>`;
+    const extra = c.chart ? insBars(c.chart) : '';
+    // The big number reads as a headline, so it sits above the prose; every
+    // other chart is evidence for a sentence and sits after it.
+    out += `<article class="finding"><h3>${c.title}</h3>${
+      c.kind === 'stat' ? chart + body + extra
+      : c.kind === 'prose' ? body
+      : body + chart + extra}</article>`;
+  }
+  host.innerHTML = out;
+  INSIGHTS_DRAWN = true;
+}
+
 function renderKpis() {
   const { dTot, cTot, mSer, total } = agg;
-  $('#kpi-total').textContent = fmtCompact(total);
-  $('#kpi-total-sub').textContent =
-    total === DATA.meta.total ? 'all records' : fmt(total) + ' in view';
-
+  // The KPI row has to follow the lens. aggregate() only ever walks the
+  // clearance cube - remittance is a separate annual series read through
+  // remValue/countryValue - so on the money lens three of these four tiles
+  // would otherwise report people on a page whose maps, rankings and timeline
+  // are all money.
   const dVals = DATA.districts.map((_, i) => districtValue(i));
-  const dMax = maxIdx(dVals), cMax = maxIdx(cTot);
+  const dMax = maxIdx(dVals);
+  if (isRem()) {
+    // The country series (Annex-III) starts a year earlier than the district
+    // series (Annex-IV), so the selected span can include a year no district
+    // total covers. Report the years that actually contributed, not the span.
+    const fys = REM_FYS.filter((f) => DATA.districts.some((d) => d.r && d.r[f]));
+    const dSum = DATA.districts.reduce((a, _, i) => a + remValue(i, fys), 0);
+    $('#kpi-total-label').textContent = 'Remittance';
+    $('#kpi-total').textContent = fmtUSD(dSum);
+    $('#kpi-total-sub').textContent = !fys.length ? 'no district data in this period'
+      : fys.length === 1 ? FY_LABEL(fys[0])
+      : `${FY_LABEL(fys[0])} to ${FY_LABEL(fys[fys.length - 1])} · ${fys.length} fiscal years`;
+  } else {
+    $('#kpi-total-label').textContent = 'Clearances';
+    $('#kpi-total').textContent = fmtCompact(total);
+    $('#kpi-total-sub').textContent =
+      total === DATA.meta.total ? 'all records' : fmt(total) + ' in view';
+  }
+
+  const cMax = isRem()
+    ? maxIdx(DATA.countries.map((_, i) => countryValue(i)))
+    : maxIdx(cTot);
   $('#kpi-district').textContent = dMax < 0 ? '—' : DATA.districts[dMax].n;
   $('#kpi-district-sub').textContent = dMax < 0 ? ''
     : remPerHead() ? fmtPerHead(dVals[dMax]) + ' per resident, per year'
@@ -334,14 +522,36 @@ function renderKpis() {
     : fmt(dTot[dMax]) + ' (' + pct(dTot[dMax], sum(dTot)) + ')';
   $('#kpi-district-label').textContent =
     isRem() ? 'Top remittance' : isRate() ? 'Highest rate' : 'Top origin';
+  $('#kpi-country-label').textContent = isRem() ? 'Top source' : 'Top destination';
   $('#kpi-country').textContent = cMax < 0 ? '—' : DATA.countries[cMax].n;
-  $('#kpi-country-sub').textContent =
-    cMax < 0 ? '' : fmt(cTot[cMax]) + ' (' + pct(cTot[cMax], sum(cTot)) + ')';
+  if (isRem()) {
+    const cAll = DATA.countries.map((_, i) => countryValue(i));
+    $('#kpi-country-sub').textContent = cMax < 0 ? ''
+      : fmtUSD(cAll[cMax]) + ' (' + pct(cAll[cMax], sum(cAll)) + ')';
+  } else {
+    $('#kpi-country-sub').textContent =
+      cMax < 0 ? '' : fmt(cTot[cMax]) + ' (' + pct(cTot[cMax], sum(cTot)) + ')';
+  }
 
-  let pk = -1, pkv = -1;
-  for (let i = state.m0; i <= state.m1; i++) if (mSer[i] > pkv) { pkv = mSer[i]; pk = i; }
-  $('#kpi-peak').textContent = pk < 0 ? '—' : MONTH_LABEL(DATA.months[pk]);
-  $('#kpi-peak-sub').textContent = pk < 0 ? '' : fmt(pkv) + ' clearances';
+  if (isRem()) {
+    // District remittance is published annually, so the peak is a year, not a
+    // month. Naming the tile "Busiest month" over an annual series would be a
+    // label that cannot be true.
+    let bf = null, bv = -1;
+    REM_FYS.forEach((f) => {
+      const v = DATA.districts.reduce((a, d) => a + ((d.r && d.r[f]) || 0), 0);
+      if (v > bv) { bv = v; bf = f; }
+    });
+    $('#kpi-peak-label').textContent = 'Biggest year';
+    $('#kpi-peak').textContent = bf ? FY_LABEL(bf) : '—';
+    $('#kpi-peak-sub').textContent = bf ? fmtUSD(bv) + ' received' : '';
+  } else {
+    let pk = -1, pkv = -1;
+    for (let i = state.m0; i <= state.m1; i++) if (mSer[i] > pkv) { pkv = mSer[i]; pk = i; }
+    $('#kpi-peak-label').textContent = 'Busiest month';
+    $('#kpi-peak').textContent = pk < 0 ? '—' : MONTH_LABEL(DATA.months[pk]);
+    $('#kpi-peak-sub').textContent = pk < 0 ? '' : fmt(pkv) + ' clearances';
+  }
 }
 const sum = (a) => a.reduce((x, y) => x + y, 0);
 const pct = (a, b) => (b ? ((100 * a) / b).toFixed(1) : '0.0') + '%';
@@ -1374,6 +1584,14 @@ async function boot() {
     getJSON('data/world.geo.json'),
   ]);
   DATA = d; BDGEO = bd; WORLDGEO = w;
+
+  // The findings are a separate file and a separate concern: if it is missing
+  // the two data tabs must still work, so this is fetched on its own and its
+  // failure only costs the Insights tab.
+  fetch('data/insights.json', { cache: 'no-cache' })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((j) => { INSIGHTS = j; if (isIns()) { INSIGHTS_DRAWN = false; render(); } })
+    .catch(() => { INSIGHTS = null; });
   DATA.districts.forEach((x, i) => (DISTRICT_INDEX[x.n] = i));
   computeFYs();
 
@@ -1386,6 +1604,7 @@ async function boot() {
       // money, where no country-by-district breakdown is published
       if (isRem()) state.cSel = null;
       render();
+      scrollTo({ top: 0, behavior: 'smooth' });
     };
   });
 
@@ -1470,7 +1689,10 @@ async function boot() {
   } catch (e) { /* ignore */ }
 
   let rt;
-  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 160); });
+  addEventListener('resize', () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { if (isIns()) INSIGHTS_DRAWN = false; render(); }, 160);
+  });
 
   render();
 }

@@ -379,3 +379,117 @@ footer.foot a { color: var(--text-secondary); }
   .kpis { grid-template-columns: 1fr; }
   .kpi .value { font-size: 22px; }
 }
+
+/* ------------------------------------------------------------------
+   Insights tab. A reading column, not a dashboard: the findings are an
+   argument that has to be followed in order, so the layout is one card
+   per finding at a fixed measure rather than a responsive grid. Charts
+   here are decoration for a sentence, so they are deliberately plainer
+   than the ones on the People and Money tabs — no tooltips, no legends,
+   values printed at the end of every bar.
+   ------------------------------------------------------------------ */
+#insights { max-width: 780px; margin: 0 auto 8px; }
+
+.band {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--text-muted); margin: 34px 0 10px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.band:first-child { margin-top: 4px; }
+
+.finding {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px; margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.finding h3 {
+  margin: 0 0 10px; font-size: 19px; line-height: 1.3; letter-spacing: -.012em;
+  color: var(--text-primary);
+}
+.finding p {
+  margin: 0; font-size: 14.5px; line-height: 1.62; color: var(--text-secondary);
+}
+.finding p + .ins-chart, .finding .ins-chart + p { margin-top: 16px; }
+.finding em { color: var(--text-primary); font-style: italic; }
+.finding strong { color: var(--text-primary); font-weight: 650; }
+
+.big {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  margin: 0 0 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.big .n {
+  font-size: 42px; font-weight: 700; letter-spacing: -.035em; line-height: 1;
+  color: var(--origin); font-variant-numeric: tabular-nums;
+}
+.big .s { font-size: 13.5px; color: var(--text-muted); }
+
+.ins-chart { margin: 4px 0 0; }
+.ins-note { font-size: 12px; color: var(--text-muted); margin: 8px 0 0; }
+
+/* Horizontal bars: label left, bar centre, value right. Rows are a grid so the
+   three columns line up across every chart on the page. */
+.hb { display: grid; grid-template-columns: minmax(78px, 27%) 1fr auto; align-items: center;
+      gap: 8px 10px; font-size: 12.5px; }
+.hb .k { color: var(--text-secondary); text-align: right; overflow: hidden;
+         text-overflow: ellipsis; white-space: nowrap; }
+.hb .t { height: 15px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+.hb .f { height: 100%; background: var(--o-300); border-radius: 3px; }
+.hb .f.hi { background: var(--dest); }
+.hb .v { color: var(--text-primary); font-variant-numeric: tabular-nums;
+         font-size: 12px; min-width: 56px; }
+
+/* Two-part and three-part shares, drawn as one stacked rail. */
+.stack { display: flex; height: 30px; border-radius: 5px; overflow: hidden;
+         border: 1px solid var(--border); }
+.stack > div { min-width: 2px; }
+.stack > div:nth-child(1) { background: var(--o-400); }
+.stack > div:nth-child(2) { background: var(--o-200); }
+.stack > div:nth-child(3) { background: var(--d-200); }
+.stack-key { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: 12.5px; }
+.stack-key span { display: flex; align-items: center; gap: 7px; color: var(--text-secondary); }
+.stack-key i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.stack-key b { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+
+/* Coefficient pairs with their standard errors, drawn on a shared axis so the
+   point of the horse race — one bar clears zero, the other does not — is the
+   thing you see first. */
+.coef { display: grid; grid-template-columns: minmax(110px, 34%) 1fr auto; gap: 12px 10px;
+        align-items: center; font-size: 12.5px; }
+.coef .k { color: var(--text-secondary); text-align: right; }
+.coef .axis { position: relative; height: 26px; }
+.coef .zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border-strong); }
+.coef .pt { position: absolute; top: 9px; height: 8px; border-radius: 4px; background: var(--origin); }
+.coef .pt.null { background: var(--text-muted); opacity: .55; }
+.coef .v { font-size: 12px; color: var(--text-primary); font-variant-numeric: tabular-nums;
+           min-width: 96px; }
+.coef .v .pm { color: var(--text-muted); }
+
+/* Side-by-side share tables for the two-portfolio card. */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.duo h4 { margin: 0 0 4px; font-size: 12.5px; color: var(--text-primary); font-weight: 650; }
+.duo .hhi { font-size: 11.5px; color: var(--text-muted); margin: 0 0 10px; }
+.duo .hb { grid-template-columns: minmax(58px, 42%) 1fr auto; font-size: 12px; }
+.duo .hb .v { min-width: 34px; }
+.duo .flow-side .hb .f { background: var(--d-300); }
+@media (max-width: 620px) { .duo { grid-template-columns: 1fr; } }
+
+/* The monthly series. Only chart here with an axis, because the story is when
+   things happened, and the events are annotated on it. */
+.ins-line { width: 100%; height: auto; display: block; overflow: visible; }
+.ins-line .ln { fill: none; stroke-width: 1.8; }
+.ins-line .ln.a { stroke: var(--text-secondary); }
+.ins-line .ln.b { stroke: var(--dest); stroke-width: 2.1; }
+.ins-line .ln.c { stroke: var(--origin); }
+.ins-line .mk { stroke: var(--border-strong); stroke-width: 1; stroke-dasharray: 3 3; }
+.ins-line text { font-size: 10px; fill: var(--text-muted); }
+.ins-line text.mkl { fill: var(--text-secondary); font-size: 9.5px; }
+.ins-key { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: 12px; }
+.ins-key span { display: flex; align-items: center; gap: 7px; color: var(--text-secondary); }
+.ins-key i { width: 14px; height: 2.5px; border-radius: 2px; display: inline-block; }
+
+@media (max-width: 560px) {
+  .finding { padding: 16px 15px; }
+  .finding h3 { font-size: 17px; }
+  .big .n { font-size: 34px; }
+  .hb { grid-template-columns: minmax(62px, 32%) 1fr auto; font-size: 11.5px; }
+}
