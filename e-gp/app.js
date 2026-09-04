@@ -572,60 +572,67 @@ function renderGrowth(growth) {
 
 /* ── Political spending: does winning translate to money? ─────────── */
 
+const POL_TREATMENT_LABEL = {
+  bnp_won: "Seat majority (binary)", bnp_vote_share: "District vote share (continuous)",
+  bnp_seat_share: "District seat share (continuous)",
+};
+
 function renderPoliticalSpending(pol) {
   if (!pol) {
     document.getElementById("political").style.display = "none";
     return;
   }
-  const real = pol.main_did_simple.did_bdt_per_voter;
-  const placebo = pol.placebo_did_simple.did_bdt_per_voter;
-  const failsPlacebo = Math.abs(placebo) >= Math.abs(real) * 0.5; // placebo isn't small relative to the real effect
+  const anySignificant = ["bnp_won", "bnp_vote_share", "bnp_seat_share"].some(
+    t => pol.main[t].p_value < 0.05 && pol.placebo[t].p_value >= 0.05);
 
-  document.getElementById("polHeadline").textContent = failsPlacebo
-    ? "No credible causal effect — the same gap already existed before anyone had won anything"
-    : "A real gap that survives its own placebo test";
+  document.getElementById("polHeadline").textContent = anySignificant
+    ? "A gap that survives its own placebo test — on at least one measure"
+    : "No detectable effect, on any measure — real or placebo alike";
 
-  // Grouped bar: real vs. placebo, simple Tk/voter DiD -- the whole point
-  // is that these two bars look similar, which a correlation-only analysis
-  // would never have shown you.
-  const rows = [
-    ["Real: interim → elected government", real, "the actual 2026 election"],
-    ["Placebo: pre-interim → interim government", placebo, "before anyone had won anything — should be ~zero"],
-  ];
-  const max = Math.max(...rows.map(r => Math.abs(r[1])), 1);
-  const W = 800, H = 150, padL = 300, padR = 90, padT = 10;
-  const rowH = (H - padT) / rows.length, bh = rowH * 0.5;
+  // Grouped bars: main vs. placebo regression coefficient, one row per
+  // treatment definition -- the whole point is that none of the six bars
+  // stands out from zero more than any other.
+  const rows = ["bnp_won", "bnp_vote_share", "bnp_seat_share"].flatMap(t => [
+    [`${POL_TREATMENT_LABEL[t]} — real`, pol.main[t].coefficient, pol.main[t].p_value, false],
+    [`${POL_TREATMENT_LABEL[t]} — placebo`, pol.placebo[t].coefficient, pol.placebo[t].p_value, true],
+  ]);
+  const max = Math.max(...rows.map(r => Math.abs(r[1])), 0.1);
+  const W = 800, rowH = 34, padT = 10, padL = 300, padR = 70;
+  const H = rows.length * rowH + padT * 2;
+  const bh = rowH * 0.5;
   const pw = W - padL - padR;
+  const zeroX = padL + pw / 2;
   let body = "";
-  rows.forEach(([label, v, sub], i) => {
+  rows.forEach(([label, v, p, isPlacebo], i) => {
     const yy = padT + i * rowH + (rowH - bh) / 2;
-    const w = Math.max((Math.abs(v) / max) * pw, 2);
-    const isPlacebo = i === 1;
-    body += `<text class="ax-strong" x="${padL - 12}" y="${yy + bh / 2 + 2}" text-anchor="end">${esc(label)}</text>
-             <text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 14}" text-anchor="end" font-size="9">${esc(sub)}</text>
-             <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="${isPlacebo ? "var(--s4)" : "var(--s1)"}">
-               <title>${esc(label)}: ${taka(v)}/voter difference-in-differences</title></rect>
-             <text class="val-label${isPlacebo ? " hi" : ""}" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">${taka(v)}/voter</text>`;
+    const w = (Math.abs(v) / max) * (pw / 2);
+    const x = v >= 0 ? zeroX : zeroX - w;
+    const sig = p < 0.05;
+    body += `<text class="ax${isPlacebo ? "" : "-strong"}" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(label)}</text>
+             <rect x="${x}" y="${yy}" width="${Math.max(w, 1.5)}" height="${bh}" rx="2" fill="${sig ? "var(--s4)" : "var(--s1)"}" opacity="${isPlacebo ? 0.55 : 1}">
+               <title>${esc(label)}: coefficient ${v}, p=${p}${sig ? " (significant)" : ""}</title></rect>
+             <text class="val-label${sig ? " hi" : ""}" x="${v >= 0 ? x + w + 6 : x - 6}" y="${yy + bh / 2 + 4}" text-anchor="${v >= 0 ? "start" : "end"}" font-size="9">${v}${sig ? " *" : ""}</text>`;
   });
+  body += `<line x1="${zeroX}" y1="${padT - 4}" x2="${zeroX}" y2="${H - padT + 4}" class="grid"/>`;
   document.getElementById("chartPolDid").innerHTML = svg(W, H, body);
   document.getElementById("capPolDid").textContent =
-    "Simple group-means difference-in-differences (no fixed effects, easy to verify by hand): "
-    + "(BNP districts, after − before) − (non-BNP districts, after − before), in taka per registered voter. "
-    + "The placebo bar uses the identical formula and the identical BNP/non-BNP grouping, just moved to a period before the 2026 election happened.";
+    "Regression coefficient (asinh scale) for each treatment definition, real test and placebo side by side. "
+    + "* marks p<0.05. Bars near zero on both sides, for all three ways of defining \"won\", is what a genuine null looks like — "
+    + "not one bar that happens to be small.";
 
-  const rp = pol.meta;
-  document.getElementById("polRegBody").innerHTML = [
-    ["Main (BNP won district, binary)", pol.main_did, pol.main_did_simple],
-    ["Placebo (same grouping, pre-election)", pol.placebo_did, pol.placebo_did_simple],
-    ["Main, continuous vote share", pol.continuous_vote_share_did, null],
-    ["Placebo, continuous vote share", pol.continuous_vote_share_placebo_did, null],
-  ].map(([label, reg, simple]) => `
+  document.getElementById("polRegBody").innerHTML = ["bnp_won", "bnp_vote_share", "bnp_seat_share"].flatMap(t => [
+    [`${POL_TREATMENT_LABEL[t]} — real (interim → elected)`, pol.main[t]],
+    [`${POL_TREATMENT_LABEL[t]} — placebo (within interim)`, pol.placebo[t]],
+  ]).map(([label, reg]) => `
     <tr>
       <td class="strong">${esc(label)}</td>
       <td class="n">${reg.coefficient}</td>
       <td class="n${reg.p_value < 0.05 ? " hi" : ""}">${reg.p_value}</td>
-      <td class="n muted">${simple ? taka(simple.did_bdt_per_voter) + "/voter" : "—"}</td>
     </tr>`).join("");
+
+  document.getElementById("polSimpleDidNote").textContent =
+    `For reference, the plain group-means version (binary treatment, no fixed effects, easy to verify by hand): `
+    + `real transition ${taka(pol.main_simple.did_bdt_per_voter)}/voter, placebo ${taka(pol.placebo_simple.did_bdt_per_voter)}/voter.`;
 
   document.getElementById("polScatterLede").textContent =
     "Each of the 64 matched districts: BNP-led alliance's share of the district's vote (x) against "
@@ -660,16 +667,29 @@ function renderPoliticalSpending(pol) {
     "Blue = district elected a BNP-led-alliance seat majority; amber = it didn't. No visible upward slope on "
     + "the blue points relative to the amber ones is exactly what the regression's non-significant interaction term says numerically.";
 
+  const nInterim = pol.meta.interim_months.length, nElected = pol.meta.elected_months.length;
   document.getElementById("polMethodText").innerHTML =
-    `<strong>Design:</strong> panel difference-in-differences, two-way fixed effects (64 districts × `
-    + `${pol.main_did.n_periods} periods), outcome asinh(contract value ÷ registered voters), standard errors `
-    + `clustered by district (t-distribution, ${pol.main_did.df} degrees of freedom). Pre-period: calendar years `
-    + `${pol.meta.pre_years_main[0]}-${pol.meta.pre_years_main[pol.meta.pre_years_main.length - 1]}. Post-period: `
-    + `the "${pol.meta.post_period_main}" era as defined elsewhere on this page (Feb 2026-present), not a partial `
-    + `calendar year. The placebo repeats this exactly, with the post-period moved to the interim government `
-    + `(pre-period ${pol.meta.pre_years_placebo[0]}-${pol.meta.pre_years_placebo[pol.meta.pre_years_placebo.length - 1]}) `
-    + `and the identical BNP-won classification, which is fixed at each district's real 2026 outcome throughout — `
-    + `only the period being tested moves. <strong>Source:</strong> election results from `
+    `<strong>Design:</strong> panel difference-in-differences, two-way fixed effects (64 districts × month), `
+    + `outcome asinh(contract value ÷ registered voters), standard errors clustered by district `
+    + `(t-distribution, ${pol.main.bnp_won.df} degrees of freedom). <strong>Real test:</strong> ${nInterim} `
+    + `interim-government months (${pol.meta.interim_months[0]} to ${pol.meta.interim_months[nInterim - 1]}) as `
+    + `pre-period, ${nElected} elected-government months as post. <strong>Placebo:</strong> the identical `
+    + `districts and treatment values, but the interim government's own span split at its midpoint `
+    + `(${pol.meta.placebo_split_month}) — the second half stands in for "post", and no election happened `
+    + `anywhere in this window. Confined to interim-onward deliberately: e-GP use was hybrid before the interim `
+    + `government made it obligatory (and the platform didn't support every tender type earlier), so national `
+    + `contract counts climb roughly 6x from 2015 to 2023 purely from more of the same government activity `
+    + `being captured by this data source — comparing that expansion era against anything recent would confuse `
+    + `coverage growth with a spending effect. All three treatment definitions (seat-majority binary, district `
+    + `vote share, district seat share) are tested on both panels, not just whichever looks best.<br><br>`
+    + `<strong>An earlier version of this test got this wrong</strong> and used 2015-2025 as a single pre-period `
+    + `for both the real and placebo tests. That version's placebo (Tk 1,130/voter, and p=0.043 on the continuous `
+    + `vote-share specification) was <em>larger</em> than its real result (Tk 225/voter, p=0.063) — which looked `
+    + `like it already invalidated the hypothesis, but for the wrong reason: both numbers were picking up e-GP's `
+    + `own coverage expansion, not anything about districts or elections. Confining the panel to the stable-coverage `
+    + `period fixes that, and the result changes again: all six estimates above are small and none clears `
+    + `significance on both sides of its own placebo, which is a cleaner null than the flawed version produced. `
+    + `<strong>Source:</strong> election results from `
     + `<a href="https://interactive.netra.news/bangladesh-election-2026-map/" target="_blank" rel="noopener">netra.news's interactive results map</a> `
     + `(Nazmul Ahasan &amp; Aaqib Md. Shatil), vote counts from Election Commission publications, union boundaries `
     + `from geoBoundaries (CC-BY 4.0) — the one non-eprocure.gov.bd source in this whole pipeline. Full results down `

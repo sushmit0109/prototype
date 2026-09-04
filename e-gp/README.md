@@ -45,7 +45,7 @@ presence of a dashboard.
 | Political-era segmentation (Awami League / interim / elected government) | -- | **Live** -- `eras.py`, applied across contracts, plan-vs-actual, the ceiling analysis, debarment flags, and CPV counts; see the dashboard's Governments section |
 | Vendor growth (fastest growers, new dominants, combined owner-portfolio trend) | -- | **Live** -- `build_growth.py`, joined against the existing beneficial-ownership sample; see the dashboard's Rising vendors finding |
 | 2026 election results, polling-station to union to district level | [netra.news interactive map](https://interactive.netra.news/bangladesh-election-2026-map/) -- **not eprocure.gov.bd**, the one external source in this pipeline | **Live, one-off** -- `scrape_election_2026.py` / `build_election.py`; 39,761 polling stations, 297 of 300 constituencies, all 64 districts, 5,034 unions |
-| Does winning a district's seats translate to e-GP spending? | -- | **Live** -- `build_political_spending.py`, a panel difference-in-differences with a placebo pre-trend test, not a correlation; see the dashboard's "Does winning pay?" section -- the honest answer, as tested, is no |
+| Does winning a district's seats translate to e-GP spending? | -- | **Live** -- `build_political_spending.py`, a monthly panel difference-in-differences confined to the post-mandate e-GP era, with its own placebo test; see the dashboard's "Does winning pay?" section -- the honest answer, as tested (three ways), is no detectable effect |
 
 ## Headline numbers (as of the last full build)
 
@@ -176,21 +176,38 @@ presence of a dashboard.
 - **Does winning pay?** (`build_political_spending.py`): a specific,
   falsifiable test of a specific hypothesis -- do districts that elected a
   BNP-led-alliance seat majority in Feb 2026 get more e-GP spending per
-  registered voter than districts that didn't. A naive comparison would
-  say yes: both raw group-mean gaps are positive (Tk 225/voter across the
-  real interim-to-elected transition, Tk 1,130/voter across a placebo
-  transition run on the *same* districts *before* the election happened).
-  That placebo result is the finding -- a fake "effect" nearly as large
-  (if anything larger) than the real one, in a period when nobody had won
-  anything yet, means the apparent gap predates the 2026 election and
-  can't be attributed to it. The panel difference-in-differences
-  regression (two-way fixed effects, clustered SEs) agrees: neither the
-  real nor the placebo estimate clears conventional significance on the
-  binary treatment, and where the continuous vote-share version comes
-  close to significance, it's the *placebo* version that clears it
-  (p=0.043) and not the real one (p=0.063). This is deliberately reported
-  as a negative result rather than reframed into a positive-sounding one --
-  see the dashboard section for the full regression table, the
+  registered voter than districts that didn't, tested three ways (a binary
+  seat-majority split, and two continuous measures: district vote share
+  and district seat share, since a district is really several
+  constituencies and BNP's own record inside one ranges from losing every
+  seat to winning every seat).
+
+  The design went through a real correction, kept rather than hidden. The
+  first version used 2015-2025 as a single pre-period for both the real
+  test and its placebo. e-GP use was hybrid before the interim government
+  made it obligatory (and the platform didn't support every tender type
+  before that) -- national contract counts climb roughly 6x from 2015 to
+  2023 from more of the same government activity being captured by this
+  data source, not from a decade of real spending growth. That version's
+  placebo (a fake pre-election transition, same districts, same BNP
+  classification) came out *larger* than its real result (Tk 1,130/voter
+  vs Tk 225/voter; p=0.043 vs p=0.063 on the continuous specification) --
+  which looked like it already disproved the hypothesis, but for the wrong
+  reason: both numbers were mostly picking up platform-coverage growth,
+  not anything about districts or elections.
+
+  The fix: confine the panel to months where e-GP coverage is already
+  stable -- interim government onward only, monthly resolution -- and
+  build the placebo by splitting the interim government's own span at its
+  midpoint, so it can never touch the pre-mandate hybrid era at all. Redone
+  this way, the result changes again: all six estimates (three treatment
+  definitions x real/placebo) are small and none is statistically
+  significant on both sides of its own placebo test -- a genuinely clean
+  null, not a coincidentally-small number sitting on top of a confound.
+  Both the corrected numbers and the superseded ones are in
+  `data/political_spending.json` (`main`/`placebo` vs. `legacy`) and on the
+  dashboard's "Full method" disclosure, not just the corrected version
+  alone -- see that section for the full regression table, the
   district-level scatter, and everything this test does and doesn't rule
   out.
 

@@ -5,15 +5,17 @@ finding (build_district_geo.py builds the map geometry itself, a one-off
 step; this is the daily aggregation, run like every other build_*.py).
 
 Per district: total value/count, a yearly time series (for the trend
-sparkline on the dashboard), an era breakdown (see eras.py) so the map
-can be filtered by government, the top ministry and vendor by value, and a
-procurement-nature (Works/Goods/Services) mix -- the closest thing to a
-per-district "sector breakdown" this data supports. CPV category (the
-richer classification used in the Sectors section) is only queryable by
-tender, not by district -- the portal's tender search has no location
-filter -- so it can't be attributed to a district without a much larger
-crawl; nature is the one sector-ish split actually available at this
-level, joined in from the master tender list exactly as
+sparkline on the dashboard), a MONTHLY time series (for
+build_political_spending.py, which needs a panel confined to periods where
+e-GP coverage is stable -- see that file's docstring), an era breakdown
+(see eras.py) so the map can be filtered by government, the top ministry
+and vendor by value, and a procurement-nature (Works/Goods/Services) mix --
+the closest thing to a per-district "sector breakdown" this data supports.
+CPV category (the richer classification used in the Sectors section) is
+only queryable by tender, not by district -- the portal's tender search
+has no location filter -- so it can't be attributed to a district without
+a much larger crawl; nature is the one sector-ish split actually available
+at this level, joined in from the master tender list exactly as
 build_office_profiles.py does it, with the same partial (53%) coverage.
 
     python3 build_geo.py <data/contracts/> <data/tenders/> <out.json>
@@ -49,6 +51,7 @@ def main(contracts_dir, tenders_dir, out_path):
         "value_bdt": 0.0, "count": 0,
         "by_era": {e: {"value_bdt": 0.0, "count": 0} for e in ERA_NAMES},
         "by_year": defaultdict(lambda: {"value_bdt": 0.0, "count": 0}),
+        "by_month": defaultdict(lambda: {"value_bdt": 0.0, "count": 0}),
         "ministries": Counter(), "ministry_value": Counter(),
         "vendors": Counter(), "nature": Counter(), "nature_value": Counter(),
     })
@@ -70,10 +73,12 @@ def main(contracts_dir, tenders_dir, out_path):
         if era:
             d["by_era"][era]["value_bdt"] += v
             d["by_era"][era]["count"] += 1
-        year = (c.get("contract_signing_date") or "")[:4]
-        if year:
-            d["by_year"][year]["value_bdt"] += v
-            d["by_year"][year]["count"] += 1
+        date = c.get("contract_signing_date") or ""
+        if date:
+            d["by_year"][date[:4]]["value_bdt"] += v
+            d["by_year"][date[:4]]["count"] += 1
+            d["by_month"][date[:7]]["value_bdt"] += v
+            d["by_month"][date[:7]]["count"] += 1
         mid = c.get("ministry_id")
         if mid is not None:
             ministry = dims["ministries"][mid]
@@ -98,6 +103,8 @@ def main(contracts_dir, tenders_dir, out_path):
                        for e, v in d["by_era"].items()},
             "by_year": {y: {"value_bdt": round(v["value_bdt"], 2), "count": v["count"]}
                         for y, v in sorted(d["by_year"].items())},
+            "by_month": {m: {"value_bdt": round(v["value_bdt"], 2), "count": v["count"]}
+                         for m, v in sorted(d["by_month"].items())},
             "top_ministry": top_ministry[0][0] if top_ministry else None,
             "top_vendor": top_vendor[0][0] if top_vendor else None,
             "nature_count": dict(d["nature"]),
