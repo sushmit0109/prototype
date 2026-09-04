@@ -88,6 +88,8 @@ from scipy import stats
 
 from districts import display_name
 from eras import era_of
+from district_divisions import division_of
+from census_population import population_of
 
 MIN_VOTERS_FOR_INCLUSION = 1000  # guards against a data-join sliver, not a real filter at district level
 TREATMENTS = ["bnp_won", "bnp_vote_share", "bnp_seat_share"]
@@ -164,7 +166,7 @@ def build_monthly_panel(geo_districts, election_by_district, months, post_months
             mb = g["by_month"].get(m, {"value_bdt": 0.0, "count": 0})
             rows.append({"district": dist, "period": m, "post": 1 if m in post_set else 0,
                          **tv, "value_bdt": mb["value_bdt"], "count": mb["count"],
-                         "total_voters": e["total_voters"]})
+                         "total_voters": e["total_voters"], "population": population_of(dist)})
     return rows
 
 
@@ -185,20 +187,46 @@ def build_legacy_panel(geo_districts, election_by_district, pre_years, post_labe
     return rows
 
 
-def two_way_fe_did(rows, treatment_key="bnp_won"):
+def two_way_fe_did(rows, treatment_key="bnp_won", division_lookup=None, denom_key="total_voters"):
     """OLS with district + period fixed effects (explicit dummies) plus a
-    treatment x post interaction, cluster-robust (by district) SEs."""
+    treatment x post interaction, cluster-robust (by district) SEs.
+
+    If division_lookup is given (district -> division name), also adds a
+    division x period fixed effect for every division -- a control for a
+    region rolling out on its own time-varying trend (a coastal-embankment
+    programme, a char-land scheme) for reasons that have nothing to do
+    with the election, which plain district + period fixed effects cannot
+    tell apart from a real district-level political effect. This is the
+    single most important robustness check when a treatment group is
+    itself geographically clustered (see build_political_spending.py's
+    module docstring on the "some vs none" result).
+
+    denom_key picks what "per capita" means: "total_voters" (the election
+    data's registered-voter count, the default so far) or "population"
+    (BBS's 2022 census count, from census_population.py). Voter rolls are
+    an imperfect population proxy -- registration drives, out-migration,
+    and how recently a roll was updated all move it for reasons that have
+    nothing to do with development need. Running the same regression on
+    both is a check that the result isn't an artifact of which denominator
+    was chosen. Rows without a value for denom_key are dropped rather than
+    silently zero-filled."""
+    rows = [r for r in rows if r.get(denom_key)]
     districts = sorted({r["district"] for r in rows})
     periods = sorted({r["period"] for r in rows})
     dist_idx = {d: i for i, d in enumerate(districts)}
     per_idx = {p: i for i, p in enumerate(periods)}
 
+    divisions = sorted({division_lookup(d) for d in districts}) if division_lookup else []
+    div_idx = {dv: i for i, dv in enumerate(divisions)}
+    n_div_period = (len(divisions) - 1) * (len(periods) - 1) if divisions else 0
+
     n = len(rows)
-    k = 1 + (len(districts) - 1) + (len(periods) - 1) + 1
+    k = 1 + (len(districts) - 1) + (len(periods) - 1) + n_div_period + 1
     X = np.zeros((n, k))
     y = np.zeros(n)
     cluster = np.zeros(n, dtype=int)
 
+    div_period_col0 = 1 + (len(districts) - 1) + (len(periods) - 1)
     for i, r in enumerate(rows):
         X[i, 0] = 1.0
         di = dist_idx[r["district"]]
@@ -207,14 +235,19 @@ def two_way_fe_did(rows, treatment_key="bnp_won"):
         pi = per_idx[r["period"]]
         if pi > 0:
             X[i, 1 + (len(districts) - 1) + pi - 1] = 1.0
+        if divisions:
+            dvi = div_idx[division_lookup(r["district"])]
+            if dvi > 0 and pi > 0:
+                X[i, div_period_col0 + (dvi - 1) * (len(periods) - 1) + (pi - 1)] = 1.0
         X[i, -1] = (r[treatment_key] or 0) * r["post"]
-        per_voter = r["value_bdt"] / r["total_voters"]
-        y[i] = asinh(per_voter)
+        per_capita = r["value_bdt"] / r[denom_key]
+        y[i] = asinh(per_capita)
         cluster[i] = di
 
-    beta, _, _, _ = np.linalg.lstsq(X, y, rcond=None)
+    beta, _, rank, _ = np.linalg.lstsq(X, y, rcond=None)
     resid = y - X @ beta
     XtX_inv = np.linalg.pinv(X.T @ X)
+    rank_deficient = rank < min(X.shape)
 
     G = len(districts)
     meat = np.zeros((k, k))
@@ -238,6 +271,10 @@ def two_way_fe_did(rows, treatment_key="bnp_won"):
         "t_stat": round(float(t), 3), "p_value": round(float(p), 4),
         "df": df, "n_obs": n, "n_districts": G, "n_periods": len(periods),
         "approx_proportional_effect": round(float(np.exp(b) - 1), 4),
+        "division_controlled": bool(divisions),
+        "n_divisions": len(divisions) if divisions else None,
+        "rank_deficient": bool(rank_deficient),
+        "denominator": denom_key,
     }
 
 
@@ -255,8 +292,8 @@ def simple_group_means(rows):
     return {"cell_means_bdt_per_voter": means, "did_bdt_per_voter": round(float(did), 2) if did is not None else None}
 
 
-def all_treatments(rows):
-    return {t: two_way_fe_did(rows, treatment_key=t) for t in TREATMENTS}
+def all_treatments(rows, denom_key="total_voters"):
+    return {t: two_way_fe_did(rows, treatment_key=t, denom_key=denom_key) for t in TREATMENTS}
 
 
 def category_comparisons(geo_districts, election_by_district, months, post_months):
@@ -285,11 +322,15 @@ def category_comparisons(geo_districts, election_by_district, months, post_month
         "some_vs_none": {
             "n_districts": len(none_or_some), "n_some": sum(1 for e in none_or_some.values() if district_category(e) == "some"),
             "regression": two_way_fe_did(some_rows, treatment_key="bnp_some"),
+            "regression_division_controlled": two_way_fe_did(some_rows, treatment_key="bnp_some", division_lookup=division_of),
+            "regression_population_denominator": two_way_fe_did(some_rows, treatment_key="bnp_some", denom_key="population"),
             "simple_did_bdt_per_voter": simple_binary_means(some_rows, "bnp_some"),
         },
         "all_vs_none": {
             "n_districts": len(none_or_all), "n_all": sum(1 for e in none_or_all.values() if district_category(e) == "all"),
             "regression": two_way_fe_did(all_rows, treatment_key="bnp_all"),
+            "regression_division_controlled": two_way_fe_did(all_rows, treatment_key="bnp_all", division_lookup=division_of),
+            "regression_population_denominator": two_way_fe_did(all_rows, treatment_key="bnp_all", denom_key="population"),
             "simple_did_bdt_per_voter": simple_binary_means(all_rows, "bnp_all"),
         },
     }
@@ -364,6 +405,12 @@ def main(geo_path, election_path, out_path):
     placebo_simple = simple_group_means(placebo_rows)
     placebo_midpoint_simple = simple_group_means(placebo_mid_rows)
 
+    # Robustness check: same regressions, spending scaled by 2022 census
+    # population instead of registered voters (see census_population.py's
+    # docstring for why the two denominators can disagree).
+    main_results_population = all_treatments(main_rows, denom_key="population")
+    placebo_results_population = all_treatments(placebo_rows, denom_key="population")
+
     # Shut out entirely vs. swept entirely vs. split -- is "some" the same
     # story as "all", or does collapsing to a share hide something the
     # extremes don't?
@@ -414,6 +461,18 @@ def main(geo_path, election_path, out_path):
         "main": main_results, "main_simple": main_simple,
         "placebo": placebo_results, "placebo_simple": placebo_simple,
         "placebo_midpoint": placebo_midpoint_results, "placebo_midpoint_simple": placebo_midpoint_simple,
+        "robustness": {
+            "note": "Same regressions with two independent checks a real district-level "
+                    "political effect should survive: (1) scaling spending by 2022 census "
+                    "population instead of registered voters (census_population.py); "
+                    "(2) adding a division x period fixed effect so a region rolling out its "
+                    "own unrelated programme on its own schedule isn't mistaken for a "
+                    "district-level political effect (district_divisions.py). Population-scaled "
+                    "results sit here as main_population/placebo_population; the division-controlled "
+                    "regression sits alongside each category result as regression_division_controlled.",
+            "main_population": main_results_population,
+            "placebo_population": placebo_results_population,
+        },
         "by_category": {
             "descriptive": category_descriptive_stats,
             "main": category_main, "placebo": category_placebo, "placebo_midpoint": category_placebo_midpoint,
@@ -445,6 +504,12 @@ def main(geo_path, election_path, out_path):
     print(f"legacy (coverage-confounded) design, kept for transparency: main b={legacy_main_did['coefficient']} "
           f"p={legacy_main_did['p_value']}; placebo b={legacy_placebo_did['coefficient']} p={legacy_placebo_did['p_value']}")
 
+    print("\nrobustness -- census population denominator instead of registered voters:")
+    for t in TREATMENTS:
+        mp, pp = main_results_population[t], placebo_results_population[t]
+        print(f"  {t:16s} main b={mp['coefficient']:>8.4f} p={mp['p_value']:.4f}   "
+              f"placebo b={pp['coefficient']:>8.4f} p={pp['p_value']:.4f}")
+
     print("\nby category (shut out / split / swept):")
     for cat, stats_ in category_descriptive_stats.items():
         print(f"  {cat:5s} n={stats_['n_districts']:3d}  interim=Tk{stats_['avg_interim_value_per_voter_bdt']:>9,.0f}/voter  "
@@ -455,6 +520,10 @@ def main(geo_path, election_path, out_path):
               f"(n={sv['n_districts']}, {sv['n_some']} 'some')   "
               f"all-vs-none: b={av['regression']['coefficient']:>8.4f} p={av['regression']['p_value']:.4f} "
               f"(n={av['n_districts']}, {av['n_all']} 'all' -- tiny sample)")
+        svd, avd = sv["regression_division_controlled"], av["regression_division_controlled"]
+        print(f"  {'  +division FE':18s} some-vs-none: b={svd['coefficient']:>8.4f} p={svd['p_value']:.4f} "
+              f"(rank_deficient={svd['rank_deficient']})   "
+              f"all-vs-none: b={avd['coefficient']:>8.4f} p={avd['p_value']:.4f} (rank_deficient={avd['rank_deficient']})")
     print(f"wrote -> {out_path}")
 
 

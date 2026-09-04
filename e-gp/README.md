@@ -222,17 +222,35 @@ presence of a dashboard.
   effect is smooth in vote or seat share. "Some vs. none" comes back
   significant on the real test (p=0.029) and clean on both placebos
   (p=0.99 and p=0.13) -- the one result on this entire page that behaves
-  like a real, placebo-passing effect. It's flagged, not reported as a
-  finding: this analysis has now run 15 regressions in total, roughly one
-  "significant" result at a 5% threshold is what chance alone predicts
-  from that many tests, and a Bonferroni correction for 15 tests would
-  need p<0.0033 -- this doesn't clear it. "All vs. none" shows nothing,
-  though with only 3 districts that BNP swept entirely (their unusually
-  high absolute spending is far more plausibly coastal/hill-tract
-  disaster-exposure infrastructure than politics), it barely could either
-  way. See the dashboard section for the full regression table, the
-  district-level scatter, and everything this test does and doesn't rule
-  out.
+  like a real, placebo-passing effect at first look. It doesn't survive a
+  second one. The 7 districts BNP was shut out of entirely aren't
+  geographically random -- 6 of the 7 sit in just two divisions (Rangpur,
+  Khulna) -- so plain district+month fixed effects can't separate a real
+  district-level political effect from an unrelated division-wide trend
+  (a coastal-embankment programme, a char-land scheme) rolling out on its
+  own schedule. Adding a division×month fixed effect
+  (`district_divisions.py`, joined from the same GeoJSON used for the
+  choropleth's boundaries) is the direct test: the coefficient survives
+  (0.21 → 0.25, same sign) but the p-value does not (0.029 → 0.164, no
+  longer significant at any conventional threshold). That alone is reason
+  enough not to report this as a finding, and it lines up with the
+  multiple-testing math -- this analysis has now run 15 regressions in
+  total, roughly one "significant" result at a 5% threshold is what chance
+  alone predicts from that many tests, and a Bonferroni correction for 15
+  tests would need p<0.0033, which the uncontrolled p=0.029 never cleared
+  either. "All vs. none" shows nothing on the plain regression, and its own
+  division-controlled version isn't reportable at all -- only 3 districts
+  spread across 3 divisions leaves too few degrees of freedom for a stable
+  estimate (their unusually high absolute spending is far more plausibly
+  coastal/hill-tract disaster-exposure infrastructure than politics
+  regardless). A separate, independent robustness check -- rerunning every
+  regression on this page with 2022 census district population
+  (`census_population.py`, from BBS's Population & Housing Census) instead
+  of registered voters as the denominator -- moves every coefficient and
+  p-value by less than 0.01, so the voter-roll proxy itself isn't what's
+  driving any of this. See the dashboard section for the full regression
+  table (including the division-controlled column), the district-level
+  scatter, and everything this test does and doesn't rule out.
 
 ## Dashboard design
 

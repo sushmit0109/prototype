@@ -598,12 +598,19 @@ function renderPoliticalSpending(pol) {
     cmp => pol.by_category.main[cmp].regression.p_value < 0.05
       && pol.by_category.placebo[cmp].regression.p_value >= 0.05
       && pol.by_category.placebo_midpoint[cmp].regression.p_value >= 0.05);
+  // The one thing clearing both placebos ("some vs. none") still needs to
+  // survive a division x period control before it counts as district-level
+  // rather than regional -- see the division-confound paragraph below.
+  const someDivRobust = pol.by_category.main.some_vs_none.regression.p_value < 0.05
+    && pol.by_category.main.some_vs_none.regression_division_controlled.p_value < 0.05;
 
-  document.getElementById("polHeadline").textContent = (smoothSignificant || categorySignificant)
+  document.getElementById("polHeadline").textContent = (smoothSignificant || (categorySignificant && someDivRobust))
     ? (minP < bonferroni
       ? "A gap that survives its own placebo test — on at least one measure"
       : "One flagged signal, but it doesn't survive scrutiny — no confirmed effect")
-    : "No detectable effect, on any measure — real or placebo alike";
+    : categorySignificant
+      ? "One flagged signal — explained away once geography is controlled for"
+      : "No detectable effect, on any measure — real or placebo alike";
 
   // Grouped bars: main vs. placebo regression coefficient, one row per
   // treatment definition -- the whole point is that none of the six bars
@@ -706,25 +713,38 @@ function renderPoliticalSpending(pol) {
       ${catCell(pol.by_category.main[cmp].regression)}
       ${catCell(pol.by_category.placebo[cmp].regression)}
       ${catCell(pol.by_category.placebo_midpoint[cmp].regression)}
+      ${catCell(pol.by_category.main[cmp].regression_division_controlled)}
     </tr>`).join("");
 
   const someReal = pol.by_category.main.some_vs_none.regression;
+  const someDivCtrl = pol.by_category.main.some_vs_none.regression_division_controlled;
+  const allDivCtrl = pol.by_category.main.all_vs_none.regression_division_controlled;
   const someSig = someReal.p_value < 0.05
     && pol.by_category.placebo.some_vs_none.regression.p_value >= 0.05
     && pol.by_category.placebo_midpoint.some_vs_none.regression.p_value >= 0.05;
   document.getElementById("polCategoryNote").innerHTML = someSig
     ? `<strong>The "some vs. none" real-test estimate (p=${someReal.p_value}) clears conventional significance and neither `
-      + `placebo does</strong> — the one result across every specification tested on this page that behaves like a real, `
-      + `placebo-passing effect. But this analysis has now run ${nTests} regressions in total across both treatment styles `
-      + `and all three panels; at a 5% threshold, roughly one "significant" result out of ${nTests} is what pure chance would `
-      + `produce on its own, and a conservative Bonferroni correction for ${nTests} tests would require p<${bonferroni.toFixed(4)} `
-      + `to trust any single one of them — this one doesn't clear that bar. Flagged as worth watching as more elected-government `
-      + `data accumulates, not reported as a confirmed effect. The "all vs. none" comparison, notably, shows nothing — and with `
-      + `only 3 "swept" districts, it barely could.`
-    : `Neither comparison clears conventional significance on the real test with both placebos clean at once. The "all vs. none" `
-      + `comparison in particular rests on just 3 "swept" districts (Barishal, Bhola, Bandarban) — too few for its estimate to `
-      + `mean much either way; their unusually high absolute spending in the table above is very plausibly coastal/hill-tract `
-      + `infrastructure and disaster exposure, not anything to do with the election.`;
+      + `placebo does</strong> — before applying one more check. The 7 "shut out entirely" districts (Rangpur, Kurigram, `
+      + `Satkhira, Nawabganj, Nilphamari, Chuadanga, Meherpur) aren't scattered evenly across the country — 6 of the 7 sit `
+      + `in just two divisions (Rangpur, Khulna), so plain district+month fixed effects can't tell a real district-level `
+      + `political effect apart from an unrelated division-wide trend (an embankment programme, a char-land scheme) rolling `
+      + `out on its own schedule. Adding a division×month fixed effect to the same regression — the last column above — is `
+      + `the direct test of that: the coefficient survives (0.21→${someDivCtrl.coefficient}, same direction) but the p-value `
+      + `does not (${someReal.p_value}→<strong>${someDivCtrl.p_value}</strong>, no longer significant at any conventional `
+      + `threshold). <strong>That is enough on its own to not report this as a finding</strong> — a result this sensitive to `
+      + `whether region-level trends are controlled for was never going to survive a Bonferroni correction either `
+      + `(this analysis has run ${nTests} regressions in total; p<${bonferroni.toFixed(4)} would be needed to trust any single `
+      + `one, and this one's uncontrolled p=${someReal.p_value} doesn't). Kept on this page, with both numbers shown, rather `
+      + `than quietly dropped.`
+    : `Neither comparison clears conventional significance on the real test with both placebos clean at once.`;
+  if (allDivCtrl.rank_deficient) {
+    document.getElementById("polCategoryNote").innerHTML += ` The "all vs. none" comparison's division-controlled column is `
+      + `not reportable at all: with only 3 "swept" districts (Barishal, Bhola, Bandarban) spread across 3 different `
+      + `divisions, adding division×month effects leaves too few degrees of freedom for a stable estimate (flagged `
+      + `<code>rank_deficient</code> in the underlying data) — shown for completeness, not as evidence of anything. Those `
+      + `3 districts' unusually high absolute spending in the table above is far more plausibly coastal/hill-tract `
+      + `infrastructure and disaster exposure than anything to do with the election.`;
+  }
 
   const nInterim = pol.meta.interim_months.length, nElected = pol.meta.elected_months.length;
   document.getElementById("polMethodText").innerHTML =
@@ -757,10 +777,18 @@ function renderPoliticalSpending(pol) {
     + `own coverage expansion, not anything about districts or elections. Confining the panel to the stable-coverage `
     + `period fixes that, and the result changes again: every estimate above is small and none clears `
     + `significance on both sides of its own placebo (either placebo), which is a cleaner null than the flawed `
-    + `version produced. <strong>Source:</strong> election results from `
+    + `version produced. <strong>Two further robustness checks:</strong> re-running every regression above with `
+    + `2022 census population instead of registered voters as the denominator moves every coefficient and p-value `
+    + `by less than 0.01 — the voter-roll proxy isn't doing any of the work (main b=${pol.robustness.main_population.bnp_seat_share.coefficient}, `
+    + `p=${pol.robustness.main_population.bnp_seat_share.p_value} on seat share vs. ${pol.main.bnp_seat_share.coefficient}/${pol.main.bnp_seat_share.p_value} `
+    + `by voters). The other direction — adding a division×month fixed effect to check whether a result is really `
+    + `district-level rather than regional — is the more consequential one and is reported inline next to the `
+    + `"shut out, split, or swept" comparison above rather than here, since it's what overturns that section's `
+    + `single flagged result. <strong>Source:</strong> election results from `
     + `<a href="https://interactive.netra.news/bangladesh-election-2026-map/" target="_blank" rel="noopener">netra.news's interactive results map</a> `
     + `(Nazmul Ahasan &amp; Aaqib Md. Shatil), vote counts from Election Commission publications, union boundaries `
-    + `from geoBoundaries (CC-BY 4.0) — the one non-eprocure.gov.bd source in this whole pipeline. Full results down `
+    + `from geoBoundaries (CC-BY 4.0), and district population from BBS's 2022 Population &amp; Housing Census — the `
+    + `non-eprocure.gov.bd sources in this whole pipeline. Full results down `
     + `to union level (5,034 of them) are in <code>data/election_2026_unions.json</code> in the repository; three `
     + `constituencies (of 300) were suspended for candidate death or court dispute and aren't in the results at all.`;
 }
