@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 872028,
+  "total_contracts": 872029,
   "district_month_cells_total": 10021,
   "district_month_cells_kept": 9594,
   "min_contracts_for_hhi": 3,
@@ -9879,11 +9879,11 @@
      "top_vendor_display": "TCEL-SEL JV"
     },
     "2026-09": {
-     "hhi": 0.1145,
-     "n_vendors": 41,
-     "n_contracts": 45,
-     "total_value_bdt": 402390000.0,
-     "top_vendor_share": 0.2272,
+     "hhi": 0.1134,
+     "n_vendors": 42,
+     "n_contracts": 46,
+     "total_value_bdt": 404380000.0,
+     "top_vendor_share": 0.2261,
      "top_vendor_display": "MJL Bangladesh PLC."
     }
    }
