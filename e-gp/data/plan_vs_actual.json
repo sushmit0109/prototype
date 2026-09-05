@@ -1,10 +1,10 @@
 {
  "meta": {
-  "plan_line_items": 732362,
-  "plan_packages_with_estimate": 729338,
+  "plan_line_items": 733060,
+  "plan_packages_with_estimate": 730035,
   "contracts_scanned": 872029,
-  "matched_pairs": 117768,
-  "match_rate_of_plan": 0.1615,
+  "matched_pairs": 117821,
+  "match_rate_of_plan": 0.1614,
   "generic_refs_excluded": 4058,
   "pairs_excluded_generic": 2403,
   "pairs_excluded_sanity": 268
@@ -15,12 +15,12 @@
   "p25": 0.9,
   "p75": 0.9559,
   "p90": 1.0,
-  "share_above_estimate": 0.0702,
+  "share_above_estimate": 0.0701,
   "buckets": {
-   "<70%": 2666,
-   "70-85%": 7336,
-   "85-95%": 63461,
-   "95-100%": 36040,
+   "<70%": 2667,
+   "70-85%": 7341,
+   "85-95%": 63500,
+   "95-100%": 36048,
    "100-115%": 7369,
    ">115%": 896
   },
@@ -32,40 +32,40 @@
    "0.64": 154,
    "0.65": 157,
    "0.66": 167,
-   "0.67": 266,
+   "0.67": 267,
    "0.68": 223,
    "0.69": 197,
    "0.70": 399,
    "0.71": 234,
    "0.72": 260,
-   "0.73": 350,
+   "0.73": 351,
    "0.74": 276,
    "0.75": 404,
    "0.76": 290,
    "0.77": 343,
    "0.78": 365,
    "0.79": 389,
-   "0.80": 894,
+   "0.80": 895,
    "0.81": 414,
-   "0.82": 551,
+   "0.82": 552,
    "0.83": 741,
    "0.84": 789,
-   "0.85": 1684,
-   "0.86": 1075,
-   "0.87": 1644,
-   "0.88": 2295,
-   "0.89": 3630,
-   "0.90": 23712,
-   "0.91": 2220,
-   "0.92": 1563,
-   "0.93": 8939,
+   "0.85": 1688,
+   "0.86": 1078,
+   "0.87": 1646,
+   "0.88": 2297,
+   "0.89": 3635,
+   "0.90": 23722,
+   "0.91": 2227,
+   "0.92": 1566,
+   "0.93": 8944,
    "0.94": 9047,
-   "0.95": 22663,
-   "0.96": 4197,
+   "0.95": 22664,
+   "0.96": 4198,
    "0.97": 2124,
-   "0.98": 2286,
+   "0.98": 2287,
    "0.99": 3898,
-   "1.00": 13157,
+   "1.00": 13162,
    "1.01": 1210,
    "1.02": 412,
    "1.03": 254,
@@ -98,19 +98,19 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23721,
+    "count": 23732,
     "share": 0.2014
    },
    "at_5pct_below": {
-    "count": 22710,
+    "count": 22711,
     "share": 0.1928
    },
    "at_15pct_below": {
-    "count": 1689,
-    "share": 0.0143
+    "count": 1693,
+    "share": 0.0144
    },
    "exactly_at_estimate": {
-    "count": 8375,
+    "count": 8380,
     "share": 0.0711
    }
   },
@@ -123,15 +123,15 @@
   }
  },
  "method_change": {
-  "unchanged": 117566,
+  "unchanged": 117619,
   "less_open_than_planned": 84,
   "more_open_than_planned": 118,
   "top_transitions": {
-   "OTM->OTM": 60170,
+   "OTM->OTM": 60218,
    "LTM->LTM": 54043,
-   "RFQU->RFQU": 2059,
+   "RFQU->RFQU": 2061,
    "OSTETM->OSTETM": 928,
-   "RFQ->RFQ": 312,
+   "RFQ->RFQ": 315,
    "LTM->OTM": 66,
    "OTM->LTM": 63,
    "DPM->DPM": 32,
@@ -512,11 +512,11 @@
   "by_ministry": [
    {
     "ministry": "Ministry of Railways",
-    "matched_pairs": 923,
-    "median_ratio": 1.0,
-    "iqr": 0.1931,
-    "share_above_115": 0.0975,
-    "share_at_10pct_below": 0.0628
+    "matched_pairs": 976,
+    "median_ratio": 0.9975,
+    "iqr": 0.1909,
+    "share_above_115": 0.0922,
+    "share_at_10pct_below": 0.0707
    },
    {
     "ministry": "Ministry of Finance",
@@ -730,7 +730,7 @@
    },
    {
     "year": "2025",
-    "matched_pairs": 16563,
+    "matched_pairs": 16569,
     "median_ratio": 0.94,
     "iqr": 0.05,
     "share_above_115": 0.0024,
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11410,
+    "matched_pairs": 11457,
     "median_ratio": 0.9429,
-    "iqr": 0.0521,
+    "iqr": 0.052,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0594
+    "share_at_10pct_below": 0.0601
    }
   ],
   "by_era": [
@@ -756,7 +756,7 @@
    },
    {
     "era": "Interim Government (2024–2026)",
-    "matched_pairs": 22352,
+    "matched_pairs": 22366,
     "median_ratio": 0.94,
     "iqr": 0.05,
     "share_above_115": 0.0028,
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9026,
+    "matched_pairs": 9065,
     "median_ratio": 0.9444,
     "iqr": 0.0548,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0522
+    "share_at_10pct_below": 0.0527
    }
   ],
   "min_pairs_for_ministry": 30
