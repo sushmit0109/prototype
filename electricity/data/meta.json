@@ -1,10 +1,10 @@
 {
- "built_at":"2026-09-05T13:52:45+00:00",
+ "built_at":"2026-09-05T16:50:53+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
-   "to":"2026-09-05T15:00",
-   "rows":98734,
+   "to":"2026-09-05T20:00",
+   "rows":98739,
    "months":[
     "2015-04",
     "2015-05",
@@ -152,9 +152,9 @@
    "days":4139
   },
   "bpdb":{
-   "days":738,
+   "days":740,
    "from":"2024-07-04",
-   "to":"2026-09-02"
+   "to":"2026-09-04"
   },
   "areawise":{
    "days":4190,
@@ -175,7 +175,7 @@
    "name_en":"BPDB daily generation archive (NLDC PDF reports)",
    "name_bn":"বিপিডিবি দৈনিক উৎপাদন আর্কাইভ (এনএলডিসি পিডিএফ প্রতিবেদন)",
    "url":"https://misc.bpdb.gov.bd/daily-generation-archive",
-   "latest":"2026-09-02"
+   "latest":"2026-09-04"
   },
   {
    "id":"bpdb_area",
@@ -199,7 +199,7 @@
   }
  ],
  "integrity_summary":{
-  "demand_identity_rate":0.9948,
+  "demand_identity_rate":0.9945,
   "energy_identity_rate":1.0,
   "areawise_zero_days":1,
   "areawise_days_compared":588
