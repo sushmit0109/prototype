@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-09-05T22:29:53.397774+00:00",
-  "contracts_scanned": 872029,
+  "generated_at": "2026-09-06T23:10:10.528385+00:00",
+  "contracts_scanned": 872096,
   "debarment_records": 1022,
-  "flag_count": 1968,
+  "flag_count": 1969,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1722
+   "post_debarment_award": 1723
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 343,
@@ -35495,6 +35495,25 @@
    "district": "Bandarban",
    "contract_signing_date": "2026-03-24",
    "value_bdt": 430000.0,
+   "debar_start": "29-Jan-2025",
+   "debar_end": "29-Jan-2026",
+   "debarred_by": "Organization Name: Health Engineering Department (HED) ;",
+   "debarment_reason": "debarred",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "medium",
+   "company": "PREVIEW INTERNATIONAL",
+   "company_key": "preview international",
+   "tender_id": "1307921",
+   "pkg_lot_id": "1832722",
+   "procuring_entity": "Office of the Executive Engineer, EED, Bandarban District.",
+   "ministry": "Ministry of Education",
+   "district": "Bandarban",
+   "contract_signing_date": "2026-09-06",
+   "value_bdt": 13630000.0,
    "debar_start": "29-Jan-2025",
    "debar_end": "29-Jan-2026",
    "debarred_by": "Organization Name: Health Engineering Department (HED) ;",
