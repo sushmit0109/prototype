@@ -1,10 +1,10 @@
 {
- "built_at":"2026-09-07T04:45:47+00:00",
+ "built_at":"2026-09-07T10:22:18+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
-   "to":"2026-09-07T08:00",
-   "rows":98775,
+   "to":"2026-09-07T14:00",
+   "rows":98781,
    "months":[
     "2015-04",
     "2015-05",
@@ -157,8 +157,8 @@
    "to":"2026-09-05"
   },
   "areawise":{
-   "days":4190,
-   "usable":3849,
+   "days":4194,
+   "usable":3853,
    "suspect":341
   }
  },
@@ -182,14 +182,14 @@
    "name_en":"BPDB area-wise demand",
    "name_bn":"বিপিডিবি এলাকাভিত্তিক চাহিদা",
    "url":"https://misc.bpdb.gov.bd/area-wise-demand",
-   "latest":"2026-09-01"
+   "latest":"2026-09-05"
   },
   {
    "id":"pgcb_erp",
    "name_en":"PGCB daily workbook (NLDC reports, digitised)",
    "name_bn":"পিজিসিবির দৈনিক ওয়ার্কবুক (এনএলডিসি প্রতিবেদন, ডিজিটাইজড)",
    "url":"https://erp.powergrid.gov.bd/",
-   "latest":"2026-09-05"
+   "latest":"2026-09-06"
   },
   {
    "id":"osm",
@@ -202,6 +202,6 @@
   "demand_identity_rate":0.9942,
   "energy_identity_rate":1.0,
   "areawise_zero_days":1,
-  "areawise_days_compared":588
+  "areawise_days_compared":592
  }
 }
