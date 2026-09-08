@@ -51,6 +51,14 @@ jobs:
         continue-on-error: true
         run: python scrape_pgcb.py --view genend --pages ${{ inputs.backfill && '2000' || '3' }}
 
+      # ERA5 lags real time by about six days and each run costs 64 long
+      # requests, so the weather is refreshed on demand rather than hourly.
+      - name: District temperature (ERA5)
+        if: ${{ inputs.backfill }}
+        working-directory: electricity/pipeline
+        continue-on-error: true
+        run: python fetch_weather.py
+
       - name: BPDB area-wise demand
         working-directory: electricity/pipeline
         continue-on-error: true

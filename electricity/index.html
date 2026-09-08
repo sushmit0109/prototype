@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css?v=ac4073eb">
+<link rel="stylesheet" href="styles.css?v=3524f6a0">
 </head>
 <body data-lang="bn">
 
@@ -50,6 +50,7 @@
       <a href="#map" data-i18n="navMap">মানচিত্র</a>
       <a href="#seasonal" data-i18n="navSeasonal">আগের বছরের তুলনা</a>
       <a href="#demand" data-i18n="navDemand"></a>
+      <a href="#heat" data-i18n="heatTitle"></a>
       <a href="#cost" data-i18n="navCost"></a>
       <a href="#zones" data-i18n="navZones">অঞ্চল</a>
       <a href="#fuel" data-i18n="navFuel">জ্বালানি</a>
@@ -239,6 +240,34 @@
     <p class="chart-note" style="margin-top:10px" data-i18n="demNote"></p>
   </section>
 
+  <!-- ── HEAT ────────────────────────────────────────── -->
+  <section id="heat">
+    <div class="sec-head">
+      <h2 data-i18n="heatTitle"></h2>
+      <p class="sec-sub" data-i18n="heatSub"></p>
+    </div>
+    <div class="grid g3" id="heat-tiles"></div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="heatCurve"></span></div>
+      <div class="chartbox" id="heat-curve"></div>
+      <p class="chart-note" style="margin-top:8px" data-i18n="heatCurveNote"></p>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="heatYear"></span></div>
+      <div class="chartbox" id="heat-year"></div>
+      <p class="chart-note" style="margin-top:8px" id="heat-year-note"></p>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head"><span class="chart-title" data-i18n="heatZoneTitle"></span></div>
+      <div class="chartbox" id="heat-zones"></div>
+      <p class="chart-note" style="margin-top:8px" data-i18n="heatZoneNote"></p>
+    </div>
+    <p class="chart-note" style="margin-top:10px" id="heat-method"></p>
+  </section>
+
   <!-- ── COST ────────────────────────────────────────── -->
   <section id="cost">
     <div class="sec-head">
@@ -374,6 +403,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="app.js?v=2f0b03be"></script>
+<script src="app.js?v=ae1cebbf"></script>
 </body>
 </html>

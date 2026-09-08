@@ -1255,6 +1255,228 @@ def _fleet_of(fuel):
     return "other"
 
 
+# ── how much of demand growth is the weather ─────────────────────────────────
+#
+# Demand plainly moves with temperature; the disputed question is whether the
+# decade-long climb is itself a weather story. Two things have to be kept
+# apart, because they are routinely conflated: the response of demand to a
+# given temperature, and the change in temperature itself. Both raise demand,
+# and only the residual after both is left needing another explanation.
+#
+#   demand_d = year + month + day-of-week + Eid + f(temperature) + e
+#
+# f() is a set of bins rather than a slope: the response is flat below about
+# 27C and steep above it, and a straight line would average the two regions
+# into a single wrong number. The year effects are then growth at constant
+# weather, and the weather term is the model evaluated at the actual
+# temperature against that day's climatological normal.
+
+TEMP_BINS = [-99, 18, 21, 24, 26, 28, 30, 32, 34, 99]
+TEMP_MIN_DAYS = 800
+TEMP_FULL_YEAR = 340        # days before a year counts as complete
+# Typed-in errors reach five figures in the source (a peak of 156,050 MW
+# appears in April 2023). They are dropped, not clipped: they are not extreme
+# observations, they are wrong ones.
+TEMP_DEMAND_LO, TEMP_DEMAND_HI = 2_000.0, 25_000.0
+
+
+def _temp_bin_labels():
+    out = []
+    for i in range(len(TEMP_BINS) - 1):
+        lo, hi = TEMP_BINS[i], TEMP_BINS[i + 1]
+        out.append(f"<{hi}" if lo == -99 else
+                   (f"{lo}+" if hi == 99 else f"{lo}-{hi}"))
+    return out
+
+
+def load_hourly_weather():
+    """date -> daily max of the population-weighted temperature, per region."""
+    day = defaultdict(lambda: defaultdict(list))
+    for f in sorted((RAW / "weather").glob("temp_*.csv")):
+        for row in read_csv(f):
+            for k in ["national"] + ZONES:
+                v = num(row.get(k))
+                if v is not None:
+                    day[row["date"]][k].append(v)
+    return {d: {k: max(v) for k, v in cols.items() if len(v) >= 20}
+            for d, cols in day.items()}
+
+
+def _daily_demand_for_temp():
+    """date -> daily peak of published demand, generation-end basis."""
+    per = defaultdict(list)
+    for f in sorted(PGCB.glob("genend_*.csv")):
+        for row in read_csv(f):
+            v = num(row.get("demand"))
+            if v is not None and TEMP_DEMAND_LO <= v <= TEMP_DEMAND_HI:
+                per[row["date"]].append(v)
+    seen = set(per)
+    for f in sorted(ERP_DIR.glob("hourly_*.csv")):
+        for row in read_csv(f):
+            if row["date"] in seen:
+                continue
+            v = num(row.get("demand"))
+            if v is not None and TEMP_DEMAND_LO <= v <= TEMP_DEMAND_HI:
+                per[row["date"]].append(v)
+    return {d: max(v) for d, v in per.items() if len(v) >= 20}
+
+
+def _temp_design(dates, temps, years, months):
+    import numpy as np
+    cols = [np.ones(len(dates))]
+    names = ["const"]
+    for y in years[1:]:
+        cols.append(np.array([1.0 if d[:4] == y else 0.0 for d in dates]))
+        names.append(f"year_{y}")
+    for m in months[1:]:
+        cols.append(np.array([1.0 if d[5:7] == m else 0.0 for d in dates]))
+        names.append(f"month_{m}")
+    dows = [date.fromisoformat(d).weekday() for d in dates]
+    for k in range(1, 7):
+        cols.append(np.array([1.0 if w == k else 0.0 for w in dows]))
+        names.append(f"dow_{k}")
+    cols.append(np.array([1.0 if _is_eid(d) else 0.0 for d in dates]))
+    names.append("eid")
+    idx = np.digitize(temps, TEMP_BINS) - 1
+    labels = _temp_bin_labels()
+    for b in range(1, len(labels)):
+        cols.append(np.array([1.0 if i == b else 0.0 for i in idx]))
+        names.append(f"temp_{labels[b]}")
+    return np.column_stack(cols), names, idx, labels
+
+
+# Built on first use: EID_DATES is defined further down the module, and the
+# festival closes industry for several days rather than one.
+_EID_DAYS = None
+
+
+def _is_eid(d):
+    global _EID_DAYS
+    if _EID_DAYS is None:
+        _EID_DAYS = set()
+        for _lst in EID_DATES.values():
+            for _iso, _ in _lst:
+                _b = date.fromisoformat(_iso)
+                for _k in range(-1, 4):
+                    _EID_DAYS.add((_b + timedelta(days=_k)).isoformat())
+    return d in _EID_DAYS
+
+
+def build_temperature():
+    """What the weather explains, and what it does not."""
+    try:
+        import numpy as np
+    except ImportError:
+        print("[build] numpy missing; skipping the temperature model")
+        return None
+    wx = load_hourly_weather()
+    dem = _daily_demand_for_temp()
+    days = sorted(set(wx) & set(dem))
+    days = [d for d in days if "national" in wx[d]]
+    if len(days) < TEMP_MIN_DAYS:
+        return None
+
+    y = np.array([dem[d] for d in days])
+    t = np.array([wx[d]["national"] for d in days])
+    years = sorted({d[:4] for d in days})
+    months = sorted({d[5:7] for d in days})
+    X, names, idx, labels = _temp_design(days, t, years, months)
+    beta, *_ = np.linalg.lstsq(X, y, rcond=None)
+    resid = y - X @ beta
+    ss_tot = float(((y - y.mean()) ** 2).sum())
+    r2 = 1 - float(resid @ resid) / ss_tot if ss_tot else None
+    keep = [i for i, n in enumerate(names) if not n.startswith("temp_")]
+    b0, *_ = np.linalg.lstsq(X[:, keep], y, rcond=None)
+    res0 = y - X[:, keep] @ b0
+    share_daily = 1 - float(resid @ resid) / float(res0 @ res0)
+
+    pos = {n: i for i, n in enumerate(names)}
+    n_days = np.bincount(idx, minlength=len(labels))
+    response = [{"bin": labels[b],
+                 "lo": TEMP_BINS[b] if TEMP_BINS[b] != -99 else None,
+                 "hi": TEMP_BINS[b + 1] if TEMP_BINS[b + 1] != 99 else None,
+                 "mw": 0.0 if b == 0 else r(beta[pos[f"temp_{labels[b]}"]], 0),
+                 "days": int(n_days[b])}
+                for b in range(len(labels)) if n_days[b] > 0]
+
+    # weather term: actual temperature against that day's climatological normal
+    clim = defaultdict(list)
+    for d, tt in zip(days, t):
+        clim[d[5:]].append(tt)
+    clim = {k: sum(v) / len(v) for k, v in clim.items()}
+    Xn, *_ = _temp_design(days, np.array([clim[d[5:]] for d in days]),
+                          years, months)
+    weather = (X @ beta) - (Xn @ beta)
+
+    byyear = defaultdict(list)
+    for d, a, w, tt in zip(days, y, weather, t):
+        byyear[d[:4]].append((a, w, tt))
+    series = []
+    for yr in sorted(byyear):
+        v = byyear[yr]
+        act = sum(x[0] for x in v) / len(v)
+        wea = sum(x[1] for x in v) / len(v)
+        series.append({"year": yr, "days": len(v), "actual": r(act),
+                       "normalised": r(act - wea), "weather": r(wea, 1),
+                       "temp": r(sum(x[2] for x in v) / len(v), 2)})
+    full = [x for x in series if x["days"] >= TEMP_FULL_YEAR] or series
+    a, b = full[0], full[-1]
+    rise = b["actual"] - a["actual"]
+    rise_norm = b["normalised"] - a["normalised"]
+
+    return {
+        "response": response, "series": series,
+        "days": len(days), "from": days[0], "to": days[-1],
+        "r2": r(r2, 3), "share_daily": r(100 * share_daily, 0),
+        "compare": {
+            "from": a["year"], "to": b["year"],
+            "rise": r(rise), "rise_norm": r(rise_norm),
+            "weather": r(rise - rise_norm, 1),
+            "weather_pct": r(100 * (rise - rise_norm) / rise, 1) if rise else None,
+            "rise_pct": r(100 * rise / a["actual"], 1),
+            "temp_change": r(b["temp"] - a["temp"], 2),
+        },
+        "part_years": [x["year"] for x in series if x["days"] < TEMP_FULL_YEAR],
+        "zones": _temp_zones(wx, days),
+    }
+
+
+def _temp_zones(wx, national_days):
+    """Each zone's own response to its own temperature, as a share of its peak."""
+    import numpy as np
+    area = {}
+    for f in sorted(AREA_DIR.glob("areawise*.json")):
+        area.update(read_json(f, {}) or {})
+    out = []
+    for z in ZONES:
+        ds, ys, ts = [], [], []
+        for d, rec in sorted(area.items()):
+            if rec.get("suspect") or d not in wx or z not in wx[d]:
+                continue
+            cell = (rec.get("zones") or {}).get(z)
+            v = cell.get("demand") if isinstance(cell, dict) else (
+                cell[0] if isinstance(cell, list) else cell)
+            v = num(v)
+            if v is None or not (50 <= v <= 12000):
+                continue
+            ds.append(d); ys.append(v); ts.append(wx[d][z])
+        if len(ds) < TEMP_MIN_DAYS:
+            continue
+        yrs = sorted({d[:4] for d in ds}); mos = sorted({d[5:7] for d in ds})
+        X, names, idx, labels = _temp_design(ds, np.array(ts), yrs, mos)
+        beta, *_ = np.linalg.lstsq(X, np.array(ys), rcond=None)
+        pos = {n: i for i, n in enumerate(names)}
+        top = labels[-1]
+        lift = beta[pos[f"temp_{top}"]] if f"temp_{top}" in pos else None
+        mean = sum(ys) / len(ys)
+        if lift is None:
+            continue
+        out.append({"zone": z, "mean_peak": r(mean), "lift_mw": r(lift),
+                    "lift_pct": r(100 * lift / mean, 1), "days": len(ds)})
+    out.sort(key=lambda x: -x["lift_pct"])
+    return out
+
+
 def build_idle_fleet():
     """How much of each fleet produced nothing at the evening peak.
 
@@ -2229,6 +2451,16 @@ def main():
               f"{o['energy_share']}% of the electricity and {o['cost_share']}% of "
               f"the bill, {o['tk_per_kwh']} Tk/kWh against {o['gas_tk_per_kwh']} "
               f"for gas; blended {fuelcost['blended_tk_per_kwh']} Tk/kWh")
+    temp = build_temperature()
+    if temp:
+        write_json(SITE_DATA / "temperature.json", temp)
+        c = temp["compare"]
+        print(f"[build] temperature model: {temp['days']:,} days, R2={temp['r2']}; "
+              f"hottest bin {temp['response'][-1]['mw']:,.0f} MW above a mild day; "
+              f"explains {temp['share_daily']:.0f}% of day-to-day variation")
+        print(f"[build]   {c['from']}->{c['to']}: demand {c['rise']:+,.0f} MW "
+              f"({c['rise_pct']:+.1f}%), of which weather {c['weather']:+,.0f} MW "
+              f"({c['weather_pct']:.1f}%); temperature moved {c['temp_change']:+.2f}C")
     idlefleet = build_idle_fleet()
     if idlefleet:
         write_json(SITE_DATA / "idlefleet.json", idlefleet)

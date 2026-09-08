@@ -367,3 +367,7 @@ svg.chart .mark-label { fill: var(--muted); font-size: 10px;
    publishing is marked, rather than left to look as current as the rest. */
 #source-list .src-date { display: block; font-size: .82rem; color: var(--muted); }
 #source-list .src-late { color: #a2380f; font-weight: 600; }
+
+/* OpenStreetMap's own tiles are keyless but saturated; desaturating the tile
+   pane keeps the basemap as context and lets the choropleth carry the colour. */
+#map-canvas .leaflet-tile-pane { filter: grayscale(0.92) brightness(1.06); }

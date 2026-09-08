@@ -76,6 +76,9 @@ const STR = {
 
     mapTitle: 'মানচিত্রে বিদ্যুৎ',
     mapSub: 'রং যত গাঢ়, সেই অঞ্চলে লোডশেডিং তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
+    mapSubShed: 'রং যত গাঢ়, সেই অঞ্চলে লোডশেডিং তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
+    mapSubDemand: 'রং যত গাঢ়, সেই অঞ্চলে চাহিদা তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
+    mapSubHeat: 'রং যত গাঢ়, গরমে সেই অঞ্চলের চাহিদা তত বেশি বাড়ে — নিজের গড় সর্বোচ্চ চাহিদার শতাংশ হিসেবে। শুষ্ক উত্তর-পশ্চিম সবচেয়ে বেশি সাড়া দেয়।',
     mapLoadshedding: 'লোডশেডিং', mapDemand: 'চাহিদা',
     mapNote: 'একটি জেলার রং আসলে সেই জেলা যে গ্রিড অঞ্চলে পড়ে তার হিসাব — অঞ্চলের ভেতরে জেলা ধরে আলাদা হিসাব প্রকাশ করা হয় না। কেন্দ্র ও সাবস্টেশনের অবস্থান ওপেনস্ট্রিটম্যাপ থেকে নাম মিলিয়ে বসানো; কিছু ক্ষেত্রে তা কাছের শহর পর্যন্তই ঠিক।',
     layerPlants: 'বিদ্যুৎকেন্দ্র', layerSubs: 'গ্রিড সাবস্টেশন', layerDistricts: 'জেলা',
@@ -113,6 +116,23 @@ const STR = {
     fcEnergyShare: 'বিদ্যুতের ভাগ',
     fcCostShare: 'খরচের ভাগ',
     fcPerUnit: 'ইউনিটপ্রতি টাকা',
+    heatTitle: 'গরম কতটা দায়ী?',
+    heatSub: 'চাহিদা যে গরমের সঙ্গে ওঠানামা করে, তা চোখেই দেখা যায়। প্রশ্নটা আলাদা: গত এক দশকে চাহিদা যে ধারাবাহিকভাবে উপরে উঠেছে, সেটাও কি গরমের কারণে? দুটো আলাদা জিনিস — একই তাপমাত্রায় চাহিদা কতটা বাড়ে, আর তাপমাত্রা নিজে কতটা বেড়েছে। দুটোই হিসাবে ধরা হয়েছে।',
+    heatLift: 'গরম দিনের বাড়তি চাহিদা',
+    heatLiftNote: '{hi}° সে ছাড়ানো দিনে, ঠান্ডা দিনের তুলনায় · গড় সর্বোচ্চ চাহিদার {pct}%',
+    heatDaily: 'দিনে-দিনে ওঠানামার ব্যাখ্যা',
+    heatDailyNote: 'বছর, মাস, বার আর ঈদ বাদ দেওয়ার পর যতটুকু থাকে, তার এই অংশ তাপমাত্রা ব্যাখ্যা করে',
+    heatTrend: 'এক দশকের বৃদ্ধির ব্যাখ্যা',
+    heatTrendNote: '{from}–{to} সালে চাহিদা বেড়েছে {rise} মেগাওয়াট, তার মধ্যে আবহাওয়ার ভাগ {w} মেগাওয়াট',
+    heatCurve: 'তাপমাত্রা অনুযায়ী দিনের সর্বোচ্চ চাহিদা',
+    heatCurveNote: 'প্রতিটি স্তম্ভ বলছে, সেই তাপমাত্রার দিনে চাহিদা একটি ঠান্ডা দিনের চেয়ে কত মেগাওয়াট বেশি ছিল — বছর, মাস, বার ও ঈদের প্রভাব সরিয়ে। ২৭° সে পর্যন্ত কিছুই হয় না, তারপর খাড়া ওঠে। এই বাঁকটাই সরলরেখা দিয়ে মাপলে ভুল হতো, তাই তাপমাত্রাকে ধাপে ভাগ করা হয়েছে।',
+    heatYear: 'বছরে বছরে: আসল চাহিদা, আর আবহাওয়া একই থাকলে যা হতো',
+    heatYearNote: 'দুটো রেখা প্রায় মিশে আছে — সেটাই ফলাফল। {from} থেকে {to} সালে চাহিদা বেড়েছে {rise} মেগাওয়াট; আবহাওয়া একই থাকলেও বাড়ত {norm} মেগাওয়াট। এই সময়ে গড় তাপমাত্রা বেড়েছে {dt}° সে, সেটিও হিসাবের ভেতরেই ধরা।',
+    heatActual: 'যা হয়েছে', heatNorm: 'আবহাওয়া একই থাকলে',
+    heatZoneTitle: 'কোন অঞ্চল গরমে বেশি সাড়া দেয়',
+    heatZoneNote: 'প্রতিটি অঞ্চলের নিজের তাপমাত্রা দিয়ে হিসাব, আর ফল দেখানো হয়েছে সেই অঞ্চলের নিজের গড় সর্বোচ্চ চাহিদার শতাংশ হিসেবে — নইলে ঢাকা বড় বলেই সবার উপরে থাকত। শুষ্ক উত্তর-পশ্চিম গরমে প্রায় দ্বিগুণ সাড়া দেয় উপকূলীয় চট্টগ্রামের তুলনায়।',
+    heatMethod: 'পদ্ধতি: দৈনিক সর্বোচ্চ চাহিদাকে ব্যাখ্যা করা হয়েছে বছর, মাস, বার, ঈদ আর তাপমাত্রার ধাপ দিয়ে ({days} দিন, R² {r2})। তাপমাত্রা ইআরএ৫ পুনর্বিশ্লেষণ থেকে, ৬৪ জেলার প্রতিটির জন্য আলাদা, জনসংখ্যা অনুপাতে গড় — কারণ বিদ্যুৎ যেখানে মানুষ, তাপমাত্রাও সেখানকারটাই গুরুত্বপূর্ণ।',
+    mapHeat: 'গরমে সাড়া',
     gasTitle: 'গ্যাস কমলে লোডশেডিং বাড়ে',
     fleetTitle: 'কোন ধরনের কেন্দ্র বসে থাকে',
     fleetSrc: '{from} থেকে {to}, দুই বছরের একই দিনসীমা',
@@ -301,6 +321,9 @@ const STR = {
 
     mapTitle: 'Electricity on the map',
     mapSub: 'The darker the shade, the more load-shedding in that zone. Dots are power stations and grid substations, sized by capacity or load.',
+    mapSubShed: 'The darker the shade, the more load-shedding in that zone. Dots are power stations and grid substations, sized by capacity or load.',
+    mapSubDemand: 'The darker the shade, the more demand in that zone. Dots are power stations and grid substations, sized by capacity or load.',
+    mapSubHeat: 'The darker the shade, the more that zone’s demand climbs on a hot day, as a share of its own average peak. The dry north-west responds hardest.',
     mapLoadshedding: 'Load-shedding', mapDemand: 'Demand',
     mapNote: 'A district takes the colour of the grid zone it sits in — no district-level breakdown is published inside a zone. Plant and substation positions come from matching names against OpenStreetMap; some are only accurate to the nearest town.',
     layerPlants: 'Power stations', layerSubs: 'Grid substations', layerDistricts: 'Districts',
@@ -338,6 +361,23 @@ const STR = {
     fcEnergyShare: 'Share of electricity',
     fcCostShare: 'Share of cost',
     fcPerUnit: 'Tk per unit',
+    heatTitle: 'How much of this is the heat?',
+    heatSub: 'That demand moves with the weather is plain to see. The question is different: is the steady decade-long climb also the heat? Two things have to be separated — how much demand rises at a given temperature, and how much the temperature itself has risen. Both are counted here.',
+    heatLift: 'What a hot day adds',
+    heatLiftNote: 'on a day above {hi}°C against a cool one · {pct}% of an average peak',
+    heatDaily: 'Day-to-day variation explained',
+    heatDailyNote: 'of what is left once year, month, day of week and Eid are accounted for',
+    heatTrend: 'The decade’s rise explained',
+    heatTrendNote: 'demand rose {rise} MW from {from} to {to}; weather accounts for {w} MW of it',
+    heatCurve: 'Daily peak demand by temperature',
+    heatCurveNote: 'Each column is how much higher demand ran on days at that temperature than on a cool day, with year, month, day of week and Eid held constant. Nothing happens up to about 27°C, then it climbs steeply. That bend is why temperature enters as steps rather than a slope — a straight line would average the flat and steep halves into a single wrong number.',
+    heatYear: 'Year by year: what happened, and what would have happened at constant weather',
+    heatYearNote: 'The two lines almost coincide, and that is the finding. Demand rose {rise} MW between {from} and {to}; at constant weather it would have risen {norm} MW. Average temperature climbed {dt}°C over the same period, and that warming is counted inside these figures, not held aside.',
+    heatActual: 'As published', heatNorm: 'At constant weather',
+    heatZoneTitle: 'Which regions answer the heat hardest',
+    heatZoneNote: 'Each zone is measured against its own temperature, and the result is shown as a share of that zone’s own average peak — otherwise Dhaka would lead simply for being large. The dry north-west responds about twice as strongly as coastal Chattogram.',
+    heatMethod: 'Method: daily peak demand explained by year, month, day of week, Eid and temperature bins ({days} days, R² {r2}). Temperature is the ERA5 reanalysis, taken at all 64 district centroids and averaged by population — electricity follows people, so the temperature that matters is the temperature where the load is.',
+    mapHeat: 'Heat response',
     gasTitle: 'When gas falls, the lights go out',
     fleetTitle: 'Which kind of station stands still',
     fleetSrc: '{from} to {to}, the same day range in both years',
@@ -537,6 +577,9 @@ function fmtPop(n) {
 const fmtHour = (h) => `${fmt(h)}:${fmt(0)}${fmt(0)}`;
 // "21:30" carries its digits in the page's own numerals.
 const fmtClock = (s) => String(s).replace(/\d/g, (d) => fmt(Number(d)));
+// Any string carrying digits — a temperature range, a bin label — in the
+// page's own numerals.
+const fmtDigits = (s) => String(s).replace(/\d/g, (d) => fmt(Number(d)));
 
 const pct = (x) => (x === null || x === undefined) ? '—'
   : new Intl.NumberFormat(locale(), { style: 'percent', maximumFractionDigits: 1 }).format(x);
@@ -553,6 +596,12 @@ const C = {
 // most load-shedding. Each stays inside one hue family and ships a scale legend.
 const RAMP_SHED = ['#fdeadb', '#fbc9a5', '#f39a68', '#dd6631', '#a2380f'];
 const RAMP_DEM  = ['#e7f0fa', '#c2dbf1', '#8dbce5', '#4a8ecd', '#1c5698'];
+// A third sequential ramp, for how hard a region answers the heat. Kept in a
+// hue of its own so it cannot be mistaken for load-shedding (orange) or
+// demand (blue) on the same map.
+const RAMP_HEAT = ['#fdf0d5', '#f7d78a', '#e8a838', '#c97c15', '#8a5208'];
+// Validated pair for the two-line decomposition: OKLab dE 24 normal, 23 protan.
+const C_NORM = '#1baf7a';
 
 const FUEL_ORDER = ['gas', 'coal', 'hfo', 'import', 'renewable', 'hsd'];
 const fuelColor = (f) => C.s[FUEL_ORDER.indexOf(f)] || C.s[5];
@@ -892,16 +941,17 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
       load('places'), load('official'), load('cost'), load('demand'),
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
+      load('temperature'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -1195,6 +1245,156 @@ function renderFuelCost() {
       `<td class="num">${fmt(r.cost_share, 1)}%</td>` +
       `<td class="num">${r.tk_per_kwh === null ? '—' : fmt(r.tk_per_kwh, 2)}</td></tr>`).join('') +
     '</tbody>';
+}
+
+/* How much of the rise in demand is the weather.
+
+   Three charts doing three different jobs: the response curve shows that
+   temperature matters enormously day to day, the year pair shows it explains
+   almost none of the trend, and the zone bars show who feels it most. */
+function renderHeat() {
+  const h = D.temperature;
+  if (!h || !h.response || !h.response.length) return;
+  const c = h.compare;
+
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+  const hottest = h.response[h.response.length - 1];
+  const meanPeak = h.series.length
+    ? h.series[h.series.length - 1].actual : 0;
+  document.getElementById('heat-tiles').innerHTML =
+    tile(t('heatLift'), '+' + fmt(hottest.mw), t('mw'),
+         t('heatLiftNote').replace('{hi}', fmt(hottest.lo))
+           .replace('{pct}', fmt(100 * hottest.mw / Math.max(meanPeak, 1), 0))) +
+    tile(t('heatDaily'), fmt(h.share_daily) + '%', '', t('heatDailyNote')) +
+    tile(t('heatTrend'), fmt(c.weather_pct, 1) + '%', '',
+         t('heatTrendNote').replace('{rise}', fmt(c.rise))
+           .replace('{from}', fmtYear(c.from)).replace('{to}', fmtYear(c.to))
+           .replace('{w}', fmt(c.weather, 0)));
+
+  // ── the response curve: one series, so height carries the magnitude and
+  //    colour is not asked to say the same thing twice
+  const host = document.getElementById('heat-curve');
+  host.innerHTML = '';
+  const f = frame(host, { height: 280, padB: 42 });
+  const { svg, padL, padT, iw, ih } = f;
+  const vals = h.response.map(r => r.mw);
+  const lo = Math.min(0, ...vals) * 1.15, hi = Math.max(...vals) * 1.12;
+  const y = yAxis(f, lo, hi, (v) => fmt(v));
+  const bw = Math.min(56, (iw / h.response.length) * 0.66);
+  const x = (i) => padL + (iw / h.response.length) * (i + 0.5);
+  const zero = y(0);
+  h.response.forEach((r, i) => {
+    const top = r.mw >= 0 ? y(r.mw) : zero;
+    const hgt = Math.max(Math.abs(zero - y(r.mw)), 1);
+    el('rect', { x: x(i) - bw / 2, y: top, width: bw, height: hgt, rx: 3,
+                 fill: r.mw > 0 ? C.supply : MUTED_LINE }, svg);
+    const lb = el('text', { x: x(i), y: padT + ih + 17, 'text-anchor': 'middle' }, svg);
+    lb.textContent = fmtDigits(r.bin);
+    // A negative bar hangs from the zero line towards the axis labels, so its
+    // value goes above the line rather than below the bar, where it would sit
+    // on top of the temperature scale.
+    const tx = el('text', { x: x(i), y: (r.mw >= 0 ? top - 6 : zero - 5),
+                            'text-anchor': 'middle', class: 'bar-value' }, svg);
+    tx.textContent = fmt(r.mw);
+  });
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: zero, y2: zero }, svg);
+  const lab = el('text', { x: padL + iw, y: padT + ih + 34, 'text-anchor': 'end',
+                           class: 'axis-label' }, svg);
+  lab.textContent = LANG === 'bn' ? 'দিনের সর্বোচ্চ তাপমাত্রা (° সে)'
+                                  : 'daily maximum temperature (°C)';
+  const hit = el('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' }, svg);
+  hit.addEventListener('pointermove', (ev) => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (f.width / bb.width);
+    let i = Math.floor(((px - padL) / iw) * h.response.length);
+    i = Math.max(0, Math.min(h.response.length - 1, i));
+    const r = h.response[i];
+    showTip(f, x(i), `<div class="tip-date">${fmtDigits(r.bin)} °C</div>` +
+      tipRow(C.supply, LANG === 'bn' ? 'বাড়তি চাহিদা' : 'extra demand',
+             `${fmt(r.mw)} ${t('mw')}`) +
+      tipRow(null, LANG === 'bn' ? 'এমন দিন' : 'days', fmt(r.days)));
+  });
+  hit.addEventListener('pointerleave', () => hideTip(f));
+
+  // ── actual against constant weather
+  const ys = h.series.filter(r => r.days >= 200);
+  multiLineYears(document.getElementById('heat-year'), ys);
+  const n = document.getElementById('heat-year-note');
+  if (n) n.textContent = t('heatYearNote')
+    .replace('{from}', fmtYear(c.from)).replace('{to}', fmtYear(c.to))
+    .replace('{rise}', fmt(c.rise)).replace('{norm}', fmt(c.rise_norm))
+    .replace('{dt}', fmt(c.temp_change, 2));
+
+  // ── zones, as a share of each zone's own peak
+  hBars(document.getElementById('heat-zones'),
+    (h.zones || []).map(z => ({
+      label: zoneName(z.zone), value: z.lift_pct, color: C.supply,
+      note: `+${fmt(z.lift_mw)} ${t('mw')}`,
+    })), {
+      valueLabel: LANG === 'bn' ? 'নিজের সর্বোচ্চ চাহিদার শতাংশ'
+                                : 'share of its own peak',
+      fmtValue: (v) => `${fmt(v, 1)}%`,
+    });
+
+  const m = document.getElementById('heat-method');
+  if (m) m.textContent = t('heatMethod')
+    .replace('{days}', fmt(h.days)).replace('{r2}', fmt(h.r2, 3));
+}
+
+/* Two lines on one axis: what happened, and what would have happened had the
+   weather not moved. They nearly coincide, which is the point being made. */
+function multiLineYears(host, rows) {
+  host.innerHTML = '';
+  if (!rows.length) return;
+  const f = frame(host, { height: 260, padR: 22 });
+  const { svg, padL, padT, iw, ih } = f;
+  const all = rows.flatMap(r => [r.actual, r.normalised]);
+  const y = yAxis(f, Math.min(...all) * 0.92, Math.max(...all) * 1.06, (v) => fmt(v));
+  const x = (i) => padL + (rows.length === 1 ? iw / 2 : (i / (rows.length - 1)) * iw);
+  const series = [
+    { key: 'actual', color: C.supply, label: t('heatActual') },
+    { key: 'normalised', color: C_NORM, label: t('heatNorm') },
+  ];
+  for (const s of series) {
+    el('polyline', { points: rows.map((r, i) => `${x(i)},${y(r[s.key])}`).join(' '),
+                     fill: 'none', stroke: s.color, 'stroke-width': 2.4,
+                     'stroke-linejoin': 'round' }, svg);
+    const last = rows.length - 1;
+    el('circle', { cx: x(last), cy: y(rows[last][s.key]), r: 4, fill: s.color,
+                   stroke: C.surface, 'stroke-width': 2 }, svg);
+    // No end label: the two lines sit on top of each other by design, so a
+    // pair of labels there would collide with each other and with the edge.
+    // The legend below carries the identity.
+  }
+  const step = Math.max(1, Math.round(rows.length / 8));
+  for (let i = 0; i < rows.length; i += step) {
+    const lb = el('text', { x: x(i), y: padT + ih + 18, 'text-anchor': 'middle' }, svg);
+    lb.textContent = fmtYear(rows[i].year);
+  }
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: padT + ih, y2: padT + ih }, svg);
+  const cross = el('line', { y1: padT, y2: padT + ih, stroke: C.muted, 'stroke-width': 1, opacity: 0 }, svg);
+  const hit = el('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' }, svg);
+  hit.addEventListener('pointermove', (ev) => {
+    const bb = svg.getBoundingClientRect();
+    const px = (ev.clientX - bb.left) * (f.width / bb.width);
+    let i = Math.round(((px - padL) / iw) * (rows.length - 1));
+    i = Math.max(0, Math.min(rows.length - 1, i));
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i));
+    cross.setAttribute('opacity', 0.5);
+    const r = rows[i];
+    showTip(f, x(i), `<div class="tip-date">${fmtYear(r.year)}</div>` +
+      tipRow(C.supply, t('heatActual'), `${fmt(r.actual)} ${t('mw')}`) +
+      tipRow(C_NORM, t('heatNorm'), `${fmt(r.normalised)} ${t('mw')}`) +
+      tipRow(null, LANG === 'bn' ? 'গড় সর্বোচ্চ তাপমাত্রা' : 'mean max temp',
+             `${fmt(r.temp, 1)}°C`));
+  });
+  hit.addEventListener('pointerleave', () => { hideTip(f); cross.setAttribute('opacity', 0); });
+  legend(host, series.map(s => ({ label: s.label, color: s.color })));
 }
 
 /* How much of each fleet stood still at the evening peak.
@@ -1653,6 +1853,15 @@ function renderSources() {
 let MAP = null, LAYERS = {}, LAYER_CTRL = null;
 
 function zoneValues(metric) {
+  // Heat response is a modelled coefficient rather than a reading off the
+  // latest day, so it comes from its own file.
+  if (metric === 'heat') {
+    const out = {};
+    ((D.temperature && D.temperature.zones) || []).forEach(z => {
+      out[z.zone] = z.lift_pct;
+    });
+    return out;
+  }
   const peak = (D.zones && D.zones.nldc_evening_peak) || [];
   const last = peak[peak.length - 1];
   const out = {};
@@ -1688,9 +1897,13 @@ function renderMap() {
     holder.innerHTML = '<div id="map-canvas"></div>';
     MAP = L.map('map-canvas', { scrollWheelZoom: false, zoomControl: true })
       .setView([23.75, 90.4], 7);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    // CARTO began watermarking its keyless basemaps with "API KEY REQUIRED",
+    // which was printing across the whole map. OpenStreetMap's own tiles are
+    // keyless and clean; they are saturated for a choropleth, so the tile
+    // pane is desaturated in CSS to let the fills carry the colour.
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 12, minZoom: 6,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(MAP);
   }
   // A re-render (metric switch, language switch) rebuilds every overlay, so the
@@ -1700,8 +1913,15 @@ function renderMap() {
   if (LAYER_CTRL) { MAP.removeControl(LAYER_CTRL); LAYER_CTRL = null; }
 
   const metric = D.mapMetric || 'loadshed';
-  const ramp = metric === 'loadshed' ? RAMP_SHED : RAMP_DEM;
+  const ramp = metric === 'loadshed' ? RAMP_SHED
+             : metric === 'heat' ? RAMP_HEAT : RAMP_DEM;
   const vals = zoneValues(metric);
+  // Heat response is a percentage of each zone's own peak, not megawatts;
+  // the legend and the popups have to say which.
+  const unit = metric === 'heat' ? '%' : t('mw');
+  const label = metric === 'loadshed' ? t('loadshedding')
+              : metric === 'heat' ? t('mapHeat') : t('demand');
+  const digits = metric === 'heat' ? 1 : 0;
   const max = Math.max(...Object.values(vals).filter(v => v !== null), 1);
   const binner = makeBinner(Object.values(vals), ramp);
 
@@ -1717,7 +1937,7 @@ function renderMap() {
         const v = vals[p.zone];
         layer.bindPopup(
           `<b>${name}</b><br>${t('zone')}: ${zoneName(p.zone)}<br>` +
-          `${metric === 'loadshed' ? t('loadshedding') : t('demand')}: <b>${fmt(v)}</b> ${t('mw')}`);
+          `${label}: <b>${fmt(v, digits)}</b> ${unit}`);
         layer.on('mouseover', () => layer.setStyle({ weight: 2.5, color: '#2a5fd6' }));
         layer.on('mouseout', () => layer.setStyle({ weight: 1, color: '#ffffff' }));
       },
@@ -1774,14 +1994,19 @@ function renderMap() {
   document.getElementById('map-ramp').innerHTML =
     `<span>${t('low')}</span><span class="ramp-bar">` +
     ramp.map(c => `<i style="background:${c}"></i>`).join('') +
-    `</span><span>${t('high')} (${fmt(max)} ${t('mw')})</span>`;
+    `</span><span>${t('high')} (${fmt(max, digits)} ${unit})</span>`;
   document.querySelector('[data-i18n="mapNote"]').textContent = t('mapNote');
+  const sub = document.querySelector('#map [data-i18n="mapSub"]');
+  if (sub) sub.textContent = t(metric === 'loadshed' ? 'mapSubShed'
+                              : metric === 'heat' ? 'mapSubHeat' : 'mapSubDemand');
 }
 
 function renderMapSeg() {
   const seg = document.getElementById('map-seg');
   D.mapMetric = D.mapMetric || 'loadshed';
-  seg.innerHTML = [['loadshed', 'mapLoadshedding'], ['demand', 'mapDemand']].map(([k, lbl]) =>
+  const metrics = [['loadshed', 'mapLoadshedding'], ['demand', 'mapDemand']];
+  if (D.temperature && (D.temperature.zones || []).length) metrics.push(['heat', 'mapHeat']);
+  seg.innerHTML = metrics.map(([k, lbl]) =>
     `<button type="button" data-metric="${k}" aria-pressed="${D.mapMetric === k}">${t(lbl)}</button>`).join('');
   seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
     D.mapMetric = b.dataset.metric;
@@ -2985,6 +3210,7 @@ function renderAll() {
   renderFuelCost();
   renderGas();
   renderFleet();
+  renderHeat();
   renderZones();
   renderSeasonal();
   renderMetricSeg();
@@ -3020,6 +3246,7 @@ window.addEventListener('resize', () => {
     renderFuelCost();
     renderGas();
     renderFleet();
+    renderHeat();
     renderZones();
     renderSeasonal();
     renderTrend();
