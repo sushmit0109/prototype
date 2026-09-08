@@ -1182,10 +1182,12 @@ def build_fuelcost(summary):
     }
 
 
-# Gas supply and load-shedding both follow the season, so a correlation over
-# the whole year mostly measures the calendar. The hot months are where the
-# system is actually tight, and that is where the question is asked.
-HOT_MONTHS = {"04", "05", "06", "07", "08", "09"}
+# Summer in Bangladesh runs April to September, not the three months an
+# English calendar would call it. Defined once and shared: the gas comparison
+# and the demand split are both statements about the same season, and if they
+# were allowed to drift apart the page would appear to contradict itself.
+SEASON_MONTHS = ("04", "05", "06", "07", "08", "09")
+HOT_MONTHS = set(SEASON_MONTHS)
 COOL_MONTHS = {"11", "12", "01", "02"}
 
 
@@ -1506,7 +1508,7 @@ def build_demand(area):
 # which more was shed shows higher demand even if no extra electricity was
 # wanted. Splitting the summer peak into the two parts says how much of the
 # rise is appetite and how much is failure to meet it.
-DEMAND_SPLIT_MONTHS = ("06", "07", "08")
+DEMAND_SPLIT_MONTHS = SEASON_MONTHS
 DEMAND_SPLIT_FROM = "2022"
 
 
@@ -1549,7 +1551,9 @@ def build_demand_split(area):
     v_rise = last["served"] - prev["served"]
     s_rise = last["shed"] - prev["shed"]
     return {
-        "rows": out, "window_to": cutoff, "months": list(DEMAND_SPLIT_MONTHS),
+        "rows": out, "window_to": cutoff,
+        "window_from": f"{DEMAND_SPLIT_MONTHS[0]}-01",
+        "months": list(DEMAND_SPLIT_MONTHS),
         "compare": {
             "from": prev["year"], "to": last["year"],
             "demand_pct": r(100 * (last["demand"] / prev["demand"] - 1), 1),
@@ -2105,7 +2109,7 @@ def main():
         if sp and sp.get("compare"):
             c = sp["compare"]
             print(f"[build] summer evening peak {c['from']}->{c['to']} "
-                  f"(1 Jun to {sp['window_to']}): published demand "
+                  f"({sp['window_from']} to {sp['window_to']}): published demand "
                   f"{c['demand_pct']:+.1f}%, electricity actually delivered "
                   f"{c['served_pct']:+.1f}%; {c['shed_share_of_rise']:.0f}% of the "
                   f"rise is load-shedding counted as demand")

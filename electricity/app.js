@@ -142,7 +142,7 @@ const STR = {
     demDecadeChart: 'একই হিসাব, বছরের মধ্যক দিন ধরে — ২০১৬ থেকে',
     demDecadeNote: 'ওপরের রেখাচিত্র আর এই স্তম্ভচিত্র একই জিনিস মাপে: সন্ধ্যার সর্বোচ্চ চাহিদা। ওপরে বছরের প্রতিটি দিন, এখানে বছরের মধ্যক দিনটি। গরমকাল সব বছরেই মধ্যকের অনেক ওপরে থাকে, তাই স্তম্ভ ধীরে বাড়লেও গ্রীষ্মের রেখা অনেক উঁচুতে উঠতে পারে।',
     demSplitTitle: 'গ্রীষ্মের সন্ধ্যার চাহিদা: কতটা পাওয়া গেল, কতটা কাটা পড়ল',
-    demSplitNote: 'জুন থেকে {to} পর্যন্ত, প্রতি বছর একই দিনসীমায় মিলিয়ে। প্রকাশিত চাহিদা = যা দেওয়া হয়েছে + যা কাটা পড়েছে। তাই লোডশেডিং বাড়লে প্রকাশিত চাহিদাও বাড়ে, যদিও কেউ বাড়তি বিদ্যুৎ চায়নি এমনও হতে পারে।',
+    demSplitNote: '{from} থেকে {to} পর্যন্ত, প্রতি বছর একই দিনসীমায় মিলিয়ে। প্রকাশিত চাহিদা = যা দেওয়া হয়েছে + যা কাটা পড়েছে। তাই লোডশেডিং বাড়লে প্রকাশিত চাহিদাও বাড়ে, যদিও কেউ বাড়তি বিদ্যুৎ চায়নি এমনও হতে পারে।',
     demSplitHead: '{from} থেকে {to}: প্রকাশিত চাহিদা বেড়েছে {d}%, কিন্তু বিদ্যুৎ সত্যিই বেশি পৌঁছেছে {v}%',
     demSplitHeadSub: 'বৃদ্ধির {p}% আসলে লোডশেডিং — চাহিদার হিসাবে যোগ হওয়া না-দেওয়া বিদ্যুৎ ({s} মেগাওয়াট)।',
     daysUnit: 'দিন',
@@ -353,7 +353,7 @@ const STR = {
     demDecadeChart: 'The same measure, taken on each year\u2019s median day — since 2016',
     demDecadeNote: 'The lines above and these bars measure the same thing: evening-peak demand. Above is every day of the year; here is the year\u2019s median day. Summer sits far above the median in every year, which is why the bars can creep up while a summer line jumps.',
     demSplitTitle: 'Summer evening demand: how much arrived, how much was cut',
-    demSplitNote: 'June to {to}, matched on the same day range each year. Published demand is what was delivered plus what was shed — so when load-shedding rises, published demand rises with it, even where nobody asked for more electricity.',
+    demSplitNote: '{from} to {to}, matched on the same day range each year. Published demand is what was delivered plus what was shed — so when load-shedding rises, published demand rises with it, even where nobody asked for more electricity.',
     demSplitHead: '{from} to {to}: published demand rose {d}%, but the electricity actually delivered rose {v}%',
     demSplitHeadSub: '{p}% of the rise is load-shedding — power not delivered, counted as demand ({s} MW).',
     daysUnit: 'days',
@@ -1097,8 +1097,12 @@ function renderDemandSplit() {
                 { label: t('dsShed'), color: RAMP_SHED[4] }]);
 
   const note = document.querySelector('[data-i18n="demSplitNote"]');
+  // The window is named from the data. It was written into the sentence as
+  // "June", which would quietly become false the moment the season changed.
+  const md = (v, o) => fmtDate('2020-' + v, o);
   if (note) note.textContent = t('demSplitNote')
-    .replace('{to}', fmtDate('2020-' + sp.window_to, { day: 'numeric', month: 'long' }));
+    .replace('{from}', md(sp.window_from || '06-01', { month: 'long' }))
+    .replace('{to}', md(sp.window_to, { day: 'numeric', month: 'long' }));
 }
 
 /* What each fuel delivers against what it costs.
