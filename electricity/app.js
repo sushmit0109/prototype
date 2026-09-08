@@ -219,7 +219,9 @@ const STR = {
     sameSourceTitle: 'দুটো আলাদা পাতা, সংখ্যা একটাই',
     sameSourceBody: 'বিপিডিবির “area-wise demand” পাতা আর এনএলডিসির দৈনিক রিপোর্টের সন্ধ্যাকালীন হিসাব — যত দিন মিলিয়ে দেখা হয়েছে ({days} দিন), তার {match} দিনেই সংখ্যা অবিকল এক। অর্থাৎ এটা দ্বিতীয় কোনো স্বাধীন সূত্র নয়, একই হিসাবই আরেক জায়গায় ছাপা।',
     coverageTitle: 'কোন বছরে আসলে কতটা তথ্য আছে',
-    coverageBody: 'পিজিসিবির তালিকায় ২০১৫ সাল থেকে সারি থাকলেও চাহিদা ও সরবরাহের ঘর প্রায় পুরোটাই ফাঁকা, আর ২০২২ সালের আগে লোডশেডিংয়ের ঘরে প্রায় সব সময় “০”। নিচের হিসাবে দেখুন কোন বছরে কতটা সত্যিই লেখা আছে।',
+    withDemandSub: 'চাহিদা আছে (সাবস্টেশন)',
+    withDemandGen: 'চাহিদা আছে (জেনারেশন)',
+    coverageBody: 'পিজিসিবি একই ঘণ্টাগুলো দুইভাবে প্রকাশ করে। সাবস্টেশন প্রান্তের তালিকাটি (যেটি এখনো হালনাগাদ হয়) ২০২৬ সালের আগে চাহিদা ও সরবরাহের ঘর ফাঁকা রাখে; জেনারেশন প্রান্তের তালিকাটি ২০১৫ সাল থেকেই ভরা, কিন্তু সেটি ২২ এপ্রিল ২০২৬-এ থেমে গেছে। দুটোতেই ২০২২ সালের আগে লোডশেডিংয়ের ঘরে প্রায় সব সময় “০”। নিচে দুটোরই হিসাব।',
     year: 'বছর', rows: 'সারি', withDemand: 'চাহিদা লেখা আছে', nonzeroShed: 'শূন্যের বেশি লোডশেডিং',
     outlierTitle: 'অসম্ভব সংখ্যা',
     outlierBody: 'দেশের মোট উৎপাদন ক্ষমতাই প্রায় ২৯,০০০ মেগাওয়াট। এর চেয়ে বড় লোডশেডিংয়ের সংখ্যাকে টাইপের ভুল ধরে সরিয়ে রাখা হয়েছে — সব মিলিয়ে {n}টি।',
@@ -438,7 +440,9 @@ const STR = {
     sameSourceTitle: 'Two different pages, one set of numbers',
     sameSourceBody: 'BPDB’s “area-wise demand” page and the NLDC daily report’s evening-peak table agree exactly on {match} of the {days} days compared. It is not a second independent source — it is the same figure printed elsewhere.',
     coverageTitle: 'How much each year actually holds',
-    coverageBody: 'PGCB’s table has rows going back to 2015, but the demand and supply columns are almost entirely empty, and before 2022 the load-shedding column reads “0” nearly every hour. The table below shows what is really there.',
+    withDemandSub: 'With demand (sub-station)',
+    withDemandGen: 'With demand (generation)',
+    coverageBody: 'PGCB publishes the same hours twice. The sub-station-end table, the one still being updated, leaves demand and supply blank before 2026; the generation-end table is filled from 2015 but stopped on 22 April 2026. In both, the load-shedding column reads “0” nearly every hour before 2022. The table below counts each of them.',
     year: 'Year', rows: 'Rows', withDemand: 'Has demand', nonzeroShed: 'Load-shedding above zero',
     outlierTitle: 'Impossible values',
     outlierBody: 'National installed capacity is about 29,000 MW. Load-shedding figures larger than that are treated as typing errors and set aside — {n} in total.',
@@ -1550,9 +1554,13 @@ function renderTrust() {
     .filter(p => p.nldc_peak_loadshed === p.areawise_loadshed).length;
 
   const cov = (g.completeness || []).filter(c => +c.year >= 2015);
+  // Both published views, side by side: counting only the sub-station one
+  // would report the archive as empty where the figures are in fact published.
   const covRows = cov.map(c =>
     `<tr><td class="num">${fmtYear(c.year)}</td><td class="num">${fmt(c.rows)}</td>` +
-    `<td class="num">${fmt(c.with_demand)}</td><td class="num">${fmt(c.nonzero_loadshed)}</td>` +
+    `<td class="num">${fmt(c.with_demand)}</td>` +
+    `<td class="num">${fmt(c.genend_with_demand || 0)}</td>` +
+    `<td class="num">${fmt(c.nonzero_loadshed)}</td>` +
     `<td class="num">${pct(c.rows ? c.nonzero_loadshed / c.rows : 0)}</td></tr>`).join('');
 
   host.innerHTML = `
@@ -1572,7 +1580,8 @@ function renderTrust() {
       <p style="color:var(--text2);font-size:.9rem;margin:6px 0 14px">${t('coverageBody')}</p>
       <div class="tablewrap"><table>
         <thead><tr><th class="num">${t('year')}</th><th class="num">${t('rows')}</th>
-        <th class="num">${t('withDemand')}</th><th class="num">${t('nonzeroShed')}</th>
+        <th class="num">${t('withDemandSub')}</th><th class="num">${t('withDemandGen')}</th>
+        <th class="num">${t('nonzeroShed')}</th>
         <th class="num">%</th></tr></thead>
         <tbody>${covRows}</tbody>
       </table></div>

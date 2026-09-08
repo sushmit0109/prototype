@@ -1107,6 +1107,24 @@ def build_daycurve(hh):
     }
 
 
+def load_genend():
+    """PGCB's generation-end hourly view, d_gen=1 on the same page.
+
+    Kept apart from the sub-station view because the two are different
+    measurements of the same hours, roughly six per cent apart. This one runs
+    from 2015 but stops on 22 April 2026; the daily workbook carries the same
+    measurement forward from there, and the two agree to within 0.02%.
+    """
+    out = []
+    for f in sorted(PGCB.glob("genend_*.csv")):
+        for x in read_csv(f):
+            out.append({"date": x["date"], "hour": int(x["hour"]),
+                        "demand": num(x.get("demand")),
+                        "generation": num(x.get("generation")),
+                        "loadshed": num(x.get("loadshed"))})
+    return out
+
+
 def load_erp_summary():
     """date -> the workbook's system summary."""
     out = {}
@@ -1990,8 +2008,15 @@ def build_integrity(hourly, area, bpdb, daily, identity=None):
         })
 
     # 5. How much of the archive is actually populated, year by year.
+    #
+    # PGCB publishes the same hours twice: the default view is measured at the
+    # sub-station end and leaves demand and supply blank before 2026, while
+    # the generation-end view (d_gen=1) fills them back to 2015 but stopped
+    # updating in April 2026. Counting only the first would say the archive is
+    # empty when the figures are in fact published, one click away.
     by_year = defaultdict(lambda: {"rows": 0, "with_demand": 0,
-                                   "with_supply": 0, "nonzero_loadshed": 0})
+                                   "with_supply": 0, "nonzero_loadshed": 0,
+                                   "genend_rows": 0, "genend_with_demand": 0})
     for x in hourly:
         y = x["date"][:4]
         b = by_year[y]
@@ -2002,6 +2027,11 @@ def build_integrity(hourly, area, bpdb, daily, identity=None):
             b["with_supply"] += 1
         if x["loadshed"]:
             b["nonzero_loadshed"] += 1
+    for x in load_genend():
+        b = by_year[x["date"][:4]]
+        b["genend_rows"] += 1
+        if x["demand"] is not None and x["generation"] is not None:
+            b["genend_with_demand"] += 1
     completeness = [{"year": y, **v} for y, v in sorted(by_year.items())]
 
     return {

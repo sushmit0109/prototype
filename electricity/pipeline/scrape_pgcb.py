@@ -22,8 +22,25 @@ from bs4 import BeautifulSoup
 
 from common import RAW, bn2en, get, num, read_csv, session, write_csv
 
+# The same page publishes two different tables, chosen by d_gen. The default
+# view is measured at the sub-station end -- demand, supply, load-shed -- and
+# is the one kept current. d_gen=1 is the generation end: demand, generation,
+# load-shed, roughly 6% higher because it is taken before transmission loss.
+# They are different measurements of the same hours and are stored apart.
+#
+# Their coverage is complementary, which is why both are worth having. The
+# sub-station table carries load-shed for the whole record but leaves demand
+# and supply blank before 2026; the generation table fills those columns back
+# to 2015, but its demand column only parts company with generation from
+# about mid-2022 (before that it is generation copied across, with load-shed
+# zero), and it stopped being updated on 22 April 2026.
 BASE = ("https://erp.powergrid.gov.bd/web/generations/"
-        "view_demand_supply_loadshed_bn?page={}")
+        "view_demand_supply_loadshed_bn?{}page={}")
+
+VIEWS = {
+    "hourly": {"q": "", "supply_col": "supply"},          # sub-station end
+    "genend": {"q": "d_gen=1&", "supply_col": "generation"},
+}
 
 OUT = RAW / "pgcb"
 
@@ -79,27 +96,30 @@ def parse_page(html: str):
     return rows
 
 
-def total_pages(sess) -> int:
-    r = get(sess, BASE.format(1))
+def total_pages(sess, q: str = "") -> int:
+    r = get(sess, BASE.format(q, 1))
     if not r:
         return 0
     pages = [int(x) for x in re.findall(r"page=(\d+)", r.text)]
     return max(pages) if pages else 1
 
 
-def load_existing() -> dict:
+def load_existing(prefix: str = "hourly") -> dict:
     """Existing rows keyed by datetime, so a re-run merges instead of clobbering."""
     store = {}
-    for f in sorted(OUT.glob("hourly_*.csv")):
+    for f in sorted(OUT.glob(f"{prefix}_*.csv")):
         for r in read_csv(f):
             for k in ("demand", "supply", "loadshed"):
-                r[k] = num(r[k])
+                if k in r:
+                    r[k] = num(r[k])
+            if "generation" in r:
+                r["supply"] = num(r["generation"])
             r["hour"] = int(r["hour"])
             store[r["datetime"]] = r
     return store
 
 
-def save(store: dict):
+def save(store: dict, prefix: str = "hourly", supply_col: str = "supply"):
     # Bucketed per month, not per year: an hourly job rewrites only the current
     # bucket, so the committed diff stays small instead of rewriting a whole
     # year's file every run.
@@ -109,11 +129,11 @@ def save(store: dict):
     for year, rows in by_year.items():
         rows.sort(key=lambda r: r["datetime"])
         write_csv(
-            OUT / f"hourly_{year}.csv",
+            OUT / f"{prefix}_{year}.csv",
             [[r["datetime"], r["date"], r["hour"], r["demand"] if r["demand"] is not None else "",
               r["supply"] if r["supply"] is not None else "",
               r["loadshed"] if r["loadshed"] is not None else "", r["peak"]] for r in rows],
-            ["datetime", "date", "hour", "demand", "supply", "loadshed", "peak"],
+            ["datetime", "date", "hour", "demand", supply_col, "loadshed", "peak"],
         )
     return sum(len(v) for v in by_year.values())
 
@@ -123,20 +143,23 @@ def main():
     ap.add_argument("--full", action="store_true")
     ap.add_argument("--pages", type=int, default=4)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--view", choices=sorted(VIEWS), default="hourly",
+                    help="hourly = sub-station end (default); genend = generation end")
     args = ap.parse_args()
 
+    view = VIEWS[args.view]
     sess = session()
-    store = load_existing()
-    print(f"[pgcb] existing rows: {len(store)}")
+    store = load_existing(args.view)
+    print(f"[pgcb:{args.view}] existing rows: {len(store)}")
 
-    last = total_pages(sess) if args.full else args.pages
+    last = total_pages(sess, view["q"]) if args.full else args.pages
     if not last:
         print("[pgcb] could not reach source")
         return 1
-    print(f"[pgcb] fetching pages 1..{last}")
+    print(f"[pgcb:{args.view}] fetching pages 1..{last}")
 
     def work(p):
-        r = get(sess, BASE.format(p))
+        r = get(sess, BASE.format(view["q"], p))
         return p, (parse_page(r.text) if r else [])
 
     added = 0
@@ -157,13 +180,13 @@ def main():
             if i % 100 == 0 or i == last:
                 print(f"  page {i}/{last}  rows={len(store)}", flush=True)
                 if args.full and i % 400 == 0:
-                    save(store)  # checkpoint a long backfill
+                    save(store, args.view, view["supply_col"])  # checkpoint
 
-    n = save(store)
+    n = save(store, args.view, view["supply_col"])
 
     # Retire buckets from older layouts: implausible years from upstream typos,
     # and the whole-year files this script used to write before monthly buckets.
-    for f in OUT.glob("hourly_*.csv"):
+    for f in OUT.glob(f"{args.view}_*.csv"):
         key = f.stem.split("_", 1)[1]
         if len(key) == 4:
             print(f"[pgcb] removing superseded year file {f.name}")
@@ -172,7 +195,7 @@ def main():
             print(f"[pgcb] removing implausible bucket {f.name}")
             f.unlink()
 
-    print(f"[pgcb] done: {n} rows total (+{added} new)")
+    print(f"[pgcb:{args.view}] done: {n} rows total (+{added} new)")
     if REJECTS:
         print(f"[pgcb] {len(REJECTS)} rows rejected for an implausible year, "
               f"e.g. {REJECTS[0]}")
