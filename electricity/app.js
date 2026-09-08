@@ -216,6 +216,10 @@ const STR = {
     trustSub: 'এখানে কর্তৃপক্ষের নিজের সংখ্যাই তুলে ধরা হয়েছে। তবে সংখ্যাগুলো কীভাবে বানানো হয়, আর কোথায় দুই সরকারি সূত্র নিজেরাই মেলে না — সেটাও জানা দরকার।',
     identityTitle: 'প্রকাশিত “চাহিদা” আসলে একটা যোগফল, আলাদা কোনো মাপ নয়',
     identityBody: 'পিজিসিবির ঘণ্টাভিত্তিক তালিকায় {rate} ক্ষেত্রে চাহিদা = সরবরাহ + লোডশেডিং, একেবারে হুবহু। বিপিডিবির দৈনিক রিপোর্টেও শক্তির হিসাবে চাহিদা = উৎপাদন + যা দেওয়া যায়নি, {erate} ক্ষেত্রে হুবহু মেলে। মানে “চাহিদা” আলাদা করে মাপা হয় না — লোডশেডিংয়ের সংখ্যা থেকেই সেটা বানানো। তাই এই দুটো সংখ্যা দিয়ে একে অন্যকে যাচাই করা যায় না, আর আসল চাহিদা এর চেয়ে বেশিও হতে পারে।',
+    regimeTitle: 'যে গুণটা দিয়ে লোডশেডিংকে “চাহিদা” বানানো হয়, সেটাও বদলেছে',
+    regimeBody: 'চাহিদা = উৎপাদন + লোডশেডিং × একটি গুণক। গুণকটি সঞ্চালন-ক্ষতির একটি ধরে নেওয়া হার — প্রকৃতির নিয়ম নয়, প্রশাসনিক সিদ্ধান্ত। পিজিসিবির নিজের জেনারেশন-প্রান্তের তালিকা ধরে মাসে মাসে দেখলে গুণকটি দুইবার বদলেছে:',
+    regimeNote: 'প্রতিবার হার কমেছে, অর্থাৎ একই পরিমাণ লোডশেডিংয়ের বিপরীতে প্রকাশিত চাহিদা কম দেখায়। পার্থক্যটা ছোট (কয়েক দশ মেগাওয়াট), কিন্তু বছরে বছরে চাহিদা মেলানোর সময় মনে রাখা দরকার — মাঝখানে হিসাবের নিয়মই বদলে গেছে।',
+    regimeFrom: '—', regimeLoss: 'ধরে নেওয়া ক্ষতি', regimeMonths: 'মাস',
     sameSourceTitle: 'দুটো আলাদা পাতা, সংখ্যা একটাই',
     sameSourceBody: 'বিপিডিবির “area-wise demand” পাতা আর এনএলডিসির দৈনিক রিপোর্টের সন্ধ্যাকালীন হিসাব — যত দিন মিলিয়ে দেখা হয়েছে ({days} দিন), তার {match} দিনেই সংখ্যা অবিকল এক। অর্থাৎ এটা দ্বিতীয় কোনো স্বাধীন সূত্র নয়, একই হিসাবই আরেক জায়গায় ছাপা।',
     coverageTitle: 'কোন বছরে আসলে কতটা তথ্য আছে',
@@ -437,6 +441,10 @@ const STR = {
     trustSub: 'This page shows the authorities’ own numbers. But it also matters how those numbers are built, and where two official sources fail to agree with each other.',
     identityTitle: 'The published “demand” is an arithmetic identity, not a measurement',
     identityBody: 'In PGCB’s hourly table, demand equals supply plus load-shedding exactly in {rate} of rows. BPDB’s daily report does the same with energy: demand = generated + not supplied, exact in {erate} of days. So “demand” is never measured independently — it is built from the load-shedding figure. The two cannot be used to check each other, and real demand may well be higher.',
+    regimeTitle: 'The multiplier that turns load-shedding into “demand” has itself been changed',
+    regimeBody: 'Demand = generation + load-shedding × a multiplier. That multiplier is an assumed transmission-loss rate — an administrative choice, not a law of physics. Read month by month against PGCB’s own generation-end table, it has been revised twice:',
+    regimeNote: 'Each revision lowered it, so the same amount of load-shedding now reports as less demand. The difference is small — tens of megawatts — but it matters when comparing demand across years, because the rule for computing it changed midway.',
+    regimeFrom: 'to', regimeLoss: 'assumed loss', regimeMonths: 'months',
     sameSourceTitle: 'Two different pages, one set of numbers',
     sameSourceBody: 'BPDB’s “area-wise demand” page and the NLDC daily report’s evening-peak table agree exactly on {match} of the {days} days compared. It is not a second independent source — it is the same figure printed elsewhere.',
     coverageTitle: 'How much each year actually holds',
@@ -1542,6 +1550,30 @@ function renderTrend() {
   host.appendChild(lg);
 }
 
+// The gross-up factor, and the two occasions it was revised. Published only
+// where the source shows enough shed hours a month for a median to mean
+// anything, so a quiet month cannot invent a regime.
+function regimeBlock() {
+  const regs = ((D.integrity || {}).demand_formula || {}).regimes || [];
+  const real = regs.filter(x => x.months >= 3);
+  if (real.length < 2) return '';
+  const md = (m) => fmtDate(m + '-01', { month: 'short', year: 'numeric' });
+  return `
+    <div class="card" style="margin-top:14px">
+      <div class="note-title">${t('regimeTitle')}</div>
+      <p style="color:var(--text2);font-size:.9rem;margin:6px 0 12px">${t('regimeBody')}</p>
+      <div class="grid g3">
+        ${real.map(x => `
+          <div class="stat">
+            <div class="stat-label">${md(x.from)} ${t('regimeFrom')} ${md(x.to)}</div>
+            <div class="stat-value">×${fmt(x.factor, 3)}</div>
+            <div class="stat-note">${t('regimeLoss')} ${fmt(x.loss_pct, 1)}%  ·  ${fmt(x.months)} ${t('regimeMonths')}</div>
+          </div>`).join('')}
+      </div>
+      <p class="chart-note" style="margin-top:10px">${t('regimeNote')}</p>
+    </div>`;
+}
+
 function renderTrust() {
   const g = D.integrity;
   const host = document.getElementById('trust-body');
@@ -1574,6 +1606,7 @@ function renderTrust() {
         ${t('sameSourceBody').replace('{match}', fmt(matched)).replace('{days}', fmt(sameDays))}
       </div>
     </div>
+    ${regimeBlock()}
 
     <div class="card" style="margin-top:14px">
       <div class="note-title">③ ${t('coverageTitle')}</div>

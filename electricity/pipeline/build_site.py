@@ -1410,7 +1410,45 @@ def build_gas(summary):
     }
 
 
-def build_identity(erp_hourly):
+# A month needs this many shed hours before its median factor means anything.
+IDENT_MIN_HOURS = 20
+IDENT_STEP = 0.005          # a change this large is a revision, not rounding
+
+
+def identity_regimes(genend):
+    """When the gross-up factor was changed, and to what.
+
+    The factor is not a constant of the system. It is an administrative
+    assumption about transmission loss, and PGCB has revised it: reading the
+    monthly medians end to end shows the steps and when they happened.
+    """
+    bym = defaultdict(list)
+    for x in genend:
+        d, g, l = x["demand"], x["generation"], x["loadshed"]
+        if None in (d, g, l) or not l or l <= 0:
+            continue
+        bym[x["date"][:7]].append((d - g) / l)
+    months = [(m, statistics.median(v)) for m, v in sorted(bym.items())
+              if len(v) >= IDENT_MIN_HOURS]
+    if not months:
+        return []
+    regimes, cur = [], None
+    for m, f in months:
+        if cur is None or abs(f - cur["factor"]) > IDENT_STEP:
+            cur = {"from": m, "to": m, "factor": r(f, 4), "months": 1,
+                   "_vals": [f]}
+            regimes.append(cur)
+        else:
+            cur["to"] = m
+            cur["months"] += 1
+            cur["_vals"].append(f)
+    for x in regimes:
+        x["factor"] = r(statistics.median(x.pop("_vals")), 4)
+        x["loss_pct"] = r(100 * (1 - 1 / x["factor"]), 1)
+    return regimes
+
+
+def build_identity(erp_hourly, genend=None):
     """Test whether published demand is measured or arithmetic.
 
     PGCB's workbook gives generation, load-shed and demand for every hour. If
@@ -1435,6 +1473,7 @@ def build_identity(erp_hourly):
     by_month = sorted((m, round(statistics.median(v), 4), len(v))
                       for m, v in months.items() if len(v) >= 24)
     return {
+        "regimes": identity_regimes(genend or []),
         "hours": len(ratios),
         "factor": round(med, 4),
         "share_within": round(100 * within / len(ratios), 1),
@@ -2210,12 +2249,15 @@ def main():
                   f"ones; at {b['low']['max_temp']}C vs {b['high']['max_temp']}C, "
                   f"low-gas days go unserved {b['low']['unserved_mkwh']} MkWh "
                   f"against {b['high']['unserved_mkwh']}")
-    identity = build_identity(erp_hourly)
+    identity = build_identity(erp_hourly, load_genend())
     if identity:
         print(f"[build] demand identity: demand = generation + load-shed x "
               f"{identity['factor']} on {identity['share_within']}% of "
               f"{identity['hours']:,} hours; that factor is the monthly median "
               f"in {identity['months_at_factor']}/{identity['months']} months")
+        for reg in identity.get("regimes", []):
+            print(f"[build]   factor {reg['factor']} ({reg['loss_pct']}% loss) "
+                  f"from {reg['from']} to {reg['to']}, {reg['months']} months")
 
     seasonal = build_seasonal(settled)
     write_json(SITE_DATA / "seasonal.json", seasonal)
