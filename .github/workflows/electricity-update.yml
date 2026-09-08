@@ -43,6 +43,14 @@ jobs:
         continue-on-error: true
         run: python scrape_pgcb.py --pages ${{ inputs.backfill && '400' || '4' }}
 
+      # The generation-end view of the same table. It stopped updating in
+      # April 2026, so an ordinary run finds nothing; it is kept in the loop
+      # cheaply in case it resumes.
+      - name: PGCB hourly, generation end
+        working-directory: electricity/pipeline
+        continue-on-error: true
+        run: python scrape_pgcb.py --view genend --pages ${{ inputs.backfill && '2000' || '3' }}
+
       - name: BPDB area-wise demand
         working-directory: electricity/pipeline
         continue-on-error: true
