@@ -1203,6 +1203,123 @@ def _pearson(pairs):
     return r(cov / (sx * sy), 3) if sx and sy else None
 
 
+# Each station's fuel, taken from the Forecast sheet. The remarks column
+# would be the obvious place to look for why a plant did not run, but it grew
+# markedly more complete between the two summers, so counting on it would
+# confuse better record-keeping with a worse shortage. The fuel does not move.
+FLEET_LABELS = ("gas", "coal", "furnace oil", "import", "hydro",
+                "diesel", "solar", "wind")
+# Solar and diesel are reported but not shown: the evening peak falls after
+# sunset, so solar is idle by arithmetic rather than by any decision, and the
+# diesel fleet is a couple of hundred megawatts.
+FLEET_SHOWN = ("gas", "coal", "furnace oil", "import", "hydro")
+FLEET_MIN_MW = 60
+
+
+def _fleet_of(fuel):
+    v = (fuel or "").strip().lower()
+    if "gas" in v:
+        return "gas"
+    if "coal" in v:
+        return "coal"
+    if "hfo" in v or "furnace" in v:
+        return "furnace oil"
+    if "hsd" in v or "diesel" in v:
+        return "diesel"
+    if "hydro" in v:
+        return "hydro"
+    if "solar" in v:
+        return "solar"
+    if "wind" in v:
+        return "wind"
+    if "import" in v:
+        return "import"
+    return "other"
+
+
+def build_idle_fleet():
+    """How much of each fleet produced nothing at the evening peak.
+
+    Quoting the gas fleet on its own invites the obvious retort — is not
+    everything idle? — so every fleet is measured on the same days. The answer
+    is that coal, imports and hydro run when called and gas does not.
+    """
+    fuel = {}
+    for f in sorted(ERP_DIR.glob("forecast_*.csv")):
+        for rec in read_csv(f):
+            if rec.get("fuel"):
+                fuel[rec["plant"]] = rec["fuel"]
+    rows = defaultdict(list)
+    for f in sorted(ERP_DIR.glob("plants_*.csv")):
+        for rec in read_csv(f):
+            rows[rec["date"]].append(rec)
+    if not rows:
+        return None
+
+    newest = max(rows)
+    cutoff = max(d[5:] for d in rows if d[:4] == newest[:4]
+                 and d[5:7] in SEASON_MONTHS) if any(
+                     d[5:7] in SEASON_MONTHS for d in rows) else None
+    if not cutoff:
+        return None
+    years = sorted({d[:4] for d in rows if d[5:7] in SEASON_MONTHS
+                    and d[5:] <= cutoff})[-2:]
+    if len(years) < 2:
+        return None
+
+    out = {}
+    for y in years:
+        days = sorted(d for d in rows if d[:4] == y
+                      and d[5:7] in SEASON_MONTHS and d[5:] <= cutoff)
+        if len(days) < 30:
+            continue
+        idle, fleet = defaultdict(list), defaultdict(list)
+        for d in days:
+            ai, ac = defaultdict(float), defaultdict(float)
+            for rec in rows[d]:
+                cap = num(rec.get("present_mw"))
+                peak = num(rec.get("peak_mw")) or 0.0
+                if not cap:
+                    continue
+                g = _fleet_of(fuel.get(rec["plant"]))
+                ac[g] += cap
+                if peak < 0.02 * cap:
+                    ai[g] += cap
+            for k in set(list(ai) + list(ac) + list(idle)):
+                idle[k].append(ai.get(k, 0.0))
+                fleet[k].append(ac.get(k, 0.0))
+        out[y] = {"days": len(days), "fleets": {
+            k: {"idle_mw": r(statistics.median(idle[k]), 1),
+                "fleet_mw": r(statistics.median(fleet[k]), 1)}
+            for k in idle}}
+    if len(out) < 2:
+        return None
+
+    ys = sorted(out)
+    fleets = []
+    for k in FLEET_SHOWN:
+        a = out[ys[0]]["fleets"].get(k)
+        b = out[ys[-1]]["fleets"].get(k)
+        if not a or not b or max(a["fleet_mw"], b["fleet_mw"]) < FLEET_MIN_MW:
+            continue
+        fleets.append({
+            "fleet": k,
+            "prev_pct": r(100 * a["idle_mw"] / a["fleet_mw"], 1) if a["fleet_mw"] else None,
+            "pct": r(100 * b["idle_mw"] / b["fleet_mw"], 1) if b["fleet_mw"] else None,
+            "prev_idle_mw": a["idle_mw"], "idle_mw": b["idle_mw"],
+            "prev_fleet_mw": a["fleet_mw"], "fleet_mw": b["fleet_mw"]})
+    fleets.sort(key=lambda x: -(x["pct"] or 0))
+
+    def total(y):
+        return r(sum(v["idle_mw"] for v in out[y]["fleets"].values()), 0)
+
+    return {"years": ys, "window_from": f"{SEASON_MONTHS[0]}-01",
+            "window_to": cutoff, "fleets": fleets,
+            "days": {y: out[y]["days"] for y in ys},
+            "total_idle": {y: total(y) for y in ys},
+            "excluded": ["solar", "diesel"]}
+
+
 def build_gas(summary):
     """Gas supplied to the power stations, against what went unserved.
 
@@ -2040,6 +2157,16 @@ def main():
               f"{o['energy_share']}% of the electricity and {o['cost_share']}% of "
               f"the bill, {o['tk_per_kwh']} Tk/kWh against {o['gas_tk_per_kwh']} "
               f"for gas; blended {fuelcost['blended_tk_per_kwh']} Tk/kWh")
+    idlefleet = build_idle_fleet()
+    if idlefleet:
+        write_json(SITE_DATA / "idlefleet.json", idlefleet)
+        ys = idlefleet["years"]
+        bits = ", ".join(f"{f['fleet']} {f['prev_pct']:.0f}->{f['pct']:.0f}%"
+                         for f in idlefleet["fleets"])
+        print(f"[build] idle at the evening peak, {idlefleet['window_from']} to "
+              f"{idlefleet['window_to']}, {ys[0]} vs {ys[-1]}: {bits}; total "
+              f"{idlefleet['total_idle'][ys[0]]:,.0f} -> "
+              f"{idlefleet['total_idle'][ys[-1]]:,.0f} MW")
     gas = build_gas(erp_summary)
     if gas:
         write_json(SITE_DATA / "gas.json", gas)

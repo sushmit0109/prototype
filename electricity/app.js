@@ -114,6 +114,14 @@ const STR = {
     fcCostShare: 'খরচের ভাগ',
     fcPerUnit: 'ইউনিটপ্রতি টাকা',
     gasTitle: 'গ্যাস কমলে লোডশেডিং বাড়ে',
+    fleetTitle: 'কোন ধরনের কেন্দ্র বসে থাকে',
+    fleetSrc: '{from} থেকে {to}, দুই বছরের একই দিনসীমা',
+    fleetHead: 'শুধু গ্যাসের কেন্দ্রগুলোই বসে থাকে',
+    fleetSub: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় গ্যাসচালিত ক্ষমতার {g}% কিছুই উৎপাদন করেনি। কয়লা, আমদানি আর জলবিদ্যুৎ ডাক পড়লেই চলে। অর্থাৎ যন্ত্র আছে, জ্বালানি নেই।',
+    fleetNote: 'প্রতিটি কেন্দ্রকে তার নিজের জ্বালানি অনুযায়ী ভাগ করা হয়েছে, কেন্দ্রের পাশে লেখা মন্তব্য অনুযায়ী নয় — কারণ মন্তব্যের ঘর দুই বছরে অনেক বেশি পূর্ণ হয়েছে, তাই সেটি ধরে গুনলে ভালো নথিভুক্তিকে সংকট বলে ভুল হতো। সৌর বাদ: সন্ধ্যার সর্বোচ্চ চাহিদা সূর্য ডোবার পরে, তাই তার বসে থাকাটা হিসাবের কথা, সিদ্ধান্তের নয়। ডিজেলও বাদ, বহরটি খুব ছোট।',
+    fleetTotal: 'মোট বসে থাকা ক্ষমতা প্রায় একই — {a} থেকে {b} মেগাওয়াট। বদলেছে শুধু কারণটা।',
+    fl_gas: 'গ্যাস', fl_coal: 'কয়লা', 'fl_furnace oil': 'ফার্নেস তেল',
+    fl_import: 'আমদানি', fl_hydro: 'জলবিদ্যুৎ',
     gasSrc: 'সূত্র: পিজিসিবির দৈনিক ওয়ার্কবুক',
     gasNote: 'বিদ্যুৎকেন্দ্রে দিনে কত গ্যাস এসেছে (এমএমসিএফডি) আর সেদিন কতটা চাহিদা অপূরণ থেকেছে (মিলিয়ন ইউনিট, অর্থাৎ মিলিয়ন কিলোওয়াট-ঘণ্টা), মাসের মধ্যক হিসেবে।',
     gasBandNote: 'গরমের মাসগুলোতেই (এপ্রিল–সেপ্টেম্বর) ব্যবস্থাটা টানটান থাকে, তাই তুলনাটা সেখানেই। ওই দিনগুলোকে গ্যাস সরবরাহ অনুযায়ী তিন ভাগে ভাগ করা হয়েছে — তিন ভাগেই দিনের সর্বোচ্চ তাপমাত্রা প্রায় এক, তাই ফারাকটা গরমের নয়, গ্যাসের। গরমকালে গ্যাস আর অপূরণ চাহিদার সম্পর্ক r={rh}; শীতে r={rc}, অর্থাৎ তখন গ্যাস কম থাকলেও চাহিদা কম বলে সমস্যা হয় না।',
@@ -325,6 +333,14 @@ const STR = {
     fcCostShare: 'Share of cost',
     fcPerUnit: 'Tk per unit',
     gasTitle: 'When gas falls, the lights go out',
+    fleetTitle: 'Which kind of station stands still',
+    fleetSrc: '{from} to {to}, the same day range in both years',
+    fleetHead: 'Only the gas stations sit idle',
+    fleetSub: '{g}% of gas-fired capacity produced nothing at the evening peak. Coal, imports and hydro run when they are called. The machines are there; the fuel is not.',
+    fleetNote: 'Grouped by each station\u2019s own fuel rather than the remark written beside it: the remarks column became far more complete between the two summers, so counting on it would confuse better record-keeping with a worse shortage. Solar is excluded — the evening peak falls after sunset, so its idleness is arithmetic rather than a decision. Diesel too: the fleet is tiny.',
+    fleetTotal: 'Total idle capacity barely moved — {a} to {b} MW. What changed is why.',
+    fl_gas: 'Gas', fl_coal: 'Coal', 'fl_furnace oil': 'Furnace oil',
+    fl_import: 'Import', fl_hydro: 'Hydro',
     gasSrc: 'Source: PGCB daily workbook',
     gasNote: 'Gas delivered to the power stations each day (MMCFD) against the demand left unserved that day (million units, that is million kWh), as monthly medians.',
     gasBandNote: 'The system is only tight in the hot months (April to September), so that is where the question is asked. Those days are split into three by how much gas arrived — and the daily maximum temperature is near-identical across all three, so the difference is the fuel, not the weather. Across the hot months gas and unserved demand correlate at r={rh}; in the cool months r={rc}, because demand is low enough that gas does not bind.',
@@ -864,16 +880,16 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
       load('places'), load('official'), load('cost'), load('demand'),
-      load('daycurve'), load('fuelcost'), load('gas'),
+      load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -1167,6 +1183,57 @@ function renderFuelCost() {
       `<td class="num">${fmt(r.cost_share, 1)}%</td>` +
       `<td class="num">${r.tk_per_kwh === null ? '—' : fmt(r.tk_per_kwh, 2)}</td></tr>`).join('') +
     '</tbody>';
+}
+
+/* How much of each fleet stood still at the evening peak.
+   Gas quoted alone invites the obvious retort — is not everything idle? — so
+   every fleet is drawn on the same days, paired year against year. */
+function renderFleet() {
+  const f = D.idlefleet;
+  const host = document.getElementById('fleet-chart');
+  if (!host || !f || !f.fleets || !f.fleets.length) return;
+  const ys = f.years, prev = ys[0], cur = ys[ys.length - 1];
+
+  document.getElementById('fleet-title').textContent = t('fleetTitle');
+  const md = (v, o) => fmtDate('2020-' + v, o);
+  document.getElementById('fleet-src').textContent = t('fleetSrc')
+    .replace('{from}', md(f.window_from, { month: 'long' }))
+    .replace('{to}', md(f.window_to, { day: 'numeric', month: 'long' }));
+
+  const gas = f.fleets.find(x => x.fleet === 'gas');
+  document.getElementById('fleet-headline').innerHTML =
+    `<div class="note warn"><div class="note-title">${t('fleetHead')}</div>` +
+    t('fleetSub').replace('{g}', fmt(gas ? gas.pct : 0, 0)) + '</div>';
+
+  host.innerHTML = '';
+  const width = Math.max(host.clientWidth || 520, 280);
+  const rowH = 44, labelW = Math.min(Math.max(width * 0.26, 88), 150);
+  const height = f.fleets.length * rowH + 10;
+  const svg = el('svg', { class: 'chart', viewBox: `0 0 ${width} ${height}` }, host);
+  svg.style.height = height + 'px';
+  const max = Math.max(...f.fleets.map(x => Math.max(x.pct, x.prev_pct)), 5);
+  const barW = width - labelW - 70;
+
+  f.fleets.forEach((x, i) => {
+    const top = i * rowH + 6;
+    const lb = el('text', { x: labelW - 8, y: top + rowH / 2 - 1,
+                            'text-anchor': 'end', class: 'bar-label' }, svg);
+    lb.textContent = t('fl_' + x.fleet) || x.fleet;
+    [[x.prev_pct, MUTED_LINE, 0], [x.pct, RAMP_SHED[4], 1]].forEach(([v, col, n]) => {
+      const h = 12, y = top + 2 + n * (h + 4);
+      el('rect', { x: labelW, y, width: Math.max((v / max) * barW, 1), height: h,
+                   rx: 2, fill: col }, svg);
+      const tx = el('text', { x: labelW + (v / max) * barW + 6, y: y + h - 1,
+                              class: 'bar-value' }, svg);
+      tx.textContent = `${fmt(v, 0)}%`;
+    });
+  });
+  legend(host, [{ label: fmtYear(prev), color: MUTED_LINE },
+                { label: fmtYear(cur), color: RAMP_SHED[4] }]);
+
+  document.getElementById('fleet-total').textContent = t('fleetTotal')
+    .replace('{a}', fmt(f.total_idle[prev]))
+    .replace('{b}', fmt(f.total_idle[cur]));
 }
 
 /* Gas delivered against demand left unserved.
@@ -2875,6 +2942,7 @@ function renderAll() {
   renderDayCurve();
   renderFuelCost();
   renderGas();
+  renderFleet();
   renderZones();
   renderSeasonal();
   renderMetricSeg();
@@ -2909,6 +2977,7 @@ window.addEventListener('resize', () => {
     renderDayCurve();
     renderFuelCost();
     renderGas();
+    renderFleet();
     renderZones();
     renderSeasonal();
     renderTrend();
