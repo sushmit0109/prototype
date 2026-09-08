@@ -1273,7 +1273,7 @@ def build_idle_fleet():
                       and d[5:7] in SEASON_MONTHS and d[5:] <= cutoff)
         if len(days) < 30:
             continue
-        idle, fleet = defaultdict(list), defaultdict(list)
+        idle, fleet, daily_total = defaultdict(list), defaultdict(list), []
         for d in days:
             ai, ac = defaultdict(float), defaultdict(float)
             for rec in rows[d]:
@@ -1285,10 +1285,16 @@ def build_idle_fleet():
                 ac[g] += cap
                 if peak < 0.02 * cap:
                     ai[g] += cap
+            daily_total.append(sum(ai.values()))
             for k in set(list(ai) + list(ac) + list(idle)):
                 idle[k].append(ai.get(k, 0.0))
                 fleet[k].append(ac.get(k, 0.0))
-        out[y] = {"days": len(days), "fleets": {
+        # The total is the median of each day's total, not the sum of the
+        # per-fleet medians: those are different numbers, and only the first
+        # is "what an ordinary day looks like".
+        out[y] = {"days": len(days),
+                  "total_idle_mw": r(statistics.median(daily_total), 0),
+                  "fleets": {
             k: {"idle_mw": r(statistics.median(idle[k]), 1),
                 "fleet_mw": r(statistics.median(fleet[k]), 1)}
             for k in idle}}
@@ -1310,13 +1316,10 @@ def build_idle_fleet():
             "prev_fleet_mw": a["fleet_mw"], "fleet_mw": b["fleet_mw"]})
     fleets.sort(key=lambda x: -(x["pct"] or 0))
 
-    def total(y):
-        return r(sum(v["idle_mw"] for v in out[y]["fleets"].values()), 0)
-
     return {"years": ys, "window_from": f"{SEASON_MONTHS[0]}-01",
             "window_to": cutoff, "fleets": fleets,
             "days": {y: out[y]["days"] for y in ys},
-            "total_idle": {y: total(y) for y in ys},
+            "total_idle": {y: out[y]["total_idle_mw"] for y in ys},
             "excluded": ["solar", "diesel"]}
 
 
