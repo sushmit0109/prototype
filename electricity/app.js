@@ -224,6 +224,26 @@ const STR = {
     thBandStations: 'উপকেন্দ্র',
     thBandUnused: 'অব্যবহৃত',
     thBandNote: 'প্রতিটি উপকেন্দ্রকে সর্বশেষ দিনের লোড তার নিজের সর্বকালীন সর্বোচ্চের কত শতাংশ, সেই অনুযায়ী ভাগ করা হয়েছে। নিচের ধাপে থাকা মানেই সেখানে চাহিদা চাপা পড়েছে তা নয় — উপরের পরীক্ষাগুলো দেখাচ্ছে, লোডশেডিং হয় এই উপকেন্দ্রের নিচের ফিডারে, তাই কোন উপকেন্দ্রের হিসাবে তা ওঠে না।',
+    stTitle: 'চাহিদার এই লাফ কি কয়েকটি নির্দিষ্ট উপকেন্দ্রের কাজ?',
+    stSrc: '{n}টি উপকেন্দ্র · মে–আগস্ট {y0} বনাম {y1}',
+    stHead: 'না — বৃদ্ধি ছড়ানো, কেন্দ্রীভূত নয়। তুলনাযোগ্য উপকেন্দ্রগুলোর সরবরাহ বেড়েছে মাত্র {pct}%, মধ্যম উপকেন্দ্রে {med}%।',
+    stSub: 'অটোরিকশা চার্জ, ইন্ডাকশন চুলা বা নতুন শিল্পাঞ্চলের কারণে লাফ উঠলে গুটিকয় উপকেন্দ্র খাড়া উঠত আর বাকিরা সমান থাকত। বাস্তবে {up}টি উপকেন্দ্রের লোড বেড়েছে, {down}টির কমেছে, আর সবচেয়ে বেশি বাড়া দশটি মিলে মোট বৃদ্ধির {top}% — অর্থাৎ কোনো একক এলাকা এই লাফের জন্য দায়ী নয়। ব্যবহারের বৃদ্ধি এখানে স্বাভাবিক গতিতেই আছে; “খামের বাইরে” যাওয়া চাহিদার লাফ উপকেন্দ্রের হিসাবে নেই।',
+    stFleet: 'তুলনাযোগ্য উপকেন্দ্রে বৃদ্ধি',
+    stFleetNote: '{n}টি উপকেন্দ্র, দুই মৌসুমেই যাদের পূর্ণ তথ্য আছে: {a} → {b} মেগাওয়াট (মৌসুমের দৈনিক সর্বোচ্চের গড়)।',
+    stMedian: 'মধ্যম উপকেন্দ্রের বৃদ্ধি',
+    stMedianNote: 'চার ভাগের এক ভাগ উপকেন্দ্র {q1}% এর নিচে, তিন ভাগের সীমা {q3}% — বৃদ্ধি গোটা বহরজুড়ে ছড়ানো।',
+    stNew: 'নতুন উপকেন্দ্র বহন করছে',
+    stNewNote: 'এই মৌসুমে চালু হওয়া {n}টি উপকেন্দ্র। এদের পুরো লোডই “বৃদ্ধি” বলে দেখায়, অথচ এর বড় অংশ পাশের পুরোনো উপকেন্দ্র থেকে সরিয়ে আনা — তাই এদের আলাদা রাখা হয়েছে।',
+    stDistTitle: 'জেলাভিত্তিক নিট পরিবর্তন — উপকেন্দ্রের মধ্যে লোড সরানো এখানে কাটাকাটি হয়ে যায়',
+    stDistValue: 'নিট পরিবর্তন',
+    stGridTitle: 'প্রতিটি উপকেন্দ্রের নিজস্ব ধারা',
+    stSortDelta: 'মেগাওয়াট বৃদ্ধি',
+    stSortPct: 'শতকরা বৃদ্ধি',
+    stSortSize: 'আকার',
+    stIsNew: 'নতুন',
+    stMore: 'বাকি {n}টি দেখুন',
+    stFewer: 'কম দেখুন',
+    stNote: 'প্রতিটি রেখা ওই উপকেন্দ্রের মাসিক গড় সর্বোচ্চ লোড; উচ্চতা প্রতিটি প্যানেলের নিজের মাপে, তাই আকার নয়, আকৃতি তুলনীয়। শতাংশ মে–আগস্ট মৌসুমের তুলনা। কোনো একটি উপকেন্দ্রের বড় উত্থান-পতন বেশিরভাগ সময়ই নেটওয়ার্ক পুনর্বিন্যাস — নতুন উপকেন্দ্র চালু হলে পাশেরটির লোড কমে যায়, যেমন দাগনভূঞা চালু হওয়ার পর চৌমুহনী। তাই একক উপকেন্দ্র নয়, জেলার নিট হিসাবটাই নির্ভরযোগ্য।',
     spBandTitle: 'কোন সময়ে উপকেন্দ্রগুলো সর্বোচ্চে ওঠে',
     spBandNote: 'প্রতিটি উপকেন্দ্রকে তার নিজের সবচেয়ে ঘন ঘন সর্বোচ্চের সময় অনুযায়ী ভাগ করা হয়েছে, আর দেখানো হয়েছে সেই দলের মোট লোডের ভাগ হিসেবে। সন্ধ্যায় সর্বোচ্চে ওঠা মানে মূলত ঘরবাড়ি — বাতি, ফ্যান, এসি। দিনে ওঠা মানে কলকারখানা ও অফিস। ভাগটাই বলে দেয় চাহিদা কোথা থেকে আসছে।',
     spEvening: 'সন্ধ্যা (১৭–২২)', spDay: 'দিন (০৯–১৬)', spNight: 'রাত (২৩–০৮)',
@@ -526,6 +546,26 @@ const STR = {
     thBandStations: 'sub-stations',
     thBandUnused: 'unused',
     thBandNote: 'Each sub-station is placed by what its latest-day load came to as a share of its own all-time peak. Sitting in a low band is not evidence that demand is being suppressed there: as the tests above show, load-shedding happens on the feeders below these sub-stations and so appears in no sub-station’s record.',
+    stTitle: 'Is the surge the work of a few sub-stations?',
+    stSrc: '{n} sub-stations · May–August {y0} against {y1}',
+    stHead: 'No — the growth is spread, not concentrated. Comparable sub-stations supplied just {pct}% more, and the median station {med}%.',
+    stSub: 'Rickshaw charging, induction cooking or a belt of new industry would show as a handful of stations climbing hard while the rest sat flat. Instead {up} stations rose and {down} fell, and the ten fastest-growing together account for {top}% of all the increases — no single area is behind the jump. Consumption here is growing at an ordinary pace; the “out of envelope” leap in reported demand is not in the sub-station record at all.',
+    stFleet: 'Growth at comparable stations',
+    stFleetNote: 'The {n} sub-stations with a full season in both years: {a} → {b} MW, measured as the season’s mean daily peak.',
+    stMedian: 'Growth at the median station',
+    stMedianNote: 'A quarter of stations sit below {q1}% and three quarters below {q3}% — the increase is spread right across the fleet.',
+    stNew: 'Carried by new sub-stations',
+    stNewNote: '{n} sub-stations energised this season. Their whole load reads as growth, though much of it was moved across from an older neighbour, so they are kept separate.',
+    stDistTitle: 'Net change by district — load moved between neighbouring stations cancels out here',
+    stDistValue: 'net change',
+    stGridTitle: 'Every sub-station’s own trend',
+    stSortDelta: 'MW added',
+    stSortPct: 'percent growth',
+    stSortSize: 'size',
+    stIsNew: 'new',
+    stMore: 'Show the other {n}',
+    stFewer: 'Show fewer',
+    stNote: 'Each line is that sub-station’s monthly average peak load, scaled to its own panel — compare shapes, not heights. The percentage compares the May–August seasons. A large move at any single station is most often network reconfiguration rather than changed consumption: when a new sub-station is energised its neighbour’s load drops, as Chowmuhani’s did once Daganbhuiyan opened. The district net is the figure to trust, not the individual station.',
     spBandTitle: 'When sub-stations reach their own peak',
     spBandNote: 'Each sub-station is grouped by the hour it most often peaks, and shown as a share of that group’s total load. An evening peak is the signature of households — lights, fans, air-conditioning. A working-hours peak is industry and offices. The split is the closest the published record comes to saying where demand is coming from.',
     spEvening: 'Evening (17–22)', spDay: 'Day (09–16)', spNight: 'Night (23–08)',
@@ -676,6 +716,7 @@ function fmtDateTime(iso) {
 }
 
 /** Years are labels, not quantities — no thousands separator. */
+const fmtMonth = (ym) => fmtDate(ym + '-01', { month: 'short', year: '2-digit' });
 const fmtYear = (y) => new Intl.NumberFormat(locale(), { useGrouping: false }).format(+y);
 
 /** Population in the unit each language actually reads in: crore for Bengali,
@@ -1039,13 +1080,17 @@ function sparkGrid(host, panels, opts = {}) {
     svg.style.height = h + 'px';
     const vals = p.values;
     if (!vals.length) return;
-    const max = Math.max(...vals, 1);
+    const max = Math.max(...vals.filter(v => v !== null), 1);
     const x = (i) => (vals.length === 1 ? w / 2 : (i / (vals.length - 1)) * w);
     const y = (v) => h - 4 - (v / max) * (h - 10);
-    const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(' ');
-    el('polygon', { points: `0,${h} ${pts} ${w},${h}`, fill: opts.color || C.loadshed,
+    // A station energised part-way through has no line before it existed.
+    const seen = vals.map((v, i) => [v, i]).filter(([v]) => v !== null);
+    if (!seen.length) return;
+    const pts = seen.map(([v, i]) => `${x(i)},${y(v)}`).join(' ');
+    const col = p.color || opts.color || C.loadshed;
+    el('polygon', { points: `${x(seen[0][1])},${h} ${pts} ${x(seen[seen.length - 1][1])},${h}`, fill: col,
                     'fill-opacity': 0.2 }, svg);
-    el('polyline', { points: pts, fill: 'none', stroke: opts.color || C.loadshed,
+    el('polyline', { points: pts, fill: 'none', stroke: col,
                      'stroke-width': 1.8, 'stroke-linejoin': 'round' }, svg);
     el('line', { class: 'axis-line', x1: 0, x2: w, y1: h - 0.5, y2: h - 0.5 }, svg);
 
@@ -1069,7 +1114,7 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
@@ -1077,10 +1122,10 @@ async function loadAll() {
       load('places'), load('official'), load('cost'), load('demand'),
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
       load('temperature'), load('forecastplants'), load('substationpeak'),
-      load('suppression'), load('theoretical'),
+      load('suppression'), load('theoretical'), load('stationtrend'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -3018,6 +3063,7 @@ function renderDemand() {
   renderSubstationPeak();
   renderSuppression();
   renderTheoretical();
+  renderStationTrend();
   renderDemandSplit();
 
   barChart(document.getElementById('dem-decade'),
@@ -3421,6 +3467,97 @@ function renderTheoretical() {
   })), {
     valueLabel: t('thBandStations'), fmtValue: (v) => fmt(v),
   });
+}
+
+/* Is the surge the work of a few sub-stations?
+
+   The suspicion is reasonable and it is testable: rickshaw charging, induction
+   cooking or a belt of new industry would show up as a handful of stations
+   climbing hard while the rest sat flat. Small multiples are the right shape
+   for that question -- one panel per station, same vertical scale within a
+   panel, ordered by how much load each added -- because a reader can see at a
+   glance whether the increases are concentrated or everywhere at once.
+
+   New sub-stations are separated out rather than ranked. A station energised
+   this year reads as pure growth while the neighbour it relieved reads as
+   collapse, and neither is a change in consumption. */
+let ST_ALL = false, ST_SORT = 'delta';
+const ST_SHOWN = 24;
+
+function renderStationTrend() {
+  const st = D.stationtrend;
+  if (!st || !st.stations || !st.stations.length) return;
+  const f = st.fleet;
+  document.getElementById('st-title').textContent = t('stTitle');
+  document.getElementById('st-src').textContent = t('stSrc')
+    .replace('{n}', fmt(st.stations.length))
+    .replace('{y0}', fmtYear(st.y0)).replace('{y1}', fmtYear(st.y1));
+  document.getElementById('st-headline').innerHTML =
+    `<div class="note"><div class="note-title">${t('stHead')
+      .replace('{pct}', fmt(f.pct, 1)).replace('{med}', fmt(f.median_pct, 1))}</div>${
+      t('stSub').replace('{up}', fmt(f.rose)).replace('{down}', fmt(f.fell))
+        .replace('{top}', fmt(f.top10_gross_pct, 0))}</div>`;
+
+  const tile = (label, value, unit, note, colour) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value"${colour ? ` style="color:${colour}"` : ''}>${value}<span class="stat-unit">${unit || ''}</span></div>
+      <div class="stat-note">${note}</div>
+    </div>`;
+  document.getElementById('st-tiles').innerHTML =
+    tile(t('stFleet'), (f.pct >= 0 ? '+' : '') + fmt(f.pct, 1) + '%', '',
+         t('stFleetNote').replace('{a}', fmt(f.a)).replace('{b}', fmt(f.b))
+           .replace('{n}', fmt(f.comparable))) +
+    tile(t('stMedian'), (f.median_pct >= 0 ? '+' : '') + fmt(f.median_pct, 1) + '%', '',
+         t('stMedianNote').replace('{q1}', fmt(f.q1_pct, 1)).replace('{q3}', fmt(f.q3_pct, 1))) +
+    tile(t('stNew'), fmt(f.new_mw), t('mw'),
+         t('stNewNote').replace('{n}', fmt(f.new_stations)), RAMP_REC[3]);
+
+  // Districts net out the transfers between neighbouring stations.
+  const dtop = (st.districts || []).filter(d => Math.abs(d.delta) >= 10)
+    .sort((a, b) => b.delta - a.delta);
+  hBars(document.getElementById('st-districts'),
+    dtop.map(d => ({
+      label: d.district, value: Math.abs(d.delta),
+      color: d.delta >= 0 ? C.supply : RAMP_SHED[3],
+      note: `${fmt(d.a, 0)} → ${fmt(d.b, 0)} ${t('mw')} · ${fmt(d.stations)} ${t('thBandStations')}`,
+    })), {
+      valueLabel: t('stDistValue'),
+      fmtValue: (v) => fmt(v, 0) + ' ' + t('mw'),
+    });
+  document.getElementById('st-dist-title').textContent = t('stDistTitle');
+  document.getElementById('st-grid-title').textContent = t('stGridTitle');
+
+  const seg = document.getElementById('st-seg');
+  const sorts = [['delta', 'stSortDelta'], ['pct', 'stSortPct'], ['size', 'stSortSize']];
+  seg.innerHTML = sorts.map(([k, lbl]) =>
+    `<button type="button" data-sort="${k}" aria-pressed="${ST_SORT === k}">${t(lbl)}</button>`).join('');
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    ST_SORT = b.dataset.sort; renderStationTrend();
+  }));
+
+  const rows = st.stations.slice().sort(
+    ST_SORT === 'pct' ? (a, b) => (a.new ? 1 : 0) - (b.new ? 1 : 0)
+        || (b.pct === null ? -1e9 : b.pct) - (a.pct === null ? -1e9 : a.pct)
+    : ST_SORT === 'size' ? (a, b) => b.b - a.b
+    : (a, b) => (a.new ? 1 : 0) - (b.new ? 1 : 0) || b.delta - a.delta);
+  const shown = ST_ALL ? rows : rows.slice(0, ST_SHOWN);
+  sparkGrid(document.getElementById('st-grid'), shown.map(x => {
+    const up = x.delta >= 0;
+    const arrow = up ? '▲' : '▼';
+    const stat = x.new ? t('stIsNew')
+      : `${arrow} ${x.pct === null ? fmt(x.delta, 0) + ' ' + t('mw') : fmt(Math.abs(x.pct), 0) + '%'}`;
+    return {
+      title: x.name, stat, values: x.series,
+      color: x.new ? RAMP_REC[3] : (up ? C.supply : RAMP_SHED[3]),
+    };
+  }), { axis: [fmtMonth(st.months[0]), fmtMonth(st.months[st.months.length - 1])] });
+
+  const more = document.getElementById('st-more');
+  more.textContent = ST_ALL ? t('stFewer')
+    : t('stMore').replace('{n}', fmt(rows.length - shown.length));
+  more.hidden = rows.length <= ST_SHOWN;
+  more.onclick = () => { ST_ALL = !ST_ALL; renderStationTrend(); };
 }
 
 /* Per-station accountability: who declared themselves ready, and who ran.

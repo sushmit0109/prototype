@@ -1971,6 +1971,121 @@ def build_theoretical(subs):
     }
 
 
+# ── every sub-station's own trend, and where the growth actually is ──────────
+#
+# The natural suspicion about a demand surge is that a handful of places
+# caused it -- a district that electrified its rickshaw charging, an area that
+# went over to induction cooking, a belt of new industry. That is a testable
+# claim: if it were true, the increase would sit in a few sub-stations and the
+# rest of the fleet would be flat.
+#
+# Two things have to be separated before the per-station numbers mean
+# anything. New sub-stations are energised to relieve existing ones, so their
+# whole load reads as growth while the neighbour they took it from reads as
+# collapse -- Daganbhuiyan appears with 37 MW while Chowmuhani drops 48, and
+# Sylhet_(South) appears with 69 MW while Sylhet-132 falls. Each station's
+# change is therefore reported next to its district's net change, and stations
+# with no baseline season are marked rather than ranked as the fastest
+# growing.
+#
+# Seasons are compared May-August, the months fully covered in both years, so
+# the comparison is not an artefact of when collection started or stopped.
+TREND_SEASON = ("05", "06", "07", "08")
+TREND_MIN_DAYS = 40             # days needed in a season for it to count
+
+
+def build_station_trend():
+    """Each station's monthly trend and its share of the fleet's change."""
+    per = _station_daily_peaks()
+    rec, _ = _station_records()
+    if not per:
+        return None
+    subs = read_json(SITE_DATA / "substations.json", {}) or {}
+    meta = {x["name"]: x for x in subs.get("substations", [])}
+
+    monthly = defaultdict(lambda: defaultdict(list))
+    season = defaultdict(lambda: defaultdict(list))
+    for name, dd in per.items():
+        cap = rec.get(name)
+        for d, v in dd.items():
+            if cap:
+                v = min(v, cap)
+            monthly[name][d[:7]].append(v)
+            if d[5:7] in TREND_SEASON:
+                season[name][d[:4]].append(v)
+    months = sorted({m for v in monthly.values() for m in v})
+    years = sorted({y for v in season.values() for y in v})
+    if len(years) < 2 or len(months) < 6:
+        return None
+    y0, y1 = years[-2], years[-1]
+
+    stations, dist = [], defaultdict(lambda: [0.0, 0.0, 0])
+    for name in sorted(monthly):
+        a = season[name].get(y0, [])
+        b = season[name].get(y1, [])
+        if len(b) < TREND_MIN_DAYS:
+            continue                       # no current season, nothing to say
+        fresh = len(a) < TREND_MIN_DAYS
+        am = 0.0 if fresh else statistics.mean(a)
+        bm = statistics.mean(b)
+        m = meta.get(name) or {}
+        d = m.get("district") or "-"
+        dist[d][0] += am
+        dist[d][1] += bm
+        dist[d][2] += 1
+        stations.append({
+            "name": name, "zone": m.get("zone"), "district": m.get("district"),
+            "series": [r(statistics.mean(monthly[name][mo]), 1)
+                       if monthly[name].get(mo) else None for mo in months],
+            "a": r(am, 1), "b": r(bm, 1), "delta": r(bm - am, 1),
+            "pct": None if fresh or am < SUPPRESS_MIN_MW else r(100 * (bm / am - 1), 1),
+            "new": fresh,
+        })
+    if not stations:
+        return None
+
+    comp = [x for x in stations if not x["new"]]
+    fresh = [x for x in stations if x["new"]]
+    A = sum(x["a"] for x in comp)
+    B = sum(x["b"] for x in comp)
+    ups = [x for x in comp if x["delta"] > 0]
+    dns = [x for x in comp if x["delta"] < 0]
+    gross_up = sum(x["delta"] for x in ups)
+    top10 = sum(sorted((x["delta"] for x in ups), reverse=True)[:10])
+    pcts = sorted(x["pct"] for x in comp if x["pct"] is not None)
+    for x in stations:
+        # Stations whose location could not be matched are pooled under "-";
+        # that pool is not a district, so it must not be quoted as one.
+        d = dist.get(x["district"]) if x["district"] else None
+        x["district_delta"] = r(d[1] - d[0], 1) if d else None
+
+    return {
+        "months": months, "y0": y0, "y1": y1,
+        "season": "-".join((TREND_SEASON[0], TREND_SEASON[-1])),
+        "fleet": {
+            "comparable": len(comp), "a": r(A), "b": r(B),
+            "pct": r(100 * (B / A - 1), 1) if A else None,
+            "new_stations": len(fresh), "new_mw": r(sum(x["b"] for x in fresh)),
+            "rose": len(ups), "fell": len(dns),
+            "gross_up": r(gross_up), "gross_down": r(sum(x["delta"] for x in dns)),
+            "net": r(B - A),
+            "median_pct": r(statistics.median(pcts), 1) if pcts else None,
+            "q1_pct": r(pcts[len(pcts) // 4], 1) if pcts else None,
+            "q3_pct": r(pcts[3 * len(pcts) // 4], 1) if pcts else None,
+            "top10_gross_pct": r(100 * top10 / gross_up, 0) if gross_up else None,
+        },
+        # New stations are listed after the comparable ones: their whole load
+        # reads as growth, so ranking them as the fastest-growing would say
+        # the opposite of what the numbers mean.
+        "stations": sorted(stations, key=lambda x: (x["new"], -x["delta"])),
+        "districts": sorted(
+            [{"district": k, "a": r(v[0], 1), "b": r(v[1], 1),
+              "delta": r(v[1] - v[0], 1), "stations": v[2]}
+             for k, v in dist.items() if k != "-"],
+            key=lambda x: -x["delta"]),
+    }
+
+
 def build_forecast_plants(year=None):
     """Per-station forecast availability against what actually ran."""
     fc, ac, rem = defaultdict(dict), defaultdict(dict), defaultdict(dict)
@@ -3144,6 +3259,16 @@ def main():
         print(f"[build] plants {len(plants['plants'])} geo={plants['geo_counts']}")
     if subs:
         write_json(SITE_DATA / "substations.json", subs)
+        trend = build_station_trend()
+        if trend:
+            write_json(SITE_DATA / "stationtrend.json", trend)
+            fl = trend["fleet"]
+            print(f"[build] station trend {trend['y0']}->{trend['y1']}: "
+                  f"{fl['comparable']} comparable stations {fl['a']:,.0f} -> "
+                  f"{fl['b']:,.0f} MW ({fl['pct']:+.1f}%), median station "
+                  f"{fl['median_pct']:+.1f}%; {fl['rose']} up / {fl['fell']} down; "
+                  f"top ten = {fl['top10_gross_pct']}% of gross rises; "
+                  f"{fl['new_stations']} new stations add {fl['new_mw']:,.0f} MW")
         theo = build_theoretical(subs)
         if theo:
             write_json(SITE_DATA / "theoretical.json", theo)
