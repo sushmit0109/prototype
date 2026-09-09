@@ -173,6 +173,15 @@ const STR = {
     demYearChart: 'সন্ধ্যার সর্বোচ্চ চাহিদা, শেষ পাঁচ বছর পাশাপাশি (৭ দিনের গড়)',
     demDecadeChart: 'একই হিসাব, বছরের মধ্যক দিন ধরে — ২০১৬ থেকে',
     demDecadeNote: 'ওপরের রেখাচিত্র আর এই স্তম্ভচিত্র একই জিনিস মাপে: সন্ধ্যার সর্বোচ্চ চাহিদা। ওপরে বছরের প্রতিটি দিন, এখানে বছরের মধ্যক দিনটি। গরমকাল সব বছরেই মধ্যকের অনেক ওপরে থাকে, তাই স্তম্ভ ধীরে বাড়লেও গ্রীষ্মের রেখা অনেক উঁচুতে উঠতে পারে।',
+    surgeTitle: 'রেখাটা খামের বাইরে চলে গেল কেন',
+    surgeLead: 'যা সত্যিই পৌঁছেছে, তা বেড়েছে বছরে {served}% — গত এক দশকের স্বাভাবিক হারেই। কিন্তু প্রকাশিত চাহিদা বেড়েছে {demand}%। পার্থক্যটা নতুন কোনো ব্যবহার নয়, সেটা লোডশেডিং — যা সংজ্ঞা অনুযায়ীই চাহিদার সঙ্গে যোগ হয়। রেখাটা তাই যতটা ভোগের ছবি, তার চেয়ে বেশি ঘাটতির ছবি।',
+    surgeRuledTitle: 'যা যাচাই করে বাদ দেওয়া হয়েছে',
+    surgeR1: 'হিসাবের ভিত্তি বদল। {sw} থেকে পিজিসিবি জেনারেশন প্রান্তের বদলে সাবস্টেশন প্রান্তের চাহিদা প্রকাশ করছে। দুটো একসঙ্গে পাওয়া ৩,৩১১ ঘণ্টায় মেপে দেখা গেছে, সাবস্টেশন প্রান্তের সংখ্যা ৩.৭% <b>কম</b> — অর্থাৎ বদলটা চাহিদাকে বাড়ায় না, কমায়। আর লাফটা শুরু {from} থেকে, বদলের দুই মাস পরে।',
+    surgeR2: 'গুণক বদল। ১.১১১ থেকে ১.০৪৫-এ নামায় পার্থক্য ৬১ মেগাওয়াট, চাহিদার ০.৪%। ১২% লাফের তুলনায় নগণ্য, এবং এটিও চাহিদা কমায়।',
+    surgeR3: 'গরম। তাপমাত্রা দিনে-দিনে ওঠানামার ২৮% ব্যাখ্যা করে, কিন্তু এক দশকের বৃদ্ধির মাত্র ১.৫%।',
+    surgeR4: 'দুই সূত্রেই একই ছবি। বিপিডিবির এলাকাভিত্তিক পাতা আর পিজিসিবির নিজস্ব সারণি — আলাদা প্রকাশক, আলাদা ভিত্তি — দুটোতেই ২০২৬ সালের গ্রীষ্মে প্রায় ১২% বৃদ্ধি।',
+    surgeOpenTitle: 'যা এখনো খোলা প্রশ্ন',
+    surgeOpen: 'বাকি অংশ, অর্থাৎ সত্যিই পৌঁছানো বিদ্যুতের {served}% বৃদ্ধি, কীসের ভাগ — নতুন সংযোগ, শিল্পের চাহিদা, নাকি এসির বিস্তার — তা প্রকাশিত তথ্য থেকে আলাদা করা যায় না; বিদ্যুৎ কোন খাতে গেল সেই হিসাব ঘণ্টাভিত্তিকভাবে প্রকাশ হয় না। আর চাপা পড়া চাহিদা এখানে গোনা নেই: যে কারখানা বিদ্যুৎ পাবে না জেনে চাওয়াই ছেড়ে দিয়েছে, সে কোনো ঘরেই নেই। তাই প্রকৃত চাহিদা এই রেখার ওপরে, নিচে নয়।',
     demSplitTitle: 'গ্রীষ্মের সন্ধ্যার চাহিদা: কতটা পাওয়া গেল, কতটা কাটা পড়ল',
     demSplitNote: '{from} থেকে {to} পর্যন্ত, প্রতি বছর একই দিনসীমায় মিলিয়ে। প্রকাশিত চাহিদা = যা দেওয়া হয়েছে + যা কাটা পড়েছে। তাই লোডশেডিং বাড়লে প্রকাশিত চাহিদাও বাড়ে, যদিও কেউ বাড়তি বিদ্যুৎ চায়নি এমনও হতে পারে।',
     demSplitHead: '{from} থেকে {to}: প্রকাশিত চাহিদা বেড়েছে {d}%, কিন্তু বিদ্যুৎ সত্যিই বেশি পৌঁছেছে {v}%',
@@ -422,6 +431,15 @@ const STR = {
     demYearChart: 'Evening-peak demand, the last five years side by side (7-day average)',
     demDecadeChart: 'The same measure, taken on each year\u2019s median day — since 2016',
     demDecadeNote: 'The lines above and these bars measure the same thing: evening-peak demand. Above is every day of the year; here is the year\u2019s median day. Summer sits far above the median in every year, which is why the bars can creep up while a summer line jumps.',
+    surgeTitle: 'Why the line has left the envelope',
+    surgeLead: 'What actually reached people grew {served}% year on year — its ordinary rate for a decade. Published demand grew {demand}%. The difference is not new consumption: it is load-shedding, which is added into demand by definition. The line is therefore less a picture of what was used than of what was not delivered.',
+    surgeRuledTitle: 'Tested and ruled out',
+    surgeR1: 'The change of basis. From {sw} PGCB publishes demand at the sub-station end instead of the generation end. Measured across 3,311 hours where both exist, the sub-station figure is 3.7% <b>lower</b> — so the change pushes demand down, not up. And the jump begins in {from}, two months after the switch.',
+    surgeR2: 'The multiplier. Moving it from 1.111 to 1.045 is worth 61 MW, 0.4% of demand — negligible against a 12% jump, and it too lowers demand rather than raising it.',
+    surgeR3: 'The heat. Temperature explains 28% of day-to-day variation but only 1.5% of the decade’s rise.',
+    surgeR4: 'Two sources agree. BPDB’s area-wise page and PGCB’s own table — different publishers, different bases — both put summer 2026 growth near 12%.',
+    surgeOpenTitle: 'What remains open',
+    surgeOpen: 'What the remaining {served}% of genuine delivered growth is made of — new connections, industrial load, or air-conditioning — cannot be separated from the published data, because consumption is not broken down by sector at any useful frequency. Nor is suppressed demand counted here: a factory that stopped asking for power it knew would not arrive appears in no column at all. True demand sits above this line, not below it.',
     demSplitTitle: 'Summer evening demand: how much arrived, how much was cut',
     demSplitNote: '{from} to {to}, matched on the same day range each year. Published demand is what was delivered plus what was shed — so when load-shedding rises, published demand rises with it, even where nobody asked for more electricity.',
     demSplitHead: '{from} to {to}: published demand rose {d}%, but the electricity actually delivered rose {v}%',
@@ -1109,6 +1127,32 @@ function renderWhy() {
       .replace('{cap}', fmt(totalIdle))
       .replace('{gas}', fmt(gas ? gas.idle_mw : 0))
       .replace('{date}', fmtDate(p.date)) + `</div>`;
+}
+
+/* Why the newest line sits outside every earlier one.
+   The suspicion a reader arrives with is that something changed in the
+   reporting. Each candidate is named and answered with the figure that
+   settles it, and what genuinely stays open is listed rather than glossed. */
+function renderDemandSurge() {
+  const sg = D.demand && D.demand.surge;
+  const host = document.getElementById('demand-surge');
+  if (!host || !sg || sg.served_recent === null) return;
+  const mon = (m) => m ? fmtDate(m + '-01', { month: 'long', year: 'numeric' }) : '';
+  const li = (txt) => `<li style="margin:0 0 6px">${txt}</li>`;
+  host.innerHTML =
+    `<div class="note"><div class="note-title">${t('surgeTitle')}</div>` +
+    `<p style="margin:0 0 10px">${t('surgeLead')
+      .replace(/\{served\}/g, fmt(sg.served_recent, 1))
+      .replace('{demand}', fmt(sg.demand_recent, 1))}</p>` +
+    `<div style="font-weight:600;margin:0 0 4px">${t('surgeRuledTitle')}</div>` +
+    `<ul style="margin:0 0 10px;padding-left:18px">` +
+      li(t('surgeR1').replace('{sw}', mon(sg.basis_switch))
+                     .replace('{from}', mon(sg.surge_from))) +
+      li(t('surgeR2')) + li(t('surgeR3')) + li(t('surgeR4')) +
+    `</ul>` +
+    `<div style="font-weight:600;margin:0 0 4px">${t('surgeOpenTitle')}</div>` +
+    `<p style="margin:0">${t('surgeOpen')
+      .replace(/\{served\}/g, fmt(sg.served_recent, 1))}</p></div>`;
 }
 
 /* Published demand, split into the electricity that arrived and the
@@ -2885,6 +2929,7 @@ function renderDemand() {
 
   // the decade behind those five years
   const a = d.annual;
+  renderDemandSurge();
   renderDemandSplit();
 
   barChart(document.getElementById('dem-decade'),

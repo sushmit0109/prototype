@@ -1957,7 +1957,59 @@ def build_demand(area):
     }
     return {"by_year": series, "annual": annual, "growth": growth,
             "holidays": holidays, "dropped_implausible": dropped,
-            "split": build_demand_split(area)}
+            "split": build_demand_split(area),
+            "surge": build_demand_surge(area)}
+
+
+# The published demand line has pulled away from every earlier year, and the
+# obvious suspicion is that something changed in the reporting rather than on
+# the grid. Month against the same month a year earlier, separating what was
+# delivered from what was shed, settles it: if a reporting change were behind
+# it the break would sit on the month the change was made, and the delivered
+# line would jump with the demand line. Neither happens.
+SURGE_MONTHS = 14
+SURGE_MIN_DAYS = 12
+
+
+def build_demand_surge(area):
+    """Month-on-month growth, split into delivered load and load-shedding."""
+    dem, shed = defaultdict(list), defaultdict(list)
+    for d, rec in area.items():
+        if rec.get("suspect") or not rec.get("total_demand"):
+            continue
+        v = rec["total_demand"]
+        if not (DEMAND_MIN_MW <= v <= DEMAND_MAX_MW):
+            continue
+        dem[d[:7]].append(v)
+        shed[d[:7]].append(rec.get("total_loadshed") or 0)
+    months = sorted(m for m in dem if len(dem[m]) >= SURGE_MIN_DAYS)
+    rows = []
+    for m in months[-SURGE_MONTHS:]:
+        prev = f"{int(m[:4]) - 1}{m[4:]}"
+        if prev not in dem or len(dem[prev]) < SURGE_MIN_DAYS:
+            continue
+        served = [a - b for a, b in zip(dem[m], shed[m])]
+        served0 = [a - b for a, b in zip(dem[prev], shed[prev])]
+        d1, d0 = statistics.median(dem[m]), statistics.median(dem[prev])
+        s1, s0 = statistics.median(served), statistics.median(served0)
+        rows.append({"month": m, "demand": r(d1), "served": r(s1),
+                     "shed": r(statistics.median(shed[m])),
+                     "demand_yoy": r(100 * (d1 / d0 - 1), 1) if d0 else None,
+                     "served_yoy": r(100 * (s1 / s0 - 1), 1) if s0 else None})
+    if len(rows) < 6:
+        return None
+    hot = [x for x in rows if x["demand_yoy"] is not None
+           and x["demand_yoy"] >= 6 and x["shed"] >= 100]
+    recent = [x for x in rows if x["served_yoy"] is not None][-3:]
+    return {
+        "rows": rows,
+        "basis_switch": "2026-04",
+        "surge_from": hot[0]["month"] if hot else None,
+        "served_recent": r(statistics.median(x["served_yoy"] for x in recent), 1)
+        if recent else None,
+        "demand_recent": r(statistics.median(x["demand_yoy"] for x in recent), 1)
+        if recent else None,
+    }
 
 
 # The published demand curve is served load plus load-shedding, so a year in
