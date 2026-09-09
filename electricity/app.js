@@ -52,13 +52,18 @@ const STR = {
     whyTitle: 'লোডশেডিং কেন হচ্ছে?',
     whySub: 'এনএলডিসির দৈনিক রিপোর্টে প্রতিটি বিদ্যুৎকেন্দ্রের পাশে কারণ লেখা থাকে। সন্ধ্যার সবচেয়ে বেশি চাহিদার সময় যেসব কেন্দ্র একেবারেই বিদ্যুৎ দেয়নি, তাদের ক্ষমতা কারণ ধরে ভাগ করে দেখানো হলো।',
     idleTitle: 'যত ক্ষমতা বসে ছিল, কারণ অনুযায়ী',
-    idleTrend: 'গ্যাস না পেয়ে বসে থাকা ক্ষমতা',
     idleNote: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় সব মিলিয়ে <b>{cap}</b> মেগাওয়াট উৎপাদন ক্ষমতা একেবারেই কাজে লাগেনি — এর মধ্যে <b>{gas}</b> মেগাওয়াট বসে ছিল শুধু গ্যাস না পাওয়ায়। সূত্র: এনএলডিসির দৈনিক রিপোর্ট, {date}।',
     idleCap: 'বসে থাকা ক্ষমতা', plants: 'কেন্দ্র',
     causeTitle: 'বিপিডিবির নিজের হিসাবে ঘাটতির কারণ',
     cause_maintenance: 'রক্ষণাবেক্ষণে বন্ধ', cause_gas_lf: 'গ্যাস/তরল জ্বালানির সীমাবদ্ধতা',
     cause_kaptai: 'কাপ্তাই হ্রদে পানি কম', cause_coal: 'কয়লা সরবরাহের সীমাবদ্ধতা',
     navForecast: 'পূর্বাভাস মিলছে?',
+    fcpTitle: 'কোন কেন্দ্র প্রস্তুত বলেছিল, আর কোনটি চলেনি',
+    fcpSrc: '{year} সাল · {days} দিনের মিল করা পূর্বাভাস ও প্রকৃত উৎপাদন',
+    fcpHead: 'যে সক্ষমতা নিজেরাই “প্রস্তুত” বলেছিল, তার {pct}% সন্ধ্যার সর্বোচ্চ চাহিদার সময় কিছুই উৎপাদন করেনি',
+    fcpSub: 'এনএলডিসির দৈনিক পূর্বাভাস পাতায় প্রতিটি কেন্দ্র বলে, পরদিন সন্ধ্যায় তার কত ক্ষমতা প্রস্তুত থাকবে। পরদিনের পাতা বলে আসলে কতটা চলল। এটাই প্রকাশিত তথ্যে কেন্দ্রভিত্তিক জবাবদিহির একমাত্র সুযোগ।',
+    fcpNote: 'একই সারিতে থাকলেও সংখ্যা দুটি আলাদা দিনের: পূর্বাভাস আজকের, প্রকৃত উৎপাদন গতকালের। তাই মেলানোর আগে প্রকৃত উৎপাদনকে তার নিজের দিনে সরিয়ে নেওয়া হয়েছে। “চলেনি” মানে ঘোষিত ক্ষমতার ২%-এর কমও উৎপাদন হয়নি। অন্তত {mind} দিন পূর্বাভাসে থাকা কেন্দ্রই এখানে গোনা হয়েছে। সবচেয়ে বেশি না-চলা ক্ষমতার ক্রমে সাজানো।',
+    fcpPlant: 'কেন্দ্র', fcpDays: 'পূর্বাভাসের দিন', fcpFail: 'চলেনি', fcpWhy: 'সবচেয়ে বেশি যে কারণ',
     fcTitle: 'বিপিডিবি আগের দিন কী বলেছিল?',
     fcSub: 'বিপিডিবি প্রতিদিনের প্রতিবেদনে পরের দিনের জন্য “সম্ভাব্য লোডশেড” কত হবে তা লিখে রাখে। সেই পূর্বাভাসের পাশে পরদিন আসলে কী হলো, তা মিলিয়ে দেখা হলো। ২০২৫ সালে প্রায় প্রতিদিনই “শূন্য” লেখা হতো; ২০২৬-এ পূর্বাভাস বাস্তবের কাছাকাছি এসেছে, কিন্তু যেদিন শূন্য লেখা হয় সেদিন ভুল হওয়ার হার কমেনি — বরং ঘাটতির পরিমাণ বেড়েছে।',
     fcChart: 'পূর্বাভাস আর বাস্তব, পাশাপাশি',
@@ -70,7 +75,6 @@ const STR = {
     fcMean: 'ওই দিনগুলোয় গড় লোডশেডিং', fcWorst: 'সবচেয়ে খারাপ',
     fcForecast: 'পূর্বাভাস', fcActual: 'বাস্তবে যা হয়েছে',
     fcNote: 'পূর্বাভাসটি সন্ধ্যার সর্বোচ্চ চাহিদার সময়ের, সাবস্টেশন প্রান্তে মাপা — বাস্তব সংখ্যাটিও একই মাপে।',
-    unitCostTitle: 'প্রতি ইউনিট বিদ্যুতে জ্বালানির খরচ',
     fuel_gas: 'গ্যাস', fuel_oil: 'তেল', fuel_coal: 'কয়লা',
     fuel_import: 'আমদানি', fuel_renewable: 'নবায়নযোগ্য',
 
@@ -126,14 +130,10 @@ const STR = {
     heatTrendNote: '{from}–{to} সালে চাহিদা বেড়েছে {rise} মেগাওয়াট, তার মধ্যে আবহাওয়ার ভাগ {w} মেগাওয়াট',
     heatCurve: 'তাপমাত্রা অনুযায়ী দিনের সর্বোচ্চ চাহিদা',
     heatCurveNote: 'প্রতিটি স্তম্ভ বলছে, সেই তাপমাত্রার দিনে চাহিদা একটি ঠান্ডা দিনের চেয়ে কত মেগাওয়াট বেশি ছিল — বছর, মাস, বার ও ঈদের প্রভাব সরিয়ে। ২৭° সে পর্যন্ত কিছুই হয় না, তারপর খাড়া ওঠে। এই বাঁকটাই সরলরেখা দিয়ে মাপলে ভুল হতো, তাই তাপমাত্রাকে ধাপে ভাগ করা হয়েছে।',
-    heatYear: 'বছরে বছরে: আসল চাহিদা, আর আবহাওয়া একই থাকলে যা হতো',
-    heatYearNote: 'দুটো রেখা প্রায় মিশে আছে — সেটাই ফলাফল। {from} থেকে {to} সালে চাহিদা বেড়েছে {rise} মেগাওয়াট; আবহাওয়া একই থাকলেও বাড়ত {norm} মেগাওয়াট। এই সময়ে গড় তাপমাত্রা বেড়েছে {dt}° সে, সেটিও হিসাবের ভেতরেই ধরা।',
-    heatZoneRank: 'সবচেয়ে বেশি সাড়া দেয় কারা',
     heatVerdictTitle: 'বছরে বছরে: আবহাওয়া একই থাকলে কী হতো',
     heatVerdictBody: '{from} থেকে {to} সালে দিনের সর্বোচ্চ চাহিদা বেড়েছে {rise} মেগাওয়াট ({risepct}%)। আবহাওয়া একই থাকলেও বাড়ত {norm} মেগাওয়াট। অর্থাৎ আবহাওয়ার ভাগ {w} মেগাওয়াট — মোট বৃদ্ধির {wpct}%। এই সময়ে গড় সর্বোচ্চ তাপমাত্রা বেড়েছে {dt}° সে, সেই উষ্ণায়নও হিসাবের ভেতরেই ধরা, আলাদা করে সরিয়ে রাখা হয়নি।',
     heatVerdictCheck: 'একই ফল পাওয়া যায় দিনের গড় চাহিদা ধরলেও ({m}%), আর ২০১৬–২০২১ সালের তথ্য আলাদা করে দেখলেও ({p}%) — যখন লোডশেডিং প্রায় ছিলই না, তাই চাহিদার সংখ্যাটি হিসাব করে বানানো নয়, সরাসরি মাপা।',
     heatActual: 'যা হয়েছে', heatNorm: 'আবহাওয়া একই থাকলে',
-    heatZoneTitle: 'কোন অঞ্চল গরমে বেশি সাড়া দেয়',
     heatZoneNote: 'প্রতিটি অঞ্চলের নিজের তাপমাত্রা দিয়ে হিসাব, আর ফল দেখানো হয়েছে সেই অঞ্চলের নিজের গড় সর্বোচ্চ চাহিদার শতাংশ হিসেবে — নইলে ঢাকা বড় বলেই সবার উপরে থাকত। শুষ্ক উত্তর-পশ্চিম গরমে প্রায় দ্বিগুণ সাড়া দেয় উপকূলীয় চট্টগ্রামের তুলনায়।',
     heatMethod: 'পদ্ধতি: দৈনিক সর্বোচ্চ চাহিদাকে ব্যাখ্যা করা হয়েছে বছর, মাস, বার, ঈদ আর তাপমাত্রার ধাপ দিয়ে ({days} দিন, R² {r2})। তাপমাত্রা ইআরএ৫ পুনর্বিশ্লেষণ থেকে, ৬৪ জেলার প্রতিটির জন্য আলাদা, জনসংখ্যা অনুপাতে গড় — কারণ বিদ্যুৎ যেখানে মানুষ, তাপমাত্রাও সেখানকারটাই গুরুত্বপূর্ণ।',
     mapHeat: 'গরমে সাড়া',
@@ -227,7 +227,6 @@ const STR = {
     compareTitle: 'একই ৩০ দিন, আলাদা বছর',
     trendTitle: 'সময়ের সঙ্গে বদল',
     trendSub: 'পিজিসিবির খাতায় ২০১৫ সাল থেকে সারি আছে ঠিকই, কিন্তু ২০২২ সালের আগে প্রায় প্রতি ঘণ্টায় লোডশেডিংয়ের ঘরে “০” বসানো। তাই ওই সময়টাকে শূন্য না ধরে “প্রকাশ করা হয়নি” হিসেবে আলাদা করে দেখানো হয়েছে।',
-    monthlyTitle: 'মাস ধরে লোডশেডিং',
     mwhPerDay: 'মেওঘ/দিন', hoursUnit: 'ঘণ্টা',
     mMean: 'গড় (মেওঘ/দিন)', mMedian: 'মধ্যমা', mP95: '৯৫তম শতাংশ (মেওয়া)',
     mMax: 'সর্বোচ্চ (মেওয়া)', mHours: 'ঘণ্টা/দিন',
@@ -310,13 +309,18 @@ const STR = {
     whyTitle: 'Why is there load-shedding?',
     whySub: 'The NLDC daily report prints a reason beside every power station. These are the stations that generated nothing at all at the evening peak, grouped by the reason given.',
     idleTitle: 'Idle capacity, by stated reason',
-    idleTrend: 'Capacity idled by gas shortage',
     idleNote: 'At the evening peak, <b>{cap}</b> MW of generating capacity produced nothing at all — <b>{gas}</b> MW of it sitting idle for want of gas alone. Source: NLDC daily report, {date}.',
     idleCap: 'Idle capacity', plants: 'stations',
     causeTitle: 'The shortfall, as BPDB itself attributes it',
     cause_maintenance: 'Shut down / maintenance', cause_gas_lf: 'Gas / liquid fuel limitation',
     cause_kaptai: 'Low water in Kaptai lake', cause_coal: 'Coal supply limitation',
     navForecast: 'The forecast',
+    fcpTitle: 'Which stations said they were ready, and did not run',
+    fcpSrc: '{year} · {days} days of forecast matched to outturn',
+    fcpHead: '{pct}% of the capacity that declared itself ready produced nothing at the evening peak',
+    fcpSub: 'The daily NLDC forecast sheet has every station state how much it expects to have available at tomorrow’s evening peak. The next day’s sheet reports what actually ran. Lining the two up is the only per-station accountability the published record allows.',
+    fcpNote: 'The two figures share a row but describe different days — the forecast is for today, the outturn for yesterday — so the outturn is filed under its own day before matching. “Did not run” means it produced under 2% of what it declared. Only stations forecast on at least {mind} days are named. Ordered by the most capacity left undelivered.',
+    fcpPlant: 'Station', fcpDays: 'Days forecast', fcpFail: 'Did not run', fcpWhy: 'Commonest stated reason',
     fcTitle: 'What BPDB said the day before',
     fcSub: 'Every daily report carries BPDB’s own forecast of the next day’s “probable load shed”, set here against what actually happened. In 2025 it read zero on almost every day; in 2026 the forecasts became far more realistic, but on the days it still says zero it is wrong just as often — and by more.',
     fcChart: 'Forecast and outcome, side by side',
@@ -328,7 +332,6 @@ const STR = {
     fcMean: 'Average shed on those days', fcWorst: 'worst',
     fcForecast: 'Forecast', fcActual: 'What happened',
     fcNote: 'The forecast is for the evening peak at the sub-station end; the outcome is measured the same way.',
-    unitCostTitle: 'Fuel cost per unit of electricity',
     fuel_gas: 'Gas', fuel_oil: 'Oil', fuel_coal: 'Coal',
     fuel_import: 'Imports', fuel_renewable: 'Renewables',
 
@@ -384,14 +387,10 @@ const STR = {
     heatTrendNote: 'demand rose {rise} MW from {from} to {to}; weather accounts for {w} MW of it',
     heatCurve: 'Daily peak demand by temperature',
     heatCurveNote: 'Each column is how much higher demand ran on days at that temperature than on a cool day, with year, month, day of week and Eid held constant. Nothing happens up to about 27°C, then it climbs steeply. That bend is why temperature enters as steps rather than a slope — a straight line would average the flat and steep halves into a single wrong number.',
-    heatYear: 'Year by year: what happened, and what would have happened at constant weather',
-    heatYearNote: 'The two lines almost coincide, and that is the finding. Demand rose {rise} MW between {from} and {to}; at constant weather it would have risen {norm} MW. Average temperature climbed {dt}°C over the same period, and that warming is counted inside these figures, not held aside.',
-    heatZoneRank: 'Ranked, hottest bin',
     heatVerdictTitle: 'Year by year: what constant weather would have given',
     heatVerdictBody: 'Between {from} and {to} the daily peak rose {rise} MW ({risepct}%). At constant weather it would have risen {norm} MW. Weather therefore accounts for {w} MW — {wpct}% of the increase. Average maximum temperature climbed {dt}°C over the same period, and that warming is counted inside these figures rather than held aside.',
     heatVerdictCheck: 'The same answer comes back on the daily mean instead of the peak ({m}%), and on 2016–2021 alone ({p}%) — years with almost no load-shedding, so demand there is measured rather than reconstructed.',
     heatActual: 'As published', heatNorm: 'At constant weather',
-    heatZoneTitle: 'Which regions answer the heat hardest',
     heatZoneNote: 'Each zone is measured against its own temperature, and the result is shown as a share of that zone’s own average peak — otherwise Dhaka would lead simply for being large. The dry north-west responds about twice as strongly as coastal Chattogram.',
     heatMethod: 'Method: daily peak demand explained by year, month, day of week, Eid and temperature bins ({days} days, R² {r2}). Temperature is the ERA5 reanalysis, taken at all 64 district centroids and averaged by population — electricity follows people, so the temperature that matters is the temperature where the load is.',
     mapHeat: 'Heat response',
@@ -485,7 +484,6 @@ const STR = {
     compareTitle: 'The same 30 days, different years',
     trendTitle: 'Over time',
     trendSub: 'PGCB’s archive holds rows back to 2015, but before 2022 the load-shedding column reads “0” in almost every hour. That period is marked “not reported” rather than drawn as zero.',
-    monthlyTitle: 'Load-shedding by month',
     mwhPerDay: 'MWh/day', hoursUnit: 'hours',
     mMean: 'Mean (MWh/day)', mMedian: 'Median', mP95: '95th pct (MW)',
     mMax: 'Maximum (MW)', mHours: 'Hours/day',
@@ -967,17 +965,17 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
       load('places'), load('official'), load('cost'), load('demand'),
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
-      load('temperature'),
+      load('temperature'), load('forecastplants'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -1389,60 +1387,10 @@ function renderHeat() {
       .replace('{m}', fmt(h.checks.mean_pct, 1))
       .replace('{p}', fmt(h.checks.early_pct, 1))}</p>` : '') + '</div>';
 
-  renderHeatZoneGrid(h);
-
-  // ── zones, as a share of each zone's own peak
-  hBars(document.getElementById('heat-zones'),
-    (h.zones || []).map(z => ({
-      label: zoneName(z.zone), value: z.lift_pct, color: C.supply,
-      note: `+${fmt(z.lift_mw)} ${t('mw')}`,
-    })), {
-      valueLabel: LANG === 'bn' ? 'নিজের সর্বোচ্চ চাহিদার শতাংশ'
-                                : 'share of its own peak',
-      fmtValue: (v) => `${fmt(v, 1)}%`,
-    });
 
   const m = document.getElementById('heat-method');
   if (m) m.textContent = t('heatMethod')
     .replace('{days}', fmt(h.days)).replace('{r2}', fmt(h.r2, 3));
-}
-
-/* Nine response curves as small multiples rather than nine lines on one axis.
-   Past about four series a shared plot becomes a colour-matching puzzle; laid
-   out as a grid on one shared scale, the shapes can be compared directly and
-   the outliers announce themselves. */
-function renderHeatZoneGrid(h) {
-  const host = document.getElementById('heat-zonegrid');
-  if (!host) return;
-  const zones = (h.zones || []).filter(z => (z.response || []).length > 2);
-  if (!zones.length) return;
-  const bins = h.response.map(r => r.bin);
-  const maxPct = Math.max(...zones.flatMap(z => z.response.map(r => r.pct)), 1);
-  const minPct = Math.min(...zones.flatMap(z => z.response.map(r => r.pct)), 0);
-
-  host.className = 'sparkgrid';
-  host.innerHTML = zones.map(z => {
-    const W = 220, H = 96, padB = 14, padT = 12;
-    const x = (i) => 6 + (i / Math.max(bins.length - 1, 1)) * (W - 14);
-    const y = (v) => padT + (1 - (v - minPct) / (maxPct - minPct)) * (H - padT - padB);
-    const pts = z.response.map(r => `${x(bins.indexOf(r.bin))},${y(r.pct)}`).join(' ');
-    const zero = y(0);
-    const top = z.response[z.response.length - 1];
-    return `<div class="spark">
-      <div class="spark-head"><b>${zoneName(z.zone)}</b>
-        <span>${fmt(z.lift_pct, 1)}%</span></div>
-      <svg viewBox="0 0 ${W} ${H}" class="chart" style="height:${H}px">
-        <line x1="6" x2="${W - 8}" y1="${zero}" y2="${zero}"
-              stroke="${C.grid}" stroke-width="1"/>
-        <polyline points="${pts}" fill="none" stroke="${C.supply}"
-                  stroke-width="2" stroke-linejoin="round"/>
-        <circle cx="${x(bins.indexOf(top.bin))}" cy="${y(top.pct)}" r="3.5"
-                fill="${C.supply}" stroke="${C.surface}" stroke-width="1.5"/>
-      </svg>
-      <div class="spark-foot"><span>${fmtDigits(bins[0])}</span>
-        <span>${fmtDigits(bins[bins.length - 1])}°C</span></div>
-    </div>`;
-  }).join('');
 }
 
 /* Two lines on one axis: what happened, and what would have happened had the
@@ -1723,20 +1671,7 @@ function renderFuel() {
     });
   document.getElementById('fuel-note').textContent = t('mkwh');
 
-  lineChart(document.getElementById('cost-chart'), rows, 'cost', {
-    color: C.s[3], area: true, digits: 2, label: t('costUnit'), height: 230,
-    xlabel: (r) => fmtDate(r.x, { day: 'numeric', month: 'short' }),
-    xtip: (r) => fmtDate(r.x),
-    yfmt: (v) => fmt(v, 1),
-  });
 
-  const last = rows[rows.length - 1];
-  const total = FUEL_ORDER.reduce((a, f) => a + (last[f] || 0), 0) || 1;
-  hBars(document.getElementById('fuelmix-latest'),
-    FUEL_ORDER.map(f => ({ label: FUEL_NAMES[LANG][f], value: last[f] || 0, color: fuelColor(f) }))
-      .filter(i => i.value > 0)
-      .sort((a, b) => b.value - a.value),
-    { fmtValue: (v) => `${pct(v / total)}`, valueLabel: t('share') });
 }
 
 function renderZones() {
@@ -3186,6 +3121,33 @@ function renderCauses() {
     });
 }
 
+/* Per-station accountability: who declared themselves ready, and who ran.
+   A table rather than a chart -- twelve named stations with four attributes
+   each is a reading task, not a comparison of magnitudes, and the names are
+   the point. */
+function renderForecastPlants() {
+  const f = D.forecastplants;
+  const host = document.getElementById('fcp-table');
+  if (!host || !f || !f.plants || !f.plants.length) return;
+  document.getElementById('fcp-title').textContent = t('fcpTitle');
+  document.getElementById('fcp-src').textContent = t('fcpSrc')
+    .replace('{year}', fmtYear(f.year)).replace('{days}', fmt(f.days));
+  document.getElementById('fcp-headline').innerHTML =
+    `<div class="note warn"><div class="note-title">${t('fcpHead')
+      .replace('{pct}', fmt(f.undelivered_pct, 1))}</div>${t('fcpSub')}</div>`;
+  host.innerHTML =
+    `<thead><tr><th>${t('fcpPlant')}</th><th class="num">${t('fcpDays')}</th>` +
+    `<th class="num">${t('fcpFail')}</th><th>${t('fcpWhy')}</th></tr></thead><tbody>` +
+    f.plants.map(p => `<tr><td>${p.plant}</td>` +
+      `<td class="num">${fmt(p.days)}</td>` +
+      `<td class="num"><b>${fmt(p.fail_pct, 0)}%</b></td>` +
+      `<td>${p.reason === '-' || !p.reason
+        ? `<i style="color:var(--muted)">${LANG === 'bn' ? 'কারণ লেখা নেই' : 'no reason given'}</i>`
+        : p.reason}</td></tr>`).join('') + '</tbody>';
+  const n = document.querySelector('[data-i18n="fcpNote"]');
+  if (n) n.textContent = t('fcpNote').replace('{mind}', fmt(60));
+}
+
 function renderForecast() {
   const o = D.official;
   if (!o || !o.forecast || !o.forecast.length) return;
@@ -3266,23 +3228,6 @@ function renderForecast() {
                 { label: t('fcActual'), color: C.loadshed }]);
 }
 
-function renderUnitCost() {
-  const host = document.getElementById('unitcost-chart');
-  const rows = (D.official && D.official.unit_cost) || [];
-  if (!host || !rows.length) return;
-  const last = rows.slice(-30);
-  const keys = ['gas', 'coal', 'import', 'renewable', 'oil'];
-  const items = keys.map(k => {
-    const v = last.map(r => r[k]).filter(x => x !== undefined && x !== null);
-    return v.length ? { label: t('fuel_' + k), value: v.reduce((a, b) => a + b, 0) / v.length,
-                        color: k === 'oil' ? C.loadshed : C.supply } : null;
-  }).filter(Boolean).sort((a, b) => a.value - b.value);
-  hBars(host, items, {
-    fmtValue: (v) => `${fmt(v, 2)} ${LANG === 'bn' ? 'টাকা' : 'Tk'}`,
-    valueLabel: t('unitCostTitle'),
-  });
-}
-
 /* ══════════════════════════════════ boot ═════════════════════════════════ */
 
 function renderAll() {
@@ -3297,7 +3242,7 @@ function renderAll() {
   renderEquity();
   renderCauses();
   renderForecast();
-  renderUnitCost();
+  renderForecastPlants();
   renderFuelModeSeg();
   renderFuelMonthly();
   renderCostSeg();
@@ -3336,8 +3281,8 @@ window.addEventListener('resize', () => {
     renderEquity();
     renderCauses();
     renderForecast();
-    renderUnitCost();
-    renderFuelMonthly();
+    renderForecastPlants();
+      renderFuelMonthly();
     renderCost();
     renderDemand();
     if (D.selectedArea) renderArea(D.selectedArea);

@@ -1534,6 +1534,88 @@ def _temp_zones(wx, national_days):
     return out
 
 
+# ── which stations promised, and which delivered ─────────────────────────────
+#
+# The daily Forecast sheet names every station and states how much it expects
+# to have available at tomorrow's evening peak. The next day's sheet reports
+# what each actually produced. Lining the two up is the only per-station
+# accountability the published record allows, and it is the difference between
+# "capacity exists" and "capacity turned up".
+#
+# The two figures sit in the same row but describe different days: the sheet
+# dated d carries the forecast for d and the outturn for d-1. Comparing them
+# in place would be an off-by-one, so the outturn is filed under the day it
+# describes before the two are matched.
+FORECAST_MIN_MW = 20        # ignore trivial declarations
+FORECAST_MIN_DAYS = 60      # a station needs a season before it is named
+FORECAST_FAIL = 0.02        # produced under 2% of what was declared
+
+
+def build_forecast_plants(year=None):
+    """Per-station forecast availability against what actually ran."""
+    fc, ac, rem = defaultdict(dict), defaultdict(dict), defaultdict(dict)
+    for f in sorted(ERP_DIR.glob("forecast_*.csv")):
+        for row in read_csv(f):
+            d, plant = row["date"], row["plant"]
+            v = num(row.get("forecast_evening"))
+            if v is not None:
+                fc[d][plant] = v
+            a = num(row.get("actual_evening"))
+            if a is not None:
+                prev = (date.fromisoformat(d) - timedelta(days=1)).isoformat()
+                ac[prev][plant] = a
+            rem[d][plant] = (row.get("remarks") or "").strip()
+    if not fc:
+        return None
+    year = year or max(fc)[:4]
+
+    per = defaultdict(lambda: {"days": 0, "failed": 0, "declared": 0.0,
+                               "undelivered": 0.0, "reasons": Counter()})
+    declared = undelivered = 0.0
+    for d in sorted(fc):
+        if d[:4] != year or d not in ac:
+            continue
+        for plant, want in fc[d].items():
+            got = ac[d].get(plant)
+            if got is None or want < FORECAST_MIN_MW:
+                continue
+            b = per[plant]
+            b["days"] += 1
+            b["declared"] += want
+            declared += want
+            if got < FORECAST_FAIL * want:
+                b["failed"] += 1
+                b["undelivered"] += want
+                undelivered += want
+                b["reasons"][rem.get(d, {}).get(plant) or "—"] += 1
+    if not declared:
+        return None
+
+    rows = []
+    for plant, b in per.items():
+        if b["days"] < FORECAST_MIN_DAYS or not b["failed"]:
+            continue
+        why, n = b["reasons"].most_common(1)[0]
+        rows.append({
+            "plant": plant, "days": b["days"], "failed": b["failed"],
+            "fail_pct": r(100 * b["failed"] / b["days"], 0),
+            "undelivered_mwd": r(b["undelivered"], 0),
+            "reason": why, "reason_share": r(100 * n / b["failed"], 0),
+        })
+    rows.sort(key=lambda x: -x["undelivered_mwd"])
+
+    why_all = Counter()
+    for b in per.values():
+        why_all.update(b["reasons"])
+    total_fail = sum(why_all.values()) or 1
+    reasons = [{"reason": k, "pct": r(100 * v / total_fail, 1)}
+               for k, v in why_all.most_common(6)]
+    return {"year": year, "plants": rows[:12], "n_plants": len(rows),
+            "undelivered_pct": r(100 * undelivered / declared, 1),
+            "reasons": reasons,
+            "days": len({d for d in fc if d[:4] == year and d in ac})}
+
+
 def build_idle_fleet():
     """How much of each fleet produced nothing at the evening peak.
 
@@ -2570,6 +2652,13 @@ def main():
         print(f"[build]   {c['from']}->{c['to']}: demand {c['rise']:+,.0f} MW "
               f"({c['rise_pct']:+.1f}%), of which weather {c['weather']:+,.0f} MW "
               f"({c['weather_pct']:.1f}%); temperature moved {c['temp_change']:+.2f}C")
+    fcplants = build_forecast_plants()
+    if fcplants:
+        write_json(SITE_DATA / "forecastplants.json", fcplants)
+        print(f"[build] forecast vs outturn {fcplants['year']}: "
+              f"{fcplants['undelivered_pct']}% of declared evening-peak capacity "
+              f"produced nothing; {fcplants['n_plants']} stations failed on at "
+              f"least one day of {fcplants['days']}")
     idlefleet = build_idle_fleet()
     if idlefleet:
         write_json(SITE_DATA / "idlefleet.json", idlefleet)

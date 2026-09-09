@@ -177,6 +177,16 @@
       <div class="chartbox" id="fc-chart"></div>
     </div>
     <p class="chart-note" style="margin-top:10px" data-i18n="fcNote"></p>
+
+    <div class="card" style="margin-top:14px">
+      <div class="chart-head">
+        <span class="chart-title" id="fcp-title"></span>
+        <span class="chart-note" id="fcp-src"></span>
+      </div>
+      <div id="fcp-headline"></div>
+      <div class="tablewrap" style="margin-top:12px"><table id="fcp-table"></table></div>
+      <p class="chart-note" style="margin-top:10px" data-i18n="fcpNote"></p>
+    </div>
   </section>
 
   <!-- ── MAP ─────────────────────────────────────────── -->
@@ -257,16 +267,7 @@
 
     <div id="heat-verdict" style="margin-top:14px"></div>
 
-    <div class="card" style="margin-top:14px">
-      <div class="chart-head"><span class="chart-title" data-i18n="heatZoneTitle"></span></div>
-      <div id="heat-zonegrid"></div>
-      <p class="chart-note" style="margin-top:8px" data-i18n="heatZoneNote"></p>
-    </div>
-
-    <div class="card" style="margin-top:14px">
-      <div class="chart-head"><span class="chart-title" data-i18n="heatZoneRank"></span></div>
-      <div class="chartbox" id="heat-zones"></div>
-    </div>
+    <p class="chart-note" style="margin-top:12px" data-i18n="heatZoneNote"></p>
     <p class="chart-note" style="margin-top:10px" id="heat-method"></p>
   </section>
 
@@ -347,20 +348,6 @@
       </div>
       <div class="chartbox" id="fuel-chart"></div>
     </div>
-    <div class="grid g2" style="margin-top:14px">
-      <div class="card">
-        <div class="chart-head"><span class="chart-title" data-i18n="costTitle">প্রতি ইউনিট উৎপাদন খরচ</span></div>
-        <div class="chartbox" id="cost-chart"></div>
-      </div>
-      <div class="card">
-        <div class="chart-head"><span class="chart-title" data-i18n="fuelLatest">সর্বশেষ দিনের জ্বালানি ভাগ</span></div>
-        <div class="chartbox" id="fuelmix-latest"></div>
-      </div>
-      <div class="card">
-        <div class="chart-head"><span class="chart-title" data-i18n="unitCostTitle"></span></div>
-        <div class="chartbox" id="unitcost-chart"></div>
-      </div>
-    </div>
   </section>
 
   <!-- ── TREND ───────────────────────────────────────── -->
@@ -405,6 +392,6 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="app.js?v=e6d19a0b"></script>
+<script src="app.js?v=bdc05526"></script>
 </body>
 </html>
