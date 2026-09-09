@@ -371,3 +371,18 @@ svg.chart .mark-label { fill: var(--muted); font-size: 10px;
 /* OpenStreetMap's own tiles are keyless but saturated; desaturating the tile
    pane keeps the basemap as context and lets the choropleth carry the colour. */
 #map-canvas .leaflet-tile-pane { filter: grayscale(0.92) brightness(1.06); }
+
+/* Small multiples: nine response curves on one shared scale. Past about four
+   series a single plot becomes a colour-matching puzzle, so the shapes are
+   laid side by side instead and compared directly. */
+.sparkgrid { display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.sparkgrid .spark { border: 1px solid var(--line, #e6e4de); border-radius: 8px;
+  padding: 8px 10px 6px; background: var(--surface, #fff); }
+.sparkgrid .spark-head { display: flex; justify-content: space-between;
+  align-items: baseline; font-size: .86rem; color: var(--text2); }
+.sparkgrid .spark-head b { color: var(--ink, #1A2A40); font-weight: 600; }
+.sparkgrid .spark-head span { font-variant-numeric: tabular-nums;
+  font-weight: 600; color: #2a78d6; }
+.sparkgrid .spark-foot { display: flex; justify-content: space-between;
+  font-size: .72rem; color: var(--muted); margin-top: 2px; }

@@ -128,6 +128,10 @@ const STR = {
     heatCurveNote: 'প্রতিটি স্তম্ভ বলছে, সেই তাপমাত্রার দিনে চাহিদা একটি ঠান্ডা দিনের চেয়ে কত মেগাওয়াট বেশি ছিল — বছর, মাস, বার ও ঈদের প্রভাব সরিয়ে। ২৭° সে পর্যন্ত কিছুই হয় না, তারপর খাড়া ওঠে। এই বাঁকটাই সরলরেখা দিয়ে মাপলে ভুল হতো, তাই তাপমাত্রাকে ধাপে ভাগ করা হয়েছে।',
     heatYear: 'বছরে বছরে: আসল চাহিদা, আর আবহাওয়া একই থাকলে যা হতো',
     heatYearNote: 'দুটো রেখা প্রায় মিশে আছে — সেটাই ফলাফল। {from} থেকে {to} সালে চাহিদা বেড়েছে {rise} মেগাওয়াট; আবহাওয়া একই থাকলেও বাড়ত {norm} মেগাওয়াট। এই সময়ে গড় তাপমাত্রা বেড়েছে {dt}° সে, সেটিও হিসাবের ভেতরেই ধরা।',
+    heatZoneRank: 'সবচেয়ে বেশি সাড়া দেয় কারা',
+    heatVerdictTitle: 'বছরে বছরে: আবহাওয়া একই থাকলে কী হতো',
+    heatVerdictBody: '{from} থেকে {to} সালে দিনের সর্বোচ্চ চাহিদা বেড়েছে {rise} মেগাওয়াট ({risepct}%)। আবহাওয়া একই থাকলেও বাড়ত {norm} মেগাওয়াট। অর্থাৎ আবহাওয়ার ভাগ {w} মেগাওয়াট — মোট বৃদ্ধির {wpct}%। এই সময়ে গড় সর্বোচ্চ তাপমাত্রা বেড়েছে {dt}° সে, সেই উষ্ণায়নও হিসাবের ভেতরেই ধরা, আলাদা করে সরিয়ে রাখা হয়নি।',
+    heatVerdictCheck: 'একই ফল পাওয়া যায় দিনের গড় চাহিদা ধরলেও ({m}%), আর ২০১৬–২০২১ সালের তথ্য আলাদা করে দেখলেও ({p}%) — যখন লোডশেডিং প্রায় ছিলই না, তাই চাহিদার সংখ্যাটি হিসাব করে বানানো নয়, সরাসরি মাপা।',
     heatActual: 'যা হয়েছে', heatNorm: 'আবহাওয়া একই থাকলে',
     heatZoneTitle: 'কোন অঞ্চল গরমে বেশি সাড়া দেয়',
     heatZoneNote: 'প্রতিটি অঞ্চলের নিজের তাপমাত্রা দিয়ে হিসাব, আর ফল দেখানো হয়েছে সেই অঞ্চলের নিজের গড় সর্বোচ্চ চাহিদার শতাংশ হিসেবে — নইলে ঢাকা বড় বলেই সবার উপরে থাকত। শুষ্ক উত্তর-পশ্চিম গরমে প্রায় দ্বিগুণ সাড়া দেয় উপকূলীয় চট্টগ্রামের তুলনায়।',
@@ -373,6 +377,10 @@ const STR = {
     heatCurveNote: 'Each column is how much higher demand ran on days at that temperature than on a cool day, with year, month, day of week and Eid held constant. Nothing happens up to about 27°C, then it climbs steeply. That bend is why temperature enters as steps rather than a slope — a straight line would average the flat and steep halves into a single wrong number.',
     heatYear: 'Year by year: what happened, and what would have happened at constant weather',
     heatYearNote: 'The two lines almost coincide, and that is the finding. Demand rose {rise} MW between {from} and {to}; at constant weather it would have risen {norm} MW. Average temperature climbed {dt}°C over the same period, and that warming is counted inside these figures, not held aside.',
+    heatZoneRank: 'Ranked, hottest bin',
+    heatVerdictTitle: 'Year by year: what constant weather would have given',
+    heatVerdictBody: 'Between {from} and {to} the daily peak rose {rise} MW ({risepct}%). At constant weather it would have risen {norm} MW. Weather therefore accounts for {w} MW — {wpct}% of the increase. Average maximum temperature climbed {dt}°C over the same period, and that warming is counted inside these figures rather than held aside.',
+    heatVerdictCheck: 'The same answer comes back on the daily mean instead of the peak ({m}%), and on 2016–2021 alone ({p}%) — years with almost no load-shedding, so demand there is measured rather than reconstructed.',
     heatActual: 'As published', heatNorm: 'At constant weather',
     heatZoneTitle: 'Which regions answer the heat hardest',
     heatZoneNote: 'Each zone is measured against its own temperature, and the result is shown as a share of that zone’s own average peak — otherwise Dhaka would lead simply for being large. The dry north-west responds about twice as strongly as coastal Chattogram.',
@@ -1321,14 +1329,23 @@ function renderHeat() {
   });
   hit.addEventListener('pointerleave', () => hideTip(f));
 
-  // ── actual against constant weather
-  const ys = h.series.filter(r => r.days >= 200);
-  multiLineYears(document.getElementById('heat-year'), ys);
-  const n = document.getElementById('heat-year-note');
-  if (n) n.textContent = t('heatYearNote')
-    .replace('{from}', fmtYear(c.from)).replace('{to}', fmtYear(c.to))
-    .replace('{rise}', fmt(c.rise)).replace('{norm}', fmt(c.rise_norm))
-    .replace('{dt}', fmt(c.temp_change, 2));
+  // ── the year-by-year comparison reads better as a sentence than as a
+  //    chart: the two lines it would draw sit on top of each other, and a
+  //    reader has to be told the gap is small rather than squint for it
+  const v = document.getElementById('heat-verdict');
+  if (v) v.innerHTML =
+    `<div class="note"><div class="note-title">${t('heatVerdictTitle')}</div>` +
+    t('heatVerdictBody')
+      .replace('{from}', fmtYear(c.from)).replace('{to}', fmtYear(c.to))
+      .replace('{rise}', fmt(c.rise)).replace('{risepct}', fmt(c.rise_pct, 1))
+      .replace('{norm}', fmt(c.rise_norm)).replace('{w}', fmt(c.weather, 0))
+      .replace('{wpct}', fmt(c.weather_pct, 1))
+      .replace('{dt}', fmt(c.temp_change, 2)) +
+    (h.checks ? `<p style="margin:8px 0 0">${t('heatVerdictCheck')
+      .replace('{m}', fmt(h.checks.mean_pct, 1))
+      .replace('{p}', fmt(h.checks.early_pct, 1))}</p>` : '') + '</div>';
+
+  renderHeatZoneGrid(h);
 
   // ── zones, as a share of each zone's own peak
   hBars(document.getElementById('heat-zones'),
@@ -1344,6 +1361,44 @@ function renderHeat() {
   const m = document.getElementById('heat-method');
   if (m) m.textContent = t('heatMethod')
     .replace('{days}', fmt(h.days)).replace('{r2}', fmt(h.r2, 3));
+}
+
+/* Nine response curves as small multiples rather than nine lines on one axis.
+   Past about four series a shared plot becomes a colour-matching puzzle; laid
+   out as a grid on one shared scale, the shapes can be compared directly and
+   the outliers announce themselves. */
+function renderHeatZoneGrid(h) {
+  const host = document.getElementById('heat-zonegrid');
+  if (!host) return;
+  const zones = (h.zones || []).filter(z => (z.response || []).length > 2);
+  if (!zones.length) return;
+  const bins = h.response.map(r => r.bin);
+  const maxPct = Math.max(...zones.flatMap(z => z.response.map(r => r.pct)), 1);
+  const minPct = Math.min(...zones.flatMap(z => z.response.map(r => r.pct)), 0);
+
+  host.className = 'sparkgrid';
+  host.innerHTML = zones.map(z => {
+    const W = 220, H = 96, padB = 14, padT = 12;
+    const x = (i) => 6 + (i / Math.max(bins.length - 1, 1)) * (W - 14);
+    const y = (v) => padT + (1 - (v - minPct) / (maxPct - minPct)) * (H - padT - padB);
+    const pts = z.response.map(r => `${x(bins.indexOf(r.bin))},${y(r.pct)}`).join(' ');
+    const zero = y(0);
+    const top = z.response[z.response.length - 1];
+    return `<div class="spark">
+      <div class="spark-head"><b>${zoneName(z.zone)}</b>
+        <span>${fmt(z.lift_pct, 1)}%</span></div>
+      <svg viewBox="0 0 ${W} ${H}" class="chart" style="height:${H}px">
+        <line x1="6" x2="${W - 8}" y1="${zero}" y2="${zero}"
+              stroke="${C.grid}" stroke-width="1"/>
+        <polyline points="${pts}" fill="none" stroke="${C.supply}"
+                  stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="${x(bins.indexOf(top.bin))}" cy="${y(top.pct)}" r="3.5"
+                fill="${C.supply}" stroke="${C.surface}" stroke-width="1.5"/>
+      </svg>
+      <div class="spark-foot"><span>${fmtDigits(bins[0])}</span>
+        <span>${fmtDigits(bins[bins.length - 1])}°C</span></div>
+    </div>`;
+  }).join('');
 }
 
 /* Two lines on one axis: what happened, and what would have happened had the

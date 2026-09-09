@@ -1318,7 +1318,8 @@ def _daily_demand_for_temp():
             v = num(row.get("demand"))
             if v is not None and TEMP_DEMAND_LO <= v <= TEMP_DEMAND_HI:
                 per[row["date"]].append(v)
-    return {d: max(v) for d, v in per.items() if len(v) >= 20}
+    return {d: {"peak": max(v), "mean": sum(v) / len(v)}
+            for d, v in per.items() if len(v) >= 20}
 
 
 def _temp_design(dates, temps, years, months):
@@ -1376,7 +1377,7 @@ def build_temperature():
     if len(days) < TEMP_MIN_DAYS:
         return None
 
-    y = np.array([dem[d] for d in days])
+    y = np.array([dem[d]["peak"] for d in days])
     t = np.array([wx[d]["national"] for d in days])
     years = sorted({d[:4] for d in days})
     months = sorted({d[5:7] for d in days})
@@ -1437,8 +1438,54 @@ def build_temperature():
             "temp_change": r(b["temp"] - a["temp"], 2),
         },
         "part_years": [x["year"] for x in series if x["days"] < TEMP_FULL_YEAR],
+        "checks": _temp_checks(wx, dem),
         "zones": _temp_zones(wx, days),
     }
+
+
+def _temp_checks(wx, dem_daily):
+    """The same decomposition on two other samples.
+
+    A result this consequential should not rest on one choice of dependent
+    variable or one span. The daily mean is a different statistic from the
+    peak, and 2016-2021 predates load-shedding of any size, so demand there
+    is measured rather than reconstructed from the shortfall.
+    """
+    import numpy as np
+
+    def run(days, values):
+        if len(days) < TEMP_MIN_DAYS:
+            return None
+        t = np.array([wx[d]["national"] for d in days])
+        y = np.array(values)
+        yrs = sorted({d[:4] for d in days}); mos = sorted({d[5:7] for d in days})
+        X, names, idx, labels = _temp_design(days, t, yrs, mos)
+        beta, *_ = np.linalg.lstsq(X, y, rcond=None)
+        clim = defaultdict(list)
+        for d, tt in zip(days, t):
+            clim[d[5:]].append(tt)
+        clim = {k: sum(v) / len(v) for k, v in clim.items()}
+        Xn, *_ = _temp_design(days, np.array([clim[d[5:]] for d in days]),
+                              yrs, mos)
+        wea = (X @ beta) - (Xn @ beta)
+        byy = defaultdict(list)
+        for d, a, w in zip(days, y, wea):
+            byy[d[:4]].append((a, w))
+        rows = [(k, sum(x[0] for x in v) / len(v), sum(x[1] for x in v) / len(v),
+                 len(v)) for k, v in sorted(byy.items())]
+        full = [x for x in rows if x[3] >= TEMP_FULL_YEAR] or rows
+        if len(full) < 2:
+            return None
+        a, b = full[0], full[-1]
+        rise = b[1] - a[1]
+        rise_n = (b[1] - b[2]) - (a[1] - a[2])
+        return r(100 * (rise - rise_n) / rise, 1) if rise else None
+
+    all_days = sorted(d for d in dem_daily if d in wx and "national" in wx[d])
+    mean_pct = run(all_days, [dem_daily[d]["mean"] for d in all_days])
+    early = [d for d in all_days if d <= "2021-12-31"]
+    early_pct = run(early, [dem_daily[d]["peak"] for d in early])
+    return {"mean_pct": mean_pct, "early_pct": early_pct}
 
 
 def _temp_zones(wx, national_days):
@@ -1471,8 +1518,18 @@ def _temp_zones(wx, national_days):
         mean = sum(ys) / len(ys)
         if lift is None:
             continue
+        # the whole curve, not just its top: the shape differs between the dry
+        # north-west and the coast, and that is the regional story
+        counts = np.bincount(idx, minlength=len(labels))
+        curve = [{"bin": labels[b],
+                  "mw": 0.0 if b == 0 else r(beta[pos[f"temp_{labels[b]}"]], 0),
+                  "pct": 0.0 if b == 0 else r(100 * beta[pos[f"temp_{labels[b]}"]]
+                                              / mean, 1),
+                  "days": int(counts[b])}
+                 for b in range(len(labels)) if counts[b] >= 10]
         out.append({"zone": z, "mean_peak": r(mean), "lift_mw": r(lift),
-                    "lift_pct": r(100 * lift / mean, 1), "days": len(ds)})
+                    "lift_pct": r(100 * lift / mean, 1), "days": len(ds),
+                    "response": curve})
     out.sort(key=lambda x: -x["lift_pct"])
     return out
 
