@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20018,
-  "vendors_with_owner_data": 8365,
-  "vendors_with_tenderer_id": 8554,
+  "vendors_sampled": 20020,
+  "vendors_with_owner_data": 8367,
+  "vendors_with_tenderer_id": 8556,
   "owner_data_coverage": 0.418
  },
  "shared_owner_groups": [
@@ -1539,6 +1539,33 @@
    "distinct_companies": 3
   },
   {
+   "owner_key": "abul khair selim",
+   "companies": [
+    {
+     "company": "M/S Ocean Enterprise",
+     "tenderer_id": "1001400",
+     "owner_name_as_shown": "MD ABUL KHAIR SELIM",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Ocean Enterprise-Mubin Traders",
+     "tenderer_id": "1227928",
+     "owner_name_as_shown": "MD ABUL KHAIR SELIM",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Kabir Traders - Ocean Enterprise (JV)",
+     "tenderer_id": "1239828",
+     "owner_name_as_shown": "MD ABUL KHAIR SELIM",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 3
+  },
+  {
    "owner_key": "mahbubur rahman khan",
    "companies": [
     {
@@ -3025,26 +3052,6 @@
    "distinct_companies": 2
   },
   {
-   "owner_key": "abul khair selim",
-   "companies": [
-    {
-     "company": "M/S Ocean Enterprise",
-     "tenderer_id": "1001400",
-     "owner_name_as_shown": "MD ABUL KHAIR SELIM",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "Ocean Enterprise-Mubin Traders",
-     "tenderer_id": "1227928",
-     "owner_name_as_shown": "MD ABUL KHAIR SELIM",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    }
-   ],
-   "distinct_companies": 2
-  },
-  {
    "owner_key": "the m & m limited by mahbub ul anam",
    "companies": [
     {
@@ -4460,6 +4467,26 @@
      "owner_name_as_shown": "Sal Saad Al Deen Taher",
      "designation": "Managing Partner",
      "ownership_pct": "20.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "ekramul kabir ahmed",
+   "companies": [
+    {
+     "company": "M/S Kabir Traders - Strucxel JV",
+     "tenderer_id": "1228670",
+     "owner_name_as_shown": "Ekramul Kabir Ahmed",
+     "designation": "Chairman",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Kabir Traders - Ocean Enterprise (JV)",
+     "tenderer_id": "1239828",
+     "owner_name_as_shown": "Ekramul Kabir Ahmed",
+     "designation": "Chairman",
+     "ownership_pct": "100.00"
     }
    ],
    "distinct_companies": 2
