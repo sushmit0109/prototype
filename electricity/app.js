@@ -182,6 +182,18 @@ const STR = {
     surgeR4: 'দুই সূত্রেই একই ছবি। বিপিডিবির এলাকাভিত্তিক পাতা আর পিজিসিবির নিজস্ব সারণি — আলাদা প্রকাশক, আলাদা ভিত্তি — দুটোতেই ২০২৬ সালের গ্রীষ্মে প্রায় ১২% বৃদ্ধি।',
     surgeOpenTitle: 'যা এখনো খোলা প্রশ্ন',
     surgeOpen: 'বাকি অংশ, অর্থাৎ সত্যিই পৌঁছানো বিদ্যুতের {served}% বৃদ্ধি, কীসের ভাগ — নতুন সংযোগ, শিল্পের চাহিদা, নাকি এসির বিস্তার — তা প্রকাশিত তথ্য থেকে আলাদা করা যায় না; বিদ্যুৎ কোন খাতে গেল সেই হিসাব ঘণ্টাভিত্তিকভাবে প্রকাশ হয় না। আর চাপা পড়া চাহিদা এখানে গোনা নেই: যে কারখানা বিদ্যুৎ পাবে না জেনে চাওয়াই ছেড়ে দিয়েছে, সে কোনো ঘরেই নেই। তাই প্রকৃত চাহিদা এই রেখার ওপরে, নিচে নয়।',
+    spTitle: 'সব উপকেন্দ্র একসঙ্গে সর্বোচ্চে উঠলে কী হতো',
+    spSrc: '{stations}টি গ্রিড উপকেন্দ্র · {days} দিন',
+    spNC: 'আলাদা আলাদা সর্বোচ্চের যোগফল',
+    spNCNote: 'প্রতিটি উপকেন্দ্র নিজের সবচেয়ে ব্যস্ত সময়ে যতটা টেনেছে, সব যোগ করে · সর্বোচ্চ দিনে {max} মেগাওয়াট',
+    spCO: 'একই মুহূর্তে যতটা সরবরাহ হয়েছে',
+    spCONote: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় সারা দেশে · সর্বোচ্চ দিনে {max} মেগাওয়াট',
+    spHead: 'বাড়তি চাপের সম্ভাবনা',
+    spHeadNote: 'সব উপকেন্দ্র যদি একই মুহূর্তে নিজের সর্বোচ্চে উঠত, গ্রিডকে আজ পর্যন্ত দেখা সর্বোচ্চের চেয়ে এতটা বেশি সামলাতে হতো',
+    spNote: 'উপকেন্দ্র কখনো একসঙ্গে সর্বোচ্চে ওঠে না — একটির ব্যস্ততম সময় আরেকটির শান্ত সময়। এই বিচ্ছিন্নতাই গ্রিডকে বাঁচিয়ে রাখে। দুই দিকেই “যতটা সরবরাহ হয়েছে” ধরা হয়েছে: উপকেন্দ্র কেবল যা সত্যিই দিয়েছে তা-ই নথিভুক্ত করতে পারে, তাই লোডশেডিং বাদ দিয়ে তুলনা। গ্রীষ্মে সংখ্যাটি স্থির — {t0} সালে {c0}, {t1} সালে {c1} — অর্থাৎ চাপ একমুখী হয়ে যাচ্ছে, এমন প্রমাণ নেই।',
+    spBandTitle: 'কোন সময়ে উপকেন্দ্রগুলো সর্বোচ্চে ওঠে',
+    spBandNote: 'প্রতিটি উপকেন্দ্রকে তার নিজের সবচেয়ে ঘন ঘন সর্বোচ্চের সময় অনুযায়ী ভাগ করা হয়েছে, আর দেখানো হয়েছে সেই দলের মোট লোডের ভাগ হিসেবে। সন্ধ্যায় সর্বোচ্চে ওঠা মানে মূলত ঘরবাড়ি — বাতি, ফ্যান, এসি। দিনে ওঠা মানে কলকারখানা ও অফিস। ভাগটাই বলে দেয় চাহিদা কোথা থেকে আসছে।',
+    spEvening: 'সন্ধ্যা (১৭–২২)', spDay: 'দিন (০৯–১৬)', spNight: 'রাত (২৩–০৮)',
     demSplitTitle: 'গ্রীষ্মের সন্ধ্যার চাহিদা: কতটা পাওয়া গেল, কতটা কাটা পড়ল',
     demSplitNote: '{from} থেকে {to} পর্যন্ত, প্রতি বছর একই দিনসীমায় মিলিয়ে। প্রকাশিত চাহিদা = যা দেওয়া হয়েছে + যা কাটা পড়েছে। তাই লোডশেডিং বাড়লে প্রকাশিত চাহিদাও বাড়ে, যদিও কেউ বাড়তি বিদ্যুৎ চায়নি এমনও হতে পারে।',
     demSplitHead: '{from} থেকে {to}: প্রকাশিত চাহিদা বেড়েছে {d}%, কিন্তু বিদ্যুৎ সত্যিই বেশি পৌঁছেছে {v}%',
@@ -439,6 +451,18 @@ const STR = {
     surgeR4: 'Two sources agree. BPDB’s area-wise page and PGCB’s own table — different publishers, different bases — both put summer 2026 growth near 12%.',
     surgeOpenTitle: 'What remains open',
     surgeOpen: 'What the remaining {served}% of genuine delivered growth is made of — new connections, industrial load, or air-conditioning — cannot be separated from the published data, because consumption is not broken down by sector at any useful frequency. Nor is suppressed demand counted here: a factory that stopped asking for power it knew would not arrive appears in no column at all. True demand sits above this line, not below it.',
+    spTitle: 'What if every sub-station peaked at once',
+    spSrc: '{stations} grid sub-stations · {days} days',
+    spNC: 'Sum of their separate peaks',
+    spNCNote: 'each sub-station at its own busiest hour, added up · {max} MW on the highest day',
+    spCO: 'Delivered at one moment',
+    spCONote: 'across the country at the evening peak · {max} MW on the highest day',
+    spHead: 'Latent headroom',
+    spHeadNote: 'more than the grid has ever actually met, if every sub-station reached its own maximum together',
+    spNote: 'Sub-stations never peak together — one is busiest while another is quiet, and that spread is what keeps the grid standing. Both sides count delivered electricity only: a sub-station can register nothing it did not supply, so load-shedding is excluded from each. Across summers the figure is flat — {c0} in {t0}, {c1} in {t1} — so there is no evidence the load is bunching up.',
+    spBandTitle: 'When sub-stations reach their own peak',
+    spBandNote: 'Each sub-station is grouped by the hour it most often peaks, and shown as a share of that group’s total load. An evening peak is the signature of households — lights, fans, air-conditioning. A working-hours peak is industry and offices. The split is the closest the published record comes to saying where demand is coming from.',
+    spEvening: 'Evening (17–22)', spDay: 'Day (09–16)', spNight: 'Night (23–08)',
     demSplitTitle: 'Summer evening demand: how much arrived, how much was cut',
     demSplitNote: '{from} to {to}, matched on the same day range each year. Published demand is what was delivered plus what was shed — so when load-shedding rises, published demand rises with it, even where nobody asked for more electricity.',
     demSplitHead: '{from} to {to}: published demand rose {d}%, but the electricity actually delivered rose {v}%',
@@ -965,17 +989,17 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
       load('reasons'), load('geo/districts'), load('equity'), load('seasonal'),
       load('places'), load('official'), load('cost'), load('demand'),
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
-      load('temperature'), load('forecastplants'),
+      load('temperature'), load('forecastplants'), load('substationpeak'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -2865,6 +2889,7 @@ function renderDemand() {
   // the decade behind those five years
   const a = d.annual;
   renderDemandSurge();
+  renderSubstationPeak();
   renderDemandSplit();
 
   barChart(document.getElementById('dem-decade'),
@@ -3121,6 +3146,51 @@ function renderCauses() {
     });
 }
 
+/* Coincidence of sub-station peaks, and the hour each one falls.
+   Two figures on one scale: what the grid would face if everything peaked at
+   once, against what it actually meets. Both count delivered electricity, so
+   the pair is like for like. */
+function renderSubstationPeak() {
+  const sp = D.substationpeak;
+  if (!sp || !sp.bands || !sp.bands.length) return;
+  document.getElementById('sp-title').textContent = t('spTitle');
+  document.getElementById('sp-src').textContent = t('spSrc')
+    .replace('{stations}', fmt(sp.stations)).replace('{days}', fmt(sp.days));
+
+  const tile = (label, value, unit, note, colour) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value"${colour ? ` style="color:${colour}"` : ''}>${value}<span class="stat-unit">${unit || ''}</span></div>
+      ${note ? `<div class="stat-note">${note}</div>` : ''}
+    </div>`;
+  document.getElementById('sp-tiles').innerHTML =
+    tile(t('spNC'), fmt(sp.non_coincident_median), t('mw'),
+         t('spNCNote').replace('{max}', fmt(sp.non_coincident_max))) +
+    tile(t('spCO'), fmt(sp.coincident_median), t('mw'),
+         t('spCONote').replace('{max}', fmt(sp.coincident_max))) +
+    tile(t('spHead'), '+' + fmt(sp.headroom_pct, 1) + '%', '',
+         t('spHeadNote'), RAMP_SHED[4]);
+
+  const tr = sp.trend || [];
+  const note = document.querySelector('[data-i18n="spNote"]');
+  if (note) note.textContent = tr.length >= 2
+    ? t('spNote').replace('{t0}', fmtYear(tr[0].year)).replace('{c0}', fmt(tr[0].coincidence, 3))
+                 .replace('{t1}', fmtYear(tr[tr.length - 1].year))
+                 .replace('{c1}', fmt(tr[tr.length - 1].coincidence, 3))
+    : t('spNote').replace(/[^.]*\{[^}]*\}[^.]*\./g, '');
+
+  document.getElementById('sp-band-title').textContent = t('spBandTitle');
+  const NAME = { evening: 'spEvening', day: 'spDay', night: 'spNight' };
+  hBars(document.getElementById('sp-bands'),
+    sp.bands.map(b => ({
+      label: t(NAME[b.band]) || b.band, value: b.pct, color: C.supply,
+      note: `${fmt(b.stations)} · ${fmt(b.mw)} ${t('mw')}`,
+    })), {
+      valueLabel: LANG === 'bn' ? 'মোট লোডের ভাগ' : 'share of load',
+      fmtValue: (v) => `${fmt(v, 1)}%`,
+    });
+}
+
 /* Per-station accountability: who declared themselves ready, and who ran.
    A table rather than a chart -- twelve named stations with four attributes
    each is a reading task, not a comparison of magnitudes, and the names are
@@ -3282,7 +3352,7 @@ window.addEventListener('resize', () => {
     renderCauses();
     renderForecast();
     renderForecastPlants();
-      renderFuelMonthly();
+    renderFuelMonthly();
     renderCost();
     renderDemand();
     if (D.selectedArea) renderArea(D.selectedArea);

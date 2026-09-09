@@ -1551,6 +1551,110 @@ FORECAST_MIN_DAYS = 60      # a station needs a season before it is named
 FORECAST_FAIL = 0.02        # produced under 2% of what was declared
 
 
+# ── what the sub-station record says about peak load ─────────────────────────
+#
+# Every grid sub-station reports its own daily maximum and the hour it fell.
+# Two things follow that nothing else in the published record can give.
+#
+# First, sub-stations do not peak together. Summing each one's own maximum
+# gives a non-coincident peak; the system only ever meets the coincident one.
+# The ratio is the coincidence factor, and the gap is the headroom that would
+# be needed if the whole country ever peaked at the same moment.
+#
+# Both sides of that ratio must be the same quantity. A sub-station can only
+# register electricity it actually delivered, so it is compared against
+# coincident SERVED load -- the zone table's demand column already contains
+# the shed portion, and using it would inflate the numerator in exactly the
+# years when shedding is worst.
+#
+# Second, the hour of each sub-station's peak is a signature of what it feeds:
+# evening for households, working hours for industry.
+SUBPEAK_MIN_STATIONS = 150      # a day must cover most of the fleet
+SUBPEAK_MIN_DAYS = 200          # a station must be present for a season
+SUBPEAK_MAX_MW = 1500           # above this is a typed-in error
+
+
+def _peak_band(hour):
+    if 9 <= hour <= 16:
+        return "day"
+    if 17 <= hour <= 22:
+        return "evening"
+    return "night"
+
+
+def build_substation_peak():
+    """Coincidence of sub-station peaks, and when each one falls."""
+    by_day, by_station = defaultdict(dict), defaultdict(list)
+    for f in sorted(ERP_DIR.glob("substations_*.csv")):
+        for row in read_csv(f):
+            v = num(row.get("load_mw"))
+            if v is None or not (0 < v <= SUBPEAK_MAX_MW):
+                continue
+            by_day[row["date"]][row["substation"]] = v
+            t = row.get("time") or ""
+            if len(t) >= 4 and t[:2].isdigit():
+                by_station[row["substation"]].append((row["date"], v, int(t[:2])))
+    if not by_day:
+        return None
+
+    zones = read_json(SITE_DATA / "zones.json", {}) or {}
+    zk = zones.get("zones") or ZONES
+    served = {}
+    for x in zones.get("nldc_evening_peak", []):
+        dem = x.get("total_demand")
+        if not dem:
+            continue
+        shed = sum((x[k][1] or 0) for k in zk if isinstance(x.get(k), list))
+        served[x["date"]] = dem - shed
+
+    pairs = [(d, sum(m.values()), served[d])
+             for d, m in by_day.items()
+             if d in served and len(m) >= SUBPEAK_MIN_STATIONS]
+    if len(pairs) < 100:
+        return None
+    nc = sorted(x[1] for x in pairs)
+    co = sorted(x[2] for x in pairs)
+    cf = sorted(x[2] / x[1] for x in pairs)
+    med_cf = statistics.median(cf)
+
+    # is the coincidence drifting? summer against summer, so the seasonal mix
+    # cannot masquerade as a trend
+    summers = defaultdict(list)
+    for d, n, c in pairs:
+        if d[5:7] in ("06", "07", "08"):
+            summers[d[:4]].append(c / n)
+    trend = [{"year": y, "coincidence": r(statistics.median(v), 3), "days": len(v)}
+             for y, v in sorted(summers.items()) if len(v) >= 40]
+
+    bands = defaultdict(lambda: {"stations": 0, "mw": 0.0})
+    for st_name, recs in by_station.items():
+        if len(recs) < SUBPEAK_MIN_DAYS:
+            continue
+        c = Counter(_peak_band(h) for _, _, h in recs)
+        b = bands[c.most_common(1)[0][0]]
+        b["stations"] += 1
+        b["mw"] += statistics.median(v for _, v, _ in recs)
+    total_mw = sum(b["mw"] for b in bands.values()) or 1
+    band_rows = [{"band": k, "stations": v["stations"], "mw": r(v["mw"]),
+                  "pct": r(100 * v["mw"] / total_mw, 1)}
+                 for k, v in sorted(bands.items(), key=lambda x: -x[1]["mw"])]
+
+    return {
+        "days": len(pairs), "stations": len([s for s, v in by_station.items()
+                                             if len(v) >= SUBPEAK_MIN_DAYS]),
+        "from": min(x[0] for x in pairs), "to": max(x[0] for x in pairs),
+        "non_coincident_median": r(statistics.median(nc)),
+        "non_coincident_max": r(nc[-1]),
+        "coincident_median": r(statistics.median(co)),
+        "coincident_max": r(co[-1]),
+        "coincidence": r(med_cf, 3),
+        "diversity": r(1 / med_cf, 3),
+        "headroom_pct": r(100 * (1 / med_cf - 1), 1),
+        "trend": trend,
+        "bands": band_rows,
+    }
+
+
 def build_forecast_plants(year=None):
     """Per-station forecast availability against what actually ran."""
     fc, ac, rem = defaultdict(dict), defaultdict(dict), defaultdict(dict)
@@ -2652,6 +2756,15 @@ def main():
         print(f"[build]   {c['from']}->{c['to']}: demand {c['rise']:+,.0f} MW "
               f"({c['rise_pct']:+.1f}%), of which weather {c['weather']:+,.0f} MW "
               f"({c['weather_pct']:.1f}%); temperature moved {c['temp_change']:+.2f}C")
+    subpeak = build_substation_peak()
+    if subpeak:
+        write_json(SITE_DATA / "substationpeak.json", subpeak)
+        tr = " -> ".join(f"{x['year']} {x['coincidence']}" for x in subpeak["trend"])
+        print(f"[build] sub-station peaks: non-coincident "
+              f"{subpeak['non_coincident_median']:,.0f} MW against coincident served "
+              f"{subpeak['coincident_median']:,.0f}; coincidence "
+              f"{subpeak['coincidence']} (summer {tr}); "
+              + ", ".join(f"{b['band']} {b['pct']}%" for b in subpeak["bands"]))
     fcplants = build_forecast_plants()
     if fcplants:
         write_json(SITE_DATA / "forecastplants.json", fcplants)
