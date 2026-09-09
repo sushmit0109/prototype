@@ -1681,11 +1681,22 @@ def build_substation_peak():
 # table records which station it would have flowed through. Suppression is
 # real, but it is only measurable in the aggregate — see build_substation_peak.
 #
-# One reading can ruin the record: HaripurSBU shows 1,110 MW on a single day
-# against a 99th percentile of 188, its second-highest reading ever being 197.
-# Where a maximum runs away from its own 99th percentile the percentile is
-# used instead.
-SUPPRESS_SPIKE = 1.6            # max/p99 above this is a typo, not a record
+# A record is a record: the raw maximum stands unless the reading is
+# impossible. An earlier version compared each maximum against the station's
+# own 99th percentile and rejected thirteen of them, which threw away real
+# records -- Kalurghat's 134 MW against a second-highest of 130, Matarbari's
+# 132 against 127. Those are ordinary peaks at stations that are usually
+# quiet, not typos.
+#
+# A reading is discarded only when it fails both halves of a physical test:
+# it stands more than three times clear of the same station's second-highest
+# reading ever, AND it exceeds the largest load any credible station in the
+# country has carried. Exactly one reading in the archive qualifies --
+# HaripurSBU at 1,110 MW on 2026-06-29, which is 5.6x its own second-highest
+# (197 MW) and 3.1x the biggest sub-station in Bangladesh (Kodda, 356 MW).
+# It is replaced by that station's second-highest reading, not by a
+# percentile, so what survives is still an observed peak.
+SUPPRESS_ISOLATION = 3.0        # max must clear its own runner-up by this much
 SUPPRESS_MIN_READINGS = 60
 SUPPRESS_RECENT = 40            # days needed in the recent window
 SUPPRESS_MIN_MW = 5             # below this the percentages are noise
@@ -1726,7 +1737,13 @@ def _ols3(rows):
     return (beta[2], beta[2] / se) if se > 0 else None
 
 
+_PEAK_CACHE = None
+
+
 def _station_daily_peaks():
+    global _PEAK_CACHE
+    if _PEAK_CACHE is not None:
+        return _PEAK_CACHE
     per = defaultdict(dict)
     for f in sorted(ERP_DIR.glob("substations_*.csv")):
         for row in read_csv(f):
@@ -1735,6 +1752,7 @@ def _station_daily_peaks():
                 continue
             d = row["date"]
             per[row["substation"]][d] = max(v, per[row["substation"]].get(d, 0))
+    _PEAK_CACHE = per
     return per
 
 
@@ -1760,21 +1778,15 @@ def build_suppression(area, subs):
     latest = max(d for v in per.values() for d in v)
     cutoff = (date.fromisoformat(latest) - timedelta(days=90)).isoformat()
 
-    stations, spikes = {}, 0
+    rec, rejected = _station_records()
+    stations = {}
     raw_sum = robust_sum = recent_sum = matched_sum = 0.0
     pins = []
-    for name, dd in per.items():
-        if len(dd) < SUPPRESS_MIN_READINGS:
-            continue
-        vals = sorted(dd.values())
-        p99 = vals[int(0.99 * (len(vals) - 1))]
-        record = vals[-1]
-        raw_sum += record
-        if p99 > 0 and record > SUPPRESS_SPIKE * p99:
-            record = p99
-            spikes += 1
+    for name, record in rec.items():
+        dd = per[name]
+        raw_sum += max(dd.values())
         robust_sum += record
-        recent = [v for d, v in dd.items() if d >= cutoff]
+        recent = [min(v, record) for d, v in dd.items() if d >= cutoff]
         if len(recent) < SUPPRESS_RECENT or record < SUPPRESS_MIN_MW:
             continue
         # like for like: only stations that have a recent window count
@@ -1788,11 +1800,11 @@ def build_suppression(area, subs):
     # response test: does a station give way when its zone is short?
     tmax = _zone_daily_tmax()
     shed = {}
-    for d, rec in sorted(area.items()):
-        if rec.get("suspect"):
+    for d, arow in sorted(area.items()):
+        if arow.get("suspect"):
             continue
         for z in ZONES:
-            zz = rec["zones"].get(z) or {}
+            zz = arow["zones"].get(z) or {}
             if zz.get("demand"):
                 shed.setdefault(z, {})[d] = 100 * zz["loadshed"] / zz["demand"]
     zone_of = {s["name"]: s["zone"] for s in subs["substations"] if s.get("zone")}
@@ -1822,7 +1834,8 @@ def build_suppression(area, subs):
                 supp_mw += -c * recent_shed.get(z, 0)
 
     return {
-        "stations": stations, "n": len(stations), "spikes_capped": spikes,
+        "stations": stations, "n": len(stations),
+        "spikes_capped": len(rejected), "rejected": sorted(rejected),
         "window_from": cutoff, "window_to": latest,
         "raw_sum": r(raw_sum), "robust_sum": r(robust_sum),
         "level_gap_pct": r(100 * (1 - recent_sum / matched_sum), 1),
@@ -1832,6 +1845,129 @@ def build_suppression(area, subs):
         "pinned_median_pct": r(statistics.median(pins), 1) if pins else None,
         "pinned_max_pct": r(max(pins), 1) if pins else None,
         "verdict": "not-localisable",
+    }
+
+
+# ── the whole network's demonstrated ceiling, day by day ─────────────────────
+#
+# Every sub-station's own all-time peak is a fact the network has already
+# proved: that much load did flow through that point. Adding them up gives a
+# non-coincident ceiling for the country -- what the grid would have to carry
+# if every sub-station hit its own record on the same day. Nothing is ever
+# asked to do that (see build_substation_peak for the coincidence factor), so
+# the figure is a reference line, not a forecast.
+#
+# What it is good for is a denominator. Each day's non-coincident sum against
+# that ceiling says how much of the network's demonstrated capability was
+# actually used, and the load-shedding of the same day says how much of the
+# shortfall was rationing rather than quiet demand.
+#
+# The shed figure is a coincident national number and the served figure is a
+# non-coincident sum, so the two do not add to a true non-coincident demand.
+# Their sum is a floor for it, and is labelled as one.
+SUM_MIN_COVERAGE = 0.9          # days where too few stations reported are out
+
+
+def _station_records():
+    """Each station's all-time peak, keeping every reading that could be real.
+
+    Returns {name: record} plus the set of names whose top reading failed the
+    physical test above and fell back to their runner-up.
+    """
+    tops = {}
+    for name, dd in _station_daily_peaks().items():
+        if len(dd) < SUPPRESS_MIN_READINGS:
+            continue
+        vals = sorted(dd.values())
+        tops[name] = (vals[-1], vals[-2] if len(vals) > 1 else vals[-1])
+
+    isolated = {n for n, (a, b) in tops.items()
+                if b > 0 and a > SUPPRESS_ISOLATION * b}
+    # the largest load any station not under suspicion has ever carried
+    credible = max((a for n, (a, _) in tops.items() if n not in isolated),
+                   default=0.0)
+    rejected = {n for n in isolated if tops[n][0] > credible}
+    return ({n: (tops[n][1] if n in rejected else tops[n][0]) for n in tops},
+            rejected)
+
+
+def build_theoretical(subs):
+    """The summed peak ceiling, and how much of it each day actually used."""
+    per = _station_daily_peaks()
+    rec, rejected = _station_records()
+    if not rec:
+        return None
+    ceiling = sum(rec.values())
+
+    served, count = defaultdict(float), Counter()
+    for name, record in rec.items():
+        for d, v in per[name].items():
+            served[d] += min(v, record)      # a spike cannot exceed the record
+            count[d] += 1
+    need = SUM_MIN_COVERAGE * len(rec)
+    days = sorted(d for d in served if count[d] >= need)
+    if not days:
+        return None
+
+    shed = {}
+    for row in read_json(SITE_DATA / "daily.json", {}).get("rows", []):
+        if row.get("max_loadshed") is not None:
+            shed[row["date"]] = row["max_loadshed"]
+    days = [d for d in days if d in shed]
+    if not days:
+        return None
+
+    latest = days[-1]
+    busiest = max(days, key=lambda d: served[d])
+    util = [100 * served[d] / ceiling for d in days]
+
+    # the latest day, station by station
+    bands = [(0, 50), (50, 70), (70, 85), (85, 101)]
+    band_rows = [{"lo": lo, "hi": hi, "stations": 0, "record": 0.0, "unused": 0.0}
+                 for lo, hi in bands]
+    zone_of = {x["name"]: x["zone"] for x in (subs or {}).get("substations", [])}
+    zrec, zserved = Counter(), Counter()
+    station_util, reporting_rec, reporting_used = {}, 0.0, 0.0
+    for name, record in rec.items():
+        v = per[name].get(latest)
+        if v is None or record < SUPPRESS_MIN_MW:
+            continue
+        v = min(v, record)
+        pct = 100 * v / record
+        station_util[name] = r(pct, 1)
+        reporting_rec += record
+        reporting_used += v
+        for row, (lo, hi) in zip(band_rows, bands):
+            if lo <= pct < hi:
+                row["stations"] += 1
+                row["record"] += record
+                row["unused"] += record - v
+                break
+        z = zone_of.get(name)
+        if z:
+            zrec[z] += record
+            zserved[z] += v
+
+    return {
+        "ceiling": r(ceiling), "stations": len(rec),
+        "rejected": sorted(rejected),
+        "from": days[0], "to": latest, "days": days,
+        "served": [r(served[d]) for d in days],
+        "shed": [r(shed[d]) for d in days],
+        "median_util": r(statistics.median(util), 1),
+        "latest_util": r(100 * served[latest] / ceiling, 1),
+        "latest_record": r(reporting_rec), "latest_unused": r(reporting_rec - reporting_used),
+        "latest_shed": r(shed[latest]),
+        "busiest": {"date": busiest, "served": r(served[busiest]),
+                    "util": r(100 * served[busiest] / ceiling, 1),
+                    "unused": r(ceiling - served[busiest]),
+                    "shed": r(shed[busiest])},
+        "bands": [{**x, "record": r(x["record"]), "unused": r(x["unused"])}
+                  for x in band_rows],
+        "zones": [{"zone": z, "record": r(zrec[z]), "served": r(zserved[z]),
+                   "util": r(100 * zserved[z] / zrec[z], 1)}
+                  for z in ZONES if zrec[z]],
+        "station_util": station_util,
     }
 
 
@@ -3008,6 +3144,16 @@ def main():
         print(f"[build] plants {len(plants['plants'])} geo={plants['geo_counts']}")
     if subs:
         write_json(SITE_DATA / "substations.json", subs)
+        theo = build_theoretical(subs)
+        if theo:
+            write_json(SITE_DATA / "theoretical.json", theo)
+            b = theo["busiest"]
+            print(f"[build] theoretical ceiling: {theo['ceiling']:,.0f} MW over "
+                  f"{theo['stations']} stations; busiest day {b['date']} used "
+                  f"{b['util']}% ({b['unused']:,.0f} MW unused); median day "
+                  f"{theo['median_util']}%; latest {theo['latest_util']}% with "
+                  f"{theo['latest_unused']:,.0f} MW unused against "
+                  f"{theo['latest_shed']:,.0f} MW shed")
         suppress = build_suppression(area, subs)
         if suppress:
             write_json(SITE_DATA / "suppression.json", suppress)

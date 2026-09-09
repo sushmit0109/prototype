@@ -206,6 +206,24 @@ const STR = {
     supT3: 'নিজের রেকর্ডের ৫%-এর মধ্যে থাকা দিনের হার',
     supT3Note: 'নির্দিষ্ট সিলিং বেঁধে রেশনিং করা হলে উপকেন্দ্রগুলো ওই সীমার গায়ে আটকে থাকত। মধ্যম উপকেন্দ্রের বেলায় তা ঘটে দিনের সামান্য অংশে; সবচেয়ে বেশি আটকে থাকা উপকেন্দ্রেও {max}%।',
     supNote: 'তাহলে ঘাটতিটা মাপা যায় কোথায় — সমষ্টিতে, উপরের সহাবস্থান হিসাবের মধ্য দিয়ে। মানচিত্রে উপকেন্দ্রের বিন্দুর আকার তার সর্বকালীন সর্বোচ্চ লোড, আর রং বলছে আজ সে নিজের ওই রেকর্ডের কত কাছে চলছে; ফ্যাকাশে বিন্দুর মানে এই নয় যে ওই উপকেন্দ্রে চাহিদা চাপা পড়েছে।',
+    thTitle: 'নেটওয়ার্ক যতটা টানতে পারে বলে প্রমাণ দিয়েছে, তার কতটা ব্যবহার হচ্ছে',
+    thSrc: '{n}টি উপকেন্দ্র · {from} – {to}',
+    thCeil: 'প্রমাণিত সর্বোচ্চের যোগফল',
+    thCeilNote: '{n}টি উপকেন্দ্রের প্রত্যেকের নিজস্ব সর্বকালীন সর্বোচ্চ লোড যোগ করলে যা দাঁড়ায়। এই বিদ্যুৎ প্রতিটি বিন্দু দিয়ে সত্যিই একদিন গেছে — কাজেই এটি হিসাব নয়, প্রমাণ।',
+    thUse: 'ব্যবহৃত অংশ',
+    thUseNote: 'সর্বশেষ দিনে। মধ্যম দিনে {med}%, আর সবচেয়ে ব্যস্ত দিনে ({bd}) {bu}%।',
+    thUnused: 'অব্যবহৃত থেকে গেছে',
+    thUnusedNote: 'সর্বশেষ দিনে উপকেন্দ্রগুলোর প্রমাণিত সক্ষমতার এই অংশ ছোঁয়াই হয়নি — একই দিনে লোডশেড হয়েছে {shed} মেগাওয়াট।',
+    thCeilShort: 'প্রমাণিত সর্বোচ্চ',
+    thServed: 'যতটা সরবরাহ হয়েছে (উপকেন্দ্রের যোগফল)',
+    thShed: 'যতটা লোডশেড হয়েছে',
+    thFloor: 'দুইয়ে মিলে (চাহিদার সর্বনিম্ন সীমা)',
+    thNote: 'নিচের রঙিন অংশ ওই দিনে উপকেন্দ্রগুলোর সর্বোচ্চ লোডের যোগফল, তার উপরের অংশ একই দিনের লোডশেড। ডটেড রেখাটি প্রমাণিত সর্বোচ্চের যোগফল। উপকেন্দ্রগুলো কখনো একসঙ্গে সর্বোচ্চে ওঠে না, তাই রেখা ছোঁয়ার কথাও নয় — এটি মাপকাঠি, লক্ষ্য নয়। লোডশেডের সংখ্যাটি সারা দেশের একই মুহূর্তের, আর সরবরাহের সংখ্যাটি আলাদা আলাদা সময়ের সর্বোচ্চের যোগফল; কাজেই দুইয়ের যোগফল প্রকৃত চাহিদার সর্বনিম্ন সীমা, সঠিক পরিমাণ নয়।',
+    thZoneTitle: 'অঞ্চলভেদে কতটা ব্যবহার হয়েছে — সর্বশেষ দিন',
+    thBandTitle: 'উপকেন্দ্রগুলো নিজের রেকর্ডের কত কাছে ছিল — সর্বশেষ দিন',
+    thBandStations: 'উপকেন্দ্র',
+    thBandUnused: 'অব্যবহৃত',
+    thBandNote: 'প্রতিটি উপকেন্দ্রকে সর্বশেষ দিনের লোড তার নিজের সর্বকালীন সর্বোচ্চের কত শতাংশ, সেই অনুযায়ী ভাগ করা হয়েছে। নিচের ধাপে থাকা মানেই সেখানে চাহিদা চাপা পড়েছে তা নয় — উপরের পরীক্ষাগুলো দেখাচ্ছে, লোডশেডিং হয় এই উপকেন্দ্রের নিচের ফিডারে, তাই কোন উপকেন্দ্রের হিসাবে তা ওঠে না।',
     spBandTitle: 'কোন সময়ে উপকেন্দ্রগুলো সর্বোচ্চে ওঠে',
     spBandNote: 'প্রতিটি উপকেন্দ্রকে তার নিজের সবচেয়ে ঘন ঘন সর্বোচ্চের সময় অনুযায়ী ভাগ করা হয়েছে, আর দেখানো হয়েছে সেই দলের মোট লোডের ভাগ হিসেবে। সন্ধ্যায় সর্বোচ্চে ওঠা মানে মূলত ঘরবাড়ি — বাতি, ফ্যান, এসি। দিনে ওঠা মানে কলকারখানা ও অফিস। ভাগটাই বলে দেয় চাহিদা কোথা থেকে আসছে।',
     spEvening: 'সন্ধ্যা (১৭–২২)', spDay: 'দিন (০৯–১৬)', spNight: 'রাত (২৩–০৮)',
@@ -490,6 +508,24 @@ const STR = {
     supT3: 'Days spent within 5% of its own record',
     supT3Note: 'Rationing against a fixed ceiling would clip the top of the distribution and hold stations against the limit. The median station does so on a sliver of days; even the most pinned station reaches only {max}%.',
     supNote: 'Where the shortfall can be measured is in the aggregate, through the coincidence figures above. On the map, a sub-station dot is sized by the most it has ever carried and shaded by how close it is running to that record today; a pale dot is not evidence that demand is being suppressed there.',
+    thTitle: 'How much of what the network has proved it can carry gets used',
+    thSrc: '{n} sub-stations · {from} – {to}',
+    thCeil: 'Sum of demonstrated peaks',
+    thCeilNote: 'Every one of the {n} sub-stations’ own all-time peak load, added up. This electricity really did flow through each of those points on some day, so the figure is evidence rather than an estimate.',
+    thUse: 'Share used',
+    thUseNote: 'On the latest day. The median day reaches {med}%, and the busiest day on record ({bd}) reached {bu}%.',
+    thUnused: 'Left untouched',
+    thUnusedNote: 'Proven capability the network did not draw on at all on the latest day — the same day shed {shed} MW.',
+    thCeilShort: 'Demonstrated peak',
+    thServed: 'Supplied (sum of sub-station peaks)',
+    thShed: 'Shed',
+    thFloor: 'Both together (floor under demand)',
+    thNote: 'The lower band is the sum of every sub-station’s peak that day; the band above it is the same day’s load-shedding. The dashed line is the sum of the demonstrated peaks. Sub-stations never peak together, so the line is not meant to be reached — it is a yardstick, not a target. The shedding figure is a single national moment while the supplied figure sums peaks that happen at different hours, so the two together are a floor under true demand, not a measurement of it.',
+    thZoneTitle: 'Share used by zone — latest day',
+    thBandTitle: 'How close sub-stations ran to their own records — latest day',
+    thBandStations: 'sub-stations',
+    thBandUnused: 'unused',
+    thBandNote: 'Each sub-station is placed by what its latest-day load came to as a share of its own all-time peak. Sitting in a low band is not evidence that demand is being suppressed there: as the tests above show, load-shedding happens on the feeders below these sub-stations and so appears in no sub-station’s record.',
     spBandTitle: 'When sub-stations reach their own peak',
     spBandNote: 'Each sub-station is grouped by the hour it most often peaks, and shown as a share of that group’s total load. An evening peak is the signature of households — lights, fans, air-conditioning. A working-hours peak is industry and offices. The split is the closest the published record comes to saying where demand is coming from.',
     spEvening: 'Evening (17–22)', spDay: 'Day (09–16)', spNight: 'Night (23–08)',
@@ -768,7 +804,7 @@ function stackedArea(host, rows, series, opts = {}) {
   const { svg, padL, padT, iw, ih } = f;
 
   const totals = rows.map(r => series.reduce((a, s) => a + (r[s.key] || 0), 0));
-  const ymax = Math.max(...totals, 1) * 1.06;
+  const ymax = Math.max(...totals, opts.ref ? opts.ref.value : 0, 1) * 1.06;
   const y = yAxis(f, 0, ymax, opts.yfmt);
   const x = (i) => padL + (rows.length === 1 ? iw / 2 : (i / (rows.length - 1)) * iw);
 
@@ -785,6 +821,17 @@ function stackedArea(host, rows, series, opts = {}) {
     const dn = b.lower.map((v, i) => `${x(i)},${y(v)}`).reverse().join(' ');
     el('polygon', { points: `${up} ${dn}`, fill: b.s.color, 'fill-opacity': 0.92,
                     stroke: C.surface, 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+  }
+
+  // An optional ceiling the bands are read against — drawn over the fills so
+  // it stays visible where the stack runs close to it.
+  if (opts.ref) {
+    el('line', { x1: padL, x2: padL + iw, y1: y(opts.ref.value), y2: y(opts.ref.value),
+                 stroke: opts.ref.color || C.muted, 'stroke-width': 2,
+                 'stroke-dasharray': '6 4' }, svg);
+    const rl = el('text', { x: padL + iw, y: y(opts.ref.value) - 6, 'text-anchor': 'end',
+                            class: 'ref-label', fill: opts.ref.color || C.muted }, svg);
+    rl.textContent = opts.ref.label;
   }
 
   // x labels — a handful, never every point
@@ -1022,7 +1069,7 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
@@ -1030,10 +1077,10 @@ async function loadAll() {
       load('places'), load('official'), load('cost'), load('demand'),
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
       load('temperature'), load('forecastplants'), load('substationpeak'),
-      load('suppression'),
+      load('suppression'), load('theoretical'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -2067,12 +2114,14 @@ function renderMap() {
   // not proof that load is being suppressed there, and renderSuppression
   // explains why the two cannot be equated.
   const REC = (D.suppression && D.suppression.stations) || {};
+  const UTIL = (D.theoretical && D.theoretical.station_util) || {};
   if (D.subs && D.subs.substations) {
     const g = L.layerGroup();
     D.subs.substations.forEach(s => {
       if (s.lat === null || s.lon === null) return;
       const rec = REC[s.name] || null;
-      const share = rec && rec > 0 && s.load_mw ? s.load_mw / rec : null;
+      const share = UTIL[s.name] !== undefined ? UTIL[s.name] / 100
+                  : (rec && rec > 0 && s.load_mw ? s.load_mw / rec : null);
       const size = rec || s.load_mw || 1;
       const m = L.circleMarker([s.lat, s.lon], {
         radius: Math.max(3, Math.min(11, Math.sqrt(size) * 0.55)),
@@ -2096,7 +2145,18 @@ function renderMap() {
   if (LAYERS.districts) overlays[t('layerDistricts')] = LAYERS.districts;
   if (LAYERS.plants) overlays[t('layerPlants')] = LAYERS.plants;
   if (LAYERS.subs) overlays[t('layerSubs')] = LAYERS.subs;
+  // A metric switch rebuilds every layer, which used to drop whatever the
+  // reader had turned on -- so the sub-station dots silently vanished when
+  // they changed the map from load-shedding to demand. Restore the choice.
+  D.mapOverlays = D.mapOverlays || { [t('layerPlants')]: true };
+  Object.entries(overlays).forEach(([name, layer]) => {
+    if (D.mapOverlays[name] && !MAP.hasLayer(layer)) MAP.addLayer(layer);
+    if (D.mapOverlays[name] === false && MAP.hasLayer(layer)) MAP.removeLayer(layer);
+  });
   LAYER_CTRL = L.control.layers(null, overlays, { collapsed: false }).addTo(MAP);
+  MAP.off('overlayadd overlayremove');
+  MAP.on('overlayadd', (e) => { D.mapOverlays[e.name] = true; });
+  MAP.on('overlayremove', (e) => { D.mapOverlays[e.name] = false; });
 
   document.getElementById('map-ramp').innerHTML =
     `<span>${t('low')}</span><span class="ramp-bar">` +
@@ -2357,6 +2417,15 @@ function renderArea(entry) {
     ownTile += tile(t('ownSubLoad'), fmt(subRec.load_mw), t('mw'),
       (subRec.hour !== null && subRec.hour !== undefined
         ? `${t('at')} ${fmtHour(subRec.hour)} · ` : '') + fmtDate(D.subs.date));
+    // The same pair the map popup carries, so a reader who searched for their
+    // own area rather than clicking a dot sees it too.
+    const own = (D.suppression && D.suppression.stations || {})[subRec.name];
+    const ownUtil = (D.theoretical && D.theoretical.station_util || {})[subRec.name];
+    if (own) {
+      ownTile += tile(t('ownRecord'), fmt(own), t('mw'),
+        ownUtil === undefined ? ''
+          : t('ownShare').replace('{pct}', fmt(ownUtil, 0)));
+    }
   }
   const plantRec = sameName((D.plants && D.plants.plants) || []);
   if (plantRec) {
@@ -2404,7 +2473,10 @@ function renderArea(entry) {
         <div>
           <div class="chart-title">${t('areaSubs')}</div>
           ${subs.length ? `<ul class="mini-list">${subs.map(s => `
-            <li><span>${s.name}</span><span class="n">${fmt(s.load_mw)} ${t('mw')}</span></li>`
+            <li><span>${s.name}</span><span class="n">${fmt(s.load_mw)} ${t('mw')}${
+              (D.suppression && D.suppression.stations || {})[s.name]
+                ? ` <span style="color:var(--muted)">/ ${fmt((D.suppression.stations)[s.name])}</span>` : ''
+            }</span></li>`
           ).join('')}</ul>` : `<p class="chart-note">${t('areaNone')}</p>`}
         </div>
       </div>
@@ -2945,6 +3017,7 @@ function renderDemand() {
   renderDemandSurge();
   renderSubstationPeak();
   renderSuppression();
+  renderTheoretical();
   renderDemandSplit();
 
   barChart(document.getElementById('dem-decade'),
@@ -3280,6 +3353,74 @@ function renderSuppression() {
                        .replace('{up}', fmt(rs.tested - rs.negative))) +
     tile(t('supT3'), fmt(sp.pinned_median_pct, 1) + '%', '',
          t('supT3Note').replace('{max}', fmt(sp.pinned_max_pct, 1)));
+}
+
+/* The network's demonstrated ceiling, and how much of it gets used.
+
+   Every sub-station's own record is load that has already flowed through that
+   point, so the sum of those records is a floor under what the country can
+   physically absorb. Nothing asks the whole fleet to peak on one day, so the
+   line is a reference, not a target -- but it gives each day a denominator,
+   and the shedding of the same day says how much of the gap was rationed
+   rather than simply quiet. */
+function renderTheoretical() {
+  const th = D.theoretical;
+  if (!th || !th.days || !th.days.length) return;
+  document.getElementById('th-title').textContent = t('thTitle');
+  document.getElementById('th-src').textContent = t('thSrc')
+    .replace('{n}', fmt(th.stations))
+    .replace('{from}', fmtDate(th.from)).replace('{to}', fmtDate(th.to));
+
+  const tile = (label, value, unit, note, colour) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value"${colour ? ` style="color:${colour}"` : ''}>${value}<span class="stat-unit">${unit || ''}</span></div>
+      <div class="stat-note">${note}</div>
+    </div>`;
+  document.getElementById('th-tiles').innerHTML =
+    tile(t('thCeil'), fmt(th.ceiling), t('mw'),
+         t('thCeilNote').replace('{n}', fmt(th.stations))) +
+    tile(t('thUse'), fmt(th.latest_util, 1) + '%', '',
+         t('thUseNote').replace('{med}', fmt(th.median_util, 1))
+           .replace('{bd}', fmtDate(th.busiest.date))
+           .replace('{bu}', fmt(th.busiest.util, 1))) +
+    tile(t('thUnused'), fmt(th.latest_unused), t('mw'),
+         t('thUnusedNote').replace('{shed}', fmt(th.latest_shed)), RAMP_REC[3]);
+
+  // Daily series. 400+ days of two bands: served, then the shedding of the
+  // same day stacked on top, read against the ceiling.
+  const rows = th.days.map((d, i) => ({
+    x: d, served: th.served[i], shed: th.shed[i],
+  }));
+  stackedArea(document.getElementById('th-chart'), rows, [
+    { key: 'served', label: t('thServed'), color: C.supply },
+    { key: 'shed', label: t('thShed'), color: RAMP_SHED[3] },
+  ], {
+    height: 300,
+    ref: { value: th.ceiling, color: RAMP_REC[4],
+           label: `${t('thCeilShort')} ${fmt(th.ceiling)} ${t('mw')}` },
+    xlabel: (r) => fmtDate(r.x, { month: 'short' }),
+    xtip: (r) => fmtDate(r.x),
+    totalLabel: t('thFloor'),
+  });
+
+  document.getElementById('th-zone-title').textContent = t('thZoneTitle');
+  hBars(document.getElementById('th-zones'), (th.zones || [])
+    .slice().sort((a, b) => b.util - a.util).map(z => ({
+      label: zoneName(z.zone), value: z.util, color: C.supply,
+      note: `${fmt(z.served)} / ${fmt(z.record)} ${t('mw')}`,
+    })), {
+      valueLabel: t('thUse'), fmtValue: (v) => `${fmt(v, 1)}%`,
+    });
+
+  document.getElementById('th-band-title').textContent = t('thBandTitle');
+  hBars(document.getElementById('th-bands'), (th.bands || []).map(b => ({
+    label: `${fmt(b.lo)}–${fmt(Math.min(b.hi, 100))}%`,
+    value: b.stations, color: RAMP_REC[3],
+    note: `${fmt(b.unused)} ${t('mw')} ${t('thBandUnused')}`,
+  })), {
+    valueLabel: t('thBandStations'), fmtValue: (v) => fmt(v),
+  });
 }
 
 /* Per-station accountability: who declared themselves ready, and who ran.

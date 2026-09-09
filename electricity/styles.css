@@ -386,3 +386,6 @@ svg.chart .mark-label { fill: var(--muted); font-size: 10px;
   font-weight: 600; color: #2a78d6; }
 .sparkgrid .spark-foot { display: flex; justify-content: space-between;
   font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+/* reference line label on the demonstrated-ceiling chart */
+.ref-label { font-size: 11px; font-weight: 600; }
