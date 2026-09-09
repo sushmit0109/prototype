@@ -82,6 +82,10 @@ const STR = {
     mapSub: 'রং যত গাঢ়, সেই অঞ্চলে লোডশেডিং তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
     mapSubShed: 'রং যত গাঢ়, সেই অঞ্চলে লোডশেডিং তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
     mapSubDemand: 'রং যত গাঢ়, সেই অঞ্চলে চাহিদা তত বেশি। বিন্দুগুলো বিদ্যুৎকেন্দ্র আর গ্রিড সাবস্টেশন — আকার ক্ষমতা বা লোড অনুযায়ী।',
+    mapTrend: 'লোড বাড়ছে না কমছে',
+    mapTrendNone: 'এই জেলায় কোনো উপকেন্দ্রের তুলনাযোগ্য তথ্য নেই',
+    mapTrendStations: '{n}টি উপকেন্দ্র মিলিয়ে',
+    mapSubTrend: 'সবুজ জেলায় গত মৌসুমের তুলনায় বেশি বিদ্যুৎ সরবরাহ হচ্ছে, কমলা জেলায় কম — মে–আগস্ট মৌসুমের তুলনা, মেগাওয়াটে। ঢাকার বৃদ্ধি পরের জেলার প্রায় দশ গুণ, তাই রং সরলরৈখিক নয় — জেলাগুলোকে ক্রম অনুসারে সাজিয়ে রং দেওয়া হয়েছে, নইলে বাকি সব একই রকম ফ্যাকাশে দেখাত। ফিকে ধূসর মানে ওই জেলার কোনো উপকেন্দ্র মেলানো যায়নি।',
     mapSubHeat: 'রং যত গাঢ়, গরমে সেই অঞ্চলের চাহিদা তত বেশি বাড়ে — নিজের গড় সর্বোচ্চ চাহিদার শতাংশ হিসেবে। শুষ্ক উত্তর-পশ্চিম সবচেয়ে বেশি সাড়া দেয়।',
     mapLoadshedding: 'লোডশেডিং', mapDemand: 'চাহিদা',
     mapNote: 'একটি জেলার রং আসলে সেই জেলা যে গ্রিড অঞ্চলে পড়ে তার হিসাব — অঞ্চলের ভেতরে জেলা ধরে আলাদা হিসাব প্রকাশ করা হয় না। কেন্দ্র ও সাবস্টেশনের অবস্থান ওপেনস্ট্রিটম্যাপ থেকে নাম মিলিয়ে বসানো; কিছু ক্ষেত্রে তা কাছের শহর পর্যন্তই ঠিক।',
@@ -404,6 +408,10 @@ const STR = {
     mapSub: 'The darker the shade, the more load-shedding in that zone. Dots are power stations and grid substations, sized by capacity or load.',
     mapSubShed: 'The darker the shade, the more load-shedding in that zone. Dots are power stations and grid substations, sized by capacity or load.',
     mapSubDemand: 'The darker the shade, the more demand in that zone. Dots are power stations and grid substations, sized by capacity or load.',
+    mapTrend: 'Load rising or falling',
+    mapTrendNone: 'No sub-station in this district could be matched',
+    mapTrendStations: 'across {n} sub-stations',
+    mapSubTrend: 'Teal districts supplied more electricity than last season, orange ones less — May–August against May–August, in megawatts. Dhaka’s increase is about ten times the next district’s, so the shading ranks districts rather than scaling linearly — otherwise everywhere else would read as the same pale shade. Pale grey means no sub-station could be matched to that district.',
     mapSubHeat: 'The darker the shade, the more that zone’s demand climbs on a hot day, as a share of its own average peak. The dry north-west responds hardest.',
     mapLoadshedding: 'Load-shedding', mapDemand: 'Demand',
     mapNote: 'A district takes the colour of the grid zone it sits in — no district-level breakdown is published inside a zone. Plant and substation positions come from matching names against OpenStreetMap; some are only accurate to the nearest town.',
@@ -758,6 +766,11 @@ const RAMP_HEAT = ['#fdf0d5', '#f7d78a', '#e8a838', '#c97c15', '#8a5208'];
 // Sub-station dots: how close a station is running to its own record. Kept
 // off the orange and blue ramps so it never reads as shedding or demand.
 const RAMP_REC  = ['#f2effa', '#d8cdec', '#b4a1d9', '#8a6cc0', '#5b3a94'];
+// Change is a signed quantity, so it needs a diverging scale with a neutral
+// middle. Orange against teal rather than the usual red against green, which
+// is the one pair a red-green colourblind reader cannot separate.
+const RAMP_TREND = ['#8c3009', '#c85a25', '#ef9a63', '#f8d5bd', '#ece9e2',
+                    '#c0e3d6', '#7cc9b1', '#2f9e7d', '#0d6349'];
 // Validated pair for the two-line decomposition: OKLab dE 24 normal, 23 protan.
 const C_NORM = '#1baf7a';
 
@@ -2073,6 +2086,32 @@ function makeBinner(values, ramp) {
   };
 }
 
+/** Signed rank bins for a diverging scale. Dhaka's +202 MW is twenty times
+ *  the typical district, so a linear scale would leave every other district
+ *  in the neutral middle; ranking each side separately uses the whole ramp
+ *  while keeping zero at the centre. */
+function makeTrendBinner(values, ramp) {
+  const mid = (ramp.length - 1) / 2;
+  const pos = values.filter(v => v > 0).sort((a, b) => a - b);
+  const neg = values.filter(v => v < 0).map(Math.abs).sort((a, b) => a - b);
+  const step = (v, arr) => (arr.length < 2 ? mid
+    : (arr.filter(n => n < v).length / (arr.length - 1)) * mid);
+  return (v) => {
+    if (v === null || v === undefined) return '#e9e8e3';
+    if (v === 0) return ramp[mid];
+    const i = v > 0 ? mid + Math.ceil(step(v, pos)) : mid - Math.ceil(step(-v, neg));
+    return ramp[Math.max(0, Math.min(ramp.length - 1, Math.round(i)))];
+  };
+}
+
+/** Net change in supplied load per district, from the season comparison. */
+function districtValues() {
+  const out = {};
+  ((D.stationtrend && D.stationtrend.districts) || [])
+    .forEach(d => { out[d.district] = d.delta; });
+  return out;
+}
+
 function renderMap() {
   const holder = document.getElementById('map-el');
   if (!MAP) {
@@ -2097,31 +2136,47 @@ function renderMap() {
   if (LAYER_CTRL) { MAP.removeControl(LAYER_CTRL); LAYER_CTRL = null; }
 
   const metric = D.mapMetric || 'loadshed';
+  // Trend is the one metric published per district rather than per zone: it
+  // comes from each sub-station's own season comparison, so neighbouring
+  // districts inside one zone can move in opposite directions.
+  const byDistrict = metric === 'trend';
   const ramp = metric === 'loadshed' ? RAMP_SHED
-             : metric === 'heat' ? RAMP_HEAT : RAMP_DEM;
-  const vals = zoneValues(metric);
+             : metric === 'heat' ? RAMP_HEAT
+             : metric === 'trend' ? RAMP_TREND : RAMP_DEM;
+  const vals = byDistrict ? districtValues() : zoneValues(metric);
   // Heat response is a percentage of each zone's own peak, not megawatts;
   // the legend and the popups have to say which.
   const unit = metric === 'heat' ? '%' : t('mw');
   const label = metric === 'loadshed' ? t('loadshedding')
-              : metric === 'heat' ? t('mapHeat') : t('demand');
+              : metric === 'heat' ? t('mapHeat')
+              : metric === 'trend' ? t('mapTrend') : t('demand');
   const digits = metric === 'heat' ? 1 : 0;
   const max = Math.max(...Object.values(vals).filter(v => v !== null), 1);
-  const binner = makeBinner(Object.values(vals), ramp);
+  const trendMin = Math.min(...Object.values(vals).filter(v => v !== null), 0);
+  const binner = byDistrict ? makeTrendBinner(Object.values(vals), ramp)
+                            : makeBinner(Object.values(vals), ramp);
+  const dtrend = (D.stationtrend && D.stationtrend.districts) || [];
 
   if (D.districts) {
     LAYERS.districts = L.geoJSON(D.districts, {
       style: (feat) => ({
-        fillColor: binner(vals[feat.properties.zone]),
+        fillColor: binner(vals[byDistrict ? feat.properties.name_en
+                                          : feat.properties.zone]),
         fillOpacity: 0.8, color: '#ffffff', weight: 1,
       }),
       onEachFeature: (feat, layer) => {
         const p = feat.properties;
         const name = LANG === 'bn' && p.name_bn ? p.name_bn : p.name_en;
-        const v = vals[p.zone];
+        const v = vals[byDistrict ? p.name_en : p.zone];
+        const row = byDistrict ? dtrend.find(d => d.district === p.name_en) : null;
         layer.bindPopup(
           `<b>${name}</b><br>${t('zone')}: ${zoneName(p.zone)}<br>` +
-          `${label}: <b>${fmt(v, digits)}</b> ${unit}`);
+          (byDistrict && !row
+            ? `<span style="color:#74757e">${t('mapTrendNone')}</span>`
+            : `${label}: <b>${v > 0 && byDistrict ? '+' : ''}${fmt(v, digits)}</b> ${unit}` +
+              (row ? `<br>${fmt(row.a, 0)} → ${fmt(row.b, 0)} ${t('mw')}` +
+                     `<br><span style="color:#74757e;font-size:.9em">${
+                       t('mapTrendStations').replace('{n}', fmt(row.stations))}</span>` : '')));
         layer.on('mouseover', () => layer.setStyle({ weight: 2.5, color: '#2a5fd6' }));
         layer.on('mouseout', () => layer.setStyle({ weight: 1, color: '#ffffff' }));
       },
@@ -2203,10 +2258,13 @@ function renderMap() {
   MAP.on('overlayadd', (e) => { D.mapOverlays[e.name] = true; });
   MAP.on('overlayremove', (e) => { D.mapOverlays[e.name] = false; });
 
-  document.getElementById('map-ramp').innerHTML =
-    `<span>${t('low')}</span><span class="ramp-bar">` +
-    ramp.map(c => `<i style="background:${c}"></i>`).join('') +
-    `</span><span>${t('high')} (${fmt(max, digits)} ${unit})</span>`;
+  document.getElementById('map-ramp').innerHTML = byDistrict
+    ? `<span>${fmt(trendMin, 0)} ${unit}</span><span class="ramp-bar">` +
+      ramp.map(c => `<i style="background:${c}"></i>`).join('') +
+      `</span><span>+${fmt(max, 0)} ${unit}</span>`
+    : `<span>${t('low')}</span><span class="ramp-bar">` +
+      ramp.map(c => `<i style="background:${c}"></i>`).join('') +
+      `</span><span>${t('high')} (${fmt(max, digits)} ${unit})</span>`;
   const subRamp = document.getElementById('map-sub-ramp');
   if (subRamp) subRamp.innerHTML = Object.keys(REC).length
     ? `<span class="ramp">${t('mapSubRamp')} <span class="ramp-bar">` +
@@ -2215,7 +2273,8 @@ function renderMap() {
   document.querySelector('[data-i18n="mapNote"]').textContent = t('mapNote');
   const sub = document.querySelector('#map [data-i18n="mapSub"]');
   if (sub) sub.textContent = t(metric === 'loadshed' ? 'mapSubShed'
-                              : metric === 'heat' ? 'mapSubHeat' : 'mapSubDemand');
+                              : metric === 'heat' ? 'mapSubHeat'
+                              : metric === 'trend' ? 'mapSubTrend' : 'mapSubDemand');
 }
 
 function renderMapSeg() {
@@ -2223,6 +2282,7 @@ function renderMapSeg() {
   D.mapMetric = D.mapMetric || 'loadshed';
   const metrics = [['loadshed', 'mapLoadshedding'], ['demand', 'mapDemand']];
   if (D.temperature && (D.temperature.zones || []).length) metrics.push(['heat', 'mapHeat']);
+  if (D.stationtrend && (D.stationtrend.districts || []).length) metrics.push(['trend', 'mapTrend']);
   seg.innerHTML = metrics.map(([k, lbl]) =>
     `<button type="button" data-metric="${k}" aria-pressed="${D.mapMetric === k}">${t(lbl)}</button>`).join('');
   seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {

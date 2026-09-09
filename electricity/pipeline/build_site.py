@@ -490,6 +490,33 @@ CURATED = {
     "anwara": (22.190, 91.900), "patenga": (22.240, 91.800),
     "keraniganj": (23.700, 90.360), "amnura": (24.650, 88.300),
     "katakhali": (24.350, 88.680), "gazipur": (23.999, 90.421),
+
+    # Towns and city neighbourhoods that OpenStreetMap did not match, added so
+    # the trend map can place them in a district. Positions are the locality,
+    # not the switchyard.
+    "patnitala": (25.050, 88.750), "juldah": (22.238, 91.800),
+    "rahanpur": (24.820, 88.320), "bakulia": (22.340, 91.850),
+    "bangabhaban": (23.710, 90.420), "kamrangirchar": (23.710, 90.370),
+    "kazla": (24.370, 88.630), "keranigonj": (23.700, 90.360),
+    "baroaulia": (22.630, 91.660), "khagrachori": (23.120, 91.980),
+    "ruppur": (24.060, 89.050), "santhia": (24.100, 89.530),
+    "satmasjid": (23.750, 90.370), "shitalakhya": (23.650, 90.520),
+    "sholosohor": (22.360, 91.830), "shomvuganj": (24.770, 90.440),
+    "chapai": (24.600, 88.280), "maijdee": (22.870, 91.100),
+    "sreemongol": (24.310, 91.730), "srinagar": (23.500, 90.280),
+    "mirsorai": (22.780, 91.570), "taraganj": (25.800, 89.100),
+    "ullahpara": (24.300, 89.600), "ullon": (23.760, 90.420),
+    "zigatola": (23.740, 90.370), "narshingdi": (23.920, 90.720),
+    "gollamari": (22.800, 89.530), "netrakona": (24.880, 90.730),
+    "halishahar": (22.320, 91.770), "hatirjheel": (23.750, 90.400),
+    "borhanuddin": (22.500, 90.720), "bhulta": (23.790, 90.530),
+    "coxsbazar": (21.440, 91.970), "bashundhara": (23.820, 90.430),
+
+    # Large industrial consumers that take supply directly. Placed at the
+    # company's known works, which is the only location the name gives.
+    "aksml": (22.550, 91.720), "ksrm": (22.420, 91.790),
+    "rahim": (22.400, 91.800), "rings": (22.360, 91.860),
+    "shah": (23.550, 90.530), "cement": (23.550, 90.510),
 }
 
 # Zone fallback centroids, used only when nothing else matches.
