@@ -191,6 +191,21 @@ const STR = {
     spHead: 'বাড়তি চাপের সম্ভাবনা',
     spHeadNote: 'সব উপকেন্দ্র যদি একই মুহূর্তে নিজের সর্বোচ্চে উঠত, গ্রিডকে আজ পর্যন্ত দেখা সর্বোচ্চের চেয়ে এতটা বেশি সামলাতে হতো',
     spNote: 'উপকেন্দ্র কখনো একসঙ্গে সর্বোচ্চে ওঠে না — একটির ব্যস্ততম সময় আরেকটির শান্ত সময়। এই বিচ্ছিন্নতাই গ্রিডকে বাঁচিয়ে রাখে। দুই দিকেই “যতটা সরবরাহ হয়েছে” ধরা হয়েছে: উপকেন্দ্র কেবল যা সত্যিই দিয়েছে তা-ই নথিভুক্ত করতে পারে, তাই লোডশেডিং বাদ দিয়ে তুলনা। গ্রীষ্মে সংখ্যাটি স্থির — {t0} সালে {c0}, {t1} সালে {c1} — অর্থাৎ চাপ একমুখী হয়ে যাচ্ছে, এমন প্রমাণ নেই।',
+    ownRecord: 'এই উপকেন্দ্রের সর্বকালীন সর্বোচ্চ',
+    ownShare: 'রেকর্ডের {pct}%',
+    mapSubRamp: 'উপকেন্দ্রের বিন্দু — আজ নিজের সর্বকালীন সর্বোচ্চের কত কাছে:',
+    mapSubRampHi: 'রেকর্ড ছুঁয়েছে',
+    supTitle: 'চাপা পড়া চাহিদা কি উপকেন্দ্র ধরে ধরে চিহ্নিত করা যায়?',
+    supSrc: '{n}টি উপকেন্দ্র · সাম্প্রতিক জানালা {from} – {to}',
+    supHead: 'না — এই তথ্যে ধরা পড়ে না, আর কেন পড়ে না সেটাই একটা ফল।',
+    supSub: 'লোডশেডিং করা হয় বিতরণ সংস্থার ১১ কেভি ফিডারে — অর্থাৎ এই সঞ্চালন উপকেন্দ্রগুলোর নিচে — এবং ফিডার ঘুরিয়ে ঘুরিয়ে। ফলে উপকেন্দ্র নিজের অনুমোদিত লোডের কাছাকাছিই চলতে থাকে, বন্ধ অংশটা নিচে সরতে থাকে। যে বিদ্যুৎ কখনো দেওয়া হয়নি তা কোনো উপকেন্দ্রের হিসাবেই ওঠে না, আর কোন উপকেন্দ্র দিয়ে সেটি যেত এই তালিকা তা বলতে পারে না। নিচের তিনটি পরীক্ষার প্রতিটিরই “হ্যাঁ” হওয়ার সুযোগ ছিল।',
+    supT1: 'বহরের সাম্প্রতিক সর্বোচ্চ বনাম নিজেদের রেকর্ড',
+    supT1Note: 'প্রতিটি উপকেন্দ্রের নিজস্ব সর্বকালীন সর্বোচ্চের যোগফল {rec} মেগাওয়াট; গত ৯০ দিনে তারা মিলে উঠেছে {now} মেগাওয়াট পর্যন্ত। চাহিদা যদি সত্যিই নেটওয়ার্ক থেকে সরে যেত, ব্যবধান এর চেয়ে অনেক বড় হতো।',
+    supT2: 'অঞ্চলে শেডিং বাড়লে যেসব উপকেন্দ্রের লোড কমে',
+    supT2Note: 'অঞ্চলের তাপমাত্রা স্থির ধরে প্রতিটি উপকেন্দ্রের দৈনিক সর্বোচ্চকে তার অঞ্চলের শেডিং হারের বিপরীতে বসানো হয়েছে। পরিসংখ্যানগতভাবে অর্থবহ পতন সব মিলিয়ে {mw} মেগাওয়াট, অথচ বাস্তবে শেড হচ্ছে হাজার হাজার মেগাওয়াট। {up}টি উপকেন্দ্র উল্টো বেড়ে যায়।',
+    supT3: 'নিজের রেকর্ডের ৫%-এর মধ্যে থাকা দিনের হার',
+    supT3Note: 'নির্দিষ্ট সিলিং বেঁধে রেশনিং করা হলে উপকেন্দ্রগুলো ওই সীমার গায়ে আটকে থাকত। মধ্যম উপকেন্দ্রের বেলায় তা ঘটে দিনের সামান্য অংশে; সবচেয়ে বেশি আটকে থাকা উপকেন্দ্রেও {max}%।',
+    supNote: 'তাহলে ঘাটতিটা মাপা যায় কোথায় — সমষ্টিতে, উপরের সহাবস্থান হিসাবের মধ্য দিয়ে। মানচিত্রে উপকেন্দ্রের বিন্দুর আকার তার সর্বকালীন সর্বোচ্চ লোড, আর রং বলছে আজ সে নিজের ওই রেকর্ডের কত কাছে চলছে; ফ্যাকাশে বিন্দুর মানে এই নয় যে ওই উপকেন্দ্রে চাহিদা চাপা পড়েছে।',
     spBandTitle: 'কোন সময়ে উপকেন্দ্রগুলো সর্বোচ্চে ওঠে',
     spBandNote: 'প্রতিটি উপকেন্দ্রকে তার নিজের সবচেয়ে ঘন ঘন সর্বোচ্চের সময় অনুযায়ী ভাগ করা হয়েছে, আর দেখানো হয়েছে সেই দলের মোট লোডের ভাগ হিসেবে। সন্ধ্যায় সর্বোচ্চে ওঠা মানে মূলত ঘরবাড়ি — বাতি, ফ্যান, এসি। দিনে ওঠা মানে কলকারখানা ও অফিস। ভাগটাই বলে দেয় চাহিদা কোথা থেকে আসছে।',
     spEvening: 'সন্ধ্যা (১৭–২২)', spDay: 'দিন (০৯–১৬)', spNight: 'রাত (২৩–০৮)',
@@ -460,6 +475,21 @@ const STR = {
     spHead: 'Latent headroom',
     spHeadNote: 'more than the grid has ever actually met, if every sub-station reached its own maximum together',
     spNote: 'Sub-stations never peak together — one is busiest while another is quiet, and that spread is what keeps the grid standing. Both sides count delivered electricity only: a sub-station can register nothing it did not supply, so load-shedding is excluded from each. Across summers the figure is flat — {c0} in {t0}, {c1} in {t1} — so there is no evidence the load is bunching up.',
+    ownRecord: 'Most this sub-station has ever carried',
+    ownShare: '{pct}% of its own record',
+    mapSubRamp: 'Sub-station dots — how close to its own all-time record today:',
+    mapSubRampHi: 'at the record',
+    supTitle: 'Can suppressed demand be traced to individual sub-stations?',
+    supSrc: '{n} sub-stations · recent window {from} – {to}',
+    supHead: 'No — and why it cannot is itself a finding.',
+    supSub: 'Load-shedding is carried out by the distribution utilities on 11 kV feeders below these transmission sub-stations, and rotated between feeders. The station carries on close to its allowed load while the cut moves around beneath it. Electricity that was never supplied appears in no sub-station’s record, and nothing in this table says which sub-station it would have flowed through. Each of the three tests below had a fair chance of coming back yes.',
+    supT1: 'The fleet’s recent maximum against its own records',
+    supT1Note: 'The sum of every station’s all-time peak is {rec} MW; over the last 90 days they reached {now} MW between them. Had demand truly been driven off the network, the gap would be far wider than that.',
+    supT2: 'Stations that give way when their zone sheds',
+    supT2Note: 'Each station’s daily peak set against its zone’s shedding rate, holding that zone’s temperature constant. The statistically significant falls come to {mw} MW in total, against thousands of megawatts actually shed. {up} stations move the other way and carry more.',
+    supT3: 'Days spent within 5% of its own record',
+    supT3Note: 'Rationing against a fixed ceiling would clip the top of the distribution and hold stations against the limit. The median station does so on a sliver of days; even the most pinned station reaches only {max}%.',
+    supNote: 'Where the shortfall can be measured is in the aggregate, through the coincidence figures above. On the map, a sub-station dot is sized by the most it has ever carried and shaded by how close it is running to that record today; a pale dot is not evidence that demand is being suppressed there.',
     spBandTitle: 'When sub-stations reach their own peak',
     spBandNote: 'Each sub-station is grouped by the hour it most often peaks, and shown as a share of that group’s total load. An evening peak is the signature of households — lights, fans, air-conditioning. A working-hours peak is industry and offices. The split is the closest the published record comes to saying where demand is coming from.',
     spEvening: 'Evening (17–22)', spDay: 'Day (09–16)', spNight: 'Night (23–08)',
@@ -648,6 +678,9 @@ const RAMP_DEM  = ['#e7f0fa', '#c2dbf1', '#8dbce5', '#4a8ecd', '#1c5698'];
 // hue of its own so it cannot be mistaken for load-shedding (orange) or
 // demand (blue) on the same map.
 const RAMP_HEAT = ['#fdf0d5', '#f7d78a', '#e8a838', '#c97c15', '#8a5208'];
+// Sub-station dots: how close a station is running to its own record. Kept
+// off the orange and blue ramps so it never reads as shedding or demand.
+const RAMP_REC  = ['#f2effa', '#d8cdec', '#b4a1d9', '#8a6cc0', '#5b3a94'];
 // Validated pair for the two-line decomposition: OKLab dE 24 normal, 23 protan.
 const C_NORM = '#1baf7a';
 
@@ -989,7 +1022,7 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
@@ -997,9 +1030,10 @@ async function loadAll() {
       load('places'), load('official'), load('cost'), load('demand'),
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
       load('temperature'), load('forecastplants'), load('substationpeak'),
+      load('suppression'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -2026,17 +2060,32 @@ function renderMap() {
     LAYERS.plants = g.addTo(MAP);
   }
 
-  // grid substations — size by peak load served
+  // Grid sub-stations. Each dot is sized by the most that station has ever
+  // carried -- its demonstrated peak, which is a stable property of the site
+  // -- and shaded by how close it is running to that record today. A pale dot
+  // is a station well below its own best; that is a fact about the reading,
+  // not proof that load is being suppressed there, and renderSuppression
+  // explains why the two cannot be equated.
+  const REC = (D.suppression && D.suppression.stations) || {};
   if (D.subs && D.subs.substations) {
     const g = L.layerGroup();
     D.subs.substations.forEach(s => {
       if (s.lat === null || s.lon === null) return;
+      const rec = REC[s.name] || null;
+      const share = rec && rec > 0 && s.load_mw ? s.load_mw / rec : null;
+      const size = rec || s.load_mw || 1;
       const m = L.circleMarker([s.lat, s.lon], {
-        radius: Math.max(3, Math.min(11, Math.sqrt(s.load_mw || 1) * 0.55)),
-        color: C.surface, weight: 1.5, fillColor: C.s[5], fillOpacity: 0.85,
+        radius: Math.max(3, Math.min(11, Math.sqrt(size) * 0.55)),
+        color: C.surface, weight: 1.5, fillOpacity: 0.85,
+        fillColor: share === null ? C.grid
+          : RAMP_REC[Math.max(0, Math.min(RAMP_REC.length - 1,
+              Math.floor(share * RAMP_REC.length)))],
       });
       m.bindPopup(`<b>${s.name}</b><br>${t('load')}: <b>${fmt(s.load_mw)}</b> ${t('mw')}` +
         (s.hour !== null && s.hour !== undefined ? `<br>${t('at')}: ${fmtHour(s.hour)}` : '') +
+        (rec ? `<br>${t('ownRecord')}: <b>${fmt(rec)}</b> ${t('mw')}` +
+               (share !== null ? `<br>${t('ownShare')
+                 .replace('{pct}', fmt(share * 100, 0))}` : '') : '') +
         (s.geo !== 'osm' ? `<br><span style="color:#74757e;font-size:.9em">${t('approx')}</span>` : ''));
       g.addLayer(m);
     });
@@ -2053,6 +2102,11 @@ function renderMap() {
     `<span>${t('low')}</span><span class="ramp-bar">` +
     ramp.map(c => `<i style="background:${c}"></i>`).join('') +
     `</span><span>${t('high')} (${fmt(max, digits)} ${unit})</span>`;
+  const subRamp = document.getElementById('map-sub-ramp');
+  if (subRamp) subRamp.innerHTML = Object.keys(REC).length
+    ? `<span class="ramp">${t('mapSubRamp')} <span class="ramp-bar">` +
+      RAMP_REC.map(c => `<i style="background:${c}"></i>`).join('') +
+      `</span> <span>${t('mapSubRampHi')}</span></span>` : '';
   document.querySelector('[data-i18n="mapNote"]').textContent = t('mapNote');
   const sub = document.querySelector('#map [data-i18n="mapSub"]');
   if (sub) sub.textContent = t(metric === 'loadshed' ? 'mapSubShed'
@@ -2890,6 +2944,7 @@ function renderDemand() {
   const a = d.annual;
   renderDemandSurge();
   renderSubstationPeak();
+  renderSuppression();
   renderDemandSplit();
 
   barChart(document.getElementById('dem-decade'),
@@ -3189,6 +3244,42 @@ function renderSubstationPeak() {
       valueLabel: LANG === 'bn' ? 'মোট লোডের ভাগ' : 'share of load',
       fmtValue: (v) => `${fmt(v, 1)}%`,
     });
+}
+
+/* The negative result, published as a result.
+
+   The obvious next question after the coincidence figure is where the missing
+   load sits, station by station. Three tests say it cannot be answered from
+   this table, and a dashboard that only carries findings which worked is not
+   a monitoring tool. The tests are laid out so a reader can see what would
+   have counted as a yes. */
+function renderSuppression() {
+  const sp = D.suppression;
+  if (!sp || !sp.response) return;
+  document.getElementById('sup-title').textContent = t('supTitle');
+  document.getElementById('sup-src').textContent = t('supSrc')
+    .replace('{n}', fmt(sp.n))
+    .replace('{from}', fmtDate(sp.window_from))
+    .replace('{to}', fmtDate(sp.window_to));
+  document.getElementById('sup-headline').innerHTML =
+    `<div class="note"><div class="note-title">${t('supHead')}</div>${t('supSub')}</div>`;
+
+  const tile = (label, value, unit, note) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}<span class="stat-unit">${unit || ''}</span></div>
+      <div class="stat-note">${note}</div>
+    </div>`;
+  const rs = sp.response;
+  document.getElementById('sup-tiles').innerHTML =
+    tile(t('supT1'), fmt(sp.level_gap_pct, 1) + '%', '',
+         t('supT1Note').replace('{rec}', fmt(sp.level_records))
+                       .replace('{now}', fmt(sp.level_recent))) +
+    tile(t('supT2'), fmt(rs.significant) + '/' + fmt(rs.tested), '',
+         t('supT2Note').replace('{mw}', fmt(rs.mw))
+                       .replace('{up}', fmt(rs.tested - rs.negative))) +
+    tile(t('supT3'), fmt(sp.pinned_median_pct, 1) + '%', '',
+         t('supT3Note').replace('{max}', fmt(sp.pinned_max_pct, 1)));
 }
 
 /* Per-station accountability: who declared themselves ready, and who ran.

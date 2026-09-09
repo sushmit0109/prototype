@@ -1655,6 +1655,186 @@ def build_substation_peak():
     }
 
 
+# ── can suppressed demand be located station by station? ─────────────────────
+#
+# A sub-station that once carried X MW proves at least X MW of demand sits
+# behind it, so the natural idea is to map each station's shortfall against
+# its own record and call the difference suppression. That inference does not
+# survive contact with the data, and this function is what tests it.
+#
+# Three tests, none of which finds a per-station signal:
+#
+#   level     the fleet's recent maximum against the sum of all-time records.
+#             If load had been driven off the network the sum would have
+#             fallen. It has not.
+#   response  each station's daily peak regressed on its zone's shed rate,
+#             holding that zone's temperature constant. If shedding held a
+#             station back the coefficient would be negative everywhere.
+#   pinning   how often a station sits within 5% of its own record. Rationing
+#             against a fixed ceiling would clip the top of the distribution.
+#
+# The reason they all come back empty is that rotational load-shedding is
+# executed by the distribution utilities on 11 kV feeders *below* these
+# transmission sub-stations, and rotated between feeders. The station carries
+# on at close to its allowed load while the curtailment moves around beneath
+# it, so the shed energy never appears at any station and nothing in this
+# table records which station it would have flowed through. Suppression is
+# real, but it is only measurable in the aggregate — see build_substation_peak.
+#
+# One reading can ruin the record: HaripurSBU shows 1,110 MW on a single day
+# against a 99th percentile of 188, its second-highest reading ever being 197.
+# Where a maximum runs away from its own 99th percentile the percentile is
+# used instead.
+SUPPRESS_SPIKE = 1.6            # max/p99 above this is a typo, not a record
+SUPPRESS_MIN_READINGS = 60
+SUPPRESS_RECENT = 40            # days needed in the recent window
+SUPPRESS_MIN_MW = 5             # below this the percentages are noise
+SUPPRESS_PIN = 0.95             # "at its ceiling" means within 5% of record
+
+
+def _ols3(rows):
+    """Least squares for y ~ a + b*x1 + c*x2. Returns (c, t) or None."""
+    n = len(rows)
+    X = [(1.0, x1, x2) for x1, x2, _ in rows]
+    y = [v for _, _, v in rows]
+    xtx = [[sum(X[k][i] * X[k][j] for k in range(n)) for j in range(3)]
+           for i in range(3)]
+    xty = [sum(X[k][i] * y[k] for k in range(n)) for i in range(3)]
+    # Gauss-Jordan on the augmented normal equations, carrying the inverse
+    # so the standard error of the shed term comes out with the fit.
+    a = [xtx[i][:] + [1.0 if i == j else 0.0 for j in range(3)] + [xty[i]]
+         for i in range(3)]
+    for i in range(3):
+        piv = max(range(i, 3), key=lambda k: abs(a[k][i]))
+        if abs(a[piv][i]) < 1e-9:
+            return None
+        a[i], a[piv] = a[piv], a[i]
+        d = a[i][i]
+        a[i] = [v / d for v in a[i]]
+        for k in range(3):
+            if k != i and a[k][i]:
+                f = a[k][i]
+                a[k] = [v - f * w for v, w in zip(a[k], a[i])]
+    beta = [a[i][6] for i in range(3)]
+    inv = [[a[i][3 + j] for j in range(3)] for i in range(3)]
+    rss = sum((y[k] - sum(beta[i] * X[k][i] for i in range(3))) ** 2
+              for k in range(n))
+    dof = n - 3
+    if dof <= 0 or inv[2][2] <= 0:
+        return None
+    se = math.sqrt(rss / dof * inv[2][2])
+    return (beta[2], beta[2] / se) if se > 0 else None
+
+
+def _station_daily_peaks():
+    per = defaultdict(dict)
+    for f in sorted(ERP_DIR.glob("substations_*.csv")):
+        for row in read_csv(f):
+            v = num(row.get("load_mw"))
+            if v is None or not (0 < v <= SUBPEAK_MAX_MW):
+                continue
+            d = row["date"]
+            per[row["substation"]][d] = max(v, per[row["substation"]].get(d, 0))
+    return per
+
+
+def _zone_daily_tmax():
+    out = defaultdict(dict)
+    for f in sorted((RAW / "weather").glob("temp_*.csv")):
+        for row in read_csv(f):
+            for z in ZONES:
+                v = num(row.get(z))
+                if v is None:
+                    continue
+                d = row["date"]
+                if v > out[z].get(d, -99):
+                    out[z][d] = v
+    return out
+
+
+def build_suppression(area, subs):
+    """Test whether suppressed demand can be pinned to individual stations."""
+    per = _station_daily_peaks()
+    if not per or not subs:
+        return None
+    latest = max(d for v in per.values() for d in v)
+    cutoff = (date.fromisoformat(latest) - timedelta(days=90)).isoformat()
+
+    stations, spikes = {}, 0
+    raw_sum = robust_sum = recent_sum = matched_sum = 0.0
+    pins = []
+    for name, dd in per.items():
+        if len(dd) < SUPPRESS_MIN_READINGS:
+            continue
+        vals = sorted(dd.values())
+        p99 = vals[int(0.99 * (len(vals) - 1))]
+        record = vals[-1]
+        raw_sum += record
+        if p99 > 0 and record > SUPPRESS_SPIKE * p99:
+            record = p99
+            spikes += 1
+        robust_sum += record
+        recent = [v for d, v in dd.items() if d >= cutoff]
+        if len(recent) < SUPPRESS_RECENT or record < SUPPRESS_MIN_MW:
+            continue
+        # like for like: only stations that have a recent window count
+        # on both sides of the level test.
+        matched_sum += record
+        recent_sum += min(max(recent), record)
+        pins.append(100 * sum(1 for v in recent if v >= SUPPRESS_PIN * record)
+                    / len(recent))
+        stations[name] = r(record, 1)
+
+    # response test: does a station give way when its zone is short?
+    tmax = _zone_daily_tmax()
+    shed = {}
+    for d, rec in sorted(area.items()):
+        if rec.get("suspect"):
+            continue
+        for z in ZONES:
+            zz = rec["zones"].get(z) or {}
+            if zz.get("demand"):
+                shed.setdefault(z, {})[d] = 100 * zz["loadshed"] / zz["demand"]
+    zone_of = {s["name"]: s["zone"] for s in subs["substations"] if s.get("zone")}
+    recent_shed = {z: statistics.mean(
+        [v[d] for d in sorted(v)[-90:]]) for z, v in shed.items() if v}
+
+    tested = neg = sig = 0
+    supp_mw = 0.0
+    for name, dd in per.items():
+        z = zone_of.get(name)
+        if not z or z not in shed:
+            continue
+        obs = [(tmax[z][d], shed[z][d], v) for d, v in dd.items()
+               if d[5:7] in SEASON_MONTHS and d[:4] >= "2025"
+               and d in tmax.get(z, {}) and d in shed[z] and v > 0]
+        if len(obs) < 80:
+            continue
+        fit = _ols3(obs)
+        if not fit:
+            continue
+        c, t = fit
+        tested += 1
+        if c < 0:
+            neg += 1
+            if t < -1.96:
+                sig += 1
+                supp_mw += -c * recent_shed.get(z, 0)
+
+    return {
+        "stations": stations, "n": len(stations), "spikes_capped": spikes,
+        "window_from": cutoff, "window_to": latest,
+        "raw_sum": r(raw_sum), "robust_sum": r(robust_sum),
+        "level_gap_pct": r(100 * (1 - recent_sum / matched_sum), 1),
+        "level_records": r(matched_sum), "level_recent": r(recent_sum),
+        "response": {"tested": tested, "negative": neg, "significant": sig,
+                     "mw": r(supp_mw)},
+        "pinned_median_pct": r(statistics.median(pins), 1) if pins else None,
+        "pinned_max_pct": r(max(pins), 1) if pins else None,
+        "verdict": "not-localisable",
+    }
+
+
 def build_forecast_plants(year=None):
     """Per-station forecast availability against what actually ran."""
     fc, ac, rem = defaultdict(dict), defaultdict(dict), defaultdict(dict)
@@ -2828,6 +3008,18 @@ def main():
         print(f"[build] plants {len(plants['plants'])} geo={plants['geo_counts']}")
     if subs:
         write_json(SITE_DATA / "substations.json", subs)
+        suppress = build_suppression(area, subs)
+        if suppress:
+            write_json(SITE_DATA / "suppression.json", suppress)
+            rs = suppress["response"]
+            print(f"[build] suppression: {suppress['n']} stations, records sum "
+                  f"{suppress['robust_sum']:,.0f} MW ({suppress['spikes_capped']} "
+                  f"spikes capped from {suppress['raw_sum']:,.0f}); level gap "
+                  f"{suppress['level_gap_pct']}%, {rs['negative']}/{rs['tested']} "
+                  f"respond to shedding ({rs['significant']} significantly, "
+                  f"{rs['mw']:,.0f} MW), pinned at ceiling "
+                  f"{suppress['pinned_median_pct']}% of days -> "
+                  f"{suppress['verdict']}")
         print(f"[build] substations {len(subs['substations'])} geo={subs['geo_counts']}")
 
     write_json(SITE_DATA / "reasons.json", build_reason_history(bpdb))
