@@ -1,10 +1,10 @@
 {
- "built_at":"2026-09-10T04:54:31+00:00",
+ "built_at":"2026-09-10T09:47:54+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
-   "to":"2026-09-10T09:00",
-   "rows":98848,
+   "to":"2026-09-10T11:00",
+   "rows":98850,
    "months":[
     "2015-04",
     "2015-05",
@@ -152,13 +152,13 @@
    "days":4144
   },
   "bpdb":{
-   "days":743,
+   "days":744,
    "from":"2024-07-04",
-   "to":"2026-09-08"
+   "to":"2026-09-09"
   },
   "areawise":{
-   "days":4196,
-   "usable":3855,
+   "days":4198,
+   "usable":3857,
    "suspect":341
   }
  },
@@ -175,21 +175,21 @@
    "name_en":"BPDB daily generation archive (NLDC PDF reports)",
    "name_bn":"বিপিডিবি দৈনিক উৎপাদন আর্কাইভ (এনএলডিসি পিডিএফ প্রতিবেদন)",
    "url":"https://misc.bpdb.gov.bd/daily-generation-archive",
-   "latest":"2026-09-08"
+   "latest":"2026-09-09"
   },
   {
    "id":"bpdb_area",
    "name_en":"BPDB area-wise demand",
    "name_bn":"বিপিডিবি এলাকাভিত্তিক চাহিদা",
    "url":"https://misc.bpdb.gov.bd/area-wise-demand",
-   "latest":"2026-09-07"
+   "latest":"2026-09-09"
   },
   {
    "id":"pgcb_erp",
    "name_en":"PGCB daily workbook (NLDC reports, digitised)",
    "name_bn":"পিজিসিবির দৈনিক ওয়ার্কবুক (এনএলডিসি প্রতিবেদন, ডিজিটাইজড)",
    "url":"https://erp.powergrid.gov.bd/",
-   "latest":"2026-09-08"
+   "latest":"2026-09-09"
   },
   {
    "id":"osm",
@@ -202,6 +202,6 @@
   "demand_identity_rate":0.9944,
   "energy_identity_rate":1.0,
   "areawise_zero_days":1,
-  "areawise_days_compared":593
+  "areawise_days_compared":595
  }
 }
