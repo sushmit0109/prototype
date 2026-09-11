@@ -1433,10 +1433,21 @@ function initOfficeExplorer(idx) {
       .map(d => `<li><span>${esc(d.district)}</span><span class="n">${int(d.count)} contracts</span></li>`).join("");
   }
 
+  function renderOfKeywords(p) {
+    const el = document.getElementById("ofKeywords");
+    if (!p.top_keywords.length) { el.innerHTML = `<p class="sub" style="font-size:0.8rem">No description text matched for this office.</p>`; return; }
+    const max = Math.max(...p.top_keywords.map(k => k.value_bdt));
+    el.innerHTML = p.top_keywords.map(k => {
+      const tier = k.value_bdt > max * 0.6 ? 1 : k.value_bdt > max * 0.3 ? 2 : 3;
+      return `<span class="kw-chip kw-${tier}" title="${esc(taka(k.value_bdt))} across contracts mentioning &quot;${esc(k.word)}&quot;">${esc(k.word)}</span>`;
+    }).join("");
+  }
+
   function renderOfContracts(p) {
     const el = document.getElementById("ofContractsBody");
-    if (!p.top_contracts.length) { el.innerHTML = `<tr><td colspan="3" class="sub">No contract data.</td></tr>`; return; }
+    if (!p.top_contracts.length) { el.innerHTML = `<tr><td colspan="4" class="sub">No contract data.</td></tr>`; return; }
     el.innerHTML = p.top_contracts.map(c => `<tr>
+      <td class="of-contract-desc">${esc(c.description || "—")}</td>
       <td>${esc(c.awarded_to || "—")}</td>
       <td class="n">${taka(c.value_bdt)}</td>
       <td class="muted">${esc((c.contract_signing_date || "—"))}</td></tr>`).join("");
@@ -1452,7 +1463,7 @@ function initOfficeExplorer(idx) {
 
     if (!p) {
       document.getElementById("ofKpiRow").innerHTML = `<p class="sub">No detailed profile available for this office.</p>`;
-      ["chartOfNature", "chartOfTrend", "chartOfVendors"].forEach(id => document.getElementById(id).innerHTML = "");
+      ["chartOfNature", "chartOfTrend", "chartOfVendors", "ofKeywords"].forEach(id => document.getElementById(id).innerHTML = "");
       document.getElementById("ofDistrictList").innerHTML = "";
       document.getElementById("ofContractsBody").innerHTML = "";
       return;
@@ -1466,15 +1477,17 @@ function initOfficeExplorer(idx) {
     ].map(([v, k]) => `<div class="scale-item"><div class="v num">${v}</div><div class="k">${k}</div></div>`).join("");
 
     renderOfNature(p);
+    renderOfKeywords(p);
     renderOfTrend(p);
     renderOfVendors(p);
     renderOfDistricts(p);
     renderOfContracts(p);
 
     document.getElementById("ofCaption").textContent =
-      `"What it buys" is joined from the master tender list, which matches ${pct(idx.meta.nature_match_rate)} `
-      + `of contracts nationally — a small office's own match rate can be well above or below that. `
-      + `Vendors, districts and biggest contracts are all-time; only the trend chart follows the window above.`;
+      `Procurement nature is joined from the master tender list, which matches ${pct(idx.meta.nature_match_rate)} `
+      + `of contracts nationally — a small office's own match rate can be well above or below that. The word list `
+      + `is drawn straight from this office's own contract descriptions, not a category system. `
+      + `Vendors, districts, keywords and biggest contracts are all-time; only the trend chart follows the window above.`;
   }
 
   async function selectOffice(officeId) {
@@ -1486,7 +1499,7 @@ function initOfficeExplorer(idx) {
     document.getElementById("ofName").textContent = o.name;
     document.getElementById("ofBreadcrumb").textContent = "Loading…";
     document.getElementById("ofKpiRow").innerHTML = "";
-    ["chartOfNature", "chartOfTrend", "chartOfVendors"].forEach(id => document.getElementById(id).innerHTML = "");
+    ["chartOfNature", "chartOfTrend", "chartOfVendors", "ofKeywords"].forEach(id => document.getElementById(id).innerHTML = "");
     document.getElementById("ofDistrictList").innerHTML = "";
     document.getElementById("ofContractsBody").innerHTML = "";
     trendYears = 0;

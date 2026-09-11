@@ -57,36 +57,83 @@
     "count": 8
    }
   ],
+  "top_keywords": [
+   {
+    "word": "floor",
+    "value_bdt": 139390000.0
+   },
+   {
+    "word": "bazar",
+    "value_bdt": 133760000.0
+   },
+   {
+    "word": "bhaban",
+    "value_bdt": 133760000.0
+   },
+   {
+    "word": "karwan",
+    "value_bdt": 114910000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 114910000.0
+   },
+   {
+    "word": "fire",
+    "value_bdt": 43070000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 24620000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 22230000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 22230000.0
+   },
+   {
+    "word": "alarm",
+    "value_bdt": 21600000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "e-GP-556",
     "awarded_to": "The Engineers & Architects Limited",
     "value_bdt": 114910000.0,
-    "contract_signing_date": "2016-11-21"
+    "contract_signing_date": "2016-11-21",
+    "description": "Construction of 10th & 11th floor of TCB Bhaban at Karwan Bazar Dhaka."
    },
    {
     "package_ref": "26.05.0000.006.14.712.17",
     "awarded_to": "Rangpur Metal Industries Limited",
     "value_bdt": 21600000.0,
-    "contract_signing_date": "2018-02-07"
+    "contract_signing_date": "2018-02-07",
+    "description": "1. Sprinkler and Fire Alarm System 2. Fire Fighting System 3. Steel Stair Fire Door & Sub Station updated Works (W3 Works as per DPP)"
    },
    {
     "package_ref": "26.05.0000.006.14.713.17",
     "awarded_to": "Challenger Elevator & Escalator Ltd.",
     "value_bdt": 13550000.0,
-    "contract_signing_date": "2018-03-27"
+    "contract_signing_date": "2018-03-27",
+    "description": "1. Supply & installation of a Fire rated lift with Voltage stabilizer. 2. Existing Three lifts uplifted up to 14th floor. ( W4 Goods as per DPP)"
    },
    {
     "package_ref": "26.05.0000.006.26.02.19",
     "awarded_to": "Zakir Enterprise",
     "value_bdt": 10060000.0,
-    "contract_signing_date": "2019-04-22"
+    "contract_signing_date": "2019-04-22",
+    "description": "Re-installation of water line Sewerage line & waste water line ground floor to 8th floor of TCB bhaban at kawran bazar Dhaka."
    },
    {
     "package_ref": "26.05.0000.006.14.03.19",
     "awarded_to": "PROPERTY DEVELOPMENT LIMITED",
     "value_bdt": 7920000.0,
-    "contract_signing_date": "2019-03-11"
+    "contract_signing_date": "2019-03-11",
+    "description": "Supply & installation of Fire rated Lift with voltage stabilizer of TCB Bhaban at Kawran Bazar Dhaka."
    }
   ]
  },
@@ -163,36 +210,83 @@
     "count": 19
    }
   ],
+  "top_keywords": [
+   {
+    "word": "maintenance",
+    "value_bdt": 96930000.0
+   },
+   {
+    "word": "configuration",
+    "value_bdt": 93460000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 93460000.0
+   },
+   {
+    "word": "software",
+    "value_bdt": 88630000.0
+   },
+   {
+    "word": "support",
+    "value_bdt": 70300000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 69990000.0
+   },
+   {
+    "word": "security",
+    "value_bdt": 61330000.0
+   },
+   {
+    "word": "firewall",
+    "value_bdt": 48680000.0
+   },
+   {
+    "word": "oracle",
+    "value_bdt": 43500000.0
+   },
+   {
+    "word": "weblogic",
+    "value_bdt": 43500000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.06.0000.016.07.001.17/01",
     "awarded_to": "Express Systems Limited",
     "value_bdt": 43500000.0,
-    "contract_signing_date": "2017-05-25"
+    "contract_signing_date": "2017-05-25",
+    "description": "Supply of Oracle Database Software and Weblogic Suite."
    },
    {
     "package_ref": "26.06.0000.029.07.001.22",
     "awarded_to": "Prime Net Ltd",
     "value_bdt": 19360000.0,
-    "contract_signing_date": "2022-12-20"
+    "contract_signing_date": "2022-12-20",
+    "description": "Installation Configuration & Maintenance Support of Real time data sync for RJSC DC and national datacenter(NDC) site(storage based server solution with necessa"
    },
    {
     "package_ref": "26.06.0000.029.07.003.20",
     "awarded_to": "Express Systems Limited",
     "value_bdt": 19270000.0,
-    "contract_signing_date": "2021-02-18"
+    "contract_signing_date": "2021-02-18",
+    "description": "Supply Installation Configuration Testing Commissioning & Maintenance of Servers etc."
    },
    {
     "package_ref": "26.06.0000.029.07.003.21-03",
     "awarded_to": "Prime Net Ltd",
     "value_bdt": 15980000.0,
-    "contract_signing_date": "2022-01-24"
+    "contract_signing_date": "2022-01-24",
+    "description": "Installation Configuration & Maintenance Support of ensure security for RJSC System (Security assessment & Management software Internet Gateway security or Unif"
    },
    {
     "package_ref": "26.06.0000.007.07.001.24-02",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 9790000.0,
-    "contract_signing_date": "2024-10-17"
+    "contract_signing_date": "2024-10-17",
+    "description": "Installation Configuration & maintenance support of security software (firewall and OSMS office other application software)"
    }
   ]
  },
@@ -230,18 +324,58 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "purchase",
+    "value_bdt": 1200000.0
+   },
+   {
+    "word": "desktop",
+    "value_bdt": 1200000.0
+   },
+   {
+    "word": "printer",
+    "value_bdt": 1200000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 1200000.0
+   },
+   {
+    "word": "head",
+    "value_bdt": 980000.0
+   },
+   {
+    "word": "bazar",
+    "value_bdt": 980000.0
+   },
+   {
+    "word": "goods",
+    "value_bdt": 980000.0
+   },
+   {
+    "word": "kawran",
+    "value_bdt": 980000.0
+   },
+   {
+    "word": "stationary",
+    "value_bdt": 980000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.05.0000.004.07.059.19",
     "awarded_to": "ANR Technologies",
     "value_bdt": 1200000.0,
-    "contract_signing_date": "2020-03-15"
+    "contract_signing_date": "2020-03-15",
+    "description": "Purchase of Desktop Computer Printer & Ups for TCB"
    },
    {
     "package_ref": "26.05.0000.004.30.028.17",
     "awarded_to": "M/S Kamol Trade International",
     "value_bdt": 980000.0,
-    "contract_signing_date": "2017-10-11"
+    "contract_signing_date": "2017-10-11",
+    "description": "Procurement of Stationary Goods (2017-18) of TCB Head Office Kawran Bazar Dhaka."
    }
   ]
  },
@@ -288,30 +422,76 @@
     "count": 4
    }
   ],
+  "top_keywords": [
+   {
+    "word": "installation",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 1480000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "computerprinterups",
+    "value_bdt": 890000.0
+   },
+   {
+    "word": "desktop",
+    "value_bdt": 890000.0
+   },
+   {
+    "word": "hardware",
+    "value_bdt": 790000.0
+   },
+   {
+    "word": "brand",
+    "value_bdt": 790000.0
+   },
+   {
+    "word": "multimedia",
+    "value_bdt": 690000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 690000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "BTCCOM/2016-2017/EGP024",
     "awarded_to": "Multi Con System",
     "value_bdt": 890000.0,
-    "contract_signing_date": "2017-06-06"
+    "contract_signing_date": "2017-06-06",
+    "description": "Supply Installation Desktop ComputerPrinterUPS and LAN Accessories."
    },
    {
     "package_ref": "eGP-2017-2018/com-1",
     "awarded_to": "Multi Con System",
     "value_bdt": 790000.0,
-    "contract_signing_date": "2018-06-25"
+    "contract_signing_date": "2018-06-25",
+    "description": "Brand new computer and Computer Hardware."
    },
    {
     "package_ref": "26.01.0000.012.07.024.17",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 690000.0,
-    "contract_signing_date": "2020-01-08"
+    "contract_signing_date": "2020-01-08",
+    "description": "Supply Installation and Commissioning of Computer and Multimedia Projector."
    },
    {
     "package_ref": "BTCSOU/16-17/EGP-1",
     "awarded_to": "Smriti Trading Corporation",
     "value_bdt": 320000.0,
-    "contract_signing_date": "2017-07-12"
+    "contract_signing_date": "2017-07-12",
+    "description": "Conference Sound System with Accessories."
    }
   ]
  },
@@ -361,8 +541,7 @@
    }
   },
   "by_nature": {
-   "Goods": 63,
-   "Goods (Framework Agreement)": 2
+   "Goods": 65
   },
   "top_vendors": [
    {
@@ -397,36 +576,83 @@
     "count": 66
    }
   ],
+  "top_keywords": [
+   {
+    "word": "installation",
+    "value_bdt": 97550000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 61880000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 32090000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 26910000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 24450000.0
+   },
+   {
+    "word": "miscellaneous",
+    "value_bdt": 22000000.0
+   },
+   {
+    "word": "goods",
+    "value_bdt": 19630000.0
+   },
+   {
+    "word": "stationary",
+    "value_bdt": 19330000.0
+   },
+   {
+    "word": "software",
+    "value_bdt": 18080000.0
+   },
+   {
+    "word": "subscription",
+    "value_bdt": 17780000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.00.0000.097.07.001.25",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 17780000.0,
-    "contract_signing_date": "2025-05-25"
+    "contract_signing_date": "2025-05-25",
+    "description": "Procurement and Installation of various software license/subscription."
    },
    {
     "package_ref": "26.00.0000.092.07.113.25",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 13900000.0,
-    "contract_signing_date": "2025-05-25"
+    "contract_signing_date": "2025-05-25",
+    "description": "Supply Installation and commissioning of LAN and WLAN Active device of Ministry of Commerce."
    },
    {
     "package_ref": "26.00.0000.092.07.092.24",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 10920000.0,
-    "contract_signing_date": "2024-06-13"
+    "contract_signing_date": "2024-06-13",
+    "description": "Supply Installation and configuration of next generation firewall in existing Lan."
    },
    {
     "package_ref": "e-GP1/021.2017",
     "awarded_to": "Flora Limited",
     "value_bdt": 9860000.0,
-    "contract_signing_date": "2017-05-28"
+    "contract_signing_date": "2017-05-28",
+    "description": "(a) Supply Installation commissioning and Training local area network and wide area network."
    },
    {
     "package_ref": "26.00.0000.092.07.076.23",
     "awarded_to": "Hannan & Brothers",
     "value_bdt": 5640000.0,
-    "contract_signing_date": "2023-11-08"
+    "contract_signing_date": "2023-11-08",
+    "description": "Procurement and Installation of Computer and related Equipment."
    }
   ]
  },
@@ -479,36 +705,83 @@
     "count": 6
    }
   ],
+  "top_keywords": [
+   {
+    "word": "printing",
+    "value_bdt": 5370000.0
+   },
+   {
+    "word": "removal",
+    "value_bdt": 4020000.0
+   },
+   {
+    "word": "banners",
+    "value_bdt": 4020000.0
+   },
+   {
+    "word": "leaflet",
+    "value_bdt": 2760000.0
+   },
+   {
+    "word": "calendar",
+    "value_bdt": 2760000.0
+   },
+   {
+    "word": "pamphlet",
+    "value_bdt": 2760000.0
+   },
+   {
+    "word": "sticker",
+    "value_bdt": 2760000.0
+   },
+   {
+    "word": "advertising",
+    "value_bdt": 2200000.0
+   },
+   {
+    "word": "display",
+    "value_bdt": 2200000.0
+   },
+   {
+    "word": "billboards",
+    "value_bdt": 2200000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.04.0000.103.20",
     "awarded_to": "Mitu Printing Press & Packaging",
     "value_bdt": 2760000.0,
-    "contract_signing_date": "2018-11-15"
+    "contract_signing_date": "2018-11-15",
+    "description": "Printing of Pamphlet Leaflet Sticker and Calendar."
    },
    {
     "package_ref": "DNCRPGD0118",
     "awarded_to": "Smart Digital Technologies",
     "value_bdt": 2200000.0,
-    "contract_signing_date": "2018-03-04"
+    "contract_signing_date": "2018-03-04",
+    "description": "Designing printing hoisting and removal of different types of banners LED advertising display and decoration of billboards etc."
    },
    {
     "package_ref": "26.04.0000.108.23.047.19.37",
     "awarded_to": "SIGN POWER",
     "value_bdt": 1820000.0,
-    "contract_signing_date": "2019-03-06"
+    "contract_signing_date": "2019-03-06",
+    "description": "Decorating important places/spots of Dhaka City with Digital banners/ festoons (including design print installation and removal)"
    },
    {
     "package_ref": "26.04.0000.108.23.047.19.136",
     "awarded_to": "Azad Art Hall",
     "value_bdt": 680000.0,
-    "contract_signing_date": "2019-03-06"
+    "contract_signing_date": "2019-03-06",
+    "description": "Supply of 3000 Polo Shirt & 3000 Cap"
    },
    {
     "package_ref": "26.04.0000.108.23.047.19.263",
     "awarded_to": "Purnata Trade International",
     "value_bdt": 600000.0,
-    "contract_signing_date": "2019-04-29"
+    "contract_signing_date": "2019-04-29",
+    "description": "Purchase of Ceramic Mugs (English Bone)"
    }
   ]
  },
@@ -526,9 +799,8 @@
    }
   },
   "by_nature": {
-   "Goods": 2,
-   "Goods (Framework Agreement)": 3,
-   "Physical Services": 2
+   "Goods": 5,
+   "Services": 2
   },
   "top_vendors": [
    {
@@ -567,36 +839,83 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "board",
+    "value_bdt": 17600000.0
+   },
+   {
+    "word": "kashipur",
+    "value_bdt": 13950000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 10930000.0
+   },
+   {
+    "word": "estates",
+    "value_bdt": 10330000.0
+   },
+   {
+    "word": "deorachora",
+    "value_bdt": 10330000.0
+   },
+   {
+    "word": "newsamanbagh",
+    "value_bdt": 8730000.0
+   },
+   {
+    "word": "fiscal",
+    "value_bdt": 5920000.0
+   },
+   {
+    "word": "transportation",
+    "value_bdt": 5230000.0
+   },
+   {
+    "word": "transport",
+    "value_bdt": 5230000.0
+   },
+   {
+    "word": "appointment",
+    "value_bdt": 5230000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "BTB/Garden Cell-02/2018(2)/2026-122",
     "awarded_to": "Foysal Enterprise",
     "value_bdt": 5230000.0,
-    "contract_signing_date": "2026-06-21"
+    "contract_signing_date": "2026-06-21",
+    "description": "Appointment of transport contractor for the 2026-2027 fiscal year for the transportation of tea from Newsamanbagh Deorachora Kashipur Tea Estates and BTRI under"
    },
    {
     "package_ref": "BTB/Garden Cell-02/2018(2)/2026-119",
     "awarded_to": "Defend Technology Limited",
     "value_bdt": 3620000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Supply of Pesticides to Newsombagh Deorachara Kashipur Tea Estate and BTRI under by Bangladesh Tea Board for the financial year 2026-2027."
    },
    {
     "package_ref": "BTB/Garden Cell-02/2018(2)/2026-120",
     "awarded_to": "Defend Technology Limited",
     "value_bdt": 2810000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Supply of Tea Packing Bag to Newsamanbagh Deorachora Kashipur Tea Estates and BTRI under by Bangladesh Tea Board for the financial year 2026-2027."
    },
    {
     "package_ref": "26.09.0000.000.101.07.002.26-702",
     "awarded_to": "Asia Jewellers",
     "value_bdt": 1800000.0,
-    "contract_signing_date": "2026-04-15"
+    "contract_signing_date": "2026-04-15",
+    "description": "Preparation and supply of crests for the awarding of the 'National Tea Award'-2026"
    },
    {
     "package_ref": "BTB/Garden Cell-02/2018(2)/2026",
     "awarded_to": "Defend Technology Limited",
     "value_bdt": 1600000.0,
-    "contract_signing_date": "2026-06-24"
+    "contract_signing_date": "2026-06-24",
+    "description": "Supply of dolomite powder to Newsambagh Deorachora Kashipur Tea Estates and BTRI under by Bangladesh Tea Board for the financial year 2025-2026."
    }
   ]
  },
@@ -665,36 +984,83 @@
     "count": 9
    }
   ],
+  "top_keywords": [
+   {
+    "word": "printing",
+    "value_bdt": 22660000.0
+   },
+   {
+    "word": "pamphlet",
+    "value_bdt": 13570000.0
+   },
+   {
+    "word": "leaflet",
+    "value_bdt": 13570000.0
+   },
+   {
+    "word": "fastoon",
+    "value_bdt": 9090000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 9090000.0
+   },
+   {
+    "word": "sides",
+    "value_bdt": 9090000.0
+   },
+   {
+    "word": "markets",
+    "value_bdt": 9090000.0
+   },
+   {
+    "word": "flags",
+    "value_bdt": 9090000.0
+   },
+   {
+    "word": "down",
+    "value_bdt": 9090000.0
+   },
+   {
+    "word": "outs",
+    "value_bdt": 9090000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.04.0000.108.23.002.23.232",
     "awarded_to": "SIGN POWER",
     "value_bdt": 3690000.0,
-    "contract_signing_date": "2023-03-07"
+    "contract_signing_date": "2023-03-07",
+    "description": "Decorating Bangabandhu International Conference Center (BICC) TCB Building Bangladesh Secretariat important road sides and branding major markets and foot over "
    },
    {
     "package_ref": "26.04.0000.108.23.057.23.281",
     "awarded_to": "Exclusive Multimedia",
     "value_bdt": 3600000.0,
-    "contract_signing_date": "2024-03-10"
+    "contract_signing_date": "2024-03-10",
+    "description": "Decorating Osmani Memorial Auditorium TCB Building Bangladesh Secretariat important road sides and branding major markets and foot over bridges in Dhaka city wi"
    },
    {
     "package_ref": "26.04.0000.103.20.034.18.114",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 3470000.0,
-    "contract_signing_date": "2019-12-17"
+    "contract_signing_date": "2019-12-17",
+    "description": "Printing of Pamphlet Leaflet and Calender"
    },
    {
     "package_ref": "26.04.0000.103.20.045.20.80",
     "awarded_to": "Mitu Printing Press & Packaging",
     "value_bdt": 3380000.0,
-    "contract_signing_date": "2020-11-25"
+    "contract_signing_date": "2020-11-25",
+    "description": "Printing of Pamphlet Leaflet and Calendar"
    },
    {
     "package_ref": "26.04.0000.111.20.099.21.1366",
     "awarded_to": "Eastern Printing & Packaging",
     "value_bdt": 3020000.0,
-    "contract_signing_date": "2021-12-08"
+    "contract_signing_date": "2021-12-08",
+    "description": "Printing of Pamphlet Leaflet and Desk Calendar"
    }
   ]
  },
@@ -751,36 +1117,83 @@
     "count": 7
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 7930000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 6660000.0
+   },
+   {
+    "word": "commission",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "firewall",
+    "value_bdt": 3400000.0
+   },
+   {
+    "word": "network",
+    "value_bdt": 3400000.0
+   },
+   {
+    "word": "printer",
+    "value_bdt": 3090000.0
+   },
+   {
+    "word": "scanner",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 530000.0
+   },
+   {
+    "word": "kind",
+    "value_bdt": 360000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.01.0000.011.07.004.20-1",
     "awarded_to": "Global Brand Private Limited",
     "value_bdt": 3400000.0,
-    "contract_signing_date": "2020-06-15"
+    "contract_signing_date": "2020-06-15",
+    "description": "Supply installation and Commission of Network Firewall and WLAN"
    },
    {
     "package_ref": "Ref:26.01.0000.011.98.001.20",
     "awarded_to": "Global Brand Private Limited",
     "value_bdt": 2730000.0,
-    "contract_signing_date": "2021-06-14"
+    "contract_signing_date": "2021-06-14",
+    "description": "Supply and Installation of Computer Printer Scanner and UPS"
    },
    {
     "package_ref": "26.01.0000.012.07.002.24",
     "awarded_to": "S. M. S Technologies",
     "value_bdt": 530000.0,
-    "contract_signing_date": "2024-05-15"
+    "contract_signing_date": "2024-05-15",
+    "description": "Supply and Installation of ICT Equipment."
    },
    {
     "package_ref": "26.01.0000.011.07.001.20-1",
     "awarded_to": "FAHIM ENTERPRISE",
     "value_bdt": 360000.0,
-    "contract_signing_date": "2021-06-14"
+    "contract_signing_date": "2021-06-14",
+    "description": "Supply Different Kind of Printer Tonner."
    },
    {
     "package_ref": "26.01.0000.012.07.003.24",
     "awarded_to": "M/S. Business House",
     "value_bdt": 310000.0,
-    "contract_signing_date": "2024-05-19"
+    "contract_signing_date": "2024-05-19",
+    "description": "Supply of different kinds of Printing tone"
    }
   ]
  },
@@ -846,36 +1259,83 @@
     "count": 8
    }
   ],
+  "top_keywords": [
+   {
+    "word": "technology",
+    "value_bdt": 287060000.0
+   },
+   {
+    "word": "engineering",
+    "value_bdt": 243620000.0
+   },
+   {
+    "word": "development",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "institute",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "academic",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "storied",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "infrastructures",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "plastic",
+    "value_bdt": 157250000.0
+   },
+   {
+    "word": "gates",
+    "value_bdt": 129810000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.00.0000.010.07.161.21/1720",
     "awarded_to": "M Jamal & Company Limited",
     "value_bdt": 157250000.0,
-    "contract_signing_date": "2022-06-26"
+    "contract_signing_date": "2022-06-26",
+    "description": "Development of Six Storied Academic Building and Infrastructures for Bangladesh Institute of Plastic Engineering and Technology (BIPET)"
    },
    {
     "package_ref": "26.00.0000.010.07.244.24-1098",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 95830000.0,
-    "contract_signing_date": "2026-04-16"
+    "contract_signing_date": "2026-04-16",
+    "description": "Office Equipments for 2 TCs"
    },
    {
     "package_ref": "26.00.0000.010.07.245.24-280",
     "awarded_to": "Hatil Complex Ltd",
     "value_bdt": 67230000.0,
-    "contract_signing_date": "2025-06-25"
+    "contract_signing_date": "2025-06-25",
+    "description": "Furniture & Fixtures for 2 TCs"
    },
    {
     "package_ref": "26.00.0000.010.07.110.21/1180",
     "awarded_to": "M/s ARM ENGINEERS",
     "value_bdt": 62360000.0,
-    "contract_signing_date": "2021-09-21"
+    "contract_signing_date": "2021-09-21",
+    "description": "Construction of Boundary Wall and Gates for General Engineering Technology Center-1 (GETC-1) at Bangabandhu Sheikh Mujib Industrial City Mirsarai Chattogram."
    },
    {
     "package_ref": "26.00.0000.010.07.112.21/1450",
     "awarded_to": "Dhaka Construction Company",
     "value_bdt": 43440000.0,
-    "contract_signing_date": "2022-01-06"
+    "contract_signing_date": "2022-01-06",
+    "description": "Construction of Boundary Wall and Gates for Design and Technology Center (DTC) at Kashimpur Gazipur."
    }
   ]
  },
@@ -937,36 +1397,83 @@
     "count": 13
    }
   ],
+  "top_keywords": [
+   {
+    "word": "works",
+    "value_bdt": 363750000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 363750000.0
+   },
+   {
+    "word": "regional",
+    "value_bdt": 296290000.0
+   },
+   {
+    "word": "road",
+    "value_bdt": 250170000.0
+   },
+   {
+    "word": "internal",
+    "value_bdt": 250170000.0
+   },
+   {
+    "word": "boundary",
+    "value_bdt": 237030000.0
+   },
+   {
+    "word": "wall",
+    "value_bdt": 237030000.0
+   },
+   {
+    "word": "purchased",
+    "value_bdt": 230970000.0
+   },
+   {
+    "word": "sand",
+    "value_bdt": 230970000.0
+   },
+   {
+    "word": "filling",
+    "value_bdt": 230970000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "e-TENDER: 26.05.0000.006.14.019.25",
     "awarded_to": "The Engineers & Architects Limited",
     "value_bdt": 117390000.0,
-    "contract_signing_date": "2026-04-02"
+    "contract_signing_date": "2026-04-02",
+    "description": "Construction of boundary wall internal road sand filling and other works on the own land purchased for TCB's regional office Barisal."
    },
    {
     "package_ref": "e-TENDER: 26.05.0000.006.14.018.25",
     "awarded_to": "Gathuni Limited",
     "value_bdt": 113580000.0,
-    "contract_signing_date": "2026-04-05"
+    "contract_signing_date": "2026-04-05",
+    "description": "Construction of boundary wall and other works including sand filling on the purchased land for TCB's Rajshahi regional office."
    },
    {
     "package_ref": "e-TENDER: 26.05.0000.006.14.022.25.148",
     "awarded_to": "M/s. The Engineers & Construction",
     "value_bdt": 81100000.0,
-    "contract_signing_date": "2026-06-28"
+    "contract_signing_date": "2026-06-28",
+    "description": "Construction of temporary tin shed Internal road including miscellaneous works at Uttara TCB plot Dhaka."
    },
    {
     "package_ref": "e-TENDER: 26.05.0000.006.14.014.25.147",
     "awarded_to": "M/s. Zara Construction",
     "value_bdt": 51680000.0,
-    "contract_signing_date": "2026-06-25"
+    "contract_signing_date": "2026-06-25",
+    "description": "Construction of Tin shed Godown Internal RCC road and miscellaneous works at TCB Regional Office Rangpur."
    },
    {
     "package_ref": "e-TENDER: 26.05.0000.006.07.008.25.179",
     "awarded_to": "ASIA DIGITAL LIFT COMPANY",
     "value_bdt": 38630000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Supply and installation of two passenger lifts with voltage stabilizers at TCB Bhaban Kawrabazar Dhaka."
    }
   ]
  },
@@ -1000,24 +1507,57 @@
     "count": 3
    }
   ],
+  "top_keywords": [
+   {
+    "word": "works",
+    "value_bdt": 261630000.0
+   },
+   {
+    "word": "regional",
+    "value_bdt": 261630000.0
+   },
+   {
+    "word": "project",
+    "value_bdt": 261630000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 261630000.0
+   },
+   {
+    "word": "godown",
+    "value_bdt": 261630000.0
+   },
+   {
+    "word": "ancillary",
+    "value_bdt": 261630000.0
+   },
+   {
+    "word": "molvibazar",
+    "value_bdt": 111140000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "e-TENDER: 26.05.0000.046.14.024.21",
     "awarded_to": "The Engineers & Architects Limited",
     "value_bdt": 111140000.0,
-    "contract_signing_date": "2022-01-31"
+    "contract_signing_date": "2022-01-31",
+    "description": "Construction of godown and ancillary works at TCB Sylhet (Molvibazar) Regional Office of the project."
    },
    {
     "package_ref": "e-TENDER: 26.05.0000.046.14.23.21",
     "awarded_to": "The Engineers & Architects Limited",
     "value_bdt": 103530000.0,
-    "contract_signing_date": "2022-01-31"
+    "contract_signing_date": "2022-01-31",
+    "description": "Construction of godown and ancillary works at TCB Chattogram Regional Office of the project."
    },
    {
     "package_ref": "26.05.0000.046.14.025.21.39",
     "awarded_to": "FIRST S.S ENTERPRISE (PVT.) LTD.",
     "value_bdt": 46960000.0,
-    "contract_signing_date": "2022-03-08"
+    "contract_signing_date": "2022-03-08",
+    "description": "Construction of godown and ancillary works at TCB Rangpur Regional Office of the project."
    }
   ]
  },
@@ -1074,36 +1614,83 @@
     "count": 9
    }
   ],
+  "top_keywords": [
+   {
+    "word": "laptop",
+    "value_bdt": 3260000.0
+   },
+   {
+    "word": "computers",
+    "value_bdt": 3260000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 660000.0
+   },
+   {
+    "word": "scanners",
+    "value_bdt": 580000.0
+   },
+   {
+    "word": "printers",
+    "value_bdt": 580000.0
+   },
+   {
+    "word": "cookware",
+    "value_bdt": 490000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 490000.0
+   },
+   {
+    "word": "official",
+    "value_bdt": 470000.0
+   },
+   {
+    "word": "dresses",
+    "value_bdt": 470000.0
+   },
+   {
+    "word": "employees",
+    "value_bdt": 470000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.03.0000.002.56.064.22.2117",
     "awarded_to": "S.M.S. SYSTEMS",
     "value_bdt": 3260000.0,
-    "contract_signing_date": "2024-04-25"
+    "contract_signing_date": "2024-04-25",
+    "description": "Procurement of Laptop Computers"
    },
    {
     "package_ref": "26.03.0000.000.002.07.0066.25.3805",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 580000.0,
-    "contract_signing_date": "2025-06-01"
+    "contract_signing_date": "2025-06-01",
+    "description": "Procurement of Printers and Scanners"
    },
    {
     "package_ref": "26.03.0000.000.002.07.0006.25.467",
     "awarded_to": "AMI PRINTERS",
     "value_bdt": 490000.0,
-    "contract_signing_date": "2026-06-03"
+    "contract_signing_date": "2026-06-03",
+    "description": "Procurement of Different Types of Cookware Items"
    },
    {
     "package_ref": "26.03.0000.000.002.07.0008.25.492",
     "awarded_to": "M/s. M M ENTERPRISE",
     "value_bdt": 470000.0,
-    "contract_signing_date": "2026-06-09"
+    "contract_signing_date": "2026-06-09",
+    "description": "Procurement of Official Dresses and Accessories for Employees"
    },
    {
     "package_ref": "26.03.0000.000.002.07.0066.25.3800",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 390000.0,
-    "contract_signing_date": "2025-06-01"
+    "contract_signing_date": "2025-06-01",
+    "description": "Procurement of Interactive Flat Panel Display"
    }
   ]
  },
@@ -1132,12 +1719,31 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "point",
+    "value_bdt": 44520000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 44520000.0
+   },
+   {
+    "word": "sale",
+    "value_bdt": 44520000.0
+   },
+   {
+    "word": "machine",
+    "value_bdt": 44520000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.05.0000.023.11.103.26",
     "awarded_to": "SPECTRUM IT SOLUTIONS LTD",
     "value_bdt": 44520000.0,
-    "contract_signing_date": "2026-08-12"
+    "contract_signing_date": "2026-08-12",
+    "description": "Procurement of Point of Sale(POS) Machine supply"
    }
   ]
  },
@@ -1151,7 +1757,7 @@
    }
   },
   "by_nature": {
-   "Physical Services": 1
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -1166,12 +1772,23 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "mitsubishi",
+    "value_bdt": 1440000.0
+   },
+   {
+    "word": "equivalent",
+    "value_bdt": 1440000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "1255059/2026",
     "awarded_to": "M/S Ahona Enterprise",
     "value_bdt": 1440000.0,
-    "contract_signing_date": "2026-05-21"
+    "contract_signing_date": "2026-05-21",
+    "description": "HIRING 07 SEATED (MPV) TOYOTA NOAH SQUARE/MITSUBISHI EXPANDER/HYUNDAI STARIA OR EQUIVALENT MICROBUS MODEL: 2018 OR NEWER FOR TCB REGIONAL OFFICE DHAKA."
    }
   ]
  },
@@ -1203,18 +1820,46 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "controller",
+    "value_bdt": 350000.0
+   },
+   {
+    "word": "imports",
+    "value_bdt": 350000.0
+   },
+   {
+    "word": "exports",
+    "value_bdt": 350000.0
+   },
+   {
+    "word": "furniture",
+    "value_bdt": 200000.0
+   },
+   {
+    "word": "printing",
+    "value_bdt": 150000.0
+   },
+   {
+    "word": "stationary",
+    "value_bdt": 150000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.03.2600.000.002.20.00008.25.01",
     "awarded_to": "SMS IT WORLD",
     "value_bdt": 200000.0,
-    "contract_signing_date": "2026-05-19"
+    "contract_signing_date": "2026-05-19",
+    "description": "Procurement of Office Furniture's for the Office of the Controller of Imports & Exports Dhaka."
    },
    {
     "package_ref": "26.03.2600.000.002.20.00008.25.02",
     "awarded_to": "MAA ENTERPRISE",
     "value_bdt": 150000.0,
-    "contract_signing_date": "2026-05-19"
+    "contract_signing_date": "2026-05-19",
+    "description": "Procurement of Printing and Other Stationary for Office of the Controller of Imports & Exports Dhaka"
    }
   ]
  },
@@ -1246,18 +1891,42 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "items",
+    "value_bdt": 510000.0
+   },
+   {
+    "word": "washing",
+    "value_bdt": 280000.0
+   },
+   {
+    "word": "cleaning",
+    "value_bdt": 280000.0
+   },
+   {
+    "word": "stationery",
+    "value_bdt": 230000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 230000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "26.04.0000.000.115.07.0005.25-57",
     "awarded_to": "Shakil Enterprise",
     "value_bdt": 280000.0,
-    "contract_signing_date": "2026-05-18"
+    "contract_signing_date": "2026-05-18",
+    "description": "Procurement of cleaning and washing items"
    },
    {
     "package_ref": "26.04.0000.000.115.07.0006.25.55",
     "awarded_to": "SABUJ STATIONERY",
     "value_bdt": 230000.0,
-    "contract_signing_date": "2026-05-17"
+    "contract_signing_date": "2026-05-17",
+    "description": "Supply of stationery items"
    }
   ]
  }

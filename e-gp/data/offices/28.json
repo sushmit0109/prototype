@@ -41,10 +41,9 @@
    }
   },
   "by_nature": {
-   "Goods": 58,
+   "Goods": 66,
    "Works": 8,
-   "Goods (Framework Agreement)": 8,
-   "Physical Services": 2
+   "Services": 2
   },
   "top_vendors": [
    {
@@ -79,36 +78,83 @@
     "count": 76
    }
   ],
+  "top_keywords": [
+   {
+    "word": "renovation",
+    "value_bdt": 102210000.0
+   },
+   {
+    "word": "auditorium",
+    "value_bdt": 89560000.0
+   },
+   {
+    "word": "framework",
+    "value_bdt": 49810000.0
+   },
+   {
+    "word": "agreement",
+    "value_bdt": 49810000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 33750000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 23600000.0
+   },
+   {
+    "word": "server",
+    "value_bdt": 22600000.0
+   },
+   {
+    "word": "machine",
+    "value_bdt": 21700000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 21190000.0
+   },
+   {
+    "word": "stationery",
+    "value_bdt": 21110000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.01.2672.130.07.041.19",
     "awarded_to": "Legacy Furniture (Pvt.) Ltd.",
     "value_bdt": 85570000.0,
-    "contract_signing_date": "2019-07-10"
+    "contract_signing_date": "2019-07-10",
+    "description": "Renovation of Auditorium"
    },
    {
     "package_ref": "05.01.0000.130.07.241.25",
     "awarded_to": "Mollik Enterprise",
     "value_bdt": 19200000.0,
-    "contract_signing_date": "2026-03-29"
+    "contract_signing_date": "2026-03-29",
+    "description": "Procurement of Stationery Items (Framework Agreement)"
    },
    {
     "package_ref": "05.01.2672.130.07.55.19",
     "awarded_to": "Richman Informatics",
     "value_bdt": 16100000.0,
-    "contract_signing_date": "2019-05-22"
+    "contract_signing_date": "2019-05-22",
+    "description": "Procurement of Bio-metric Attendance Machine"
    },
    {
     "package_ref": "05.01.0000.130.07.017.25/1",
     "awarded_to": "Square InformatiX Limited",
     "value_bdt": 13590000.0,
-    "contract_signing_date": "2026-05-13"
+    "contract_signing_date": "2026-05-13",
+    "description": "Procurement of License and Service Subscription for CISCO Network & Internet Devices for 03(three) years"
    },
    {
     "package_ref": "05.01.2672.130.07.890-18",
     "awarded_to": "Pacific Motors Limited",
     "value_bdt": 11690000.0,
-    "contract_signing_date": "2018-06-03"
+    "contract_signing_date": "2018-06-03",
+    "description": "DOCH 4 Cylinders Microbus"
    }
   ]
  },
@@ -154,9 +200,8 @@
    }
   },
   "by_nature": {
-   "Goods": 23,
-   "Goods (Framework Agreement)": 5,
-   "Physical Services": 1
+   "Goods": 28,
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -191,36 +236,83 @@
     "count": 29
    }
   ],
+  "top_keywords": [
+   {
+    "word": "computer",
+    "value_bdt": 40480000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 26690000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 23350000.0
+   },
+   {
+    "word": "digital",
+    "value_bdt": 22080000.0
+   },
+   {
+    "word": "steel",
+    "value_bdt": 18090000.0
+   },
+   {
+    "word": "file",
+    "value_bdt": 18080000.0
+   },
+   {
+    "word": "camera",
+    "value_bdt": 16940000.0
+   },
+   {
+    "word": "conference",
+    "value_bdt": 16510000.0
+   },
+   {
+    "word": "refrigerator",
+    "value_bdt": 14560000.0
+   },
+   {
+    "word": "bullet",
+    "value_bdt": 14560000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.00.0000.113.07.051.2021-268",
     "awarded_to": "Popular Teknowlogies Ltd.",
     "value_bdt": 14560000.0,
-    "contract_signing_date": "2022-06-19"
+    "contract_signing_date": "2022-06-19",
+    "description": "LED TV Refrigerator Network Bullet IP Camera Wi-Fi System Digital Conference System etc."
    },
    {
     "package_ref": "05.00.0000.113.07.045.2021-211",
     "awarded_to": "Panorama Enterprise",
     "value_bdt": 13790000.0,
-    "contract_signing_date": "2022-05-22"
+    "contract_signing_date": "2022-05-22",
+    "description": "Wooden Office Table Side Table Utility Table with Drawer Unit Side Table wooden Lacquered Polish (wooden) Computer Table Visitor Chair Visitor Chair Sofa Set Pu"
    },
    {
     "package_ref": "05.00.0000.113.07.042.17.1634",
     "awarded_to": "aamra networks limited",
     "value_bdt": 12390000.0,
-    "contract_signing_date": "2018-05-10"
+    "contract_signing_date": "2018-05-10",
+    "description": "Hardware Firewall Bandwidth Manager and Storage"
    },
    {
     "package_ref": "05.00.0000.113.07.041.17.1635",
     "awarded_to": "RITE Solutions Limited",
     "value_bdt": 8790000.0,
-    "contract_signing_date": "2018-03-18"
+    "contract_signing_date": "2018-03-18",
+    "description": "Modular Data Centre Passive Item Fire detention & Suppression System"
    },
    {
     "package_ref": "05.00.0000.113.26.09.17.273",
     "awarded_to": "Navana Limited",
     "value_bdt": 8000000.0,
-    "contract_signing_date": "2017-06-06"
+    "contract_signing_date": "2017-06-06",
+    "description": "New Microbus"
    }
   ]
  },
@@ -277,36 +369,83 @@
     "count": 16
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 346700000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 327870000.0
+   },
+   {
+    "word": "medical",
+    "value_bdt": 323410000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 314320000.0
+   },
+   {
+    "word": "sharkari",
+    "value_bdt": 90600000.0
+   },
+   {
+    "word": "kormaochari",
+    "value_bdt": 90600000.0
+   },
+   {
+    "word": "hospital",
+    "value_bdt": 90600000.0
+   },
+   {
+    "word": "goods",
+    "value_bdt": 27510000.0
+   },
+   {
+    "word": "reagent",
+    "value_bdt": 16990000.0
+   },
+   {
+    "word": "chemical",
+    "value_bdt": 6700000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "1751",
     "awarded_to": "Tamam Corportion",
     "value_bdt": 109600000.0,
-    "contract_signing_date": "2018-01-07"
+    "contract_signing_date": "2018-01-07",
+    "description": "supply&installation of medical equipment"
    },
    {
     "package_ref": "333",
     "awarded_to": "Tamam Corportion",
     "value_bdt": 90600000.0,
-    "contract_signing_date": "2017-05-14"
+    "contract_signing_date": "2017-05-14",
+    "description": "Supply & Installation of Medical Equipment for Sharkari Kormaochari Hospital Fulbaria Dhaka."
    },
    {
     "package_ref": "1753",
     "awarded_to": "Biogene Pharma Ltd.",
     "value_bdt": 73670000.0,
-    "contract_signing_date": "2018-05-17"
+    "contract_signing_date": "2018-05-17",
+    "description": "supply&installation of medical equipment"
    },
    {
     "package_ref": "1752",
     "awarded_to": "One Trade",
     "value_bdt": 40450000.0,
-    "contract_signing_date": "2018-01-28"
+    "contract_signing_date": "2018-01-28",
+    "description": "supply&installation of medical equipment"
    },
    {
     "package_ref": "1602",
     "awarded_to": "Tamam Corportion",
     "value_bdt": 16990000.0,
-    "contract_signing_date": "2019-01-08"
+    "contract_signing_date": "2019-01-08",
+    "description": "msr reagent"
    }
   ]
  },
@@ -387,36 +526,83 @@
     "count": 223
    }
   ],
+  "top_keywords": [
+   {
+    "word": "size",
+    "value_bdt": 1773230000.0
+   },
+   {
+    "word": "paper",
+    "value_bdt": 1630510000.0
+   },
+   {
+    "word": "white",
+    "value_bdt": 1249330000.0
+   },
+   {
+    "word": "offset",
+    "value_bdt": 924900000.0
+   },
+   {
+    "word": "domestic",
+    "value_bdt": 621590000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 538120000.0
+   },
+   {
+    "word": "foreign",
+    "value_bdt": 423940000.0
+   },
+   {
+    "word": "equivalent",
+    "value_bdt": 347770000.0
+   },
+   {
+    "word": "azure",
+    "value_bdt": 301190000.0
+   },
+   {
+    "word": "laid",
+    "value_bdt": 301190000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.85.0000.009.04.007.25/4",
     "awarded_to": "Master Simex Paper Ltd.",
     "value_bdt": 112870000.0,
-    "contract_signing_date": "2025-11-23"
+    "contract_signing_date": "2025-11-23",
+    "description": "Supply of White Offset Paper Size: 58.42 cm X 91.44cm (23'' X 36'') ;GSM: 80-85 (Foreign)"
    },
    {
     "package_ref": "05.85.0000.009.04.008.25/59",
     "awarded_to": "Bashundhara Fine Paper Mills Limited",
     "value_bdt": 108890000.0,
-    "contract_signing_date": "2026-03-03"
+    "contract_signing_date": "2026-03-03",
+    "description": "White offset paper(A-4) Size:210 x 297mm(8.25'' x11.75'')GSM:80-85 (domestic)"
    },
    {
     "package_ref": "05.85.0000.009.04.048.25/42",
     "awarded_to": "Bashundhara Fine Paper Mills Limited",
     "value_bdt": 87900000.0,
-    "contract_signing_date": "2026-01-12"
+    "contract_signing_date": "2026-01-12",
+    "description": "Supply of White Printing Paper Size: 43.18 cm x 68.58 cm (17'' x 27'') GSM: 65-70 (Domestic)"
    },
    {
     "package_ref": "05.04.0000.009.04.009.19/492",
     "awarded_to": "A. H. Traders",
     "value_bdt": 79420000.0,
-    "contract_signing_date": "2020-01-08"
+    "contract_signing_date": "2020-01-08",
+    "description": "White offset paper size-210mmx297mm 80-85GSMBrand-paper one or equivalent"
    },
    {
     "package_ref": "05.85.0000.009.04.062.25/85",
     "awarded_to": "Nurjahan Enterprise",
     "value_bdt": 78200000.0,
-    "contract_signing_date": "2025-06-24"
+    "contract_signing_date": "2025-06-24",
+    "description": "Azure Laid Paper Size:57.15 x 88.90 cm(22.5Ã¢??Ã¢??x 35Ã¢??Ã¢??) GSM:114Ã?Â±2%"
    }
   ]
  },
@@ -464,36 +650,83 @@
     "count": 13
    }
   ],
+  "top_keywords": [
+   {
+    "word": "hili",
+    "value_bdt": 22580000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 19740000.0
+   },
+   {
+    "word": "pourashava",
+    "value_bdt": 17930000.0
+   },
+   {
+    "word": "road",
+    "value_bdt": 17330000.0
+   },
+   {
+    "word": "house",
+    "value_bdt": 15860000.0
+   },
+   {
+    "word": "dist",
+    "value_bdt": 14190000.0
+   },
+   {
+    "word": "drain",
+    "value_bdt": 13460000.0
+   },
+   {
+    "word": "culvert",
+    "value_bdt": 12390000.0
+   },
+   {
+    "word": "bashudebpur",
+    "value_bdt": 12350000.0
+   },
+   {
+    "word": "dhakkin",
+    "value_bdt": 12350000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Dinaj/Hakim/Poura/Proku/2019/485",
     "awarded_to": "M/S Liton Traders",
     "value_bdt": 9950000.0,
-    "contract_signing_date": "2019-02-06"
+    "contract_signing_date": "2019-02-06",
+    "description": "Construction of RCC Drain at Dhakkin Bashudebpur start from Khorrum house to Hili - Joypurthat road near culvert. Ch. 0.00~478.00m L=478.00 m under ward no. 5 H"
    },
    {
     "package_ref": "APP ID. 149069",
     "awarded_to": "M/S Toha Traders",
     "value_bdt": 3010000.0,
-    "contract_signing_date": "2019-02-03"
+    "contract_signing_date": "2019-02-03",
+    "description": "1. Details Estimate of Parking tiles and floor tiles work at Hakimpur (Hili) Municipality office Building Hakimpur Dinajpu. 2. Details Estimate of Maintenance S"
    },
    {
     "package_ref": "APP ID. 149069",
     "awarded_to": "M/S Toha Traders",
     "value_bdt": 1390000.0,
-    "contract_signing_date": "2019-06-26"
+    "contract_signing_date": "2019-06-26",
+    "description": "1. Construction of Brick Drain at Chotojalalpur In front of Subot House to west side Salam house and Baro Jalalpur Potul Shop to Shaidul HouseCh. 0.00m to 154.0"
    },
    {
     "package_ref": "APP ID. 149069",
     "awarded_to": "M/S Nazmul Traders",
     "value_bdt": 1330000.0,
-    "contract_signing_date": "2019-06-26"
+    "contract_signing_date": "2019-06-26",
+    "description": "1. Construction of Motor Byke Garage at Hakimpur (Hili) Municipality office Building and In front of Upzila Resorce Center (URC) Hakimpur Dinajpu. 2. Constructi"
    },
    {
     "package_ref": "APP ID : 125793",
     "awarded_to": "M/S Anjali Traders",
     "value_bdt": 1100000.0,
-    "contract_signing_date": "2018-10-04"
+    "contract_signing_date": "2018-10-04",
+    "description": "Construction o RCC Foot bridge at Jalalpur Soshan ghat Hakimpur Dist. Dinajpur."
    }
   ]
  },
@@ -519,8 +752,7 @@
    }
   },
   "by_nature": {
-   "Goods": 15,
-   "Goods (Framework Agreement)": 1
+   "Goods": 16
   },
   "top_vendors": [
    {
@@ -555,36 +787,83 @@
     "count": 18
    }
   ],
+  "top_keywords": [
+   {
+    "word": "computer",
+    "value_bdt": 12860000.0
+   },
+   {
+    "word": "related",
+    "value_bdt": 10620000.0
+   },
+   {
+    "word": "products",
+    "value_bdt": 10620000.0
+   },
+   {
+    "word": "academy",
+    "value_bdt": 8220000.0
+   },
+   {
+    "word": "administration",
+    "value_bdt": 8220000.0
+   },
+   {
+    "word": "machineries",
+    "value_bdt": 2590000.0
+   },
+   {
+    "word": "electrical",
+    "value_bdt": 2570000.0
+   },
+   {
+    "word": "supplying",
+    "value_bdt": 2500000.0
+   },
+   {
+    "word": "appliances",
+    "value_bdt": 2300000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 2240000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Expansion/Computer/17-18",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 10620000.0,
-    "contract_signing_date": "2018-06-14"
+    "contract_signing_date": "2018-06-14",
+    "description": "Computer and Related Products"
    },
    {
     "package_ref": "05.02.0000.016.07.040.25",
     "awarded_to": "Shahara Traders",
     "value_bdt": 2590000.0,
-    "contract_signing_date": "2025-06-19"
+    "contract_signing_date": "2025-06-19",
+    "description": "Procurement of Other Machineries in BCS Administration Academy 2024-25"
    },
    {
     "package_ref": "Ex/Electrical/17-18",
     "awarded_to": "Giga Power Corporation",
     "value_bdt": 2300000.0,
-    "contract_signing_date": "2018-06-14"
+    "contract_signing_date": "2018-06-14",
+    "description": "Electrical Appliances"
    },
    {
     "package_ref": "Computer/Capacity",
     "awarded_to": "Creatus Computer",
     "value_bdt": 2240000.0,
-    "contract_signing_date": "2018-06-14"
+    "contract_signing_date": "2018-06-14",
+    "description": "Computer and accessories"
    },
    {
     "package_ref": "Ex/Indoor/17-18",
     "awarded_to": "DAWN SPORATS",
     "value_bdt": 1180000.0,
-    "contract_signing_date": "2018-06-14"
+    "contract_signing_date": "2018-06-14",
+    "description": "Indoor Games and Gym"
    }
   ]
  },
@@ -661,36 +940,83 @@
     "count": 56
    }
   ],
+  "top_keywords": [
+   {
+    "word": "road",
+    "value_bdt": 128300000.0
+   },
+   {
+    "word": "side",
+    "value_bdt": 123340000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 118440000.0
+   },
+   {
+    "word": "pourashava",
+    "value_bdt": 105720000.0
+   },
+   {
+    "word": "ward",
+    "value_bdt": 101460000.0
+   },
+   {
+    "word": "house",
+    "value_bdt": 98890000.0
+   },
+   {
+    "word": "drain",
+    "value_bdt": 89320000.0
+   },
+   {
+    "word": "near",
+    "value_bdt": 85110000.0
+   },
+   {
+    "word": "bashudebpur",
+    "value_bdt": 74820000.0
+   },
+   {
+    "word": "east",
+    "value_bdt": 69490000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "46.02.0000.660.03.073.23/8526 (APP No-218031)",
     "awarded_to": "M/S Liton Traders",
     "value_bdt": 10740000.0,
-    "contract_signing_date": "2025-12-23"
+    "contract_signing_date": "2025-12-23",
+    "description": "A) Upgrading of Uni-Block Road with footpath Both side of Hakimpur Charmatha to north side end of Doly Memorial Schoo. Ch.0.00~806.00m (Cover Slub Ch.165.00~334"
    },
    {
     "package_ref": "42.02.0000.660.03.073.23/3975 (APP No-209800)",
     "awarded_to": "M/S Shobhan & Brothers",
     "value_bdt": 9480000.0,
-    "contract_signing_date": "2025-03-10"
+    "contract_signing_date": "2025-03-10",
+    "description": "(A) Rehabilitation of CC road Improvement by RCC Road at Hili Charmatha to north side Hakimpur Gov. Degree collage Ch. 0.00~276.00m Under Word no.01. Hakimpur M"
    },
    {
     "package_ref": "Dinaj/haki/poura/proku/2022/12. Date:02-02-2023",
     "awarded_to": "M/S Liton Traders",
     "value_bdt": 8270000.0,
-    "contract_signing_date": "2023-04-11"
+    "contract_signing_date": "2023-04-11",
+    "description": "2. Rehabilation & Construction of RCC road at Dhakkin Bashudebpur Choripotti more to south side Near Mosque. Ch. 0.00~718.00m. Link-1 Ch. 0.00~62.00m. Link-2 Ch"
    },
    {
     "package_ref": "46.02.0000.660.03.073.23.1161",
     "awarded_to": "M/S Liton Traders",
     "value_bdt": 8110000.0,
-    "contract_signing_date": "2023-07-23"
+    "contract_signing_date": "2023-07-23",
+    "description": "1.Rehabilitation of BC Road at Rajdhani More to CP Road near Habib house ch.0.00 to 1380mL=1.38Km Ward No. 03 & 04 Under the Hakimpur PourashavaDistrict-Dinajpu"
    },
    {
     "package_ref": "Memo no.46.02.0000.660.03.073.23/2.80",
     "awarded_to": "M/S Toha Traders",
     "value_bdt": 7040000.0,
-    "contract_signing_date": "2024-02-18"
+    "contract_signing_date": "2024-02-18",
+    "description": "(A) Maintenance of Semi Pucca Tin Shed Fish-MarketMutton ShedBeaf ShedRice shedKicken shed & Shosan Ghat Rest House Building at HakimpurHakimpur MunicipalityDin"
    }
   ]
  },
@@ -723,18 +1049,62 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "mangrove",
+    "value_bdt": 34770000.0
+   },
+   {
+    "word": "center",
+    "value_bdt": 34770000.0
+   },
+   {
+    "word": "cultural",
+    "value_bdt": 34770000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 34770000.0
+   },
+   {
+    "word": "structure",
+    "value_bdt": 25990000.0
+   },
+   {
+    "word": "grade",
+    "value_bdt": 25990000.0
+   },
+   {
+    "word": "sanitary",
+    "value_bdt": 25990000.0
+   },
+   {
+    "word": "above",
+    "value_bdt": 25990000.0
+   },
+   {
+    "word": "super",
+    "value_bdt": 25990000.0
+   },
+   {
+    "word": "beamelectrical",
+    "value_bdt": 25990000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Approved by HOPE 15-12-2019",
     "awarded_to": "SIGN ENGINEERING LIMITED",
     "value_bdt": 25990000.0,
-    "contract_signing_date": "2020-03-04"
+    "contract_signing_date": "2020-03-04",
+    "description": "Construction of Mangrove Cultural Center (Super Structure above Grade BeamElectrical and Sanitary) SHEIKH RUSSEL ECO PARK."
    },
    {
     "package_ref": "memo no-30.33.0000.211.34.002.18 ;date-23.09.2018",
     "awarded_to": "SIGN ENGINEERING LIMITED",
     "value_bdt": 8780000.0,
-    "contract_signing_date": "2019-06-24"
+    "contract_signing_date": "2019-06-24",
+    "description": "Construction of Mangrove Cultural Center up-to Plinth level (FoundationGrade beam etc) under Sheikh Rasel Eco Park Khulna"
    }
   ]
  },
@@ -796,36 +1166,83 @@
     "count": 12
    }
   ],
+  "top_keywords": [
+   {
+    "word": "convention",
+    "value_bdt": 1269430000.0
+   },
+   {
+    "word": "administrative",
+    "value_bdt": 1269430000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 1160830000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1147210000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1144860000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 1144220000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 1133190000.0
+   },
+   {
+    "word": "sanitary",
+    "value_bdt": 1132590000.0
+   },
+   {
+    "word": "electrical",
+    "value_bdt": 1132590000.0
+   },
+   {
+    "word": "storied",
+    "value_bdt": 1132590000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Approved by HOPE date-22 November/201",
     "awarded_to": "G.K.B & Company Private Ltd. - National Development Engineers Ltd. JV",
     "value_bdt": 1132590000.0,
-    "contract_signing_date": "2019-04-18"
+    "contract_signing_date": "2019-04-18",
+    "description": "Construction of Administrative Convention Center at Khulna1. Civil Work for Construction of 15 Storied(thirteen storied +two basement) building with two basemen"
    },
    {
     "package_ref": "APP ID-183232",
     "awarded_to": "Akhtar Furnishers Ltd",
     "value_bdt": 46400000.0,
-    "contract_signing_date": "2022-05-25"
+    "contract_signing_date": "2022-05-25",
+    "description": "Manufacturing and Supplying (With Fitting & Fixing if necessary) of different Furniture at each floor of Administrative Convention Centre Khulna"
    },
    {
     "package_ref": "191474",
     "awarded_to": "M/S. Sharif & Sons",
     "value_bdt": 25960000.0,
-    "contract_signing_date": "2023-06-25"
+    "contract_signing_date": "2023-06-25",
+    "description": "Supplying Fitting Fixing & Installation of Room Supplies for Administrative Convention Centre at Khulna"
    },
    {
     "package_ref": "APP ID-191474",
     "awarded_to": "Top One Trading",
     "value_bdt": 22760000.0,
-    "contract_signing_date": "2023-07-11"
+    "contract_signing_date": "2023-07-11",
+    "description": "Supplying Fitting Fixing & Installation of Kitchen and Pantry Equipment for Administrative Convention Centre at Khulna"
    },
    {
     "package_ref": "APP Code-CACC/2022-23/APP-01",
     "awarded_to": "Desh Media",
     "value_bdt": 13020000.0,
-    "contract_signing_date": "2023-05-02"
+    "contract_signing_date": "2023-05-02",
+    "description": "Signage with Installation at each level of Administrative Convention Centre under Construction at Khulna City"
    }
   ]
  },
@@ -898,36 +1315,83 @@
     "count": 115
    }
   ],
+  "top_keywords": [
+   {
+    "word": "items",
+    "value_bdt": 109760000.0
+   },
+   {
+    "word": "plate",
+    "value_bdt": 59780000.0
+   },
+   {
+    "word": "offset",
+    "value_bdt": 48360000.0
+   },
+   {
+    "word": "goods",
+    "value_bdt": 43460000.0
+   },
+   {
+    "word": "machine",
+    "value_bdt": 41360000.0
+   },
+   {
+    "word": "spare",
+    "value_bdt": 39610000.0
+   },
+   {
+    "word": "purchase",
+    "value_bdt": 32710000.0
+   },
+   {
+    "word": "positive",
+    "value_bdt": 29200000.0
+   },
+   {
+    "word": "heidelberg",
+    "value_bdt": 25440000.0
+   },
+   {
+    "word": "press",
+    "value_bdt": 23240000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.82.0000.018.07.023.23-24",
     "awarded_to": "E. S. CONSTRUCTION CO.",
     "value_bdt": 19950000.0,
-    "contract_signing_date": "2024-02-15"
+    "contract_signing_date": "2024-02-15",
+    "description": "Procurement of Air Conditioner"
    },
    {
     "package_ref": "05.82.0000.018.07.015.24-25",
     "awarded_to": "Salma Enterprise",
     "value_bdt": 17360000.0,
-    "contract_signing_date": "2024-12-11"
+    "contract_signing_date": "2024-12-11",
+    "description": "Procurement of P. S. Plate Positive"
    },
    {
     "package_ref": "05.82.0000.018.07.016.23-24",
     "awarded_to": "G4 TECHNOLOGIES LIMITED",
     "value_bdt": 15100000.0,
-    "contract_signing_date": "2023-12-31"
+    "contract_signing_date": "2023-12-31",
+    "description": "Procurement of Magnetic Contactor with 6 items"
    },
    {
     "package_ref": "05.82.0000.018.07.009.22-23",
     "awarded_to": "AL HASAN ASSOCIATES",
     "value_bdt": 11840000.0,
-    "contract_signing_date": "2023-12-06"
+    "contract_signing_date": "2023-12-06",
+    "description": "P. S. Plate Positive"
    },
    {
     "package_ref": "05.82.0000.018.07.033.21-22/4996",
     "awarded_to": "WALTON HI-TECH INDUSTRIES LIMITED",
     "value_bdt": 9970000.0,
-    "contract_signing_date": "2021-11-29"
+    "contract_signing_date": "2021-11-29",
+    "description": "Procurement of AC"
    }
   ]
  },
@@ -956,12 +1420,31 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "size",
+    "value_bdt": 910000.0
+   },
+   {
+    "word": "display",
+    "value_bdt": 910000.0
+   },
+   {
+    "word": "digital",
+    "value_bdt": 910000.0
+   },
+   {
+    "word": "billboard",
+    "value_bdt": 910000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.04.0000.010.33.003.19/488/3",
     "awarded_to": "Unique Business Systems Ltd.",
     "value_bdt": 910000.0,
-    "contract_signing_date": "2020-06-07"
+    "contract_signing_date": "2020-06-07",
+    "description": "LED digital display Billboard; Size- 7.5'*12.5"
    }
   ]
  },
@@ -1034,36 +1517,83 @@
     "count": 137
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 164700000.0
+   },
+   {
+    "word": "machine",
+    "value_bdt": 67060000.0
+   },
+   {
+    "word": "spare",
+    "value_bdt": 41720000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 41400000.0
+   },
+   {
+    "word": "plate",
+    "value_bdt": 34680000.0
+   },
+   {
+    "word": "printing",
+    "value_bdt": 29960000.0
+   },
+   {
+    "word": "thermal",
+    "value_bdt": 27300000.0
+   },
+   {
+    "word": "book",
+    "value_bdt": 22970000.0
+   },
+   {
+    "word": "developer",
+    "value_bdt": 22390000.0
+   },
+   {
+    "word": "plates",
+    "value_bdt": 20160000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.83.0000.010.07.001.2023-2024/260",
     "awarded_to": "AL HASAN ASSOCIATES",
     "value_bdt": 11220000.0,
-    "contract_signing_date": "2023-10-18"
+    "contract_signing_date": "2023-10-18",
+    "description": "Supply of PS plate & thermal plate."
    },
    {
     "package_ref": "05.83.0000.010.07.005.2024-2025/2242",
     "awarded_to": "Salma Enterprise",
     "value_bdt": 8780000.0,
-    "contract_signing_date": "2024-11-14"
+    "contract_signing_date": "2024-11-14",
+    "description": "Supply of 8 items PS Plate & Tharmal Plate."
    },
    {
     "package_ref": "05.83.0000.010.07.001.2023-2024/1534",
     "awarded_to": "Salma Enterprise",
     "value_bdt": 5530000.0,
-    "contract_signing_date": "2024-06-05"
+    "contract_signing_date": "2024-06-05",
+    "description": "Supply of PS plate & thermal plate."
    },
    {
     "package_ref": "05.83.0000.010.07.006.22-23",
     "awarded_to": "M/S Shahid Enterprise",
     "value_bdt": 5440000.0,
-    "contract_signing_date": "2023-01-02"
+    "contract_signing_date": "2023-01-02",
+    "description": "Supply of PS Plates(Positive) & Developer"
    },
    {
     "package_ref": "05.83.0000.010.07.046.23",
     "awarded_to": "MOITRI TRADE INTERNATIONAL",
     "value_bdt": 4960000.0,
-    "contract_signing_date": "2023-06-21"
+    "contract_signing_date": "2023-06-21",
+    "description": "Spare parts of HORIZON AFC-744AKT/AFC/744A-S Book Folding Machine"
    }
   ]
  },
@@ -1097,8 +1627,7 @@
    }
   },
   "by_nature": {
-   "Goods": 52,
-   "Goods (Framework Agreement)": 9
+   "Goods": 61
   },
   "top_vendors": [
    {
@@ -1133,36 +1662,83 @@
     "count": 61
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 115560000.0
+   },
+   {
+    "word": "examination",
+    "value_bdt": 65660000.0
+   },
+   {
+    "word": "answer",
+    "value_bdt": 63950000.0
+   },
+   {
+    "word": "sheets",
+    "value_bdt": 35220000.0
+   },
+   {
+    "word": "preliminary",
+    "value_bdt": 26740000.0
+   },
+   {
+    "word": "printer",
+    "value_bdt": 21720000.0
+   },
+   {
+    "word": "sheet",
+    "value_bdt": 20540000.0
+   },
+   {
+    "word": "form",
+    "value_bdt": 17870000.0
+   },
+   {
+    "word": "color",
+    "value_bdt": 16800000.0
+   },
+   {
+    "word": "written",
+    "value_bdt": 16370000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "80.00.0000.403.32.011.25-282",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 11120000.0,
-    "contract_signing_date": "2025-09-29"
+    "contract_signing_date": "2025-09-29",
+    "description": "Supply of OMR Answer Sheets and OMR Forms for Non-cadre Departmental & Senior Scale Examination."
    },
    {
     "package_ref": "80.00.0000.403.32.036.22-396",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 7700000.0,
-    "contract_signing_date": "2024-01-30"
+    "contract_signing_date": "2024-01-30",
+    "description": "Supply of OMR Form with answer script."
    },
    {
     "package_ref": "80.00.0000.403.32.025.24-465",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 6680000.0,
-    "contract_signing_date": "2025-03-05"
+    "contract_signing_date": "2025-03-05",
+    "description": "Supply of OMR Answer Sheets for Preliminary Examination."
    },
    {
     "package_ref": "80.00.0000.403.32.029.25-459",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 5450000.0,
-    "contract_signing_date": "2026-01-18"
+    "contract_signing_date": "2026-01-18",
+    "description": "Supply of OMR Answer Sheets for BCS Preliminary Examination."
    },
    {
     "package_ref": "80.00.0000.403.32..031.21-37",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 5430000.0,
-    "contract_signing_date": "2022-03-14"
+    "contract_signing_date": "2022-03-14",
+    "description": "Supply of OMR Answer Sheet for 44th Preliminary Examination."
    }
   ]
  },
@@ -1196,9 +1772,8 @@
    }
   },
   "by_nature": {
-   "Goods": 35,
-   "Works": 4,
-   "Goods (Framework Agreement)": 6
+   "Goods": 41,
+   "Works": 4
   },
   "top_vendors": [
    {
@@ -1233,36 +1808,83 @@
     "count": 52
    }
   ],
+  "top_keywords": [
+   {
+    "word": "purchase",
+    "value_bdt": 14880000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 9150000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 8410000.0
+   },
+   {
+    "word": "method",
+    "value_bdt": 1960000.0
+   },
+   {
+    "word": "framework",
+    "value_bdt": 1950000.0
+   },
+   {
+    "word": "furniture",
+    "value_bdt": 1680000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 1640000.0
+   },
+   {
+    "word": "renovation",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "training",
+    "value_bdt": 1360000.0
+   },
+   {
+    "word": "interactive",
+    "value_bdt": 1260000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.01.1541.062.99.065.24 - Part 2",
     "awarded_to": "Albatross International",
     "value_bdt": 4720000.0,
-    "contract_signing_date": "2024-10-24"
+    "contract_signing_date": "2024-10-24",
+    "description": "Purchase of Computer Items for RPATC Chattogram."
    },
    {
     "package_ref": "05.01.1541.062.99.022.25",
     "awarded_to": "Albatross International",
     "value_bdt": 2950000.0,
-    "contract_signing_date": "2025-06-15"
+    "contract_signing_date": "2025-06-15",
+    "description": "Purchase of computer items for RPATC Chattogram"
    },
    {
     "package_ref": "Replacement of Wifi line and device",
     "awarded_to": "M/s. Raisa Enterprise",
     "value_bdt": 810000.0,
-    "contract_signing_date": "2026-03-08"
+    "contract_signing_date": "2026-03-08",
+    "description": "Replacement of wifi line and device"
    },
    {
     "package_ref": "05.01.1541.062.99.030.25- furniture re-tender",
     "awarded_to": "VEGAS FURNITURE & CONSTRUCTION",
     "value_bdt": 790000.0,
-    "contract_signing_date": "2025-08-13"
+    "contract_signing_date": "2025-08-13",
+    "description": "Purchase of computer table chair VIP rooms furniture and office almirah for regional public administration training centre ctg."
    },
    {
     "package_ref": "Purchase of online UPS",
     "awarded_to": "LID POWER SOLUTIONS LIMITED",
     "value_bdt": 790000.0,
-    "contract_signing_date": "2026-03-08"
+    "contract_signing_date": "2026-03-08",
+    "description": "Purchase of online UPS"
    }
   ]
  },
@@ -1323,36 +1945,83 @@
     "count": 19
    }
   ],
+  "top_keywords": [
+   {
+    "word": "desktop",
+    "value_bdt": 6480000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 6450000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 6220000.0
+   },
+   {
+    "word": "related",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 3480000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 3270000.0
+   },
+   {
+    "word": "services",
+    "value_bdt": 3150000.0
+   },
+   {
+    "word": "furniture",
+    "value_bdt": 2590000.0
+   },
+   {
+    "word": "online",
+    "value_bdt": 2290000.0
+   },
+   {
+    "word": "fitting",
+    "value_bdt": 2090000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "RPATC-OTM-1 2025-2036",
     "awarded_to": "Sumi Construction and Suppliers",
     "value_bdt": 3150000.0,
-    "contract_signing_date": "2026-03-16"
+    "contract_signing_date": "2026-03-16",
+    "description": "Procurement of Desktop Computer UPS and related Services for RPATC Rajshahi."
    },
    {
     "package_ref": "05.01.8100.001.56.057.16",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 2290000.0,
-    "contract_signing_date": "2021-06-06"
+    "contract_signing_date": "2021-06-06",
+    "description": "Procurement of 30 Desktop Computer and 2 Online UPS"
    },
    {
     "package_ref": "05.01.2672.135.02.004.24.234",
     "awarded_to": "M/S Great Bangla Corporation",
     "value_bdt": 2090000.0,
-    "contract_signing_date": "2025-05-20"
+    "contract_signing_date": "2025-05-20",
+    "description": "Supply Fitting and Fixing of Furniture for RPATC Rajshahi."
    },
    {
     "package_ref": "APP Id 203304",
     "awarded_to": "M.M. International",
     "value_bdt": 2030000.0,
-    "contract_signing_date": "2024-06-23"
+    "contract_signing_date": "2024-06-23",
+    "description": "Supply and Installation of Air Cooler system under RPATC Rajshahi."
    },
    {
     "package_ref": "05.01.8100.000.001.07.0008.26",
     "awarded_to": "Shohopathi",
     "value_bdt": 1320000.0,
-    "contract_signing_date": "2026-05-12"
+    "contract_signing_date": "2026-05-12",
+    "description": "Procurement of training materials (bagspadpenname tagpencilscale)"
    }
   ]
  },
@@ -1381,12 +2050,31 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "slope",
+    "value_bdt": 4520000.0
+   },
+   {
+    "word": "pond",
+    "value_bdt": 4520000.0
+   },
+   {
+    "word": "protection",
+    "value_bdt": 4520000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 4520000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "615",
     "awarded_to": "M/S Tashnia Enterprise",
     "value_bdt": 4520000.0,
-    "contract_signing_date": "2021-11-02"
+    "contract_signing_date": "2021-11-02",
+    "description": "Slope protection work of Jashore DC Office Pond"
    }
   ]
  },
@@ -1436,36 +2124,83 @@
     "count": 11
    }
   ],
+  "top_keywords": [
+   {
+    "word": "govt",
+    "value_bdt": 6760000.0
+   },
+   {
+    "word": "transport",
+    "value_bdt": 6760000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 3690000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 3180000.0
+   },
+   {
+    "word": "renovation",
+    "value_bdt": 2740000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 2710000.0
+   },
+   {
+    "word": "room",
+    "value_bdt": 2490000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2180000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 1900000.0
+   },
+   {
+    "word": "tiles",
+    "value_bdt": 1690000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Civil-3/DGT Vide Memo: 384 Dated 06/05/2021",
     "awarded_to": "ADROIT CONSULTANTS AND ENGINEERS",
     "value_bdt": 890000.0,
-    "contract_signing_date": "2021-06-22"
+    "contract_signing_date": "2021-06-22",
+    "description": "Parking Tiles Works and Reconstruction Works of Car Wash Ramp at the Car Parking Area of the Commissioner Department of Govt. Transport for FY 2020-2021Commissi"
    },
    {
     "package_ref": "EM-1/DGT Vide Memo: 384 Dated 06/05/2021",
     "awarded_to": "M/S Ujjal Electric Enterprise",
     "value_bdt": 870000.0,
-    "contract_signing_date": "2021-06-13"
+    "contract_signing_date": "2021-06-13",
+    "description": "Supply and Installation of CCTV including other Accessories to Provide Safety & Security of the Vehicles at the Department of Govt. Transport for FY 2020-2021"
    },
    {
     "package_ref": "GD-1/DGT Vide Memo: 473 Dated 06/06/2021",
     "awarded_to": "GLOBAL EXPO",
     "value_bdt": 810000.0,
-    "contract_signing_date": "2021-06-27"
+    "contract_signing_date": "2021-06-27",
+    "description": "Procurement and installation work of computer for different offices of Department of Govt. Transport Dhaka"
    },
    {
     "package_ref": "Civil-4/DGT Vide Memo: 384 Dated 06/05/2021",
     "awarded_to": "Dhaka Trade Con",
     "value_bdt": 800000.0,
-    "contract_signing_date": "2021-06-13"
+    "contract_signing_date": "2021-06-13",
+    "description": "Sanitary Repair and Renovation Works Including Bathroom Tiles Wall Paneling Metal Ceiling Venetian Blind etc at Staff Training Centre of Govt. Transport Pool fo"
    },
    {
     "package_ref": "Civil-1/DGT Vide Memo: 384 Dated 06/05/2021",
     "awarded_to": "Kinnor Corporation",
     "value_bdt": 760000.0,
-    "contract_signing_date": "2021-06-13"
+    "contract_signing_date": "2021-06-13",
+    "description": "Annual Repair and Renovation Works at Office Room of the Commissioner Department of Govt. Transport for FY 2020-2021"
    }
   ]
  },
@@ -1495,9 +2230,8 @@
    }
   },
   "by_nature": {
-   "Goods": 25,
-   "Works": 16,
-   "Goods (Framework Agreement)": 3
+   "Goods": 28,
+   "Works": 16
   },
   "top_vendors": [
    {
@@ -1532,36 +2266,83 @@
     "count": 50
    }
   ],
+  "top_keywords": [
+   {
+    "word": "foundation",
+    "value_bdt": 115380000.0
+   },
+   {
+    "word": "regional",
+    "value_bdt": 61340000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 51610000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 50760000.0
+   },
+   {
+    "word": "dormitory",
+    "value_bdt": 48220000.0
+   },
+   {
+    "word": "center",
+    "value_bdt": 44270000.0
+   },
+   {
+    "word": "storied",
+    "value_bdt": 43500000.0
+   },
+   {
+    "word": "s-bazar",
+    "value_bdt": 41870000.0
+   },
+   {
+    "word": "residential",
+    "value_bdt": 41870000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 28310000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.05.0000.006.16.056.25_WO1",
     "awarded_to": "JAKAULLAH AND BROTHERS LIMITED",
     "value_bdt": 41870000.0,
-    "contract_signing_date": "2025-10-16"
+    "contract_signing_date": "2025-10-16",
+    "description": "Construction of 05 storied Residential building cum Dormitory building BIAM Foundation Regional Center at Cox's-Bazar"
    },
    {
     "package_ref": "05.05.0000.006.18.026.25_26 GR23",
     "awarded_to": "Hatil Complex Ltd",
     "value_bdt": 6350000.0,
-    "contract_signing_date": "2026-05-18"
+    "contract_signing_date": "2026-05-18",
+    "description": "Supplying of office and dormitory furniture for BIAM Foundation Regional Centre Cox's bazar."
    },
    {
     "package_ref": "05.05.0000.006.18.026.25_WR2",
     "awarded_to": "BABOR ASSOCIATES",
     "value_bdt": 6230000.0,
-    "contract_signing_date": "2025-12-23"
+    "contract_signing_date": "2025-12-23",
+    "description": "Renovation of Multipurpose Hall at BIAM Foundation Regional Centre Bogra."
    },
    {
     "package_ref": "05.05.0000.006.20.010.20.W_07",
     "awarded_to": "M/S PARVEZ CONSTRUCTION",
     "value_bdt": 6220000.0,
-    "contract_signing_date": "2024-03-31"
+    "contract_signing_date": "2024-03-31",
+    "description": "Construction of Boundary Wall at Uttara under BIAM Foundation Dhaka."
    },
    {
     "package_ref": "05.05.0000.006.16.028.20-02",
     "awarded_to": "M/S Mohiuddin Ahmed",
     "value_bdt": 4910000.0,
-    "contract_signing_date": "2021-02-11"
+    "contract_signing_date": "2021-02-11",
+    "description": "Painting with other related works for BIAM buildings"
    }
   ]
  },
@@ -1595,18 +2376,62 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "renovation",
+    "value_bdt": 7210000.0
+   },
+   {
+    "word": "foundation",
+    "value_bdt": 7210000.0
+   },
+   {
+    "word": "modernization",
+    "value_bdt": 3680000.0
+   },
+   {
+    "word": "five",
+    "value_bdt": 3680000.0
+   },
+   {
+    "word": "classrooms",
+    "value_bdt": 3680000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 3530000.0
+   },
+   {
+    "word": "canteen",
+    "value_bdt": 3530000.0
+   },
+   {
+    "word": "adjacent",
+    "value_bdt": 3530000.0
+   },
+   {
+    "word": "modhumoti",
+    "value_bdt": 3530000.0
+   },
+   {
+    "word": "surma",
+    "value_bdt": 3530000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.05.0000.010.16.001.19",
     "awarded_to": "M/S. Silicon Trade International",
     "value_bdt": 3680000.0,
-    "contract_signing_date": "2022-04-11"
+    "contract_signing_date": "2022-04-11",
+    "description": "Renovation and modernization of 05 (five) classrooms of BIAM Foundation Dhaka."
    },
    {
     "package_ref": "05.05.0000.010.16.001.19",
     "awarded_to": "M/S PARVEZ CONSTRUCTION",
     "value_bdt": 3530000.0,
-    "contract_signing_date": "2022-11-29"
+    "contract_signing_date": "2022-11-29",
+    "description": "Renovation works of Modhumoti Canteen & Surma Canteen with Adjacent Lobby at BIAM Foundation Dhaka"
    }
   ]
  },
@@ -1645,30 +2470,72 @@
     "count": 4
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 4260000.0
+   },
+   {
+    "word": "tools",
+    "value_bdt": 3340000.0
+   },
+   {
+    "word": "others",
+    "value_bdt": 3340000.0
+   },
+   {
+    "word": "scanner",
+    "value_bdt": 2060000.0
+   },
+   {
+    "word": "number",
+    "value_bdt": 1280000.0
+   },
+   {
+    "word": "boring",
+    "value_bdt": 1280000.0
+   },
+   {
+    "word": "machine",
+    "value_bdt": 1280000.0
+   },
+   {
+    "word": "liveries",
+    "value_bdt": 630000.0
+   },
+   {
+    "word": "shoes",
+    "value_bdt": 290000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.03.0000.006.07.061.22-270 Date:10/03/2022",
     "awarded_to": "M/S. SAARC TRADING COMPANY",
     "value_bdt": 2060000.0,
-    "contract_signing_date": "2022-04-07"
+    "contract_signing_date": "2022-04-07",
+    "description": "Supply of scanner & others tools"
    },
    {
     "package_ref": "05.03.0000.006.07.061.22--272 Date:10/03/2022",
     "awarded_to": "M/S. SAARC TRADING COMPANY",
     "value_bdt": 1280000.0,
-    "contract_signing_date": "2022-04-07"
+    "contract_signing_date": "2022-04-07",
+    "description": "Supply of boring machine number 2 & others tools"
    },
    {
     "package_ref": "05.03.0000.006.07.006.22-704 Date:22/05/2022",
     "awarded_to": "Cool Source Trading",
     "value_bdt": 630000.0,
-    "contract_signing_date": "2022-06-13"
+    "contract_signing_date": "2022-06-13",
+    "description": "Supply of liveries"
    },
    {
     "package_ref": "05.03.0000.006.07.006.22-705 Date:22/05/2022",
     "awarded_to": "M2 International",
     "value_bdt": 290000.0,
-    "contract_signing_date": "2022-06-14"
+    "contract_signing_date": "2022-06-14",
+    "description": "Supply of shoes"
    }
   ]
  },
@@ -1726,36 +2593,83 @@
     "count": 12
    }
   ],
+  "top_keywords": [
+   {
+    "word": "foundation",
+    "value_bdt": 129380000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 85850000.0
+   },
+   {
+    "word": "regional",
+    "value_bdt": 82090000.0
+   },
+   {
+    "word": "center",
+    "value_bdt": 82090000.0
+   },
+   {
+    "word": "renovation",
+    "value_bdt": 69060000.0
+   },
+   {
+    "word": "room",
+    "value_bdt": 64970000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 63120000.0
+   },
+   {
+    "word": "hostel",
+    "value_bdt": 58190000.0
+   },
+   {
+    "word": "floor",
+    "value_bdt": 54920000.0
+   },
+   {
+    "word": "lobby",
+    "value_bdt": 40680000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.05.0000.010.16.002.25_W13",
     "awarded_to": "Raiyan-BD Power JVCA",
     "value_bdt": 36100000.0,
-    "contract_signing_date": "2025-11-03"
+    "contract_signing_date": "2025-11-03",
+    "description": "Vertical Extraction of Office Building at BIAM Foundation Regional Center Bogura. (One Floor)"
    },
    {
     "package_ref": "05.05.0000.010.16.002.25_W6",
     "awarded_to": "J. K. Traders",
     "value_bdt": 18820000.0,
-    "contract_signing_date": "2025-06-01"
+    "contract_signing_date": "2025-06-01",
+    "description": "Repair and renovation of Main Building Hostel Room (16 Nos Room) with 2nd to 9th Floor Lobby at BIAM Foundation Dhaka."
    },
    {
     "package_ref": "05.05.0000.010.16.002.25_W7",
     "awarded_to": "Expotech",
     "value_bdt": 15920000.0,
-    "contract_signing_date": "2025-12-22"
+    "contract_signing_date": "2025-12-22",
+    "description": "Repair and renovation of Tower Building Hostel Room (20 Nos Room) with Lobby and Toilet Zone (14Nos Toilet) at BIAM Foundation Dhaka"
    },
    {
     "package_ref": "05.05.0000.010.18.002.25_GD6",
     "awarded_to": "M/S PARVEZ CONSTRUCTION",
     "value_bdt": 12760000.0,
-    "contract_signing_date": "2025-07-31"
+    "contract_signing_date": "2025-07-31",
+    "description": "Supply installation & testing of split type air-cooler in Hostel & Office Room at BIAM Foundation Dhaka & Regional Center Cox's bazar."
    },
    {
     "package_ref": "05.05.0000.010.18.002.25_W14",
     "awarded_to": "NURJAHAN ENTERPRISE",
     "value_bdt": 10910000.0,
-    "contract_signing_date": "2025-07-21"
+    "contract_signing_date": "2025-07-21",
+    "description": "Repair and Renovation of Existing Building at BIAM Foundation Regional Center Bogura."
    }
   ]
  },
@@ -1781,8 +2695,7 @@
    }
   },
   "by_nature": {
-   "Goods": 23,
-   "Goods (Framework Agreement)": 3,
+   "Goods": 26,
    "Works": 1
   },
   "top_vendors": [
@@ -1818,36 +2731,83 @@
     "count": 30
    }
   ],
+  "top_keywords": [
+   {
+    "word": "purchase",
+    "value_bdt": 37990000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 18060000.0
+   },
+   {
+    "word": "related",
+    "value_bdt": 10890000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 10450000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 7450000.0
+   },
+   {
+    "word": "table",
+    "value_bdt": 6040000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 5780000.0
+   },
+   {
+    "word": "elevators",
+    "value_bdt": 5480000.0
+   },
+   {
+    "word": "multi-purpose",
+    "value_bdt": 5480000.0
+   },
+   {
+    "word": "buildings",
+    "value_bdt": 5480000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.01.4000.002.07.007.24.01",
     "awarded_to": "ATOMPAC LIMITED",
     "value_bdt": 5480000.0,
-    "contract_signing_date": "2024-05-15"
+    "contract_signing_date": "2024-05-15",
+    "description": "Purchase elevators and accessories installation in multi-purpose buildings"
    },
    {
     "package_ref": "05.01.4000.000.002.07.0001.25.09",
     "awarded_to": "Mahmood & Co.",
     "value_bdt": 4280000.0,
-    "contract_signing_date": "2025-05-28"
+    "contract_signing_date": "2025-05-28",
+    "description": "Purchase & Installation of AC at the Multipurpose & Academic Building for RPATC Khulna"
    },
    {
     "package_ref": "05.01.4000.000.002.07.0009.24.40 Date: 01/03/2026",
     "awarded_to": "JUNAYED INTERNATIONAL",
     "value_bdt": 4240000.0,
-    "contract_signing_date": "2026-04-16"
+    "contract_signing_date": "2026-04-16",
+    "description": "Purchase and Installation of New Brand Desktop Computer and Related Equipment of RPATC Khulna."
    },
    {
     "package_ref": "05.01.4000.000.002.07.0001.25.09",
     "awarded_to": "M/S Alamgir Hosen",
     "value_bdt": 3530000.0,
-    "contract_signing_date": "2025-07-16"
+    "contract_signing_date": "2025-07-16",
+    "description": "Purchase of new generators and automation work of old generators"
    },
    {
     "package_ref": "05.01.4000.000.002.07.0010.25.133 Date: 08/06/26",
     "awarded_to": "Bangladesh Forest Industries Development Corporation (BFIDC)",
     "value_bdt": 2630000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Purchase of office Furniture (Office Table Dining Table Chair Sofa Set etc.)"
    }
   ]
  },
@@ -1909,36 +2869,83 @@
     "count": 31
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 24230000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 24230000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 16210000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 9910000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 8720000.0
+   },
+   {
+    "word": "renovation",
+    "value_bdt": 7500000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 6790000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 5590000.0
+   },
+   {
+    "word": "miscellaneous",
+    "value_bdt": 4860000.0
+   },
+   {
+    "word": "furniture",
+    "value_bdt": 4190000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DG_Shilpokala_Memo no15(1-6)_17/08/25",
     "awarded_to": "RM Construction",
     "value_bdt": 2530000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Construction Work of Boundary to protect the entire area of LalBaul (Sishuswarga 2) at the Surrounding of SM Sultan Memorial Museum Narail Sadar Narail."
    },
    {
     "package_ref": "Narail/2025-26/Solar",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2310000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Instalation of On-grid Solar Panel on the rooftop of DC Office Narail under the National Rooftop Solar Programme FY-2025-2026"
    },
    {
     "package_ref": "05.44.6500.103.01.016.24",
     "awarded_to": "MD. AMIR HOSSAIN MINTU",
     "value_bdt": 2170000.0,
-    "contract_signing_date": "2025-03-20"
+    "contract_signing_date": "2025-03-20",
+    "description": "Supply of Stationery Items for Office of the Deputy Commissioner Narail"
    },
    {
     "package_ref": "Land Office Repair/ 2023-2024",
     "awarded_to": "M/S TASHIN ENTERPRISE",
     "value_bdt": 1550000.0,
-    "contract_signing_date": "2024-06-05"
+    "contract_signing_date": "2024-06-05",
+    "description": "Repair/Renovation works of Land Offices (Upazilla Pouro and Union Land Office) Under the Ministry of Land in the Fiscal Year 2023-2024."
    },
    {
     "package_ref": "NRL/2024-25/3258108",
     "awarded_to": "MD. AMIR HOSSAIN MINTU",
     "value_bdt": 1530000.0,
-    "contract_signing_date": "2025-06-04"
+    "contract_signing_date": "2025-06-04",
+    "description": "Repair and Renovation of Other Buildings and Installations at Office of the Deputy Commissioner Narail Campus"
    }
   ]
  },
@@ -1980,36 +2987,83 @@
     "count": 11
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 35970000.0
+   },
+   {
+    "word": "school",
+    "value_bdt": 24460000.0
+   },
+   {
+    "word": "khata",
+    "value_bdt": 15060000.0
+   },
+   {
+    "word": "notebooks",
+    "value_bdt": 11510000.0
+   },
+   {
+    "word": "printing",
+    "value_bdt": 11510000.0
+   },
+   {
+    "word": "country",
+    "value_bdt": 11510000.0
+   },
+   {
+    "word": "books",
+    "value_bdt": 11510000.0
+   },
+   {
+    "word": "schools",
+    "value_bdt": 11510000.0
+   },
+   {
+    "word": "dairies",
+    "value_bdt": 11510000.0
+   },
+   {
+    "word": "math",
+    "value_bdt": 8620000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.05.0000.004.18.008.23",
     "awarded_to": "M/S. Silicon Trade International",
     "value_bdt": 11510000.0,
-    "contract_signing_date": "2023-10-23"
+    "contract_signing_date": "2023-10-23",
+    "description": "Printing and Supply of Books Dairies and Notebooks at BIAM schools in all over the Country."
    },
    {
     "package_ref": "05.05.0000.000.004.18.0010.25-486",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 5820000.0,
-    "contract_signing_date": "2025-11-13"
+    "contract_signing_date": "2025-11-13",
+    "description": "Supply Math Khata at BIAM School"
    },
    {
     "package_ref": "05.05.0000.000.004.18.0010.25-485",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 3100000.0,
-    "contract_signing_date": "2025-11-13"
+    "contract_signing_date": "2025-11-13",
+    "description": "Supply Diary at BIAM School"
    },
    {
     "package_ref": "05.05.0000.004.18.009.24-GR-8-3",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 2800000.0,
-    "contract_signing_date": "2024-11-18"
+    "contract_signing_date": "2024-11-18",
+    "description": "Supply Math Khata at BIAM School"
    },
    {
     "package_ref": "05.05.0000.000.004.18.0010.25-484",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 2460000.0,
-    "contract_signing_date": "2025-11-13"
+    "contract_signing_date": "2025-11-13",
+    "description": "Supply Text Book at BIAM School"
    }
   ]
  },
@@ -2066,36 +3120,83 @@
     "count": 21
    }
   ],
+  "top_keywords": [
+   {
+    "word": "equipment",
+    "value_bdt": 827110000.0
+   },
+   {
+    "word": "hospital",
+    "value_bdt": 821880000.0
+   },
+   {
+    "word": "kormochari",
+    "value_bdt": 806280000.0
+   },
+   {
+    "word": "imaging",
+    "value_bdt": 529300000.0
+   },
+   {
+    "word": "sorkari",
+    "value_bdt": 444700000.0
+   },
+   {
+    "word": "radiology",
+    "value_bdt": 379850000.0
+   },
+   {
+    "word": "miscellaneous",
+    "value_bdt": 342610000.0
+   },
+   {
+    "word": "sarkari",
+    "value_bdt": 339660000.0
+   },
+   {
+    "word": "mopa",
+    "value_bdt": 214400000.0
+   },
+   {
+    "word": "kitchen",
+    "value_bdt": 158610000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "0026",
     "awarded_to": "MEDIKIT CORPORATION",
     "value_bdt": 379850000.0,
-    "contract_signing_date": "2023-07-26"
+    "contract_signing_date": "2023-07-26",
+    "description": "Procurement of Radiology and Imaging Department Equipment of Sorkari Kormochari Hospital."
    },
    {
     "package_ref": "05.00.0000.251.07.005.24.SKHUPGD12E",
     "awarded_to": "Bangladesh Science House",
     "value_bdt": 203940000.0,
-    "contract_signing_date": "2025-06-03"
+    "contract_signing_date": "2025-06-03",
+    "description": "Miscellaneous"
    },
    {
     "package_ref": "05.00.0000.251.07.005.24.SKHUPGD11A",
     "awarded_to": "Siemens Healthcare Limited",
     "value_bdt": 149450000.0,
-    "contract_signing_date": "2025-06-03"
+    "contract_signing_date": "2025-06-03",
+    "description": "Imaging Equipment"
    },
    {
     "package_ref": "GD 15 SKHUP",
     "awarded_to": "MEDIKIT CORPORATION",
     "value_bdt": 121090000.0,
-    "contract_signing_date": "2024-03-24"
+    "contract_signing_date": "2024-03-24",
+    "description": "Procurement of Furniture and Kitchen Equipments for Sarkari Kormochari Hospital MoPA"
    },
    {
     "package_ref": "GD 14 SKHUP",
     "awarded_to": "MEDIKIT CORPORATION",
     "value_bdt": 109660000.0,
-    "contract_signing_date": "2024-03-20"
+    "contract_signing_date": "2024-03-20",
+    "description": "Procurement of CSSD & WASHING PLANT Department Equipment of Sarkari Kormochari Hospital Ministry of Public Administration."
    }
   ]
  },
@@ -2144,36 +3245,83 @@
     "count": 7
    }
   ],
+  "top_keywords": [
+   {
+    "word": "accessories",
+    "value_bdt": 32490000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 29780000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 26350000.0
+   },
+   {
+    "word": "bran",
+    "value_bdt": 12080000.0
+   },
+   {
+    "word": "laptop",
+    "value_bdt": 12080000.0
+   },
+   {
+    "word": "brand",
+    "value_bdt": 9970000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 9970000.0
+   },
+   {
+    "word": "electric",
+    "value_bdt": 7730000.0
+   },
+   {
+    "word": "electronic",
+    "value_bdt": 7730000.0
+   },
+   {
+    "word": "photocopy",
+    "value_bdt": 4300000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.00.0000.14.10.115.23",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 12080000.0,
-    "contract_signing_date": "2024-03-07"
+    "contract_signing_date": "2024-03-07",
+    "description": "Supply and Installation of Bran Laptop and Accessories"
    },
    {
     "package_ref": "05.00.0000.14.10.116.23",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 9970000.0,
-    "contract_signing_date": "2024-03-07"
+    "contract_signing_date": "2024-03-07",
+    "description": "Supply and installation of Brand Computer and Accessories"
    },
    {
     "package_ref": "05.00.0000.14.10.120.23",
     "awarded_to": "THE BANGLADESH TRADE WAY CORPORATION",
     "value_bdt": 4300000.0,
-    "contract_signing_date": "2024-05-12"
+    "contract_signing_date": "2024-05-12",
+    "description": "Supply and Installation of Electric & Electronic Accessories (Photocopy etc)"
    },
    {
     "package_ref": "05.00.0000.14.10.119.23",
     "awarded_to": "Rangs Electronics Limited",
     "value_bdt": 3430000.0,
-    "contract_signing_date": "2024-03-31"
+    "contract_signing_date": "2024-03-31",
+    "description": "Supply of Electric and Electronic Accessories (Tv Deep Freeze Refrigerator micro oven etc)"
    },
    {
     "package_ref": "05.00.0000.14.10.127.24",
     "awarded_to": "Micro Engineering Aid",
     "value_bdt": 2710000.0,
-    "contract_signing_date": "2024-05-06"
+    "contract_signing_date": "2024-05-06",
+    "description": "Physical Exercise Accessories and Other Officials Equipements"
    }
   ]
  },
@@ -2226,36 +3374,83 @@
     "count": 13
    }
   ],
+  "top_keywords": [
+   {
+    "word": "single",
+    "value_bdt": 7730000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 3480000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 2470000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 2470000.0
+   },
+   {
+    "word": "furniture",
+    "value_bdt": 1640000.0
+   },
+   {
+    "word": "house",
+    "value_bdt": 1390000.0
+   },
+   {
+    "word": "circuit",
+    "value_bdt": 1390000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 1370000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 1030000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 860000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "006.02.069.26",
     "awarded_to": "Pristine Crossing Point Limited",
     "value_bdt": 7130000.0,
-    "contract_signing_date": "2026-05-24"
+    "contract_signing_date": "2026-05-24",
+    "description": "Single"
    },
    {
     "package_ref": "SIRAJ/DCO/FURNITURE/24-25/01",
     "awarded_to": "M/S LORIN ENTERPRISE",
     "value_bdt": 1390000.0,
-    "contract_signing_date": "2025-05-29"
+    "contract_signing_date": "2025-05-29",
+    "description": "Supply of furniture of Circuit house Sirajganj."
    },
    {
     "package_ref": "SIRAJ/DC_Office/Rev/25-26/001",
     "awarded_to": "M/S LORIN ENTERPRISE",
     "value_bdt": 1030000.0,
-    "contract_signing_date": "2025-12-23"
+    "contract_signing_date": "2025-12-23",
+    "description": "Supply of Computer and accessories."
    },
    {
     "package_ref": "02.052.25/9",
     "awarded_to": "M/S LORIN ENTERPRISE",
     "value_bdt": 600000.0,
-    "contract_signing_date": "2026-05-07"
+    "contract_signing_date": "2026-05-07",
+    "description": "Single"
    },
    {
     "package_ref": "SIRAJ/DC_Office/Rev/25-26/002",
     "awarded_to": "M/S MIM CONSTRUCTION",
     "value_bdt": 580000.0,
-    "contract_signing_date": "2026-02-17"
+    "contract_signing_date": "2026-02-17",
+    "description": "Making of new cabinets by replacing old cupboards and racks in four Section of the Deputy Commissioner's office Sirajganj"
    }
   ]
  },
@@ -2273,8 +3468,7 @@
    }
   },
   "by_nature": {
-   "Goods": 7,
-   "Goods (Framework Agreement)": 14
+   "Goods": 21
   },
   "top_vendors": [
    {
@@ -2309,36 +3503,83 @@
     "count": 36
    }
   ],
+  "top_keywords": [
+   {
+    "word": "sarkari",
+    "value_bdt": 100520000.0
+   },
+   {
+    "word": "karmachari",
+    "value_bdt": 100520000.0
+   },
+   {
+    "word": "hospital",
+    "value_bdt": 99740000.0
+   },
+   {
+    "word": "test",
+    "value_bdt": 77520000.0
+   },
+   {
+    "word": "reagent",
+    "value_bdt": 74790000.0
+   },
+   {
+    "word": "others",
+    "value_bdt": 39310000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 26080000.0
+   },
+   {
+    "word": "machine",
+    "value_bdt": 21560000.0
+   },
+   {
+    "word": "pathology",
+    "value_bdt": 20120000.0
+   },
+   {
+    "word": "clinical",
+    "value_bdt": 19720000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.87.0000.015.007.165.25-321",
     "awarded_to": "Modern Digitech Limited",
     "value_bdt": 19720000.0,
-    "contract_signing_date": "2026-06-17"
+    "contract_signing_date": "2026-06-17",
+    "description": "Procurement of MSR Reagent for Clinical Pathology & others test of lab at Sarkari Karmachari Hospital."
    },
    {
     "package_ref": "05.87.0000.015.007.164.25-273",
     "awarded_to": "Modern Digitech Limited",
     "value_bdt": 19700000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Procurement of MSR Reagent (Immunological test for lab) for Sarkari Karmachari Hospital."
    },
    {
     "package_ref": "05.87.0000.015.007.133.25-213",
     "awarded_to": "S A Surgicals",
     "value_bdt": 19400000.0,
-    "contract_signing_date": "2026-06-16"
+    "contract_signing_date": "2026-06-16",
+    "description": "Procurement of MSR Instrument for Cath-lab & CCU"
    },
    {
     "package_ref": "05.87.0000.015.007.160.25-126",
     "awarded_to": "Biotech Services",
     "value_bdt": 19360000.0,
-    "contract_signing_date": "2026-04-12"
+    "contract_signing_date": "2026-04-12",
+    "description": "MSR Re-agent for CBC Test"
    },
    {
     "package_ref": "05.87.0000.015.007.163.25-274",
     "awarded_to": "Modern Digitech Limited",
     "value_bdt": 18740000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Procurement of MSR Reagent (Biochemistry test for lab) for Sarkari Karmachari Hospital."
    }
   ]
  },
@@ -2381,36 +3622,83 @@
     "count": 5
    }
   ],
+  "top_keywords": [
+   {
+    "word": "liter",
+    "value_bdt": 5410000.0
+   },
+   {
+    "word": "plate",
+    "value_bdt": 4750000.0
+   },
+   {
+    "word": "developer",
+    "value_bdt": 2740000.0
+   },
+   {
+    "word": "central",
+    "value_bdt": 2670000.0
+   },
+   {
+    "word": "cleanser",
+    "value_bdt": 2670000.0
+   },
+   {
+    "word": "saphira",
+    "value_bdt": 2670000.0
+   },
+   {
+    "word": "powder",
+    "value_bdt": 2670000.0
+   },
+   {
+    "word": "gear",
+    "value_bdt": 2670000.0
+   },
+   {
+    "word": "substitute",
+    "value_bdt": 2670000.0
+   },
+   {
+    "word": "neteja",
+    "value_bdt": 2670000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.84.0000.014.07.003.24-25/1823",
     "awarded_to": "Graphics Limited",
     "value_bdt": 2670000.0,
-    "contract_signing_date": "2025-06-22"
+    "contract_signing_date": "2025-06-22",
+    "description": "01. Crest Neteja (Roller & Blanket Wash) DP 620 = 1900 Liter 02. Crest Fount N (Fountain Solution) DP 300 =700 Kg. 03. Crest Alconov (Alcohol Substitute) PS 100"
    },
    {
     "package_ref": "05.84.0000.014..07.005.25-26/628_Date: 11/12/2025",
     "awarded_to": "JR International Trading",
     "value_bdt": 2140000.0,
-    "contract_signing_date": "2026-01-18"
+    "contract_signing_date": "2026-01-18",
+    "description": "1. CTP Plate (Thermal Plate) Size : 745x605x0.25-0.30mm = 5000 Sheets 2. CTP Plate (Thermal Plate) Size : 650x550x0.25-0.30mm = 1000 Sheets 3. CTP Thermal Plate"
    },
    {
     "package_ref": "05.84.0000.014..07.012.25-26/644_Date: 15/12/2025",
     "awarded_to": "Graphics Limited",
     "value_bdt": 2010000.0,
-    "contract_signing_date": "2026-01-18"
+    "contract_signing_date": "2026-01-18",
+    "description": "01. Pneumatic cylinder-00.580.4546/02 = 1 No 02. Cam Follower-00.550.1471/01 = 8 Nos. 03. Pneumatic cylinder- M4.334.009/02 = 2 Nos. 04. Ball cage-00.580.5612 ="
    },
    {
     "package_ref": "05.84.0000.014.07.008.25-26/655_Date: 18/12/2025",
     "awarded_to": "Graphics Limited",
     "value_bdt": 600000.0,
-    "contract_signing_date": "2026-01-18"
+    "contract_signing_date": "2026-01-18",
+    "description": "Spare Parts for Polar Cutting Machine Model N 115 Plus: 1. V-Belt (Main motor belt) Code-207700 = 2 Nos. 2. V-Belt (Hydraulic Pump motor belt) Code-207713 = 1 N"
    },
    {
     "package_ref": "05.84.0000.014..07.004.25-26/650_Date: 17/12/2025",
     "awarded_to": "M/S. Business House",
     "value_bdt": 600000.0,
-    "contract_signing_date": "2026-01-14"
+    "contract_signing_date": "2026-01-14",
+    "description": "1. Black Offset Printing Ink = 1000 Lbs. Brand: TOKA-HG or Equivalent. 2. Benzen = 25 Liter 3. Image Remover = 100 Pots 4. Developer for P S Plate (1 : 10) = 10"
    }
   ]
  },
@@ -2464,36 +3752,83 @@
     "count": 10
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 11080000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 8840000.0
+   },
+   {
+    "word": "language",
+    "value_bdt": 6280000.0
+   },
+   {
+    "word": "desktop",
+    "value_bdt": 4970000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 4970000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 4880000.0
+   },
+   {
+    "word": "renovation",
+    "value_bdt": 4060000.0
+   },
+   {
+    "word": "room",
+    "value_bdt": 3620000.0
+   },
+   {
+    "word": "officials",
+    "value_bdt": 3620000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 2560000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.01.0000.061.07.025.5-1392",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 4970000.0,
-    "contract_signing_date": "2025-06-15"
+    "contract_signing_date": "2025-06-15",
+    "description": "Supply and installation of Desktop Computer for Language lab at RPATC Dhaka"
    },
    {
     "package_ref": "05.01.0000.061.07.025.5-1394",
     "awarded_to": "M/S. PROTIBIMBOO DESIGN & ENGINEERS",
     "value_bdt": 3620000.0,
-    "contract_signing_date": "2025-06-15"
+    "contract_signing_date": "2025-06-15",
+    "description": "Renovation works of 10 officials room at RPATC Dhaka"
    },
    {
     "package_ref": "05.01.0000.061.07.031.25.2012",
     "awarded_to": "Khalid Enterprise",
     "value_bdt": 1880000.0,
-    "contract_signing_date": "2026-02-17"
+    "contract_signing_date": "2026-02-17",
+    "description": "Supply Training Materials (Bag Pen Notepad and Name badge) in RPATC Dhaka"
    },
    {
     "package_ref": "05.01.0000.061.07.025.5-1395",
     "awarded_to": "Versatile Systems Solutions",
     "value_bdt": 1350000.0,
-    "contract_signing_date": "2025-06-15"
+    "contract_signing_date": "2025-06-15",
+    "description": "Supply and installation of CC Camera NVR with Storage Capacity Network Switch with Cables and Accessories in RPATC Dhaka"
    },
    {
     "package_ref": "05.01.0000.061.07.025.5-1393",
     "awarded_to": "Versatile Systems Solutions",
     "value_bdt": 1310000.0,
-    "contract_signing_date": "2025-06-15"
+    "contract_signing_date": "2025-06-15",
+    "description": "Supply and installation of Language Lab Software system for Language Lab at RPATC Dhaka"
    }
   ]
  },
@@ -2507,7 +3842,7 @@
    }
   },
   "by_nature": {
-   "Physical Services": 1
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -2527,36 +3862,83 @@
     "count": 5
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 4760000.0
+   },
+   {
+    "word": "related",
+    "value_bdt": 4150000.0
+   },
+   {
+    "word": "cleaner",
+    "value_bdt": 3930000.0
+   },
+   {
+    "word": "security",
+    "value_bdt": 3930000.0
+   },
+   {
+    "word": "guard",
+    "value_bdt": 3930000.0
+   },
+   {
+    "word": "services",
+    "value_bdt": 3930000.0
+   },
+   {
+    "word": "outsourcing",
+    "value_bdt": 3930000.0
+   },
+   {
+    "word": "recruitment",
+    "value_bdt": 830000.0
+   },
+   {
+    "word": "grade",
+    "value_bdt": 830000.0
+   },
+   {
+    "word": "employees",
+    "value_bdt": 830000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.81.0000.007.07.050.15",
     "awarded_to": "Methila Enterprise Limited",
     "value_bdt": 3930000.0,
-    "contract_signing_date": "2026-06-17"
+    "contract_signing_date": "2026-06-17",
+    "description": "Supply outsourcing services (Cleaner Security Guard and related services)"
    },
    {
     "package_ref": "05.81.0000.007.07.033.26",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 360000.0,
-    "contract_signing_date": "2026-08-19"
+    "contract_signing_date": "2026-08-19",
+    "description": "Design printing and supply of OMR Form (A4 size offset paper) for recruitment of 9-10 grade employees of BKKB"
    },
    {
     "package_ref": "05.81.0000.007.07.029.26(1)",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 250000.0,
-    "contract_signing_date": "2026-08-17"
+    "contract_signing_date": "2026-08-17",
+    "description": "Design printing and supply of OMR Form (A4 size offset paper) for recruitment of 9-10 grade employees of BKKB"
    },
    {
     "package_ref": "05.81.0000.007.07.034.26",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 130000.0,
-    "contract_signing_date": "2026-08-19"
+    "contract_signing_date": "2026-08-19",
+    "description": "Supply of paper for questionprint and related service for recruitment of 11-20 grade employees of BKKB."
    },
    {
     "package_ref": "05.81.0000.007.07.030.26",
     "awarded_to": "SBSCORPORATION",
     "value_bdt": 90000.0,
-    "contract_signing_date": "2026-08-17"
+    "contract_signing_date": "2026-08-17",
+    "description": "Supply of paperprint and related service for recruitment of 9-10 and 11-20 grade employees of BKKB"
    }
   ]
  },
@@ -2570,8 +3952,7 @@
    }
   },
   "by_nature": {
-   "Goods (Framework Agreement)": 3,
-   "Goods": 1
+   "Goods": 4
   },
   "top_vendors": [
    {
@@ -2601,36 +3982,83 @@
     "count": 5
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 29290000.0
+   },
+   {
+    "word": "sedan",
+    "value_bdt": 27480000.0
+   },
+   {
+    "word": "tyre",
+    "value_bdt": 1810000.0
+   },
+   {
+    "word": "battery",
+    "value_bdt": 1810000.0
+   },
+   {
+    "word": "vehicles",
+    "value_bdt": 170000.0
+   },
+   {
+    "word": "flter",
+    "value_bdt": 110000.0
+   },
+   {
+    "word": "disel",
+    "value_bdt": 110000.0
+   },
+   {
+    "word": "spark",
+    "value_bdt": 110000.0
+   },
+   {
+    "word": "mobil",
+    "value_bdt": 110000.0
+   },
+   {
+    "word": "plug",
+    "value_bdt": 110000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "80.00.0000.404.26.008.25-05",
     "awarded_to": "Rangs Limited",
     "value_bdt": 26990000.0,
-    "contract_signing_date": "2026-03-04"
+    "contract_signing_date": "2026-03-04",
+    "description": "Supply of Sedan Car"
    },
    {
     "package_ref": "80.00.0000.404.26.011.26-119",
     "awarded_to": "S.B CONSTRUCTION",
     "value_bdt": 1810000.0,
-    "contract_signing_date": "2026-07-01"
+    "contract_signing_date": "2026-07-01",
+    "description": "Supply of Tyre and battery for BPSC"
    },
    {
     "package_ref": "80.00.0000.404.26.018.26-134",
     "awarded_to": "Smart Automobile",
     "value_bdt": 490000.0,
-    "contract_signing_date": "2026-06-21"
+    "contract_signing_date": "2026-06-21",
+    "description": "Supply of Different Type of Parts of Sedan Car"
    },
    {
     "package_ref": "80.00.0000.404.26.011.26-123",
     "awarded_to": "Labiba Enterprise",
     "value_bdt": 110000.0,
-    "contract_signing_date": "2026-06-30"
+    "contract_signing_date": "2026-06-30",
+    "description": "Servicing of Vehicles ( Air Flter Mobil Filter Disel Filter AC Filter Spark Plug and Washing of Vehicles"
    },
    {
     "package_ref": "80.00.0000.404.26.011.26-106",
     "awarded_to": "Labiba Enterprise",
     "value_bdt": 60000.0,
-    "contract_signing_date": "2026-06-30"
+    "contract_signing_date": "2026-06-30",
+    "description": "Hairing of Defferent Type of Vehicles"
    }
   ]
  },
@@ -2657,12 +4085,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "chapainawabganj",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "commisioning",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "tied",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "supplyinstallation",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "testing",
+    "value_bdt": 1460000.0
+   },
+   {
+    "word": "metering",
+    "value_bdt": 1460000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Rooftop Solar PV System at DC Office",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1460000.0,
-    "contract_signing_date": "2026-06-29"
+    "contract_signing_date": "2026-06-29",
+    "description": "SupplyInstallation Testing & Commisioning of 30 kWp Grid Tied Rooftop Solar PV Net Metering System at DC Office Chapainawabganj."
    }
   ]
  },
@@ -2694,18 +4165,62 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "guards",
+    "value_bdt": 1330000.0
+   },
+   {
+    "word": "recruitment",
+    "value_bdt": 1330000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1330000.0
+   },
+   {
+    "word": "security",
+    "value_bdt": 1330000.0
+   },
+   {
+    "word": "outsourcing",
+    "value_bdt": 1330000.0
+   },
+   {
+    "word": "panel",
+    "value_bdt": 870000.0
+   },
+   {
+    "word": "operation",
+    "value_bdt": 870000.0
+   },
+   {
+    "word": "programme",
+    "value_bdt": 870000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 870000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 870000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC.Lal.Rev.01",
     "awarded_to": "SHAROLIPI SERVICES (PVT) LIMITED",
     "value_bdt": 1330000.0,
-    "contract_signing_date": "2026-06-23"
+    "contract_signing_date": "2026-06-23",
+    "description": "Recruitment of 05 security guards under outsourcing system"
    },
    {
     "package_ref": "Solar/Lal/DC/2025-26/01",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 870000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Supply Installation & Operation of On grid Solar Panel on the rooftop of DC office Lalmonirhat under the National Rooftop Solar Programme FY-2025-26"
    }
   ]
  },
@@ -2732,12 +4247,35 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "solar",
+    "value_bdt": 2030000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2030000.0
+   },
+   {
+    "word": "roof-top",
+    "value_bdt": 2030000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 2030000.0
+   },
+   {
+    "word": "on-grid",
+    "value_bdt": 2030000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "01/Ree/DC Kurigram/LTM/2025-2026",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2030000.0,
-    "contract_signing_date": "2026-06-22"
+    "contract_signing_date": "2026-06-22",
+    "description": "50kWp Roof-Top Solar on-Grid System installation in DC Office Kurigram. (Financial Year: 2025-26)"
    }
   ]
  },
@@ -2751,9 +4289,8 @@
    }
   },
   "by_nature": {
-   "Goods": 11,
-   "Works": 5,
-   "Goods (Framework Agreement)": 2
+   "Goods": 13,
+   "Works": 5
   },
   "top_vendors": [
    {
@@ -2788,36 +4325,83 @@
     "count": 28
    }
   ],
+  "top_keywords": [
+   {
+    "word": "deputy",
+    "value_bdt": 12390000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 9570000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 4140000.0
+   },
+   {
+    "word": "goods",
+    "value_bdt": 3470000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 3420000.0
+   },
+   {
+    "word": "supplying",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "stationery",
+    "value_bdt": 3010000.0
+   },
+   {
+    "word": "painting",
+    "value_bdt": 2890000.0
+   },
+   {
+    "word": "commissionerjhenaidah",
+    "value_bdt": 2820000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2660000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC Jhenaidah Roof Top Solar 2025-26",
     "awarded_to": "Mind Touch Limited",
     "value_bdt": 2270000.0,
-    "contract_signing_date": "2026-05-20"
+    "contract_signing_date": "2026-05-20",
+    "description": "Supply and Installation of 50 kWp Roof Top Solar On-Grid System and Other Accessories under Office of the Deputy Commissioner Jhenaidah"
    },
    {
     "package_ref": "Furniture2025-26-1",
     "awarded_to": "Hatil Complex Ltd",
     "value_bdt": 1630000.0,
-    "contract_signing_date": "2026-01-20"
+    "contract_signing_date": "2026-01-20",
+    "description": "Procurement of furniture (ChairTableSofa set Wooden table Steel rack Wooden chair and Almirah)"
    },
    {
     "package_ref": "Stationery 2025-26-2",
     "awarded_to": "M/S.Kuddus Enterprise",
     "value_bdt": 1340000.0,
-    "contract_signing_date": "2026-02-01"
+    "contract_signing_date": "2026-02-01",
+    "description": "Supplying of Stationery items (Office)"
    },
    {
     "package_ref": "Stationery 2025-26-1",
     "awarded_to": "M/S Raine Enterprise",
     "value_bdt": 1240000.0,
-    "contract_signing_date": "2026-02-01"
+    "contract_signing_date": "2026-02-01",
+    "description": "Supplying of Stationery items (Others"
    },
    {
     "package_ref": "Computer2025-2",
     "awarded_to": "M/S. ABID ENTERPRISE",
     "value_bdt": 1120000.0,
-    "contract_signing_date": "2026-01-18"
+    "contract_signing_date": "2026-01-18",
+    "description": "Procurement of computer goods (Desktop with monitor LaptopPrinter and Monitor)"
    }
   ]
  },
@@ -2856,36 +4440,83 @@
     "count": 8
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 5030000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 4800000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 4800000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 4560000.0
+   },
+   {
+    "word": "commisioning",
+    "value_bdt": 4380000.0
+   },
+   {
+    "word": "tied",
+    "value_bdt": 4380000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 4380000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 4380000.0
+   },
+   {
+    "word": "design",
+    "value_bdt": 4380000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 4380000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC office/25-26/DC office solar",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2560000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Design Supply Installation Testing & Commisioning of 50kWp Grid Tied Rooftop Solar PV Net Metering System at Deputy Commissioner's Office Rajshahi. FY 2025-26"
    },
    {
     "package_ref": "DC office/25-26/Div com solar",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1820000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Design Supply Installation Testing & Commisioning of 38kWp Grid Tied Rooftop Solar PV Net Metering System at Divisional Commissioner's Office Rajshahi. FY 2025-"
    },
    {
     "package_ref": "e-Tender/raj/dc/Muktijuddho C/25-26",
     "awarded_to": "Mrs Uttara Builders",
     "value_bdt": 1350000.0,
-    "contract_signing_date": "2026-06-08"
+    "contract_signing_date": "2026-06-08",
+    "description": "Civil sanitary and ancillary repair works of Rajshahi District Freedom Fighters Complex."
    },
    {
     "package_ref": "e-Tender/DC Raj/RFQ/ DC Office/2025-26",
     "awarded_to": "NOORONNABI ENTERPRISE",
     "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-21"
+    "contract_signing_date": "2026-06-21",
+    "description": "Repair and Renovation works at the office of Deputy Commissioner Rajshahi."
    },
    {
     "package_ref": "e-Tender/DC RAJ/CCTV/ATS/25-26",
     "awarded_to": "NOORONNABI ENTERPRISE",
     "value_bdt": 420000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Request for Quotation of installation of CCTV monitoring system at Circuit House DC Office and DC Bunglow."
    }
   ]
  },
@@ -2899,7 +4530,7 @@
    }
   },
   "by_nature": {
-   "Physical Services": 1
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -2914,18 +4545,42 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "physical",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "security",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "service",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "guards",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "garage",
+    "value_bdt": 780000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.81.4000.003.11.10.25.106",
     "awarded_to": "SAAD ENTERPRISE",
     "value_bdt": 1150000.0,
-    "contract_signing_date": "2026-05-20"
+    "contract_signing_date": "2026-05-20",
+    "description": "Procurement of physical service for two security guards."
    },
    {
     "package_ref": "05.81.4000.003.39.002.95 (Part-2)-190",
     "awarded_to": "SAAD ENTERPRISE",
     "value_bdt": 780000.0,
-    "contract_signing_date": "2026-06-21"
+    "contract_signing_date": "2026-06-21",
+    "description": "Garage"
    }
   ]
  },
@@ -2952,12 +4607,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1840000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "App ID : 223282",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1840000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Installation of \"Rooftop Solar\" on the roof of the Deputy Commissioner's Office Feni. Financial Year: 2025-2026."
    }
   ]
  },
@@ -2984,12 +4666,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "tied",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "testing",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1210000.0
+   },
+   {
+    "word": "metering",
+    "value_bdt": 1210000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC-Panch/2025-26/Rev/Rooftopsolar",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1210000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Supply Installation Testing & Commissioning of 25 kWp Grid Tied Rooftop Solar PV Net Metering System at DC Office Panchagarh"
    }
   ]
  },
@@ -3016,12 +4741,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "solar",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 3700000.0
+   },
+   {
+    "word": "on-grid",
+    "value_bdt": 3700000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.46.9100.007.101.0041.26.234",
     "awarded_to": "ROBI POWER ENGINEERING",
     "value_bdt": 3700000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Supply Installation and Commissioning of Roof Top Solar on-Grid System"
    }
   ]
  },
@@ -3048,12 +4804,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 1600000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 1600000.0
+   },
+   {
+    "word": "kwts",
+    "value_bdt": 1600000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1600000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1600000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 1600000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1600000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Cabinet : 04.00.0000.000.514.14.0001.25.61 Dt: 11.",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1600000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Installation of 50Kwts solar panel on the roof of the Office of the Deputy Commissioner Chattogram"
    }
   ]
  },
@@ -3080,12 +4867,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 6720000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 6720000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 6720000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 6720000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 6720000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 6720000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC Office/Solar/Dinajpur",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 6720000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Installation of roof top Solar system at the Office of the Deputy Commissioner Dinajpur. FY: 2025-26."
    }
   ]
  },
@@ -3112,12 +4926,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1580000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "solar-19/2025-2026",
     "awarded_to": "Vvon Technologies Limited",
     "value_bdt": 1580000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Supply and Installation of Rooftop Solar for Office of the Deputy Commissioner Joypurhat."
    }
   ]
  },
@@ -3151,18 +4992,62 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 4010000.0
+   },
+   {
+    "word": "instalation",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "operation",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "programme",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "national",
+    "value_bdt": 3020000.0
+   },
+   {
+    "word": "condition",
+    "value_bdt": 990000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "GR-1/MEHERPUR/2025-2026",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 3020000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Supply Instalation & Operation of On grid Solar Panel on the rooftop of DC Office meherpur under the National Rooftop Solar Programme FY2025-2026"
    },
    {
     "package_ref": "05.44.5700.007.02.012.23.201",
     "awarded_to": "M & M TRADING",
     "value_bdt": 990000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "procurement of Hand dryer Air Condition Sound box Smart TV Panel Hand Microphone"
    }
   ]
  },
@@ -3211,36 +5096,83 @@
     "count": 6
    }
   ],
+  "top_keywords": [
+   {
+    "word": "official",
+    "value_bdt": 2690000.0
+   },
+   {
+    "word": "display",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "digital",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "camera",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "board",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "surveillance",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "uses",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "television",
+    "value_bdt": 1650000.0
+   },
+   {
+    "word": "related",
+    "value_bdt": 1050000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.44.0000000.007.05.0007.26",
     "awarded_to": "INTERWAVE COMPUTERS",
     "value_bdt": 1650000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Television Display board Digital Camera Surveillance equipment for official uses"
    },
    {
     "package_ref": "05.44.0000000.007.08.0005.26",
     "awarded_to": "Hatil Complex Ltd",
     "value_bdt": 610000.0,
-    "contract_signing_date": "2026-06-16"
+    "contract_signing_date": "2026-06-16",
+    "description": "different kinds of official chair and related furniture"
    },
    {
     "package_ref": "05.44.0000000.007.03.0018.26",
     "awarded_to": "M/S. S.R. INTERNATIONAL",
     "value_bdt": 440000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "`plate water glass bowl and related crockeries items"
    },
    {
     "package_ref": "05.44.0000.000.007.08.0005.26",
     "awarded_to": "Synergy Services",
     "value_bdt": 430000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Official Furniture Repairing and coloring"
    },
    {
     "package_ref": "05.44.0000.000.007.08.008.26",
     "awarded_to": "3-D TECHNOLOGY BD",
     "value_bdt": 300000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Appliances"
    }
   ]
  },
@@ -3269,12 +5201,51 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "grid",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "testing",
+    "value_bdt": 12600000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 12600000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "04.00.0000.000.514.14.0001.25.61",
     "awarded_to": "Super Star Renewable Energy Limited",
     "value_bdt": 12600000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Supply Installation Testing and Commissioning of 360 KWp On Grid Type Rooftop Solar PV System on the roof of DC Office Kishoreganj. F.Y. 2025-2026"
    }
   ]
  },
@@ -3321,36 +5292,83 @@
     "count": 8
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "collector",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "maintenance",
+    "value_bdt": 1590000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 1590000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 1290000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.45.6100.014.32.033.26-232 ;Date: 06/05/2026",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1920000.0,
-    "contract_signing_date": "2026-06-03"
+    "contract_signing_date": "2026-06-03",
+    "description": "Supply and Installation of Solar Panel on the Rooftop of Deputy Collector's office Mymensingh."
    },
    {
     "package_ref": "App ID-222340",
     "awarded_to": "DIN ENTERPRISE",
     "value_bdt": 800000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Repair and Maintenance of Computer for DC office Mymensingh"
    },
    {
     "package_ref": "App ID-222340",
     "awarded_to": "AN Enterprise",
     "value_bdt": 790000.0,
-    "contract_signing_date": "2026-05-17"
+    "contract_signing_date": "2026-05-17",
+    "description": "Repair and Maintenance of Office Furniture for DC office Mymensingh"
    },
    {
     "package_ref": "App ID-222340",
     "awarded_to": "AYESHA ENTERPRISE",
     "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Procurement of Office Stationary (Pen Paper Files accessories Office Consumables etc.) for DC office Mymensingh"
    },
    {
     "package_ref": "App ID-222340",
     "awarded_to": "AN Enterprise",
     "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Procurement of Electrical Goods and Accessories for DC office Mymensingh"
    }
   ]
  },
@@ -3377,12 +5395,47 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "dc-office",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "programme",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 2970000.0
+   },
+   {
+    "word": "national",
+    "value_bdt": 2970000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.30.5900.202.02.010.25.310",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2970000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Installation of On Grid Solar Panel on the Rooftop of DC-Office Munshiganj under the National Rooftop Solar Programme FY-2025-2026."
    }
   ]
  },
@@ -3409,12 +5462,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1980000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC Office /Solar/Thakurgaon",
     "awarded_to": "Magnet Electronics",
     "value_bdt": 1980000.0,
-    "contract_signing_date": "2026-06-17"
+    "contract_signing_date": "2026-06-17",
+    "description": "Supply and installation of Roof top Solar system at the Office of Deputy Commissioner Thakurgaon. F.Y: 2025-2026"
    }
   ]
  },
@@ -3441,12 +5525,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "national",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "program",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "project",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 4540000.0
+   },
+   {
+    "word": "on-grid",
+    "value_bdt": 4540000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Naogaon-DC/solar-01/2025-26",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 4540000.0,
-    "contract_signing_date": "2026-06-17"
+    "contract_signing_date": "2026-06-17",
+    "description": "Installation of Rooftop On-Grid Solar System at the Office of the Deputy Commissioner Naogaon under the National Rooftop Solar Program Project ."
    }
   ]
  },
@@ -3495,36 +5622,83 @@
     "count": 15
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 3110000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 2140000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "roof-top",
+    "value_bdt": 1980000.0
+   },
+   {
+    "word": "purchase",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1920000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 1540000.0
+   },
+   {
+    "word": "renovation",
+    "value_bdt": 1540000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.44.5500.009.08.031.26.208",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1980000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Supply and Installation of a 50 kWp Roof-Top Solar for DC Office Magura"
    },
    {
     "package_ref": "05.44.5500.009.039.25",
     "awarded_to": "Haque International",
     "value_bdt": 820000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Purchase of computer equipment"
    },
    {
     "package_ref": "05.44.5500.009.08.031.26.248",
     "awarded_to": "M/S LIM CONSTUCTION",
     "value_bdt": 790000.0,
-    "contract_signing_date": "2026-06-17"
+    "contract_signing_date": "2026-06-17",
+    "description": "Repair & Renovation Works (2) in Deputy Commissioner's Office Magura"
    },
    {
     "package_ref": "05.44.5500.009.05.019.26.115",
     "awarded_to": "M/S LIM CONSTUCTION",
     "value_bdt": 750000.0,
-    "contract_signing_date": "2026-04-12"
+    "contract_signing_date": "2026-04-12",
+    "description": "Repair & Renovation Works in Deputy Commissioner Office at Magura"
    },
    {
     "package_ref": "05.44.5500.009.005.033.25.",
     "awarded_to": "M/S. SS CONSTRUCTION",
     "value_bdt": 570000.0,
-    "contract_signing_date": "2026-02-15"
+    "contract_signing_date": "2026-02-15",
+    "description": "Supply of Computer Printer ups and scanner for dc office Magura"
    }
   ]
  },
@@ -3551,12 +5725,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "testing",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 2040000.0
+   },
+   {
+    "word": "metering",
+    "value_bdt": 2040000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.44.8700.000.010.039.0004.26.153",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2040000.0,
-    "contract_signing_date": "2026-06-17"
+    "contract_signing_date": "2026-06-17",
+    "description": "Supply Installation Testing & Commissioning of 49 KWP On-grid Rooftop Solar PV System with Net Metering at Office of the Deputy Commissioner satkhira"
    }
   ]
  },
@@ -3585,12 +5802,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "peak",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "capacity",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "hundred",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "electrical",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "ancillary",
+    "value_bdt": 5360000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 5360000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.45.7200.005.49.001.2026-406",
     "awarded_to": "Salek Solar Power Ltd.",
     "value_bdt": 5360000.0,
-    "contract_signing_date": "2026-06-16"
+    "contract_signing_date": "2026-06-16",
+    "description": "Installation of a 170 (one hundred seventy) KW (DC peak) capacity rooftop solar system under the net metering system including ancillary electrical works at the"
    }
   ]
  },
@@ -3624,18 +5884,54 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "solar",
+    "value_bdt": 4090000.0
+   },
+   {
+    "word": "panel",
+    "value_bdt": 4090000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 4090000.0
+   },
+   {
+    "word": "metering",
+    "value_bdt": 4090000.0
+   },
+   {
+    "word": "sytem",
+    "value_bdt": 2710000.0
+   },
+   {
+    "word": "android",
+    "value_bdt": 2710000.0
+   },
+   {
+    "word": "display",
+    "value_bdt": 2710000.0
+   },
+   {
+    "word": "conference",
+    "value_bdt": 2710000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "PG_Sunamganj_05_2025/26",
     "awarded_to": "Mech Power Engineering",
     "value_bdt": 4090000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Solar Panel with Net Metering System"
    },
    {
     "package_ref": "PG-03-2025/26",
     "awarded_to": "MUGNEE MULTIPLE",
     "value_bdt": 2710000.0,
-    "contract_signing_date": "2026-06-16"
+    "contract_signing_date": "2026-06-16",
+    "description": "Conference Sytem LED Display Android LED TV"
    }
   ]
  },
@@ -3667,18 +5963,62 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "net-metering",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 2020000.0
+   },
+   {
+    "word": "chopper",
+    "value_bdt": 200000.0
+   },
+   {
+    "word": "binding",
+    "value_bdt": 200000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.44.0100.010.49.040.26.309; Date: 03.05.2026",
     "awarded_to": "Engineers Pac Bangladesh Ltd.",
     "value_bdt": 2020000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Supply Installation and Commissioning of 50 KWp On Grid Net-metering Rooftop Solar System in DC office Bagerhat."
    },
    {
     "package_ref": "DC_Bgrht/2025-26/GR7",
     "awarded_to": "Surjo Merchant",
     "value_bdt": 200000.0,
-    "contract_signing_date": "2026-04-08"
+    "contract_signing_date": "2026-04-08",
+    "description": "Purchasing of Fire Extinguisher Laminating Machine Spiral Binding Machine Chopper Spade and Axe for the Office of The Deputy Commissioner Bagerhat."
    }
   ]
  },
@@ -3710,36 +6050,83 @@
     "count": 6
    }
   ],
+  "top_keywords": [
+   {
+    "word": "accessories",
+    "value_bdt": 590000.0
+   },
+   {
+    "word": "panel",
+    "value_bdt": 460000.0
+   },
+   {
+    "word": "shredder",
+    "value_bdt": 460000.0
+   },
+   {
+    "word": "interactive",
+    "value_bdt": 460000.0
+   },
+   {
+    "word": "paper",
+    "value_bdt": 460000.0
+   },
+   {
+    "word": "flat",
+    "value_bdt": 460000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 450000.0
+   },
+   {
+    "word": "smart",
+    "value_bdt": 440000.0
+   },
+   {
+    "word": "color",
+    "value_bdt": 420000.0
+   },
+   {
+    "word": "veneer",
+    "value_bdt": 420000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.45.0000.009.07.007.25.1",
     "awarded_to": "Js Computer",
     "value_bdt": 460000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Paper Shredder & Interactive Flat Panel"
    },
    {
     "package_ref": "05.45.0000.009.02.121.26.2",
     "awarded_to": "Js Computer",
     "value_bdt": 450000.0,
-    "contract_signing_date": "2026-04-09"
+    "contract_signing_date": "2026-04-09",
+    "description": "Computer & Accessories"
    },
    {
     "package_ref": "05.45.0000.009.07.007.25.2",
     "awarded_to": "M/S MAHBUB TRADE BD",
     "value_bdt": 440000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Smart LED TV"
    },
    {
     "package_ref": "05.45.0000.009.07.007.25.4",
     "awarded_to": "M/S MAHBUB TRADE BD",
     "value_bdt": 420000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Visitor Chair: Material: Beech Wood or Veneer Process Wood Lacquer; Size: L620x W600x SH450x TH910 mm Upholstery: One Fabric-FGroup (Artificial-Leather) Color: "
    },
    {
     "package_ref": "05.45.0000.009.07.007.25.3",
     "awarded_to": "Js Computer",
     "value_bdt": 300000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Multifunctional Photocopier & Monitor"
    }
   ]
  },
@@ -3781,36 +6168,83 @@
     "count": 5
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 3340000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 2150000.0
+   },
+   {
+    "word": "sanitary",
+    "value_bdt": 1550000.0
+   },
+   {
+    "word": "civil",
+    "value_bdt": 1550000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 1350000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "on-grid",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 800000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.43.6900.009.014.019.26-704",
     "awarded_to": "Shahara Construction",
     "value_bdt": 1190000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "On-Grid Solar Installation on Rooftop of District Commissioner's Office Natore"
    },
    {
     "package_ref": "05.43.6900.009.07055.12.2026.2",
     "awarded_to": "FATEMA CONSTRUCTION",
     "value_bdt": 800000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Works of Civil Sanitary Interior Design and Painting of Deputy Commissioner's Office Natore"
    },
    {
     "package_ref": "05.43.6900.009.07.136.26.2/2025-26",
     "awarded_to": "FATEMA CONSTRUCTION",
     "value_bdt": 750000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Work of civil sanitary repair and changing washroom fittings at Deputy Commissioner office Natore"
    },
    {
     "package_ref": "05.43.6900.009.07.128.25.2025-26.728",
     "awarded_to": "Smart View Computer & Electronics",
     "value_bdt": 600000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Repair and Supply of Conference System at Deputy Commissioner's Office Natore"
    },
    {
     "package_ref": "05.43.6900.009.07.119.24.2025-26.727",
     "awarded_to": "Sreemoti Baly Rani Acherjee",
     "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Supplying of Books"
    }
   ]
  },
@@ -3825,7 +6259,7 @@
   },
   "by_nature": {
    "Works": 3,
-   "Physical Services": 1
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -3855,30 +6289,76 @@
     "count": 4
    }
   ],
+  "top_keywords": [
+   {
+    "word": "repair",
+    "value_bdt": 3120000.0
+   },
+   {
+    "word": "land",
+    "value_bdt": 2710000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 2630000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 1810000.0
+   },
+   {
+    "word": "wall",
+    "value_bdt": 1310000.0
+   },
+   {
+    "word": "main",
+    "value_bdt": 820000.0
+   },
+   {
+    "word": "premises",
+    "value_bdt": 820000.0
+   },
+   {
+    "word": "earth",
+    "value_bdt": 820000.0
+   },
+   {
+    "word": "boundary",
+    "value_bdt": 820000.0
+   },
+   {
+    "word": "filling",
+    "value_bdt": 820000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "WR-1",
     "awarded_to": "KRIBEX INFRASTRUCTURE LTD.",
     "value_bdt": 1810000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Repair work on Upazila Land Office Building Under Magura Sadar Magura District"
    },
    {
     "package_ref": "PW-2",
     "awarded_to": "M/S Tashnia Enterprise",
     "value_bdt": 820000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Repair of Upazila Land office construction of boundary wall and main gate Earth filling work in the premises Repair arpara union land office main gate."
    },
    {
     "package_ref": "PW-3",
     "awarded_to": "M/S CHITRA TRADERS",
     "value_bdt": 490000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Repair for Stainless Steel Almirah Enamel paint in Door & Window Fitting fixing Electric line and bulb plastering of surface wall Sanitary instruments Glass doo"
    },
    {
     "package_ref": "PPS-1",
     "awarded_to": "Asrafia Enterprise & Services Limited",
     "value_bdt": 80000.0,
-    "contract_signing_date": "2026-05-11"
+    "contract_signing_date": "2026-05-11",
+    "description": "Hiring outsourced manpower for Security of the Upazila Land Office (04 Persons)"
    }
   ]
  },
@@ -3905,12 +6385,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "tied",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "design",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "testing",
+    "value_bdt": 1720000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1720000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.42.0300.000.202.99.0039.25.266",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1720000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Design Supply Installation Testing & Commissioning of 41 kWp Grid Tied Rooftop Solar PV Net Metering System."
    }
   ]
  },
@@ -3937,12 +6460,31 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "physical",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "security",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "service",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "guards",
+    "value_bdt": 560000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "91",
     "awarded_to": "M/S. ANIK ENTERPRISE",
     "value_bdt": 560000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Procurement of Two (2) Security Guards (physical service)"
    }
   ]
  },
@@ -3976,24 +6518,69 @@
     "count": 3
    }
   ],
+  "top_keywords": [
+   {
+    "word": "installation",
+    "value_bdt": 8090000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 4170000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 4170000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 4170000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 4170000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 4170000.0
+   },
+   {
+    "word": "metering",
+    "value_bdt": 4170000.0
+   },
+   {
+    "word": "furniture",
+    "value_bdt": 3920000.0
+   },
+   {
+    "word": "house",
+    "value_bdt": 3920000.0
+   },
+   {
+    "word": "circuit",
+    "value_bdt": 3920000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Rooftop Solar",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 4170000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Installation of 100 kWp Rooftop Solar PV System with Net Metering at the Office of the Deputy Commissioner Bogura"
    },
    {
     "package_ref": "4112314-furniture1 date: 08/03/2026",
     "awarded_to": "Hatil Complex Ltd",
     "value_bdt": 2610000.0,
-    "contract_signing_date": "2026-04-08"
+    "contract_signing_date": "2026-04-08",
+    "description": "Supply and installation of furniture at Bogura Circuit House"
    },
    {
     "package_ref": "4112314-Furniture2",
     "awarded_to": "Hatil Complex Ltd",
     "value_bdt": 1310000.0,
-    "contract_signing_date": "2026-06-07"
+    "contract_signing_date": "2026-06-07",
+    "description": "Supply and Installation best quality of Furniture at Circuit House Bogura"
    }
   ]
  },
@@ -4020,12 +6607,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "collector",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 2330000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Shrpr/LTM/RP-1",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2330000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Supply and Installation of Solar Panel on the Rooftop of Deputy Collector's office Sherpur. FY:2025-2026"
    }
   ]
  },
@@ -4052,12 +6670,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 1860000.0
+   },
+   {
+    "word": "operation",
+    "value_bdt": 1860000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1860000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1860000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1860000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1860000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1860000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.10.7800.011.13.025.25.264;30.04.2026",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1860000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Supply Installation & operation of 49 kWp on grid solar panel on the rooftop of DC office Patuakhali."
    }
   ]
  },
@@ -4106,36 +6755,83 @@
     "count": 7
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 6020000.0
+   },
+   {
+    "word": "smart",
+    "value_bdt": 6020000.0
+   },
+   {
+    "word": "interactive",
+    "value_bdt": 6020000.0
+   },
+   {
+    "word": "flat",
+    "value_bdt": 6020000.0
+   },
+   {
+    "word": "development",
+    "value_bdt": 3660000.0
+   },
+   {
+    "word": "academy",
+    "value_bdt": 3660000.0
+   },
+   {
+    "word": "administration",
+    "value_bdt": 3660000.0
+   },
+   {
+    "word": "national",
+    "value_bdt": 3660000.0
+   },
+   {
+    "word": "portable",
+    "value_bdt": 1890000.0
+   },
+   {
+    "word": "scanner",
+    "value_bdt": 1890000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.07.0000.000.034.07.0044.26.253",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 6020000.0,
-    "contract_signing_date": "2026-04-09"
+    "contract_signing_date": "2026-04-09",
+    "description": "Procurement of Interactive Smart Flat Panel"
    },
    {
     "package_ref": "05.07.0000.000.034.07.0036.25.127",
     "awarded_to": "Verbal",
     "value_bdt": 1890000.0,
-    "contract_signing_date": "2026-02-26"
+    "contract_signing_date": "2026-02-26",
+    "description": "Procurement of Computer Accessories (Printer Photocopier Scanner portable hard disk etc.) for National Academy for Development Administration (NADA)."
    },
    {
     "package_ref": "05.07.0000.000.034.07.0054.26.318",
     "awarded_to": "Aayat Corporation",
     "value_bdt": 480000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Procurement of Crockeries and Cutleries (Office Equipment) for National Academy for Development Administration."
    },
    {
     "package_ref": "05.07.0000.000.034.07.0050.26.315",
     "awarded_to": "Jalshiree Printing & Packaging",
     "value_bdt": 420000.0,
-    "contract_signing_date": "2026-06-08"
+    "contract_signing_date": "2026-06-08",
+    "description": "Procurement of Envelope Note Book etc.(Printing and Binding Material) For National Academy for Development Administration."
    },
    {
     "package_ref": "05.07.0000.000.034.07.0047.26.291",
     "awarded_to": "MIS SOLUTION",
     "value_bdt": 310000.0,
-    "contract_signing_date": "2026-04-30"
+    "contract_signing_date": "2026-04-30",
+    "description": "Procurement of (Interior Decoration) brass engraved name plate of National Academy for Development Administration."
    }
   ]
  },
@@ -4162,12 +6858,19 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "single",
+    "value_bdt": 3820000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.45.3900.012.01.001.002.26",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 3820000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "single"
    }
   ]
  },
@@ -4194,12 +6897,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "peak",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "capacity",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "electrical",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "ancillary",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "method",
+    "value_bdt": 2870000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 2870000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "APP ID-225972",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2870000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Installation of a 73 kW (DC peak) Capacity Rooftop Solar System Using the Net Metering Method on the Roof of the Office of the Deputy Commissioner Gopalganj alo"
    }
   ]
  },
@@ -4236,24 +6982,69 @@
     "count": 3
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 3540000.0
+   },
+   {
+    "word": "divisional",
+    "value_bdt": 3540000.0
+   },
+   {
+    "word": "panel",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "operation",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "programme",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 2730000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 2730000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.46.0000.000.009.99.0002.26.35 Date: 21.05.2025",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2730000.0,
-    "contract_signing_date": "2026-06-09"
+    "contract_signing_date": "2026-06-09",
+    "description": "Supply Installation and Operation of On grid Solar Panel On the Rooftop of Divisional Commissioner Office Sylhet under National Rooftop Solar Programme FY-2025-"
    },
    {
     "package_ref": "05.46.0000.000.009.07.0004.25.42 Date: 04.06.2026",
     "awarded_to": "AHMED FURNITURE",
     "value_bdt": 460000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Procurement of Furniture for the Office of the Divisional Commissioner Sylhet (Lot-01)"
    },
    {
     "package_ref": "05.46.0000.000.009.07.0005.25.41 Date: 04.06.2026",
     "awarded_to": "M/s. Purba Enterprise",
     "value_bdt": 350000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Procurement of clothing and related accessories for employees of Grades 17 to 20 Working at the Office of the Divisional Commissioner Sylhet for the Fiscal Year"
    }
   ]
  },
@@ -4267,7 +7058,7 @@
    }
   },
   "by_nature": {
-   "Physical Services": 1
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -4282,12 +7073,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "guards",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "outsourcing",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "through",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "manpower",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "security",
+    "value_bdt": 1150000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1150000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.81.2000.002.10.006.18(part-1)-968",
     "awarded_to": "Salim Brothers",
     "value_bdt": 1150000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Supply of two security guards as manpower through outsourcing."
    }
   ]
  },
@@ -4301,7 +7119,7 @@
    }
   },
   "by_nature": {
-   "Physical Services": 2
+   "Services": 2
   },
   "top_vendors": [
    {
@@ -4316,18 +7134,54 @@
     "count": 2
    }
   ],
+  "top_keywords": [
+   {
+    "word": "outsourcing",
+    "value_bdt": 660000.0
+   },
+   {
+    "word": "through",
+    "value_bdt": 660000.0
+   },
+   {
+    "word": "services",
+    "value_bdt": 660000.0
+   },
+   {
+    "word": "house",
+    "value_bdt": 390000.0
+   },
+   {
+    "word": "circuit",
+    "value_bdt": 390000.0
+   },
+   {
+    "word": "story",
+    "value_bdt": 390000.0
+   },
+   {
+    "word": "offices",
+    "value_bdt": 270000.0
+   },
+   {
+    "word": "land",
+    "value_bdt": 270000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Rang/DC/Outsourcing/01",
     "awarded_to": "M/S SINTHIA TRADERS",
     "value_bdt": 390000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Procurement of services through outsourcing for Rangpur 6 story new Circuit House."
    },
    {
     "package_ref": "Rang/DC/Outsourcing/02",
     "awarded_to": "M/S SINTHIA TRADERS",
     "value_bdt": 270000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Procurement of services through outsourcing for Upazila Land Offices in Rangpur."
    }
   ]
  },
@@ -4376,36 +7230,83 @@
     "count": 11
    }
   ],
+  "top_keywords": [
+   {
+    "word": "machine",
+    "value_bdt": 4060000.0
+   },
+   {
+    "word": "paper",
+    "value_bdt": 3760000.0
+   },
+   {
+    "word": "board",
+    "value_bdt": 3130000.0
+   },
+   {
+    "word": "spoon",
+    "value_bdt": 2800000.0
+   },
+   {
+    "word": "aerosol",
+    "value_bdt": 2800000.0
+   },
+   {
+    "word": "toilet",
+    "value_bdt": 2800000.0
+   },
+   {
+    "word": "stationery",
+    "value_bdt": 2780000.0
+   },
+   {
+    "word": "clip",
+    "value_bdt": 2780000.0
+   },
+   {
+    "word": "panel",
+    "value_bdt": 2590000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 2380000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.30.6800.000.106.59.0001.25",
     "awarded_to": "BANGLADESH OFFICE EQUIPMENT",
     "value_bdt": 2310000.0,
-    "contract_signing_date": "2026-06-03"
+    "contract_signing_date": "2026-06-03",
+    "description": "Other Stationery: Envelope Stapler Machine Calculator Clip Board Pen Program Stand Toilet Cleaner Offset Paper Spoon Aerosol etc."
    },
    {
     "package_ref": "05.30.6800.000.106.31.0001.26.270",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 2240000.0,
-    "contract_signing_date": "2026-06-09"
+    "contract_signing_date": "2026-06-09",
+    "description": "Supply Installation & Operation On-grid Solar Panel on the Rooftop of DC Office Narsingdi under National Rooftop Solar Programme FY 2025-26."
    },
    {
     "package_ref": "05.30.6800.000.106.59.0001.25",
     "awarded_to": "M/S. SHANZIDA TRADERS",
     "value_bdt": 1750000.0,
-    "contract_signing_date": "2026-06-03"
+    "contract_signing_date": "2026-06-03",
+    "description": "Computer Consumables: Toner Ink Duplicating Machine Master Roll etc."
    },
    {
     "package_ref": "05.30.6800.000.106.59.0001.25",
     "awarded_to": "Samim Printing",
     "value_bdt": 980000.0,
-    "contract_signing_date": "2026-06-03"
+    "contract_signing_date": "2026-06-03",
+    "description": "Printing and Binding: Bag Wrapping Paper Tissue Register etc."
    },
    {
     "package_ref": "05.30.6800.000.106.59.0001.25",
     "awarded_to": "M/S MILLAT TRADERS",
     "value_bdt": 770000.0,
-    "contract_signing_date": "2026-06-03"
+    "contract_signing_date": "2026-06-03",
+    "description": "Other Buildings & Structures: Interior Decoration of Additional Deputy Commissioner (Development and Human Resource Management)'s Office Room."
    }
   ]
  },
@@ -4432,12 +7333,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "commissioner",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "sharaitpur",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "deputy",
+    "value_bdt": 1040000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.30.8600.000.006.12.0031.26-210",
     "awarded_to": "Engineers Pac Bangladesh Ltd.",
     "value_bdt": 1040000.0,
-    "contract_signing_date": "2026-06-08"
+    "contract_signing_date": "2026-06-08",
+    "description": "Roof top solar on grid system for deputy commissioner office sharaitpur."
    }
   ]
  },
@@ -4466,12 +7398,51 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "roofs",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "multiple",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "metering",
+    "value_bdt": 7330000.0
+   },
+   {
+    "word": "on-grid",
+    "value_bdt": 7330000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.46.5800.000.007.99.0002.25-214",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 7330000.0,
-    "contract_signing_date": "2026-06-08"
+    "contract_signing_date": "2026-06-08",
+    "description": "Supply and Installation of On-Grid rooftop Solar System with net metering on multiple roofs of DC office Moulvibazar"
    }
   ]
  },
@@ -4498,12 +7469,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "initiative",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "divisional",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "program",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "installing",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "roof",
+    "value_bdt": 1940000.0
+   },
+   {
+    "word": "national",
+    "value_bdt": 1940000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Cabinet 04.00.0000.000.514.14.0001.25.61 Dt: 11.01",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 1940000.0,
-    "contract_signing_date": "2026-06-07"
+    "contract_signing_date": "2026-06-07",
+    "description": "Installing solar panels on the roof of our own building under the initiative of the National Rooftop Solar Program. Divisional Commissioner's Office Chattogram"
    }
   ]
  },
@@ -4530,12 +7544,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "tied",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "basis",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "turnkey",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 4660000.0
+   },
+   {
+    "word": "design",
+    "value_bdt": 4660000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.55.3200.022.27.001.25.840",
     "awarded_to": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 4660000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Design Supply Installation Testing & Commissioning of 122 kWp Grid Tied Rooftop Solar PV Net Metering System at DEPUTY COMMISSIONER OFFICE GAIBANDHA on turnkey "
    }
   ]
  },
@@ -4549,7 +7606,7 @@
    }
   },
   "by_nature": {
-   "Goods (Framework Agreement)": 1
+   "Goods": 1
   },
   "top_vendors": [
    {
@@ -4569,24 +7626,69 @@
     "count": 3
    }
   ],
+  "top_keywords": [
+   {
+    "word": "tied",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "design",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "testing",
+    "value_bdt": 1190000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 1190000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.42.4600.000.002.18.0020.25",
     "awarded_to": "Mind Touch Limited",
     "value_bdt": 1190000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Design Supply Installation Testing & Commissioning of 25 kWp Grid Tied Rooftop Solar PV Net Metering System"
    },
    {
     "package_ref": "05.42.4600.000.003.02.0038.25",
     "awarded_to": "FAHMIDA ENTERPRISE",
     "value_bdt": 560000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Procurement of Equipment and Furniture for the Office of the Deputy Commissioner Khagrachari Hill District."
    },
    {
     "package_ref": "NDC001-Revenue-GR07/01",
     "awarded_to": "FAHMIDA ENTERPRISE",
     "value_bdt": 400000.0,
-    "contract_signing_date": "2026-03-08"
+    "contract_signing_date": "2026-03-08",
+    "description": "Procurement of Uniform and Accessories for the staffs of Deputy Commissioner's Office under revenue budget"
    }
   ]
  },
@@ -4613,12 +7715,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "tied",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "commissioner",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "basis",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "turnkey",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 1930000.0
+   },
+   {
+    "word": "design",
+    "value_bdt": 1930000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Solar/NILDC/25-26/01",
     "awarded_to": "Mind Touch Limited",
     "value_bdt": 1930000.0,
-    "contract_signing_date": "2026-06-01"
+    "contract_signing_date": "2026-06-01",
+    "description": "Design Supply Installation Testing & Commissioning of 48KWp Grid Tied Rooftop Solar PV Net Metering System at DEPUTY COMMISSIONER OFFICE NILPHAMARI on Turnkey b"
    }
   ]
  },
@@ -4645,12 +7790,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "repair",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "bhumi",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "durgapur",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "poura",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "sundurpur",
+    "value_bdt": 560000.0
+   },
+   {
+    "word": "maliat",
+    "value_bdt": 560000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "APP ID- 224541",
     "awarded_to": "M/S ABU NAHID TRADERS",
     "value_bdt": 560000.0,
-    "contract_signing_date": "2026-06-01"
+    "contract_signing_date": "2026-06-01",
+    "description": "Repair of Kaliganj Poura Bhumi Office Sundurpur Durgapur Union Bhumi Office & Maliat Union Bhumi Office"
    }
   ]
  },
@@ -4677,12 +7849,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "panel",
+    "value_bdt": 2000000.0
+   },
+   {
+    "word": "programme",
+    "value_bdt": 2000000.0
+   },
+   {
+    "word": "grid",
+    "value_bdt": 2000000.0
+   },
+   {
+    "word": "solar",
+    "value_bdt": 2000000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 2000000.0
+   },
+   {
+    "word": "rooftop",
+    "value_bdt": 2000000.0
+   },
+   {
+    "word": "national",
+    "value_bdt": 2000000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "GR-3/RAJBARI/2025-26",
     "awarded_to": "ROBI POWER ENGINEERING",
     "value_bdt": 2000000.0,
-    "contract_signing_date": "2026-05-13"
+    "contract_signing_date": "2026-05-13",
+    "description": "Installation of On grid Solar Panel on the rooftop of DC Office Rajbari under the National Rooftop Solar Programme FY-2025-2026"
    }
   ]
  },
@@ -4711,12 +7914,19 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "furniture",
+    "value_bdt": 5270000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.46.9000.007.10.011.22.246",
     "awarded_to": "AHMED FURNITURE",
     "value_bdt": 5270000.0,
-    "contract_signing_date": "2026-04-27"
+    "contract_signing_date": "2026-04-27",
+    "description": "Furniture for DC Office Sunamganj"
    }
   ]
  },
@@ -4730,7 +7940,7 @@
    }
   },
   "by_nature": {
-   "Physical Services": 1
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -4745,12 +7955,35 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "guard",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "night",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "re-tender",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "services",
+    "value_bdt": 1580000.0
+   },
+   {
+    "word": "land",
+    "value_bdt": 1580000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DC 2025-26 physical services1",
     "awarded_to": "Joha Enterprise",
     "value_bdt": 1580000.0,
-    "contract_signing_date": "2026-04-05"
+    "contract_signing_date": "2026-04-05",
+    "description": "procurement of services of night guard for upazilla land office (Re-tender)"
    }
   ]
  },
@@ -4779,12 +8012,47 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "pouro",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "offices",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "ministry",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "works",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "sanitary",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "civil",
+    "value_bdt": 710000.0
+   },
+   {
+    "word": "land",
+    "value_bdt": 710000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "Revenue_25-26_01",
     "awarded_to": "M/S Raine Enterprise",
     "value_bdt": 710000.0,
-    "contract_signing_date": "2026-04-02"
+    "contract_signing_date": "2026-04-02",
+    "description": "Civil Sanitary and other repair works of the Pouro/union land offices Shailkupa Jhenaidah under the Ministry of Land."
    }
   ]
  }

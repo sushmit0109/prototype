@@ -32,21 +32,124 @@ office's.
 Procurement nature (Goods/Works/Services) is joined from the master tender
 list exactly as build_office_profiles.py and build_geo.py do it, with the
 same partial (~53%) coverage -- read nature mixes as based on the matched
-subset, not the office's full contract history.
+subset, not the office's full contract history. It's a coarse, legally-
+defined split, not a description of what was actually bought -- for that,
+this also joins in the free-text `description` field that build_contracts.py
+strips out of the bulk data/contracts/<year>.json files (it's ~38% of their
+raw size, see that file's docstring) but raw/contracts/ still keeps
+verbatim, keyed the same way build_contracts.py dedups: (tender_id,
+pkg_lot_id). That gives two more concrete things per office: the actual
+one-line description behind each of its biggest contracts, and a
+value-weighted word frequency across every description it has ever had --
+a rough but genuinely content-based answer to "what does this office buy"
+that doesn't require CPV codes or reading raw contract text.
 
-    python3 build_office_explorer.py <data/contracts/> <data/tenders/> <office_index.json> <data/offices/>
+    python3 build_office_explorer.py <data/contracts/> <data/tenders/> <raw/contracts/> <office_index.json> <data/offices/>
 """
 import glob
+import gzip
 import json
 import os
+import re
 import sys
 from collections import Counter, defaultdict
 
+from districts import DISTRICT_ALIASES
 from entity import normalize_company
 
 TOP_VENDORS = 5
 TOP_DISTRICTS = 5
 TOP_CONTRACTS = 5
+TOP_KEYWORDS = 10
+DESCRIPTION_SNIPPET_LEN = 160
+
+# Filtered out of the keyword analysis: grammatical filler, administrative
+# boilerplate that shows up in nearly every description regardless of what's
+# being bought (a district office's own district name is the most common
+# offender -- it says WHERE, which top_districts already covers, not WHAT),
+# and generic procurement-process words that name no object. Deliberately
+# NOT filtered: action/work words like "construction", "supply", "repair" --
+# those genuinely describe the kind of buying, at a finer grain than the
+# Works/Goods/Services split above.
+KEYWORD_STOPWORDS = {
+    "the", "of", "for", "and", "to", "in", "at", "on", "with", "by", "from",
+    "as", "is", "be", "or", "this", "that", "under", "during", "period",
+    "financial", "year", "years", "fy", "no", "date", "estimate", "estimated",
+    "procurement", "package", "lot", "tender", "phase", "upazila", "upazilla",
+    "zila", "zilla", "parishad", "union", "office", "district", "directorate",
+    "department", "government", "bangladesh", "various", "different",
+    "other", "etc", "total", "including", "excluding", "approx",
+    "approximately", "one", "two", "three", "into", "its", "an", "will",
+    "long", "over", "types", "type", "part", "parts", "cost", "materials",
+    "january", "february", "march", "april", "may", "june", "july",
+    "august", "september", "october", "november", "december",
+} | {d.lower() for d in DISTRICT_ALIASES}
+
+# Letters only, hyphens allowed only between two letter groups -- so a
+# trailing hyphen from source formatting like "Package-1" doesn't get
+# captured as part of the word ("package-" instead of "package").
+_WORD_RE = re.compile(r"[a-zA-Z]+(?:-[a-zA-Z]+)*")
+
+# Upazila/union names aren't in districts.py (that's district-level only) and
+# there's no list of ~500 of them in this repo to import -- but they show up
+# in a recognisable position: "under Boda Upazila", "Debiganj Upazila",
+# "Atwari upazila" is how almost every road-work description names its own
+# sub-district. Whatever word immediately precedes one of those admin-unit
+# markers gets treated as a place name and dropped, rather than trying to
+# hardcode and maintain a name list that would go stale.
+_PLACE_MARKER_RE = re.compile(
+    r"([a-zA-Z]+(?:-[a-zA-Z]+)*)\s+(?:upazila|upazilla|thana|union|pourashava|paurashava)\b",
+    re.IGNORECASE,
+)
+
+
+def find_place_stopwords(descriptions, min_marker_count=3, min_ratio=0.3):
+    """A word counts as a place name only if MOST of its occurrences sit
+    right before an admin-unit marker, not just one anywhere in ~870K
+    descriptions -- a single malformed record ("...Ghoshbari Road
+    Upazila-Keraniganj...", missing its separator) is enough to catch a
+    common word like "road" otherwise, which would blacklist it for every
+    office in the country instead of just the place names it's meant to."""
+    total = Counter()
+    marker = Counter()
+    for desc in descriptions:
+        for m in _WORD_RE.finditer(desc):
+            if len(m.group(0)) >= 4:
+                total[m.group(0).lower()] += 1
+        for m in _PLACE_MARKER_RE.finditer(desc):
+            marker[m.group(1).lower()] += 1
+    return {w for w, c in marker.items() if c >= min_marker_count and c / total.get(w, c) >= min_ratio}
+
+
+def extract_keywords(text, extra_stopwords=frozenset()):
+    words = []
+    for m in _WORD_RE.finditer(text):
+        raw = m.group(0)
+        # A short all-caps token (GDDRIDP, RHD, PSC, GC...) is a project code
+        # or agency acronym, not a describable thing to buy -- skip before
+        # lowercasing loses that signal.
+        if raw.isupper() and len(raw) <= 8:
+            continue
+        w = raw.lower()
+        if len(w) >= 4 and w not in KEYWORD_STOPWORDS and w not in extra_stopwords:
+            words.append(w)
+    return words
+
+
+def load_descriptions(raw_contracts_dir):
+    """(tender_id, pkg_lot_id) -> description, straight from the raw crawl
+    log -- the one field build_contracts.py deliberately drops from the
+    bulk per-year files (see its docstring)."""
+    out = {}
+    for path in sorted(glob.glob(os.path.join(raw_contracts_dir, "*.jsonl*"))):
+        opener = gzip.open if path.endswith(".gz") else open
+        with opener(path, "rt") as fh:
+            for line in fh:
+                r = json.loads(line)
+                desc = (r.get("description") or "").strip()
+                if desc and r.get("tender_id") is not None and r.get("pkg_lot_id") is not None:
+                    out[(r["tender_id"], r["pkg_lot_id"])] = " ".join(desc.split())
+    return out
 
 
 def load_records(data_dir):
@@ -57,11 +160,30 @@ def load_records(data_dir):
             yield from json.load(fh)
 
 
-def main(contracts_dir, tenders_dir, index_out, offices_out_dir):
+# The master tender list actually carries five nature strings, not the
+# textbook three: "Goods (Framework Agreement)" and "Physical Services" are
+# procurement-law variants of Goods and Services respectively, not a
+# distinct fourth or fifth thing a general reader would find meaningful.
+# Collapsed to the three canonical buckets both for readability (the raw
+# variants are longer than build_office_explorer.py's chart labels have
+# room for, and clip) and because the whole point of this section is to
+# avoid making a reader learn procurement jargon to use it.
+def normalize_nature(name):
+    if name.startswith("Goods"):
+        return "Goods"
+    if "Services" in name:
+        return "Services"
+    return name
+
+
+def main(contracts_dir, tenders_dir, raw_contracts_dir, index_out, offices_out_dir):
     tender_nature = {}
     for r in load_records(tenders_dir):
         if r.get("procurement_nature"):
-            tender_nature[r["tender_id"]] = r["procurement_nature"]
+            tender_nature[r["tender_id"]] = normalize_nature(r["procurement_nature"])
+
+    descriptions = load_descriptions(raw_contracts_dir)
+    place_stopwords = find_place_stopwords(descriptions.values())
 
     with open(os.path.join(contracts_dir, "dimensions.json")) as fh:
         dims = json.load(fh)
@@ -74,7 +196,7 @@ def main(contracts_dir, tenders_dir, index_out, offices_out_dir):
         "ministry_votes": Counter(), "division_votes": Counter(),
         "by_year": defaultdict(lambda: {"value_bdt": 0.0, "count": 0}),
         "nature": Counter(), "vendors": Counter(), "vendor_count": Counter(),
-        "districts": Counter(),
+        "districts": Counter(), "keywords": Counter(),
         "contracts": [],
     })
 
@@ -108,11 +230,17 @@ def main(contracts_dir, tenders_dir, index_out, offices_out_dir):
             o["vendor_count"][vendor] += 1
         if c.get("district"):
             o["districts"][c["district"]] += 1
+        desc = descriptions.get((c.get("tender_id"), c.get("pkg_lot_id")))
+        if desc:
+            for kw in set(extract_keywords(desc, place_stopwords)):
+                o["keywords"][kw] += v
         o["contracts"].append({
             "package_ref": c.get("package_ref"),
             "awarded_to": vendor,
             "value_bdt": v,
             "contract_signing_date": date or None,
+            "_tender_id": c.get("tender_id"),
+            "_pkg_lot_id": c.get("pkg_lot_id"),
         })
 
     ministry_agg = defaultdict(lambda: {"value_bdt": 0.0, "count": 0, "office_ids": set()})
@@ -146,6 +274,8 @@ def main(contracts_dir, tenders_dir, index_out, offices_out_dir):
         top_contracts = sorted(o["contracts"], key=lambda r: -(r["value_bdt"] or 0))[:TOP_CONTRACTS]
         for r in top_contracts:
             r["value_bdt"] = round(r["value_bdt"], 2)
+            desc = descriptions.get((r.pop("_tender_id"), r.pop("_pkg_lot_id")))
+            r["description"] = desc[:DESCRIPTION_SNIPPET_LEN] if desc else None
 
         profile = {
             "value_bdt": round(o["value_bdt"], 2),
@@ -159,6 +289,9 @@ def main(contracts_dir, tenders_dir, index_out, offices_out_dir):
             ],
             "top_districts": [
                 {"district": d, "count": n} for d, n in o["districts"].most_common(TOP_DISTRICTS)
+            ],
+            "top_keywords": [
+                {"word": w, "value_bdt": round(v, 2)} for w, v in o["keywords"].most_common(TOP_KEYWORDS)
             ],
             "top_contracts": top_contracts,
         }
@@ -210,4 +343,4 @@ def main(contracts_dir, tenders_dir, index_out, offices_out_dir):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])

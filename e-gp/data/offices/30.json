@@ -76,36 +76,83 @@
     "count": 18
    }
   ],
+  "top_keywords": [
+   {
+    "word": "purchase",
+    "value_bdt": 252560000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 147860000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 143540000.0
+   },
+   {
+    "word": "court",
+    "value_bdt": 143540000.0
+   },
+   {
+    "word": "supreme",
+    "value_bdt": 143540000.0
+   },
+   {
+    "word": "commissioning",
+    "value_bdt": 127350000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 127350000.0
+   },
+   {
+    "word": "active",
+    "value_bdt": 121810000.0
+   },
+   {
+    "word": "center",
+    "value_bdt": 109770000.0
+   },
+   {
+    "word": "data",
+    "value_bdt": 109770000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "9",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 76940000.0,
-    "contract_signing_date": "2017-11-30"
+    "contract_signing_date": "2017-11-30",
+    "description": "Purchase of Laptop Computer"
    },
    {
     "package_ref": "10/2022-23",
     "awarded_to": "TECH VALLEY NETWORKS LIMITED",
     "value_bdt": 69750000.0,
-    "contract_signing_date": "2022-11-28"
+    "contract_signing_date": "2022-11-28",
+    "description": "Supply Installation Testing and Commissioning of Networking Active Devices Passive Devices and Network Solution for Network Upgradation in Supreme Court of Bang"
    },
    {
     "package_ref": "229/2020-21",
     "awarded_to": "Express Systems Limited",
     "value_bdt": 52060000.0,
-    "contract_signing_date": "2021-10-27"
+    "contract_signing_date": "2021-10-27",
+    "description": "Purchase of Active device and related software for the Data Center."
    },
    {
     "package_ref": "BSC/Purchase-32/2024-25",
     "awarded_to": "Star Tech & Engineering Ltd.",
     "value_bdt": 43590000.0,
-    "contract_signing_date": "2025-02-06"
+    "contract_signing_date": "2025-02-06",
+    "description": "Purchase of Desktop Computer Core i3"
    },
    {
     "package_ref": "24/2023-24 BSC/Purchase-27/23-24",
     "awarded_to": "TECH VALLEY NETWORKS LIMITED",
     "value_bdt": 30000000.0,
-    "contract_signing_date": "2023-12-20"
+    "contract_signing_date": "2023-12-20",
+    "description": "Supply Installation and Commissioning of Wifi Network Upgradation at Supreme Court of Bangladesh."
    }
   ]
  },
@@ -123,8 +170,7 @@
    }
   },
   "by_nature": {
-   "Goods (Framework Agreement)": 1,
-   "Goods": 4
+   "Goods": 5
   },
   "top_vendors": [
    {
@@ -154,36 +200,83 @@
     "count": 5
    }
   ],
+  "top_keywords": [
+   {
+    "word": "original",
+    "value_bdt": 2880000.0
+   },
+   {
+    "word": "canon",
+    "value_bdt": 2880000.0
+   },
+   {
+    "word": "units",
+    "value_bdt": 2600000.0
+   },
+   {
+    "word": "stationery",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "sample",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "catagories",
+    "value_bdt": 2330000.0
+   },
+   {
+    "word": "inch",
+    "value_bdt": 1970000.0
+   },
+   {
+    "word": "brand",
+    "value_bdt": 1970000.0
+   },
+   {
+    "word": "desktop",
+    "value_bdt": 1970000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "F-08/2026-SC(AD)",
     "awarded_to": "M/S. AKIB TRADERS",
     "value_bdt": 2330000.0,
-    "contract_signing_date": "2026-05-10"
+    "contract_signing_date": "2026-05-10",
+    "description": "Stationery Items (As per Sample 09 catagories)"
    },
    {
     "package_ref": "F-159/2021 SCAD",
     "awarded_to": "PRO TECHNOLOGY SOLUTION",
     "value_bdt": 1970000.0,
-    "contract_signing_date": "2026-03-11"
+    "contract_signing_date": "2026-03-11",
+    "description": "Brand Desktop Computer (core i5 12 gen 8GB 1 TB) - 15 Units Monitor 21+ Inch - 25 Units UPS 1200VA - 25 Units UPS 1200VA Ã¢?? 25 Units"
    },
    {
     "package_ref": "F-39/2016 SCAD Part-6",
     "awarded_to": "Jharna Enterprise",
     "value_bdt": 1540000.0,
-    "contract_signing_date": "2026-03-12"
+    "contract_signing_date": "2026-03-12",
+    "description": "HP Original 65 Nos Canon Original 30 Nos China 94 Nos"
    },
    {
     "package_ref": "F-39/2016 SCAD Part-6",
     "awarded_to": "S&S Computer Solution",
     "value_bdt": 1340000.0,
-    "contract_signing_date": "2025-05-20"
+    "contract_signing_date": "2025-05-20",
+    "description": "HP Original-65 nos Canon Original-40 nos and Asta 177nos"
    },
    {
     "package_ref": "F-159/2021 SCAD",
     "awarded_to": "PRO TECHNOLOGY SOLUTION",
     "value_bdt": 630000.0,
-    "contract_signing_date": "2026-03-11"
+    "contract_signing_date": "2026-03-11",
+    "description": "Laser Printer (40ppm) - 15 Units Scanner (Heavy Duty) -01 Unit"
    }
   ]
  }

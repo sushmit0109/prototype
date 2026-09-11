@@ -153,27 +153,26 @@
       office itself — or just type its name if you already know it.
     </p>
 
-    <div class="map-controls" style="align-items:flex-end">
-      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px">
+    <div class="map-controls office-picker">
+      <div class="map-control-group">
         <span class="gl">Find by name</span>
-        <input id="officeSearch" type="search" autocomplete="off" placeholder="e.g. &quot;Executive Engineer, LGED, Bogura&quot;"
-          style="min-width:280px;padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface)">
+        <input id="officeSearch" type="search" autocomplete="off" placeholder="e.g. &quot;Executive Engineer, LGED, Bogura&quot;">
       </div>
-      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px">
+      <div class="map-control-group">
         <span class="gl">Ministry</span>
-        <select id="officeMinistrySelect" style="padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface);max-width:280px">
+        <select id="officeMinistrySelect">
           <option value="">All ministries</option>
         </select>
       </div>
-      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px">
+      <div class="map-control-group">
         <span class="gl">Division</span>
-        <select id="officeDivisionSelect" style="padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface);max-width:280px" disabled>
+        <select id="officeDivisionSelect" disabled>
           <option value="">All divisions</option>
         </select>
       </div>
-      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px;position:relative">
+      <div class="map-control-group" style="position:relative">
         <span class="gl">Office</span>
-        <select id="officePickSelect" style="padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface);max-width:340px" disabled>
+        <select id="officePickSelect" disabled>
           <option value="">Pick a ministry or division first…</option>
         </select>
       </div>
@@ -205,8 +204,13 @@
 
       <div class="dd-grid" style="margin-top:14px">
         <div>
-          <p class="dd-label">What it buys (procurement nature)</p>
+          <p class="dd-label">What it buys, broadly (procurement nature)</p>
           <div id="chartOfNature"></div>
+          <p class="dd-label" style="margin-top:20px">What it buys, specifically</p>
+          <p class="sub" style="font-size:0.78rem;margin-top:-4px;margin-bottom:8px">
+            The most common words across every one of its contracts' own descriptions, sized by
+            how much money went to contracts mentioning that word.</p>
+          <div id="ofKeywords" class="office-keyword-cloud"></div>
         </div>
         <div>
           <p class="dd-label">Yearly trend</p>
@@ -217,20 +221,15 @@
       <h3 style="margin-top:32px;font-size:0.95rem;font-weight:650">Who it buys from</h3>
       <div id="chartOfVendors" style="margin-top:10px"></div>
 
-      <div class="dd-grid dd-grid-wide" style="margin-top:28px">
-        <div>
-          <h3 style="font-size:0.95rem;font-weight:650">Where the work happens</h3>
-          <ul id="ofDistrictList" class="office-plain-list" style="margin-top:10px"></ul>
-        </div>
-        <div>
-          <h3 style="font-size:0.95rem;font-weight:650">Its biggest individual contracts</h3>
-          <div class="table-wrap" style="margin-top:10px">
-            <table>
-              <thead><tr><th>Vendor</th><th class="n">Value</th><th>Signed</th></tr></thead>
-              <tbody id="ofContractsBody"></tbody>
-            </table>
-          </div>
-        </div>
+      <h3 style="margin-top:32px;font-size:0.95rem;font-weight:650">Where the work happens</h3>
+      <ul id="ofDistrictList" class="office-plain-list office-plain-list-inline" style="margin-top:10px"></ul>
+
+      <h3 style="margin-top:32px;font-size:0.95rem;font-weight:650">Its biggest individual contracts</h3>
+      <div class="table-wrap" style="margin-top:10px">
+        <table>
+          <thead><tr><th>What for</th><th>Vendor</th><th class="n">Value</th><th>Signed</th></tr></thead>
+          <tbody id="ofContractsBody"></tbody>
+        </table>
       </div>
 
       <p class="sub" id="ofCaption" style="margin-top:16px;font-size:0.76rem"></p>
@@ -242,17 +241,26 @@
         <p>National totals and ministry-level tables (see Finding 08 below) hide what a single
         office actually does day to day. Most people's contact with procurement is local — a
         district hospital, a upazila LGED office, a departmental workshop — and this is the same
-        public data, just filtered down to one of them instead of averaged across all 9,800.</p>
+        public data, just filtered down to one of them instead of averaged across all 9,800. The
+        contract-description text behind "what it buys, specifically" and "biggest individual
+        contracts" is the same free-text field every award carries on the portal itself — this
+        just collects it in one place instead of opening one contract at a time.</p>
       </div>
       <div class="caution">
         <h4>What it isn't</h4>
-        <p>"What it buys" is procurement nature (Works/Goods/Services) joined from the master
-        tender list, matched for about half of contracts nationally — read it as based on the
-        matched subset, not the office's full history. A small number of offices (roughly 1 in 20)
-        were reorganised across divisions, or rarely ministries, at some point since 2011; each is
-        filed under whichever it worked with most, so a handful of its own oldest contracts may be
-        counted under a parent it has since left. "Biggest contracts" and "who it buys from" are
-        both all-time totals regardless of the trend window above — only the trend chart itself is
+        <p>"What it buys, broadly" is procurement nature (Works/Goods/Services) joined from the
+        master tender list, matched for about half of contracts nationally — read it as based on
+        the matched subset, not the office's full history. "What it buys, specifically" is a plain
+        word-frequency count over contract descriptions, not a curated category system — it drops
+        common filler words and place names (upazila/union names an office mentions constantly
+        just by being located there), but it can still occasionally surface a stray project code or
+        place name the filter didn't catch, or split one purchase across several near-duplicate
+        words. Read it as a rough, literal echo of what the office itself wrote, not an audited
+        classification. A small number of offices (roughly 1 in 20) were reorganised across
+        divisions, or rarely ministries, at some point since 2011; each is filed under whichever it
+        worked with most, so a handful of its own oldest contracts may be counted under a parent it
+        has since left. "Biggest contracts", "who it buys from" and "what it buys, specifically" are
+        all all-time totals regardless of the trend window above — only the trend chart itself is
         windowed.</p>
       </div>
     </div>

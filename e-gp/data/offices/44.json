@@ -21,9 +21,8 @@
    }
   },
   "by_nature": {
-   "Goods": 15,
-   "Goods (Framework Agreement)": 1,
-   "Physical Services": 1
+   "Goods": 16,
+   "Services": 1
   },
   "top_vendors": [
    {
@@ -58,36 +57,83 @@
     "count": 18
    }
   ],
+  "top_keywords": [
+   {
+    "word": "item",
+    "value_bdt": 46230000.0
+   },
+   {
+    "word": "toner",
+    "value_bdt": 40590000.0
+   },
+   {
+    "word": "field",
+    "value_bdt": 37300000.0
+   },
+   {
+    "word": "colour",
+    "value_bdt": 37300000.0
+   },
+   {
+    "word": "wing",
+    "value_bdt": 37300000.0
+   },
+   {
+    "word": "pouches",
+    "value_bdt": 37300000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 29180000.0
+   },
+   {
+    "word": "control",
+    "value_bdt": 25800000.0
+   },
+   {
+    "word": "enhancement",
+    "value_bdt": 25800000.0
+   },
+   {
+    "word": "existing",
+    "value_bdt": 25800000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.00.0000.072.70.005.23- Date: 01.11.2023",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 37300000.0,
-    "contract_signing_date": "2024-01-28"
+    "contract_signing_date": "2024-01-28",
+    "description": "Toner Item for NID Wing & Colour Toner Pouches for EC Field office"
    },
    {
     "package_ref": "17.00.0000.054.70.001.23-47 Date: 15.12.2025",
     "awarded_to": "HAJ CORPORATION",
     "value_bdt": 25800000.0,
-    "contract_signing_date": "2026-02-09"
+    "contract_signing_date": "2026-02-09",
+    "description": "Procurement of existing ECS CCTV System enhancement with server and storage EC bhaban access control system"
    },
    {
     "package_ref": "17.00.0000.029.11.001.25-176 Date: 29.03.26",
     "awarded_to": "Munshi HR Solutions Limited",
     "value_bdt": 16780000.0,
-    "contract_signing_date": "2026-06-04"
+    "contract_signing_date": "2026-06-04",
+    "description": "Outsourcing HR Firm from supplying manpower of the Election Commission Secretariat"
    },
    {
     "package_ref": "17.00.0000.038.07.006.24-46 Date: 09/04/2025",
     "awarded_to": "Akando Jute Mills Ltd.",
     "value_bdt": 13670000.0,
-    "contract_signing_date": "2025-07-13"
+    "contract_signing_date": "2025-07-13",
+    "description": "Procurement of gunny bags"
    },
    {
     "package_ref": "17.00.0000.38.07.006.23.201",
     "awarded_to": "Bornolipi",
     "value_bdt": 13000000.0,
-    "contract_signing_date": "2023-08-07"
+    "contract_signing_date": "2023-08-07",
+    "description": "Procurement of seals (lock) of translucent ballot box (Electoral materials)"
    }
   ]
  },
@@ -116,12 +162,35 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "service",
+    "value_bdt": 7530000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 7530000.0
+   },
+   {
+    "word": "supply",
+    "value_bdt": 7530000.0
+   },
+   {
+    "word": "support",
+    "value_bdt": 7530000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 7530000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "ECS/CBTEP/pro/GD-04/2024",
     "awarded_to": "Unique Business Systems Ltd.",
     "value_bdt": 7530000.0,
-    "contract_signing_date": "2024-12-17"
+    "contract_signing_date": "2024-12-17",
+    "description": "Supply of Computer and accessories with support service"
    }
   ]
  },
@@ -178,36 +247,83 @@
     "count": 7
    }
   ],
+  "top_keywords": [
+   {
+    "word": "data",
+    "value_bdt": 365030000.0
+   },
+   {
+    "word": "support",
+    "value_bdt": 295430000.0
+   },
+   {
+    "word": "operations",
+    "value_bdt": 292760000.0
+   },
+   {
+    "word": "identification",
+    "value_bdt": 255560000.0
+   },
+   {
+    "word": "training",
+    "value_bdt": 255560000.0
+   },
+   {
+    "word": "biometric",
+    "value_bdt": 255560000.0
+   },
+   {
+    "word": "enhancement",
+    "value_bdt": 255560000.0
+   },
+   {
+    "word": "development",
+    "value_bdt": 255560000.0
+   },
+   {
+    "word": "technology",
+    "value_bdt": 255560000.0
+   },
+   {
+    "word": "voter",
+    "value_bdt": 255560000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.14.0000.240.07.222.2025-318",
     "awarded_to": "Dynamic Solution Innovators Limited",
     "value_bdt": 255560000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Bangladesh Voter Registration System (BVRS) and the Automatic Biometric Identification System (ABIS) related technology adoption support services system softwar"
    },
    {
     "package_ref": "GD- 14.1",
     "awarded_to": "Global Brand PLC.",
     "value_bdt": 69600000.0,
-    "contract_signing_date": "2025-01-08"
+    "contract_signing_date": "2025-01-08",
+    "description": "Purchase of necessary hardware for the Data Center to establish an archive."
    },
    {
     "package_ref": "GD-7.2 17.14.0000.240.07.178.2024",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 39870000.0,
-    "contract_signing_date": "2025-01-19"
+    "contract_signing_date": "2025-01-19",
+    "description": "Purchase and replacement of equipment for old servers and support service of data center."
    },
    {
     "package_ref": "17.14.0000.240.07.211.2025",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 37200000.0,
-    "contract_signing_date": "2026-03-16"
+    "contract_signing_date": "2026-03-16",
+    "description": "Procurement installation and maintenance of VPN routers and other network equipment for field operations."
    },
    {
     "package_ref": "GD-26 ReTender 17.14.0000.240.07.179.2024",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 5000000.0,
-    "contract_signing_date": "2025-04-06"
+    "contract_signing_date": "2025-04-06",
+    "description": "Purchase of Black and Color Toner for Computers Photocopiers and Printers."
    }
   ]
  },
@@ -255,30 +371,76 @@
     "count": 4
    }
   ],
+  "top_keywords": [
+   {
+    "word": "device",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "access",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "privileged",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "privilege",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "center",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "system",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "users",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "management",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "manage",
+    "value_bdt": 36240000.0
+   },
+   {
+    "word": "data",
+    "value_bdt": 36240000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.00.0000.072.70.008.24-03",
     "awarded_to": "Smart Technologies (BD) Ltd.",
     "value_bdt": 36240000.0,
-    "contract_signing_date": "2025-04-30"
+    "contract_signing_date": "2025-04-30",
+    "description": "privileged access management system (PAM) for NID data center to manage the users privilege on data centers device."
    },
    {
     "package_ref": "17.00.0000.072.81.008.25",
     "awarded_to": "Software Shop Limited",
     "value_bdt": 28340000.0,
-    "contract_signing_date": "2026-04-30"
+    "contract_signing_date": "2026-04-30",
+    "description": "SMS"
    },
    {
     "package_ref": "17.00.0000.072.70.006.24",
     "awarded_to": "Global Brand PLC.",
     "value_bdt": 2510000.0,
-    "contract_signing_date": "2025-05-27"
+    "contract_signing_date": "2025-05-27",
+    "description": "10 laptop 10 portable storage and zoom application"
    },
    {
     "package_ref": "17.00.0000.072.70.007.24",
     "awarded_to": "H M Business International",
     "value_bdt": 290000.0,
-    "contract_signing_date": "2026-06-16"
+    "contract_signing_date": "2026-06-16",
+    "description": "office furniture for NID wing"
    }
   ]
  },
@@ -307,12 +469,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "works",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "repair",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "sanitary",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "server",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "station",
+    "value_bdt": 1840000.0
+   },
+   {
+    "word": "civil",
+    "value_bdt": 1840000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "DEO/KURI/OTM/Repair/2024-25",
     "awarded_to": "M/S S.A. Enterprise",
     "value_bdt": 1840000.0,
-    "contract_signing_date": "2025-05-15"
+    "contract_signing_date": "2025-05-15",
+    "description": "Repair of Civil and Sanitary works at District Server station Kurigram FY 2024-25."
    }
   ]
  },
@@ -361,36 +550,83 @@
     "count": 5
    }
   ],
+  "top_keywords": [
+   {
+    "word": "election",
+    "value_bdt": 16630000.0
+   },
+   {
+    "word": "commission",
+    "value_bdt": 16630000.0
+   },
+   {
+    "word": "secretariat",
+    "value_bdt": 16630000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 10130000.0
+   },
+   {
+    "word": "goods",
+    "value_bdt": 5230000.0
+   },
+   {
+    "word": "ancillary",
+    "value_bdt": 5230000.0
+   },
+   {
+    "word": "toner",
+    "value_bdt": 3680000.0
+   },
+   {
+    "word": "stationery",
+    "value_bdt": 3230000.0
+   },
+   {
+    "word": "electrical",
+    "value_bdt": 3220000.0
+   },
+   {
+    "word": "equipment",
+    "value_bdt": 1270000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.00.0000.029.070.160.24(part-7)- Date: 12/02/25",
     "awarded_to": "The Connection",
     "value_bdt": 5230000.0,
-    "contract_signing_date": "2025-04-27"
+    "contract_signing_date": "2025-04-27",
+    "description": "Procurement of Other ancillary goods for Election Commission Secretariat"
    },
    {
     "package_ref": "17.00.0000.029.070.160.24(part-7)- Date: 12/02/25",
     "awarded_to": "Techtack BD Corporation",
     "value_bdt": 3680000.0,
-    "contract_signing_date": "2025-04-27"
+    "contract_signing_date": "2025-04-27",
+    "description": "Procurement of toner items for Election Commission Secretariat"
    },
    {
     "package_ref": "17.00.0000.029.070.160.24(part-7)- Date: 12/02/25",
     "awarded_to": "M/S T.S. International",
     "value_bdt": 3230000.0,
-    "contract_signing_date": "2025-04-27"
+    "contract_signing_date": "2025-04-27",
+    "description": "Procurement of Stationery items for Election Commission Secretariat"
    },
    {
     "package_ref": "17.00.0000.029.070.160.24(part-7)- Date: 12/02/25",
     "awarded_to": "M/S. Kabir Enterprise",
     "value_bdt": 3220000.0,
-    "contract_signing_date": "2025-04-27"
+    "contract_signing_date": "2025-04-27",
+    "description": "Procurement of electrical items for Election Commission Secretariat"
    },
    {
     "package_ref": "17.00.0000.029.070.160.24(part-7)- Date: 12/02/25",
     "awarded_to": "Capital Electric and Engineering",
     "value_bdt": 1270000.0,
-    "contract_signing_date": "2025-04-27"
+    "contract_signing_date": "2025-04-27",
+    "description": "Procurement of Computer equipment for Election Commission Secretariat"
    }
   ]
  },
@@ -439,36 +675,83 @@
     "count": 10
    }
   ],
+  "top_keywords": [
+   {
+    "word": "supply",
+    "value_bdt": 3280000.0
+   },
+   {
+    "word": "twelve",
+    "value_bdt": 1750000.0
+   },
+   {
+    "word": "computer",
+    "value_bdt": 750000.0
+   },
+   {
+    "word": "accessories",
+    "value_bdt": 750000.0
+   },
+   {
+    "word": "stationary",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "items",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "uniform",
+    "value_bdt": 410000.0
+   },
+   {
+    "word": "staff",
+    "value_bdt": 410000.0
+   },
+   {
+    "word": "original",
+    "value_bdt": 370000.0
+   },
+   {
+    "word": "toners",
+    "value_bdt": 370000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.01.0000.000.112.07.0005.26-23",
     "awarded_to": "Techtack BD Corporation",
     "value_bdt": 1750000.0,
-    "contract_signing_date": "2026-07-22"
+    "contract_signing_date": "2026-07-22",
+    "description": "Procurement and supply of 12 (Twelve) All in One PC"
    },
    {
     "package_ref": "17.01.0000.000.112.07.0005.26-23",
     "awarded_to": "Confidence Computer & Network",
     "value_bdt": 750000.0,
-    "contract_signing_date": "2026-07-21"
+    "contract_signing_date": "2026-07-21",
+    "description": "Procurement and supply of Computer Accessories"
    },
    {
     "package_ref": "17.01.0000.000.110.30.0010.25-148",
     "awarded_to": "M/S. S H TRADERS",
     "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-10"
+    "contract_signing_date": "2026-06-10",
+    "description": "Procurement of stationary items"
    },
    {
     "package_ref": "17.01.0000.109.68.001.25-335 ETIGD-5",
     "awarded_to": "Advance Tech Solutions",
     "value_bdt": 410000.0,
-    "contract_signing_date": "2026-06-16"
+    "contract_signing_date": "2026-06-16",
+    "description": "Procurement of Uniform for office staff"
    },
    {
     "package_ref": "17.01.0000.000.112.07.0005.26-23",
     "awarded_to": "Techtack BD Corporation",
     "value_bdt": 370000.0,
-    "contract_signing_date": "2026-05-20"
+    "contract_signing_date": "2026-05-20",
+    "description": "Procurement and Supply of Original Toners for ETI"
    }
   ]
  },
@@ -495,12 +778,31 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "work",
+    "value_bdt": 700000.0
+   },
+   {
+    "word": "election",
+    "value_bdt": 700000.0
+   },
+   {
+    "word": "reparing",
+    "value_bdt": 700000.0
+   },
+   {
+    "word": "upzilla",
+    "value_bdt": 700000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "eGp/works/kuri-1/2025-2026",
     "awarded_to": "M S RANA ENTERPRISE",
     "value_bdt": 700000.0,
-    "contract_signing_date": "2026-06-29"
+    "contract_signing_date": "2026-06-29",
+    "description": "Reparing Work of upzilla Election office at Nageswari Upzilla District: Kurigram"
    }
   ]
  },
@@ -527,12 +829,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "repair",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "server",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "election",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "station",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 480000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "APP ID : 226769",
     "awarded_to": "M/S S.S ENTERPRISE",
     "value_bdt": 480000.0,
-    "contract_signing_date": "2026-06-18"
+    "contract_signing_date": "2026-06-18",
+    "description": "Repair Work of Election Office (Server Station) Building under Upazila Kalia District: Narail."
    }
   ]
  },
@@ -561,12 +890,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "repair",
+    "value_bdt": 550000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 550000.0
+   },
+   {
+    "word": "emergency",
+    "value_bdt": 550000.0
+   },
+   {
+    "word": "revenue",
+    "value_bdt": 550000.0
+   },
+   {
+    "word": "election",
+    "value_bdt": 550000.0
+   },
+   {
+    "word": "maintenance",
+    "value_bdt": 550000.0
+   },
+   {
+    "word": "found",
+    "value_bdt": 550000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "As per Approval of ECS",
     "awarded_to": "Al Sadia Construction",
     "value_bdt": 550000.0,
-    "contract_signing_date": "2026-06-15"
+    "contract_signing_date": "2026-06-15",
+    "description": "Repair & Emergency Maintenance of Shibganj \"Upazila Election Office Building\" Revenue found at Shibganj Upazila Bogura"
    }
   ]
  },
@@ -593,12 +953,35 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "repair",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "server",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "election",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "maintenance",
+    "value_bdt": 480000.0
+   },
+   {
+    "word": "station",
+    "value_bdt": 480000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "UEO/Maintenance/Raja/Jha/W1.01",
     "awarded_to": "M/S. AKON ENTERPRISE",
     "value_bdt": 480000.0,
-    "contract_signing_date": "2026-06-14"
+    "contract_signing_date": "2026-06-14",
+    "description": "Repair & Maintenance of server Station of Election Office"
    }
   ]
  },
@@ -627,12 +1010,39 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "south",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "stair",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "building",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "maintenance",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "election",
+    "value_bdt": 1040000.0
+   },
+   {
+    "word": "matlab",
+    "value_bdt": 1040000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.00.0000.029.69.02.26-288 Date:14.05.2026",
     "awarded_to": "M/S Jakir Traders",
     "value_bdt": 1040000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Estimate of Election Office Building stair and other maintenance under Matlab South Chandpur."
    }
   ]
  },
@@ -659,12 +1069,43 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "works",
+    "value_bdt": 310000.0
+   },
+   {
+    "word": "repairing",
+    "value_bdt": 310000.0
+   },
+   {
+    "word": "gowainghat",
+    "value_bdt": 310000.0
+   },
+   {
+    "word": "server",
+    "value_bdt": 310000.0
+   },
+   {
+    "word": "election",
+    "value_bdt": 310000.0
+   },
+   {
+    "word": "station",
+    "value_bdt": 310000.0
+   },
+   {
+    "word": "commission",
+    "value_bdt": 310000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "RFQ/2025-26/W-01",
     "awarded_to": "M/S SHAFI ENTERPRISE",
     "value_bdt": 310000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "Repairing and Other's Works of Server Station Bangladesh Election Commission at Gowainghat Sylhet."
    }
   ]
  },
@@ -691,12 +1132,51 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "surver",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "upazilabarishal",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "deep",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "front",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "station",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "maintenance",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "tube-well",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "minor",
+    "value_bdt": 290000.0
+   },
+   {
+    "word": "construction",
+    "value_bdt": 290000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "APP Code : APP/2025-26/01",
     "awarded_to": "ms sharna construction",
     "value_bdt": 290000.0,
-    "contract_signing_date": "2026-06-11"
+    "contract_signing_date": "2026-06-11",
+    "description": "1. Estimate for Minor Maintenance of Upazila Surver Station Under Banaripara UpazilaBarishal 2. Construction of Deep Tube-well In front of Upazila Surver Statio"
    }
   ]
  },
@@ -723,12 +1203,55 @@
     "count": 1
    }
   ],
+  "top_keywords": [
+   {
+    "word": "fittings",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "sanitary",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "wire",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "installation",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "server",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "station",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "painting",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "change",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "work",
+    "value_bdt": 500000.0
+   },
+   {
+    "word": "plastering",
+    "value_bdt": 500000.0
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "17.04.1000.000.69.001.26",
     "awarded_to": "M/S. A S CONSTRUCTION",
     "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-01"
+    "contract_signing_date": "2026-06-01",
+    "description": "For RCC work plastering painting installation of barbed wire and change of sanitary fittings of server station"
    }
   ]
  }

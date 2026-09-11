@@ -258,6 +258,20 @@ td.strong { font-weight: 600; }
 }
 
 /* ── Office explorer ──────────────────────────────────────── */
+.office-picker { align-items: flex-end; }
+.office-picker .map-control-group { flex-direction: column; align-items: flex-start; gap: 4px; }
+.office-picker input, .office-picker select {
+  font: inherit; font-size: 0.85rem; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 7px 10px;
+}
+.office-picker input { min-width: 280px; max-width: 100%; }
+.office-picker select { max-width: 280px; }
+.office-picker #officePickSelect { max-width: 340px; }
+.office-picker input:focus, .office-picker select:focus { outline: 2px solid var(--s1); outline-offset: -1px; }
+@media (max-width: 480px) {
+  .office-picker input, .office-picker select { min-width: 0; max-width: 100%; width: 100%; }
+}
 .office-search-results {
   position: relative; margin-top: -4px; max-width: 460px; z-index: 5;
   border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
@@ -278,6 +292,24 @@ td.strong { font-weight: 600; }
 }
 .office-plain-list li:last-child { border-bottom: none; }
 .office-plain-list .n { color: var(--text-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.office-plain-list-inline {
+  display: flex; flex-wrap: wrap; gap: 8px 10px; list-style: none;
+}
+.office-plain-list-inline li {
+  display: flex; gap: 6px; align-items: baseline; font-size: 0.82rem;
+  padding: 5px 12px; border: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  border-radius: 100px; background: var(--surface);
+}
+.office-keyword-cloud { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.office-keyword-cloud .kw-chip {
+  display: inline-block; padding: 5px 12px; border-radius: 100px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--text); white-space: nowrap;
+}
+.office-keyword-cloud .kw-chip.kw-1 { font-size: 0.95rem; font-weight: 650; color: var(--s2); border-color: var(--s2); }
+.office-keyword-cloud .kw-chip.kw-2 { font-size: 0.87rem; font-weight: 600; }
+.office-keyword-cloud .kw-chip.kw-3 { font-size: 0.8rem; color: var(--text-2); }
+.of-contract-desc { font-size: 0.82rem; color: var(--text-2); max-width: 360px; }
 
 /* ── Era / governments comparison ────────────────────────── */
 .era-grid { overflow-x: auto; margin-top: 24px; }
