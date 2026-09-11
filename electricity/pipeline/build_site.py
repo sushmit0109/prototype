@@ -2281,6 +2281,96 @@ def build_plant_capability(demand_ceiling=None):
     }
 
 
+# ── the rate at which generation was being added ─────────────────────────────
+#
+# Generation never fell. What fell was the speed at which it was being added,
+# and that is a different failure with a different remedy. Through 2017-2024
+# the annual peak grew about 7.7% a year; in 2025 it grew 2.6%.
+#
+# Two sources are needed and they are not spliced. PGCB's generation-end view
+# is the only series reaching back to 2015, but it stopped updating in April
+# 2026, so the current season is taken from the NLDC daily reports and
+# reported as its own figure with its own source named.
+#
+# The catch-up arithmetic then asks the only question that matters for
+# planning: at each pace, when does generation reach the demand the network
+# has already proved exists?
+GROWTH_MIN_DAYS = 200           # days before a year counts as a full year
+GROWTH_BASE_FROM, GROWTH_BASE_TO = "2017", "2024"
+
+
+def build_generation_growth(demand_ceiling, coincidence):
+    """How fast peak generation grew, and when that pace reaches demand."""
+    gen = {}
+    for f in sorted(PGCB.glob("genend_*.csv")):
+        for row in read_csv(f):
+            v = num(row.get("generation"))
+            if v is not None and 1000 < v < 25000:
+                d = row["date"]
+                gen[d] = max(v, gen.get(d, 0))
+    if not gen:
+        return None
+    per = defaultdict(list)
+    for d, v in gen.items():
+        per[d[:4]].append(v)
+    p95 = {y: sorted(v)[int(0.95 * (len(v) - 1))]
+           for y, v in per.items() if len(v) >= GROWTH_MIN_DAYS}
+    years = sorted(p95)
+    if len(years) < 4:
+        return None
+    rows = [{"year": y, "mw": r(p95[y]),
+             "pct": r(100 * (p95[y] / p95[years[i - 1]] - 1), 1)}
+            for i, y in enumerate(years) if i]
+    base = [x["pct"] for x in rows
+            if GROWTH_BASE_FROM <= x["year"] <= GROWTH_BASE_TO]
+    if not base:
+        return None
+    base_pct = statistics.mean(base)
+
+    # current season, from the NLDC reports rather than the series above
+    nldc = {}
+    for f in sorted(DAILYDIR.glob("*.json")):
+        d = read_json(f, {}) or {}
+        v, dt = d.get("evening_peak_generation"), d.get("date")
+        if dt and v and "2024-01-01" <= dt <= date.today().isoformat() \
+                and 1000 < v < 25000:
+            nldc[dt] = v
+
+    def season(y):
+        v = sorted(x for d, x in nldc.items()
+                   if d[:4] == y and d[5:7] in TREND_SEASON)
+        return v[int(0.95 * (len(v) - 1))] if len(v) >= 60 else None
+
+    ny = sorted({d[:4] for d in nldc})
+    latest = None
+    if len(ny) >= 2 and season(ny[-1]) and season(ny[-2]):
+        latest = {"y0": ny[-2], "y1": ny[-1],
+                  "a": r(season(ny[-2])), "b": r(season(ny[-1])),
+                  "pct": r(100 * (season(ny[-1]) / season(ny[-2]) - 1), 1)}
+
+    anchor_year = years[-1]
+    anchor_mw = p95[anchor_year]
+    target = demand_ceiling * coincidence
+    now_pct = latest["pct"] if latest else rows[-1]["pct"]
+
+    def reach(pct):
+        if pct <= 0 or anchor_mw >= target:
+            return None
+        return int(round(int(anchor_year)
+                         + math.log(target / anchor_mw) / math.log(1 + pct / 100)))
+
+    return {
+        "rows": rows, "latest": latest,
+        "base_pct": r(base_pct, 1),
+        "base_from": GROWTH_BASE_FROM, "base_to": GROWTH_BASE_TO,
+        "now_pct": r(now_pct, 1),
+        "anchor_year": anchor_year, "anchor_mw": r(anchor_mw),
+        "target": r(target),
+        "reach_base": reach(base_pct), "reach_now": reach(now_pct),
+        "source_note": {"long": "pgcb-genend", "latest": "nldc-daily"},
+    }
+
+
 def build_forecast_plants(year=None):
     """Per-station forecast availability against what actually ran."""
     fc, ac, rem = defaultdict(dict), defaultdict(dict), defaultdict(dict)
@@ -3474,6 +3564,18 @@ def main():
                   f"{theo['median_util']}%; latest {theo['latest_util']}% with "
                   f"{theo['latest_unused']:,.0f} MW unused against "
                   f"{theo['latest_shed']:,.0f} MW shed")
+        if theo and subpeak:
+            ggrow = build_generation_growth(theo["ceiling"], subpeak["coincidence"])
+            if ggrow:
+                write_json(SITE_DATA / "gengrowth.json", ggrow)
+                lt = ggrow["latest"]
+                print(f"[build] generation growth: {ggrow['base_from']}-"
+                      f"{ggrow['base_to']} mean {ggrow['base_pct']:+.1f}%/yr, "
+                      f"latest {ggrow['now_pct']:+.1f}%"
+                      + (f" ({lt['y0']}->{lt['y1']} season)" if lt else "")
+                      + f"; reaching {ggrow['target']:,.0f} MW in "
+                      f"{ggrow['reach_base']} at the old pace, "
+                      f"{ggrow['reach_now']} at the current one")
         pcap = build_plant_capability(theo["ceiling"] if theo else None)
         if pcap:
             write_json(SITE_DATA / "plantcapability.json", pcap)

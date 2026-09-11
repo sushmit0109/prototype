@@ -190,7 +190,7 @@ const STR = {
     spSrc: '{stations}টি গ্রিড উপকেন্দ্র · {days} দিন',
     spNC: 'আলাদা আলাদা সর্বোচ্চের যোগফল',
     spNCNote: 'প্রতিটি উপকেন্দ্র নিজের সবচেয়ে ব্যস্ত সময়ে যতটা টেনেছে, সব যোগ করে · সর্বোচ্চ দিনে {max} মেগাওয়াট',
-    spCO: 'একই মুহূর্তে যতটা সরবরাহ হয়েছে',
+    spCO: 'একই মুহূর্তে যতটা সরবরাহ হয়েছে (উপকেন্দ্রের যোগফলে)',
     spCONote: 'সন্ধ্যার সর্বোচ্চ চাহিদার সময় সারা দেশে · সর্বোচ্চ দিনে {max} মেগাওয়াট',
     spHead: 'বাড়তি চাপের সম্ভাবনা',
     spHeadNote: 'সব উপকেন্দ্র যদি একই মুহূর্তে নিজের সর্বোচ্চে উঠত, গ্রিডকে আজ পর্যন্ত দেখা সর্বোচ্চের চেয়ে এতটা বেশি সামলাতে হতো',
@@ -249,6 +249,20 @@ const STR = {
     stFewer: 'কম দেখুন',
     stNote: 'প্রতিটি রেখা ওই উপকেন্দ্রের মাসিক গড় সর্বোচ্চ লোড; উচ্চতা প্রতিটি প্যানেলের নিজের মাপে, তাই আকার নয়, আকৃতি তুলনীয়। শতাংশ মে–আগস্ট মৌসুমের তুলনা। কোনো একটি উপকেন্দ্রের বড় উত্থান-পতন বেশিরভাগ সময়ই নেটওয়ার্ক পুনর্বিন্যাস — নতুন উপকেন্দ্র চালু হলে পাশেরটির লোড কমে যায়, যেমন দাগনভূঞা চালু হওয়ার পর চৌমুহনী। তাই একক উপকেন্দ্র নয়, জেলার নিট হিসাবটাই নির্ভরযোগ্য।',
     pcTitle: 'বিদ্যুৎকেন্দ্রগুলো নিজেরা কতটা উৎপাদন করে দেখিয়েছে',
+    ggTitle: 'উৎপাদন কমেনি — কমেছে উৎপাদন বাড়ানোর গতি',
+    ggSrc: 'বছরে সর্বোচ্চ উৎপাদনের বৃদ্ধি · {from}–{to}',
+    ggHead: 'আগে বছরে {base}% হারে বাড়ত, এখন বাড়ছে {now}% হারে।',
+    ggSub: 'কোনো কেন্দ্র হঠাৎ বন্ধ হয়ে যায়নি, গ্রিডও ভেঙে পড়েনি। যা হয়নি তা হলো — যে গতিতে সক্ষমতা যোগ করলে বাড়তে থাকা চাহিদার সঙ্গে তাল রাখা যেত, সেই গতিতে যোগ করা হয়নি। সংকটটি ঘটনার নয়, প্রস্তুতির।',
+    ggPace: 'আগের গতি',
+    ggPaceNote: '{from} থেকে {to} পর্যন্ত বছরে সর্বোচ্চ উৎপাদন গড়ে যত শতাংশ বেড়েছে।',
+    ggNow: 'এখনকার গতি',
+    ggNowNote: '{y0} থেকে {y1} মৌসুমে {a} থেকে {b} মেগাওয়াট।',
+    ggReach: 'প্রমাণিত চাহিদায় পৌঁছাবে',
+    ggReachNote: 'এই গতিতে চললে {target} মেগাওয়াট একসঙ্গে উৎপাদনে পৌঁছাতে এত সাল লাগবে। আগের গতিতে লাগত {year} সাল।',
+    ggAvg: 'গড়',
+    ggAxis: 'বৃদ্ধি',
+    ggNldc: 'এনএলডিসি দৈনিক প্রতিবেদন',
+    ggNote: '২০১৬–২৫ সালের হিসাব পিজিসিবির উৎপাদন-প্রান্ত তথ্য থেকে, যেটি ২০১৫ সাল পর্যন্ত পিছিয়ে যায়। ওই তথ্য ২০২৬ সালের এপ্রিলে হালনাগাদ হওয়া বন্ধ হয়ে গেছে, তাই চলতি মৌসুমের সংখ্যাটি এনএলডিসির দৈনিক প্রতিবেদন থেকে নেওয়া এবং আলাদা রঙে দেখানো — দুটি উৎস জোড়া লাগানো হয়নি। প্রতিটি বছরের সংখ্যা ওই বছরের সর্বোচ্চ উৎপাদনের (৯৫তম পার্সেন্টাইল) আগের বছরের তুলনায় পরিবর্তন।',
     pcSrc: '{n}টি কেন্দ্র · {days} দিনের যাচাই করা তথ্য ({dropped} দিন বাদ)',
     pcHead: 'প্রমাণিত উৎপাদন সক্ষমতা {proven} মেগাওয়াট। অথচ এক মুহূর্তে সর্বোচ্চ উৎপাদন হয়েছে {best} মেগাওয়াট।',
     pcSub: 'প্রতিটি কেন্দ্রের নিজের সর্বোচ্চ উৎপাদন যোগ করলে নামফলকের {pct}% দাঁড়ায় — অর্থাৎ বহরটি কাগজে যা দাবি করে, তার প্রায় পুরোটাই কোনো না কোনো দিন করে দেখিয়েছে। তবু {plants}টি কেন্দ্রের {never} মেগাওয়াট নামফলক আজ পর্যন্ত একবারও প্রমাণিত হয়নি।',
@@ -262,13 +276,13 @@ const STR = {
     pcLadProven: 'প্রমাণিত উৎপাদন (যোগফল)',
     pcLadDemand: 'প্রমাণিত চাহিদা (উপকেন্দ্র)',
     pcLadSim: 'একসঙ্গে সর্বোচ্চ উৎপাদন',
-    pcLadSupplied: 'একসঙ্গে সর্বোচ্চ সরবরাহ',
-    pcLadLatest: 'সর্বশেষ পূর্ণ দিনে সরবরাহ',
+    pcLadSupplied: 'সর্বোচ্চ সরবরাহ (জাতীয় হিসাব)',
+    pcLadLatest: 'সর্বশেষ পূর্ণ দিনে সরবরাহ (জাতীয়)',
     pcLadShed: 'লোডশেড {mw}',
     pcLadNameplateSub: 'কাগজে যা আছে',
     pcLadProvenSub: 'প্রতিটি কেন্দ্র নিজে যতটা করে দেখিয়েছে, যোগফল',
     pcLadDemandSub: 'প্রতিটি উপকেন্দ্র যতটা বহন করে দেখিয়েছে, যোগফল',
-    pcNote: 'উপরের তিনটি স্তম্ভ যোগফল — সব কেন্দ্র বা সব উপকেন্দ্র একসঙ্গে সর্বোচ্চে ওঠে না, তাই এগুলো সীমা, লক্ষ্য নয়। নিচের তিনটি একেকটি নির্দিষ্ট মুহূর্ত, তাই তারিখসহ দেওয়া। উৎপাদন মাপা হয় কেন্দ্রের প্রান্তে আর সরবরাহ গ্রিডে পৌঁছানোর পর; দুইয়ের পার্থক্য কেন্দ্রের নিজস্ব ব্যবহার ও সঞ্চালন ক্ষতি। প্রমাণিত উৎপাদন সক্ষমতা প্রমাণিত চাহিদার চেয়ে বেশি — অর্থাৎ যন্ত্রপাতির অভাব সংকটের ব্যাখ্যা নয়।',
+    pcNote: 'উপরের তিনটি স্তম্ভ যোগফল — সব কেন্দ্র বা সব উপকেন্দ্র একসঙ্গে সর্বোচ্চে ওঠে না, তাই এগুলো সীমা, লক্ষ্য নয়। নিচের তিনটি একেকটি নির্দিষ্ট মুহূর্ত, তাই তারিখসহ দেওয়া। উৎপাদন মাপা হয় কেন্দ্রের প্রান্তে আর সরবরাহ গ্রিডে পৌঁছানোর পর; দুইয়ের পার্থক্য কেন্দ্রের নিজস্ব ব্যবহার ও সঞ্চালন ক্ষতি। উপরে সহাবস্থান অংশে সরবরাহের যে সংখ্যাটি আছে সেটি উপকেন্দ্রগুলোর নিজস্ব যোগফল থেকে, আর এখানকার সংখ্যাটি জাতীয় ঘণ্টাভিত্তিক হিসাব থেকে — তাই দুটি সামান্য আলাদা। প্রমাণিত উৎপাদন সক্ষমতা প্রমাণিত চাহিদার চেয়ে বেশি — অর্থাৎ যন্ত্রপাতির অভাব সংকটের ব্যাখ্যা নয়।',
     pcFallTitle: 'যেসব কেন্দ্রের প্রমাণিত সক্ষমতা কমেছে',
     pcFallNote: 'মে–আগস্ট মৌসুমে প্রতিটি কেন্দ্রের সর্বোচ্চ উৎপাদন, দুই বছরের তুলনায়। গড় নয়, সর্বোচ্চ — কারণ যে কেন্দ্রকে ডাকা হয়নি, সে অক্ষম নয়। কারণ হিসেবে কেন্দ্রগুলো নিজেরাই যা লিখেছে তা-ই দেখানো হয়েছে।',
     pcCap: 'নামফলক',
@@ -544,7 +558,7 @@ const STR = {
     spSrc: '{stations} grid sub-stations · {days} days',
     spNC: 'Sum of their separate peaks',
     spNCNote: 'each sub-station at its own busiest hour, added up · {max} MW on the highest day',
-    spCO: 'Delivered at one moment',
+    spCO: 'Delivered at one moment (by the sub-stations’ own tally)',
     spCONote: 'across the country at the evening peak · {max} MW on the highest day',
     spHead: 'Latent headroom',
     spHeadNote: 'more than the grid has ever actually met, if every sub-station reached its own maximum together',
@@ -603,6 +617,20 @@ const STR = {
     stFewer: 'Show fewer',
     stNote: 'Each line is that sub-station’s monthly average peak load, scaled to its own panel — compare shapes, not heights. The percentage compares the May–August seasons. A large move at any single station is most often network reconfiguration rather than changed consumption: when a new sub-station is energised its neighbour’s load drops, as Chowmuhani’s did once Daganbhuiyan opened. The district net is the figure to trust, not the individual station.',
     pcTitle: 'What the generating stations have proved they can produce',
+    ggTitle: 'Generation did not fall — the rate of adding it did',
+    ggSrc: 'Annual growth in peak generation · {from}–{to}',
+    ggHead: 'It used to grow {base}% a year. It is now growing {now}%.',
+    ggSub: 'No station suddenly closed and the grid did not fail. What did not happen is the building: capacity was not added at the pace that would have kept up with demand as it grew. This is a failure of preparation rather than of event.',
+    ggPace: 'The old pace',
+    ggPaceNote: 'Average annual growth in peak generation from {from} to {to}.',
+    ggNow: 'The current pace',
+    ggNowNote: '{a} to {b} MW between the {y0} and {y1} seasons.',
+    ggReach: 'Reaches proven demand in',
+    ggReachNote: 'The year generation reaches {target} MW at one moment if this pace holds. At the old pace it would have arrived in {year}.',
+    ggAvg: 'average',
+    ggAxis: 'growth',
+    ggNldc: 'NLDC daily reports',
+    ggNote: 'The 2016–25 figures come from PGCB’s generation-end series, the only one reaching back to 2015. That series stopped updating in April 2026, so the current season is taken from the NLDC daily reports and shown in a separate colour — the two sources are not spliced together. Each year’s figure is the change in that year’s peak generation (95th percentile) against the year before.',
     pcSrc: '{n} stations · {days} validated days ({dropped} days dropped)',
     pcHead: 'Proven generating capability is {proven} MW. The most ever produced at one moment is {best} MW.',
     pcSub: 'Adding up each station’s own highest output comes to {pct}% of nameplate — very nearly everything the fleet claims on paper, it has done on some day. Even so, {never} MW of nameplate across {plants} stations has never once been demonstrated.',
@@ -616,13 +644,13 @@ const STR = {
     pcLadProven: 'Proven generation (summed)',
     pcLadDemand: 'Proven demand (sub-stations)',
     pcLadSim: 'Most ever generated at once',
-    pcLadSupplied: 'Most ever supplied at once',
-    pcLadLatest: 'Supplied on the latest full day',
+    pcLadSupplied: 'Most ever supplied (national figure)',
+    pcLadLatest: 'Supplied on the latest full day (national)',
     pcLadShed: '{mw} MW shed',
     pcLadNameplateSub: 'what the paperwork says',
     pcLadProvenSub: 'summed: what each station itself has produced',
     pcLadDemandSub: 'summed: what each sub-station itself has carried',
-    pcNote: 'The top three bars are sums — neither every station nor every sub-station peaks together, so they are ceilings rather than targets. The bottom three are single moments and carry their dates. Generation is measured at the power station and supply after it reaches the grid; the difference between them is auxiliary use and transmission loss. Proven generating capability sits above proven demand, so a shortage of machinery does not explain the crisis.',
+    pcNote: 'The top three bars are sums — neither every station nor every sub-station peaks together, so they are ceilings rather than targets. The bottom three are single moments and carry their dates. Generation is measured at the power station and supply after it reaches the grid; the difference between them is auxiliary use and transmission loss. The supply figure in the coincidence section above is the sub-stations’ own tally while this one is the national hourly series, which is why the two differ slightly. Proven generating capability sits above proven demand, so a shortage of machinery does not explain the crisis.',
     pcFallTitle: 'Stations whose proven capability has fallen',
     pcFallNote: 'Each station’s highest output in the May–August season, one year against the other. The maximum rather than the mean, because a station that was not called upon is not a station that cannot run. The reason shown is the one the station itself reported.',
     pcCap: 'nameplate',
@@ -1049,20 +1077,34 @@ function barChart(host, rows, key, opts = {}) {
   const f = frame(host, { height: opts.height || 250 });
   const { svg, padL, padT, iw, ih } = f;
   const vals = rows.map(r => r[key] || 0);
-  const y = yAxis(f, 0, Math.max(...vals, 1) * 1.08, opts.yfmt);
+  // A signed series (year-on-year growth, say) needs the axis to cross zero
+  // and the bars to hang below it, so the baseline is the zero line rather
+  // than the bottom of the plate.
+  const lo = opts.signed ? Math.min(...vals, 0) * 1.15 : 0;
+  const hi = Math.max(...vals, opts.ref || 0, 1) * 1.12;
+  const y = yAxis(f, lo, hi, opts.yfmt);
+  const zero = opts.signed ? y(0) : padT + ih;
   const bw = iw / rows.length;
   const gap = Math.min(2, bw * 0.18);
 
   rows.forEach((r, i) => {
     const v = r[key] || 0;
     const missing = opts.missing && opts.missing(r);
-    const h = missing ? ih : Math.max(0, padT + ih - y(v));
+    const h = missing ? ih : Math.max(1, Math.abs(zero - y(v)));
     const rect = el('rect', {
       x: padL + i * bw + gap / 2, width: Math.max(1, bw - gap),
-      y: missing ? padT : y(v), height: Math.max(missing ? ih : 1, h),
-      fill: missing ? C.grid : (opts.color || C.s[1]),
+      y: missing ? padT : Math.min(y(v), zero), height: Math.max(missing ? ih : 1, h),
+      fill: missing ? C.grid
+        : (opts.colorFn ? opts.colorFn(r, v) : (opts.color || C.s[1])),
       'fill-opacity': missing ? 0.55 : 0.95, rx: Math.min(3, bw / 3),
     }, svg);
+    if (opts.barLabel && !missing) {
+      const lb = el('text', { x: padL + i * bw + bw / 2,
+                              y: v >= 0 ? y(v) - 5 : y(v) + 13,
+                              'text-anchor': 'middle', 'font-size': 10,
+                              'font-weight': 600, fill: C.text2 }, svg);
+      lb.textContent = opts.barLabel(v, r);
+    }
     rect.addEventListener('pointerenter', () => {
       showTip(f, padL + i * bw + bw / 2,
         `<div class="tip-date">${opts.xtip ? opts.xtip(r) : r.x}</div>` +
@@ -1077,7 +1119,18 @@ function barChart(host, rows, key, opts = {}) {
     const lb = el('text', { x: padL + i * bw + bw / 2, y: padT + ih + 18, 'text-anchor': 'middle' }, svg);
     lb.textContent = opts.xlabel ? opts.xlabel(rows[i]) : rows[i].x;
   }
-  el('line', { class: 'axis-line', x1: padL, x2: padL + iw, y1: padT + ih, y2: padT + ih }, svg);
+  el('line', { class: 'axis-line', x1: padL, x2: padL + iw,
+               y1: zero, y2: zero }, svg);
+  // the pace the series used to hold, drawn over the bars it is judged against
+  if (opts.ref !== undefined && opts.ref !== null) {
+    el('line', { x1: padL, x2: padL + iw, y1: y(opts.ref), y2: y(opts.ref),
+                 stroke: RAMP_REC[4], 'stroke-width': 2,
+                 'stroke-dasharray': '6 4' }, svg);
+    const rl = el('text', { x: padL + iw, y: y(opts.ref) - 6, 'text-anchor': 'end',
+                            'font-size': 11, 'font-weight': 700,
+                            fill: RAMP_REC[4] }, svg);
+    rl.textContent = opts.refLabel || '';
+  }
 }
 
 /* ═══════════════════════════ chart: horizontal bars ═══════════════════════ */
@@ -1191,7 +1244,7 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend, plantcapability] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend, plantcapability, gengrowth] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
@@ -1200,10 +1253,10 @@ async function loadAll() {
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
       load('temperature'), load('forecastplants'), load('substationpeak'),
       load('suppression'), load('theoretical'), load('stationtrend'),
-      load('plantcapability'),
+      load('plantcapability'), load('gengrowth'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend, plantcapability });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend, plantcapability, gengrowth });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -3188,6 +3241,7 @@ function renderDemand() {
   renderSubstationPeak();
   renderSuppression();
   renderTheoretical();
+  renderGenGrowth();
   renderPlantCapability();
   renderStationTrend();
   renderDemandSplit();
@@ -3592,6 +3646,64 @@ function renderTheoretical() {
     note: `${fmt(b.unused)} ${t('mw')} ${t('thBandUnused')}`,
   })), {
     valueLabel: t('thBandStations'), fmtValue: (v) => fmt(v),
+  });
+}
+
+/* Generation never fell. The rate at which it was being added did.
+
+   This is the distinction the whole crisis turns on, and it needs a chart
+   that shows a rate rather than a level: bars of annual growth, with the pace
+   the country used to hold drawn across them. The collapse then reads at a
+   glance, and the catch-up tiles say what it costs in years.
+
+   Two sources, deliberately not spliced. The long series is PGCB's
+   generation-end view, the only one reaching back to 2015; it stopped
+   updating in April 2026, so the current season comes from the NLDC daily
+   reports and is stated separately with its source named. */
+function renderGenGrowth() {
+  const g = D.gengrowth;
+  if (!g || !g.rows || !g.rows.length) return;
+  document.getElementById('gg-title').textContent = t('ggTitle');
+  document.getElementById('gg-src').textContent = t('ggSrc')
+    .replace('{from}', fmtYear(g.rows[0].year))
+    .replace('{to}', fmtYear(g.rows[g.rows.length - 1].year));
+  document.getElementById('gg-headline').innerHTML =
+    `<div class="note warn"><div class="note-title">${t('ggHead')
+      .replace('{base}', fmt(g.base_pct, 1)).replace('{now}', fmt(g.now_pct, 1))}</div>${
+      t('ggSub')}</div>`;
+
+  const tile = (label, value, unit, note, colour) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value"${colour ? ` style="color:${colour}"` : ''}>${value}<span class="stat-unit">${unit || ''}</span></div>
+      <div class="stat-note">${note}</div>
+    </div>`;
+  document.getElementById('gg-tiles').innerHTML =
+    tile(t('ggPace'), '+' + fmt(g.base_pct, 1) + '%', '',
+         t('ggPaceNote').replace('{from}', fmtYear(g.base_from))
+           .replace('{to}', fmtYear(g.base_to)), C.s[2]) +
+    tile(t('ggNow'), (g.now_pct >= 0 ? '+' : '') + fmt(g.now_pct, 1) + '%', '',
+         g.latest ? t('ggNowNote').replace('{y0}', fmtYear(g.latest.y0))
+           .replace('{y1}', fmtYear(g.latest.y1))
+           .replace('{a}', fmt(g.latest.a)).replace('{b}', fmt(g.latest.b))
+           : '', RAMP_SHED[4]) +
+    tile(t('ggReach'), fmtYear(g.reach_now || 0), '',
+         t('ggReachNote').replace('{target}', fmt(g.target))
+           .replace('{year}', fmtYear(g.reach_base || 0)), RAMP_SHED[4]);
+
+  const rows = g.rows.map(x => ({ x: x.year, pct: x.pct }));
+  if (g.latest) rows.push({ x: g.latest.y1, pct: g.latest.pct, nldc: true });
+  barChart(document.getElementById('gg-chart'), rows, 'pct', {
+    height: 270, signed: true, ref: g.base_pct, barLabel: (v) => fmt(v, 1) + '%',
+    refLabel: `${fmtYear(g.base_from)}–${fmtYear(g.base_to)} ${t('ggAvg')} ${fmt(g.base_pct, 1)}%`,
+    // orange only for the years after the baseline period, which are
+    // the ones the reference line is judging
+    colorFn: (r, v) => (r.nldc || r.x > g.base_to ? RAMP_SHED[3]
+                        : v >= 0 ? C.s[2] : RAMP_SHED[4]),
+    xlabel: (r) => fmtYear(r.x),
+    xtip: (r) => fmtYear(r.x) + (r.nldc ? ` · ${t('ggNldc')}` : ''),
+    label: t('ggAxis'), digits: 1,
+    yfmt: (v) => fmt(v, 0) + '%',
   });
 }
 
