@@ -13,12 +13,20 @@ like an attack on a government server: MAX_CONCURRENCY sockets in flight at
 once, spaced at least MIN_INTERVAL apart. If a run ever sees a run of 429s or
 503s, turn these two constants down before anything else.
 """
+import http.client
 import threading
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 from http.cookiejar import CookieJar
+
+# Transient failure modes worth retrying: connection-level errors (including
+# ConnectionRefusedError, a plain OSError subclass that urlopen doesn't always
+# wrap in URLError -- see bootstrap()) and HTTPException, which covers
+# IncompleteRead (the server closing a chunked response mid-stream, seen
+# occasionally on the eCMS endpoint under load).
+RETRYABLE = (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException)
 
 BASE = "https://www.eprocure.gov.bd"
 UA = ("Mozilla/5.0 (compatible; egp-dashboard/1.0; "
@@ -46,12 +54,20 @@ def _throttle():
         time.sleep(wait)
 
 
-def bootstrap():
+def bootstrap(retries=4):
     """GET the homepage once to pick up a session cookie."""
-    _throttle()
-    req = urllib.request.Request(BASE + "/", headers={"User-Agent": UA})
-    with _opener.open(req, timeout=60) as r:
-        r.read()
+    last_err = None
+    for attempt in range(retries):
+        _throttle()
+        try:
+            req = urllib.request.Request(BASE + "/", headers={"User-Agent": UA})
+            with _opener.open(req, timeout=60) as r:
+                r.read()
+                return
+        except RETRYABLE as e:
+            last_err = e
+            time.sleep(2 ** attempt)
+    raise last_err
 
 
 def get(path, retries=4):
@@ -64,7 +80,7 @@ def get(path, retries=4):
                 req = urllib.request.Request(BASE + path, headers={"User-Agent": UA})
                 with _opener.open(req, timeout=60) as r:
                     return r.read().decode("utf-8", "replace")
-            except (urllib.error.URLError, TimeoutError) as e:
+            except RETRYABLE as e:
                 last_err = e
                 time.sleep(2 ** attempt)
     raise last_err
@@ -93,7 +109,7 @@ def post(path, fields, retries=4):
                 )
                 with _opener.open(req, timeout=60) as r:
                     return r.read().decode("utf-8", "replace")
-            except (urllib.error.URLError, TimeoutError) as e:
+            except RETRYABLE as e:
                 last_err = e
                 time.sleep(2 ** attempt)
     raise last_err
