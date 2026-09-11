@@ -1307,6 +1307,250 @@ function chartMap(geo, districtGeo) {
   render();
 }
 
+/* ── Office explorer ──────────────────────────────────────────────── */
+
+function initOfficeExplorer(idx) {
+  const ministryById = new Map(idx.ministries.map(m => [m.id, m]));
+  const divisionById = new Map(idx.divisions.map(d => [d.id, d]));
+  const officeById = new Map(idx.offices.map(o => [o.id, o]));
+  const profileCache = new Map(); // ministry_id -> Promise<{officeId: profile}>
+
+  const ministrySel = document.getElementById("officeMinistrySelect");
+  const divisionSel = document.getElementById("officeDivisionSelect");
+  const officeSel = document.getElementById("officePickSelect");
+  const searchInput = document.getElementById("officeSearch");
+  const searchResults = document.getElementById("officeSearchResults");
+  const emptyState = document.getElementById("officeEmptyState");
+  const panel = document.getElementById("officeDetail");
+  const OF_NATURE_COLOR = { "Works": "var(--s1)", "Goods": "var(--s2)", "Services": "var(--s3)" };
+
+  let current = null; // { o, p }
+  let trendYears = 0;
+
+  ministrySel.innerHTML = `<option value="">All ministries</option>` + idx.ministries
+    .map(m => `<option value="${m.id}">${esc(m.name.replace(/^Ministry of /, ""))} (${int(m.office_count)})</option>`)
+    .join("");
+
+  function divisionsFor(mid) {
+    return idx.divisions.filter(d => mid === "" || d.ministry_id === Number(mid));
+  }
+  function officesFor(mid, did) {
+    return idx.offices.filter(o =>
+      (mid === "" || o.ministry_id === Number(mid)) && (did === "" || o.division_id === Number(did)));
+  }
+
+  function refreshDivisionOptions() {
+    const divs = divisionsFor(ministrySel.value).sort((a, b) => b.value_bdt - a.value_bdt);
+    divisionSel.innerHTML = `<option value="">All divisions</option>` +
+      divs.map(d => `<option value="${d.id}">${esc(d.name)} (${int(d.office_count)})</option>`).join("");
+    divisionSel.disabled = divs.length === 0;
+    divisionSel.value = "";
+  }
+
+  function refreshOfficeOptions() {
+    const mid = ministrySel.value, did = divisionSel.value;
+    if (mid === "" && did === "") {
+      officeSel.innerHTML = `<option value="">Pick a ministry or division first…</option>`;
+      officeSel.disabled = true;
+      return;
+    }
+    const offices = officesFor(mid, did).sort((a, b) => b.value_bdt - a.value_bdt);
+    officeSel.innerHTML = `<option value="">${int(offices.length)} offices — pick one…</option>` +
+      offices.map(o => `<option value="${o.id}">${esc(o.name)}</option>`).join("");
+    officeSel.disabled = offices.length === 0;
+  }
+
+  function getProfiles(mid) {
+    if (!profileCache.has(mid)) {
+      profileCache.set(mid, loadJSON(`data/offices/${mid}.json`).catch(err => { console.error(err); return {}; }));
+    }
+    return profileCache.get(mid);
+  }
+
+  function ofNatureColor(name) { return OF_NATURE_COLOR[name] || "var(--s4)"; }
+
+  function renderOfNature(p) {
+    const el = document.getElementById("chartOfNature");
+    const entries = Object.entries(p.by_nature).sort((a, b) => b[1] - a[1]);
+    const total = entries.reduce((s, [, n]) => s + n, 0);
+    if (!total) { el.innerHTML = `<p class="sub" style="font-size:0.8rem">No matched nature data for this office.</p>`; return; }
+    const max = Math.max(...entries.map(([, n]) => n));
+    const W = 320, rowH = 26, H = entries.length * rowH + 4, padL = 100, padR = 44, pw = W - padL - padR;
+    let body = "";
+    entries.forEach(([name, n], i) => {
+      const yy = i * rowH + 4, bh = rowH * 0.55, w = Math.max((n / max) * pw, 2);
+      body += `<text class="ax" x="${padL - 10}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(name)}</text>
+        <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="${ofNatureColor(name)}">
+          <title>${esc(name)}: ${int(n)} contracts (${pct(n / total, 1)})</title></rect>
+        <text class="val-label" x="${padL + w + 8}" y="${yy + bh / 2 + 4}">${pct(n / total, 0)}</text>`;
+    });
+    el.innerHTML = svg(W, H, body);
+  }
+
+  function renderOfTrend(p) {
+    const el = document.getElementById("chartOfTrend");
+    let years = Object.keys(p.by_year).sort();
+    if (trendYears > 0) years = years.slice(-trendYears);
+    if (years.length < 2) { el.innerHTML = `<p class="sub" style="font-size:0.8rem">Not enough years in this window.</p>`; return; }
+    const values = years.map(y => p.by_year[y].value_bdt || 0);
+    const TW = 400, TH = 130, tpL = 8, tpR = 8, tpT = 8, tpB = 20, tpw = TW - tpL - tpR, tph = TH - tpT - tpB;
+    const maxV = Math.max(...values, 1);
+    const pts = values.map((v, i) => [tpL + (i / (values.length - 1)) * tpw, tpT + tph - (v / maxV) * tph]);
+    let body = `<polyline fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"
+      points="${pts.map(pt => pt.join(",")).join(" ")}"/>`;
+    pts.forEach(([x, y], i) => {
+      body += `<circle cx="${x}" cy="${y}" r="2.5" fill="var(--s1)">
+        <title>${years[i]}: ${taka(values[i])} (${int(p.by_year[years[i]].count)} contracts)</title></circle>`;
+      if (i === 0 || i === pts.length - 1 || years.length <= 8) {
+        const anchor = i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle";
+        body += `<text class="ax" x="${x}" y="${TH - 5}" text-anchor="${anchor}">${years[i]}</text>`;
+      }
+    });
+    el.innerHTML = svg(TW, TH, body);
+  }
+
+  function renderOfVendors(p) {
+    const el = document.getElementById("chartOfVendors");
+    const rows = p.top_vendors;
+    if (!rows.length) { el.innerHTML = `<p class="sub" style="font-size:0.8rem">No vendor data for this office.</p>`; return; }
+    const max = Math.max(...rows.map(r => r.value_bdt));
+    const W = 760, padL = 230, padR = 90, rowH = 32, bh = rowH * 0.6, H = rows.length * rowH + 6, pw = W - padL - padR;
+    let body = "";
+    rows.forEach((r, i) => {
+      const yy = i * rowH + 3, w = (r.value_bdt / max) * pw;
+      body += `<text class="ax" x="${padL - 12}" y="${yy + bh / 2 + 4}" text-anchor="end">${esc(r.company.slice(0, 32))}</text>
+        <rect x="${padL}" y="${yy}" width="${w}" height="${bh}" rx="3" fill="var(--s1)" opacity="${i === 0 ? 1 : 0.6}">
+          <title>${esc(r.company)}: ${taka(r.value_bdt)} across ${int(r.count)} contracts</title></rect>
+        <text class="val-label" x="${padL + w + 9}" y="${yy + bh / 2 + 4}">${taka(r.value_bdt)}</text>`;
+    });
+    el.innerHTML = svg(W, H, body);
+  }
+
+  function renderOfDistricts(p) {
+    const el = document.getElementById("ofDistrictList");
+    if (!p.top_districts.length) { el.innerHTML = `<li class="sub">No district data.</li>`; return; }
+    el.innerHTML = p.top_districts
+      .map(d => `<li><span>${esc(d.district)}</span><span class="n">${int(d.count)} contracts</span></li>`).join("");
+  }
+
+  function renderOfContracts(p) {
+    const el = document.getElementById("ofContractsBody");
+    if (!p.top_contracts.length) { el.innerHTML = `<tr><td colspan="3" class="sub">No contract data.</td></tr>`; return; }
+    el.innerHTML = p.top_contracts.map(c => `<tr>
+      <td>${esc(c.awarded_to || "—")}</td>
+      <td class="n">${taka(c.value_bdt)}</td>
+      <td class="muted">${esc((c.contract_signing_date || "—"))}</td></tr>`).join("");
+  }
+
+  function renderOfficeProfile(o, p) {
+    current = { o, p };
+    document.getElementById("ofName").textContent = o.name;
+    const ministry = ministryById.get(o.ministry_id);
+    const division = o.division_id != null ? divisionById.get(o.division_id) : null;
+    document.getElementById("ofBreadcrumb").textContent =
+      [ministry && ministry.name, division && division.name].filter(Boolean).join(" › ") || "Parent ministry unknown";
+
+    if (!p) {
+      document.getElementById("ofKpiRow").innerHTML = `<p class="sub">No detailed profile available for this office.</p>`;
+      ["chartOfNature", "chartOfTrend", "chartOfVendors"].forEach(id => document.getElementById(id).innerHTML = "");
+      document.getElementById("ofDistrictList").innerHTML = "";
+      document.getElementById("ofContractsBody").innerHTML = "";
+      return;
+    }
+
+    const years = Object.keys(p.by_year).sort();
+    document.getElementById("ofKpiRow").innerHTML = [
+      [taka(p.value_bdt), "total value, all-time"],
+      [int(p.count), "contracts"],
+      [years.length ? `${years[0]}–${years[years.length - 1]}` : "—", "years active"],
+    ].map(([v, k]) => `<div class="scale-item"><div class="v num">${v}</div><div class="k">${k}</div></div>`).join("");
+
+    renderOfNature(p);
+    renderOfTrend(p);
+    renderOfVendors(p);
+    renderOfDistricts(p);
+    renderOfContracts(p);
+
+    document.getElementById("ofCaption").textContent =
+      `"What it buys" is joined from the master tender list, which matches ${pct(idx.meta.nature_match_rate)} `
+      + `of contracts nationally — a small office's own match rate can be well above or below that. `
+      + `Vendors, districts and biggest contracts are all-time; only the trend chart follows the window above.`;
+  }
+
+  async function selectOffice(officeId) {
+    const o = officeById.get(Number(officeId));
+    if (!o || o.ministry_id == null) return;
+
+    emptyState.hidden = true;
+    panel.hidden = false;
+    document.getElementById("ofName").textContent = o.name;
+    document.getElementById("ofBreadcrumb").textContent = "Loading…";
+    document.getElementById("ofKpiRow").innerHTML = "";
+    ["chartOfNature", "chartOfTrend", "chartOfVendors"].forEach(id => document.getElementById(id).innerHTML = "");
+    document.getElementById("ofDistrictList").innerHTML = "";
+    document.getElementById("ofContractsBody").innerHTML = "";
+    trendYears = 0;
+    document.querySelectorAll("#ofTrendGroup .map-btn").forEach(b => b.classList.toggle("active", b.dataset.years === "0"));
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    const profiles = await getProfiles(o.ministry_id);
+    renderOfficeProfile(o, profiles[String(o.id)]);
+  }
+
+  ministrySel.addEventListener("change", () => { refreshDivisionOptions(); refreshOfficeOptions(); });
+  divisionSel.addEventListener("change", refreshOfficeOptions);
+  officeSel.addEventListener("change", () => { if (officeSel.value) selectOffice(officeSel.value); });
+
+  searchInput.addEventListener("input", () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if (q.length < 2) { searchResults.hidden = true; searchResults.innerHTML = ""; return; }
+    const matches = idx.offices.filter(o => o.name.toLowerCase().includes(q))
+      .sort((a, b) => b.value_bdt - a.value_bdt).slice(0, 15);
+    searchResults.innerHTML = matches.length
+      ? matches.map(o => {
+          const m = ministryById.get(o.ministry_id);
+          const d = o.division_id != null ? divisionById.get(o.division_id) : null;
+          return `<button type="button" data-id="${o.id}">${esc(o.name)}<br>
+            <span class="osr-parent">${esc([m && m.name, d && d.name].filter(Boolean).join(" › "))}</span></button>`;
+        }).join("")
+      : `<button type="button" disabled>No offices match "${esc(searchInput.value)}"</button>`;
+    searchResults.hidden = false;
+  });
+
+  searchResults.addEventListener("click", ev => {
+    const btn = ev.target.closest("button[data-id]");
+    if (!btn) return;
+    const o = officeById.get(Number(btn.dataset.id));
+    searchInput.value = o.name;
+    searchResults.hidden = true;
+    ministrySel.value = o.ministry_id != null ? String(o.ministry_id) : "";
+    refreshDivisionOptions();
+    divisionSel.value = o.division_id != null ? String(o.division_id) : "";
+    refreshOfficeOptions();
+    officeSel.value = String(o.id);
+    selectOffice(o.id);
+  });
+
+  document.addEventListener("click", ev => {
+    if (ev.target !== searchInput && !searchResults.contains(ev.target)) searchResults.hidden = true;
+  });
+
+  document.querySelectorAll("#ofTrendGroup .map-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#ofTrendGroup .map-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      trendYears = Number(btn.dataset.years);
+      if (current) renderOfTrend(current.p);
+    });
+  });
+
+  document.getElementById("ofClose").addEventListener("click", () => {
+    panel.hidden = true;
+    emptyState.hidden = false;
+    current = null;
+  });
+}
+
 /* ── Three governments ────────────────────────────────────────────── */
 
 function eraRow(label, hint, values, fmt, barBasis) {
@@ -1440,6 +1684,9 @@ async function main() {
     else document.getElementById("sectors").style.display = "none";
     if (geo && districtGeo) chartMap(geo, districtGeo);
     else document.getElementById("map").style.display = "none";
+    const officeIndex = await loadJSON("data/office_index.json").catch(() => null);
+    if (officeIndex) initOfficeExplorer(officeIndex);
+    else document.getElementById("offices").style.display = "none";
     renderEraComparison(a, pva, ceiling, flags);
   } catch (err) {
     document.getElementById("updated").textContent = `Could not load data: ${err.message}`;

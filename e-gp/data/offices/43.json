@@ -1,0 +1,84 @@
+{
+ "3598": {
+  "value_bdt": 3280000.0,
+  "count": 6,
+  "by_year": {
+   "2019": {
+    "value_bdt": 2060000.0,
+    "count": 3
+   },
+   "2020": {
+    "value_bdt": 1220000.0,
+    "count": 3
+   }
+  },
+  "by_nature": {
+   "Goods": 6
+  },
+  "top_vendors": [
+   {
+    "company": "RFL Plastics Limited",
+    "value_bdt": 960000.0,
+    "count": 2
+   },
+   {
+    "company": "M/S JASIM ENTERPRISE",
+    "value_bdt": 840000.0,
+    "count": 1
+   },
+   {
+    "company": "Mark Media",
+    "value_bdt": 570000.0,
+    "count": 1
+   },
+   {
+    "company": "M/s. Rose Bud Corporation",
+    "value_bdt": 470000.0,
+    "count": 1
+   },
+   {
+    "company": "Smart Technologies (BD) Ltd.",
+    "value_bdt": 440000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 6
+   }
+  ],
+  "top_contracts": [
+   {
+    "package_ref": "jamuka001",
+    "awarded_to": "M/S JASIM ENTERPRISE",
+    "value_bdt": 840000.0,
+    "contract_signing_date": "2019-05-28"
+   },
+   {
+    "package_ref": "jamuka001",
+    "awarded_to": "RFL Plastics Limited",
+    "value_bdt": 650000.0,
+    "contract_signing_date": "2019-05-21"
+   },
+   {
+    "package_ref": "jamuka001",
+    "awarded_to": "Mark Media",
+    "value_bdt": 570000.0,
+    "contract_signing_date": "2019-05-27"
+   },
+   {
+    "package_ref": "jamuka002/2019-20",
+    "awarded_to": "M/s. Rose Bud Corporation",
+    "value_bdt": 470000.0,
+    "contract_signing_date": "2020-06-23"
+   },
+   {
+    "package_ref": "jamuka002/2019-20",
+    "awarded_to": "Smart Technologies (BD) Ltd.",
+    "value_bdt": 440000.0,
+    "contract_signing_date": "2020-06-23"
+   }
+  ]
+ }
+}

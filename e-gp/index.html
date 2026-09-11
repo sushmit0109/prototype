@@ -28,6 +28,7 @@
 <nav class="contents" aria-label="Sections">
   <a href="#overview">Overview</a>
   <a href="#map">Geography</a>
+  <a href="#offices">Offices</a>
   <a href="#governments">Governments</a>
   <a href="#political">Does winning pay?</a>
   <a href="#findings">Findings</a>
@@ -47,6 +48,7 @@
     </p>
     <div class="teaser-grid">
       <a class="teaser-card" href="#map"><div class="tc-num">64 districts</div><div class="tc-label">mapped by spend — click through to explore</div></a>
+      <a class="teaser-card" href="#offices"><div class="tc-num">~9,800 offices</div><div class="tc-label">look up any one of them — what it buys, from whom, and how that's changed</div></a>
       <a class="teaser-card" href="#governments"><div class="tc-num">3 governments</div><div class="tc-label">same dataset, compared side by side</div></a>
       <a class="teaser-card" href="#f1"><div class="tc-num">14.3%</div><div class="tc-label">of contracts signed in the last month of the fiscal year</div></a>
       <a class="teaser-card" href="#fceiling"><div class="tc-num">1.54×</div><div class="tc-label">bunching just under the ৳50 crore approval ceiling</div></a>
@@ -136,6 +138,122 @@
         per-district sector mix (click a district) is procurement nature — Works/Goods/Services —
         not the finer CPV categories used in Sectors below; the tender search has no location
         filter, so CPV can't be attributed to a district without a much larger crawl.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Offices ───────────────────────────────────── -->
+  <section class="section-head" id="offices">
+    <p class="section-kicker">Look up one office</p>
+    <h2 class="section-title">Every government office that has ever signed a contract — what it buys, and from whom</h2>
+    <p class="sub" style="margin-top:14px">
+      Bangladesh's procurement runs through roughly 9,800 distinct offices, each nested under a
+      division and a ministry — from the Roads &amp; Highways Department down to a single upazila's
+      LGED office. Pick one below the way it actually reports up: ministry, then division, then the
+      office itself — or just type its name if you already know it.
+    </p>
+
+    <div class="map-controls" style="align-items:flex-end">
+      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px">
+        <span class="gl">Find by name</span>
+        <input id="officeSearch" type="search" autocomplete="off" placeholder="e.g. &quot;Executive Engineer, LGED, Bogura&quot;"
+          style="min-width:280px;padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface)">
+      </div>
+      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px">
+        <span class="gl">Ministry</span>
+        <select id="officeMinistrySelect" style="padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface);max-width:280px">
+          <option value="">All ministries</option>
+        </select>
+      </div>
+      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px">
+        <span class="gl">Division</span>
+        <select id="officeDivisionSelect" style="padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface);max-width:280px" disabled>
+          <option value="">All divisions</option>
+        </select>
+      </div>
+      <div class="map-control-group" style="flex-direction:column;align-items:flex-start;gap:4px;position:relative">
+        <span class="gl">Office</span>
+        <select id="officePickSelect" style="padding:7px 10px;border:1px solid var(--border);border-radius:8px;font:inherit;background:var(--surface);max-width:340px" disabled>
+          <option value="">Pick a ministry or division first…</option>
+        </select>
+      </div>
+    </div>
+    <div id="officeSearchResults" class="office-search-results" hidden></div>
+
+    <p class="sub" id="officeEmptyState" style="margin-top:22px">
+      Nothing picked yet — search by name above, or narrow it down by ministry and division.
+      Offices below are ranked by total contract value once you pick a ministry or division.
+    </p>
+
+    <div class="chart-card district-detail" id="officeDetail" hidden>
+      <div class="dd-head">
+        <div>
+          <h3 id="ofName">—</h3>
+          <p class="sub" id="ofBreadcrumb" style="margin-top:2px;font-size:0.82rem"></p>
+        </div>
+        <button type="button" class="dd-close" id="ofClose" aria-label="Close">×</button>
+      </div>
+
+      <div class="scale-row" id="ofKpiRow" style="margin-top:18px;padding-top:0;border-top:none;gap:32px"></div>
+
+      <div class="map-control-group" id="ofTrendGroup" style="margin-top:22px">
+        <span class="gl">Trend window</span>
+        <button class="map-btn" data-years="3">Last 3 yrs</button>
+        <button class="map-btn" data-years="5">Last 5 yrs</button>
+        <button class="map-btn active" data-years="0">Full history</button>
+      </div>
+
+      <div class="dd-grid" style="margin-top:14px">
+        <div>
+          <p class="dd-label">What it buys (procurement nature)</p>
+          <div id="chartOfNature"></div>
+        </div>
+        <div>
+          <p class="dd-label">Yearly trend</p>
+          <div id="chartOfTrend"></div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:32px;font-size:0.95rem;font-weight:650">Who it buys from</h3>
+      <div id="chartOfVendors" style="margin-top:10px"></div>
+
+      <div class="dd-grid dd-grid-wide" style="margin-top:28px">
+        <div>
+          <h3 style="font-size:0.95rem;font-weight:650">Where the work happens</h3>
+          <ul id="ofDistrictList" class="office-plain-list" style="margin-top:10px"></ul>
+        </div>
+        <div>
+          <h3 style="font-size:0.95rem;font-weight:650">Its biggest individual contracts</h3>
+          <div class="table-wrap" style="margin-top:10px">
+            <table>
+              <thead><tr><th>Vendor</th><th class="n">Value</th><th>Signed</th></tr></thead>
+              <tbody id="ofContractsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <p class="sub" id="ofCaption" style="margin-top:16px;font-size:0.76rem"></p>
+    </div>
+
+    <div class="note">
+      <div>
+        <h4>Why it matters</h4>
+        <p>National totals and ministry-level tables (see Finding 08 below) hide what a single
+        office actually does day to day. Most people's contact with procurement is local — a
+        district hospital, a upazila LGED office, a departmental workshop — and this is the same
+        public data, just filtered down to one of them instead of averaged across all 9,800.</p>
+      </div>
+      <div class="caution">
+        <h4>What it isn't</h4>
+        <p>"What it buys" is procurement nature (Works/Goods/Services) joined from the master
+        tender list, matched for about half of contracts nationally — read it as based on the
+        matched subset, not the office's full history. A small number of offices (roughly 1 in 20)
+        were reorganised across divisions, or rarely ministries, at some point since 2011; each is
+        filed under whichever it worked with most, so a handful of its own oldest contracts may be
+        counted under a parent it has since left. "Biggest contracts" and "who it buys from" are
+        both all-time totals regardless of the trend window above — only the trend chart itself is
+        windowed.</p>
       </div>
     </div>
   </section>
@@ -733,6 +851,9 @@
       </table>
     </div>
     <p class="sub" style="margin-top:10px;font-size:0.8rem" id="natureNote"></p>
+    <p class="sub" style="margin-top:10px;font-size:0.82rem">Just these twelve, national top-spenders
+      only — <a href="#offices">look up any of the ~9,800 offices</a>, including the small ones,
+      with its own trend and vendor list.</p>
     </div>
   </details>
 

@@ -35,6 +35,7 @@ presence of a dashboard.
 | Registration | `RegistrationDetails.jsp` | **Resolved as out of scope** -- the page only exposes aggregate national counts, no per-record search or ID; would have been the source of a real tenderer ID for matching, but doesn't expose one |
 | Award detail pages (Tenderer ID, beneficial ownership, project/funding) | `ViewAwardedContracts.jsp` | **Live, sampled** -- one representative contract per vendor (most-recent, not highest-value -- the field is a ~2025-era addition, older award pages don't have it at all), largest vendors first; see "Ownership network" below |
 | Office spend profiles, cross-departmental vendors | -- | **Live** -- `build_office_profiles.py`, see the dashboard's Spending (offices table) and Networks sections |
+| Office explorer (ministry -> division -> office drill-down, all ~9,800 offices) | -- | **Live** -- `build_office_explorer.py`, see the dashboard's "Look up an office" section. Unlike `build_office_profiles.py` (top 30 offices, for the narrative findings), this covers every procuring entity that ever signed a contract, each with its own yearly trend, nature mix, top vendors, top districts and largest individual contracts -- sharded one file per ministry (`data/offices/<ministry_id>.json`) so picking a ministry doesn't pull down all 9,800 offices' data at once |
 | Shared-beneficial-owner network | -- | **Live, heavily caveated** -- `build_ownership.py`, see "On the ownership-matching methodology" below |
 | Tender funnel counts | `Tenders.jsp` | **Skipped by design** -- the master tender list's own `status` field gives a richer breakdown (10 categories) than this page's 3 buckets, with no separate crawl needed |
 | Annual Procurement Plan per-office line items (itemised estimates + planned method) | `resources/common/StdSearch.jsp` -> `SearchAPPServlet` (`action=advSearch`) | **Live, sampled** -- the government's own pre-tender cost estimate and planned procurement method, package by package. An earlier pass wrongly recorded this as unreachable: the link on SearchAPP.jsp is *relative*, so it resolves under `/resources/common/`, and requesting `/StdSearch.jsp` at the site root returns an "Invalid Page" shell. Crawled busiest-offices-first, resumable. |
@@ -323,6 +324,7 @@ python3 build_app.py ../raw/app_plans.jsonl ../data/app_plans.json
 python3 flag_debarred_awards.py ../data/debarments.json ../data/contracts ../data/flags.json
 python3 build_insights.py ../data/contracts ../data/insights.json ../data/tenders
 python3 build_office_profiles.py ../data/contracts ../data/tenders ../data/office_profiles.json
+python3 build_office_explorer.py ../data/contracts ../data/tenders ../data/office_index.json ../data/offices
 python3 build_analysis.py ../data/contracts ../data/tenders ../data/analysis.json
 
 python3 scrape_app_items.py ../raw/app_plans.jsonl ../raw/app_items.jsonl --limit=1200 --resume
