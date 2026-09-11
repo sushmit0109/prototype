@@ -2234,11 +2234,32 @@ def build_plant_capability(demand_ceiling=None):
     for c in reasons.values():
         allr.update(c)
 
+    # The ladder runs from what the paperwork claims down to what actually
+    # reached the country yesterday. The first three are sums and the last
+    # three are single moments, so each of those carries its date.
     ladder = [{"k": "nameplate", "mw": r(nameplate)},
               {"k": "proven", "mw": r(total_proven)}]
     if demand_ceiling:
         ladder.append({"k": "demand", "mw": r(demand_ceiling)})
-    ladder.append({"k": "simultaneous", "mw": r(sim[best])})
+    ladder.append({"k": "simultaneous", "mw": r(sim[best]), "date": best})
+
+    # Generation is measured at the power station; supply is what the grid
+    # actually delivered. The difference is auxiliary use and losses, so the
+    # two belong on the same ladder rather than being treated as one number.
+    served = [x for x in read_json(SITE_DATA / "daily.json", {}).get("rows", [])
+              if x.get("peak_supply")]
+    if served:
+        top = max(served, key=lambda x: x["peak_supply"])
+        ladder.append({"k": "supplied", "mw": r(top["peak_supply"]),
+                       "date": top["date"]})
+        # the most recent day with a full set of hourly readings, so a
+        # part-finished day never reads as a collapse
+        done = [x for x in served if (x.get("n") or 0) >= 20]
+        if done:
+            last = done[-1]
+            ladder.append({"k": "latest", "mw": r(last["peak_supply"]),
+                           "date": last["date"],
+                           "shed": r(last.get("max_loadshed") or 0)})
 
     return {
         "days": len(clean), "dropped_days": total_days - len(clean),

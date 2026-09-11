@@ -262,7 +262,13 @@ const STR = {
     pcLadProven: 'প্রমাণিত উৎপাদন (যোগফল)',
     pcLadDemand: 'প্রমাণিত চাহিদা (উপকেন্দ্র)',
     pcLadSim: 'একসঙ্গে সর্বোচ্চ উৎপাদন',
-    pcNote: 'প্রথম তিনটি স্তম্ভ যোগফল — সব কেন্দ্র বা সব উপকেন্দ্র একসঙ্গে সর্বোচ্চে ওঠে না, তাই এগুলো সীমা, লক্ষ্য নয়। শেষ স্তম্ভটিই বাস্তব: এক মুহূর্তে দেশ সর্বোচ্চ যতটা উৎপাদন করেছে। প্রমাণিত উৎপাদন সক্ষমতা প্রমাণিত চাহিদার চেয়ে বেশি — অর্থাৎ যন্ত্রপাতির অভাব সংকটের ব্যাখ্যা নয়।',
+    pcLadSupplied: 'একসঙ্গে সর্বোচ্চ সরবরাহ',
+    pcLadLatest: 'সর্বশেষ পূর্ণ দিনে সরবরাহ',
+    pcLadShed: 'লোডশেড {mw}',
+    pcLadNameplateSub: 'কাগজে যা আছে',
+    pcLadProvenSub: 'প্রতিটি কেন্দ্র নিজে যতটা করে দেখিয়েছে, যোগফল',
+    pcLadDemandSub: 'প্রতিটি উপকেন্দ্র যতটা বহন করে দেখিয়েছে, যোগফল',
+    pcNote: 'উপরের তিনটি স্তম্ভ যোগফল — সব কেন্দ্র বা সব উপকেন্দ্র একসঙ্গে সর্বোচ্চে ওঠে না, তাই এগুলো সীমা, লক্ষ্য নয়। নিচের তিনটি একেকটি নির্দিষ্ট মুহূর্ত, তাই তারিখসহ দেওয়া। উৎপাদন মাপা হয় কেন্দ্রের প্রান্তে আর সরবরাহ গ্রিডে পৌঁছানোর পর; দুইয়ের পার্থক্য কেন্দ্রের নিজস্ব ব্যবহার ও সঞ্চালন ক্ষতি। প্রমাণিত উৎপাদন সক্ষমতা প্রমাণিত চাহিদার চেয়ে বেশি — অর্থাৎ যন্ত্রপাতির অভাব সংকটের ব্যাখ্যা নয়।',
     pcFallTitle: 'যেসব কেন্দ্রের প্রমাণিত সক্ষমতা কমেছে',
     pcFallNote: 'মে–আগস্ট মৌসুমে প্রতিটি কেন্দ্রের সর্বোচ্চ উৎপাদন, দুই বছরের তুলনায়। গড় নয়, সর্বোচ্চ — কারণ যে কেন্দ্রকে ডাকা হয়নি, সে অক্ষম নয়। কারণ হিসেবে কেন্দ্রগুলো নিজেরাই যা লিখেছে তা-ই দেখানো হয়েছে।',
     pcCap: 'নামফলক',
@@ -610,7 +616,13 @@ const STR = {
     pcLadProven: 'Proven generation (summed)',
     pcLadDemand: 'Proven demand (sub-stations)',
     pcLadSim: 'Most ever generated at once',
-    pcNote: 'The first three bars are sums — neither every station nor every sub-station peaks together, so they are ceilings rather than targets. The last bar is the real one: the most the country has ever generated at a single moment. Proven generating capability sits above proven demand, so a shortage of machinery does not explain the crisis.',
+    pcLadSupplied: 'Most ever supplied at once',
+    pcLadLatest: 'Supplied on the latest full day',
+    pcLadShed: '{mw} MW shed',
+    pcLadNameplateSub: 'what the paperwork says',
+    pcLadProvenSub: 'summed: what each station itself has produced',
+    pcLadDemandSub: 'summed: what each sub-station itself has carried',
+    pcNote: 'The top three bars are sums — neither every station nor every sub-station peaks together, so they are ceilings rather than targets. The bottom three are single moments and carry their dates. Generation is measured at the power station and supply after it reaches the grid; the difference between them is auxiliary use and transmission loss. Proven generating capability sits above proven demand, so a shortage of machinery does not explain the crisis.',
     pcFallTitle: 'Stations whose proven capability has fallen',
     pcFallNote: 'Each station’s highest output in the May–August season, one year against the other. The maximum rather than the mean, because a station that was not called upon is not a station that cannot run. The reason shown is the one the station itself reported.',
     pcCap: 'nameplate',
@@ -1083,7 +1095,8 @@ function hBars(host, items, opts = {}) {
   const f = { tip, width };
 
   const max = Math.max(...items.map(i => i.value), 1);
-  const barMax = width - labelW - 62;
+  // rows carrying a sub-label need a wider gutter for it
+  const barMax = width - labelW - (opts.valueW || 62);
 
   items.forEach((it, i) => {
     const yy = i * rowH + 6;
@@ -1096,6 +1109,13 @@ function hBars(host, items, opts = {}) {
                              fill: it.color || C.s[1], rx: 4 }, svg);
     const val = el('text', { class: 'tick-num', x: labelW + w + 8, y: yy + rowH / 2 - 2 }, svg);
     val.textContent = opts.fmtValue ? opts.fmtValue(it.value) : fmt(it.value);
+    // An optional second line under the value, for rows that need saying what
+    // they are -- a date, or what the number is a sum of.
+    if (it.sub) {
+      const sub = el('text', { x: labelW + w + 8, y: yy + rowH / 2 + 11,
+                               'font-size': 10, fill: C.muted }, svg);
+      sub.textContent = it.sub;
+    }
 
     bar.addEventListener('pointerenter', () => {
       tip.innerHTML = `<div class="tip-date">${it.label}</div>` +
@@ -3617,12 +3637,18 @@ function renderPlantCapability() {
          t('pcNeverNote').replace('{n}', fmt(pc.never_plants)), RAMP_SHED[4]);
 
   const NAME = { nameplate: 'pcLadNameplate', proven: 'pcLadProven',
-                 demand: 'pcLadDemand', simultaneous: 'pcLadSim' };
-  const COL = { nameplate: '#9aa0ae', proven: C.supply,
-                demand: RAMP_REC[4], simultaneous: RAMP_SHED[3] };
+                 demand: 'pcLadDemand', simultaneous: 'pcLadSim',
+                 supplied: 'pcLadSupplied', latest: 'pcLadLatest' };
+  const COL = { nameplate: '#9aa0ae', proven: C.supply, demand: RAMP_REC[4],
+                simultaneous: RAMP_SHED[2], supplied: RAMP_SHED[3],
+                latest: RAMP_SHED[4] };
   hBars(document.getElementById('pc-ladder'), pc.ladder.map(x => ({
     label: t(NAME[x.k]), value: x.mw, color: COL[x.k],
-  })), { valueLabel: t('mw'), fmtValue: (v) => fmt(v) + ' ' + t('mw') });
+    sub: x.k === 'latest' && x.shed
+      ? `${fmtDate(x.date)} · ${t('pcLadShed').replace('{mw}', fmt(x.shed))}`
+      : (x.date ? fmtDate(x.date) : t(NAME[x.k] + 'Sub')),
+  })), { valueLabel: t('mw'), rowH: 44, valueW: 190,
+         fmtValue: (v) => fmt(v) + ' ' + t('mw') });
 
   document.getElementById('pc-fall-title').textContent = t('pcFallTitle');
   const host = document.getElementById('pc-fall');
