@@ -248,6 +248,28 @@ const STR = {
     stMore: 'বাকি {n}টি দেখুন',
     stFewer: 'কম দেখুন',
     stNote: 'প্রতিটি রেখা ওই উপকেন্দ্রের মাসিক গড় সর্বোচ্চ লোড; উচ্চতা প্রতিটি প্যানেলের নিজের মাপে, তাই আকার নয়, আকৃতি তুলনীয়। শতাংশ মে–আগস্ট মৌসুমের তুলনা। কোনো একটি উপকেন্দ্রের বড় উত্থান-পতন বেশিরভাগ সময়ই নেটওয়ার্ক পুনর্বিন্যাস — নতুন উপকেন্দ্র চালু হলে পাশেরটির লোড কমে যায়, যেমন দাগনভূঞা চালু হওয়ার পর চৌমুহনী। তাই একক উপকেন্দ্র নয়, জেলার নিট হিসাবটাই নির্ভরযোগ্য।',
+    pcTitle: 'বিদ্যুৎকেন্দ্রগুলো নিজেরা কতটা উৎপাদন করে দেখিয়েছে',
+    pcSrc: '{n}টি কেন্দ্র · {days} দিনের যাচাই করা তথ্য ({dropped} দিন বাদ)',
+    pcHead: 'প্রমাণিত উৎপাদন সক্ষমতা {proven} মেগাওয়াট। অথচ এক মুহূর্তে সর্বোচ্চ উৎপাদন হয়েছে {best} মেগাওয়াট।',
+    pcSub: 'প্রতিটি কেন্দ্রের নিজের সর্বোচ্চ উৎপাদন যোগ করলে নামফলকের {pct}% দাঁড়ায় — অর্থাৎ বহরটি কাগজে যা দাবি করে, তার প্রায় পুরোটাই কোনো না কোনো দিন করে দেখিয়েছে। তবু {plants}টি কেন্দ্রের {never} মেগাওয়াট নামফলক আজ পর্যন্ত একবারও প্রমাণিত হয়নি।',
+    pcProven: 'প্রমাণিত উৎপাদন সক্ষমতা',
+    pcProvenNote: 'প্রতিটি কেন্দ্রের সর্বকালীন সর্বোচ্চ উৎপাদনের যোগফল — নামফলকের {cap} মেগাওয়াটের {pct}%।',
+    pcTrend: 'সক্ষমতার গতি',
+    pcTrendNote: '{y0} থেকে {y1} মৌসুমে প্রমাণিত সর্বোচ্চের পরিবর্তন। {up}টি কেন্দ্র বেড়েছে, {down}টি কমেছে।',
+    pcNever: 'কখনো প্রমাণিত হয়নি',
+    pcNeverNote: '{n}টি কেন্দ্রের নামফলক সক্ষমতা, যা একদিনও উৎপাদনে দেখা যায়নি।',
+    pcLadNameplate: 'নামফলক সক্ষমতা',
+    pcLadProven: 'প্রমাণিত উৎপাদন (যোগফল)',
+    pcLadDemand: 'প্রমাণিত চাহিদা (উপকেন্দ্র)',
+    pcLadSim: 'একসঙ্গে সর্বোচ্চ উৎপাদন',
+    pcNote: 'প্রথম তিনটি স্তম্ভ যোগফল — সব কেন্দ্র বা সব উপকেন্দ্র একসঙ্গে সর্বোচ্চে ওঠে না, তাই এগুলো সীমা, লক্ষ্য নয়। শেষ স্তম্ভটিই বাস্তব: এক মুহূর্তে দেশ সর্বোচ্চ যতটা উৎপাদন করেছে। প্রমাণিত উৎপাদন সক্ষমতা প্রমাণিত চাহিদার চেয়ে বেশি — অর্থাৎ যন্ত্রপাতির অভাব সংকটের ব্যাখ্যা নয়।',
+    pcFallTitle: 'যেসব কেন্দ্রের প্রমাণিত সক্ষমতা কমেছে',
+    pcFallNote: 'মে–আগস্ট মৌসুমে প্রতিটি কেন্দ্রের সর্বোচ্চ উৎপাদন, দুই বছরের তুলনায়। গড় নয়, সর্বোচ্চ — কারণ যে কেন্দ্রকে ডাকা হয়নি, সে অক্ষম নয়। কারণ হিসেবে কেন্দ্রগুলো নিজেরাই যা লিখেছে তা-ই দেখানো হয়েছে।',
+    pcCap: 'নামফলক',
+    pcPlant: 'কেন্দ্র',
+    pcNoReason: 'কারণ লেখা নেই',
+    pcReasonTitle: 'যেদিন কেন্দ্র বন্ধ ছিল, কারণ হিসেবে যা লেখা হয়েছে',
+    pcPlantDays: 'কেন্দ্র-দিন',
     spBandTitle: 'কোন সময়ে উপকেন্দ্রগুলো সর্বোচ্চে ওঠে',
     spBandNote: 'প্রতিটি উপকেন্দ্রকে তার নিজের সবচেয়ে ঘন ঘন সর্বোচ্চের সময় অনুযায়ী ভাগ করা হয়েছে, আর দেখানো হয়েছে সেই দলের মোট লোডের ভাগ হিসেবে। সন্ধ্যায় সর্বোচ্চে ওঠা মানে মূলত ঘরবাড়ি — বাতি, ফ্যান, এসি। দিনে ওঠা মানে কলকারখানা ও অফিস। ভাগটাই বলে দেয় চাহিদা কোথা থেকে আসছে।',
     spEvening: 'সন্ধ্যা (১৭–২২)', spDay: 'দিন (০৯–১৬)', spNight: 'রাত (২৩–০৮)',
@@ -574,6 +596,28 @@ const STR = {
     stMore: 'Show the other {n}',
     stFewer: 'Show fewer',
     stNote: 'Each line is that sub-station’s monthly average peak load, scaled to its own panel — compare shapes, not heights. The percentage compares the May–August seasons. A large move at any single station is most often network reconfiguration rather than changed consumption: when a new sub-station is energised its neighbour’s load drops, as Chowmuhani’s did once Daganbhuiyan opened. The district net is the figure to trust, not the individual station.',
+    pcTitle: 'What the generating stations have proved they can produce',
+    pcSrc: '{n} stations · {days} validated days ({dropped} days dropped)',
+    pcHead: 'Proven generating capability is {proven} MW. The most ever produced at one moment is {best} MW.',
+    pcSub: 'Adding up each station’s own highest output comes to {pct}% of nameplate — very nearly everything the fleet claims on paper, it has done on some day. Even so, {never} MW of nameplate across {plants} stations has never once been demonstrated.',
+    pcProven: 'Proven generating capability',
+    pcProvenNote: 'The sum of every station’s all-time highest output — {pct}% of the {cap} MW nameplate.',
+    pcTrend: 'Direction of capability',
+    pcTrendNote: 'Change in proven peak between the {y0} and {y1} seasons. {up} stations rose, {down} fell.',
+    pcNever: 'Never demonstrated',
+    pcNeverNote: 'Nameplate capacity at {n} stations that has not appeared in output on a single day.',
+    pcLadNameplate: 'Nameplate capacity',
+    pcLadProven: 'Proven generation (summed)',
+    pcLadDemand: 'Proven demand (sub-stations)',
+    pcLadSim: 'Most ever generated at once',
+    pcNote: 'The first three bars are sums — neither every station nor every sub-station peaks together, so they are ceilings rather than targets. The last bar is the real one: the most the country has ever generated at a single moment. Proven generating capability sits above proven demand, so a shortage of machinery does not explain the crisis.',
+    pcFallTitle: 'Stations whose proven capability has fallen',
+    pcFallNote: 'Each station’s highest output in the May–August season, one year against the other. The maximum rather than the mean, because a station that was not called upon is not a station that cannot run. The reason shown is the one the station itself reported.',
+    pcCap: 'nameplate',
+    pcPlant: 'station',
+    pcNoReason: 'no reason given',
+    pcReasonTitle: 'Reasons given on the days a station produced nothing',
+    pcPlantDays: 'station-days',
     spBandTitle: 'When sub-stations reach their own peak',
     spBandNote: 'Each sub-station is grouped by the hour it most often peaks, and shown as a share of that group’s total load. An evening peak is the signature of households — lights, fans, air-conditioning. A working-hours peak is industry and offices. The split is the closest the published record comes to saying where demand is coming from.',
     spEvening: 'Evening (17–22)', spDay: 'Day (09–16)', spNight: 'Night (23–08)',
@@ -1127,7 +1171,7 @@ const load = (name) => fetch(`data/${name}.json`, { cache: 'no-cache' })
 async function loadAll() {
   // data/daily.json is published as the full open-data export but the page
   // itself needs only the monthly rollup and today's row from latest.json.
-  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend] =
+  const [meta, latest, monthly, integrity, plants, subs, fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend, plantcapability] =
     await Promise.all([
       load('meta'), load('latest'), load('monthly'), load('integrity'),
       load('plants'), load('substations'), load('fuelmix'), load('zones'),
@@ -1136,9 +1180,10 @@ async function loadAll() {
       load('daycurve'), load('fuelcost'), load('gas'), load('idlefleet'),
       load('temperature'), load('forecastplants'), load('substationpeak'),
       load('suppression'), load('theoretical'), load('stationtrend'),
+      load('plantcapability'),
     ]);
   Object.assign(D, { meta, latest, monthly, integrity, plants, subs,
-                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend });
+                     fuelmix, zones, reasons, districts, equity, seasonal, places, official, cost, demand, daycurve, fuelcost, gas, idlefleet, temperature, forecastplants, substationpeak, suppression, theoretical, stationtrend, plantcapability });
 
   // Hourly data is split per month; pull only the last few so a visit costs a
   // few hundred KB rather than the whole archive.
@@ -3123,6 +3168,7 @@ function renderDemand() {
   renderSubstationPeak();
   renderSuppression();
   renderTheoretical();
+  renderPlantCapability();
   renderStationTrend();
   renderDemandSplit();
 
@@ -3527,6 +3573,76 @@ function renderTheoretical() {
   })), {
     valueLabel: t('thBandStations'), fmtValue: (v) => fmt(v),
   });
+}
+
+/* The other end of the wire: what the generating fleet has proved it can do.
+
+   The sub-station ceiling says how much load the network has carried. This
+   says how much electricity the stations have actually produced. Putting the
+   two next to the best the country has ever generated at one moment is the
+   whole argument in four bars -- proven supply above proven demand, and
+   delivery far below both.
+
+   The plant table is only usable after the badly-parsed days are removed, so
+   the count of days kept and dropped is published beside the figures. */
+function renderPlantCapability() {
+  const pc = D.plantcapability;
+  if (!pc || !pc.ladder) return;
+  const se = pc.season;
+  document.getElementById('pc-title').textContent = t('pcTitle');
+  document.getElementById('pc-src').textContent = t('pcSrc')
+    .replace('{n}', fmt(pc.plants)).replace('{days}', fmt(pc.days))
+    .replace('{dropped}', fmt(pc.dropped_days));
+  document.getElementById('pc-headline').innerHTML =
+    `<div class="note"><div class="note-title">${t('pcHead')
+      .replace('{proven}', fmt(pc.proven)).replace('{best}', fmt(pc.best_mw))}</div>${
+      t('pcSub').replace('{pct}', fmt(pc.proven_pct, 1))
+        .replace('{never}', fmt(pc.never_mw))
+        .replace('{plants}', fmt(pc.never_plants))}</div>`;
+
+  const tile = (label, value, unit, note, colour) => `
+    <div class="stat">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value"${colour ? ` style="color:${colour}"` : ''}>${value}<span class="stat-unit">${unit || ''}</span></div>
+      <div class="stat-note">${note}</div>
+    </div>`;
+  document.getElementById('pc-tiles').innerHTML =
+    tile(t('pcProven'), fmt(pc.proven), t('mw'),
+         t('pcProvenNote').replace('{pct}', fmt(pc.proven_pct, 1))
+           .replace('{cap}', fmt(pc.nameplate))) +
+    tile(t('pcTrend'), (se.pct >= 0 ? '+' : '') + fmt(se.pct, 1) + '%', '',
+         t('pcTrendNote').replace('{up}', fmt(se.rose)).replace('{down}', fmt(se.fell))
+           .replace('{y0}', fmtYear(se.y0)).replace('{y1}', fmtYear(se.y1))) +
+    tile(t('pcNever'), fmt(pc.never_mw), t('mw'),
+         t('pcNeverNote').replace('{n}', fmt(pc.never_plants)), RAMP_SHED[4]);
+
+  const NAME = { nameplate: 'pcLadNameplate', proven: 'pcLadProven',
+                 demand: 'pcLadDemand', simultaneous: 'pcLadSim' };
+  const COL = { nameplate: '#9aa0ae', proven: C.supply,
+                demand: RAMP_REC[4], simultaneous: RAMP_SHED[3] };
+  hBars(document.getElementById('pc-ladder'), pc.ladder.map(x => ({
+    label: t(NAME[x.k]), value: x.mw, color: COL[x.k],
+  })), { valueLabel: t('mw'), fmtValue: (v) => fmt(v) + ' ' + t('mw') });
+
+  document.getElementById('pc-fall-title').textContent = t('pcFallTitle');
+  const host = document.getElementById('pc-fall');
+  host.innerHTML =
+    `<thead><tr><th>${t('pcPlant')}</th><th class="num">${fmtYear(se.y0)}</th>` +
+    `<th class="num">${fmtYear(se.y1)}</th><th class="num">${t('pcCap')}</th>` +
+    `<th>${t('fcpWhy')}</th></tr></thead><tbody>` +
+    (pc.declines || []).map(x => `<tr><td>${x.name}</td>` +
+      `<td class="num">${fmt(x.a)}</td>` +
+      `<td class="num"><b>${fmt(x.b)}</b></td>` +
+      `<td class="num">${fmt(x.cap)}</td>` +
+      `<td>${x.reason && x.reason !== '-' ? x.reason
+        : `<i style="color:var(--muted)">${t('pcNoReason')}</i>`}</td></tr>`).join('') +
+    '</tbody>';
+
+  document.getElementById('pc-reason-title').textContent = t('pcReasonTitle');
+  hBars(document.getElementById('pc-reasons'), (pc.reasons || [])
+    .filter(x => x.reason && x.reason !== '-').slice(0, 7).map(x => ({
+      label: x.reason, value: x.plant_days, color: RAMP_SHED[3],
+    })), { valueLabel: t('pcPlantDays'), fmtValue: (v) => fmt(v) });
 }
 
 /* Is the surge the work of a few sub-stations?

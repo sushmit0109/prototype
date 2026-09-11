@@ -2113,6 +2113,153 @@ def build_station_trend():
     }
 
 
+# ── what the generating fleet has proved it can do ───────────────────────────
+#
+# The sub-station side of this dashboard asks how much load the network has
+# demonstrated it can carry. The same question can be put to the other end:
+# what has each power station actually produced, as opposed to what its
+# nameplate says? A plant's highest recorded output is the strongest evidence
+# of its real capability, because it happened.
+#
+# The NLDC per-plant table cannot be used raw. On a large minority of days the
+# PDF's columns come out shifted, so capacity and output land in each other's
+# fields -- Payra reads "capacity 2 MW, output 1,244 MW", Adani reads 1,496 MW
+# against a 748 MW nameplate. The corruption is wholesale rather than
+# scattered: on a good day almost no row reports more output than the plant's
+# own nameplate, and on a bad day three quarters of them do. That split is
+# what DAY_BAD_SHARE tests, and it throws out about 174 of 789 days.
+#
+# Two independent checks say the surviving days are sound. Across the days
+# where PGCB's own hourly generation series overlaps, the plant table sums to
+# 1.03-1.05x the coincident peak -- the small excess a non-coincident sum
+# should carry. And the largest simultaneous plant-sum in the clean data lands
+# on 17,201 MW, which is the record generation the rest of the dashboard
+# derives from an entirely different source.
+DAY_BAD_SHARE = 0.02            # share of impossible rows that condemns a day
+DAY_MIN_PLANTS = 50
+PLANT_OVER_CAP = 1.15           # output above this multiple of nameplate is a
+                                # parse error, not a record
+PLANT_MIN_DAYS = 60
+PLANT_SEASON_DAYS = 30
+
+
+def _clean_plant_days():
+    """Daily per-plant rows from the days whose table parsed correctly."""
+    out = []
+    for f in sorted(DAILYDIR.glob("*.json")):
+        d = read_json(f, {}) or {}
+        dt, plants = d.get("date"), d.get("plants") or []
+        if not dt or len(plants) < DAY_MIN_PLANTS:
+            continue
+        if not ("2024-01-01" <= dt <= date.today().isoformat()):
+            continue
+        bad = sum(1 for p in plants
+                  if p.get("capacity_mw") and p.get("peak_mw") is not None
+                  and p["peak_mw"] > PLANT_OVER_CAP * p["capacity_mw"])
+        if bad / len(plants) <= DAY_BAD_SHARE:
+            out.append((dt, plants))
+    return out
+
+
+def build_plant_capability(demand_ceiling=None):
+    """Each station's demonstrated output, and whether it is rising."""
+    clean = _clean_plant_days()
+    total_days = sum(1 for _ in DAILYDIR.glob("*.json"))
+    if len(clean) < 100:
+        return None
+
+    peak = defaultdict(dict)
+    caps, reasons, zone_of = defaultdict(list), defaultdict(Counter), {}
+    for dt, plants in clean:
+        for p in plants:
+            name = (p.get("name") or "").strip()
+            mw = p.get("peak_mw")
+            if not name or mw is None:
+                continue
+            if p.get("capacity_mw"):
+                caps[name].append(p["capacity_mw"])
+            zone_of[name] = p.get("zone")
+            peak[name][dt] = max(mw, peak[name].get(dt, 0))
+            if mw <= 0 and (p.get("remarks") or "").strip() not in ("", "-"):
+                reasons[name][p["remarks"].strip()] += 1
+    # nameplate drifts between reports, so take the value stated most often
+    cap = {n: Counter(v).most_common(1)[0][0] for n, v in caps.items()}
+    proven = {n: max(v.values()) for n, v in peak.items()
+              if len(v) >= PLANT_MIN_DAYS}
+    if not proven:
+        return None
+
+    nameplate = sum(cap.get(n, 0) for n in proven)
+    total_proven = sum(proven.values())
+    sim = defaultdict(float)
+    for n in proven:
+        for d, v in peak[n].items():
+            sim[d] += v
+    best = max(sim, key=sim.get)
+
+    never = [(cap[n] - proven[n], n) for n in proven
+             if cap.get(n) and cap[n] - proven[n] > 0]
+    never.sort(reverse=True)
+
+    # capability season on season: the maximum, not the mean. A plant that was
+    # not called is not a plant that cannot run, so the mean would measure
+    # dispatch rather than capability.
+    def season(n, y):
+        return [v for d, v in peak[n].items()
+                if d[:4] == y and d[5:7] in TREND_SEASON]
+    years = sorted({d[:4] for v in peak.values() for d in v})
+    if len(years) < 2:
+        return None
+    y0, y1 = years[-2], years[-1]
+    rows = []
+    for n in proven:
+        a, b = season(n, y0), season(n, y1)
+        if len(a) < PLANT_SEASON_DAYS or len(b) < PLANT_SEASON_DAYS:
+            continue
+        am, bm = max(a), max(b)
+        top = reasons[n].most_common(1)
+        rows.append({"name": n, "a": r(am, 1), "b": r(bm, 1),
+                     "delta": r(bm - am, 1),
+                     "pct": r(100 * (bm / am - 1), 1) if am > 0 else None,
+                     "cap": cap.get(n), "zone": zone_of.get(n),
+                     "reason": top[0][0] if top else None})
+    if not rows:
+        return None
+    A = sum(x["a"] for x in rows)
+    B = sum(x["b"] for x in rows)
+    up = [x for x in rows if x["delta"] > 0]
+    dn = [x for x in rows if x["delta"] < 0]
+
+    allr = Counter()
+    for c in reasons.values():
+        allr.update(c)
+
+    ladder = [{"k": "nameplate", "mw": r(nameplate)},
+              {"k": "proven", "mw": r(total_proven)}]
+    if demand_ceiling:
+        ladder.append({"k": "demand", "mw": r(demand_ceiling)})
+    ladder.append({"k": "simultaneous", "mw": r(sim[best])})
+
+    return {
+        "days": len(clean), "dropped_days": total_days - len(clean),
+        "from": clean[0][0], "to": clean[-1][0], "plants": len(proven),
+        "nameplate": r(nameplate), "proven": r(total_proven),
+        "proven_pct": r(100 * total_proven / nameplate, 1) if nameplate else None,
+        "best_mw": r(sim[best]), "best_date": best,
+        "never_mw": r(sum(x for x, _ in never)), "never_plants": len(never),
+        "never_top": [{"name": n, "cap": cap[n], "best": r(proven[n], 1)}
+                      for _, n in never[:10]],
+        "season": {"y0": y0, "y1": y1, "a": r(A), "b": r(B),
+                   "pct": r(100 * (B / A - 1), 1) if A else None,
+                   "rose": len(up), "rose_mw": r(sum(x["delta"] for x in up)),
+                   "fell": len(dn), "fell_mw": r(sum(x["delta"] for x in dn))},
+        "declines": sorted(rows, key=lambda x: x["delta"])[:12],
+        "gains": sorted(rows, key=lambda x: -x["delta"])[:8],
+        "reasons": [{"reason": k, "plant_days": v} for k, v in allr.most_common(8)],
+        "ladder": ladder,
+    }
+
+
 def build_forecast_plants(year=None):
     """Per-station forecast availability against what actually ran."""
     fc, ac, rem = defaultdict(dict), defaultdict(dict), defaultdict(dict)
@@ -3306,6 +3453,19 @@ def main():
                   f"{theo['median_util']}%; latest {theo['latest_util']}% with "
                   f"{theo['latest_unused']:,.0f} MW unused against "
                   f"{theo['latest_shed']:,.0f} MW shed")
+        pcap = build_plant_capability(theo["ceiling"] if theo else None)
+        if pcap:
+            write_json(SITE_DATA / "plantcapability.json", pcap)
+            se = pcap["season"]
+            print(f"[build] plant capability: {pcap['plants']} plants over "
+                  f"{pcap['days']} clean days ({pcap['dropped_days']} dropped); "
+                  f"proven {pcap['proven']:,.0f} MW = {pcap['proven_pct']}% of "
+                  f"{pcap['nameplate']:,.0f} nameplate; best simultaneous "
+                  f"{pcap['best_mw']:,.0f} on {pcap['best_date']}; "
+                  f"{pcap['never_mw']:,.0f} MW never demonstrated across "
+                  f"{pcap['never_plants']} plants; season {se['a']:,.0f} -> "
+                  f"{se['b']:,.0f} MW ({se['pct']:+.1f}%), {se['rose']} up / "
+                  f"{se['fell']} down")
         suppress = build_suppression(area, subs)
         if suppress:
             write_json(SITE_DATA / "suppression.json", suppress)
