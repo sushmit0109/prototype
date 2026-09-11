@@ -1433,13 +1433,13 @@ function initOfficeExplorer(idx) {
       .map(d => `<li><span>${esc(d.district)}</span><span class="n">${int(d.count)} contracts</span></li>`).join("");
   }
 
-  function renderOfKeywords(p) {
+  function renderOfPhrases(p) {
     const el = document.getElementById("ofKeywords");
-    if (!p.top_keywords.length) { el.innerHTML = `<p class="sub" style="font-size:0.8rem">No description text matched for this office.</p>`; return; }
-    const max = Math.max(...p.top_keywords.map(k => k.value_bdt));
-    el.innerHTML = p.top_keywords.map(k => {
-      const tier = k.value_bdt > max * 0.6 ? 1 : k.value_bdt > max * 0.3 ? 2 : 3;
-      return `<span class="kw-chip kw-${tier}" title="${esc(taka(k.value_bdt))} across contracts mentioning &quot;${esc(k.word)}&quot;">${esc(k.word)}</span>`;
+    if (!p.top_phrases.length) { el.innerHTML = `<p class="sub" style="font-size:0.8rem">No recurring phrase found in this office's contract descriptions.</p>`; return; }
+    const max = Math.max(...p.top_phrases.map(k => k.count));
+    el.innerHTML = p.top_phrases.map(k => {
+      const tier = k.count > max * 0.6 ? 1 : k.count > max * 0.3 ? 2 : 3;
+      return `<span class="kw-chip kw-${tier}" title="Appears in ${int(k.count)} of this office's contracts">${esc(k.phrase)}</span>`;
     }).join("");
   }
 
@@ -1477,7 +1477,7 @@ function initOfficeExplorer(idx) {
     ].map(([v, k]) => `<div class="scale-item"><div class="v num">${v}</div><div class="k">${k}</div></div>`).join("");
 
     renderOfNature(p);
-    renderOfKeywords(p);
+    renderOfPhrases(p);
     renderOfTrend(p);
     renderOfVendors(p);
     renderOfDistricts(p);
@@ -1485,9 +1485,9 @@ function initOfficeExplorer(idx) {
 
     document.getElementById("ofCaption").textContent =
       `Procurement nature is joined from the master tender list, which matches ${pct(idx.meta.nature_match_rate)} `
-      + `of contracts nationally — a small office's own match rate can be well above or below that. The word list `
-      + `is drawn straight from this office's own contract descriptions, not a category system. `
-      + `Vendors, districts, keywords and biggest contracts are all-time; only the trend chart follows the window above.`;
+      + `of contracts nationally — a small office's own match rate can be well above or below that. The recurring `
+      + `phrases are mined straight from this office's own contract descriptions, not assigned from a category list. `
+      + `Vendors, districts, phrases and biggest contracts are all-time; only the trend chart follows the window above.`;
   }
 
   async function selectOffice(officeId) {

@@ -39,10 +39,18 @@ strips out of the bulk data/contracts/<year>.json files (it's ~38% of their
 raw size, see that file's docstring) but raw/contracts/ still keeps
 verbatim, keyed the same way build_contracts.py dedups: (tender_id,
 pkg_lot_id). That gives two more concrete things per office: the actual
-one-line description behind each of its biggest contracts, and a
-value-weighted word frequency across every description it has ever had --
-a rough but genuinely content-based answer to "what does this office buy"
-that doesn't require CPV codes or reading raw contract text.
+one-line description behind each of its biggest contracts, and its most
+frequently *recurring phrases* -- literal 2-4 word fragments ("purchase of
+computers", "training of farmers") mined straight out of its own
+description text (see find_recurring_phrases below), not a fixed category
+system or a bag-of-words frequency count. Both of those were tried first
+and rejected: single-word frequency mostly just re-states procurement
+nature at a fancier grain (a road office's contracts are all
+"construction"/"improvement"/"pavement" regardless of which specific road),
+and a hand-curated category lexicon can only ever recognise the domains it
+was written to expect, missing anything like "poultry feed dissemination"
+that wasn't anticipated. Literal recurring phrases have neither problem --
+whatever an office actually repeats becomes visible on its own.
 
     python3 build_office_explorer.py <data/contracts/> <data/tenders/> <raw/contracts/> <office_index.json> <data/offices/>
 """
@@ -54,86 +62,143 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-from districts import DISTRICT_ALIASES
 from entity import normalize_company
 
 TOP_VENDORS = 5
 TOP_DISTRICTS = 5
 TOP_CONTRACTS = 5
-TOP_KEYWORDS = 10
+TOP_PHRASES = 8
 DESCRIPTION_SNIPPET_LEN = 160
 
-# Filtered out of the keyword analysis: grammatical filler, administrative
-# boilerplate that shows up in nearly every description regardless of what's
-# being bought (a district office's own district name is the most common
-# offender -- it says WHERE, which top_districts already covers, not WHAT),
-# and generic procurement-process words that name no object. Deliberately
-# NOT filtered: action/work words like "construction", "supply", "repair" --
-# those genuinely describe the kind of buying, at a finer grain than the
-# Works/Goods/Services split above.
-KEYWORD_STOPWORDS = {
-    "the", "of", "for", "and", "to", "in", "at", "on", "with", "by", "from",
-    "as", "is", "be", "or", "this", "that", "under", "during", "period",
-    "financial", "year", "years", "fy", "no", "date", "estimate", "estimated",
-    "procurement", "package", "lot", "tender", "phase", "upazila", "upazilla",
-    "zila", "zilla", "parishad", "union", "office", "district", "directorate",
-    "department", "government", "bangladesh", "various", "different",
-    "other", "etc", "total", "including", "excluding", "approx",
-    "approximately", "one", "two", "three", "into", "its", "an", "will",
-    "long", "over", "types", "type", "part", "parts", "cost", "materials",
-    "january", "february", "march", "april", "may", "june", "july",
-    "august", "september", "october", "november", "december",
-} | {d.lower() for d in DISTRICT_ALIASES}
+# What's actually being bought, read off the description text as literal
+# recurring phrases -- "purchase of computers", "training of farmers" --
+# rather than single-word frequency (which just re-states procurement
+# nature at a fancier grain: a road office's contracts are all
+# "construction"/"improvement"/"pavement" regardless of which specific
+# road) or a hand-curated category lexicon (which can only ever recognise
+# domains it was written to expect).
+#
+# Grammar words are stripped, and so are digits/measurements/chainages
+# ("891.00m", "Ch. 0+000-3+650km", "Road ID: 17725200") -- otherwise two
+# descriptions that are the same activity at two different sites never
+# share a phrase. What's left is split into 2-4 word n-grams, tallied per
+# office by how many of its distinct contracts use each one, then
+# consolidated: a shorter phrase is dropped if a longer selected phrase
+# already accounts for nearly all of its occurrences (so "of computers"
+# doesn't survive alongside "purchase of computers" as a separate, weaker
+# echo of the same thing). Place names are excluded from phrases the same
+# way find_place_words below detects them: a word that shows up almost
+# exclusively right before "Upazila"/"Union"/etc. is where an office
+# operates, not what it buys, and top_districts already covers that.
+# "of"/"for"/"to"/"the"/"and" are deliberately NOT in here: a phrase like
+# "purchase of computers" or "training of farmers" needs "of" to survive
+# in the middle of the n-gram. They're excluded only from the *edges* of a
+# candidate phrase (via _PHRASE_GLUE below), not from the word stream
+# itself.
+PHRASE_STOPWORDS = {
+    "a", "an", "or", "in", "at", "on", "with", "by", "from",
+    "as", "is", "be", "this", "that", "under", "during", "into", "its",
+    "will", "no", "nos", "date", "period", "financial", "year", "years", "fy",
+    "over",
+    # Form-field labels and abbreviations that recur constantly across e-GP
+    # road/works descriptions -- structural boilerplate, not a purchase.
+    # "ch" is chainage ("Ch 2900 to 4745m"), "mx" a leftover from
+    # concatenated dimension notation ("1.5Mx1.5M") the numeric-noise regex
+    # doesn't fully catch, "up" is Union Parishad (LGED shorthand, not the
+    # English preposition, in this corpus), "word" a common OCR/typing
+    # variant of "Ward" (a sub-union unit) seen in the source data.
+    "latitude", "longitude", "code", "ch", "mx", "up", "ward", "word",
+}
+_PHRASE_GLUE = {"of", "for", "and", "the", "to"}
 
-# Letters only, hyphens allowed only between two letter groups -- so a
-# trailing hyphen from source formatting like "Package-1" doesn't get
-# captured as part of the word ("package-" instead of "package").
+_NUMERIC_NOISE_RE = re.compile(
+    r"\b\d[\d.,+/-]*\s*(?:km|kg|mt|nos?|pcs?|m)?\b"
+    r"|\b\d+(?:\.\d+)?\s*m?\s*x\s*\d+(?:\.\d+)?\s*m?\b"  # "1.5Mx1.5M" / "1.5m x 1.5m" dimension notation
+    r"|\bch\.?\s*[\d.,+-]+\b"
+    r"|\b(?:road|bridge)\s*id\s*[:#]?\s*\d+\b",
+    re.IGNORECASE,
+)
 _WORD_RE = re.compile(r"[a-zA-Z]+(?:-[a-zA-Z]+)*")
 
-# Upazila/union names aren't in districts.py (that's district-level only) and
-# there's no list of ~500 of them in this repo to import -- but they show up
-# in a recognisable position: "under Boda Upazila", "Debiganj Upazila",
-# "Atwari upazila" is how almost every road-work description names its own
-# sub-district. Whatever word immediately precedes one of those admin-unit
-# markers gets treated as a place name and dropped, rather than trying to
-# hardcode and maintain a name list that would go stale.
 _PLACE_MARKER_RE = re.compile(
-    r"([a-zA-Z]+(?:-[a-zA-Z]+)*)\s+(?:upazila|upazilla|thana|union|pourashava|paurashava)\b",
+    r"\b([a-zA-Z]+(?:-[a-zA-Z]+)*)\s+(?:upazila|upazilla|thana|union|pourashava|paurashava)\b",
     re.IGNORECASE,
 )
 
 
-def find_place_stopwords(descriptions, min_marker_count=3, min_ratio=0.3):
+def find_place_words(descriptions, min_marker_count=3, min_ratio=0.3):
     """A word counts as a place name only if MOST of its occurrences sit
-    right before an admin-unit marker, not just one anywhere in ~870K
-    descriptions -- a single malformed record ("...Ghoshbari Road
-    Upazila-Keraniganj...", missing its separator) is enough to catch a
-    common word like "road" otherwise, which would blacklist it for every
-    office in the country instead of just the place names it's meant to."""
+    right before an admin-unit marker, not just once anywhere in ~870K
+    descriptions -- a single malformed record ("...Road Upazila-Keraniganj
+    ...", missing its separator) is enough to catch a common word like
+    "road" otherwise, misclassifying it as a place name nationwide."""
     total = Counter()
     marker = Counter()
     for desc in descriptions:
         for m in _WORD_RE.finditer(desc):
-            if len(m.group(0)) >= 4:
+            if len(m.group(0)) >= 3:
                 total[m.group(0).lower()] += 1
         for m in _PLACE_MARKER_RE.finditer(desc):
             marker[m.group(1).lower()] += 1
     return {w for w, c in marker.items() if c >= min_marker_count and c / total.get(w, c) >= min_ratio}
 
 
-def extract_keywords(text, extra_stopwords=frozenset()):
+def clean_words(text):
+    text = _NUMERIC_NOISE_RE.sub(" ", text)
     words = []
     for m in _WORD_RE.finditer(text):
         raw = m.group(0)
-        # A short all-caps token (GDDRIDP, RHD, PSC, GC...) is a project code
-        # or agency acronym, not a describable thing to buy -- skip before
-        # lowercasing loses that signal.
-        if raw.isupper() and len(raw) <= 8:
+        if raw.isupper() and len(raw) <= 8:  # acronym/project code (GDDRIDP, RHD, PSC...)
             continue
         w = raw.lower()
-        if len(w) >= 4 and w not in KEYWORD_STOPWORDS and w not in extra_stopwords:
+        if w not in PHRASE_STOPWORDS:
             words.append(w)
     return words
+
+
+def ngrams_for(words, place_words, n_min=2, n_max=4):
+    """2-4 word phrases from a word list, trimmed so they don't start or
+    end on a glue word ("of computers" not "purchase of", "training of
+    farmers" not "training of"), and dropped entirely if any word in them
+    is a detected place name."""
+    out = set()
+    L = len(words)
+    for n in range(n_min, n_max + 1):
+        for i in range(L - n + 1):
+            gram = words[i:i + n]
+            while gram and gram[0] in _PHRASE_GLUE:
+                gram = gram[1:]
+            while gram and gram[-1] in _PHRASE_GLUE:
+                gram = gram[:-1]
+            if len(gram) < 2 or any(w in place_words for w in gram):
+                continue
+            out.add(" ".join(gram))
+    return out
+
+
+def consolidate_phrases(counts, min_count=3, absorb_ratio=0.85):
+    """Keep the longest phrase that explains most of a shorter phrase's
+    occurrences, drop the shorter one -- otherwise "purchase of computers",
+    "of computers" and "purchase of" would all show up as separate, weaker
+    copies of the same recurring thing."""
+    candidates = sorted(
+        ((p, c) for p, c in counts.items() if c >= min_count),
+        key=lambda pc: (-len(pc[0].split()), -pc[1]),
+    )
+    selected = []
+    for phrase, count in candidates:
+        absorbed = any(
+            phrase != sel_phrase and f" {phrase} " in f" {sel_phrase} " and count <= sel_count / absorb_ratio
+            for sel_phrase, sel_count in selected
+        )
+        if not absorbed:
+            selected.append((phrase, count))
+    return selected
+
+
+def titlecase_phrase(phrase):
+    words = phrase.split()
+    return " ".join(w if i > 0 and w in _PHRASE_GLUE else w[:1].upper() + w[1:] for i, w in enumerate(words))
 
 
 def load_descriptions(raw_contracts_dir):
@@ -183,7 +248,7 @@ def main(contracts_dir, tenders_dir, raw_contracts_dir, index_out, offices_out_d
             tender_nature[r["tender_id"]] = normalize_nature(r["procurement_nature"])
 
     descriptions = load_descriptions(raw_contracts_dir)
-    place_stopwords = find_place_stopwords(descriptions.values())
+    place_words = find_place_words(descriptions.values())
 
     with open(os.path.join(contracts_dir, "dimensions.json")) as fh:
         dims = json.load(fh)
@@ -196,7 +261,7 @@ def main(contracts_dir, tenders_dir, raw_contracts_dir, index_out, offices_out_d
         "ministry_votes": Counter(), "division_votes": Counter(),
         "by_year": defaultdict(lambda: {"value_bdt": 0.0, "count": 0}),
         "nature": Counter(), "vendors": Counter(), "vendor_count": Counter(),
-        "districts": Counter(), "keywords": Counter(),
+        "districts": Counter(), "phrases": Counter(),
         "contracts": [],
     })
 
@@ -232,8 +297,8 @@ def main(contracts_dir, tenders_dir, raw_contracts_dir, index_out, offices_out_d
             o["districts"][c["district"]] += 1
         desc = descriptions.get((c.get("tender_id"), c.get("pkg_lot_id")))
         if desc:
-            for kw in set(extract_keywords(desc, place_stopwords)):
-                o["keywords"][kw] += v
+            for phrase in ngrams_for(clean_words(desc), place_words):
+                o["phrases"][phrase] += 1
         o["contracts"].append({
             "package_ref": c.get("package_ref"),
             "awarded_to": vendor,
@@ -290,8 +355,9 @@ def main(contracts_dir, tenders_dir, raw_contracts_dir, index_out, offices_out_d
             "top_districts": [
                 {"district": d, "count": n} for d, n in o["districts"].most_common(TOP_DISTRICTS)
             ],
-            "top_keywords": [
-                {"word": w, "value_bdt": round(v, 2)} for w, v in o["keywords"].most_common(TOP_KEYWORDS)
+            "top_phrases": [
+                {"phrase": titlecase_phrase(p), "count": c}
+                for p, c in consolidate_phrases(o["phrases"])[:TOP_PHRASES]
             ],
             "top_contracts": top_contracts,
         }

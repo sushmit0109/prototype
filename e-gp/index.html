@@ -208,8 +208,8 @@
           <div id="chartOfNature"></div>
           <p class="dd-label" style="margin-top:20px">What it buys, specifically</p>
           <p class="sub" style="font-size:0.78rem;margin-top:-4px;margin-bottom:8px">
-            The most common words across every one of its contracts' own descriptions, sized by
-            how much money went to contracts mentioning that word.</p>
+            Recurring 2-4 word phrases pulled directly from this office's own contract descriptions
+            — sized by how many of its contracts repeat that phrase.</p>
           <div id="ofKeywords" class="office-keyword-cloud"></div>
         </div>
         <div>
@@ -250,13 +250,17 @@
         <h4>What it isn't</h4>
         <p>"What it buys, broadly" is procurement nature (Works/Goods/Services) joined from the
         master tender list, matched for about half of contracts nationally — read it as based on
-        the matched subset, not the office's full history. "What it buys, specifically" is a plain
-        word-frequency count over contract descriptions, not a curated category system — it drops
-        common filler words and place names (upazila/union names an office mentions constantly
-        just by being located there), but it can still occasionally surface a stray project code or
-        place name the filter didn't catch, or split one purchase across several near-duplicate
-        words. Read it as a rough, literal echo of what the office itself wrote, not an audited
-        classification. A small number of offices (roughly 1 in 20) were reorganised across
+        the matched subset, not the office's full history. "What it buys, specifically" is phrases
+        mined directly out of contract descriptions, not assigned from a fixed category list — it
+        drops filler words, form-field labels (road codes, GPS coordinates) and place names
+        (upazila/union names an office mentions constantly just by being located there), but it can
+        still occasionally surface a stray template artifact the filter didn't catch, or an
+        awkward-sounding fragment where two overlapping phrases got merged. A phrase only appears
+        if it repeats at least 3 times in that office's own history — a one-off project name, however
+        distinctive, won't show up here even if it's the office's single biggest contract (see
+        "biggest individual contracts" below for that). Read it as a rough, literal echo of what the
+        office itself wrote, not an audited classification. A small number of offices (roughly 1 in
+        20) were reorganised across
         divisions, or rarely ministries, at some point since 2011; each is filed under whichever it
         worked with most, so a handful of its own oldest contracts may be counted under a parent it
         has since left. "Biggest contracts", "who it buys from" and "what it buys, specifically" are
