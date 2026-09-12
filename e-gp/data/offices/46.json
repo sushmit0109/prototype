@@ -461,11 +461,11 @@
     "count": 5
    },
    {
-    "phrase": "Complexes District Level St",
+    "phrase": "District Level St Phase",
     "count": 5
    },
    {
-    "phrase": "District Level St Phase",
+    "phrase": "Complexes District Level St",
     "count": 5
    },
    {
@@ -473,11 +473,11 @@
     "count": 5
    },
    {
-    "phrase": "Office the Project Construction",
+    "phrase": "Project Office the Project",
     "count": 3
    },
    {
-    "phrase": "Project Office the Project",
+    "phrase": "Office the Project Construction",
     "count": 3
    },
    {
@@ -1864,12 +1864,12 @@
   ]
  },
  "9108": {
-  "value_bdt": 940000.0,
-  "count": 6,
+  "value_bdt": 1060000.0,
+  "count": 7,
   "by_year": {
    "2026": {
-    "value_bdt": 940000.0,
-    "count": 6
+    "value_bdt": 1060000.0,
+    "count": 7
    }
   },
   "by_nature": {},
@@ -1895,15 +1895,15 @@
     "count": 2
    },
    {
-    "company": "TR TRADERS",
-    "value_bdt": 100000.0,
+    "company": "Energy Network",
+    "value_bdt": 120000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Jashore",
-    "count": 6
+    "count": 7
    }
   ],
   "top_phrases": [],
@@ -1930,18 +1930,18 @@
     "description": "Weather coating the exterior of a residential building."
    },
    {
+    "package_ref": "01",
+    "awarded_to": "Energy Network",
+    "value_bdt": 120000.0,
+    "contract_signing_date": "2026-09-10",
+    "description": "Supplying of electric goods."
+   },
+   {
     "package_ref": "15.53.4104.310.000.53.0004.1011",
     "awarded_to": "LIFE SAFETY ENTERPRISE",
     "value_bdt": 100000.0,
     "contract_signing_date": "2026-06-03",
     "description": "Repair and painting of various rooms and walls of the office building."
-   },
-   {
-    "package_ref": "15.53.4104.310.000.53.0004.12.995",
-    "awarded_to": "TR TRADERS",
-    "value_bdt": 100000.0,
-    "contract_signing_date": "2026-05-21",
-    "description": "Repair and servicing of air conditions (ACs)."
    }
   ]
  },
@@ -2028,12 +2028,12 @@
   ]
  },
  "9223": {
-  "value_bdt": 110000.0,
-  "count": 1,
+  "value_bdt": 200000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 110000.0,
-    "count": 1
+    "value_bdt": 200000.0,
+    "count": 2
    }
   },
   "by_nature": {},
@@ -2042,12 +2042,17 @@
     "company": "T. S. Enterprise",
     "value_bdt": 110000.0,
     "count": 1
+   },
+   {
+    "company": "M/S N H Enterprise",
+    "value_bdt": 90000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
@@ -2058,6 +2063,13 @@
     "value_bdt": 110000.0,
     "contract_signing_date": "2026-05-21",
     "description": "Procuring different types of office furniture."
+   },
+   {
+    "package_ref": "15.53.1500.000.33.0001.26.162",
+    "awarded_to": "M/S N H Enterprise",
+    "value_bdt": 90000.0,
+    "contract_signing_date": "2026-09-10",
+    "description": "Procurement of various computer items."
    }
   ]
  },
@@ -2391,12 +2403,12 @@
   ]
  },
  "9349": {
-  "value_bdt": 600000.0,
-  "count": 3,
+  "value_bdt": 860000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 600000.0,
-    "count": 3
+    "value_bdt": 860000.0,
+    "count": 4
    }
   },
   "by_nature": {},
@@ -2404,6 +2416,11 @@
    {
     "company": "Skyline Construction",
     "value_bdt": 300000.0,
+    "count": 1
+   },
+   {
+    "company": "M/S. Shukarna Enterprise",
+    "value_bdt": 260000.0,
     "count": 1
    },
    {
@@ -2420,7 +2437,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -2431,6 +2448,13 @@
     "value_bdt": 300000.0,
     "contract_signing_date": "2026-05-07",
     "description": "Repair & maintenance of 04 (four) flats of D-type (D-1 D-2 D-3 D-4) building in kalyanpur radio colony"
+   },
+   {
+    "package_ref": "Hpt-1/3255105/GR1",
+    "awarded_to": "M/S. Shukarna Enterprise",
+    "value_bdt": 260000.0,
+    "contract_signing_date": "2026-09-10",
+    "description": "Procurement of various office supplies consumables stationeries and other miscellaneous items including papers pens staplers nameplates envelopes files seal pad"
    },
    {
     "package_ref": "15.53.2672.308.000.51.0001.25.1354",
