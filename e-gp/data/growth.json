@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56388,
+  "vendors_scanned": 56391,
   "ownership_groups_checked": 222
  },
  "top_growers": [
@@ -115,8 +115,8 @@
    "first_year": "2018",
    "baseline_value_bdt": 12460000.0,
    "baseline_count": 6,
-   "recent_value_bdt": 667910000.0,
-   "recent_count": 72,
+   "recent_value_bdt": 695970000.0,
+   "recent_count": 73,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 23,
@@ -127,16 +127,16 @@
      "value_bdt": 8270000.0
     },
     "Elected Government (2026–)": {
-     "count": 30,
-     "value_bdt": 626280000.0
+     "count": 31,
+     "value_bdt": 654340000.0
     }
    },
    "recent_distinct_ministries": 8,
    "recent_top_ministry": "Ministry of Road Transport and Bridges",
-   "recent_distinct_offices": 30,
+   "recent_distinct_offices": 31,
    "recent_top_office": "Workshop Division, Mymensingh",
-   "recent_top_office_share": 0.1528,
-   "growth_ratio_value": 71.47,
+   "recent_top_office_share": 0.1507,
+   "growth_ratio_value": 74.48,
    "shared_owner_keys": []
   },
   {
@@ -1076,6 +1076,36 @@
    "shared_owner_keys": []
   },
   {
+   "company": "The ACME Laboratories Ltd.",
+   "company_key": "the acme laboratories",
+   "first_year": "2017",
+   "baseline_value_bdt": 23700000.0,
+   "baseline_count": 14,
+   "recent_value_bdt": 444290000.0,
+   "recent_count": 37,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 16,
+     "value_bdt": 179990000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 10,
+     "value_bdt": 233170000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 11,
+     "value_bdt": 31130000.0
+    }
+   },
+   "recent_distinct_ministries": 5,
+   "recent_top_ministry": "Ministry of Home Affairs",
+   "recent_distinct_offices": 13,
+   "recent_top_office": "Medical Branch",
+   "recent_top_office_share": 0.4054,
+   "growth_ratio_value": 25.0,
+   "shared_owner_keys": []
+  },
+  {
    "company": "M/S. Confidence Trade International",
    "company_key": "confidence trade international",
    "first_year": "2016",
@@ -1138,6 +1168,38 @@
    ]
   },
   {
+   "company": "Shaikat Enterprise",
+   "company_key": "shaikat enterprise",
+   "first_year": "2014",
+   "baseline_value_bdt": 923450000.0,
+   "baseline_count": 72,
+   "recent_value_bdt": 16733580000.0,
+   "recent_count": 862,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 312,
+     "value_bdt": 4780270000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 467,
+     "value_bdt": 9885150000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 83,
+     "value_bdt": 2068160000.0
+    }
+   },
+   "recent_distinct_ministries": 8,
+   "recent_top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "recent_distinct_offices": 176,
+   "recent_top_office": "Office of the Executive Engineer, LGED, Naogaon",
+   "recent_top_office_share": 0.0742,
+   "growth_ratio_value": 24.16,
+   "shared_owner_keys": [
+    "mosammat saheda begum"
+   ]
+  },
+  {
    "company": "BROTHERS CONSTRUCTION & SUPPLIER",
    "company_key": "brothers construction & supplier",
    "first_year": "2014",
@@ -1165,66 +1227,6 @@
    "recent_top_office": "EIND Project, Head Office, BMDA, Barendra Bhaban, Rajshahi",
    "recent_top_office_share": 0.2326,
    "growth_ratio_value": 24.15,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "Md. Hasibul Hassan",
-   "company_key": "md hasibul hassan",
-   "first_year": "2013",
-   "baseline_value_bdt": 153240000.0,
-   "baseline_count": 66,
-   "recent_value_bdt": 2770300000.0,
-   "recent_count": 318,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 108,
-     "value_bdt": 940720000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 171,
-     "value_bdt": 1727560000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 39,
-     "value_bdt": 102020000.0
-    }
-   },
-   "recent_distinct_ministries": 2,
-   "recent_top_ministry": "Ministry of Water Resources",
-   "recent_distinct_offices": 65,
-   "recent_top_office": "Dalia WD Division",
-   "recent_top_office_share": 0.0723,
-   "growth_ratio_value": 24.1,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "The ACME Laboratories Ltd.",
-   "company_key": "the acme laboratories",
-   "first_year": "2017",
-   "baseline_value_bdt": 23700000.0,
-   "baseline_count": 14,
-   "recent_value_bdt": 426130000.0,
-   "recent_count": 36,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 16,
-     "value_bdt": 179990000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 10,
-     "value_bdt": 233170000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 10,
-     "value_bdt": 12970000.0
-    }
-   },
-   "recent_distinct_ministries": 5,
-   "recent_top_ministry": "Ministry of Home Affairs",
-   "recent_distinct_offices": 12,
-   "recent_top_office": "Medical Branch",
-   "recent_top_office_share": 0.4167,
-   "growth_ratio_value": 23.97,
    "shared_owner_keys": []
   }
  ],
@@ -2421,9 +2423,9 @@
    ],
    "member_companies_matched": 4,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29293590000.0,
-   "combined_recent_count": 686,
-   "combined_growth_ratio_value": 6.59,
+   "combined_recent_value_bdt": 29357950000.0,
+   "combined_recent_count": 687,
+   "combined_growth_ratio_value": 6.61,
    "combined_recent_distinct_ministries": 25
   },
   {
@@ -2449,9 +2451,9 @@
    ],
    "member_companies_matched": 4,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29293590000.0,
-   "combined_recent_count": 686,
-   "combined_growth_ratio_value": 6.59,
+   "combined_recent_value_bdt": 29357950000.0,
+   "combined_recent_count": 687,
+   "combined_growth_ratio_value": 6.61,
    "combined_recent_distinct_ministries": 25
   },
   {
@@ -2469,9 +2471,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 923450000.0,
-   "combined_recent_value_bdt": 16829410000.0,
-   "combined_recent_count": 863,
-   "combined_growth_ratio_value": 24.3,
+   "combined_recent_value_bdt": 16983270000.0,
+   "combined_recent_count": 864,
+   "combined_growth_ratio_value": 24.52,
    "combined_recent_distinct_ministries": 8
   },
   {
@@ -2737,9 +2739,9 @@
    ],
    "member_companies_matched": 31,
    "combined_baseline_value_bdt": 6862790000.0,
-   "combined_recent_value_bdt": 5988920000.0,
-   "combined_recent_count": 544,
-   "combined_growth_ratio_value": 1.16,
+   "combined_recent_value_bdt": 6000820000.0,
+   "combined_recent_count": 545,
+   "combined_growth_ratio_value": 1.17,
    "combined_recent_distinct_ministries": 17
   },
   {
