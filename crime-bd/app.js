@@ -76,12 +76,13 @@ const tenureShort = (t) => T.tenuresShort[t.id];
 
 /* Governments over the covered period. The dashboard is built around these
    because the interesting question in this data is what changed at each
-   handover — and because the three run 55, 18 and 6 months, every comparison
-   between them has to be per month rather than a total. */
+   handover — and because the three run 55, 18 and 7 months, every comparison
+   between them has to be per month rather than a total. The last one is still
+   running, so its length grows with the data. */
 const TENURES = [
   { id: 't1', from: '2021-01', to: '2024-07', ink: 'var(--t1-ink)', wash: 'var(--t1-wash)' },
   { id: 't2', from: '2024-08', to: '2026-01', ink: 'var(--t2-ink)', wash: 'var(--t2-wash)' },
-  { id: 't3', from: '2026-02', to: '2026-07', ink: 'var(--t3-ink)', wash: 'var(--t3-wash)' },
+  { id: 't3', from: '2026-02', to: null, ink: 'var(--t3-ink)', wash: 'var(--t3-wash)' },
 ];
 
 /* 2020 is in the data file but out of the analysis. The Covid general holiday
@@ -277,7 +278,11 @@ function bboxOf(fc) {
 /* -------------------------------------------------------------- aggregation */
 
 const monthIdx = (ym) => DATA.months.indexOf(ym);
-const tenureRange = (t) => [Math.max(0, monthIdx(t.from)), Math.min(NM - 1, monthIdx(t.to))];
+/* A null end means the tenure is still running, so it reaches whatever the
+   latest published month is. Pinning it to a date instead would quietly drop
+   each new sheet out of the current government's figures. */
+const tenureRange = (t) => [Math.max(0, monthIdx(t.from)),
+  t.to ? Math.min(NM - 1, monthIdx(t.to)) : NM - 1];
 const isRate = () => state.measure === 'rate';
 
 /* An empty set means every offence. Storing it that way rather than listing
@@ -582,7 +587,7 @@ function renderTimeline() {
 
   host.replaceChildren(svg);
   $('#timeline-legend').innerHTML =
-    TENURES.map((t) => `<span class="key"><i class="sw" style="background:${t.ink};opacity:.55"></i>${tenureName(t)} · ${mLabel(t.from)}–${mLabel(t.to)}</span>`).join('') +
+    TENURES.map((t) => `<span class="key"><i class="sw" style="background:${t.ink};opacity:.55"></i>${tenureName(t)} · ${mLabel(t.from)}–${mLabel(DATA.months[tenureRange(t)[1]])}</span>`).join('') +
     `<span class="key"><i class="sw" style="background:var(--text-muted);opacity:.4"></i>${T.handoverKey}</span>` +
     `<span class="key" style="color:var(--text-muted)">${T.dragHint}</span>`;
 }
