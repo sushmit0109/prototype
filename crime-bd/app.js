@@ -52,6 +52,17 @@ const fmtCompact = (n) => {
        : n >= 1e3 ? (n / 1e3).toFixed(1) + 'k'
        : String(Math.round(n));
 };
+/* Gridlines can land on a half-step (12,500), and fmtCompact rounds that to
+   "13k" — a line labelled with a value it is not drawn at. Ticks get their own
+   formatter so the label always names the line's real position. */
+const fmtTick = (n) => {
+  if (LANG !== 'bn' && n >= 1e3 && n < 1e6) {
+    const k = n / 1e3;
+    return (Number.isInteger(k) ? k : k.toFixed(1)) + 'k';
+  }
+  return fmtCompact(n);
+};
+
 const pctStr = (v) => {
   const r = Math.abs(v) < 0.05 ? 0 : v;   // -0.0% reads as a fall that is not there
   return num((r > 0 ? '+' : r < 0 ? '−' : '') + Math.abs(r).toFixed(1) + '%');
@@ -200,6 +211,37 @@ function hoverable(node, html) {
   node.addEventListener('pointerenter', (e) => showTip(e, typeof html === 'function' ? html() : html));
   node.addEventListener('pointermove', (e) => showTip(e, typeof html === 'function' ? html() : html));
   node.addEventListener('pointerleave', hideTip);
+}
+
+/* A y-domain that does not start at zero. Monthly case counts never approach
+   zero, so a zero baseline spends most of the panel on empty space and flattens
+   the movement the chart exists to show. The floor sits a margin below the
+   lowest month and snaps to a round number, so the line keeps clear of the axis
+   without the scale looking arbitrary. Note the companion change in the
+   timeline: the area fill is gone, because a filled area over a truncated axis
+   reads as magnitude and would now be misstating it. */
+function niceRange(lo0, hi0, count) {
+  if (!(hi0 > lo0)) {                       // flat or single-valued series
+    const c = Math.max(1, hi0), h = Math.abs(c) * 0.5 || 1;
+    return { lo: Math.max(0, c - h), hi: c + h, step: h };
+  }
+  const span = hi0 - lo0;
+  // Padded to the data, not snapped outward: rounding both ends to a tick
+  // multiple would re-inflate the very empty space this is removing. The ticks
+  // land on round numbers inside the domain instead.
+  const lo = Math.max(0, lo0 - span * 0.22);  // more room below than above, so
+  const hi = hi0 + span * 0.10;               // the line never sits on the floor
+  // Nearest nice step, not the next one up: ceiling to the next multiple leaves
+  // only two gridlines across a span this size. The half-step (2.5) is allowed
+  // only where it still lands on whole numbers — these are case counts, and a
+  // gridline at 2.5 cases would be labelled "3" and drawn somewhere else.
+  const raw = (hi - lo) / count, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const n = raw / mag;
+  const mult = mag >= 10
+    ? (n < 1.5 ? 1 : n < 2.25 ? 2 : n < 3.5 ? 2.5 : n < 7.5 ? 5 : 10)
+    : (n < 1.5 ? 1 : n < 3 ? 2 : n < 7.5 ? 5 : 10);
+  const step = Math.max(1, mult * mag);
+  return { lo, hi, step };
 }
 
 function niceTicks(max, count) {
@@ -486,12 +528,12 @@ function renderTimeline() {
   const W = host.clientWidth || 900, H = 168;
   const padL = 52, padR = 14, padT = 26, padB = 26;
   const s = series();
-  const max = Math.max(1, ...s);
+  const dom = niceRange(Math.min(...s), Math.max(...s), 4);
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
   svg.setAttribute('aria-label', `Monthly ${offenceName()} for ${scopeLabel()}; drag to select a period`);
 
   const x = (i) => padL + (i / Math.max(1, NM - 1)) * (W - padL - padR);
-  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  const y = (v) => H - padB - ((v - dom.lo) / (dom.hi - dom.lo)) * (H - padT - padB);
   const band = (W - padL - padR) / Math.max(1, NM - 1);
 
   // Tenure bands sit behind everything, as washes rather than blocks: they are
@@ -510,19 +552,17 @@ function renderTimeline() {
     }
   });
 
-  niceTicks(max, 4).forEach((v) => {
+  const ticks = [];
+  for (let v = Math.ceil(dom.lo / dom.step) * dom.step; v <= dom.hi; v += dom.step) ticks.push(v);
+  ticks.forEach((v) => {
     svg.appendChild(el('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(v), y2: y(v) }));
     const t = el('text', { x: padL - 7, y: y(v) + 4, 'text-anchor': 'end', class: 'axis' });
-    svg.appendChild(txt(t, fmtCompact(v)));
+    svg.appendChild(txt(t, fmtTick(v)));
   });
 
-  let area = `M${x(0)} ${y(0)}`, line = '';
-  for (let i = 0; i < NM; i++) {
-    area += `L${x(i).toFixed(1)} ${y(s[i]).toFixed(1)}`;
+  let line = '';
+  for (let i = 0; i < NM; i++)
     line += (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(s[i]).toFixed(1);
-  }
-  area += `L${x(NM - 1)} ${y(0)}Z`;
-  svg.appendChild(el('path', { d: area, fill: 'var(--range)', 'fill-opacity': .13 }));
   svg.appendChild(el('path', { d: line, fill: 'none', stroke: 'var(--range)', 'stroke-width': 2, 'stroke-linejoin': 'round' }));
 
   // Transition rules: the moment of handover, drawn once and labelled.
