@@ -222,7 +222,9 @@ function hoverable(node, html) {
    reads as magnitude and would now be misstating it. */
 function niceRange(lo0, hi0, count) {
   if (!(hi0 > lo0)) {                       // flat or single-valued series
-    const c = Math.max(1, hi0), h = Math.abs(c) * 0.5 || 1;
+    // Whole-number half-window, so an unchanging series still gets labelled
+    // gridlines rather than 0.5-steps printed as "0, 1, 1".
+    const c = hi0, h = Math.max(1, Math.round(Math.abs(c) * 0.5));
     return { lo: Math.max(0, c - h), hi: c + h, step: h };
   }
   const span = hi0 - lo0;
@@ -566,15 +568,30 @@ function renderTimeline() {
   svg.appendChild(el('path', { d: line, fill: 'none', stroke: 'var(--range)', 'stroke-width': 2, 'stroke-linejoin': 'round' }));
 
   // Transition rules: the moment of handover, drawn once and labelled.
-  TENURES.slice(1).forEach((t) => {
+  const marks = TENURES.slice(1).map((t) => {
     const i = monthIdx(t.from);
-    svg.appendChild(el('line', { x1: x(i), x2: x(i), y1: padT, y2: H - padB, stroke: t.ink, 'stroke-width': 1.5, 'stroke-opacity': .9 }));
-    const lb = el('text', { x: x(i), y: padT + 11, 'text-anchor': x(i) > W - 90 ? 'end' : 'start', class: 'axis' });
-    lb.setAttribute('fill', t.ink);
-    lb.setAttribute('font-weight', '650');
-    lb.setAttribute('dx', x(i) > W - 90 ? -4 : 4);
-    svg.appendChild(txt(lb, mLabel(t.from)));
+    return { t, px: x(i), text: mLabel(t.from) };
   });
+  /* Each label hangs to the right of its own rule where there is room, and
+     flips to the left where there is not. Walking right to left and remembering
+     what has been placed is what makes that decision correct: on a phone the
+     later rule is pushed left by the panel edge, straight into the space the
+     earlier one would have used, and the two dates printed over each other. */
+  let takenFrom = Infinity;
+  for (let k = marks.length - 1; k >= 0; k--) {
+    const m = marks[k];
+    svg.appendChild(el('line', { x1: m.px, x2: m.px, y1: padT, y2: H - padB, stroke: m.t.ink, 'stroke-width': 1.5, 'stroke-opacity': .9 }));
+    // Estimated rather than measured: the SVG is still detached at this point,
+    // so getComputedTextLength would return zero.
+    const w = m.text.length * (LANG === 'bn' ? 7.8 : 6.6) + 6;
+    const right = m.px + 4 + w <= W - padR && m.px + 4 + w <= takenFrom - 4;
+    const lb = el('text', { x: m.px, y: padT + 11, 'text-anchor': right ? 'start' : 'end', class: 'axis' });
+    lb.setAttribute('fill', m.t.ink);
+    lb.setAttribute('font-weight', '650');
+    lb.setAttribute('dx', right ? 4 : -4);
+    svg.appendChild(txt(lb, m.text));
+    takenFrom = Math.min(takenFrom, right ? m.px + 4 : m.px - 4 - w);
+  }
 
   // The two handover months are plotted but not counted; hatch them so the dip
   // is visible and its exclusion is visible too.
@@ -927,16 +944,18 @@ function seasonLines(host) {
   const M = yearMatrix();
   const W = host.clientWidth || 900, H = 320, padL = 54, padR = 62, padT = 16, padB = 30;
   const all = Object.values(M).flat().filter((v) => v != null);
-  const max = Math.max(1, ...all);
+  const dom = niceRange(Math.min(...all), Math.max(...all), 4);
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
   svg.setAttribute('aria-label', `${offenceName()} by month of year, one line per year`);
   const x = (i) => padL + (i / 11) * (W - padL - padR);
-  const y = (v) => H - padB - (v / max) * (H - padT - padB);
+  const y = (v) => H - padB - ((v - dom.lo) / (dom.hi - dom.lo)) * (H - padT - padB);
 
-  niceTicks(max, 4).forEach((v) => {
+  // Same data-fitted scale as the timeline: comparing years is this panel's
+  // whole job, and a zero baseline flattens the differences being compared.
+  for (let v = Math.ceil(dom.lo / dom.step) * dom.step; v <= dom.hi; v += dom.step) {
     svg.appendChild(el('line', { class: 'gridline', x1: padL, x2: W - padR, y1: y(v), y2: y(v) }));
-    svg.appendChild(txt(el('text', { x: padL - 7, y: y(v) + 4, 'text-anchor': 'end', class: 'axis' }), fmtCompact(v)));
-  });
+    svg.appendChild(txt(el('text', { x: padL - 7, y: y(v) + 4, 'text-anchor': 'end', class: 'axis' }), fmtTick(v)));
+  }
   T.months.forEach((m, i) =>
     svg.appendChild(txt(el('text', { x: x(i), y: H - 9, 'text-anchor': 'middle', class: 'axis' }), m)));
 
