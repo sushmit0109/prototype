@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56391,
+  "vendors_scanned": 56393,
   "ownership_groups_checked": 222
  },
  "top_growers": [
@@ -382,6 +382,36 @@
    "shared_owner_keys": []
   },
   {
+   "company": "S.A. International",
+   "company_key": "sa international",
+   "first_year": "2018",
+   "baseline_value_bdt": 14230000.0,
+   "baseline_count": 11,
+   "recent_value_bdt": 468380000.0,
+   "recent_count": 25,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 11,
+     "value_bdt": 184080000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 10,
+     "value_bdt": 218140000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 4,
+     "value_bdt": 66160000.0
+    }
+   },
+   "recent_distinct_ministries": 3,
+   "recent_top_ministry": "Ministry of Energy, Power and Mineral Resources",
+   "recent_distinct_offices": 8,
+   "recent_top_office": "Kurmitola General Hospital",
+   "recent_top_office_share": 0.44,
+   "growth_ratio_value": 43.89,
+   "shared_owner_keys": []
+  },
+  {
    "company": "M/S Jakaullah and Brothers",
    "company_key": "jakaullah and brothers",
    "first_year": "2013",
@@ -409,36 +439,6 @@
    "recent_top_office": "Office of the Executive Engineer, LGED, Gopalganj",
    "recent_top_office_share": 0.0932,
    "growth_ratio_value": 42.98,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "S.A. International",
-   "company_key": "sa international",
-   "first_year": "2018",
-   "baseline_value_bdt": 14230000.0,
-   "baseline_count": 11,
-   "recent_value_bdt": 453390000.0,
-   "recent_count": 24,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 11,
-     "value_bdt": 184080000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 10,
-     "value_bdt": 218140000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 3,
-     "value_bdt": 51170000.0
-    }
-   },
-   "recent_distinct_ministries": 3,
-   "recent_top_ministry": "Ministry of Energy, Power and Mineral Resources",
-   "recent_distinct_offices": 8,
-   "recent_top_office": "Kurmitola General Hospital",
-   "recent_top_office_share": 0.4583,
-   "growth_ratio_value": 42.48,
    "shared_owner_keys": []
   },
   {
@@ -597,8 +597,8 @@
    "first_year": "2018",
    "baseline_value_bdt": 61440000.0,
    "baseline_count": 6,
-   "recent_value_bdt": 1540420000.0,
-   "recent_count": 73,
+   "recent_value_bdt": 1554320000.0,
+   "recent_count": 74,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 22,
@@ -609,16 +609,16 @@
      "value_bdt": 713870000.0
     },
     "Elected Government (2026–)": {
-     "count": 15,
-     "value_bdt": 292190000.0
+     "count": 16,
+     "value_bdt": 306090000.0
     }
    },
    "recent_distinct_ministries": 3,
    "recent_top_ministry": "Ministry of Food",
    "recent_distinct_offices": 4,
    "recent_top_office": "Office of the Director Procurement",
-   "recent_top_office_share": 0.9452,
-   "growth_ratio_value": 33.43,
+   "recent_top_office_share": 0.9459,
+   "growth_ratio_value": 33.73,
    "shared_owner_keys": []
   },
   {
@@ -3223,9 +3223,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1155210000.0,
-   "combined_recent_value_bdt": 3070100000.0,
-   "combined_recent_count": 166,
-   "combined_growth_ratio_value": 3.54,
+   "combined_recent_value_bdt": 3074850000.0,
+   "combined_recent_count": 167,
+   "combined_growth_ratio_value": 3.55,
    "combined_recent_distinct_ministries": 8
   },
   {
@@ -3243,9 +3243,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1155210000.0,
-   "combined_recent_value_bdt": 3070100000.0,
-   "combined_recent_count": 166,
-   "combined_growth_ratio_value": 3.54,
+   "combined_recent_value_bdt": 3074850000.0,
+   "combined_recent_count": 167,
+   "combined_growth_ratio_value": 3.55,
    "combined_recent_distinct_ministries": 8
   },
   {

@@ -67,15 +67,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Site Office Boundary Wall",
-    "count": 4
-   },
-   {
-    "phrase": "Office Boundary Wall River",
-    "count": 4
-   },
-   {
-    "phrase": "Site Land Development Site",
+    "phrase": "Development Site Office Boundary",
     "count": 4
    },
    {
@@ -91,7 +83,15 @@
     "count": 4
    },
    {
-    "phrase": "Development Site Office Boundary",
+    "phrase": "Site Office Boundary Wall",
+    "count": 4
+   },
+   {
+    "phrase": "Site Land Development Site",
+    "count": 4
+   },
+   {
+    "phrase": "Office Boundary Wall River",
     "count": 4
    },
    {
@@ -604,8 +604,8 @@
   ]
  },
  "2218": {
-  "value_bdt": 26565760000.0,
-  "count": 1430,
+  "value_bdt": 26621330000.0,
+  "count": 1434,
   "by_year": {
    "2017": {
     "value_bdt": 1230000.0,
@@ -644,12 +644,12 @@
     "count": 238
    },
    "2026": {
-    "value_bdt": 4178620000.0,
-    "count": 183
+    "value_bdt": 4234190000.0,
+    "count": 187
    }
   },
   "by_nature": {
-   "Goods": 1430
+   "Goods": 1434
   },
   "top_vendors": [
    {
@@ -659,8 +659,8 @@
    },
    {
     "company": "M/S OHEE JUTE FIBRES",
-    "value_bdt": 2158630000.0,
-    "count": 104
+    "value_bdt": 2172530000.0,
+    "count": 105
    },
    {
     "company": "AFIL JUTE WEAVING MILLS LIMITED",
@@ -668,54 +668,54 @@
     "count": 88
    },
    {
+    "company": "Siam Textile and Jute",
+    "value_bdt": 1291360000.0,
+    "count": 60
+   },
+   {
     "company": "Hafsa Textile",
     "value_bdt": 1284830000.0,
     "count": 84
-   },
-   {
-    "company": "Siam Textile and Jute",
-    "value_bdt": 1277460000.0,
-    "count": 59
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1430
+    "count": 1434
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Maximum Sewn Hemmed Mouth",
-    "count": 1027
-   },
-   {
-    "phrase": "Dm Tolerance Moisture Regain",
-    "count": 1027
-   },
-   {
-    "phrase": "Picks Dm Tolerance Moisture",
-    "count": 1027
-   },
-   {
-    "phrase": "Tolerance Shots Ins Picks",
-    "count": 1027
-   },
-   {
-    "phrase": "Ins Picks Dm Tolerance",
-    "count": 1027
-   },
-   {
     "phrase": "Dm Tolerance Shots Ins",
-    "count": 1027
+    "count": 1031
    },
    {
     "phrase": "Ends Dm Tolerance Shots",
-    "count": 1027
+    "count": 1031
    },
    {
     "phrase": "Shots Ins Picks Dm",
-    "count": 1027
+    "count": 1031
+   },
+   {
+    "phrase": "Porter Ends Dm Tolerance",
+    "count": 1031
+   },
+   {
+    "phrase": "Picks Dm Tolerance Moisture",
+    "count": 1031
+   },
+   {
+    "phrase": "Ins Picks Dm Tolerance",
+    "count": 1031
+   },
+   {
+    "phrase": "Dm Tolerance Moisture Regain",
+    "count": 1031
+   },
+   {
+    "phrase": "Tolerance Shots Ins Picks",
+    "count": 1031
    }
   ],
   "top_contracts": [
@@ -1220,11 +1220,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Premix Kernel for Food",
+    "phrase": "Kernel for Food Friendly",
     "count": 24
    },
    {
-    "phrase": "Kernel for Food Friendly",
+    "phrase": "Premix Kernel for Food",
     "count": 24
    },
    {
@@ -2321,11 +2321,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Godown Ancillary Facilities",
+    "phrase": "New Food Godown Ancillary",
     "count": 31
    },
    {
-    "phrase": "New Food Godown Ancillary",
+    "phrase": "Food Godown Ancillary Facilities",
     "count": 31
    }
   ],

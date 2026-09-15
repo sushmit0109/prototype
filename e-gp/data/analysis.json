@@ -1,7 +1,7 @@
 {
  "meta": {
-  "contracts": 872484,
-  "total_value_bdt": 7457199840000.0,
+  "contracts": 872552,
+  "total_value_bdt": 7458275100000.0,
   "years": [
    "2011",
    "2012",
@@ -64,8 +64,8 @@
     "share": 0.0451
    },
    "09": {
-    "count": 39132,
-    "value_bdt": 415775890000.0,
+    "count": 39200,
+    "value_bdt": 416851150000.0,
     "share": 0.0449
    },
    "10": {
@@ -151,8 +151,8 @@
     "partial_year": false
    },
    "2026": {
-    "share": 0.2059,
-    "total": 92734,
+    "share": 0.2058,
+    "total": 92802,
     "partial_year": true
    }
   }
@@ -160,28 +160,28 @@
  "method_mix": {
   "overall": {
    "OTM": {
-    "count": 447725,
-    "value_bdt": 5594557540000.0
+    "count": 447762,
+    "value_bdt": 5595587610000.0
    },
    "LTM": {
-    "count": 384898,
-    "value_bdt": 1093570240000.0
+    "count": 384914,
+    "value_bdt": 1093592690000.0
    },
    "OSTETM": {
-    "count": 14417,
-    "value_bdt": 756009180000.0
+    "count": 14418,
+    "value_bdt": 756024170000.0
    },
    "RFQU": {
-    "count": 14420,
-    "value_bdt": 4533710000.0
+    "count": 14424,
+    "value_bdt": 4536930000.0
    },
    "DPM": {
     "count": 638,
     "value_bdt": 3855770000.0
    },
    "RFQ": {
-    "count": 9280,
-    "value_bdt": 2525940000.0
+    "count": 9287,
+    "value_bdt": 2527770000.0
    },
    "QCBS": {
     "count": 33,
@@ -192,8 +192,8 @@
     "value_bdt": 611550000.0
    },
    "RFQL": {
-    "count": 949,
-    "value_bdt": 304560000.0
+    "count": 952,
+    "value_bdt": 307260000.0
    },
    "IC": {
     "count": 73,
@@ -314,13 +314,13 @@
     "DPM": 0.0001
    },
    "2026": {
-    "OTM": 0.7631,
+    "OTM": 0.7634,
     "DPM": 0.0056,
-    "LTM": 0.1463,
+    "LTM": 0.146,
     "RFQL": 0.0004,
     "RFQ": 0.0032,
     "RFQU": 0.0048,
-    "OSTETM": 0.0737,
+    "OSTETM": 0.0736,
     "SSS": 0.001,
     "QCBS": 0.0014,
     "SFB": 0.0001,
@@ -330,7 +330,7 @@
  },
  "concentration": {
   "national": {
-   "vendors": 56391,
+   "vendors": 56393,
    "hhi": 7.6,
    "top10_share": 0.0541
   },
@@ -338,8 +338,8 @@
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
     "hhi": 8.1,
-    "vendors": 37094,
-    "value_bdt": 3037840310000.0,
+    "vendors": 37096,
+    "value_bdt": 3037856910000.0,
     "top5_share": 0.0391
    },
    {
@@ -352,8 +352,8 @@
    {
     "ministry": "Ministry of Education",
     "hhi": 11.6,
-    "vendors": 14588,
-    "value_bdt": 738627480000.0,
+    "vendors": 14589,
+    "value_bdt": 738687560000.0,
     "top5_share": 0.0435
    },
    {
@@ -367,21 +367,21 @@
     "ministry": "Ministry of Housing and Public Works",
     "hhi": 50.2,
     "vendors": 9681,
-    "value_bdt": 619405930000.0,
+    "value_bdt": 619406590000.0,
     "top5_share": 0.103
    },
    {
     "ministry": "Ministry of Energy, Power and Mineral Resources",
-    "hhi": 73.2,
+    "hhi": 73.4,
     "vendors": 5535,
-    "value_bdt": 295381640000.0,
-    "top5_share": 0.1355
+    "value_bdt": 296277580000.0,
+    "top5_share": 0.1351
    },
    {
     "ministry": "Ministry of Shipping",
     "hhi": 80.4,
     "vendors": 2116,
-    "value_bdt": 163087650000.0,
+    "value_bdt": 163088280000.0,
     "top5_share": 0.1364
    },
    {
@@ -395,14 +395,14 @@
     "ministry": "Ministry of Agriculture",
     "hhi": 66.4,
     "vendors": 3755,
-    "value_bdt": 113151260000.0,
+    "value_bdt": 113161840000.0,
     "top5_share": 0.1283
    },
    {
     "ministry": "Ministry of Home Affairs",
-    "hhi": 118.8,
-    "vendors": 2144,
-    "value_bdt": 89710170000.0,
+    "hhi": 118.7,
+    "vendors": 2145,
+    "value_bdt": 89732940000.0,
     "top5_share": 0.1833
    },
    {
@@ -414,16 +414,16 @@
    },
    {
     "ministry": "Ministry of Post, Telecommunications & Information Technology",
-    "hhi": 235.6,
+    "hhi": 235.5,
     "vendors": 680,
-    "value_bdt": 53039010000.0,
+    "value_bdt": 53040500000.0,
     "top5_share": 0.2453
    },
    {
     "ministry": "Ministry of Fisheries & Livestock",
     "hhi": 199.4,
-    "vendors": 1122,
-    "value_bdt": 52853000000.0,
+    "vendors": 1123,
+    "value_bdt": 52853100000.0,
     "top5_share": 0.2529
    },
    {
@@ -435,10 +435,10 @@
    },
    {
     "ministry": "Ministry of Food",
-    "hhi": 155.2,
+    "hhi": 155.4,
     "vendors": 609,
-    "value_bdt": 43780710000.0,
-    "top5_share": 0.2038
+    "value_bdt": 43836280000.0,
+    "top5_share": 0.2042
    }
   ],
   "office_top_vendor_share_buckets": {
@@ -620,19 +620,19 @@
   "top_price_points": [
    {
     "value_bdt": 290000.0,
-    "count": 17530,
-    "ltm_share": 0.8673,
+    "count": 17531,
+    "ltm_share": 0.8672,
     "top_method": "LTM"
    },
    {
     "value_bdt": 950000.0,
-    "count": 16474,
-    "ltm_share": 0.9335,
+    "count": 16480,
+    "ltm_share": 0.9336,
     "top_method": "LTM"
    },
    {
     "value_bdt": 280000.0,
-    "count": 14553,
+    "count": 14554,
     "ltm_share": 0.8684,
     "top_method": "LTM"
    },
@@ -650,7 +650,7 @@
    },
    {
     "value_bdt": 300000.0,
-    "count": 10599,
+    "count": 10600,
     "ltm_share": 0.3352,
     "top_method": "OTM"
    },
@@ -662,8 +662,8 @@
    },
    {
     "value_bdt": 380000.0,
-    "count": 9527,
-    "ltm_share": 0.8482,
+    "count": 9528,
+    "ltm_share": 0.8481,
     "top_method": "LTM"
    },
    {
@@ -674,8 +674,8 @@
    },
    {
     "value_bdt": 1420000.0,
-    "count": 8639,
-    "ltm_share": 0.9341,
+    "count": 8640,
+    "ltm_share": 0.934,
     "top_method": "LTM"
    },
    {
@@ -704,7 +704,7 @@
    },
    {
     "value_bdt": 1900000.0,
-    "count": 6720,
+    "count": 6723,
     "ltm_share": 0.9161,
     "top_method": "LTM"
    },
@@ -716,8 +716,8 @@
    },
    {
     "value_bdt": 1140000.0,
-    "count": 5666,
-    "ltm_share": 0.8772,
+    "count": 5667,
+    "ltm_share": 0.877,
     "top_method": "LTM"
    },
    {
@@ -734,8 +734,8 @@
    },
    {
     "value_bdt": 900000.0,
-    "count": 5488,
-    "ltm_share": 0.277,
+    "count": 5491,
+    "ltm_share": 0.2768,
     "top_method": "OTM"
    },
    {
@@ -770,29 +770,29 @@
    }
   ],
   "top20_share_of_all_contracts": 0.2136,
-  "distinct_values": 18495,
-  "ltm_share_overall": 0.4412,
+  "distinct_values": 18496,
+  "ltm_share_overall": 0.4411,
   "histogram_lakh_bins": {
-   "0": 14951,
-   "1": 35954,
-   "2": 62419,
-   "3": 44339,
-   "4": 58210,
-   "5": 36344,
-   "6": 26867,
-   "7": 26504,
-   "8": 22146,
-   "9": 36262,
+   "0": 14952,
+   "1": 35955,
+   "2": 62423,
+   "3": 44342,
+   "4": 58213,
+   "5": 36345,
+   "6": 26870,
+   "7": 26505,
+   "8": 22148,
+   "9": 36276,
    "10": 19981,
-   "11": 17636,
-   "12": 13009,
-   "13": 13833,
-   "14": 19304,
+   "11": 17637,
+   "12": 13010,
+   "13": 13835,
+   "14": 19308,
    "15": 10182,
    "16": 8665,
    "17": 9499,
    "18": 10575,
-   "19": 14416,
+   "19": 14419,
    "20": 8172,
    "21": 6761,
    "22": 7505,
@@ -800,34 +800,34 @@
    "24": 7084,
    "25": 5854,
    "26": 5930,
-   "27": 6199,
+   "27": 6201,
    "28": 7077,
-   "29": 5448,
-   "30": 4781,
+   "29": 5449,
+   "30": 4786,
    "31": 4371,
    "32": 4208,
    "33": 4104,
    "34": 3971,
-   "35": 4058,
+   "35": 4059,
    "36": 4062,
    "37": 3589,
-   "38": 3994,
+   "38": 3995,
    "39": 3515,
-   "40": 3727,
+   "40": 3728,
    "41": 3025,
    "42": 3197,
    "43": 3107,
    "44": 3910,
    "45": 3384,
    "46": 2742,
-   "47": 3533,
+   "47": 3535,
    "48": 2611,
    "49": 3159,
    "50": 2797,
    "51": 2344,
    "52": 2372,
    "53": 2400,
-   "54": 2483,
+   "54": 2484,
    "55": 2119,
    "56": 2217,
    "57": 2277,
@@ -855,13 +855,13 @@
    "ltm_share": 0.1707
   },
   "Elected Government (2026–)": {
-   "count": 70378,
-   "value_bdt": 473950310000.0,
-   "observed_span_days": 208,
-   "contracts_per_day": 338.36,
-   "value_bdt_per_day": 2278607259.62,
-   "otm_share": 0.8165,
-   "ltm_share": 0.1237
+   "count": 70446,
+   "value_bdt": 475025570000.0,
+   "observed_span_days": 209,
+   "contracts_per_day": 337.06,
+   "value_bdt_per_day": 2272849617.22,
+   "otm_share": 0.8168,
+   "ltm_share": 0.1235
   }
  }
 }
