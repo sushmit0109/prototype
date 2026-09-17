@@ -379,6 +379,14 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Item Size Gm Sheets",
+    "count": 8
+   },
+   {
+    "phrase": "Sheets Ream Offset Paper",
+    "count": 8
+   },
+   {
     "phrase": "Stationary Item Size Gm",
     "count": 8
    },
@@ -387,15 +395,7 @@
     "count": 8
    },
    {
-    "phrase": "Sheets Ream Offset Paper",
-    "count": 8
-   },
-   {
     "phrase": "Gm Sheets Ream Offset",
-    "count": 8
-   },
-   {
-    "phrase": "Item Size Gm Sheets",
     "count": 8
    },
    {
@@ -407,7 +407,7 @@
     "count": 7
    },
    {
-    "phrase": "Stationery Item Size Offset",
+    "phrase": "Photocopy Machines Laser Printers",
     "count": 4
    }
   ],
@@ -627,11 +627,11 @@
     "count": 4
    },
    {
-    "phrase": "Lift Brand Schindler Switzerland",
+    "phrase": "Passenger Lift Brand Schindler",
     "count": 4
    },
    {
-    "phrase": "Passenger Lift Brand Schindler",
+    "phrase": "Lift Brand Schindler Switzerland",
     "count": 4
    },
    {
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
+    "phrase": "Computer and Other Equipment",
+    "count": 3
+   },
+   {
     "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
     "phrase": "Equipment Laptop Desktop Computer",
-    "count": 3
-   },
-   {
-    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
@@ -4320,6 +4320,42 @@
     "value_bdt": 4980000.0,
     "contract_signing_date": "2026-03-16",
     "description": "Supply of Computer Laptop & Printer for SDPP Project"
+   }
+  ]
+ },
+ "9841": {
+  "value_bdt": 13150000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 13150000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {
+   "Services": 1
+  },
+  "top_vendors": [
+   {
+    "company": "CAR RENT. COM BD",
+    "value_bdt": 13150000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "IPIMS/GD-09",
+    "awarded_to": "CAR RENT. COM BD",
+    "value_bdt": 13150000.0,
+    "contract_signing_date": "2026-09-16",
+    "description": "Hiring of two microbuses for the project office"
    }
   ]
  }
