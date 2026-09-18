@@ -379,6 +379,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Office Stationary Item Size",
+    "count": 8
+   },
+   {
     "phrase": "Item Size Gm Sheets",
     "count": 8
    },
@@ -387,11 +391,11 @@
     "count": 8
    },
    {
-    "phrase": "Stationary Item Size Gm",
+    "phrase": "Size Gm Sheets Ream",
     "count": 8
    },
    {
-    "phrase": "Size Gm Sheets Ream",
+    "phrase": "Stationary Item Size Gm",
     "count": 8
    },
    {
@@ -399,15 +403,11 @@
     "count": 8
    },
    {
-    "phrase": "Office Stationary Item Size",
-    "count": 8
-   },
-   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Photocopy Machines Laser Printers",
+    "phrase": "Paper Basic Weight Gsm",
     "count": 4
    }
   ],
@@ -627,11 +627,11 @@
     "count": 4
    },
    {
-    "phrase": "Passenger Lift Brand Schindler",
+    "phrase": "Lift Brand Schindler Switzerland",
     "count": 4
    },
    {
-    "phrase": "Lift Brand Schindler Switzerland",
+    "phrase": "Passenger Lift Brand Schindler",
     "count": 4
    },
    {
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Offset Paper Gsm White",
+    "phrase": "Paper Gsm White Paper",
     "count": 3
    }
   ],
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
+    "phrase": "Equipment Laptop Desktop Computer",
+    "count": 3
+   },
+   {
     "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
     "phrase": "Other Equipment Laptop Desktop",
-    "count": 3
-   },
-   {
-    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
@@ -3494,12 +3494,12 @@
   ]
  },
  "8100": {
-  "value_bdt": 2140000.0,
-  "count": 3,
+  "value_bdt": 2830000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 2140000.0,
-    "count": 3
+    "value_bdt": 2830000.0,
+    "count": 4
    }
   },
   "by_nature": {},
@@ -3515,6 +3515,11 @@
     "count": 1
    },
    {
+    "company": "N. S. L",
+    "value_bdt": 690000.0,
+    "count": 1
+   },
+   {
     "company": "Jomadder Enterprise",
     "value_bdt": 670000.0,
     "count": 1
@@ -3523,7 +3528,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -3541,6 +3546,13 @@
     "value_bdt": 730000.0,
     "contract_signing_date": "2026-09-01",
     "description": "Procurement of Computers supplies (Printer toner Photocopier toner etc.)"
+   },
+   {
+    "package_ref": "52.01.0000.000.351.01.0013.26.1009",
+    "awarded_to": "N. S. L",
+    "value_bdt": 690000.0,
+    "contract_signing_date": "2026-09-17",
+    "description": "Procurement of Survey (bag)"
    },
    {
     "package_ref": "52.01.0000.351.01.014.26.957",

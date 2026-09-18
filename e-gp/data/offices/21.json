@@ -1240,11 +1240,11 @@
     "count": 6
    },
    {
-    "phrase": "Repair Painting",
+    "phrase": "External Repair",
     "count": 5
    },
    {
-    "phrase": "External Repair",
+    "phrase": "Repair Painting",
     "count": 5
    }
   ],
@@ -4005,19 +4005,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Shilpa Nagar Development Project",
-    "count": 3
-   },
-   {
-    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
-    "count": 3
-   },
-   {
     "phrase": "Sheikh Mujib Shilpa Nagar",
     "count": 3
    },
    {
     "phrase": "Mujib Shilpa Nagar Development",
+    "count": 3
+   },
+   {
+    "phrase": "Shilpa Nagar Development Project",
+    "count": 3
+   },
+   {
+    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
     "count": 3
    }
   ],
@@ -4173,11 +4173,11 @@
     "count": 4
    },
    {
-    "phrase": "Window Along Repair-painting",
+    "phrase": "Steel Window Along",
     "count": 3
    },
    {
-    "phrase": "Steel Window Along",
+    "phrase": "Window Along Repair-painting",
     "count": 3
    },
    {
@@ -4789,11 +4789,11 @@
     "count": 6
    },
    {
-    "phrase": "Solar Street Light Patuakhali",
+    "phrase": "Street Light Patuakhali Project",
     "count": 4
    },
    {
-    "phrase": "Street Light Patuakhali Project",
+    "phrase": "Solar Street Light Patuakhali",
     "count": 4
    },
    {
@@ -4801,7 +4801,7 @@
     "count": 4
    },
    {
-    "phrase": "Network Group Patuakhali Project",
+    "phrase": "Water Distribution Network Group",
     "count": 3
    },
    {
@@ -4809,7 +4809,7 @@
     "count": 3
    },
    {
-    "phrase": "Water Distribution Network Group",
+    "phrase": "Network Group Patuakhali Project",
     "count": 3
    }
   ],
@@ -4906,11 +4906,11 @@
     "count": 8
    },
    {
-    "phrase": "Sector Karnaphuli North Patenga",
+    "phrase": "Plot Sector Karnaphuli North",
     "count": 4
    },
    {
-    "phrase": "Plot Sector Karnaphuli North",
+    "phrase": "Sector Karnaphuli North Patenga",
     "count": 4
    },
    {
@@ -4922,15 +4922,15 @@
     "count": 3
    },
    {
+    "phrase": "Dense Bituminous Carpeting Plot",
+    "count": 3
+   },
+   {
     "phrase": "Road Dense Bituminous Carpeting",
     "count": 3
    },
    {
-    "phrase": "Carpeting Plot Sector Karnaphuli",
-    "count": 3
-   },
-   {
-    "phrase": "Dense Bituminous Carpeting Plot",
+    "phrase": "Bituminous Carpeting Plot Sector",
     "count": 3
    }
   ],
@@ -5135,21 +5135,21 @@
   ]
  },
  "7273": {
-  "value_bdt": 922430000.0,
-  "count": 39,
+  "value_bdt": 1010980000.0,
+  "count": 40,
   "by_year": {
    "2025": {
     "value_bdt": 197830000.0,
     "count": 10
    },
    "2026": {
-    "value_bdt": 724600000.0,
-    "count": 29
+    "value_bdt": 813150000.0,
+    "count": 30
    }
   },
   "by_nature": {
    "Goods": 2,
-   "Works": 34
+   "Works": 35
   },
   "top_vendors": [
    {
@@ -5168,20 +5168,20 @@
     "count": 1
    },
    {
+    "company": "S.H.K Construction (Pvt) Ltd.",
+    "value_bdt": 88550000.0,
+    "count": 1
+   },
+   {
     "company": "Shamim Enterprise",
     "value_bdt": 65870000.0,
     "count": 3
-   },
-   {
-    "company": "S A S Engineering",
-    "value_bdt": 30850000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 39
+    "count": 40
    }
   ],
   "top_phrases": [
@@ -5241,18 +5241,18 @@
     "description": "Construction of RCC Retaining wall for strengthening the security system and protection of excessive earth pressure of adjacent ring road at the west periphery "
    },
    {
+    "package_ref": "03.06.1535.325.07.717.25",
+    "awarded_to": "S.H.K Construction (Pvt) Ltd.",
+    "value_bdt": 88550000.0,
+    "contract_signing_date": "2026-09-17",
+    "description": "Construction of RCC Retaining wall for strengthening the security system and protection of excessive earth pressure of the adjacent ring road at the sector 1/A "
+   },
+   {
     "package_ref": "03.06.1565.325.18.961.2025",
     "awarded_to": "S A S Engineering",
     "value_bdt": 30850000.0,
     "contract_signing_date": "2026-07-08",
     "description": "Up-gradation of road with rigid pavement from plot# 41-12 sector# 01 at Karnaphuli EPZ North Patenga Chattogram"
-   },
-   {
-    "package_ref": "03.06.1565.325.18.958.2025",
-    "awarded_to": "Shamim Enterprise",
-    "value_bdt": 30080000.0,
-    "contract_signing_date": "2026-07-13",
-    "description": "Up-gradation of footpath & road with rigid pavement from plot# 17-39 & 95-47 at sector# 01 at Karnaphuli EPZ North Patenga Chattogram"
    }
   ]
  },
