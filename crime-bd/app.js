@@ -653,6 +653,13 @@ function renderTimeline() {
 
 const RAMP_R = ['--r-200','--r-300','--r-400','--r-500','--r-600','--r-800'];
 const RAMP_C = ['--c-200','--c-300','--c-400','--c-500','--c-600','--c-800'];
+/* Diverging, for the year grid only. The maps stay on a single-hue ramp:
+   a choropleth shows magnitude, and magnitude takes one hue. The grid is
+   asking a different question -- was this month better or worse than a
+   normal month -- and that has a sign, so it takes two hues either side of
+   a midpoint. The six bins are equal-count, so the break between the third
+   and fourth IS the median: the colour flips exactly at typical. */
+const RAMP_D = ['--d1','--d2','--d3','--d4','--d5','--d6'];
 
 /** Division choropleth: the Range jurisdictions, one polygon each. */
 function renderRangeMap() {
@@ -1015,7 +1022,7 @@ function seasonGrid(host) {
   const cw = (W - padL - padR) / 12, ch = 30, gap = 2;
   const H = padT + YEARS.length * ch + 8;
   const all = Object.values(M).flat().filter((v) => v != null);
-  const breaks = quantileBreaks(all, RAMP_R.length);
+  const breaks = quantileBreaks(all, RAMP_D.length);
   const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' });
   svg.setAttribute('aria-label', `${offenceName()} by month and year`);
 
@@ -1029,7 +1036,7 @@ function seasonGrid(host) {
       const r = el('rect', {
         x: padL + i * cw + gap / 2, y: padT + yi * ch + gap / 2,
         width: cw - gap, height: ch - gap, rx: 3,
-        fill: v == null ? 'var(--empty)' : `var(${RAMP_R[b]})`,
+        fill: v == null ? 'var(--empty)' : `var(${RAMP_D[b]})`,
       });
       if (v != null) hoverable(r, `<div class="t-name">${T.monthsLong[i]} ${yearLabel(yr)}</div>
         <div class="t-row"><span>${offenceName()}</span><b>${fmt(v)}</b></div>
@@ -1039,9 +1046,12 @@ function seasonGrid(host) {
   });
   host.replaceChildren(svg);
   const lo = Math.min(...all), hi = Math.max(...all);
+  // Name the midpoint. A diverging ramp is only readable if you know what the
+  // colour is diverging around, and here that is the median month.
+  const mid = breaks[Math.floor(RAMP_D.length / 2) - 1];
   $('#season-legend').innerHTML =
-    `<span>${fmtCompact(lo)}</span><span class="ramp">${RAMP_R.map((r) => `<i style="background:var(${r})"></i>`).join('')}</span><span>${fmtCompact(hi)}</span>` +
-    `<span style="color:var(--text-muted)">${T.casesPerMonth} · ${T.equalBins} · ${T.notPublished}</span>`;
+    `<span>${fmtCompact(lo)}</span><span class="ramp">${RAMP_D.map((r) => `<i style="background:var(${r})"></i>`).join('')}</span><span>${fmtCompact(hi)}</span>` +
+    `<span style="color:var(--text-muted)">${T.casesPerMonth} · ${T.medianIs(fmtCompact(mid))} · ${T.notPublished}</span>`;
   $('#season-hint').textContent = T.seasonHintGrid;
 }
 
@@ -1318,13 +1328,53 @@ Promise.all([
  *  on the same twelve months so seasonality separates from level, "By
  *  government" runs the whole record with the tenure bands behind it so the
  *  handovers line up across every category at once. */
+/* How far the current period sits above or below the ones before it, for one
+   offence -- the number the panels are ordered by. It is deliberately the same
+   comparison the panel is drawing: in "By year" the current year against the
+   same months of earlier years, in "By government" the sitting government
+   against the ones before it. Comparing like months matters; 2026 stops in
+   August, and measuring a part-year against full years would rank every
+   offence by how much of the year is missing. */
+function smLift(ci) {
+  if (state.sm === 'gov') {
+    const cur = tenureRate(ci, TENURES[TENURES.length - 1]);
+    const prior = TENURES.slice(0, -1).map((t) => tenureRate(ci, t)).filter((v) => v > 0);
+    if (!prior.length || !(cur > 0)) return null;
+    const base = prior.reduce((a, b) => a + b, 0) / prior.length;
+    return base > 0 ? cur / base - 1 : null;
+  }
+  const s = series(ci);
+  const M = {};
+  YEARS.forEach((y) => (M[y] = new Array(12).fill(null)));
+  DATA.months.forEach((ym, i) => { M[ym.slice(0, 4)][+ym.slice(5, 7) - 1] = s[i]; });
+  const curY = YEARS[YEARS.length - 1];
+  const months = [];
+  M[curY].forEach((v, i) => { if (v != null) months.push(i); });
+  if (!months.length) return null;
+  const sum = (y) => months.reduce((a, i) => a + (M[y][i] ?? 0), 0);
+  const prior = YEARS.slice(0, -1).filter((y) => months.every((i) => M[y][i] != null));
+  if (!prior.length) return null;
+  const base = prior.reduce((a, y) => a + sum(y), 0) / prior.length;
+  return base > 0 ? sum(curY) / base - 1 : null;
+}
+
 function renderSmallMultiples() {
   const host = $('#smallmults');
   host.replaceChildren();
   const grid = document.createElement('div');
   grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px';
 
-  CATS.forEach((cat, ci) => {
+  // Steepest rise first, so the offences that are running above their own
+  // history are the ones you meet at the top. Anything with no comparable
+  // history sorts last rather than being dropped.
+  const order = CATS.map((_, ci) => ci).sort((a, b) => {
+    const la = smLift(a), lb = smLift(b);
+    if (la == null && lb == null) return a - b;
+    if (la == null) return 1;
+    if (lb == null) return -1;
+    return lb - la;
+  });
+  order.forEach((ci) => {
     const cardEl = document.createElement('button');
     cardEl.type = 'button';
     const on = state.offences.has(ci);
@@ -1333,8 +1383,19 @@ function renderSmallMultiples() {
       border:1px solid ${on ? 'var(--border-strong)' : 'var(--border)'};width:100%`;
     cardEl.setAttribute('aria-pressed', String(on));
     const head = document.createElement('div');
-    head.style.cssText = 'font-size:.78rem;font-weight:650;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
-    head.textContent = crimeLabel(ci);
+    head.style.cssText = 'display:flex;align-items:baseline;gap:6px;font-size:.78rem;font-weight:650;margin-bottom:4px';
+    const nm = document.createElement('span');
+    nm.style.cssText = 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1';
+    nm.textContent = crimeLabel(ci);
+    head.appendChild(nm);
+    // Show the number the order is built on, or the ordering looks arbitrary.
+    const lift = smLift(ci);
+    if (lift != null) {
+      const badge = document.createElement('span');
+      badge.style.cssText = `flex:none;font-size:.72rem;font-weight:650;color:var(${lift > 0 ? '--up' : '--down'})`;
+      badge.textContent = pctStr(lift * 100);
+      head.appendChild(badge);
+    }
     cardEl.appendChild(head);
     cardEl.appendChild(state.sm === 'gov' ? smGov(ci) : smYear(ci));
     cardEl.addEventListener('click', () => { toggleOffence(ci); render(); });
