@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 872694,
-  "nature_matched": 462202,
+  "record_count": 872768,
+  "nature_matched": 462220,
   "nature_match_rate": 0.53
  },
  "top_offices_by_value": [
@@ -953,11 +953,11 @@
  "ministries_by_value": [
   {
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 360766,
-   "value_bdt": 3042165520000.0,
+   "count": 360794,
+   "value_bdt": 3042222470000.0,
    "by_nature": {
-    "Works": 139027,
-    "Goods": 10761,
+    "Works": 139028,
+    "Goods": 10762,
     "Goods (Framework Agreement)": 86,
     "Services": 13,
     "Physical Services": 11
@@ -987,10 +987,10 @@
   },
   {
    "ministry": "Ministry of Road Transport and Bridges",
-   "count": 49430,
-   "value_bdt": 987447620000.0,
+   "count": 49431,
+   "value_bdt": 987480110000.0,
    "by_nature": {
-    "Works": 29815,
+    "Works": 29816,
     "Goods": 15696,
     "Goods (Framework Agreement)": 7,
     "Physical Services": 20,
@@ -1021,11 +1021,11 @@
   },
   {
    "ministry": "Ministry of Education",
-   "count": 98442,
-   "value_bdt": 739545770000.0,
+   "count": 98448,
+   "value_bdt": 739572870000.0,
    "by_nature": {
     "Goods": 26309,
-    "Works": 18273,
+    "Works": 18275,
     "Goods (Framework Agreement)": 74,
     "Physical Services": 16,
     "Services": 15
@@ -1087,8 +1087,8 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "count": 132736,
-   "value_bdt": 619670990000.0,
+   "count": 132737,
+   "value_bdt": 619671100000.0,
    "by_nature": {
     "Works": 47590,
     "Goods": 3119,
@@ -1120,18 +1120,18 @@
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 55197,
-   "value_bdt": 295717270000.0,
+   "count": 55211,
+   "value_bdt": 296129320000.0,
    "by_nature": {
-    "Goods": 17459,
-    "Works": 24868,
+    "Goods": 17465,
+    "Works": 24870,
     "Goods (Framework Agreement)": 44,
     "Physical Services": 175
    },
    "top_vendors": [
     {
      "company": "BRB Cable Industries Ltd.",
-     "value_bdt": 14929260000.0
+     "value_bdt": 15200750000.0
     },
     {
      "company": "Rangpur Metal Industries Ltd",
@@ -1153,10 +1153,10 @@
   },
   {
    "ministry": "Ministry of Shipping",
-   "count": 13384,
-   "value_bdt": 163191780000.0,
+   "count": 13385,
+   "value_bdt": 163192900000.0,
    "by_nature": {
-    "Works": 3637,
+    "Works": 3638,
     "Goods": 3858,
     "Physical Services": 18,
     "Goods (Framework Agreement)": 3
@@ -1186,8 +1186,8 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "count": 29752,
-   "value_bdt": 150403710000.0,
+   "count": 29754,
+   "value_bdt": 150407400000.0,
    "by_nature": {
     "Goods": 11962,
     "Works": 4694,
@@ -1253,10 +1253,10 @@
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "count": 14916,
-   "value_bdt": 89802960000.0,
+   "count": 14919,
+   "value_bdt": 89813920000.0,
    "by_nature": {
-    "Goods": 11382,
+    "Goods": 11384,
     "Works": 1329,
     "Goods (Framework Agreement)": 605,
     "Physical Services": 41
@@ -1319,8 +1319,8 @@
   },
   {
    "ministry": "Ministry of Fisheries & Livestock",
-   "count": 5413,
-   "value_bdt": 53886640000.0,
+   "count": 5416,
+   "value_bdt": 53886940000.0,
    "by_nature": {
     "Works": 1337,
     "Goods": 3504,
@@ -1353,8 +1353,8 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "count": 1427,
-   "value_bdt": 53096970000.0,
+   "count": 1435,
+   "value_bdt": 53097680000.0,
    "by_nature": {
     "Goods": 687,
     "Works": 395,
@@ -1516,8 +1516,8 @@
   },
   {
    "ministry": "Ministry of Industries",
-   "count": 4963,
-   "value_bdt": 34611140000.0,
+   "count": 4967,
+   "value_bdt": 34621260000.0,
    "by_nature": {
     "Goods": 2311,
     "Works": 346,
@@ -1747,13 +1747,13 @@
   },
   {
    "ministry": "Ministry of Environment, Forest and Climate Change",
-   "count": 3588,
-   "value_bdt": 8916330000.0,
+   "count": 3589,
+   "value_bdt": 8917200000.0,
    "by_nature": {
     "Goods": 1612,
     "Works": 1190,
     "Physical Services": 36,
-    "Goods (Framework Agreement)": 46,
+    "Goods (Framework Agreement)": 47,
     "Services": 6
    },
    "top_vendors": [
@@ -1911,8 +1911,8 @@
   },
   {
    "ministry": "Ministry of Expatriates' Welfare and Overseas Employment",
-   "count": 530,
-   "value_bdt": 4151670000.0,
+   "count": 531,
+   "value_bdt": 4151940000.0,
    "by_nature": {
     "Goods": 203,
     "Works": 30,
@@ -2417,6 +2417,20 @@
     {
      "company": "HRS CORPORATION",
      "value_bdt": 450000.0
+    }
+   ]
+  },
+  {
+   "ministry": "Office of the Comptroller and Auditor General of Bangladesh",
+   "count": 1,
+   "value_bdt": 9740000.0,
+   "by_nature": {
+    "Services": 1
+   },
+   "top_vendors": [
+    {
+     "company": "Didarul Alam",
+     "value_bdt": 9740000.0
     }
    ]
   },
@@ -3698,8 +3712,8 @@
   },
   {
    "company": "M/S Mahi Enterprise",
-   "value_bdt": 1343740000.0,
-   "count": 505,
+   "value_bdt": 1344690000.0,
+   "count": 506,
    "distinct_ministries": 21,
    "ministries": [
     {

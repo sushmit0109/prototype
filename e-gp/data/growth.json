@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56411,
+  "vendors_scanned": 56417,
   "ownership_groups_checked": 225
  },
  "top_growers": [
@@ -2372,32 +2372,32 @@
    "shared_owner_keys": []
   },
   {
-   "company": "ML and MH (JV)",
-   "company_key": "ml and mh (jv)",
-   "first_year": "2026",
+   "company": "Confidence Infrastructure PLC",
+   "company_key": "confidence infrastructure plc",
+   "first_year": "2025",
    "baseline_value_bdt": 0,
    "baseline_count": 0,
-   "recent_value_bdt": 1806440000.0,
-   "recent_count": 1,
+   "recent_value_bdt": 1811830000.0,
+   "recent_count": 12,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 0,
      "value_bdt": 0.0
     },
     "Interim Government (2024–2026)": {
-     "count": 0,
-     "value_bdt": 0.0
+     "count": 4,
+     "value_bdt": 499640000.0
     },
     "Elected Government (2026–)": {
-     "count": 1,
-     "value_bdt": 1806440000.0
+     "count": 8,
+     "value_bdt": 1312190000.0
     }
    },
-   "recent_distinct_ministries": 1,
-   "recent_top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "recent_distinct_offices": 1,
-   "recent_top_office": "Office of the Executive Engineer, LGED, Sunamganj",
-   "recent_top_office_share": 1.0,
+   "recent_distinct_ministries": 2,
+   "recent_top_ministry": "Ministry of Energy, Power and Mineral Resources",
+   "recent_distinct_offices": 5,
+   "recent_top_office": "Directorate of Purchase",
+   "recent_top_office_share": 0.3333,
    "shared_owner_keys": []
   }
  ],
