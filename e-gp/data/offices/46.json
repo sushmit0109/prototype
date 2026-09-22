@@ -453,10 +453,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Complexes District Level St",
-    "count": 5
-   },
-   {
     "phrase": "District Level St Phase",
     "count": 5
    },
@@ -469,15 +465,19 @@
     "count": 5
    },
    {
+    "phrase": "Complexes District Level St",
+    "count": 5
+   },
+   {
     "phrase": "Tangail and Magura Information",
     "count": 5
    },
    {
-    "phrase": "Office the Project Construction",
+    "phrase": "Project Office the Project",
     "count": 3
    },
    {
-    "phrase": "Project Office the Project",
+    "phrase": "Office the Project Construction",
     "count": 3
    },
    {
@@ -1001,11 +1001,11 @@
     "count": 7
    },
    {
-    "phrase": "Broadcasting House Bangladesh Radio",
+    "phrase": "House Bangladesh Radio Dhaka",
     "count": 5
    },
    {
-    "phrase": "House Bangladesh Radio Dhaka",
+    "phrase": "Broadcasting House Bangladesh Radio",
     "count": 5
    },
    {
@@ -3021,16 +3021,21 @@
   ]
  },
  "9812": {
-  "value_bdt": 100000.0,
-  "count": 1,
+  "value_bdt": 330000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 100000.0,
-    "count": 1
+    "value_bdt": 330000.0,
+    "count": 2
    }
   },
   "by_nature": {},
   "top_vendors": [
+   {
+    "company": "M/S. Turag Enterprise",
+    "value_bdt": 230000.0,
+    "count": 1
+   },
    {
     "company": "T. S. Enterprise",
     "value_bdt": 100000.0,
@@ -3040,11 +3045,18 @@
   "top_districts": [
    {
     "district": "Rangpur",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "15.53.8500.319.07.001.26.254",
+    "awarded_to": "M/S. Turag Enterprise",
+    "value_bdt": 230000.0,
+    "contract_signing_date": "2026-09-21",
+    "description": "Purchase of Electrical Goods and Related Items"
+   },
    {
     "package_ref": "15.53.8500.319.07.001.26.82-13/08/2026",
     "awarded_to": "T. S. Enterprise",
