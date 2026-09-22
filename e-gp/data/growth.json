@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56428,
+  "vendors_scanned": 56442,
   "ownership_groups_checked": 225
  },
  "top_growers": [
@@ -1729,6 +1729,35 @@
    "shared_owner_keys": []
   },
   {
+   "company": "Global Brand PLC.",
+   "company_key": "global brand plc",
+   "first_year": "2024",
+   "baseline_value_bdt": 0,
+   "baseline_count": 0,
+   "recent_value_bdt": 2460660000.0,
+   "recent_count": 112,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 3,
+     "value_bdt": 384090000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 63,
+     "value_bdt": 791670000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 46,
+     "value_bdt": 1284900000.0
+    }
+   },
+   "recent_distinct_ministries": 22,
+   "recent_top_ministry": "Ministry of Education",
+   "recent_distinct_offices": 77,
+   "recent_top_office": "Bangladesh Computer Council(BCC)",
+   "recent_top_office_share": 0.0446,
+   "shared_owner_keys": []
+  },
+  {
    "company": "ECO-SOCIAL DEVELOPMENT ORGANIZATION (ESDO)",
    "company_key": "eco-social development organization (esdo)",
    "first_year": "2025",
@@ -1873,35 +1902,6 @@
    "recent_distinct_offices": 1,
    "recent_top_office": "Office of the Project Director (EIAA)",
    "recent_top_office_share": 1.0,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "Global Brand PLC.",
-   "company_key": "global brand plc",
-   "first_year": "2024",
-   "baseline_value_bdt": 0,
-   "baseline_count": 0,
-   "recent_value_bdt": 2266020000.0,
-   "recent_count": 111,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 3,
-     "value_bdt": 384090000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 63,
-     "value_bdt": 791670000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 45,
-     "value_bdt": 1090260000.0
-    }
-   },
-   "recent_distinct_ministries": 22,
-   "recent_top_ministry": "Ministry of Education",
-   "recent_distinct_offices": 76,
-   "recent_top_office": "Bangladesh Computer Council(BCC)",
-   "recent_top_office_share": 0.045,
    "shared_owner_keys": []
   },
   {

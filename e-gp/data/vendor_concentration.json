@@ -1,9 +1,9 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 872835,
-  "district_month_cells_total": 10038,
-  "district_month_cells_kept": 9625,
+  "total_contracts": 872958,
+  "district_month_cells_total": 10041,
+  "district_month_cells_kept": 9629,
   "min_contracts_for_hhi": 3,
   "unmatched_district_strings": {}
  },
@@ -1275,11 +1275,11 @@
      "top_vendor_display": "Md. Emtiaz Asif"
     },
     "2026-09": {
-     "hhi": 0.5172,
-     "n_vendors": 8,
-     "n_contracts": 9,
-     "total_value_bdt": 769150000.0,
-     "top_vendor_share": 0.6185,
+     "hhi": 0.5168,
+     "n_vendors": 9,
+     "n_contracts": 10,
+     "total_value_bdt": 769420000.0,
+     "top_vendor_share": 0.6183,
      "top_vendor_display": "BRB Cable Industries Ltd."
     }
    }
@@ -2557,6 +2557,14 @@
      "total_value_bdt": 724160000.0,
      "top_vendor_share": 0.6386,
      "top_vendor_display": "Monir Engineering And Construction Ltd."
+    },
+    "2026-09": {
+     "hhi": 0.8519,
+     "n_vendors": 3,
+     "n_contracts": 3,
+     "total_value_bdt": 13770000.0,
+     "top_vendor_share": 0.9201,
+     "top_vendor_display": "ms.amir enterprise"
     }
    }
   },
@@ -6209,6 +6217,14 @@
      "total_value_bdt": 1799410000.0,
      "top_vendor_share": 0.0904,
      "top_vendor_display": "M/S Sundarbon"
+    },
+    "2026-09": {
+     "hhi": 0.8865,
+     "n_vendors": 3,
+     "n_contracts": 3,
+     "total_value_bdt": 7370000.0,
+     "top_vendor_share": 0.9403,
+     "top_vendor_display": "M/S. ABEDIN ENTERPRISE"
     }
    }
   },
@@ -7431,11 +7447,11 @@
      "top_vendor_display": "Md. Khairul Kabir Rana"
     },
     "2026-09": {
-     "hhi": 0.193,
-     "n_vendors": 10,
-     "n_contracts": 13,
-     "total_value_bdt": 60280000.0,
-     "top_vendor_share": 0.2336,
+     "hhi": 0.1416,
+     "n_vendors": 15,
+     "n_contracts": 18,
+     "total_value_bdt": 77460000.0,
+     "top_vendor_share": 0.1818,
      "top_vendor_display": "SML CONSTRUCTION"
     }
    }
@@ -9911,12 +9927,12 @@
      "top_vendor_display": "TCEL-SEL JV"
     },
     "2026-09": {
-     "hhi": 0.0307,
-     "n_vendors": 219,
-     "n_contracts": 258,
-     "total_value_bdt": 3656590000.0,
-     "top_vendor_share": 0.0702,
-     "top_vendor_display": "FortInn-AFRA JV"
+     "hhi": 0.0367,
+     "n_vendors": 239,
+     "n_contracts": 284,
+     "total_value_bdt": 4510330000.0,
+     "top_vendor_share": 0.1207,
+     "top_vendor_display": "Trade East West Corporation Ltd"
     }
    }
   },
@@ -11147,11 +11163,11 @@
      "top_vendor_display": "Hasan B. Baria Enterprise Limited"
     },
     "2026-09": {
-     "hhi": 0.1875,
-     "n_vendors": 17,
-     "n_contracts": 21,
-     "total_value_bdt": 73660000.0,
-     "top_vendor_share": 0.3809,
+     "hhi": 0.1236,
+     "n_vendors": 26,
+     "n_contracts": 31,
+     "total_value_bdt": 92620000.0,
+     "top_vendor_share": 0.303,
      "top_vendor_display": "M/S Hassan Enterprise"
     }
    }
@@ -13611,11 +13627,11 @@
      "top_vendor_display": "GBL-MAE (JV)"
     },
     "2026-09": {
-     "hhi": 0.2388,
-     "n_vendors": 53,
-     "n_contracts": 75,
-     "total_value_bdt": 228010000.0,
-     "top_vendor_share": 0.4512,
+     "hhi": 0.2335,
+     "n_vendors": 57,
+     "n_contracts": 82,
+     "total_value_bdt": 230620000.0,
+     "top_vendor_share": 0.4461,
      "top_vendor_display": "AxEnTec PLC."
     }
    }
@@ -14759,11 +14775,11 @@
      "top_vendor_display": "Orient Trading & Builders Ltd."
     },
     "2026-09": {
-     "hhi": 0.8596,
-     "n_vendors": 4,
-     "n_contracts": 4,
-     "total_value_bdt": 20290000.0,
-     "top_vendor_share": 0.9251,
+     "hhi": 0.5995,
+     "n_vendors": 7,
+     "n_contracts": 13,
+     "total_value_bdt": 24660000.0,
+     "top_vendor_share": 0.7612,
      "top_vendor_display": "M/S NODI TRADE INTERNATIONAL"
     }
    }
@@ -17151,11 +17167,11 @@
      "top_vendor_display": "Ratna Enterprise"
     },
     "2026-09": {
-     "hhi": 0.6515,
-     "n_vendors": 3,
-     "n_contracts": 3,
-     "total_value_bdt": 2840000.0,
-     "top_vendor_share": 0.7923,
+     "hhi": 0.4054,
+     "n_vendors": 6,
+     "n_contracts": 6,
+     "total_value_bdt": 3680000.0,
+     "top_vendor_share": 0.6114,
      "top_vendor_display": "Data Solutions Ltd"
     }
    }
@@ -20859,11 +20875,11 @@
      "top_vendor_display": "Mohammed Eunus & Brothers (Pvt.) Ltd."
     },
     "2026-09": {
-     "hhi": 0.0886,
-     "n_vendors": 19,
-     "n_contracts": 24,
-     "total_value_bdt": 1880830000.0,
-     "top_vendor_share": 0.1616,
+     "hhi": 0.0857,
+     "n_vendors": 23,
+     "n_contracts": 28,
+     "total_value_bdt": 1916240000.0,
+     "top_vendor_share": 0.1586,
      "top_vendor_display": "Barendra Construction Ltd."
     }
    }
@@ -23275,11 +23291,11 @@
      "top_vendor_display": "M/S Akon Trading"
     },
     "2026-09": {
-     "hhi": 0.2233,
-     "n_vendors": 7,
-     "n_contracts": 7,
-     "total_value_bdt": 49500000.0,
-     "top_vendor_share": 0.3113,
+     "hhi": 0.2098,
+     "n_vendors": 8,
+     "n_contracts": 8,
+     "total_value_bdt": 51210000.0,
+     "top_vendor_share": 0.3009,
      "top_vendor_display": "AMEL & Rudra JV"
     }
    }
@@ -24495,11 +24511,11 @@
      "top_vendor_display": "RPCPL - MAF (JV)"
     },
     "2026-09": {
-     "hhi": 0.3851,
-     "n_vendors": 19,
-     "n_contracts": 29,
-     "total_value_bdt": 386370000.0,
-     "top_vendor_share": 0.5976,
+     "hhi": 0.3844,
+     "n_vendors": 20,
+     "n_contracts": 30,
+     "total_value_bdt": 386710000.0,
+     "top_vendor_share": 0.5971,
      "top_vendor_display": "Pasha Electro Industries Ltd."
     }
    }
@@ -26845,6 +26861,14 @@
      "total_value_bdt": 696580000.0,
      "top_vendor_share": 0.1103,
      "top_vendor_display": "M/S Hamim International"
+    },
+    "2026-09": {
+     "hhi": 0.0722,
+     "n_vendors": 16,
+     "n_contracts": 18,
+     "total_value_bdt": 26060000.0,
+     "top_vendor_share": 0.1454,
+     "top_vendor_display": "M/S RAHIM ENTERPRISE"
     }
    }
   },
@@ -31655,12 +31679,12 @@
      "top_vendor_display": "S-U Consortium"
     },
     "2026-09": {
-     "hhi": 0.1684,
-     "n_vendors": 12,
-     "n_contracts": 12,
-     "total_value_bdt": 111030000.0,
-     "top_vendor_share": 0.267,
-     "top_vendor_display": "R J TRADE INTERNATIONAL"
+     "hhi": 0.1207,
+     "n_vendors": 18,
+     "n_contracts": 19,
+     "total_value_bdt": 173320000.0,
+     "top_vendor_share": 0.1988,
+     "top_vendor_display": "M/S Madina Construction"
     }
    }
   },
@@ -32891,11 +32915,11 @@
      "top_vendor_display": "M/S. M.A. ENGINEERING- M/S SAMIHA ENTERPRISE JV"
     },
     "2026-09": {
-     "hhi": 0.8545,
-     "n_vendors": 5,
-     "n_contracts": 9,
-     "total_value_bdt": 50150000.0,
-     "top_vendor_share": 0.9214,
+     "hhi": 0.3981,
+     "n_vendors": 7,
+     "n_contracts": 12,
+     "total_value_bdt": 86610000.0,
+     "top_vendor_share": 0.5335,
      "top_vendor_display": "BONDHU CONSTRUCTION"
     }
    }
@@ -37771,11 +37795,11 @@
      "top_vendor_display": "M/S Ahad Builders"
     },
     "2026-09": {
-     "hhi": 0.5174,
-     "n_vendors": 8,
-     "n_contracts": 10,
-     "total_value_bdt": 32780000.0,
-     "top_vendor_share": 0.7102,
+     "hhi": 0.495,
+     "n_vendors": 9,
+     "n_contracts": 11,
+     "total_value_bdt": 33530000.0,
+     "top_vendor_share": 0.6943,
      "top_vendor_display": "OHI-MAHI ENTERPRISE"
     }
    }
@@ -42587,11 +42611,11 @@
      "top_vendor_display": "Super Star Renewable Energy Limited"
     },
     "2026-09": {
-     "hhi": 0.1624,
-     "n_vendors": 16,
-     "n_contracts": 18,
-     "total_value_bdt": 118690000.0,
-     "top_vendor_share": 0.2382,
+     "hhi": 0.1602,
+     "n_vendors": 18,
+     "n_contracts": 20,
+     "total_value_bdt": 119540000.0,
+     "top_vendor_share": 0.2365,
      "top_vendor_display": "M/S LAMIA TRADERS"
     }
    }
@@ -45059,11 +45083,11 @@
      "top_vendor_display": "Elhose Engineering & Contracting Co."
     },
     "2026-09": {
-     "hhi": 0.1522,
+     "hhi": 0.1425,
      "n_vendors": 31,
-     "n_contracts": 36,
-     "total_value_bdt": 37880000.0,
-     "top_vendor_share": 0.3548,
+     "n_contracts": 37,
+     "total_value_bdt": 47970000.0,
+     "top_vendor_share": 0.2802,
      "top_vendor_display": "AL-AMIN CORPORATION"
     }
    }
@@ -47539,11 +47563,11 @@
      "top_vendor_display": "Mohammed Eunus & Brothers (Pvt.) Ltd."
     },
     "2026-09": {
-     "hhi": 0.1025,
-     "n_vendors": 13,
-     "n_contracts": 15,
-     "total_value_bdt": 8260000.0,
-     "top_vendor_share": 0.1804,
+     "hhi": 0.0902,
+     "n_vendors": 14,
+     "n_contracts": 17,
+     "total_value_bdt": 9330000.0,
+     "top_vendor_share": 0.1597,
      "top_vendor_display": "Z S Technologies"
     }
    }
@@ -50059,11 +50083,11 @@
      "top_vendor_display": "UCC-SEL JV"
     },
     "2026-09": {
-     "hhi": 0.0888,
-     "n_vendors": 29,
-     "n_contracts": 33,
-     "total_value_bdt": 101530000.0,
-     "top_vendor_share": 0.2138,
+     "hhi": 0.0875,
+     "n_vendors": 30,
+     "n_contracts": 34,
+     "total_value_bdt": 102310000.0,
+     "top_vendor_share": 0.2122,
      "top_vendor_display": "M/S LITON DRUG HOUSE"
     }
    }
@@ -51303,11 +51327,11 @@
      "top_vendor_display": "Farees Construction Limited"
     },
     "2026-09": {
-     "hhi": 0.2336,
-     "n_vendors": 54,
-     "n_contracts": 68,
-     "total_value_bdt": 459650000.0,
-     "top_vendor_share": 0.3683,
+     "hhi": 0.205,
+     "n_vendors": 59,
+     "n_contracts": 73,
+     "total_value_bdt": 491870000.0,
+     "top_vendor_share": 0.3442,
      "top_vendor_display": "MBT_MERE (JV)"
     }
    }
@@ -57283,11 +57307,11 @@
      "top_vendor_display": "M/S. ALIF TRADERS"
     },
     "2026-09": {
-     "hhi": 0.2612,
+     "hhi": 0.2607,
      "n_vendors": 13,
-     "n_contracts": 13,
-     "total_value_bdt": 94850000.0,
-     "top_vendor_share": 0.3984,
+     "n_contracts": 14,
+     "total_value_bdt": 94940000.0,
+     "top_vendor_share": 0.398,
      "top_vendor_display": "M/s Amirun Enterprise"
     }
    }
@@ -58477,6 +58501,14 @@
      "total_value_bdt": 241440000.0,
      "top_vendor_share": 0.294,
      "top_vendor_display": "MIM DEVELOPMENT ENGINEERING LTD."
+    },
+    "2026-09": {
+     "hhi": 0.4998,
+     "n_vendors": 3,
+     "n_contracts": 4,
+     "total_value_bdt": 2570000.0,
+     "top_vendor_share": 0.6654,
+     "top_vendor_display": "M/S. PREMA ENTERPRISE"
     }
    }
   },
@@ -62107,11 +62139,11 @@
      "top_vendor_display": "M/S Emon Enterprise"
     },
     "2026-09": {
-     "hhi": 0.5472,
-     "n_vendors": 2,
-     "n_contracts": 3,
-     "total_value_bdt": 51700000.0,
-     "top_vendor_share": 0.6536,
+     "hhi": 0.4173,
+     "n_vendors": 4,
+     "n_contracts": 9,
+     "total_value_bdt": 59900000.0,
+     "top_vendor_share": 0.5641,
      "top_vendor_display": "M/s Zahura Traders"
     }
    }
@@ -77255,11 +77287,11 @@
      "top_vendor_display": "M/S. Saznin Traders"
     },
     "2026-09": {
-     "hhi": 0.2211,
-     "n_vendors": 10,
-     "n_contracts": 10,
-     "total_value_bdt": 74030000.0,
-     "top_vendor_share": 0.2904,
+     "hhi": 0.2207,
+     "n_vendors": 11,
+     "n_contracts": 11,
+     "total_value_bdt": 74100000.0,
+     "top_vendor_share": 0.2901,
      "top_vendor_display": "M/S Hamid Traders"
     }
    }

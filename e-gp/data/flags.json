@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-09-21T23:57:43.295938+00:00",
-  "contracts_scanned": 872835,
+  "generated_at": "2026-09-22T23:40:33.583451+00:00",
+  "contracts_scanned": 872958,
   "debarment_records": 1027,
-  "flag_count": 1969,
+  "flag_count": 1970,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1723
+   "post_debarment_award": 1724
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -5133,6 +5133,25 @@
    "district": "Dhaka",
    "contract_signing_date": "2026-03-04",
    "value_bdt": 250000.0,
+   "debar_start": "31-Aug-2021",
+   "debar_end": "29-Aug-2024",
+   "debarred_by": "Organization Name: Chittagong University of Engineering & Technology (CUET) ;",
+   "debarment_reason": "Dear Concern, Your submitting Bank document (The City Bank Limited) under the Tender package of PG- 060: Procurement of Shoes and Shocks for CUET Staffs and Drivers found fake from verification. For these circumstances why will you not be debarring as per ITT 3.2? Give your opinion within the 3 Days.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "medium",
+   "company": "BB CREATIONS",
+   "company_key": "bb creations",
+   "tender_id": "1310386",
+   "pkg_lot_id": "2088233",
+   "procuring_entity": "Office of the Chief Engineer",
+   "ministry": "Ministry of Education",
+   "district": "Dhaka",
+   "contract_signing_date": "2026-09-22",
+   "value_bdt": 30000.0,
    "debar_start": "31-Aug-2021",
    "debar_end": "29-Aug-2024",
    "debarred_by": "Organization Name: Chittagong University of Engineering & Technology (CUET) ;",

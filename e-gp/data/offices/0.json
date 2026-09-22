@@ -379,11 +379,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Gm Sheets Ream Offset",
+    "phrase": "Office Stationary Item Size",
     "count": 8
    },
    {
-    "phrase": "Item Size Gm Sheets",
+    "phrase": "Gm Sheets Ream Offset",
     "count": 8
    },
    {
@@ -391,7 +391,7 @@
     "count": 8
    },
    {
-    "phrase": "Office Stationary Item Size",
+    "phrase": "Item Size Gm Sheets",
     "count": 8
    },
    {
@@ -407,7 +407,7 @@
     "count": 7
    },
    {
-    "phrase": "Machines Laser Printers Ink-jet",
+    "phrase": "Origin Thailand Singapore Malaysia",
     "count": 4
    }
   ],
@@ -1186,11 +1186,11 @@
     "count": 4
    },
    {
-    "phrase": "Equipment Laptop Desktop Computer",
+    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
-    "phrase": "Computer and Other Equipment",
+    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
@@ -3409,17 +3409,17 @@
   ]
  },
  "8083": {
-  "value_bdt": 16650000.0,
-  "count": 7,
+  "value_bdt": 21190000.0,
+  "count": 8,
   "by_year": {
    "2026": {
-    "value_bdt": 16650000.0,
-    "count": 7
+    "value_bdt": 21190000.0,
+    "count": 8
    }
   },
   "by_nature": {
    "Services": 2,
-   "Goods": 1
+   "Goods": 2
   },
   "top_vendors": [
    {
@@ -3433,6 +3433,11 @@
     "count": 1
    },
    {
+    "company": "HAQUE CORPORATION",
+    "value_bdt": 4540000.0,
+    "count": 1
+   },
+   {
     "company": "SHAWON RENT-A-CAR",
     "value_bdt": 3310000.0,
     "count": 1
@@ -3441,17 +3446,12 @@
     "company": "M/S. KHAN ENTERPRISE",
     "value_bdt": 780000.0,
     "count": 1
-   },
-   {
-    "company": "Rahat Computer",
-    "value_bdt": 750000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 8
    }
   ],
   "top_phrases": [],
@@ -3471,6 +3471,13 @@
     "description": "Procurement of Executive Survey Bag"
    },
    {
+    "package_ref": "52.01.0000.722.000.07.0061.26-786 Date: 12/08/2026",
+    "awarded_to": "HAQUE CORPORATION",
+    "value_bdt": 4540000.0,
+    "contract_signing_date": "2026-09-22",
+    "description": "Procurement of Survey Materials (Id Card Ribbon Caver Umbrella)"
+   },
+   {
     "package_ref": "52.01.0000.722.000.26.0003.25.422",
     "awarded_to": "SHAWON RENT-A-CAR",
     "value_bdt": 3310000.0,
@@ -3483,13 +3490,6 @@
     "value_bdt": 780000.0,
     "contract_signing_date": "2026-05-06",
     "description": "Purchase of Other Stationery (A4 paper permanent marker pen black ball point pen pencil eraser sharpener etc)"
-   },
-   {
-    "package_ref": "52.01.0000.722.000.07.0062.26-720",
-    "awarded_to": "Rahat Computer",
-    "value_bdt": 750000.0,
-    "contract_signing_date": "2026-08-16",
-    "description": "Supply Installation and Commissioning of Computer & Spares (Desktop Computer Laptop Laser Printer B&W Laser Printer"
    }
   ]
  },
