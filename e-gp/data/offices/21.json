@@ -1083,11 +1083,11 @@
     "count": 9
    },
    {
-    "phrase": "Standard Factory Building Having",
+    "phrase": "Factory Building Having Foundation",
     "count": 8
    },
    {
-    "phrase": "Factory Building Having Foundation",
+    "phrase": "Standard Factory Building Having",
     "count": 8
    },
    {
@@ -1107,7 +1107,7 @@
     "count": 3
    },
    {
-    "phrase": "Having Foundation for Six",
+    "phrase": "Foundation for Six Storied",
     "count": 3
    }
   ],
@@ -1240,11 +1240,11 @@
     "count": 6
    },
    {
-    "phrase": "External Repair",
+    "phrase": "Repair Painting",
     "count": 5
    },
    {
-    "phrase": "Repair Painting",
+    "phrase": "External Repair",
     "count": 5
    }
   ],
@@ -4005,7 +4005,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Shilpa Nagar Development Project",
+    "phrase": "Sheikh Mujib Shilpa Nagar",
     "count": 3
    },
    {
@@ -4013,7 +4013,7 @@
     "count": 3
    },
    {
-    "phrase": "Sheikh Mujib Shilpa Nagar",
+    "phrase": "Shilpa Nagar Development Project",
     "count": 3
    },
    {
@@ -4173,11 +4173,11 @@
     "count": 4
    },
    {
-    "phrase": "Steel Window Along",
+    "phrase": "Window Along Repair-painting",
     "count": 3
    },
    {
-    "phrase": "Window Along Repair-painting",
+    "phrase": "Steel Window Along",
     "count": 3
    },
    {
@@ -4726,8 +4726,8 @@
   ]
  },
  "6550": {
-  "value_bdt": 3384530000.0,
-  "count": 47,
+  "value_bdt": 3431570000.0,
+  "count": 49,
   "by_year": {
    "2024": {
     "value_bdt": 177420000.0,
@@ -4738,12 +4738,12 @@
     "count": 28
    },
    "2026": {
-    "value_bdt": 1207780000.0,
-    "count": 18
+    "value_bdt": 1254820000.0,
+    "count": 20
    }
   },
   "by_nature": {
-   "Works": 45,
+   "Works": 47,
    "Services": 2
   },
   "top_vendors": [
@@ -4776,7 +4776,7 @@
   "top_districts": [
    {
     "district": "Patuakhali",
-    "count": 47
+    "count": 49
    }
   ],
   "top_phrases": [
@@ -4789,11 +4789,11 @@
     "count": 6
    },
    {
-    "phrase": "Solar Street Light Patuakhali",
+    "phrase": "Street Light Patuakhali Project",
     "count": 4
    },
    {
-    "phrase": "Street Light Patuakhali Project",
+    "phrase": "Solar Street Light Patuakhali",
     "count": 4
    },
    {
@@ -4805,11 +4805,11 @@
     "count": 3
    },
    {
-    "phrase": "Distribution Network Group Patuakhali",
+    "phrase": "Network Group Patuakhali Project",
     "count": 3
    },
    {
-    "phrase": "Water Distribution Network Group",
+    "phrase": "Distribution Network Group Patuakhali",
     "count": 3
    }
   ],
@@ -4906,11 +4906,11 @@
     "count": 8
    },
    {
-    "phrase": "Sector Karnaphuli North Patenga",
+    "phrase": "Plot Sector Karnaphuli North",
     "count": 4
    },
    {
-    "phrase": "Plot Sector Karnaphuli North",
+    "phrase": "Sector Karnaphuli North Patenga",
     "count": 4
    },
    {
@@ -4922,7 +4922,7 @@
     "count": 3
    },
    {
-    "phrase": "Bituminous Carpeting Plot Sector",
+    "phrase": "Road Dense Bituminous Carpeting",
     "count": 3
    },
    {
@@ -6096,18 +6096,23 @@
   ]
  },
  "9367": {
-  "value_bdt": 3780000.0,
-  "count": 1,
+  "value_bdt": 9240000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 3780000.0,
-    "count": 1
+    "value_bdt": 9240000.0,
+    "count": 2
    }
   },
   "by_nature": {
-   "Services": 1
+   "Services": 2
   },
   "top_vendors": [
+   {
+    "company": "Md zafrul haque",
+    "value_bdt": 5460000.0,
+    "count": 1
+   },
    {
     "company": "MD WALIUR RAHMAN",
     "value_bdt": 3780000.0,
@@ -6117,11 +6122,18 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "03.06.2616.307.11.008.26",
+    "awarded_to": "Md zafrul haque",
+    "value_bdt": 5460000.0,
+    "contract_signing_date": "2026-09-23",
+    "description": "Selection of Security Consultant for BEPZA"
+   },
    {
     "package_ref": "03.06.2616.307.11.005.25-1",
     "awarded_to": "MD WALIUR RAHMAN",

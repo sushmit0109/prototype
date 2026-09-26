@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-09-22T23:40:33.583451+00:00",
-  "contracts_scanned": 872958,
+  "generated_at": "2026-09-25T23:53:36.099387+00:00",
+  "contracts_scanned": 873179,
   "debarment_records": 1027,
-  "flag_count": 1970,
+  "flag_count": 1971,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1724
+   "post_debarment_award": 1725
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -11032,6 +11032,25 @@
   },
   {
    "flag_type": "post_debarment_award",
+   "severity": "medium",
+   "company": "M/S H.K.C Enterprise",
+   "company_key": "hkc enterprise",
+   "tender_id": "1257247",
+   "pkg_lot_id": "1868804",
+   "procuring_entity": "Office of the Executive Engineer, EED,Cox's Bazar, District.",
+   "ministry": "Ministry of Education",
+   "district": "Cox's Bazar",
+   "contract_signing_date": "2026-09-24",
+   "value_bdt": 400000.0,
+   "debar_start": "10-Jul-2018",
+   "debar_end": "10-Jul-2019",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "Under the Rural Road and Culvert Maintenance Program & Package No. e-Tender/LGED/Cox/GOBM/17-18/W-38, Work name: Re-habilitation of 1 Vent 1.50x1.50m Box Culvert on Islambad UP Office - Gazalia Bazar Road Via East Yusuferkil Road at Ch. 3600m Sadar Road ID : 422243008 {Tender ID: 138956), You signed contract agreement with the PE (Executive Engineer, LGED, Cox's Bazar) on 31/01/2018. As per contract agreement you were bound to complete the work within 07/04/2018, but you didn't start the work and written notice (memo no: 46.02.0022.000.14.030-17-1330(Ka)) was sent to you on 26/04/2018 for stoppage of work for more than 28 days as per GCC Clause no 37 (b)(i). As you failed to send us any clarification regarding the situation, the contract was cancelled as per GCC Clause no. 37.1 (a). This activity can be treated as Fraudulent Practice according to rule 127(2)(Kha) of PPR 2008. So, you are requested to give explanation within 7 (Seven) days why you shall not be debarred from participating in any procurement of Local Government Engineering Department (LGED) for 2 (Two) years, subjected to approval of HOPE, as per PPR 2008, rule 127 (4)(Ga). This is asked according to rule 127(3) of PPR 2008.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
+  },
+  {
+   "flag_type": "post_debarment_award",
    "severity": "low",
    "company": "M/S H.M.HELAL ENTERPRISE",
    "company_key": "hmhelal enterprise",
@@ -13647,7 +13666,7 @@
    "value_bdt": 390000.0,
    "debar_start": "11-Feb-2024",
    "debar_end": "18-Jun-2024",
-   "debarred_by": "Organization Name: Dhaka Electric Supply PLC (DESCO) ;",
+   "debarred_by": "Organization Name: Dhaka Electricity Supply PLC (DESCO) ;",
    "debarment_reason": "Contract is terminated in whole for fundamental breaches as contractor did not start work.",
    "debarment_scope": "Unspecified",
    "era": "Interim Government (2024–2026)"

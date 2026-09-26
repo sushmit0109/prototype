@@ -464,11 +464,11 @@
     "count": 18
    },
    {
-    "phrase": "Size Cm X Cm",
+    "phrase": "Cm X Cm X",
     "count": 18
    },
    {
-    "phrase": "Cm X Cm X",
+    "phrase": "Size Cm X Cm",
     "count": 18
    },
    {
@@ -1140,11 +1140,11 @@
     "count": 5
    },
    {
-    "phrase": "Heidelberg Four Color",
+    "phrase": "Bi-color Offset Press",
     "count": 4
    },
    {
-    "phrase": "Bi-color Offset Press",
+    "phrase": "Heidelberg Four Color",
     "count": 4
    }
   ],
@@ -1438,19 +1438,19 @@
     "count": 3
    },
    {
-    "phrase": "Lexmark Color Printer Spare",
-    "count": 3
-   },
-   {
     "phrase": "Color Printer Spare Parts",
     "count": 3
    },
    {
-    "phrase": "Answer Sheets for Mental",
+    "phrase": "Lexmark Color Printer Spare",
     "count": 3
    },
    {
     "phrase": "Examination and Answer Sheets",
+    "count": 3
+   },
+   {
+    "phrase": "Answer Sheets for Mental",
     "count": 3
    },
    {
@@ -1803,15 +1803,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Internal Electrical Repair Renewal",
+    "count": 3
+   },
+   {
     "phrase": "Renewal and Modernization Work",
     "count": 3
    },
    {
     "phrase": "Repair Renewal and Modernization",
-    "count": 3
-   },
-   {
-    "phrase": "Internal Electrical Repair Renewal",
     "count": 3
    },
    {
@@ -2186,11 +2186,11 @@
     "count": 5
    },
    {
-    "phrase": "Regional Center Bogura",
+    "phrase": "Foundation Regional Center",
     "count": 4
    },
    {
-    "phrase": "Foundation Regional Center",
+    "phrase": "Regional Center Bogura",
     "count": 4
    },
    {
@@ -2418,7 +2418,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Other Buildings and Installations",
+    "phrase": "Buildings and Installations Office",
     "count": 3
    },
    {
@@ -2426,7 +2426,7 @@
     "count": 3
    },
    {
-    "phrase": "Buildings and Installations Office",
+    "phrase": "Other Buildings and Installations",
     "count": 3
    },
    {
@@ -2765,20 +2765,20 @@
   ]
  },
  "7152": {
-  "value_bdt": 13410000.0,
-  "count": 13,
+  "value_bdt": 14590000.0,
+  "count": 14,
   "by_year": {
    "2025": {
     "value_bdt": 2420000.0,
     "count": 2
    },
    "2026": {
-    "value_bdt": 10990000.0,
-    "count": 11
+    "value_bdt": 12170000.0,
+    "count": 12
    }
   },
   "by_nature": {
-   "Goods": 3
+   "Goods": 4
   },
   "top_vendors": [
    {
@@ -2792,6 +2792,11 @@
     "count": 8
    },
    {
+    "company": "Intimacy Computer & Solutions",
+    "value_bdt": 1180000.0,
+    "count": 1
+   },
+   {
     "company": "URBAN CRAFT CREATIONS",
     "value_bdt": 640000.0,
     "count": 2
@@ -2800,27 +2805,22 @@
     "company": "M/S MIM CONSTRUCTION",
     "value_bdt": 580000.0,
     "count": 1
-   },
-   {
-    "company": "Brothers Furniture Ltd.",
-    "value_bdt": 250000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Sirajganj",
-    "count": 13
+    "count": 14
    }
   ],
   "top_phrases": [
    {
     "phrase": "Deputy Commissioner Sirajganj",
-    "count": 5
+    "count": 6
    },
    {
     "phrase": "Deputy Commissioner",
-    "count": 7
+    "count": 8
    }
   ],
   "top_contracts": [
@@ -2839,6 +2839,13 @@
     "description": "Supply of furniture of Circuit house Sirajganj."
    },
    {
+    "package_ref": "Dcsiraj/02.0078.2026/4",
+    "awarded_to": "Intimacy Computer & Solutions",
+    "value_bdt": 1180000.0,
+    "contract_signing_date": "2026-09-23",
+    "description": "Supply Computer and other Accessories for office of the Deputy Commissioner Sirajganj"
+   },
+   {
     "package_ref": "SIRAJ/DC_Office/Rev/25-26/001",
     "awarded_to": "M/S LORIN ENTERPRISE",
     "value_bdt": 1030000.0,
@@ -2851,13 +2858,6 @@
     "value_bdt": 600000.0,
     "contract_signing_date": "2026-05-07",
     "description": "Single"
-   },
-   {
-    "package_ref": "SIRAJ/DC_Office/Rev/25-26/002",
-    "awarded_to": "M/S MIM CONSTRUCTION",
-    "value_bdt": 580000.0,
-    "contract_signing_date": "2026-02-17",
-    "description": "Making of new cabinets by replacing old cupboards and racks in four Section of the Deputy Commissioner's office Sirajganj"
    }
   ]
  },
@@ -4920,11 +4920,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "National Academy for Development",
+    "phrase": "Academy for Development Administration",
     "count": 6
    },
    {
-    "phrase": "Academy for Development Administration",
+    "phrase": "National Academy for Development",
     "count": 6
    },
    {

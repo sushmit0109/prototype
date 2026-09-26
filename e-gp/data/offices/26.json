@@ -468,11 +468,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fire Service and Civil",
+    "phrase": "Service and Civil Defence",
     "count": 21
    },
    {
-    "phrase": "Service and Civil Defence",
+    "phrase": "Fire Service and Civil",
     "count": 21
    },
    {
@@ -819,15 +819,15 @@
     "count": 6
    },
    {
-    "phrase": "Bed Sleeping Kararokkhi Mosquito",
-    "count": 6
-   },
-   {
     "phrase": "Kararokkhi Mosquito Net Stand",
     "count": 6
    },
    {
     "phrase": "Sleeping Kararokkhi Mosquito Net",
+    "count": 6
+   },
+   {
+    "phrase": "Bed Sleeping Kararokkhi Mosquito",
     "count": 6
    },
    {
@@ -1045,10 +1045,6 @@
     "count": 5
    },
    {
-    "phrase": "Main Engine Routine Maintenance",
-    "count": 4
-   },
-   {
     "phrase": "Coast Guard West Zone",
     "count": 4
    },
@@ -1057,11 +1053,15 @@
     "count": 4
    },
    {
-    "phrase": "Parts for Top Overhauling",
-    "count": 3
+    "phrase": "Main Engine Routine Maintenance",
+    "count": 4
    },
    {
     "phrase": "Spare Parts for Top",
+    "count": 3
+   },
+   {
+    "phrase": "Parts for Top Overhauling",
     "count": 3
    },
    {
@@ -1633,11 +1633,11 @@
     "count": 4
    },
    {
-    "phrase": "Work Ration Commodities Loading",
+    "phrase": "Porter Work Ration Commodities",
     "count": 4
    },
    {
-    "phrase": "Porter Work Ration Commodities",
+    "phrase": "Work Ration Commodities Loading",
     "count": 4
    },
    {
@@ -1879,7 +1879,7 @@
     "count": 3
    },
    {
-    "phrase": "Miscellaneous Items",
+    "phrase": "Pathological Reagents",
     "count": 3
    }
   ],
@@ -1954,27 +1954,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Supported Tower Equipment Shelter",
-    "count": 6
-   },
-   {
-    "phrase": "Existing Legged Lattice Guyed",
-    "count": 6
-   },
-   {
-    "phrase": "Legged Lattice Guyed Tower",
-    "count": 6
-   },
-   {
-    "phrase": "Lattice Guyed Tower Wind",
-    "count": 6
-   },
-   {
-    "phrase": "Guyed Tower Wind Speed",
-    "count": 6
-   },
-   {
-    "phrase": "Leg Self Supported Tower",
+    "phrase": "Tower Equipment Shelter Room",
     "count": 6
    },
    {
@@ -1982,7 +1962,27 @@
     "count": 6
    },
    {
-    "phrase": "Tower Equipment Shelter Room",
+    "phrase": "Self Supported Tower Equipment",
+    "count": 6
+   },
+   {
+    "phrase": "Lattice Guyed Tower Wind",
+    "count": 6
+   },
+   {
+    "phrase": "Legged Lattice Guyed Tower",
+    "count": 6
+   },
+   {
+    "phrase": "Guyed Tower Wind Speed",
+    "count": 6
+   },
+   {
+    "phrase": "Existing Legged Lattice Guyed",
+    "count": 6
+   },
+   {
+    "phrase": "Feet Three Leg Self",
     "count": 6
    }
   ],
@@ -2459,7 +2459,7 @@
     "count": 4
    },
    {
-    "phrase": "Cable Copper Fiber Laying",
+    "phrase": "Multi Cable Copper Fiber",
     "count": 3
    },
    {
@@ -2467,11 +2467,11 @@
     "count": 3
    },
    {
-    "phrase": "Multi Cable Copper Fiber",
+    "phrase": "Cable Copper Fiber Laying",
     "count": 3
    },
    {
-    "phrase": "Self Supported Signal Tower",
+    "phrase": "Feet Self Supported Signal",
     "count": 3
    }
   ],
@@ -2569,8 +2569,8 @@
   ]
  },
  "2854": {
-  "value_bdt": 4536700000.0,
-  "count": 475,
+  "value_bdt": 4549830000.0,
+  "count": 479,
   "by_year": {
    "2018": {
     "value_bdt": 22990000.0,
@@ -2605,12 +2605,12 @@
     "count": 113
    },
    "2026": {
-    "value_bdt": 1524360000.0,
-    "count": 94
+    "value_bdt": 1537490000.0,
+    "count": 98
    }
   },
   "by_nature": {
-   "Goods": 474
+   "Goods": 478
   },
   "top_vendors": [
    {
@@ -2642,7 +2642,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 475
+    "count": 479
    }
   ],
   "top_phrases": [
@@ -2892,15 +2892,7 @@
     "count": 5
    },
    {
-    "phrase": "Oil Filter Fuel Filter",
-    "count": 3
-   },
-   {
     "phrase": "Vehicle Oil Filter Fuel",
-    "count": 3
-   },
-   {
-    "phrase": "Fuel Filter Air Filter",
     "count": 3
    },
    {
@@ -2909,6 +2901,14 @@
    },
    {
     "phrase": "Filter for Vehicle Oil",
+    "count": 3
+   },
+   {
+    "phrase": "Fuel Filter Air Filter",
+    "count": 3
+   },
+   {
+    "phrase": "Oil Filter Fuel Filter",
     "count": 3
    },
    {
@@ -3429,11 +3429,11 @@
     "count": 18
    },
    {
-    "phrase": "Ingredients and Accessories Dietary",
+    "phrase": "Oils Spices Food Ingredients",
     "count": 18
    },
    {
-    "phrase": "Oils Spices Food Ingredients",
+    "phrase": "Ingredients and Accessories Dietary",
     "count": 18
    },
    {
@@ -3590,11 +3590,11 @@
     "count": 3
    },
    {
-    "phrase": "Dal Soru for Pabna",
+    "phrase": "Soru for Pabna District",
     "count": 3
    },
    {
-    "phrase": "Soru for Pabna District",
+    "phrase": "Dal Soru for Pabna",
     "count": 3
    },
    {
@@ -3711,15 +3711,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
-    "count": 18
-   },
-   {
     "phrase": "Ingredients and Related Products",
     "count": 18
    },
    {
     "phrase": "Oils Spices Food Ingredients",
+    "count": 18
+   },
+   {
+    "phrase": "Food Ingredients and Related",
     "count": 18
    },
    {
@@ -3880,11 +3880,11 @@
     "count": 4
    },
    {
-    "phrase": "Dal Mota for Khulna",
+    "phrase": "Mota for Khulna District",
     "count": 3
    },
    {
-    "phrase": "Mota for Khulna District",
+    "phrase": "Dal Mota for Khulna",
     "count": 3
    }
   ],
@@ -4021,11 +4021,11 @@
     "count": 6
    },
    {
-    "phrase": "Products Supply Schedule-gha Package",
+    "phrase": "Transports and Other Products",
     "count": 6
    },
    {
-    "phrase": "Transports and Other Products",
+    "phrase": "Products Supply Schedule-gha Package",
     "count": 6
    },
    {
@@ -4146,11 +4146,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Oils Spices Food Ingredients",
+    "phrase": "Category Schedule-ga-package Various Types",
     "count": 14
    },
    {
-    "phrase": "Category Schedule-ga-package Various Types",
+    "phrase": "Oils Spices Food Ingredients",
     "count": 14
    },
    {
@@ -4581,6 +4581,14 @@
     "count": 19
    },
    {
+    "phrase": "Related Products Categories Schedule-c",
+    "count": 18
+   },
+   {
+    "phrase": "Types Spices and Related",
+    "count": 18
+   },
+   {
     "phrase": "Products Categories Schedule-c Package",
     "count": 18
    },
@@ -4589,19 +4597,11 @@
     "count": 18
    },
    {
-    "phrase": "Types Spices and Related",
-    "count": 18
-   },
-   {
-    "phrase": "Related Products Categories Schedule-c",
-    "count": 18
-   },
-   {
-    "phrase": "Vegetables Items Categories Schedule-b",
+    "phrase": "Items Categories Schedule-b Package",
     "count": 15
    },
    {
-    "phrase": "Items Categories Schedule-b Package",
+    "phrase": "Vegetables Items Categories Schedule-b",
     "count": 15
    }
   ],
@@ -4710,11 +4710,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Accessories-package",
+    "phrase": "Oils Spices Food Ingredients",
     "count": 13
    },
    {
-    "phrase": "Oils Spices Food Ingredients",
+    "phrase": "Food Ingredients and Accessories-package",
     "count": 13
    },
    {
@@ -4867,15 +4867,15 @@
     "count": 9
    },
    {
+    "phrase": "Ingredients and Accessories Schedule-ga",
+    "count": 6
+   },
+   {
     "phrase": "Accessories Schedule-ga Package Kushtia",
     "count": 6
    },
    {
     "phrase": "Schedule-ga Package Kushtia Jail",
-    "count": 6
-   },
-   {
-    "phrase": "Ingredients and Accessories Schedule-ga",
     "count": 6
    },
    {
@@ -5294,7 +5294,7 @@
     "count": 5
    },
    {
-    "phrase": "Standard Mashur Daal Saru",
+    "phrase": "Saru for the Officers",
     "count": 3
    },
    {
@@ -5302,7 +5302,7 @@
     "count": 3
    },
    {
-    "phrase": "Saru for the Officers",
+    "phrase": "Standard Mashur Daal Saru",
     "count": 3
    },
    {
@@ -5443,11 +5443,11 @@
     "count": 15
    },
    {
-    "phrase": "Dietary Articles Animal Protein",
+    "phrase": "Animal Protein Schedule Package",
     "count": 15
    },
    {
-    "phrase": "Animal Protein Schedule Package",
+    "phrase": "Dietary Articles Animal Protein",
     "count": 15
    },
    {
@@ -5588,11 +5588,11 @@
     "count": 12
    },
    {
-    "phrase": "Oils Spices Food Ingredients",
+    "phrase": "Ingredients and Accessories Products",
     "count": 12
    },
    {
-    "phrase": "Ingredients and Accessories Products",
+    "phrase": "Oils Spices Food Ingredients",
     "count": 12
    },
    {
@@ -5604,7 +5604,7 @@
     "count": 8
    },
    {
-    "phrase": "Oils Spices and Other",
+    "phrase": "Spices and Other Product",
     "count": 6
    }
   ],
@@ -6011,15 +6011,15 @@
     "count": 15
    },
    {
+    "phrase": "Types Oils Spices Food",
+    "count": 11
+   },
+   {
     "phrase": "Accessories Products Cats Schedule-ga",
     "count": 11
    },
    {
-    "phrase": "Products Cats Schedule-ga Package",
-    "count": 11
-   },
-   {
-    "phrase": "Types Oils Spices Food",
+    "phrase": "Ingredients and Accessories Products",
     "count": 11
    },
    {
@@ -6274,14 +6274,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Supported Tower Equipment Shelter",
-    "count": 7
-   },
-   {
-    "phrase": "Leg Self Supported Tower",
-    "count": 7
-   },
-   {
     "phrase": "Tower Equipment Shelter Room",
     "count": 7
    },
@@ -6290,7 +6282,15 @@
     "count": 7
    },
    {
+    "phrase": "Leg Self Supported Tower",
+    "count": 7
+   },
+   {
     "phrase": "Shelter Room and Dismantle",
+    "count": 7
+   },
+   {
+    "phrase": "Supported Tower Equipment Shelter",
     "count": 7
    },
    {
@@ -6431,6 +6431,10 @@
     "count": 40
    },
    {
+    "phrase": "Ansar Office Building Three",
+    "count": 39
+   },
+   {
     "phrase": "Storied Upazila Ansar Office",
     "count": 39
    },
@@ -6440,10 +6444,6 @@
    },
    {
     "phrase": "Building Three Storied Foundation",
-    "count": 39
-   },
-   {
-    "phrase": "Ansar Office Building Three",
     "count": 39
    },
    {
@@ -6636,11 +6636,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Spare Parts for Bell",
+    "phrase": "Parts for Bell Helicopter",
     "count": 10
    },
    {
-    "phrase": "Parts for Bell Helicopter",
+    "phrase": "Spare Parts for Bell",
     "count": 10
    },
    {
@@ -7260,11 +7260,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Dietary Articles Schedule Category",
+    "phrase": "Schedule Category Various Types",
     "count": 15
    },
    {
-    "phrase": "Schedule Category Various Types",
+    "phrase": "Dietary Articles Schedule Category",
     "count": 15
    },
    {
@@ -7397,11 +7397,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "E-procure for Dietary Goods",
+    "phrase": "July-dec E-procure for Dietary",
     "count": 12
    },
    {
-    "phrase": "July-dec E-procure for Dietary",
+    "phrase": "E-procure for Dietary Goods",
     "count": 12
    },
    {
@@ -7413,7 +7413,7 @@
     "count": 8
    },
    {
-    "phrase": "Food Package Procurement Various",
+    "phrase": "Package Procurement Various Type",
     "count": 5
    },
    {
@@ -7421,7 +7421,7 @@
     "count": 5
    },
    {
-    "phrase": "Package Procurement Various Type",
+    "phrase": "Food Package Procurement Various",
     "count": 5
    },
    {
@@ -7675,15 +7675,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
-    "count": 12
-   },
-   {
     "phrase": "Ingredients and Related Products",
     "count": 12
    },
    {
     "phrase": "Oils Spices Food Ingredients",
+    "count": 12
+   },
+   {
+    "phrase": "Food Ingredients and Related",
     "count": 12
    },
    {
@@ -7828,7 +7828,7 @@
     "count": 22
    },
    {
-    "phrase": "Articles Different Various Types",
+    "phrase": "Fruits Ingredients and Others",
     "count": 12
    },
    {
@@ -7836,7 +7836,7 @@
     "count": 12
    },
    {
-    "phrase": "Fruits Ingredients and Others",
+    "phrase": "Articles Different Various Types",
     "count": 12
    },
    {
@@ -7957,15 +7957,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
-    "count": 15
-   },
-   {
     "phrase": "Ingredients and Related Products",
     "count": 15
    },
    {
     "phrase": "Oils Spices Food Ingredients",
+    "count": 15
+   },
+   {
+    "phrase": "Food Ingredients and Related",
     "count": 15
    },
    {
@@ -8102,7 +8102,7 @@
     "count": 15
    },
    {
-    "phrase": "Oil Spices Food Ingredients",
+    "phrase": "Ingredients and Miscellaneous Items",
     "count": 11
    },
    {
@@ -8110,7 +8110,7 @@
     "count": 11
    },
    {
-    "phrase": "Ingredients and Miscellaneous Items",
+    "phrase": "Oil Spices Food Ingredients",
     "count": 11
    },
    {
@@ -8118,11 +8118,11 @@
     "count": 10
    },
    {
-    "phrase": "Accessories Products Categories Schedule-ga",
+    "phrase": "Types Oils Spices Food",
     "count": 6
    },
    {
-    "phrase": "Types Oils Spices Food",
+    "phrase": "Ingredients and Accessories Products",
     "count": 6
    }
   ],
@@ -8239,19 +8239,7 @@
     "count": 12
    },
    {
-    "phrase": "Tender Category Schedule-c Package",
-    "count": 6
-   },
-   {
     "phrase": "Schedule-c Package for Supply",
-    "count": 6
-   },
-   {
-    "phrase": "Ingredients and Ancillary Goods",
-    "count": 6
-   },
-   {
-    "phrase": "Ancillary Goods for Panchagarh",
     "count": 6
    },
    {
@@ -8259,11 +8247,23 @@
     "count": 6
    },
    {
-    "phrase": "Food Ingredients and Ancillary",
+    "phrase": "Tender Category Schedule-c Package",
     "count": 6
    },
    {
     "phrase": "Oil Spices Food Ingredients",
+    "count": 6
+   },
+   {
+    "phrase": "Ingredients and Ancillary Goods",
+    "count": 6
+   },
+   {
+    "phrase": "Food Ingredients and Ancillary",
+    "count": 6
+   },
+   {
+    "phrase": "Ancillary Goods for Panchagarh",
     "count": 6
    }
   ],
@@ -8388,10 +8388,6 @@
     "count": 18
    },
    {
-    "phrase": "Category Tender Schedule-ga Package",
-    "count": 12
-   },
-   {
     "phrase": "Ingredients and Accessories Category",
     "count": 12
    },
@@ -8400,11 +8396,15 @@
     "count": 12
    },
    {
+    "phrase": "Category Tender Schedule-ga Package",
+    "count": 12
+   },
+   {
     "phrase": "Animal Protein Category Tender",
     "count": 10
    },
    {
-    "phrase": "Category Tender Schedule-ka Package",
+    "phrase": "Protein Category Tender Schedule-ka",
     "count": 10
    }
   ],
@@ -8521,11 +8521,15 @@
     "count": 12
    },
    {
+    "phrase": "Ingredients and Related Products",
+    "count": 6
+   },
+   {
     "phrase": "Food Ingredients and Related",
     "count": 6
    },
    {
-    "phrase": "Ingredients and Related Products",
+    "phrase": "Category Schedule-ga Various Types",
     "count": 6
    },
    {
@@ -8537,15 +8541,11 @@
     "count": 6
    },
    {
-    "phrase": "Category Schedule-ga Various Types",
-    "count": 6
-   },
-   {
-    "phrase": "Cholar Dal Bandarban District",
+    "phrase": "Dal Bandarban District Jail",
     "count": 5
    },
    {
-    "phrase": "Dal Bandarban District Jail",
+    "phrase": "Cholar Dal Bandarban District",
     "count": 5
    }
   ],
@@ -8811,11 +8811,11 @@
     "count": 10
    },
    {
-    "phrase": "Dietary Article Category Ga",
+    "phrase": "Category Ga Package Procurement",
     "count": 5
    },
    {
-    "phrase": "Category Ga Package Procurement",
+    "phrase": "Dietary Article Category Ga",
     "count": 5
    },
    {
@@ -9089,11 +9089,11 @@
     "count": 6
    },
    {
-    "phrase": "Food Ingredients and Accessories",
+    "phrase": "Dietary Articles Schedule-ga-package Various",
     "count": 6
    },
    {
-    "phrase": "Dietary Articles Schedule-ga-package Various",
+    "phrase": "Articles Schedule-ga-package Various Types",
     "count": 6
    },
    {
@@ -9101,7 +9101,7 @@
     "count": 6
    },
    {
-    "phrase": "Articles Schedule-ga-package Various Types",
+    "phrase": "Food Ingredients and Accessories",
     "count": 6
    }
   ],
@@ -9355,10 +9355,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
-    "count": 18
-   },
-   {
     "phrase": "Ingredients and Related Products",
     "count": 18
    },
@@ -9367,11 +9363,15 @@
     "count": 18
    },
    {
-    "phrase": "Type Oils Spices Food",
-    "count": 6
+    "phrase": "Food Ingredients and Related",
+    "count": 18
    },
    {
     "phrase": "Various Type Oils Spices",
+    "count": 6
+   },
+   {
+    "phrase": "Type Oils Spices Food",
     "count": 6
    },
    {
@@ -9625,7 +9625,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
+    "phrase": "Ingredients and Related Goods",
     "count": 18
    },
    {
@@ -9633,7 +9633,7 @@
     "count": 18
    },
    {
-    "phrase": "Ingredients and Related Goods",
+    "phrase": "Food Ingredients and Related",
     "count": 18
    },
    {
@@ -9649,11 +9649,11 @@
     "count": 12
    },
    {
-    "phrase": "Mosur Dal Soru",
+    "phrase": "Bagerhat District Jail",
     "count": 3
    },
    {
-    "phrase": "Bagerhat District Jail",
+    "phrase": "Mosur Dal Soru",
     "count": 3
    }
   ],
@@ -9782,7 +9782,7 @@
     "count": 8
    },
    {
-    "phrase": "Ingredients and Accessories Package",
+    "phrase": "Oil Spices Food Ingredients",
     "count": 6
    },
    {
@@ -9790,7 +9790,7 @@
     "count": 6
    },
    {
-    "phrase": "Oil Spices Food Ingredients",
+    "phrase": "Ingredients and Accessories Package",
     "count": 6
    },
    {
@@ -9903,15 +9903,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
-    "count": 12
-   },
-   {
     "phrase": "Ingredients and Related Products",
     "count": 12
    },
    {
     "phrase": "Oils Spices Food Ingredients",
+    "count": 12
+   },
+   {
+    "phrase": "Food Ingredients and Related",
     "count": 12
    },
    {
@@ -9931,7 +9931,7 @@
     "count": 3
    },
    {
-    "phrase": "Miscellaneous Item Package Lakshmipur",
+    "phrase": "Package Lakshmipur District Jail",
     "count": 3
    }
   ],
@@ -10459,11 +10459,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Meat Articles Schedule-ka Package",
+    "phrase": "Fish Meat Articles Schedule-ka",
     "count": 9
    },
    {
-    "phrase": "Fish Meat Articles Schedule-ka",
+    "phrase": "Meat Articles Schedule-ka Package",
     "count": 9
    },
    {
@@ -10471,11 +10471,11 @@
     "count": 6
    },
    {
-    "phrase": "Spice Others Articles Schedule-ka",
+    "phrase": "Others Articles Schedule-ka Package",
     "count": 6
    },
    {
-    "phrase": "Others Articles Schedule-ka Package",
+    "phrase": "Spice Others Articles Schedule-ka",
     "count": 6
    },
    {
@@ -11015,11 +11015,11 @@
     "count": 17
    },
    {
-    "phrase": "Ingredients and Accessories Dietary",
+    "phrase": "Oils Spices Food Ingredients",
     "count": 17
    },
    {
-    "phrase": "Oils Spices Food Ingredients",
+    "phrase": "Ingredients and Accessories Dietary",
     "count": 17
    },
    {
@@ -11172,15 +11172,15 @@
     "count": 6
    },
    {
+    "phrase": "Accessories Products Cat Schedule-ga",
+    "count": 6
+   },
+   {
+    "phrase": "Ingredients and Accessories Products",
+    "count": 6
+   },
+   {
     "phrase": "Food Ingredients and Accessories",
-    "count": 6
-   },
-   {
-    "phrase": "Various Types Oils Spices",
-    "count": 6
-   },
-   {
-    "phrase": "Oils Spices Food Ingredients",
     "count": 6
    }
   ],
@@ -11285,6 +11285,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Oil Spices Food Ingredients",
+    "count": 18
+   },
+   {
     "phrase": "Ingredients and Ancillary Goods",
     "count": 18
    },
@@ -11293,11 +11297,11 @@
     "count": 18
    },
    {
-    "phrase": "Oil Spices Food Ingredients",
-    "count": 18
+    "phrase": "Schedule-c Package for Supply",
+    "count": 12
    },
    {
-    "phrase": "Goods for Kurigram District",
+    "phrase": "Ancillary Goods for Kurigram",
     "count": 12
    },
    {
@@ -11305,11 +11309,7 @@
     "count": 12
    },
    {
-    "phrase": "Schedule-c Package for Supply",
-    "count": 12
-   },
-   {
-    "phrase": "Ancillary Goods for Kurigram",
+    "phrase": "Goods for Kurigram District",
     "count": 12
    },
    {
@@ -11434,11 +11434,11 @@
     "count": 23
    },
    {
-    "phrase": "Food Ingredients and Accessories",
+    "phrase": "Dietary Articles Various Types",
     "count": 16
    },
    {
-    "phrase": "Dietary Articles Various Types",
+    "phrase": "Food Ingredients and Accessories",
     "count": 16
    },
    {
@@ -11708,15 +11708,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Food Ingredients and Related",
-    "count": 18
-   },
-   {
     "phrase": "Ingredients and Related Products",
     "count": 18
    },
    {
     "phrase": "Oils Spices Food Ingredients",
+    "count": 18
+   },
+   {
+    "phrase": "Food Ingredients and Related",
     "count": 18
    },
    {
@@ -11728,11 +11728,11 @@
     "count": 3
    },
    {
-    "phrase": "Package Noakhali District Jail",
+    "phrase": "Miscellaneous Item Package Noakhali",
     "count": 3
    },
    {
-    "phrase": "Miscellaneous Item Package Noakhali",
+    "phrase": "Package Noakhali District Jail",
     "count": 3
    },
    {
@@ -11845,11 +11845,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Spicesfood Ingredients and Accessories-package",
+    "phrase": "Category Schedule-ga Various Types",
     "count": 15
    },
    {
-    "phrase": "Category Schedule-ga Various Types",
+    "phrase": "Spicesfood Ingredients and Accessories-package",
     "count": 15
    },
    {
@@ -11873,7 +11873,7 @@
     "count": 12
    },
    {
-    "phrase": "Mashur Dal Mota",
+    "phrase": "Unnotamaner Mashur Dal",
     "count": 5
    }
   ],
@@ -11990,11 +11990,11 @@
     "count": 14
    },
    {
-    "phrase": "Spices and Other Product",
+    "phrase": "Oil Spices and Other",
     "count": 6
    },
    {
-    "phrase": "Oil Spices and Other",
+    "phrase": "Spices and Other Product",
     "count": 6
    },
    {
@@ -12010,11 +12010,11 @@
     "count": 5
    },
    {
-    "phrase": "Dal Mota for District",
+    "phrase": "Mota for District Jail",
     "count": 3
    },
    {
-    "phrase": "Mota for District Jail",
+    "phrase": "Dal Mota for District",
     "count": 3
    }
   ],
@@ -12135,10 +12135,6 @@
     "count": 6
    },
    {
-    "phrase": "Products for Schedule-ga Package",
-    "count": 6
-   },
-   {
     "phrase": "Other Products for Schedule-ga",
     "count": 6
    },
@@ -12147,11 +12143,15 @@
     "count": 6
    },
    {
-    "phrase": "Animal Protein for Schedule-ka",
-    "count": 5
+    "phrase": "Products for Schedule-ga Package",
+    "count": 6
    },
    {
     "phrase": "Protein for Schedule-ka Package",
+    "count": 5
+   },
+   {
+    "phrase": "Animal Protein for Schedule-ka",
     "count": 5
    }
   ],
@@ -12421,11 +12421,11 @@
     "count": 6
    },
    {
-    "phrase": "Food Ingredients and Accessories",
+    "phrase": "Ingredients and Accessories Products",
     "count": 6
    },
    {
-    "phrase": "Ingredients and Accessories Products",
+    "phrase": "Food Ingredients and Accessories",
     "count": 6
    }
   ],
@@ -12607,11 +12607,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Electric Workshop Equipments Lot",
+    "phrase": "Heavy Electric Workshop Equipments",
     "count": 3
    },
    {
-    "phrase": "Heavy Electric Workshop Equipments",
+    "phrase": "Electric Workshop Equipments Lot",
     "count": 3
    },
    {
@@ -12752,10 +12752,6 @@
     "count": 18
    },
    {
-    "phrase": "Ingredients and Accessories Package",
-    "count": 18
-   },
-   {
     "phrase": "Food Ingredients and Accessories",
     "count": 18
    },
@@ -12764,15 +12760,19 @@
     "count": 18
    },
    {
+    "phrase": "Ingredients and Accessories Package",
+    "count": 18
+   },
+   {
     "phrase": "Dietary Articles Vegetables Package",
     "count": 9
    },
    {
-    "phrase": "Articles Animal Protein Package",
+    "phrase": "Dietary Articles Animal Protein",
     "count": 6
    },
    {
-    "phrase": "Dietary Articles Animal Protein",
+    "phrase": "Articles Animal Protein Package",
     "count": 6
    }
   ],
@@ -12815,8 +12815,8 @@
   ]
  },
  "4347": {
-  "value_bdt": 65710000.0,
-  "count": 72,
+  "value_bdt": 68590000.0,
+  "count": 74,
   "by_year": {
    "2020": {
     "value_bdt": 990000.0,
@@ -12835,12 +12835,12 @@
     "count": 25
    },
    "2026": {
-    "value_bdt": 25540000.0,
-    "count": 30
+    "value_bdt": 28420000.0,
+    "count": 32
    }
   },
   "by_nature": {
-   "Goods": 67
+   "Goods": 69
   },
   "top_vendors": [
    {
@@ -12859,45 +12859,45 @@
     "count": 9
    },
    {
+    "company": "M/s Ahmmad Hossain Khan",
+    "value_bdt": 8260000.0,
+    "count": 6
+   },
+   {
     "company": "Al - Amin Store",
     "value_bdt": 7890000.0,
     "count": 7
-   },
-   {
-    "company": "M/S. MONOWAR HOSSAIN MANIK",
-    "value_bdt": 6270000.0,
-    "count": 8
    }
   ],
   "top_districts": [
    {
     "district": "Jamalpur",
-    "count": 72
+    "count": 74
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Ancillary Materials Schedule Cate",
-    "count": 15
-   },
-   {
-    "phrase": "Dietary Articles Oilspicesfood Supplier",
-    "count": 15
-   },
-   {
     "phrase": "Supplier and Ancillary Materials",
-    "count": 15
+    "count": 17
    },
    {
     "phrase": "Oilspicesfood Supplier and Ancillary",
-    "count": 15
+    "count": 17
    },
    {
-    "phrase": "Dietary Articles Animal Protien",
-    "count": 12
+    "phrase": "Ancillary Materials Schedule Cate",
+    "count": 17
+   },
+   {
+    "phrase": "Dietary Articles Oilspicesfood Supplier",
+    "count": 17
    },
    {
     "phrase": "Articles Animal Protien Schedule",
+    "count": 12
+   },
+   {
+    "phrase": "Dietary Articles Animal Protien",
     "count": 12
    },
    {
@@ -12910,6 +12910,13 @@
    }
   ],
   "top_contracts": [
+   {
+    "package_ref": "44.07.0000.030.02.050.26-959/2",
+    "awarded_to": "M/s Ahmmad Hossain Khan",
+    "value_bdt": 2740000.0,
+    "contract_signing_date": "2026-09-23",
+    "description": "Procurement of Dietary Articles oilspicesfood supplier and ancillary materials schedule cate-2/-GA of Package-01 for the Period of 01 July2026 to 31 Decembder'2"
+   },
    {
     "package_ref": "58.04.3900.097.03.009.24.3395",
     "awarded_to": "Al - Amin Store",
@@ -12937,13 +12944,6 @@
     "value_bdt": 2470000.0,
     "contract_signing_date": "2022-10-03",
     "description": "Supply of Unnatamaner Mashur Dal-Mota for the period of October/2022 to March/2023"
-   },
-   {
-    "package_ref": "58.04.3900.097.01.008.25-2047 date:28.05.2025",
-    "awarded_to": "Al - Amin Store",
-    "value_bdt": 2470000.0,
-    "contract_signing_date": "2025-07-29",
-    "description": "Procurement of Dietary Articles oilspicesfood supplier and ancillary materials schedule cate-2/-GA of Package-01 for the Period of 01 July'2025 to 31 December'2"
    }
   ]
  },
@@ -13018,7 +13018,7 @@
     "count": 12
    },
    {
-    "phrase": "Category Tender Schedule Animal",
+    "phrase": "Articles Category Tender Schedule",
     "count": 8
    },
    {
@@ -13026,7 +13026,7 @@
     "count": 8
    },
    {
-    "phrase": "Articles Category Tender Schedule",
+    "phrase": "Category Tender Schedule Animal",
     "count": 8
    },
    {
@@ -13034,11 +13034,11 @@
     "count": 8
    },
    {
-    "phrase": "Dietary Articles-category Tender Schedule-c",
+    "phrase": "Goods for the July",
     "count": 5
    },
    {
-    "phrase": "Ingredients and Ancillary Goods",
+    "phrase": "Schedule-c Package for Various",
     "count": 5
    }
   ],
@@ -13384,7 +13384,7 @@
     "count": 10
    },
    {
-    "phrase": "Oil Spices Food Ingredients",
+    "phrase": "Ingredients and Miscellaneous Items",
     "count": 6
    },
    {
@@ -13392,15 +13392,15 @@
     "count": 6
    },
    {
-    "phrase": "Ingredients and Miscellaneous Items",
+    "phrase": "Oil Spices Food Ingredients",
+    "count": 6
+   },
+   {
+    "phrase": "Types Oils Spices Food",
     "count": 6
    },
    {
     "phrase": "Accessories Products Cats Schedule-ga",
-    "count": 6
-   },
-   {
-    "phrase": "Products Cats Schedule-ga Package",
     "count": 6
    }
   ],
@@ -13509,27 +13509,27 @@
     "count": 22
    },
    {
-    "phrase": "Ancillary Materials Schedule Cate",
-    "count": 17
-   },
-   {
     "phrase": "Supplier and Ancillary Materials",
     "count": 17
    },
    {
-    "phrase": "Dietary Articles Oilspicesfood Supplier",
-    "count": 11
+    "phrase": "Ancillary Materials Schedule Cate",
+    "count": 17
    },
    {
     "phrase": "Oilspicesfood Supplier and Ancillary",
     "count": 11
    },
    {
-    "phrase": "Dietary Articles Animal Protien",
-    "count": 10
+    "phrase": "Dietary Articles Oilspicesfood Supplier",
+    "count": 11
    },
    {
     "phrase": "Articles Animal Protien Schedule",
+    "count": 10
+   },
+   {
+    "phrase": "Dietary Articles Animal Protien",
     "count": 10
    }
   ],
@@ -13921,11 +13921,11 @@
     "count": 4
    },
    {
-    "phrase": "Rank Badge",
+    "phrase": "Ground Sheet",
     "count": 3
    },
    {
-    "phrase": "Ground Sheet",
+    "phrase": "Rank Badge",
     "count": 3
    },
    {
@@ -14026,10 +14026,6 @@
     "count": 20
    },
    {
-    "phrase": "Sainik Barrack Border Guard",
-    "count": 3
-   },
-   {
     "phrase": "Barrack Border Guard Battalion",
     "count": 3
    },
@@ -14038,19 +14034,23 @@
     "count": 3
    },
    {
-    "phrase": "Per Floor X Unit",
+    "phrase": "Sainik Barrack Border Guard",
     "count": 3
    },
    {
-    "phrase": "Floor X Unit Border",
-    "count": 3
-   },
-   {
-    "phrase": "Quarter Per Floor X",
+    "phrase": "X Unit Border Guard",
     "count": 3
    },
    {
     "phrase": "Unit Border Guard Battalion",
+    "count": 3
+   },
+   {
+    "phrase": "Per Floor X Unit",
+    "count": 3
+   },
+   {
+    "phrase": "Quarter Per Floor X",
     "count": 3
    }
   ],
@@ -14155,11 +14155,11 @@
     "count": 4
    },
    {
-    "phrase": "Item Lentil Deshi Moshur",
+    "phrase": "Lentil Deshi Moshur Dal",
     "count": 4
    },
    {
-    "phrase": "Lentil Deshi Moshur Dal",
+    "phrase": "Item Lentil Deshi Moshur",
     "count": 4
    },
    {
@@ -14390,11 +14390,7 @@
     "count": 5
    },
    {
-    "phrase": "Porter Work and Fire",
-    "count": 5
-   },
-   {
-    "phrase": "General Transport Porter Work",
+    "phrase": "Transport General Transport Porter",
     "count": 5
    },
    {
@@ -14402,7 +14398,11 @@
     "count": 5
    },
    {
-    "phrase": "Transport General Transport Porter",
+    "phrase": "General Transport Porter Work",
+    "count": 5
+   },
+   {
+    "phrase": "Porter Work and Fire",
     "count": 5
    },
    {
@@ -14587,11 +14587,11 @@
     "count": 4
    },
    {
-    "phrase": "Excellent Quality Soybean Oil",
+    "phrase": "Soybean Oil Vitamin Rich",
     "count": 4
    },
    {
-    "phrase": "Soybean Oil Vitamin Rich",
+    "phrase": "Excellent Quality Soybean Oil",
     "count": 4
    },
    {
@@ -14599,11 +14599,11 @@
     "count": 3
    },
    {
-    "phrase": "Work the Boundary Wall",
+    "phrase": "Wire Fencing Painting Work",
     "count": 3
    },
    {
-    "phrase": "Wire Fencing Painting Work",
+    "phrase": "Work the Boundary Wall",
     "count": 3
    },
    {
@@ -14700,11 +14700,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Equipment for Drug Laboratory",
+    "phrase": "Laboratory Equipment for Drug",
     "count": 3
    },
    {
-    "phrase": "Laboratory Equipment for Drug",
+    "phrase": "Equipment for Drug Laboratory",
     "count": 3
    },
    {
@@ -14822,10 +14822,6 @@
     "count": 3
    },
    {
-    "phrase": "Sainik Barrack Border Guard",
-    "count": 3
-   },
-   {
     "phrase": "Barrack Border Guard Battalion",
     "count": 3
    },
@@ -14834,11 +14830,15 @@
     "count": 3
    },
    {
-    "phrase": "Each Floor Border Guard",
+    "phrase": "Sainik Barrack Border Guard",
     "count": 3
    },
    {
     "phrase": "Floor Border Guard Battalion",
+    "count": 3
+   },
+   {
+    "phrase": "Units Each Floor Border",
     "count": 3
    }
   ],
@@ -14951,11 +14951,11 @@
     "count": 9
    },
    {
-    "phrase": "Pulse Unnatamaner Moshur Dal",
+    "phrase": "Lentil Pulse Unnatamaner Moshur",
     "count": 6
    },
    {
-    "phrase": "Lentil Pulse Unnatamaner Moshur",
+    "phrase": "Pulse Unnatamaner Moshur Dal",
     "count": 6
    },
    {
@@ -15197,11 +15197,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Articles for Kashimpur Female",
+    "phrase": "Dietary Articles for Kashimpur",
     "count": 13
    },
    {
-    "phrase": "Dietary Articles for Kashimpur",
+    "phrase": "Articles for Kashimpur Female",
     "count": 13
    },
    {
@@ -15209,11 +15209,11 @@
     "count": 13
    },
    {
-    "phrase": "Kashimpur Female Centre Jail",
+    "phrase": "Articles Kashimpur Female Centre",
     "count": 8
    },
    {
-    "phrase": "Articles Kashimpur Female Centre",
+    "phrase": "Kashimpur Female Centre Jail",
     "count": 8
    },
    {
@@ -15424,15 +15424,15 @@
     "count": 6
    },
    {
+    "phrase": "Service Boat for Bangladesh",
+    "count": 5
+   },
+   {
     "phrase": "Boat Hiring Service Boat",
     "count": 5
    },
    {
     "phrase": "Boat for Bangladesh Coast",
-    "count": 5
-   },
-   {
-    "phrase": "Service Boat for Bangladesh",
     "count": 5
    },
    {
@@ -15528,10 +15528,6 @@
     "count": 12
    },
    {
-    "phrase": "Ingredients and Accessories Package",
-    "count": 12
-   },
-   {
     "phrase": "Food Ingredients and Accessories",
     "count": 12
    },
@@ -15540,11 +15536,15 @@
     "count": 12
    },
    {
-    "phrase": "Articles Animal Protein Package",
-    "count": 8
+    "phrase": "Ingredients and Accessories Package",
+    "count": 12
    },
    {
     "phrase": "Dietary Articles Animal Protein",
+    "count": 8
+   },
+   {
+    "phrase": "Articles Animal Protein Package",
     "count": 8
    },
    {
@@ -15717,16 +15717,16 @@
   ]
  },
  "7087": {
-  "value_bdt": 139630000.0,
-  "count": 98,
+  "value_bdt": 139830000.0,
+  "count": 99,
   "by_year": {
    "2025": {
     "value_bdt": 11270000.0,
     "count": 9
    },
    "2026": {
-    "value_bdt": 128360000.0,
-    "count": 89
+    "value_bdt": 128560000.0,
+    "count": 90
    }
   },
   "by_nature": {
@@ -15764,17 +15764,17 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 98
+    "count": 99
    }
   ],
   "top_phrases": [
    {
     "phrase": "Coast Guard East Zone",
-    "count": 43
+    "count": 44
    },
    {
     "phrase": "Bangladesh Coast Guard East",
-    "count": 23
+    "count": 24
    },
    {
     "phrase": "Coast Guard Eastern Zone",
@@ -15789,7 +15789,7 @@
     "count": 13
    },
    {
-    "phrase": "Base Chattogram and Station",
+    "phrase": "Outpost the Zonal Commander",
     "count": 7
    },
    {
@@ -15797,7 +15797,7 @@
     "count": 7
    },
    {
-    "phrase": "Outpost the Zonal Commander",
+    "phrase": "Base Chattogram and Station",
     "count": 7
    }
   ],
@@ -15995,10 +15995,6 @@
     "count": 13
    },
    {
-    "phrase": "Vitamin-a for the Months",
-    "count": 7
-   },
-   {
     "phrase": "Edible Soyabin Oil Enriched",
     "count": 7
    },
@@ -16007,11 +16003,15 @@
     "count": 7
    },
    {
-    "phrase": "Grain for the Months",
+    "phrase": "Vitamin-a for the Months",
+    "count": 7
+   },
+   {
+    "phrase": "Quality Deshi Small Grain",
     "count": 6
    },
    {
-    "phrase": "High Quality Deshi Small",
+    "phrase": "Dal High Quality Deshi",
     "count": 6
    }
   ],
@@ -16324,7 +16324,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Grain Lentils for Departmental",
+    "phrase": "Lentils for Departmental Ration",
     "count": 4
    },
    {
@@ -16332,7 +16332,7 @@
     "count": 4
    },
    {
-    "phrase": "Lentils for Departmental Ration",
+    "phrase": "Grain Lentils for Departmental",
     "count": 4
    },
    {
@@ -16740,11 +16740,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Deshi Moshur Dal Soru",
+    "phrase": "Soru for the Month",
     "count": 6
    },
    {
-    "phrase": "Soru for the Month",
+    "phrase": "Deshi Moshur Dal Soru",
     "count": 6
    },
    {
@@ -16988,11 +16988,11 @@
     "count": 5
    },
    {
-    "phrase": "Police Nd Quarter Oct",
+    "phrase": "District Police Nd Quarter",
     "count": 5
    },
    {
-    "phrase": "District Police Nd Quarter",
+    "phrase": "Police Nd Quarter Oct",
     "count": 5
    },
    {
@@ -17012,7 +17012,7 @@
     "count": 4
    },
    {
-    "phrase": "Government Silos for Ration",
+    "phrase": "Crushing Wheat Supplied Government",
     "count": 4
    }
   ],
@@ -17105,6 +17105,14 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Quality Deshi Small Grain",
+    "count": 7
+   },
+   {
+    "phrase": "Dal High Quality Deshi",
+    "count": 7
+   },
+   {
     "phrase": "High Quality Deshi Small",
     "count": 7
    },
@@ -17117,23 +17125,15 @@
     "count": 7
    },
    {
-    "phrase": "Dal High Quality Deshi",
-    "count": 7
-   },
-   {
-    "phrase": "Quality Deshi Small Grain",
-    "count": 7
-   },
-   {
     "phrase": "Grain for the Pried",
     "count": 7
    },
    {
-    "phrase": "Soyabin Oil Vitamin-a Fortified",
+    "phrase": "Procurement Soyabin Oil Vitamin-a",
     "count": 6
    },
    {
-    "phrase": "Procurement Soyabin Oil Vitamin-a",
+    "phrase": "Soyabin Oil Vitamin-a Fortified",
     "count": 6
    }
   ],
@@ -17176,28 +17176,28 @@
   ]
  },
  "7433": {
-  "value_bdt": 204850000.0,
-  "count": 42,
+  "value_bdt": 225710000.0,
+  "count": 44,
   "by_year": {
    "2025": {
     "value_bdt": 14190000.0,
     "count": 2
    },
    "2026": {
-    "value_bdt": 190660000.0,
-    "count": 40
+    "value_bdt": 211520000.0,
+    "count": 42
    }
   },
   "by_nature": {
-   "Goods": 39,
+   "Goods": 41,
    "Services": 1,
    "Works": 2
   },
   "top_vendors": [
    {
     "company": "M/S ABDUL MALEK",
-    "value_bdt": 61460000.0,
-    "count": 13
+    "value_bdt": 82320000.0,
+    "count": 15
    },
    {
     "company": "M/S Juthika Traders",
@@ -17223,7 +17223,7 @@
   "top_districts": [
    {
     "district": "Rangamati",
-    "count": 42
+    "count": 44
    }
   ],
   "top_phrases": [
@@ -17240,15 +17240,15 @@
     "count": 4
    },
    {
+    "phrase": "Hill District Police Ration",
+    "count": 3
+   },
+   {
     "phrase": "District Police Ration Store",
     "count": 3
    },
    {
     "phrase": "Store for the July",
-    "count": 3
-   },
-   {
-    "phrase": "Hill District Police Ration",
     "count": 3
    },
    {
@@ -17283,18 +17283,18 @@
     "description": "Drugs and vaccines supply"
    },
    {
-    "package_ref": "RMT/e-GP/Annual/Goods/2601/1st part",
+    "package_ref": "RMT/e-GP/Goods/2026-2027/4388/1sT Part",
     "awarded_to": "M/S ABDUL MALEK",
-    "value_bdt": 9370000.0,
-    "contract_signing_date": "2026-08-19",
-    "description": "Furniture supply work"
+    "value_bdt": 10430000.0,
+    "contract_signing_date": "2026-09-23",
+    "description": "Supply work of Office Equipment."
    },
    {
-    "package_ref": "RMT/e-GP/Annual/Goods/2591/1st part",
+    "package_ref": "RMT/e-GP/Goods/2026-2027/4389/1sT Part",
     "awarded_to": "M/S ABDUL MALEK",
-    "value_bdt": 8980000.0,
-    "contract_signing_date": "2026-08-02",
-    "description": "Supply of computer equipment"
+    "value_bdt": 10430000.0,
+    "contract_signing_date": "2026-09-23",
+    "description": "Supply work of Other Machinaries and Equipment."
    }
   ]
  },
@@ -17355,11 +17355,11 @@
     "count": 6
    },
    {
-    "phrase": "District Police Th Quarter",
+    "phrase": "Police Th Quarter April",
     "count": 6
    },
    {
-    "phrase": "Police Th Quarter April",
+    "phrase": "District Police Th Quarter",
     "count": 6
    },
    {
@@ -17569,19 +17569,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Dal High Quality Deshi",
-    "count": 6
-   },
-   {
-    "phrase": "High Quality Deshi Small",
-    "count": 6
-   },
-   {
     "phrase": "Masur Dal High Quality",
     "count": 6
    },
    {
     "phrase": "Quality Deshi Small Grain",
+    "count": 6
+   },
+   {
+    "phrase": "Dal High Quality Deshi",
+    "count": 6
+   },
+   {
+    "phrase": "High Quality Deshi Small",
     "count": 6
    },
    {
@@ -17686,11 +17686,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fire Service and Civil",
+    "phrase": "Service and Civil Defence",
     "count": 11
    },
    {
-    "phrase": "Service and Civil Defence",
+    "phrase": "Fire Service and Civil",
     "count": 11
    },
    {
@@ -17702,11 +17702,11 @@
     "count": 8
    },
    {
-    "phrase": "Divitionnal Ration Soyabin Oil",
+    "phrase": "Comilla Divitionnal Ration Soyabin",
     "count": 4
    },
    {
-    "phrase": "Comilla Divitionnal Ration Soyabin",
+    "phrase": "Divitionnal Ration Soyabin Oil",
     "count": 4
    },
    {
@@ -17929,11 +17929,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fire Service and Civil",
+    "phrase": "Service and Civil Defence",
     "count": 5
    },
    {
-    "phrase": "Service and Civil Defence",
+    "phrase": "Fire Service and Civil",
     "count": 5
    },
    {
@@ -17945,15 +17945,15 @@
     "count": 4
    },
    {
-    "phrase": "Noakhali Divisionnal Ration Mosordal",
-    "count": 3
-   },
-   {
     "phrase": "Defence Noakhali Divisionnal Ration",
     "count": 3
    },
    {
     "phrase": "Civil Defence Noakhali Divisionnal",
+    "count": 3
+   },
+   {
+    "phrase": "Noakhali Divisionnal Ration Mosordal",
     "count": 3
    },
    {
@@ -18050,6 +18050,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Civil Defence Sylhet Ration",
+    "count": 10
+   },
+   {
     "phrase": "Fire Service Civil Defence",
     "count": 10
    },
@@ -18058,16 +18062,16 @@
     "count": 10
    },
    {
-    "phrase": "Civil Defence Sylhet Ration",
-    "count": 10
+    "phrase": "Rich Vitamin for Fire",
+    "count": 5
    },
    {
     "phrase": "Vitamin for Fire Service",
     "count": 5
    },
    {
-    "phrase": "Rich Vitamin for Fire",
-    "count": 5
+    "phrase": "Soyabean Oil Approved Rich",
+    "count": 4
    },
    {
     "phrase": "Edible Soyabean Oil Approved",
@@ -18075,10 +18079,6 @@
    },
    {
     "phrase": "Oil Approved Rich Vitamin",
-    "count": 4
-   },
-   {
-    "phrase": "Soyabean Oil Approved Rich",
     "count": 4
    }
   ],
@@ -18171,7 +18171,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "High Quality Deshi Small",
+    "phrase": "Quality Deshi Small Grain",
     "count": 3
    },
    {
@@ -18179,7 +18179,7 @@
     "count": 3
    },
    {
-    "phrase": "Quality Deshi Small Grain",
+    "phrase": "High Quality Deshi Small",
     "count": 3
    },
    {
@@ -18406,11 +18406,11 @@
     "count": 4
    },
    {
-    "phrase": "Metropolitan Police St Quarter",
+    "phrase": "Chattogram Metropolitan Police St",
     "count": 4
    },
    {
-    "phrase": "Chattogram Metropolitan Police St",
+    "phrase": "Metropolitan Police St Quarter",
     "count": 4
    },
    {
@@ -18611,11 +18611,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Largest Kushtia District",
+    "phrase": "Officers and Employees",
     "count": 6
    },
    {
-    "phrase": "Officers and Employees",
+    "phrase": "Largest Kushtia District",
     "count": 6
    },
    {
@@ -18724,7 +18724,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "High Quality Deshi Small",
+    "phrase": "Quality Deshi Small Grain",
     "count": 7
    },
    {
@@ -18732,11 +18732,11 @@
     "count": 7
    },
    {
-    "phrase": "Deshi Small Grain Moshur",
+    "phrase": "High Quality Deshi Small",
     "count": 7
    },
    {
-    "phrase": "Quality Deshi Small Grain",
+    "phrase": "Deshi Small Grain Moshur",
     "count": 7
    },
    {
@@ -18926,14 +18926,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Dal High Quality Deshi",
-    "count": 5
-   },
-   {
-    "phrase": "High Quality Deshi Small",
-    "count": 5
-   },
-   {
     "phrase": "Masur Dal High Quality",
     "count": 5
    },
@@ -18942,7 +18934,15 @@
     "count": 5
    },
    {
-    "phrase": "Enriched Vitamin-a Approved Liter",
+    "phrase": "Dal High Quality Deshi",
+    "count": 5
+   },
+   {
+    "phrase": "High Quality Deshi Small",
+    "count": 5
+   },
+   {
+    "phrase": "Vitamin-a Approved Liter Containers",
     "count": 4
    },
    {
@@ -18950,11 +18950,11 @@
     "count": 4
    },
    {
-    "phrase": "Soybean Oil Enriched Vitamin-a",
+    "phrase": "Edible Soybean Oil Enriched",
     "count": 4
    },
    {
-    "phrase": "Vitamin-a Approved Liter Containers",
+    "phrase": "Enriched Vitamin-a Approved Liter",
     "count": 4
    }
   ],
@@ -19063,19 +19063,19 @@
     "count": 7
    },
    {
-    "phrase": "Fire Service and Civil",
-    "count": 5
-   },
-   {
     "phrase": "Service and Civil Defence",
     "count": 5
    },
    {
-    "phrase": "Dal Deshi Small Grains",
+    "phrase": "Fire Service and Civil",
     "count": 5
    },
    {
-    "phrase": "Quality Moshur Dal Deshi",
+    "phrase": "Khulna the Otm-fscd-kln High",
+    "count": 5
+   },
+   {
+    "phrase": "Otm-fscd-kln High Quality Moshur",
     "count": 5
    }
   ],
@@ -19244,11 +19244,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fire Service Divisional Ration",
+    "phrase": "Chattogram Fire Service Divisional",
     "count": 4
    },
    {
-    "phrase": "Chattogram Fire Service Divisional",
+    "phrase": "Fire Service Divisional Ration",
     "count": 4
    },
    {
@@ -19498,10 +19498,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Barishal District Police Rd",
-    "count": 9
-   },
-   {
     "phrase": "District Police Rd Quarter",
     "count": 9
    },
@@ -19510,12 +19506,12 @@
     "count": 9
    },
    {
-    "phrase": "Divisional Police Hospital Barishal",
-    "count": 5
+    "phrase": "Barishal District Police Rd",
+    "count": 9
    },
    {
-    "phrase": "Police Offices Divisional Police",
-    "count": 3
+    "phrase": "Divisional Police Hospital Barishal",
+    "count": 5
    },
    {
     "phrase": "Hospital and Election-related Activities",
@@ -19527,6 +19523,10 @@
    },
    {
     "phrase": "Police Hospital and Election-related",
+    "count": 3
+   },
+   {
+    "phrase": "Police Offices Divisional Police",
     "count": 3
    }
   ],
@@ -19664,11 +19664,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Th Quarter April",
+    "phrase": "District Police Th Quarter",
     "count": 5
    },
    {
-    "phrase": "District Police Th Quarter",
+    "phrase": "Police Th Quarter April",
     "count": 5
    },
    {
@@ -19676,11 +19676,11 @@
     "count": 5
    },
    {
-    "phrase": "District Police Rd Quarter",
+    "phrase": "Police Rd Quarter January",
     "count": 5
    },
    {
-    "phrase": "Police Rd Quarter January",
+    "phrase": "District Police Rd Quarter",
     "count": 5
    },
    {
@@ -19688,11 +19688,11 @@
     "count": 5
    },
    {
-    "phrase": "District Police St Quarter",
+    "phrase": "Mymensingh District Police St",
     "count": 4
    },
    {
-    "phrase": "Mymensingh District Police St",
+    "phrase": "District Police St Quarter",
     "count": 4
    }
   ],
@@ -19781,11 +19781,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Natore District Police Ration",
+    "phrase": "District Police Ration Store",
     "count": 11
    },
    {
-    "phrase": "District Police Ration Store",
+    "phrase": "Natore District Police Ration",
     "count": 11
    },
    {
@@ -20159,15 +20159,11 @@
     "count": 6
    },
    {
-    "phrase": "Dal Lentil for Armed",
-    "count": 3
-   },
-   {
-    "phrase": "High Quality Masor Dal",
-    "count": 3
-   },
-   {
     "phrase": "Quality Masor Dal Lentil",
+    "count": 3
+   },
+   {
+    "phrase": "Dal Lentil for Armed",
     "count": 3
    },
    {
@@ -20175,7 +20171,7 @@
     "count": 3
    },
    {
-    "phrase": "Edible Oil for Armed",
+    "phrase": "High Quality Masor Dal",
     "count": 3
    },
    {
@@ -20184,6 +20180,10 @@
    },
    {
     "phrase": "Oil for Armed Police",
+    "count": 3
+   },
+   {
+    "phrase": "Edible Oil for Armed",
     "count": 3
    }
   ],
@@ -20273,11 +20273,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Academy Sardah Rajshahi",
+    "phrase": "Bangladesh Police Academy Sardah",
     "count": 42
    },
    {
-    "phrase": "Bangladesh Police Academy Sardah",
+    "phrase": "Police Academy Sardah Rajshahi",
     "count": 42
    },
    {
@@ -20301,7 +20301,7 @@
     "count": 3
    },
    {
-    "phrase": "Stable for Bangladesh Police",
+    "phrase": "Items Ration and Stable",
     "count": 3
    }
   ],
@@ -20391,15 +20391,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Quarter District Police Ration",
+    "count": 17
+   },
+   {
     "phrase": "District Police Ration Store",
     "count": 17
    },
    {
     "phrase": "Police Ration Store Tangail",
-    "count": 17
-   },
-   {
-    "phrase": "Quarter District Police Ration",
     "count": 17
    },
    {
@@ -20517,10 +20517,6 @@
     "count": 9
    },
    {
-    "phrase": "Cumilla Th Quarter April",
-    "count": 4
-   },
-   {
     "phrase": "Police Cumilla Th Quarter",
     "count": 4
    },
@@ -20529,7 +20525,7 @@
     "count": 4
    },
    {
-    "phrase": "Highway Police Cumilla Rd",
+    "phrase": "Cumilla Th Quarter April",
     "count": 4
    },
    {
@@ -20538,6 +20534,10 @@
    },
    {
     "phrase": "Cumilla Rd Quarter Jan",
+    "count": 4
+   },
+   {
+    "phrase": "Highway Police Cumilla Rd",
     "count": 4
    }
   ],
@@ -20750,11 +20750,11 @@
     "count": 6
    },
    {
-    "phrase": "Oil Soyabean Supply Work",
+    "phrase": "Edible Oil Soyabean Supply",
     "count": 3
    },
    {
-    "phrase": "Edible Oil Soyabean Supply",
+    "phrase": "Oil Soyabean Supply Work",
     "count": 3
    },
    {
@@ -20978,11 +20978,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Sylhet District Police Ration",
+    "phrase": "District Police Ration Store",
     "count": 16
    },
    {
-    "phrase": "District Police Ration Store",
+    "phrase": "Sylhet District Police Ration",
     "count": 16
    },
    {
@@ -20990,11 +20990,15 @@
     "count": 6
    },
    {
+    "phrase": "Store Th Quarter April",
+    "count": 6
+   },
+   {
     "phrase": "Ration Store Th Quarter",
     "count": 6
    },
    {
-    "phrase": "Store Th Quarter April",
+    "phrase": "Ration Store Rd Quarter",
     "count": 6
    },
    {
@@ -21003,10 +21007,6 @@
    },
    {
     "phrase": "Store Rd Quarter January",
-    "count": 6
-   },
-   {
-    "phrase": "Ration Store Rd Quarter",
     "count": 6
    }
   ],
@@ -21100,11 +21100,11 @@
     "count": 10
    },
    {
-    "phrase": "District Police Rd Quarter",
+    "phrase": "Bhola District Police Rd",
     "count": 5
    },
    {
-    "phrase": "Bhola District Police Rd",
+    "phrase": "District Police Rd Quarter",
     "count": 5
    },
    {
@@ -21120,11 +21120,11 @@
     "count": 3
    },
    {
-    "phrase": "District Police St Quarter",
+    "phrase": "Vitamin A-rich Edible Oil",
     "count": 3
    },
    {
-    "phrase": "Vitamin A-rich Edible Oil",
+    "phrase": "District Police St Quarter",
     "count": 3
    }
   ],
@@ -21568,19 +21568,19 @@
     "count": 3
    },
    {
-    "phrase": "Barishal St Quarter July",
-    "count": 3
-   },
-   {
     "phrase": "Fire Wood for Ration",
     "count": 3
    },
    {
-    "phrase": "Lentils Premium Quality Small-grain",
+    "phrase": "Barishal St Quarter July",
     "count": 3
    },
    {
-    "phrase": "Lentils Transparent Poly Packs",
+    "phrase": "Premium Quality Small-grain Lentils",
+    "count": 3
+   },
+   {
+    "phrase": "Quality Small-grain Lentils Transparent",
     "count": 3
    },
    {
@@ -21759,7 +21759,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Lines Ration Store Panchagarh",
+    "phrase": "Quarter District Police Lines",
+    "count": 5
+   },
+   {
+    "phrase": "District Police Lines Ration",
     "count": 5
    },
    {
@@ -21767,15 +21771,11 @@
     "count": 5
    },
    {
+    "phrase": "Lines Ration Store Panchagarh",
+    "count": 5
+   },
+   {
     "phrase": "Police Lines Ration Store",
-    "count": 5
-   },
-   {
-    "phrase": "Quarter District Police Lines",
-    "count": 5
-   },
-   {
-    "phrase": "District Police Lines Ration",
     "count": 5
    },
    {
@@ -21893,11 +21893,11 @@
     "count": 6
    },
    {
-    "phrase": "Th Quarter Kishoreganj District",
+    "phrase": "Quarter Kishoreganj District Police",
     "count": 4
    },
    {
-    "phrase": "Quarter Kishoreganj District Police",
+    "phrase": "Th Quarter Kishoreganj District",
     "count": 4
    },
    {
@@ -22308,7 +22308,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Uttara Dhaka Including Ancillary",
+    "phrase": "Th Uttara Dhaka Including",
     "count": 5
    },
    {
@@ -22316,7 +22316,7 @@
     "count": 5
    },
    {
-    "phrase": "Th Uttara Dhaka Including",
+    "phrase": "Uttara Dhaka Including Ancillary",
     "count": 5
    },
    {
@@ -22523,19 +22523,19 @@
     "count": 4
    },
    {
-    "phrase": "Metropolitan Police Barishal St",
-    "count": 3
-   },
-   {
     "phrase": "Police Barishal St Quarter",
     "count": 3
    },
    {
-    "phrase": "Barishal St Quarter July",
+    "phrase": "Metropolitan Police Barishal St",
     "count": 3
    },
    {
     "phrase": "Barishal Metropolitan Police Barishal",
+    "count": 3
+   },
+   {
+    "phrase": "Barishal St Quarter July",
     "count": 3
    },
    {
@@ -22547,7 +22547,7 @@
     "count": 3
    },
    {
-    "phrase": "Metropolitan Police Barisal Th",
+    "phrase": "Police Barisal Th Quarter",
     "count": 3
    }
   ],
@@ -22760,19 +22760,19 @@
     "count": 10
    },
    {
-    "phrase": "Centre Khulna Rd Quarter",
-    "count": 5
-   },
-   {
     "phrase": "Training Centre Khulna Rd",
     "count": 5
    },
    {
-    "phrase": "Wheat Crushing Supplied Government",
-    "count": 3
+    "phrase": "Centre Khulna Rd Quarter",
+    "count": 5
    },
    {
     "phrase": "Crushing Supplied Government Silos",
+    "count": 3
+   },
+   {
+    "phrase": "Wheat Crushing Supplied Government",
     "count": 3
    },
    {
@@ -22879,11 +22879,11 @@
     "count": 3
    },
    {
-    "phrase": "District Police Ration Store",
+    "phrase": "Lakshmipur District Police Ration",
     "count": 3
    },
    {
-    "phrase": "Lakshmipur District Police Ration",
+    "phrase": "District Police Ration Store",
     "count": 3
    },
    {
@@ -23082,11 +23082,11 @@
     "count": 9
    },
    {
-    "phrase": "Ration Store Kushtia July",
+    "phrase": "Store Kushtia July June",
     "count": 5
    },
    {
-    "phrase": "Store Kushtia July June",
+    "phrase": "Ration Store Kushtia July",
     "count": 5
    },
    {
@@ -23337,16 +23337,16 @@
   ]
  },
  "8062": {
-  "value_bdt": 96600000.0,
-  "count": 31,
+  "value_bdt": 97000000.0,
+  "count": 32,
   "by_year": {
    "2026": {
-    "value_bdt": 96600000.0,
-    "count": 31
+    "value_bdt": 97000000.0,
+    "count": 32
    }
   },
   "by_nature": {
-   "Goods": 15,
+   "Goods": 16,
    "Services": 5,
    "Works": 9
   },
@@ -23380,7 +23380,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 31
+    "count": 32
    }
   ],
   "top_phrases": [
@@ -23539,11 +23539,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Quality Edible Oil Soyabin",
+    "phrase": "High Quality Edible Oil",
     "count": 3
    },
    {
-    "phrase": "High Quality Edible Oil",
+    "phrase": "Quality Edible Oil Soyabin",
     "count": 3
    },
    {
@@ -23551,11 +23551,11 @@
     "count": 3
    },
    {
-    "phrase": "High Quality Lentils Mosur",
+    "phrase": "Quality Lentils Mosur Dal",
     "count": 3
    },
    {
-    "phrase": "Quality Lentils Mosur Dal",
+    "phrase": "High Quality Lentils Mosur",
     "count": 3
    },
    {
@@ -23799,7 +23799,7 @@
     "count": 3
    },
    {
-    "phrase": "Store Rd and Th",
+    "phrase": "Rd and Th Quarter",
     "count": 3
    }
   ],
@@ -23889,10 +23889,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "High Quality Approved Edible",
-    "count": 3
-   },
-   {
     "phrase": "Approved Edible Soybean Oil",
     "count": 3
    },
@@ -23901,11 +23897,11 @@
     "count": 3
    },
    {
-    "phrase": "Quality Approved Edible Soybean",
+    "phrase": "High Quality Approved Edible",
     "count": 3
    },
    {
-    "phrase": "Quality Small Grain Lentils",
+    "phrase": "Quality Approved Edible Soybean",
     "count": 3
    },
    {
@@ -23913,11 +23909,15 @@
     "count": 3
    },
    {
+    "phrase": "Quality Small Grain Lentils",
+    "count": 3
+   },
+   {
     "phrase": "Wheat Grinding Work",
     "count": 3
    },
    {
-    "phrase": "Supplied Ration Materials",
+    "phrase": "Loading and Unloading",
     "count": 3
    }
   ],
@@ -24014,11 +24014,7 @@
     "count": 3
    },
    {
-    "phrase": "Oil Packaged Transparent Plastic",
-    "count": 3
-   },
-   {
-    "phrase": "Police Lines Ration Store",
+    "phrase": "Quarter District Police Lines",
     "count": 3
    },
    {
@@ -24030,7 +24026,11 @@
     "count": 3
    },
    {
-    "phrase": "Quarter District Police Lines",
+    "phrase": "Packaged Transparent Plastic Bottle",
+    "count": 3
+   },
+   {
+    "phrase": "Oil Packaged Transparent Plastic",
     "count": 3
    },
    {
@@ -24124,6 +24124,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Syedpur Railway District Police",
+    "count": 10
+   },
+   {
     "phrase": "District Police Ration Store",
     "count": 10
    },
@@ -24132,12 +24136,12 @@
     "count": 10
    },
    {
-    "phrase": "Syedpur Railway District Police",
-    "count": 10
-   },
-   {
     "phrase": "June Syedpur Railway District",
     "count": 6
+   },
+   {
+    "phrase": "Railway Police Farisayedpur Railway",
+    "count": 3
    },
    {
     "phrase": "Kaunia Railway Police Farisayedpur",
@@ -24145,10 +24149,6 @@
    },
    {
     "phrase": "Police Farisayedpur Railway District",
-    "count": 3
-   },
-   {
-    "phrase": "Railway Police Farisayedpur Railway",
     "count": 3
    },
    {
@@ -24622,15 +24622,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Quarter Thakurgaon District Police",
+    "count": 9
+   },
+   {
     "phrase": "District Police Ration Store",
     "count": 9
    },
    {
     "phrase": "Thakurgaon District Police Ration",
-    "count": 9
-   },
-   {
-    "phrase": "Quarter Thakurgaon District Police",
     "count": 9
    },
    {
@@ -24739,11 +24739,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Police and Freedom",
+    "phrase": "Police and Freedom Fighters",
     "count": 3
    },
    {
-    "phrase": "Police and Freedom Fighters",
+    "phrase": "District Police and Freedom",
     "count": 3
    },
    {
@@ -25051,11 +25051,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Super Refined Edible Oil",
+    "phrase": "Refined Edible Oil Soybean",
     "count": 3
    },
    {
-    "phrase": "Refined Edible Oil Soybean",
+    "phrase": "Super Refined Edible Oil",
     "count": 3
    },
    {
@@ -25251,15 +25251,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "High Quality Lentils Mosur",
-    "count": 3
-   },
-   {
     "phrase": "Quality Lentils Mosur Dal",
     "count": 3
    },
    {
+    "phrase": "High Quality Lentils Mosur",
+    "count": 3
+   },
+   {
     "phrase": "High Quality Fuel Wood",
+    "count": 3
+   },
+   {
+    "phrase": "High Quality Edible Oil",
     "count": 3
    },
    {
@@ -25268,10 +25272,6 @@
    },
    {
     "phrase": "Edible Oil Soyabin Oil",
-    "count": 3
-   },
-   {
-    "phrase": "High Quality Edible Oil",
     "count": 3
    },
    {
@@ -25369,15 +25369,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Edible Soybean Oil Bottled",
+    "count": 3
+   },
+   {
     "phrase": "Approved Edible Soybean Oil",
     "count": 3
    },
    {
     "phrase": "High-quality Approved Edible Soybean",
-    "count": 3
-   },
-   {
-    "phrase": "Edible Soybean Oil Bottled",
     "count": 3
    },
    {
@@ -25389,11 +25389,11 @@
     "count": 5
    },
    {
-    "phrase": "Transportation Cost Inside",
+    "phrase": "Transportation Cost Outside",
     "count": 3
    },
    {
-    "phrase": "Transportation Cost Outside",
+    "phrase": "Transportation Cost Inside",
     "count": 3
    },
    {
@@ -25664,11 +25664,11 @@
     "count": 7
    },
    {
-    "phrase": "Temporary Headquarters Ukhia Cox",
+    "phrase": "Dhaka Temporary Headquarters Ukhia",
     "count": 6
    },
    {
-    "phrase": "Dhaka Temporary Headquarters Ukhia",
+    "phrase": "Temporary Headquarters Ukhia Cox",
     "count": 6
    },
    {
@@ -25775,11 +25775,11 @@
     "count": 10
    },
    {
-    "phrase": "Police Lines Ration Store",
+    "phrase": "Lines Ration Store Chuadanga",
     "count": 7
    },
    {
-    "phrase": "Lines Ration Store Chuadanga",
+    "phrase": "Police Lines Ration Store",
     "count": 7
    },
    {
@@ -26262,11 +26262,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Gazipur Region Gazipur",
+    "phrase": "Highway Police Gazipur Region",
     "count": 21
    },
    {
-    "phrase": "Highway Police Gazipur Region",
+    "phrase": "Police Gazipur Region Gazipur",
     "count": 21
    },
    {
@@ -26282,15 +26282,15 @@
     "count": 3
    },
    {
+    "phrase": "Quality Local Small Grain",
+    "count": 3
+   },
+   {
     "phrase": "Small Grain Lentils Dal",
     "count": 3
    },
    {
     "phrase": "Local Small Grain Lentils",
-    "count": 3
-   },
-   {
-    "phrase": "Quality Local Small Grain",
     "count": 3
    }
   ],
@@ -26823,11 +26823,11 @@
     "count": 29
    },
    {
-    "phrase": "Madaripur Region Faridpur Ration",
+    "phrase": "Region Faridpur Ration Store",
     "count": 17
    },
    {
-    "phrase": "Region Faridpur Ration Store",
+    "phrase": "Madaripur Region Faridpur Ration",
     "count": 17
    },
    {
@@ -26843,7 +26843,7 @@
     "count": 11
    },
    {
-    "phrase": "Th Quater Highway Police",
+    "phrase": "Finincial Th Quater Highway",
     "count": 7
    }
   ],
@@ -27219,22 +27219,22 @@
   ]
  },
  "8161": {
-  "value_bdt": 6390000.0,
-  "count": 17,
+  "value_bdt": 6730000.0,
+  "count": 21,
   "by_year": {
    "2026": {
-    "value_bdt": 6390000.0,
-    "count": 17
+    "value_bdt": 6730000.0,
+    "count": 21
    }
   },
   "by_nature": {
-   "Goods": 17
+   "Goods": 21
   },
   "top_vendors": [
    {
     "company": "ibrahim & ismail brothers",
-    "value_bdt": 2490000.0,
-    "count": 7
+    "value_bdt": 2800000.0,
+    "count": 10
    },
    {
     "company": "Smile Food Products Limited",
@@ -27260,20 +27260,16 @@
   "top_districts": [
    {
     "district": "Khulna",
-    "count": 17
+    "count": 21
    }
   ],
   "top_phrases": [
-   {
-    "phrase": "Industrial Police Khulna Th",
-    "count": 6
-   },
    {
     "phrase": "Police Khulna Th Quarter",
     "count": 6
    },
    {
-    "phrase": "Police Khulna Rd Quarter",
+    "phrase": "Industrial Police Khulna Th",
     "count": 6
    },
    {
@@ -27281,20 +27277,24 @@
     "count": 6
    },
    {
-    "phrase": "Industrial Police Khulna St",
-    "count": 5
+    "phrase": "Police Khulna Rd Quarter",
+    "count": 6
    },
    {
     "phrase": "Police Khulna St Quarter",
     "count": 5
    },
    {
-    "phrase": "Fire Wood for Ration",
-    "count": 3
+    "phrase": "Industrial Police Khulna St",
+    "count": 5
    },
    {
-    "phrase": "Masur Dal for Ration",
-    "count": 3
+    "phrase": "Fire Wood for Ration",
+    "count": 4
+   },
+   {
+    "phrase": "Industrial Police Khulna Nd",
+    "count": 4
    }
   ],
   "top_contracts": [
@@ -27568,11 +27568,11 @@
     "count": 3
    },
    {
-    "phrase": "St and Nd Quarter",
+    "phrase": "Chattogram St and Nd",
     "count": 3
    },
    {
-    "phrase": "Chattogram St and Nd",
+    "phrase": "St and Nd Quarter",
     "count": 3
    },
    {
@@ -27584,11 +27584,11 @@
     "count": 3
    },
    {
-    "phrase": "Quarter July",
+    "phrase": "Chattogram St",
     "count": 4
    },
    {
-    "phrase": "Chattogram St",
+    "phrase": "Quarter July",
     "count": 4
    },
    {
@@ -28019,7 +28019,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Sirajganj District Police Rd",
+    "phrase": "Police Rd Quarter January",
     "count": 6
    },
    {
@@ -28027,23 +28027,23 @@
     "count": 6
    },
    {
-    "phrase": "Police Rd Quarter January",
+    "phrase": "Sirajganj District Police Rd",
     "count": 6
-   },
-   {
-    "phrase": "District Police St Quarter",
-    "count": 5
    },
    {
     "phrase": "Sirajganj District Police St",
     "count": 5
    },
    {
-    "phrase": "Police Th Quarter April",
+    "phrase": "District Police St Quarter",
     "count": 5
    },
    {
     "phrase": "District Police Th Quarter",
+    "count": 5
+   },
+   {
+    "phrase": "Police Th Quarter April",
     "count": 5
    },
    {
@@ -28136,19 +28136,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Police St Quarter",
-    "count": 4
-   },
-   {
     "phrase": "Gazipur District Police St",
     "count": 4
    },
    {
-    "phrase": "Gazipur District Police Rd",
-    "count": 3
+    "phrase": "District Police St Quarter",
+    "count": 4
    },
    {
     "phrase": "District Police Rd Quarter",
+    "count": 3
+   },
+   {
+    "phrase": "Gazipur District Police Rd",
     "count": 3
    },
    {
@@ -28319,11 +28319,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Store Industrial Police Dhaka",
+    "phrase": "Ration Store Industrial Police",
     "count": 7
    },
    {
-    "phrase": "Ration Store Industrial Police",
+    "phrase": "Store Industrial Police Dhaka",
     "count": 7
    },
    {
@@ -28339,15 +28339,15 @@
     "count": 6
    },
    {
-    "phrase": "Ration Store Dhaka Th",
-    "count": 5
-   },
-   {
     "phrase": "Store Dhaka Th Quarter",
     "count": 5
    },
    {
-    "phrase": "Dhaka St Nd Quarter",
+    "phrase": "Ration Store Dhaka Th",
+    "count": 5
+   },
+   {
+    "phrase": "Police Dhaka St Nd",
     "count": 4
    }
   ],
@@ -28461,11 +28461,11 @@
     "count": 3
    },
    {
-    "phrase": "Silos for Police Ration",
+    "phrase": "Crushing Supplied Government Silos",
     "count": 3
    },
    {
-    "phrase": "Government Silos for Police",
+    "phrase": "Wheat Crushing Supplied Government",
     "count": 3
    }
   ],
@@ -28554,7 +28554,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Store Gazipur Rd Quarter",
+    "phrase": "Gazipur Rd Quarter Jan",
     "count": 7
    },
    {
@@ -28562,7 +28562,7 @@
     "count": 7
    },
    {
-    "phrase": "Gazipur Rd Quarter Jan",
+    "phrase": "Store Gazipur Rd Quarter",
     "count": 7
    },
    {
@@ -28676,15 +28676,7 @@
     "count": 11
    },
    {
-    "phrase": "War Wounded Freedom Fighter",
-    "count": 11
-   },
-   {
-    "phrase": "Store and War Wounded",
-    "count": 11
-   },
-   {
-    "phrase": "Martyrs Families and Relived",
+    "phrase": "Freedom Fighter and Martyrs",
     "count": 11
    },
    {
@@ -28692,7 +28684,15 @@
     "count": 11
    },
    {
-    "phrase": "Items for the District",
+    "phrase": "Martyrs Families and Relived",
+    "count": 11
+   },
+   {
+    "phrase": "Store and War Wounded",
+    "count": 11
+   },
+   {
+    "phrase": "War Wounded Freedom Fighter",
     "count": 11
    },
    {
@@ -28700,7 +28700,7 @@
     "count": 11
    },
    {
-    "phrase": "Freedom Fighter and Martyrs",
+    "phrase": "Items for the District",
     "count": 11
    }
   ],
@@ -28789,11 +28789,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Highway Police Bogura Region",
+    "phrase": "Police Bogura Region Bogura",
     "count": 36
    },
    {
-    "phrase": "Police Bogura Region Bogura",
+    "phrase": "Highway Police Bogura Region",
     "count": 36
    },
    {
@@ -28907,10 +28907,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Quarter District Police Ration",
-    "count": 7
-   },
-   {
     "phrase": "District Police Ration Store",
     "count": 7
    },
@@ -28919,15 +28915,11 @@
     "count": 7
    },
    {
+    "phrase": "Quarter District Police Ration",
+    "count": 7
+   },
+   {
     "phrase": "Th Quarter District Police",
-    "count": 6
-   },
-   {
-    "phrase": "Rd Quarter District Police",
-    "count": 6
-   },
-   {
-    "phrase": "Police Lines Ration Store",
     "count": 6
    },
    {
@@ -28936,6 +28928,14 @@
    },
    {
     "phrase": "District Police Lines Ration",
+    "count": 6
+   },
+   {
+    "phrase": "Rd Quarter District Police",
+    "count": 6
+   },
+   {
+    "phrase": "Police Lines Ration Store",
     "count": 6
    }
   ],
@@ -29016,11 +29016,11 @@
     "count": 5
    },
    {
-    "phrase": "Bangladesh Coast Guard West",
+    "phrase": "Kamaruzzaman Bangladesh Coast Guard",
     "count": 4
    },
    {
-    "phrase": "Kamaruzzaman Bangladesh Coast Guard",
+    "phrase": "Bangladesh Coast Guard West",
     "count": 4
    },
    {
@@ -29075,22 +29075,22 @@
   ]
  },
  "8195": {
-  "value_bdt": 167300000.0,
-  "count": 26,
+  "value_bdt": 172070000.0,
+  "count": 29,
   "by_year": {
    "2026": {
-    "value_bdt": 167300000.0,
-    "count": 26
+    "value_bdt": 172070000.0,
+    "count": 29
    }
   },
   "by_nature": {
-   "Goods": 26
+   "Goods": 29
   },
   "top_vendors": [
    {
     "company": "MS Monzu Enterprise",
-    "value_bdt": 28980000.0,
-    "count": 5
+    "value_bdt": 32310000.0,
+    "count": 6
    },
    {
     "company": "M/S. STAR TRADING",
@@ -29116,7 +29116,7 @@
   "top_districts": [
    {
     "district": "Khulna",
-    "count": 26
+    "count": 29
    }
   ],
   "top_phrases": [
@@ -29229,11 +29229,11 @@
     "count": 3
    },
    {
-    "phrase": "Railway Thana",
+    "phrase": "Repair Works",
     "count": 3
    },
    {
-    "phrase": "Repair Works",
+    "phrase": "Railway Thana",
     "count": 3
    }
   ],
@@ -29322,10 +29322,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Th Quarter Disttrict Police",
-    "count": 7
-   },
-   {
     "phrase": "Quarter Disttrict Police Ration",
     "count": 7
    },
@@ -29334,11 +29330,15 @@
     "count": 7
    },
    {
-    "phrase": "District Police Ration Store",
-    "count": 5
+    "phrase": "Th Quarter Disttrict Police",
+    "count": 7
    },
    {
     "phrase": "Police Ration Store Bogura",
+    "count": 5
+   },
+   {
+    "phrase": "District Police Ration Store",
     "count": 5
    },
    {
@@ -29558,7 +29558,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Lines Ration Store",
+    "phrase": "Quarter District Police Lines",
+    "count": 13
+   },
+   {
+    "phrase": "District Police Lines Ration",
     "count": 13
    },
    {
@@ -29566,11 +29570,7 @@
     "count": 13
    },
    {
-    "phrase": "Quarter District Police Lines",
-    "count": 13
-   },
-   {
-    "phrase": "District Police Lines Ration",
+    "phrase": "Police Lines Ration Store",
     "count": 13
    },
    {
@@ -29861,11 +29861,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Oil Spice and Others",
+    "phrase": "Spice and Others Package",
     "count": 7
    },
    {
-    "phrase": "Spice and Others Package",
+    "phrase": "Oil Spice and Others",
     "count": 7
    },
    {
@@ -30092,19 +30092,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Mymensingh Th Quarter April",
+    "count": 6
+   },
+   {
     "phrase": "Ration Store Mymensingh Th",
     "count": 6
    },
    {
     "phrase": "Store Mymensingh Th Quarter",
-    "count": 6
-   },
-   {
-    "phrase": "Mymensingh Th Quarter April",
-    "count": 6
-   },
-   {
-    "phrase": "Mymensingh Rd Quarter Jan",
     "count": 6
    },
    {
@@ -30116,7 +30112,11 @@
     "count": 6
    },
    {
-    "phrase": "Ration Store Mymensingh St",
+    "phrase": "Mymensingh Rd Quarter Jan",
+    "count": 6
+   },
+   {
+    "phrase": "Store Mymensingh St Quarter",
     "count": 4
    },
    {
@@ -30217,11 +30217,11 @@
     "count": 3
    },
    {
-    "phrase": "Painting Works",
+    "phrase": "Repair Renovation",
     "count": 4
    },
    {
-    "phrase": "Repair Renovation",
+    "phrase": "Painting Works",
     "count": 4
    }
   ],
@@ -30331,11 +30331,11 @@
     "count": 3
    },
    {
-    "phrase": "Quality Lentils Grains Per",
+    "phrase": "Lentils Grains Per Grams",
     "count": 3
    },
    {
-    "phrase": "Lentils Grains Per Grams",
+    "phrase": "Quality Lentils Grains Per",
     "count": 3
    },
    {
@@ -30382,12 +30382,12 @@
   ]
  },
  "8240": {
-  "value_bdt": 79860000.0,
-  "count": 77,
+  "value_bdt": 80660000.0,
+  "count": 79,
   "by_year": {
    "2026": {
-    "value_bdt": 79860000.0,
-    "count": 77
+    "value_bdt": 80660000.0,
+    "count": 79
    }
   },
   "by_nature": {
@@ -30403,18 +30403,18 @@
    },
    {
     "company": "M/S TAIMUR ENTERPRISE",
-    "value_bdt": 10410000.0,
-    "count": 12
+    "value_bdt": 10810000.0,
+    "count": 13
+   },
+   {
+    "company": "M/S. MUNNA CORPORATION",
+    "value_bdt": 10220000.0,
+    "count": 14
    },
    {
     "company": "M/S MRIDHA TRADERS",
     "value_bdt": 10130000.0,
     "count": 2
-   },
-   {
-    "company": "M/S. MUNNA CORPORATION",
-    "value_bdt": 9820000.0,
-    "count": 13
    },
    {
     "company": "AMAZING ENGINEERS & ARCHITECTS",
@@ -30425,7 +30425,7 @@
   "top_districts": [
    {
     "district": "Bhola",
-    "count": 77
+    "count": 79
    }
   ],
   "top_phrases": [
@@ -30446,19 +30446,19 @@
     "count": 5
    },
    {
-    "phrase": "Through Framework Contract July",
-    "count": 4
-   },
-   {
-    "phrase": "Purchased for Coast Guard",
-    "count": 4
-   },
-   {
     "phrase": "South Zone Through Framework",
     "count": 4
    },
    {
-    "phrase": "Zone Through Framework Contract",
+    "phrase": "Through Framework Contract July",
+    "count": 4
+   },
+   {
+    "phrase": "Guard South Zone Through",
+    "count": 4
+   },
+   {
+    "phrase": "Purchased for Coast Guard",
     "count": 4
    }
   ],
@@ -30762,11 +30762,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Feni District Police Th",
+    "phrase": "District Police Th Quarter",
     "count": 3
    },
    {
-    "phrase": "District Police Th Quarter",
+    "phrase": "Feni District Police Th",
     "count": 3
    },
    {
@@ -30860,11 +30860,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Training Centre Ration Store",
+    "phrase": "Centre Ration Store Tangail",
     "count": 13
    },
    {
-    "phrase": "Centre Ration Store Tangail",
+    "phrase": "Training Centre Ration Store",
     "count": 13
    },
    {
@@ -30888,7 +30888,7 @@
     "count": 4
    },
    {
-    "phrase": "Repair and Renovation Work",
+    "phrase": "Renovation Work Including Painting",
     "count": 4
    }
   ],
@@ -30978,11 +30978,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Pirojpur District Police Rd",
+    "phrase": "District Police Rd Quarter",
     "count": 7
    },
    {
-    "phrase": "District Police Rd Quarter",
+    "phrase": "Pirojpur District Police Rd",
     "count": 7
    },
    {
@@ -31116,7 +31116,7 @@
     "count": 4
    },
    {
-    "phrase": "Mechanized Country Boat Related",
+    "phrase": "Country Boat Related Items",
     "count": 4
    },
    {
@@ -31124,7 +31124,7 @@
     "count": 4
    },
    {
-    "phrase": "Country Boat Related Items",
+    "phrase": "West Zone for Number",
     "count": 4
    }
   ],
@@ -31167,19 +31167,24 @@
   ]
  },
  "8270": {
-  "value_bdt": 66610000.0,
-  "count": 34,
+  "value_bdt": 84580000.0,
+  "count": 35,
   "by_year": {
    "2026": {
-    "value_bdt": 66610000.0,
-    "count": 34
+    "value_bdt": 84580000.0,
+    "count": 35
    }
   },
   "by_nature": {
-   "Goods": 19,
+   "Goods": 20,
    "Works": 15
   },
   "top_vendors": [
+   {
+    "company": "UNITED TRADERS",
+    "value_bdt": 17970000.0,
+    "count": 1
+   },
    {
     "company": "N. P. Trading Co.",
     "value_bdt": 14050000.0,
@@ -31199,17 +31204,12 @@
     "company": "Super Oil Refinery Limited",
     "value_bdt": 8650000.0,
     "count": 1
-   },
-   {
-    "company": "M/S. USHA ENTERPRISE",
-    "value_bdt": 8180000.0,
-    "count": 4
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 34
+    "count": 35
    }
   ],
   "top_phrases": [
@@ -31248,6 +31248,13 @@
   ],
   "top_contracts": [
    {
+    "package_ref": "SPDhaka/Uniforms/6172",
+    "awarded_to": "UNITED TRADERS",
+    "value_bdt": 17970000.0,
+    "contract_signing_date": "2026-09-23",
+    "description": "Procurement of Uniforms Sewing for Dhaka District Police for the FY-2026-27"
+   },
+   {
     "package_ref": "Memo No.1864/E Date25/02/2026",
     "awarded_to": "Bangladesh Edible Oil Limited",
     "value_bdt": 8820000.0,
@@ -31273,13 +31280,6 @@
     "awarded_to": "N. P. Trading Co.",
     "value_bdt": 7050000.0,
     "contract_signing_date": "2026-04-21",
-    "description": "Masor Dal (Lentil)"
-   },
-   {
-    "package_ref": "Memo No.12490 Date 28/12/2025",
-    "awarded_to": "N. P. Trading Co.",
-    "value_bdt": 7000000.0,
-    "contract_signing_date": "2026-02-01",
     "description": "Masor Dal (Lentil)"
    }
   ]
@@ -31336,12 +31336,16 @@
     "count": 6
    },
    {
+    "phrase": "Office Madaripur Th Quarter",
+    "count": 6
+   },
+   {
     "phrase": "Madaripur Th Quarter April-june",
     "count": 6
    },
    {
-    "phrase": "Office Madaripur Th Quarter",
-    "count": 6
+    "phrase": "Madaripur St Quarter July",
+    "count": 5
    },
    {
     "phrase": "Sp Office Madaripur St",
@@ -31349,10 +31353,6 @@
    },
    {
     "phrase": "Office Madaripur St Quarter",
-    "count": 5
-   },
-   {
-    "phrase": "Madaripur St Quarter July",
     "count": 5
    },
    {
@@ -31509,11 +31509,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Police Rd Quarter",
+    "phrase": "Patuakhali District Police Rd",
     "count": 7
    },
    {
-    "phrase": "Patuakhali District Police Rd",
+    "phrase": "District Police Rd Quarter",
     "count": 7
    },
    {
@@ -31521,11 +31521,11 @@
     "count": 6
    },
    {
-    "phrase": "District Police St Quarter",
+    "phrase": "Patuakhali District Police St",
     "count": 5
    },
    {
-    "phrase": "Patuakhali District Police St",
+    "phrase": "District Police St Quarter",
     "count": 5
    },
    {
@@ -31533,7 +31533,7 @@
     "count": 5
    },
    {
-    "phrase": "Patuakhali District Police Th",
+    "phrase": "District Police Th Quarter",
     "count": 5
    },
    {
@@ -31730,7 +31730,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Lines Ration Store",
+    "phrase": "Lines Ration Store Narail",
     "count": 21
    },
    {
@@ -31742,7 +31742,7 @@
     "count": 21
    },
    {
-    "phrase": "Lines Ration Store Narail",
+    "phrase": "Police Lines Ration Store",
     "count": 21
    },
    {
@@ -31758,7 +31758,7 @@
     "count": 5
    },
    {
-    "phrase": "Tender for the Supply",
+    "phrase": "Quality White Flour Grinding",
     "count": 4
    }
   ],
@@ -31939,15 +31939,15 @@
     "count": 4
    },
    {
-    "phrase": "St Quarter Police Training",
-    "count": 3
-   },
-   {
     "phrase": "Quarter Police Training Canter",
     "count": 3
    },
    {
     "phrase": "Police Training Canter Rangpur",
+    "count": 3
+   },
+   {
+    "phrase": "St Quarter Police Training",
     "count": 3
    },
    {
@@ -32469,11 +32469,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Room and Cook House",
+    "phrase": "Dining Room and Cook",
     "count": 3
    },
    {
-    "phrase": "Dining Room and Cook",
+    "phrase": "Room and Cook House",
     "count": 3
    },
    {
@@ -32829,16 +32829,16 @@
   ]
  },
  "8344": {
-  "value_bdt": 129840000.0,
-  "count": 55,
+  "value_bdt": 130910000.0,
+  "count": 56,
   "by_year": {
    "2026": {
-    "value_bdt": 129840000.0,
-    "count": 55
+    "value_bdt": 130910000.0,
+    "count": 56
    }
   },
   "by_nature": {
-   "Goods": 39,
+   "Goods": 40,
    "Works": 16
   },
   "top_vendors": [
@@ -32871,20 +32871,12 @@
   "top_districts": [
    {
     "district": "Rangpur",
-    "count": 55
+    "count": 56
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Police Lines Ration Store",
-    "count": 17
-   },
-   {
     "phrase": "Quarter District Police Lines",
-    "count": 17
-   },
-   {
-    "phrase": "Lines Ration Store Rangpur",
     "count": 17
    },
    {
@@ -32892,12 +32884,20 @@
     "count": 17
    },
    {
-    "phrase": "Police Station Rangpur District",
-    "count": 7
+    "phrase": "Lines Ration Store Rangpur",
+    "count": 17
+   },
+   {
+    "phrase": "Police Lines Ration Store",
+    "count": 17
    },
    {
     "phrase": "Rangpur District Police Hospital",
-    "count": 6
+    "count": 7
+   },
+   {
+    "phrase": "Police Station Rangpur District",
+    "count": 7
    },
    {
     "phrase": "Th Quarter District Police",
@@ -32993,7 +32993,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Kanchpur Camp Industrial Police",
+    "phrase": "Subzone Kanchpur Camp Industrial",
     "count": 4
    },
    {
@@ -33001,7 +33001,7 @@
     "count": 4
    },
    {
-    "phrase": "Subzone Kanchpur Camp Industrial",
+    "phrase": "Kanchpur Camp Industrial Police",
     "count": 4
    },
    {
@@ -33213,7 +33213,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Services Outsourcing Manpower Package",
+    "phrase": "Package for the Physical",
     "count": 3
    },
    {
@@ -33221,7 +33221,7 @@
     "count": 3
    },
    {
-    "phrase": "Package for the Physical",
+    "phrase": "Services Outsourcing Manpower Package",
     "count": 3
    }
   ],
@@ -33297,15 +33297,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Police Jashore St",
-    "count": 4
-   },
-   {
     "phrase": "Police Jashore St Quarter-july",
     "count": 4
    },
    {
     "phrase": "Jashore St Quarter-july Sep",
+    "count": 4
+   },
+   {
+    "phrase": "District Police Jashore St",
     "count": 4
    },
    {
@@ -33669,15 +33669,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Th Quarter April",
-    "count": 6
-   },
-   {
     "phrase": "District Police Th Quarter",
     "count": 6
    },
    {
+    "phrase": "Police Th Quarter April",
+    "count": 6
+   },
+   {
     "phrase": "Barguna District Police Th",
+    "count": 6
+   },
+   {
+    "phrase": "Police Rd Quarter January",
     "count": 6
    },
    {
@@ -33686,10 +33690,6 @@
    },
    {
     "phrase": "Barguna District Police Rd",
-    "count": 6
-   },
-   {
-    "phrase": "Police Rd Quarter January",
     "count": 6
    },
    {
@@ -33994,19 +33994,19 @@
     "count": 4
    },
    {
-    "phrase": "St and Nd Quarter",
-    "count": 4
-   },
-   {
     "phrase": "Nd Quarter Gaibandha District",
     "count": 4
    },
    {
-    "phrase": "Packaged Grinding Wheat Gom",
-    "count": 3
+    "phrase": "St and Nd Quarter",
+    "count": 4
    },
    {
     "phrase": "Grinding Wheat Gom Pesai",
+    "count": 3
+   },
+   {
+    "phrase": "Packaged Grinding Wheat Gom",
     "count": 3
    },
    {
@@ -34053,23 +34053,23 @@
   ]
  },
  "8408": {
-  "value_bdt": 13780000.0,
-  "count": 17,
+  "value_bdt": 14500000.0,
+  "count": 20,
   "by_year": {
    "2026": {
-    "value_bdt": 13780000.0,
-    "count": 17
+    "value_bdt": 14500000.0,
+    "count": 20
    }
   },
   "by_nature": {
-   "Goods": 13,
+   "Goods": 16,
    "Works": 4
   },
   "top_vendors": [
    {
     "company": "ASMA TRADE LINK",
-    "value_bdt": 6130000.0,
-    "count": 10
+    "value_bdt": 6610000.0,
+    "count": 11
    },
    {
     "company": "Bangladesh Edible Oil Limited",
@@ -34082,30 +34082,30 @@
     "count": 1
    },
    {
-    "company": "M/S NABILA ENTERPRISE",
-    "value_bdt": 520000.0,
-    "count": 1
+    "company": "M/S Tapash Kumar Saha",
+    "value_bdt": 630000.0,
+    "count": 2
    },
    {
-    "company": "M/S Tapash Kumar Saha",
-    "value_bdt": 500000.0,
+    "company": "M/S NABILA ENTERPRISE",
+    "value_bdt": 520000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Khulna",
-    "count": 17
+    "count": 20
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Rd Quarter Khulna",
-    "count": 5
+    "phrase": "Khulna Ration Store",
+    "count": 6
    },
    {
-    "phrase": "Khulna Ration Store",
-    "count": 4
+    "phrase": "Rd Quarter Khulna",
+    "count": 5
    },
    {
     "phrase": "Th Quarter Khulna",
@@ -34603,11 +34603,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Police Hospital Rajarbagh Dhaka",
+    "phrase": "Central Police Hospital Rajarbagh",
     "count": 3
    },
    {
-    "phrase": "Central Police Hospital Rajarbagh",
+    "phrase": "Police Hospital Rajarbagh Dhaka",
     "count": 3
    },
    {
@@ -35012,11 +35012,11 @@
     "count": 8
    },
    {
-    "phrase": "Parts Replacement and Repair",
+    "phrase": "Replacement and Repair Work",
     "count": 8
    },
    {
-    "phrase": "Replacement and Repair Work",
+    "phrase": "Parts Replacement and Repair",
     "count": 8
    },
    {
@@ -35063,23 +35063,23 @@
   ]
  },
  "8826": {
-  "value_bdt": 2390000.0,
-  "count": 8,
+  "value_bdt": 3980000.0,
+  "count": 9,
   "by_year": {
    "2026": {
-    "value_bdt": 2390000.0,
-    "count": 8
+    "value_bdt": 3980000.0,
+    "count": 9
    }
   },
   "by_nature": {
    "Works": 1,
-   "Goods": 7
+   "Goods": 8
   },
   "top_vendors": [
    {
     "company": "ABEDA ENTERPRISE",
-    "value_bdt": 1360000.0,
-    "count": 6
+    "value_bdt": 2950000.0,
+    "count": 7
    },
    {
     "company": "M/S SEIKH AND SONS",
@@ -35095,11 +35095,18 @@
   "top_districts": [
    {
     "district": "Perojpur",
-    "count": 8
+    "count": 9
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "Re-Comistc/In-service (4112314) /26-2027/-4",
+    "awarded_to": "ABEDA ENTERPRISE",
+    "value_bdt": 1590000.0,
+    "contract_signing_date": "2026-09-24",
+    "description": "4112314- Purchase of furniture"
+   },
    {
     "package_ref": "In-Service/PIR/Repair-25-26/ISTPR-S0001-24966",
     "awarded_to": "M/S SEIKH AND SONS",
@@ -35127,13 +35134,6 @@
     "value_bdt": 280000.0,
     "contract_signing_date": "2026-09-22",
     "description": "4112310- Office Equipment"
-   },
-   {
-    "package_ref": "Re-Comistc/In-service (3211102) /26-2027/-7",
-    "awarded_to": "ABEDA ENTERPRISE",
-    "value_bdt": 50000.0,
-    "contract_signing_date": "2026-09-22",
-    "description": "3211102- Cleaning Products"
    }
   ]
  },
@@ -35910,7 +35910,7 @@
     "count": 4
    },
    {
-    "phrase": "Center Building Police Headquarters",
+    "phrase": "Control Center Building Police",
     "count": 4
    }
   ],
@@ -36442,11 +36442,11 @@
     "count": 5
    },
    {
-    "phrase": "Work the Forces Headquarters",
+    "phrase": "Ancillary Work the Forces",
     "count": 3
    },
    {
-    "phrase": "Ancillary Work the Forces",
+    "phrase": "Work the Forces Headquarters",
     "count": 3
    },
    {
@@ -36454,11 +36454,11 @@
     "count": 27
    },
    {
-    "phrase": "Nd Raising Day",
+    "phrase": "Repairs and Renovations",
     "count": 8
    },
    {
-    "phrase": "Repairs and Renovations",
+    "phrase": "Nd Raising Day",
     "count": 8
    },
    {
@@ -37155,12 +37155,12 @@
   ]
  },
  "9617": {
-  "value_bdt": 1870000.0,
-  "count": 3,
+  "value_bdt": 1970000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 1870000.0,
-    "count": 3
+    "value_bdt": 1970000.0,
+    "count": 4
    }
   },
   "by_nature": {},
@@ -37171,6 +37171,11 @@
     "count": 2
    },
    {
+    "company": "M/S SHAPLA TRADERS",
+    "value_bdt": 100000.0,
+    "count": 1
+   },
+   {
     "company": "B K Enterprise",
     "value_bdt": 90000.0,
     "count": 1
@@ -37179,7 +37184,7 @@
   "top_districts": [
    {
     "district": "Bagerhat",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [
@@ -37202,6 +37207,13 @@
     "value_bdt": 540000.0,
     "contract_signing_date": "2026-02-05",
     "description": "Repair of Diesel Generator No 2 BCGS Mansoor Ali"
+   },
+   {
+    "package_ref": "44.08.0158.512.41.054.26.740 Dated 30 August 2026",
+    "awarded_to": "M/S SHAPLA TRADERS",
+    "value_bdt": 100000.0,
+    "contract_signing_date": "2026-09-22",
+    "description": "Purchase of the 12 Line Stationary items for BCGS MANSOOR ALI"
    },
    {
     "package_ref": "44.04.0158.512.87.087.26.738 Dt 16-08-2026",
@@ -37338,15 +37350,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Quarter Thakurgaon District Police",
+    "count": 6
+   },
+   {
     "phrase": "District Police Ration Store",
     "count": 6
    },
    {
     "phrase": "Thakurgaon District Police Ration",
-    "count": 6
-   },
-   {
-    "phrase": "Quarter Thakurgaon District Police",
     "count": 6
    },
    {

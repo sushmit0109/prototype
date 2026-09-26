@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56442,
+  "vendors_scanned": 56463,
   "ownership_groups_checked": 225
  },
  "top_growers": [
@@ -507,8 +507,8 @@
    "first_year": "2016",
    "baseline_value_bdt": 31830000.0,
    "baseline_count": 15,
-   "recent_value_bdt": 905840000.0,
-   "recent_count": 35,
+   "recent_value_bdt": 905940000.0,
+   "recent_count": 36,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 9,
@@ -519,16 +519,16 @@
      "value_bdt": 603220000.0
     },
     "Elected Government (2026–)": {
-     "count": 11,
-     "value_bdt": 135330000.0
+     "count": 12,
+     "value_bdt": 135430000.0
     }
    },
-   "recent_distinct_ministries": 5,
+   "recent_distinct_ministries": 6,
    "recent_top_ministry": "Ministry of Shipping",
-   "recent_distinct_offices": 19,
+   "recent_distinct_offices": 20,
    "recent_top_office": "Executive Engineer_Building",
-   "recent_top_office_share": 0.1429,
-   "growth_ratio_value": 37.94,
+   "recent_top_office_share": 0.1389,
+   "growth_ratio_value": 37.95,
    "shared_owner_keys": []
   },
   {
@@ -2021,6 +2021,35 @@
    "shared_owner_keys": []
   },
   {
+   "company": "Renata PLC.",
+   "company_key": "renata plc",
+   "first_year": "2026",
+   "baseline_value_bdt": 0,
+   "baseline_count": 0,
+   "recent_value_bdt": 2036090000.0,
+   "recent_count": 7,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 0,
+     "value_bdt": 0.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 0,
+     "value_bdt": 0.0
+    },
+    "Elected Government (2026–)": {
+     "count": 7,
+     "value_bdt": 2036090000.0
+    }
+   },
+   "recent_distinct_ministries": 2,
+   "recent_top_ministry": "Ministry of Health and Family Welfare",
+   "recent_distinct_offices": 5,
+   "recent_top_office": "Central Medical Store Depot (CMSD) , DGHS",
+   "recent_top_office_share": 0.4286,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Rimi Nirman Ltd.",
    "company_key": "rimi nirman",
    "first_year": "2022",
@@ -2227,35 +2256,6 @@
    ]
   },
   {
-   "company": "Renata PLC.",
-   "company_key": "renata plc",
-   "first_year": "2026",
-   "baseline_value_bdt": 0,
-   "baseline_count": 0,
-   "recent_value_bdt": 1860090000.0,
-   "recent_count": 6,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 0,
-     "value_bdt": 0.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 0,
-     "value_bdt": 0.0
-    },
-    "Elected Government (2026–)": {
-     "count": 6,
-     "value_bdt": 1860090000.0
-    }
-   },
-   "recent_distinct_ministries": 2,
-   "recent_top_ministry": "Ministry of Health and Family Welfare",
-   "recent_distinct_offices": 4,
-   "recent_top_office": "Central Medical Store Depot (CMSD) , DGHS",
-   "recent_top_office_share": 0.5,
-   "shared_owner_keys": []
-  },
-  {
    "company": "KARNAPHULI ART PRESS",
    "company_key": "karnaphuli art press",
    "first_year": "2023",
@@ -2425,9 +2425,9 @@
    ],
    "member_companies_matched": 4,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29409750000.0,
-   "combined_recent_count": 688,
-   "combined_growth_ratio_value": 6.62,
+   "combined_recent_value_bdt": 29450030000.0,
+   "combined_recent_count": 689,
+   "combined_growth_ratio_value": 6.63,
    "combined_recent_distinct_ministries": 26
   },
   {
@@ -2453,9 +2453,9 @@
    ],
    "member_companies_matched": 4,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29409750000.0,
-   "combined_recent_count": 688,
-   "combined_growth_ratio_value": 6.62,
+   "combined_recent_value_bdt": 29450030000.0,
+   "combined_recent_count": 689,
+   "combined_growth_ratio_value": 6.63,
    "combined_recent_distinct_ministries": 26
   },
   {
@@ -2917,9 +2917,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1043820000.0,
-   "combined_recent_value_bdt": 4267980000.0,
-   "combined_recent_count": 109,
-   "combined_growth_ratio_value": 5.45,
+   "combined_recent_value_bdt": 4283870000.0,
+   "combined_recent_count": 110,
+   "combined_growth_ratio_value": 5.47,
    "combined_recent_distinct_ministries": 12
   },
   {
