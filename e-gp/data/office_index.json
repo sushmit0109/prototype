@@ -3,7 +3,7 @@
   "generated_office_count": 9876,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 873179,
+  "contracts_scanned": 873182,
   "nature_matched": 462374,
   "nature_match_rate": 0.5295
  },
@@ -263,8 +263,8 @@
   {
    "id": 46,
    "name": "Ministry of Information And Broadcasting",
-   "value_bdt": 1127940000.0,
-   "count": 551,
+   "value_bdt": 1129080000.0,
+   "count": 554,
    "office_count": 44
   },
   {
@@ -61877,6 +61877,14 @@
    "count": 2
   },
   {
+   "id": 9028,
+   "name": "Information Commission Bangladesh",
+   "ministry_id": 46,
+   "division_id": null,
+   "value_bdt": 5330000.0,
+   "count": 4
+  },
+  {
    "id": 9400,
    "name": "RMSTU Heat Sub Project Office",
    "ministry_id": 6,
@@ -63545,14 +63553,6 @@
    "name": "Establishment of Sunamganj Medical College and Hospital Project, Sunamganj",
    "ministry_id": 9,
    "division_id": 27,
-   "value_bdt": 4190000.0,
-   "count": 1
-  },
-  {
-   "id": 9028,
-   "name": "Information Commission Bangladesh",
-   "ministry_id": 46,
-   "division_id": null,
    "value_bdt": 4190000.0,
    "count": 1
   },

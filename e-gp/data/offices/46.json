@@ -453,11 +453,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Modern Information Complexes District",
-    "count": 5
-   },
-   {
-    "phrase": "District Level St Phase",
+    "phrase": "Complexes District Level St",
     "count": 5
    },
    {
@@ -465,7 +461,11 @@
     "count": 5
    },
    {
-    "phrase": "Complexes District Level St",
+    "phrase": "District Level St Phase",
+    "count": 5
+   },
+   {
+    "phrase": "Modern Information Complexes District",
     "count": 5
    },
    {
@@ -1828,12 +1828,12 @@
   ]
  },
  "9028": {
-  "value_bdt": 4190000.0,
-  "count": 1,
+  "value_bdt": 5330000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 4190000.0,
-    "count": 1
+    "value_bdt": 5330000.0,
+    "count": 4
    }
   },
   "by_nature": {
@@ -1844,12 +1844,27 @@
     "company": "J Deluxe Chanel LTD.",
     "value_bdt": 4190000.0,
     "count": 1
+   },
+   {
+    "company": "F FIVE COMMUNICATIONS",
+    "value_bdt": 490000.0,
+    "count": 1
+   },
+   {
+    "company": "M/S. SAHINOOR ENTERPRISE",
+    "value_bdt": 390000.0,
+    "count": 1
+   },
+   {
+    "company": "R.J. PRINTING & PACKAGING",
+    "value_bdt": 260000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -1860,6 +1875,27 @@
     "value_bdt": 4190000.0,
     "contract_signing_date": "2026-06-08",
     "description": "Procurement of Physical services for Hiring Service Personnel through Outsourcing Policy."
+   },
+   {
+    "package_ref": "15.51.0000.000.602.02.0005.26",
+    "awarded_to": "F FIVE COMMUNICATIONS",
+    "value_bdt": 490000.0,
+    "contract_signing_date": "2026-09-26",
+    "description": "Event Management: Procurement of Stage Venue and Outdoor decoration for International Right to Information Day-2026 Celebration."
+   },
+   {
+    "package_ref": "15.51.0000.000.602.02.0005.26.365",
+    "awarded_to": "M/S. SAHINOOR ENTERPRISE",
+    "value_bdt": 390000.0,
+    "contract_signing_date": "2026-09-26",
+    "description": "Packing with Box and delivery of Food Items to the offices of the Information Commission Bangladesh"
+   },
+   {
+    "package_ref": "15.51.0000.000.602.0005.26.1236",
+    "awarded_to": "R.J. PRINTING & PACKAGING",
+    "value_bdt": 260000.0,
+    "contract_signing_date": "2026-09-26",
+    "description": "1. Item: Poster â?? 25000 Copies Specification: Size: 23\" Ã? 18\" Paper: 80 GSM Offset Paper Printing: 4-Color Printing 2. Packing and delivery to the offices of"
    }
   ]
  },

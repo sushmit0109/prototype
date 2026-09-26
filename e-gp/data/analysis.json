@@ -1,7 +1,7 @@
 {
  "meta": {
-  "contracts": 873179,
-  "total_value_bdt": 7465166650000.0,
+  "contracts": 873182,
+  "total_value_bdt": 7465167790000.0,
   "years": [
    "2011",
    "2012",
@@ -64,8 +64,8 @@
     "share": 0.0451
    },
    "09": {
-    "count": 39827,
-    "value_bdt": 423742700000.0,
+    "count": 39830,
+    "value_bdt": 423743840000.0,
     "share": 0.0456
    },
    "10": {
@@ -152,7 +152,7 @@
    },
    "2026": {
     "share": 0.2044,
-    "total": 93429,
+    "total": 93432,
     "partial_year": true
    }
   }
@@ -180,8 +180,8 @@
     "value_bdt": 3888630000.0
    },
    "RFQ": {
-    "count": 9379,
-    "value_bdt": 2554330000.0
+    "count": 9382,
+    "value_bdt": 2555470000.0
    },
    "QCBS": {
     "count": 34,
@@ -752,7 +752,7 @@
    },
    {
     "value_bdt": 490000.0,
-    "count": 4165,
+    "count": 4166,
     "ltm_share": 0.3248,
     "top_method": "OTM"
    },
@@ -775,9 +775,9 @@
   "histogram_lakh_bins": {
    "0": 15012,
    "1": 36012,
-   "2": 62465,
-   "3": 44383,
-   "4": 58268,
+   "2": 62466,
+   "3": 44384,
+   "4": 58269,
    "5": 36372,
    "6": 26881,
    "7": 26518,
@@ -855,11 +855,11 @@
    "ltm_share": 0.1707
   },
   "Elected Government (2026–)": {
-   "count": 71073,
-   "value_bdt": 481917120000.0,
-   "observed_span_days": 219,
-   "contracts_per_day": 324.53,
-   "value_bdt_per_day": 2200534794.52,
+   "count": 71076,
+   "value_bdt": 481918260000.0,
+   "observed_span_days": 221,
+   "contracts_per_day": 321.61,
+   "value_bdt_per_day": 2180625610.86,
    "otm_share": 0.818,
    "ltm_share": 0.1228
   }

@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 873179,
+  "total_contracts": 873182,
   "district_month_cells_total": 10041,
   "district_month_cells_kept": 9632,
   "min_contracts_for_hhi": 3,
@@ -9928,9 +9928,9 @@
     },
     "2026-09": {
      "hhi": 0.0296,
-     "n_vendors": 307,
-     "n_contracts": 369,
-     "total_value_bdt": 5236170000.0,
+     "n_vendors": 310,
+     "n_contracts": 372,
+     "total_value_bdt": 5237310000.0,
      "top_vendor_share": 0.104,
      "top_vendor_display": "Trade East West Corporation Ltd"
     }
