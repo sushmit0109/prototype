@@ -1,12 +1,12 @@
 {
  "meta": {
-  "plan_line_items": 746309,
-  "plan_packages_with_estimate": 743185,
-  "contracts_scanned": 873182,
-  "matched_pairs": 119641,
+  "plan_line_items": 746449,
+  "plan_packages_with_estimate": 743321,
+  "contracts_scanned": 873258,
+  "matched_pairs": 119644,
   "match_rate_of_plan": 0.161,
   "generic_refs_excluded": 4059,
-  "pairs_excluded_generic": 2528,
+  "pairs_excluded_generic": 2529,
   "pairs_excluded_sanity": 288
  },
  "award_vs_estimate": {
@@ -18,8 +18,8 @@
   "share_above_estimate": 0.071,
   "buckets": {
    "<70%": 2748,
-   "70-85%": 7508,
-   "85-95%": 64139,
+   "70-85%": 7509,
+   "85-95%": 64141,
    "95-100%": 36757,
    "100-115%": 7551,
    ">115%": 938
@@ -37,7 +37,7 @@
    "0.69": 198,
    "0.70": 403,
    "0.71": 238,
-   "0.72": 268,
+   "0.72": 269,
    "0.73": 357,
    "0.74": 287,
    "0.75": 407,
@@ -55,12 +55,12 @@
    "0.87": 1663,
    "0.88": 2332,
    "0.89": 3713,
-   "0.90": 23904,
+   "0.90": 23905,
    "0.91": 2256,
    "0.92": 1593,
    "0.93": 8981,
    "0.94": 9139,
-   "0.95": 23115,
+   "0.95": 23116,
    "0.96": 4340,
    "0.97": 2159,
    "0.98": 2313,
@@ -98,11 +98,11 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23916,
+    "count": 23917,
     "share": 0.1999
    },
    "at_5pct_below": {
-    "count": 23165,
+    "count": 23166,
     "share": 0.1936
    },
    "at_15pct_below": {
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119413,
+  "unchanged": 119416,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 60906,
-   "LTM->LTM": 55100,
+   "OTM->OTM": 60908,
+   "LTM->LTM": 55101,
    "RFQU->RFQU": 2076,
    "OSTETM->OSTETM": 929,
    "RFQ->RFQ": 347,
@@ -560,7 +560,7 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 8931,
+    "matched_pairs": 8934,
     "median_ratio": 0.9474,
     "iqr": 0.053,
     "share_above_115": 0.0143,
@@ -682,7 +682,7 @@
    },
    {
     "year": "2019",
-    "matched_pairs": 10491,
+    "matched_pairs": 10492,
     "median_ratio": 0.9465,
     "iqr": 0.079,
     "share_above_115": 0.0066,
@@ -714,7 +714,7 @@
    },
    {
     "year": "2023",
-    "matched_pairs": 13328,
+    "matched_pairs": 13329,
     "median_ratio": 0.9353,
     "iqr": 0.0667,
     "share_above_115": 0.0089,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11668,
+    "matched_pairs": 11669,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -748,7 +748,7 @@
   "by_era": [
    {
     "era": "Awami League (2009–2024)",
-    "matched_pairs": 87802,
+    "matched_pairs": 87804,
     "median_ratio": 0.9399,
     "iqr": 0.0607,
     "share_above_115": 0.0097,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9251,
+    "matched_pairs": 9252,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,
