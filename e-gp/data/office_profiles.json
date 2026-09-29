@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 873258,
-  "nature_matched": 462407,
+  "record_count": 873343,
+  "nature_matched": 462436,
   "nature_match_rate": 0.53
  },
  "top_offices_by_value": [
@@ -227,6 +227,37 @@
    ]
   },
   {
+   "procuring_entity": "Directorate of Procurement",
+   "ministry": "Ministry of Energy, Power and Mineral Resources",
+   "count": 305,
+   "value_bdt": 48335480000.0,
+   "by_nature": {
+    "Goods": 294
+   },
+   "top_vendors": [
+    {
+     "company": "BRB Cable Industries Ltd.",
+     "value_bdt": 6709590000.0
+    },
+    {
+     "company": "Rangpur Metal Industries Ltd",
+     "value_bdt": 3535190000.0
+    },
+    {
+     "company": "The Bangladesh Machine Tools Factory Limited",
+     "value_bdt": 2756790000.0
+    },
+    {
+     "company": "TECHNO ELECTRICALS LIMITED",
+     "value_bdt": 2251900000.0
+    },
+    {
+     "company": "Trade East West Corporation Ltd",
+     "value_bdt": 2236380000.0
+    }
+   ]
+  },
+  {
    "procuring_entity": "Office of the Executive Engineer, LGED, Sunamganj",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "count": 2006,
@@ -285,37 +316,6 @@
     {
      "company": "Spectra Engineers Ltd. - Wahid Construction Ltd. JV",
      "value_bdt": 1502680000.0
-    }
-   ]
-  },
-  {
-   "procuring_entity": "Directorate of Procurement",
-   "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 304,
-   "value_bdt": 48072980000.0,
-   "by_nature": {
-    "Goods": 293
-   },
-   "top_vendors": [
-    {
-     "company": "BRB Cable Industries Ltd.",
-     "value_bdt": 6709590000.0
-    },
-    {
-     "company": "Rangpur Metal Industries Ltd",
-     "value_bdt": 3535190000.0
-    },
-    {
-     "company": "The Bangladesh Machine Tools Factory Limited",
-     "value_bdt": 2756790000.0
-    },
-    {
-     "company": "TECHNO ELECTRICALS LIMITED",
-     "value_bdt": 2251900000.0
-    },
-    {
-     "company": "Trade East West Corporation Ltd",
-     "value_bdt": 2236380000.0
     }
    ]
   },
@@ -953,10 +953,10 @@
  "ministries_by_value": [
   {
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 360883,
-   "value_bdt": 3043481990000.0,
+   "count": 360911,
+   "value_bdt": 3043684500000.0,
    "by_nature": {
-    "Works": 139047,
+    "Works": 139051,
     "Goods": 10764,
     "Goods (Framework Agreement)": 86,
     "Services": 13,
@@ -965,7 +965,7 @@
    "top_vendors": [
     {
      "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
-     "value_bdt": 39215190000.0
+     "value_bdt": 39257580000.0
     },
     {
      "company": "Barendra Construction Ltd.",
@@ -987,11 +987,11 @@
   },
   {
    "ministry": "Ministry of Road Transport and Bridges",
-   "count": 49442,
-   "value_bdt": 987518170000.0,
+   "count": 49443,
+   "value_bdt": 987520220000.0,
    "by_nature": {
     "Works": 29817,
-    "Goods": 15705,
+    "Goods": 15706,
     "Goods (Framework Agreement)": 7,
     "Physical Services": 20,
     "Services": 10
@@ -1021,10 +1021,10 @@
   },
   {
    "ministry": "Ministry of Education",
-   "count": 98495,
-   "value_bdt": 740061610000.0,
+   "count": 98506,
+   "value_bdt": 740070720000.0,
    "by_nature": {
-    "Goods": 26317,
+    "Goods": 26320,
     "Works": 18281,
     "Goods (Framework Agreement)": 74,
     "Physical Services": 16,
@@ -1087,8 +1087,8 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "count": 132757,
-   "value_bdt": 619829970000.0,
+   "count": 132758,
+   "value_bdt": 619830900000.0,
    "by_nature": {
     "Works": 47593,
     "Goods": 3121,
@@ -1120,11 +1120,11 @@
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 55278,
-   "value_bdt": 297432040000.0,
+   "count": 55292,
+   "value_bdt": 297745290000.0,
    "by_nature": {
-    "Goods": 17484,
-    "Works": 24884,
+    "Goods": 17490,
+    "Works": 24886,
     "Goods (Framework Agreement)": 44,
     "Physical Services": 176
    },
@@ -1153,8 +1153,8 @@
   },
   {
    "ministry": "Ministry of Shipping",
-   "count": 13400,
-   "value_bdt": 163207230000.0,
+   "count": 13402,
+   "value_bdt": 163208620000.0,
    "by_nature": {
     "Works": 3639,
     "Goods": 3858,
@@ -1186,12 +1186,12 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "count": 29784,
-   "value_bdt": 150772140000.0,
+   "count": 29790,
+   "value_bdt": 151027020000.0,
    "by_nature": {
-    "Goods": 11982,
+    "Goods": 11983,
     "Works": 4694,
-    "Goods (Framework Agreement)": 892,
+    "Goods (Framework Agreement)": 897,
     "Physical Services": 127
    },
    "top_vendors": [
@@ -1219,10 +1219,10 @@
   },
   {
    "ministry": "Ministry of Agriculture",
-   "count": 25706,
-   "value_bdt": 113341750000.0,
+   "count": 25708,
+   "value_bdt": 113416700000.0,
    "by_nature": {
-    "Goods": 4376,
+    "Goods": 4378,
     "Works": 18848,
     "Goods (Framework Agreement)": 13,
     "Physical Services": 44,
@@ -1253,13 +1253,13 @@
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "count": 14981,
-   "value_bdt": 90100730000.0,
+   "count": 14986,
+   "value_bdt": 90105230000.0,
    "by_nature": {
-    "Goods": 11417,
+    "Goods": 11418,
     "Works": 1329,
     "Goods (Framework Agreement)": 617,
-    "Physical Services": 41
+    "Physical Services": 42
    },
    "top_vendors": [
     {
@@ -1319,8 +1319,8 @@
   },
   {
    "ministry": "Ministry of Fisheries & Livestock",
-   "count": 5433,
-   "value_bdt": 53895370000.0,
+   "count": 5436,
+   "value_bdt": 53895720000.0,
    "by_nature": {
     "Works": 1337,
     "Goods": 3504,
@@ -1353,8 +1353,8 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "count": 1484,
-   "value_bdt": 53115980000.0,
+   "count": 1488,
+   "value_bdt": 53117060000.0,
    "by_nature": {
     "Goods": 688,
     "Works": 395,
@@ -1387,8 +1387,8 @@
   },
   {
    "ministry": "Ministry of Civil Aviation & Tourism",
-   "count": 7342,
-   "value_bdt": 50759070000.0,
+   "count": 7343,
+   "value_bdt": 50759680000.0,
    "by_nature": {
     "Works": 3153,
     "Goods": 1537,
@@ -1516,10 +1516,10 @@
   },
   {
    "ministry": "Ministry of Industries",
-   "count": 4981,
-   "value_bdt": 34649480000.0,
+   "count": 4987,
+   "value_bdt": 34652670000.0,
    "by_nature": {
-    "Goods": 2315,
+    "Goods": 2318,
     "Works": 346,
     "Goods (Framework Agreement)": 13,
     "Physical Services": 63
@@ -2009,8 +2009,8 @@
   },
   {
    "ministry": "Ministry of Social Welfare",
-   "count": 85,
-   "value_bdt": 2246170000.0,
+   "count": 86,
+   "value_bdt": 2246350000.0,
    "by_nature": {
     "Goods": 76,
     "Physical Services": 3,
@@ -3232,13 +3232,13 @@
   },
   {
    "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
-   "value_bdt": 78587490000.0,
-   "count": 3561,
+   "value_bdt": 78629880000.0,
+   "count": 3562,
    "distinct_ministries": 22,
    "ministries": [
     {
      "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-     "value_bdt": 39215190000.0
+     "value_bdt": 39257580000.0
     },
     {
      "ministry": "Ministry of Water Resources",
@@ -3568,8 +3568,8 @@
   },
   {
    "company": "M/S M M Enterprise",
-   "value_bdt": 3283360000.0,
-   "count": 660,
+   "value_bdt": 3283410000.0,
+   "count": 661,
    "distinct_ministries": 21,
    "ministries": [
     {

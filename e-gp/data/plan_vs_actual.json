@@ -1,10 +1,10 @@
 {
  "meta": {
-  "plan_line_items": 746449,
-  "plan_packages_with_estimate": 743321,
-  "contracts_scanned": 873258,
-  "matched_pairs": 119644,
-  "match_rate_of_plan": 0.161,
+  "plan_line_items": 746585,
+  "plan_packages_with_estimate": 743457,
+  "contracts_scanned": 873343,
+  "matched_pairs": 119648,
+  "match_rate_of_plan": 0.1609,
   "generic_refs_excluded": 4059,
   "pairs_excluded_generic": 2529,
   "pairs_excluded_sanity": 288
@@ -19,9 +19,9 @@
   "buckets": {
    "<70%": 2748,
    "70-85%": 7509,
-   "85-95%": 64141,
+   "85-95%": 64143,
    "95-100%": 36757,
-   "100-115%": 7551,
+   "100-115%": 7553,
    ">115%": 938
   },
   "fine_histogram": {
@@ -56,8 +56,8 @@
    "0.88": 2332,
    "0.89": 3713,
    "0.90": 23905,
-   "0.91": 2256,
-   "0.92": 1593,
+   "0.91": 2257,
+   "0.92": 1594,
    "0.93": 8981,
    "0.94": 9139,
    "0.95": 23116,
@@ -65,10 +65,10 @@
    "0.97": 2159,
    "0.98": 2313,
    "0.99": 3944,
-   "1.00": 13427,
+   "1.00": 13428,
    "1.01": 1227,
    "1.02": 415,
-   "1.03": 257,
+   "1.03": 258,
    "1.04": 264,
    "1.05": 267,
    "1.06": 143,
@@ -88,7 +88,7 @@
    "1.20": 26
   },
   "overrun_bands": {
-   "100-105%": 6361,
+   "100-105%": 6363,
    "105-110%": 908,
    "110-115%": 282,
    "115-125%": 186,
@@ -115,7 +115,7 @@
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8489,
+   "count_above_estimate": 8491,
    "count_above_115": 938,
    "share_above_115_of_matched": 0.0078,
    "median_ratio_above_115": 1.6156,
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119416,
+  "unchanged": 119420,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 60908,
-   "LTM->LTM": 55101,
+   "OTM->OTM": 60911,
+   "LTM->LTM": 55102,
    "RFQU->RFQU": 2076,
    "OSTETM->OSTETM": 929,
    "RFQ->RFQ": 347,
@@ -560,7 +560,7 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 8934,
+    "matched_pairs": 8937,
     "median_ratio": 0.9474,
     "iqr": 0.053,
     "share_above_115": 0.0143,
@@ -600,11 +600,11 @@
    },
    {
     "ministry": "Ministry of Civil Aviation & Tourism",
-    "matched_pairs": 977,
+    "matched_pairs": 978,
     "median_ratio": 0.9977,
     "iqr": 0.017,
     "share_above_115": 0.0061,
-    "share_at_10pct_below": 0.0471
+    "share_at_10pct_below": 0.047
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
@@ -722,7 +722,7 @@
    },
    {
     "year": "2024",
-    "matched_pairs": 13090,
+    "matched_pairs": 13093,
     "median_ratio": 0.9412,
     "iqr": 0.06,
     "share_above_115": 0.0063,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11669,
+    "matched_pairs": 11670,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -748,7 +748,7 @@
   "by_era": [
    {
     "era": "Awami League (2009–2024)",
-    "matched_pairs": 87804,
+    "matched_pairs": 87807,
     "median_ratio": 0.9399,
     "iqr": 0.0607,
     "share_above_115": 0.0097,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9252,
+    "matched_pairs": 9253,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,
