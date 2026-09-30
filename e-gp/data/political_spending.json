@@ -66,45 +66,45 @@
  },
  "main": {
   "bnp_won": {
-   "coefficient": -0.0231,
-   "std_error": 0.1124,
-   "t_stat": -0.205,
-   "p_value": 0.8381,
+   "coefficient": -0.0275,
+   "std_error": 0.1113,
+   "t_stat": -0.247,
+   "p_value": 0.8057,
    "df": 63,
    "n_obs": 1664,
    "n_districts": 64,
    "n_periods": 26,
-   "approx_proportional_effect": -0.0228,
+   "approx_proportional_effect": -0.0271,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
    "denominator": "total_voters"
   },
   "bnp_vote_share": {
-   "coefficient": 0.3924,
-   "std_error": 0.6416,
-   "t_stat": 0.612,
-   "p_value": 0.543,
+   "coefficient": 0.357,
+   "std_error": 0.6363,
+   "t_stat": 0.561,
+   "p_value": 0.5767,
    "df": 63,
    "n_obs": 1664,
    "n_districts": 64,
    "n_periods": 26,
-   "approx_proportional_effect": 0.4806,
+   "approx_proportional_effect": 0.4291,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
    "denominator": "total_voters"
   },
   "bnp_seat_share": {
-   "coefficient": 0.2717,
-   "std_error": 0.2039,
-   "t_stat": 1.333,
-   "p_value": 0.1873,
+   "coefficient": 0.2571,
+   "std_error": 0.2025,
+   "t_stat": 1.27,
+   "p_value": 0.2088,
    "df": 63,
    "n_obs": 1664,
    "n_districts": 64,
    "n_periods": 26,
-   "approx_proportional_effect": 0.3123,
+   "approx_proportional_effect": 0.2932,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
@@ -114,11 +114,11 @@
  "main_simple": {
   "cell_means_bdt_per_voter": {
    "bnp_won=0_post=0": 434.12,
-   "bnp_won=0_post=1": 470.41,
+   "bnp_won=0_post=1": 471.03,
    "bnp_won=1_post=0": 477.02,
-   "bnp_won=1_post=1": 468.8
+   "bnp_won=1_post=1": 469.18
   },
-  "did_bdt_per_voter": -44.51
+  "did_bdt_per_voter": -44.74
  },
  "placebo": {
   "bnp_won": {
@@ -236,45 +236,45 @@
   "note": "Same regressions with two independent checks a real district-level political effect should survive: (1) scaling spending by 2022 census population instead of registered voters (census_population.py); (2) adding a division x period fixed effect so a region rolling out its own unrelated programme on its own schedule isn't mistaken for a district-level political effect (district_divisions.py). Population-scaled results sit here as main_population/placebo_population; the division-controlled regression sits alongside each category result as regression_division_controlled.",
   "main_population": {
    "bnp_won": {
-    "coefficient": -0.0226,
-    "std_error": 0.1116,
-    "t_stat": -0.203,
-    "p_value": 0.8401,
+    "coefficient": -0.0269,
+    "std_error": 0.1105,
+    "t_stat": -0.244,
+    "p_value": 0.8083,
     "df": 63,
     "n_obs": 1664,
     "n_districts": 64,
     "n_periods": 26,
-    "approx_proportional_effect": -0.0224,
+    "approx_proportional_effect": -0.0266,
     "division_controlled": false,
     "n_divisions": null,
     "rank_deficient": false,
     "denominator": "population"
    },
    "bnp_vote_share": {
-    "coefficient": 0.3892,
-    "std_error": 0.6395,
-    "t_stat": 0.609,
-    "p_value": 0.545,
+    "coefficient": 0.3538,
+    "std_error": 0.6342,
+    "t_stat": 0.558,
+    "p_value": 0.5789,
     "df": 63,
     "n_obs": 1664,
     "n_districts": 64,
     "n_periods": 26,
-    "approx_proportional_effect": 0.4757,
+    "approx_proportional_effect": 0.4244,
     "division_controlled": false,
     "n_divisions": null,
     "rank_deficient": false,
     "denominator": "population"
    },
    "bnp_seat_share": {
-    "coefficient": 0.2698,
-    "std_error": 0.2015,
-    "t_stat": 1.339,
-    "p_value": 0.1854,
+    "coefficient": 0.2554,
+    "std_error": 0.2002,
+    "t_stat": 1.276,
+    "p_value": 0.2066,
     "df": 63,
     "n_obs": 1664,
     "n_districts": 64,
     "n_periods": 26,
-    "approx_proportional_effect": 0.3097,
+    "approx_proportional_effect": 0.291,
     "division_controlled": false,
     "n_divisions": null,
     "rank_deficient": false,
@@ -515,9 +515,9 @@
     },
     {
      "period": "2026-09",
-     "coefficient": -0.5938,
-     "std_error": 0.4217,
-     "p_value": 0.164,
+     "coefficient": -0.6248,
+     "std_error": 0.4179,
+     "p_value": 0.1399,
      "is_reference": false
     }
    ]
@@ -707,9 +707,9 @@
     },
     {
      "period": "2026-09",
-     "coefficient": 0.0898,
-     "std_error": 0.8908,
-     "p_value": 0.92,
+     "coefficient": -0.0126,
+     "std_error": 0.8914,
+     "p_value": 0.9888,
      "is_reference": false
     }
    ]
@@ -719,10 +719,10 @@
   "note": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district). Same district+month fixed effects, real/placebo split months, and treatment definitions as the spending test above; outcome is the HHI level directly (0-1 scale), not asinh-transformed.",
   "main": {
    "bnp_won": {
-    "coefficient": 0.0135,
+    "coefficient": 0.0149,
     "std_error": 0.0179,
-    "t_stat": 0.752,
-    "p_value": 0.455,
+    "t_stat": 0.829,
+    "p_value": 0.41,
     "df": 63,
     "n_obs": 1658,
     "n_districts": 64,
@@ -734,10 +734,10 @@
     "denominator": "hhi"
    },
    "bnp_vote_share": {
-    "coefficient": 0.0247,
-    "std_error": 0.1186,
-    "t_stat": 0.209,
-    "p_value": 0.8355,
+    "coefficient": 0.0343,
+    "std_error": 0.1182,
+    "t_stat": 0.29,
+    "p_value": 0.7725,
     "df": 63,
     "n_obs": 1658,
     "n_districts": 64,
@@ -749,10 +749,10 @@
     "denominator": "hhi"
    },
    "bnp_seat_share": {
-    "coefficient": 0.0278,
-    "std_error": 0.0392,
-    "t_stat": 0.709,
-    "p_value": 0.4809,
+    "coefficient": 0.0322,
+    "std_error": 0.0384,
+    "t_stat": 0.84,
+    "p_value": 0.4042,
     "df": 63,
     "n_obs": 1658,
     "n_districts": 64,
@@ -873,8 +873,8 @@
      "Satkhira"
     ],
     "avg_interim_value_per_voter_bdt": 6009.76,
-    "avg_elected_value_per_voter_bdt": 1930.07,
-    "avg_change_bdt_per_voter": -4079.68
+    "avg_elected_value_per_voter_bdt": 1934.95,
+    "avg_change_bdt_per_voter": -4074.81
    },
    "some": {
     "n_districts": 54,
@@ -935,8 +935,8 @@
      "Thakurgaon"
     ],
     "avg_interim_value_per_voter_bdt": 8156.83,
-    "avg_elected_value_per_voter_bdt": 3564.89,
-    "avg_change_bdt_per_voter": -4591.94
+    "avg_elected_value_per_voter_bdt": 3567.9,
+    "avg_change_bdt_per_voter": -4588.93
    },
    "all": {
     "n_districts": 3,
@@ -946,8 +946,8 @@
      "Bhola"
     ],
     "avg_interim_value_per_voter_bdt": 16526.12,
-    "avg_elected_value_per_voter_bdt": 6438.01,
-    "avg_change_bdt_per_voter": -10088.11
+    "avg_elected_value_per_voter_bdt": 6450.39,
+    "avg_change_bdt_per_voter": -10075.73
    }
   },
   "main": {
@@ -955,101 +955,101 @@
     "n_districts": 61,
     "n_some": 54,
     "regression": {
-     "coefficient": 0.0822,
-     "std_error": 0.1282,
-     "t_stat": 0.641,
-     "p_value": 0.5238,
+     "coefficient": 0.0745,
+     "std_error": 0.1247,
+     "t_stat": 0.597,
+     "p_value": 0.5526,
      "df": 60,
      "n_obs": 1586,
      "n_districts": 61,
      "n_periods": 26,
-     "approx_proportional_effect": 0.0857,
+     "approx_proportional_effect": 0.0773,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "total_voters"
     },
     "regression_division_controlled": {
-     "coefficient": 0.086,
-     "std_error": 0.1828,
-     "t_stat": 0.47,
-     "p_value": 0.6397,
+     "coefficient": 0.0776,
+     "std_error": 0.1802,
+     "t_stat": 0.431,
+     "p_value": 0.668,
      "df": 60,
      "n_obs": 1586,
      "n_districts": 61,
      "n_periods": 26,
-     "approx_proportional_effect": 0.0898,
+     "approx_proportional_effect": 0.0807,
      "division_controlled": true,
      "n_divisions": 8,
      "rank_deficient": false,
      "denominator": "total_voters"
     },
     "regression_population_denominator": {
-     "coefficient": 0.0792,
-     "std_error": 0.1253,
-     "t_stat": 0.632,
-     "p_value": 0.5297,
+     "coefficient": 0.0713,
+     "std_error": 0.1216,
+     "t_stat": 0.587,
+     "p_value": 0.5595,
      "df": 60,
      "n_obs": 1586,
      "n_districts": 61,
      "n_periods": 26,
-     "approx_proportional_effect": 0.0824,
+     "approx_proportional_effect": 0.0739,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "population"
     },
-    "simple_did_bdt_per_voter": 106.72
+    "simple_did_bdt_per_voter": 106.46
    },
    "all_vs_none": {
     "n_districts": 10,
     "n_all": 3,
     "regression": {
-     "coefficient": 0.3907,
-     "std_error": 0.3103,
-     "t_stat": 1.259,
-     "p_value": 0.2397,
+     "coefficient": 0.3775,
+     "std_error": 0.31,
+     "t_stat": 1.218,
+     "p_value": 0.2543,
      "df": 9,
      "n_obs": 260,
      "n_districts": 10,
      "n_periods": 26,
-     "approx_proportional_effect": 0.478,
+     "approx_proportional_effect": 0.4586,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "total_voters"
     },
     "regression_division_controlled": {
-     "coefficient": -0.5674,
-     "std_error": 430.6449,
-     "t_stat": -0.001,
-     "p_value": 0.999,
+     "coefficient": -0.5732,
+     "std_error": NaN,
+     "t_stat": 0.0,
+     "p_value": 1.0,
      "df": 9,
      "n_obs": 260,
      "n_districts": 10,
      "n_periods": 26,
-     "approx_proportional_effect": -0.433,
+     "approx_proportional_effect": -0.4363,
      "division_controlled": true,
      "n_divisions": 5,
      "rank_deficient": true,
      "denominator": "total_voters"
     },
     "regression_population_denominator": {
-     "coefficient": 0.3852,
-     "std_error": 0.3089,
-     "t_stat": 1.247,
-     "p_value": 0.2438,
+     "coefficient": 0.3721,
+     "std_error": 0.3086,
+     "t_stat": 1.206,
+     "p_value": 0.2587,
      "df": 9,
      "n_obs": 260,
      "n_districts": 10,
      "n_periods": 26,
-     "approx_proportional_effect": 0.4699,
+     "approx_proportional_effect": 0.4507,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "population"
     },
-    "simple_did_bdt_per_voter": 58.56
+    "simple_did_bdt_per_voter": 59.63
    }
   },
   "placebo": {
@@ -1260,15 +1260,15 @@
  "legacy": {
   "note": "The original design: 2015-2025 (or 2015-2023 for the placebo) averaged as the pre-period. Confounded by e-GP's own decade-long coverage expansion (hybrid, partial platform support before the interim government mandated its use) -- kept here for transparency about the correction, not as evidence for anything.",
   "main_did": {
-   "coefficient": 0.1879,
-   "std_error": 0.1415,
-   "t_stat": 1.328,
-   "p_value": 0.1889,
+   "coefficient": 0.187,
+   "std_error": 0.1413,
+   "t_stat": 1.323,
+   "p_value": 0.1907,
    "df": 63,
    "n_obs": 768,
    "n_districts": 64,
    "n_periods": 12,
-   "approx_proportional_effect": 0.2067,
+   "approx_proportional_effect": 0.2056,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
@@ -1277,11 +1277,11 @@
   "main_did_simple": {
    "cell_means_bdt_per_voter": {
     "bnp_won=0_post=0": 4691.87,
-    "bnp_won=0_post=1": 3514.7,
+    "bnp_won=0_post=1": 3519.04,
     "bnp_won=1_post=0": 4497.8,
-    "bnp_won=1_post=1": 3529.07
+    "bnp_won=1_post=1": 3531.77
    },
-   "did_bdt_per_voter": 208.44
+   "did_bdt_per_voter": 206.81
   },
   "placebo_did": {
    "coefficient": 0.161,
@@ -1342,7 +1342,7 @@
    "bnp_seat_share": 1.0,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 8077.46,
-   "elected_value_per_voter_bdt": 6494.3,
+   "elected_value_per_voter_bdt": 6531.38,
    "total_voters": 2121539
   },
   {
@@ -1351,7 +1351,7 @@
    "bnp_seat_share": 1.0,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4239.12,
-   "elected_value_per_voter_bdt": 1238.24,
+   "elected_value_per_voter_bdt": 1238.3,
    "total_voters": 1557049
   },
   {
@@ -1360,7 +1360,7 @@
    "bnp_seat_share": 0.7,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 5586.32,
-   "elected_value_per_voter_bdt": 3155.44,
+   "elected_value_per_voter_bdt": 3174.52,
    "total_voters": 2817684
   },
   {
@@ -1378,7 +1378,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 7346.09,
-   "elected_value_per_voter_bdt": 1584.14,
+   "elected_value_per_voter_bdt": 1586.15,
    "total_voters": 2176531
   },
   {
@@ -1387,7 +1387,7 @@
    "bnp_seat_share": 0.7059,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 11290.6,
-   "elected_value_per_voter_bdt": 3977.23,
+   "elected_value_per_voter_bdt": 3985.52,
    "total_voters": 5332742
   },
   {
@@ -1396,7 +1396,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 3778.49,
-   "elected_value_per_voter_bdt": 1196.7,
+   "elected_value_per_voter_bdt": 1196.99,
    "total_voters": 937946
   },
   {
@@ -1405,7 +1405,7 @@
    "bnp_seat_share": 0.8,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 13690.36,
-   "elected_value_per_voter_bdt": 5612.43,
+   "elected_value_per_voter_bdt": 5614.49,
    "total_voters": 1663540
   },
   {
@@ -1423,7 +1423,7 @@
    "bnp_seat_share": 0.4062,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 43026.92,
-   "elected_value_per_voter_bdt": 20957.62,
+   "elected_value_per_voter_bdt": 21029.36,
    "total_voters": 7899388
   },
   {
@@ -1486,7 +1486,7 @@
    "bnp_seat_share": 0.6,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 9025.7,
-   "elected_value_per_voter_bdt": 3005.7,
+   "elected_value_per_voter_bdt": 3006.01,
    "total_voters": 1742930
   },
   {
@@ -1522,7 +1522,7 @@
    "bnp_seat_share": 0.125,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4758.03,
-   "elected_value_per_voter_bdt": 1770.97,
+   "elected_value_per_voter_bdt": 1771.55,
    "total_voters": 1493773
   },
   {
@@ -1540,7 +1540,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 10607.2,
-   "elected_value_per_voter_bdt": 7975.38,
+   "elected_value_per_voter_bdt": 7980.93,
    "total_voters": 529709
   },
   {
@@ -1549,7 +1549,7 @@
    "bnp_seat_share": 0.4444,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 11574.9,
-   "elected_value_per_voter_bdt": 3170.42,
+   "elected_value_per_voter_bdt": 3179.06,
    "total_voters": 1931217
   },
   {
@@ -1558,7 +1558,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 3017.07,
-   "elected_value_per_voter_bdt": 1193.29,
+   "elected_value_per_voter_bdt": 1194.07,
    "total_voters": 2657952
   },
   {
@@ -1585,7 +1585,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 12245.6,
-   "elected_value_per_voter_bdt": 5500.62,
+   "elected_value_per_voter_bdt": 5502.13,
    "total_voters": 1440668
   },
   {
@@ -1594,7 +1594,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4802.36,
-   "elected_value_per_voter_bdt": 1934.82,
+   "elected_value_per_voter_bdt": 1936.28,
    "total_voters": 1093492
   },
   {
@@ -1603,7 +1603,7 @@
    "bnp_seat_share": 0.3333,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4634.8,
-   "elected_value_per_voter_bdt": 994.87,
+   "elected_value_per_voter_bdt": 1006.94,
    "total_voters": 1129719
   },
   {
@@ -1630,7 +1630,7 @@
    "bnp_seat_share": 0.8,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4396.6,
-   "elected_value_per_voter_bdt": 1472.74,
+   "elected_value_per_voter_bdt": 1472.87,
    "total_voters": 1536182
   },
   {
@@ -1657,7 +1657,7 @@
    "bnp_seat_share": 0.5333,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4186.04,
-   "elected_value_per_voter_bdt": 2121.59,
+   "elected_value_per_voter_bdt": 2123.95,
    "total_voters": 4397116
   },
   {
@@ -1666,7 +1666,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5076.4,
-   "elected_value_per_voter_bdt": 2425.72,
+   "elected_value_per_voter_bdt": 2426.21,
    "total_voters": 2132948
   },
   {
@@ -1729,7 +1729,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 6061.51,
-   "elected_value_per_voter_bdt": 1510.17,
+   "elected_value_per_voter_bdt": 1539.09,
    "total_voters": 1355577
   },
   {
@@ -1747,7 +1747,7 @@
    "bnp_seat_share": 0.25,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4401.43,
-   "elected_value_per_voter_bdt": 1527.44,
+   "elected_value_per_voter_bdt": 1549.85,
    "total_voters": 2207755
   },
   {
@@ -1765,7 +1765,7 @@
    "bnp_seat_share": 0.4286,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 8339.2,
-   "elected_value_per_voter_bdt": 2946.98,
+   "elected_value_per_voter_bdt": 2947.05,
    "total_voters": 1454885
   },
   {
@@ -1792,7 +1792,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 11551.92,
-   "elected_value_per_voter_bdt": 3758.29,
+   "elected_value_per_voter_bdt": 3758.46,
    "total_voters": 2227705
   },
   {
@@ -1801,7 +1801,7 @@
    "bnp_seat_share": 0.3333,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 21060.74,
-   "elected_value_per_voter_bdt": 16900.23,
+   "elected_value_per_voter_bdt": 16902.81,
    "total_voters": 485727
   },
   {
@@ -1810,7 +1810,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5722.8,
-   "elected_value_per_voter_bdt": 1927.27,
+   "elected_value_per_voter_bdt": 1932.2,
    "total_voters": 2433482
   },
   {

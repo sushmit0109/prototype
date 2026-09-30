@@ -379,7 +379,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Office Stationary Item Size",
+    "phrase": "Sheets Ream Offset Paper",
     "count": 8
    },
    {
@@ -387,15 +387,11 @@
     "count": 8
    },
    {
-    "phrase": "Size Gm Sheets Ream",
-    "count": 8
-   },
-   {
-    "phrase": "Sheets Ream Offset Paper",
-    "count": 8
-   },
-   {
     "phrase": "Item Size Gm Sheets",
+    "count": 8
+   },
+   {
+    "phrase": "Office Stationary Item Size",
     "count": 8
    },
    {
@@ -403,11 +399,15 @@
     "count": 8
    },
    {
+    "phrase": "Size Gm Sheets Ream",
+    "count": 8
+   },
+   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Offset Paper Type Copy",
+    "phrase": "Basic Weight Gsm Size",
     "count": 4
    }
   ],
@@ -627,11 +627,11 @@
     "count": 4
    },
    {
-    "phrase": "Lift Brand Schindler Switzerland",
+    "phrase": "Passenger Lift Brand Schindler",
     "count": 4
    },
    {
-    "phrase": "Passenger Lift Brand Schindler",
+    "phrase": "Lift Brand Schindler Switzerland",
     "count": 4
    },
    {
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Goods Offset Paper Gsm",
+    "phrase": "Offset Paper Gsm White",
     "count": 3
    }
   ],
@@ -1186,11 +1186,11 @@
     "count": 4
    },
    {
-    "phrase": "Computer and Other Equipment",
+    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
-    "phrase": "Equipment Laptop Desktop Computer",
+    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
@@ -3409,28 +3409,28 @@
   ]
  },
  "8083": {
-  "value_bdt": 21190000.0,
-  "count": 8,
+  "value_bdt": 22410000.0,
+  "count": 9,
   "by_year": {
    "2026": {
-    "value_bdt": 21190000.0,
-    "count": 8
+    "value_bdt": 22410000.0,
+    "count": 9
    }
   },
   "by_nature": {
    "Services": 2,
-   "Goods": 2
+   "Goods": 3
   },
   "top_vendors": [
+   {
+    "company": "BTR CORPORATION",
+    "value_bdt": 6380000.0,
+    "count": 2
+   },
    {
     "company": "M/S Sojib Enterprise",
     "value_bdt": 5910000.0,
     "count": 2
-   },
-   {
-    "company": "BTR CORPORATION",
-    "value_bdt": 5160000.0,
-    "count": 1
    },
    {
     "company": "HAQUE CORPORATION",
@@ -3451,7 +3451,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 8
+    "count": 9
    }
   ],
   "top_phrases": [],
@@ -3485,11 +3485,11 @@
     "description": "Procurement of Vehicle Hiring for Project activity"
    },
    {
-    "package_ref": "52.01.0000.722.000.07.0016.25.183",
-    "awarded_to": "M/S. KHAN ENTERPRISE",
-    "value_bdt": 780000.0,
-    "contract_signing_date": "2026-05-06",
-    "description": "Purchase of Other Stationery (A4 paper permanent marker pen black ball point pen pencil eraser sharpener etc)"
+    "package_ref": "52.01.0000.722.000.07.0023.25-879; Date:25/08/2026",
+    "awarded_to": "BTR CORPORATION",
+    "value_bdt": 1220000.0,
+    "contract_signing_date": "2026-09-29",
+    "description": "Supply of Computer Accessories Smart LED board heavy duty laser printer black and white laser printer ect"
    }
   ]
  },
@@ -4368,6 +4368,40 @@
     "value_bdt": 13150000.0,
     "contract_signing_date": "2026-09-16",
     "description": "Hiring of two microbuses for the project office"
+   }
+  ]
+ },
+ "9887": {
+  "value_bdt": 770000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 770000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "MD. AMIR HOSSAIN",
+    "value_bdt": 770000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "20.00.0000.000.633.07.0006.26",
+    "awarded_to": "MD. AMIR HOSSAIN",
+    "value_bdt": 770000.0,
+    "contract_signing_date": "2026-09-29",
+    "description": "Procurement of Laptop"
    }
   ]
  }
