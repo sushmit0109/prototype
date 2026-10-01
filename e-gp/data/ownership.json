@@ -1,9 +1,9 @@
 {
  "meta": {
-  "vendors_sampled": 20038,
-  "vendors_with_owner_data": 8385,
-  "vendors_with_tenderer_id": 8574,
-  "owner_data_coverage": 0.418
+  "vendors_sampled": 20042,
+  "vendors_with_owner_data": 8389,
+  "vendors_with_tenderer_id": 8578,
+  "owner_data_coverage": 0.419
  },
  "shared_owner_groups": [
   {
@@ -603,6 +603,88 @@
    "distinct_companies": 8
   },
   {
+   "owner_key": "rathendra nath paul",
+   "companies": [
+    {
+     "company": "PROPERTY DEVELOPMENT LIMITED",
+     "tenderer_id": "1015150",
+     "owner_name_as_shown": "Rathendra Nath Paul",
+     "designation": "Director",
+     "ownership_pct": "38.00"
+    },
+    {
+     "company": "RFL Plastics Limited",
+     "tenderer_id": "1016613",
+     "owner_name_as_shown": "Rathendra Nath Paul",
+     "designation": "Chairman",
+     "ownership_pct": "0.02"
+    },
+    {
+     "company": "Rangpur Metal Industries Ltd",
+     "tenderer_id": "1032198",
+     "owner_name_as_shown": "Rathendra Nath Paul",
+     "designation": "Chairman",
+     "ownership_pct": "0.01"
+    },
+    {
+     "company": "DEWL-RPL JV",
+     "tenderer_id": "1237060",
+     "owner_name_as_shown": "Rathendra Nath Paul",
+     "designation": "Chairman",
+     "ownership_pct": "0.02"
+    },
+    {
+     "company": "PEC - PDL JV",
+     "tenderer_id": "1233699",
+     "owner_name_as_shown": "Rathendra Nath Paul",
+     "designation": "Director",
+     "ownership_pct": "38.00"
+    }
+   ],
+   "distinct_companies": 5
+  },
+  {
+   "owner_key": "ahsan khan chowdhury",
+   "companies": [
+    {
+     "company": "PROPERTY DEVELOPMENT LIMITED",
+     "tenderer_id": "1015150",
+     "owner_name_as_shown": "Ahsan Khan Chowdhury",
+     "designation": "Director",
+     "ownership_pct": "23.34"
+    },
+    {
+     "company": "RFL Plastics Limited",
+     "tenderer_id": "1016613",
+     "owner_name_as_shown": "Ahsan Khan Chowdhury",
+     "designation": "Director",
+     "ownership_pct": "99.85"
+    },
+    {
+     "company": "Rangpur Metal Industries Ltd",
+     "tenderer_id": "1032198",
+     "owner_name_as_shown": "Ahsan Khan Chowdhury",
+     "designation": "Director",
+     "ownership_pct": "11.23"
+    },
+    {
+     "company": "DEWL-RPL JV",
+     "tenderer_id": "1237060",
+     "owner_name_as_shown": "Ahsan Khan Chowdhury",
+     "designation": "Director",
+     "ownership_pct": "99.85"
+    },
+    {
+     "company": "PEC - PDL JV",
+     "tenderer_id": "1233699",
+     "owner_name_as_shown": "Ahsan Khan Chowdhury",
+     "designation": "Director",
+     "ownership_pct": "23.34"
+    }
+   ],
+   "distinct_companies": 5
+  },
+  {
    "owner_key": "s m tazul islam",
    "companies": [
     {
@@ -765,74 +847,6 @@
     }
    ],
    "distinct_companies": 5
-  },
-  {
-   "owner_key": "rathendra nath paul",
-   "companies": [
-    {
-     "company": "PROPERTY DEVELOPMENT LIMITED",
-     "tenderer_id": "1015150",
-     "owner_name_as_shown": "Rathendra Nath Paul",
-     "designation": "Director",
-     "ownership_pct": "38.00"
-    },
-    {
-     "company": "RFL Plastics Limited",
-     "tenderer_id": "1016613",
-     "owner_name_as_shown": "Rathendra Nath Paul",
-     "designation": "Chairman",
-     "ownership_pct": "0.02"
-    },
-    {
-     "company": "Rangpur Metal Industries Ltd",
-     "tenderer_id": "1032198",
-     "owner_name_as_shown": "Rathendra Nath Paul",
-     "designation": "Chairman",
-     "ownership_pct": "0.01"
-    },
-    {
-     "company": "DEWL-RPL JV",
-     "tenderer_id": "1237060",
-     "owner_name_as_shown": "Rathendra Nath Paul",
-     "designation": "Chairman",
-     "ownership_pct": "0.02"
-    }
-   ],
-   "distinct_companies": 4
-  },
-  {
-   "owner_key": "ahsan khan chowdhury",
-   "companies": [
-    {
-     "company": "PROPERTY DEVELOPMENT LIMITED",
-     "tenderer_id": "1015150",
-     "owner_name_as_shown": "Ahsan Khan Chowdhury",
-     "designation": "Director",
-     "ownership_pct": "23.34"
-    },
-    {
-     "company": "RFL Plastics Limited",
-     "tenderer_id": "1016613",
-     "owner_name_as_shown": "Ahsan Khan Chowdhury",
-     "designation": "Director",
-     "ownership_pct": "99.85"
-    },
-    {
-     "company": "Rangpur Metal Industries Ltd",
-     "tenderer_id": "1032198",
-     "owner_name_as_shown": "Ahsan Khan Chowdhury",
-     "designation": "Director",
-     "ownership_pct": "11.23"
-    },
-    {
-     "company": "DEWL-RPL JV",
-     "tenderer_id": "1237060",
-     "owner_name_as_shown": "Ahsan Khan Chowdhury",
-     "designation": "Director",
-     "ownership_pct": "99.85"
-    }
-   ],
-   "distinct_companies": 4
   },
   {
    "owner_key": "harun ar rashid",
@@ -2161,6 +2175,26 @@
      "owner_name_as_shown": "S. Ananta Bikash Tripura",
      "designation": "Managing Director",
      "ownership_pct": "29.20"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "a b m saiful islam",
+   "companies": [
+    {
+     "company": "PROPERTY DEVELOPMENT LIMITED",
+     "tenderer_id": "1015150",
+     "owner_name_as_shown": "A B M Saiful Islam",
+     "designation": "Managing Director",
+     "ownership_pct": "0.02"
+    },
+    {
+     "company": "PEC - PDL JV",
+     "tenderer_id": "1233699",
+     "owner_name_as_shown": "A B M Saiful Islam",
+     "designation": "Managing Director",
+     "ownership_pct": "0.02"
     }
    ],
    "distinct_companies": 2

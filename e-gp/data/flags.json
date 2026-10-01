@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-09-30T00:16:59.280727+00:00",
-  "contracts_scanned": 873440,
+  "generated_at": "2026-10-01T00:16:31.885049+00:00",
+  "contracts_scanned": 873514,
   "debarment_records": 1027,
-  "flag_count": 1971,
+  "flag_count": 1972,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1725
+   "post_debarment_award": 1726
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -8255,6 +8255,25 @@
    "debarment_reason": "As per GCC Clause 36.1b the contract was terminated due to non performance of the contractor. Hence Debarrment for 2two years will be imposed as per PPR 2008 Rule 1273 and 1274.",
    "debarment_scope": "Nationwide (e-GP Portal)",
    "era": "Interim Government (2024–2026)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "critical",
+   "company": "Hom Land Mark",
+   "company_key": "hom land mark",
+   "tender_id": "1304440",
+   "pkg_lot_id": "2062619",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Bogura",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "district": "Bogura",
+   "contract_signing_date": "2026-09-30",
+   "value_bdt": 480000.0,
+   "debar_start": "22-Oct-2023",
+   "debar_end": "21-Oct-2025",
+   "debarred_by": "e-GP Portal",
+   "debarment_reason": "As per GCC Clause 36.1b the contract was terminated due to non performance of the contractor. Hence Debarrment for 2two years will be imposed as per PPR 2008 Rule 1273 and 1274.",
+   "debarment_scope": "Nationwide (e-GP Portal)",
+   "era": "Elected Government (2026–)"
   },
   {
    "flag_type": "post_debarment_award",

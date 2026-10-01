@@ -15,8 +15,8 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56478,
-  "ownership_groups_checked": 225
+  "vendors_scanned": 56486,
+  "ownership_groups_checked": 226
  },
  "top_growers": [
   {
@@ -1526,6 +1526,35 @@
    "shared_owner_keys": []
   },
   {
+   "company": "Confidence Infrastructure PLC",
+   "company_key": "confidence infrastructure plc",
+   "first_year": "2025",
+   "baseline_value_bdt": 0,
+   "baseline_count": 0,
+   "recent_value_bdt": 3313760000.0,
+   "recent_count": 13,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 0,
+     "value_bdt": 0.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 4,
+     "value_bdt": 499640000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 9,
+     "value_bdt": 2814120000.0
+    }
+   },
+   "recent_distinct_ministries": 3,
+   "recent_top_ministry": "Ministry of Energy, Power and Mineral Resources",
+   "recent_distinct_offices": 6,
+   "recent_top_office": "Directorate of Purchase",
+   "recent_top_office_share": 0.3077,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Nice Fabrics Processing Ltd",
    "company_key": "nice fabrics processing",
    "first_year": "2022",
@@ -2370,35 +2399,6 @@
    "recent_top_office": "Rajshahi Zone",
    "recent_top_office_share": 0.3333,
    "shared_owner_keys": []
-  },
-  {
-   "company": "Confidence Infrastructure PLC",
-   "company_key": "confidence infrastructure plc",
-   "first_year": "2025",
-   "baseline_value_bdt": 0,
-   "baseline_count": 0,
-   "recent_value_bdt": 1811830000.0,
-   "recent_count": 12,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 0,
-     "value_bdt": 0.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 4,
-     "value_bdt": 499640000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 8,
-     "value_bdt": 1312190000.0
-    }
-   },
-   "recent_distinct_ministries": 2,
-   "recent_top_ministry": "Ministry of Energy, Power and Mineral Resources",
-   "recent_distinct_offices": 5,
-   "recent_top_office": "Directorate of Purchase",
-   "recent_top_office_share": 0.3333,
-   "shared_owner_keys": []
   }
  ],
  "owner_group_growth": [
@@ -2421,13 +2421,17 @@
     {
      "company": "DEWL-RPL JV",
      "designation": "Chairman"
+    },
+    {
+     "company": "PEC - PDL JV",
+     "designation": "Director"
     }
    ],
-   "member_companies_matched": 4,
+   "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29450030000.0,
-   "combined_recent_count": 689,
-   "combined_growth_ratio_value": 6.63,
+   "combined_recent_value_bdt": 29508930000.0,
+   "combined_recent_count": 690,
+   "combined_growth_ratio_value": 6.64,
    "combined_recent_distinct_ministries": 26
   },
   {
@@ -2449,13 +2453,17 @@
     {
      "company": "DEWL-RPL JV",
      "designation": "Director"
+    },
+    {
+     "company": "PEC - PDL JV",
+     "designation": "Director"
     }
    ],
-   "member_companies_matched": 4,
+   "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29450030000.0,
-   "combined_recent_count": 689,
-   "combined_growth_ratio_value": 6.63,
+   "combined_recent_value_bdt": 29508930000.0,
+   "combined_recent_count": 690,
+   "combined_growth_ratio_value": 6.64,
    "combined_recent_distinct_ministries": 26
   },
   {
@@ -2477,6 +2485,26 @@
    "combined_recent_count": 864,
    "combined_growth_ratio_value": 24.52,
    "combined_recent_distinct_ministries": 8
+  },
+  {
+   "owner_key": "a b m saiful islam",
+   "owner_name": "A B M Saiful Islam",
+   "companies": [
+    {
+     "company": "PROPERTY DEVELOPMENT LIMITED",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "PEC - PDL JV",
+     "designation": "Managing Director"
+    }
+   ],
+   "member_companies_matched": 2,
+   "combined_baseline_value_bdt": 1468690000.0,
+   "combined_recent_value_bdt": 14221790000.0,
+   "combined_recent_count": 253,
+   "combined_growth_ratio_value": 12.91,
+   "combined_recent_distinct_ministries": 14
   },
   {
    "owner_key": "s. ananta bikash tripura",
@@ -3441,26 +3469,6 @@
    "combined_recent_count": 8,
    "combined_growth_ratio_value": 1.24,
    "combined_recent_distinct_ministries": 5
-  },
-  {
-   "owner_key": "s m ashraful alam",
-   "owner_name": "S M Ashraful Alam",
-   "companies": [
-    {
-     "company": "Walton Digi-Tech Industries Limited",
-     "designation": "Director"
-    },
-    {
-     "company": "M/S NATIONAL ENTERPRISE",
-     "designation": "Proprietor"
-    }
-   ],
-   "member_companies_matched": 2,
-   "combined_baseline_value_bdt": 25410000.0,
-   "combined_recent_value_bdt": 2435970000.0,
-   "combined_recent_count": 89,
-   "combined_growth_ratio_value": 127.82,
-   "combined_recent_distinct_ministries": 17
   }
  ]
 }

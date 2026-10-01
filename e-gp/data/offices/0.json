@@ -379,15 +379,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Sheets Ream Offset Paper",
-    "count": 8
-   },
-   {
     "phrase": "Stationary Item Size Gm",
-    "count": 8
-   },
-   {
-    "phrase": "Item Size Gm Sheets",
     "count": 8
    },
    {
@@ -395,7 +387,11 @@
     "count": 8
    },
    {
-    "phrase": "Gm Sheets Ream Offset",
+    "phrase": "Sheets Ream Offset Paper",
+    "count": 8
+   },
+   {
+    "phrase": "Item Size Gm Sheets",
     "count": 8
    },
    {
@@ -403,11 +399,15 @@
     "count": 8
    },
    {
+    "phrase": "Gm Sheets Ream Offset",
+    "count": 8
+   },
+   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Basic Weight Gsm Size",
+    "phrase": "Paper Type Copy Paper",
     "count": 4
    }
   ],
@@ -627,11 +627,11 @@
     "count": 4
    },
    {
-    "phrase": "Passenger Lift Brand Schindler",
+    "phrase": "Lift Brand Schindler Switzerland",
     "count": 4
    },
    {
-    "phrase": "Lift Brand Schindler Switzerland",
+    "phrase": "Passenger Lift Brand Schindler",
     "count": 4
    },
    {
@@ -1190,11 +1190,11 @@
     "count": 3
    },
    {
-    "phrase": "Computer and Other Equipment",
+    "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
-    "phrase": "Other Equipment Laptop Desktop",
+    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
@@ -1301,8 +1301,8 @@
   ]
  },
  "2063": {
-  "value_bdt": 1240000.0,
-  "count": 3,
+  "value_bdt": 1580000.0,
+  "count": 4,
   "by_year": {
    "2017": {
     "value_bdt": 480000.0,
@@ -1313,8 +1313,8 @@
     "count": 1
    },
    "2026": {
-    "value_bdt": 400000.0,
-    "count": 1
+    "value_bdt": 740000.0,
+    "count": 2
    }
   },
   "by_nature": {
@@ -1335,12 +1335,17 @@
     "company": "M/S LEE SYANDICAT",
     "value_bdt": 360000.0,
     "count": 1
+   },
+   {
+    "company": "Hazi Traders",
+    "value_bdt": 340000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -1365,6 +1370,13 @@
     "value_bdt": 360000.0,
     "contract_signing_date": "2019-04-11",
     "description": "Computer 1 Photocopier Tonner 1 set Laser Printer toner 9 Pendrive 4 Scanner 1 Anti Virus 1 Laptop Locker 1 Computer Table and Chair 2 Set File cabinet Four Dro"
+   },
+   {
+    "package_ref": "20.00.0000.000.309.07.0061.26-712",
+    "awarded_to": "Hazi Traders",
+    "value_bdt": 340000.0,
+    "contract_signing_date": "2026-09-30",
+    "description": "Other Stationaries: Offset paper(A-4 size 80 gram) envelop(large size with monogram) envelop(medium size with monogram) envelop(small size with monogram) file c"
    }
   ]
  },
@@ -2705,8 +2717,8 @@
   ]
  },
  "6510": {
-  "value_bdt": 1460000.0,
-  "count": 2,
+  "value_bdt": 2010000.0,
+  "count": 3,
   "by_year": {
    "2024": {
     "value_bdt": 510000.0,
@@ -2714,6 +2726,10 @@
    },
    "2025": {
     "value_bdt": 950000.0,
+    "count": 1
+   },
+   "2026": {
+    "value_bdt": 550000.0,
     "count": 1
    }
   },
@@ -2727,6 +2743,11 @@
     "count": 1
    },
    {
+    "company": "M/S Sojib Enterprise",
+    "value_bdt": 550000.0,
+    "count": 1
+   },
+   {
     "company": "DECENT DESIGN",
     "value_bdt": 510000.0,
     "count": 1
@@ -2735,7 +2756,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 2
+    "count": 3
    }
   ],
   "top_phrases": [],
@@ -2746,6 +2767,13 @@
     "value_bdt": 950000.0,
     "contract_signing_date": "2025-01-01",
     "description": "Procurement of Computer & Accessories"
+   },
+   {
+    "package_ref": "52.01.0000.300.01.110.26.2162",
+    "awarded_to": "M/S Sojib Enterprise",
+    "value_bdt": 550000.0,
+    "contract_signing_date": "2026-09-30",
+    "description": "Purchase of Computer Equipment (printer toner photocopier toner etc.)"
    },
    {
     "package_ref": "52.01.0000.300.01008.24.732; 31.10.2024",
@@ -3247,21 +3275,21 @@
   ]
  },
  "7370": {
-  "value_bdt": 29200000.0,
-  "count": 4,
+  "value_bdt": 29950000.0,
+  "count": 5,
   "by_year": {
    "2025": {
     "value_bdt": 25000000.0,
     "count": 1
    },
    "2026": {
-    "value_bdt": 4200000.0,
-    "count": 3
+    "value_bdt": 4950000.0,
+    "count": 4
    }
   },
   "by_nature": {
    "Goods": 1,
-   "Services": 2
+   "Services": 3
   },
   "top_vendors": [
    {
@@ -3283,12 +3311,17 @@
     "company": "Business Unlimited",
     "value_bdt": 990000.0,
     "count": 1
+   },
+   {
+    "company": "Jafrin Ahammed",
+    "value_bdt": 750000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
@@ -3320,6 +3353,13 @@
     "value_bdt": 990000.0,
     "contract_signing_date": "2026-05-24",
     "description": "Scanning of Reserved Mauza Maps in Bangladesh Bureau of Statistics (BBS)"
+   },
+   {
+    "package_ref": "52.01.0000.231.40.017.24.(Part-3).1346",
+    "awarded_to": "Jafrin Ahammed",
+    "value_bdt": 750000.0,
+    "contract_signing_date": "2026-09-30",
+    "description": "GIS Consultant (Web Application Related)"
    }
   ]
  },
