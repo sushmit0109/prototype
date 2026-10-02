@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20042,
-  "vendors_with_owner_data": 8389,
-  "vendors_with_tenderer_id": 8578,
+  "vendors_sampled": 20043,
+  "vendors_with_owner_data": 8390,
+  "vendors_with_tenderer_id": 8579,
   "owner_data_coverage": 0.419
  },
  "shared_owner_groups": [
@@ -1019,6 +1019,40 @@
    "distinct_companies": 4
   },
   {
+   "owner_key": "mir jalal ahmed",
+   "companies": [
+    {
+     "company": "m/s monalisa",
+     "tenderer_id": "1006862",
+     "owner_name_as_shown": "Mir Jalal Ahmed",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M-M JV",
+     "tenderer_id": "1224122",
+     "owner_name_as_shown": "Mir Jalal Ahmed",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "MEH-MCL JV",
+     "tenderer_id": "1228193",
+     "owner_name_as_shown": "Mir Jalal Ahmed",
+     "designation": "Chairman",
+     "ownership_pct": "40.00"
+    },
+    {
+     "company": "MCL & ATI JV.",
+     "tenderer_id": "1241964",
+     "owner_name_as_shown": "Mir Jalal Ahmed",
+     "designation": "Chairman",
+     "ownership_pct": "40.00"
+    }
+   ],
+   "distinct_companies": 4
+  },
+  {
    "owner_key": "kazi shaokat hossain",
    "companies": [
     {
@@ -1501,33 +1535,6 @@
      "owner_name_as_shown": "A K M SHAMSUZZAMAN",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
-    }
-   ],
-   "distinct_companies": 3
-  },
-  {
-   "owner_key": "mir jalal ahmed",
-   "companies": [
-    {
-     "company": "m/s monalisa",
-     "tenderer_id": "1006862",
-     "owner_name_as_shown": "Mir Jalal Ahmed",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M-M JV",
-     "tenderer_id": "1224122",
-     "owner_name_as_shown": "Mir Jalal Ahmed",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "MEH-MCL JV",
-     "tenderer_id": "1228193",
-     "owner_name_as_shown": "Mir Jalal Ahmed",
-     "designation": "Chairman",
-     "ownership_pct": "40.00"
     }
    ],
    "distinct_companies": 3
@@ -4740,6 +4747,66 @@
    "distinct_companies": 2
   },
   {
+   "owner_key": "mir rafiqul islam",
+   "companies": [
+    {
+     "company": "MEH-MCL JV",
+     "tenderer_id": "1228193",
+     "owner_name_as_shown": "Mir Rafiqul Islam",
+     "designation": "Managing Director",
+     "ownership_pct": "15.00"
+    },
+    {
+     "company": "MCL & ATI JV.",
+     "tenderer_id": "1241964",
+     "owner_name_as_shown": "Mir Rafiqul Islam",
+     "designation": "Managing Director",
+     "ownership_pct": "15.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "mir ahmed samir",
+   "companies": [
+    {
+     "company": "MEH-MCL JV",
+     "tenderer_id": "1228193",
+     "owner_name_as_shown": "Mir Ahmed Samir",
+     "designation": "Director",
+     "ownership_pct": "15.00"
+    },
+    {
+     "company": "MCL & ATI JV.",
+     "tenderer_id": "1241964",
+     "owner_name_as_shown": "Mir Ahmed Samir",
+     "designation": "Director",
+     "ownership_pct": "15.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "mir sabbir ahmed",
+   "companies": [
+    {
+     "company": "MEH-MCL JV",
+     "tenderer_id": "1228193",
+     "owner_name_as_shown": "Mir Sabbir Ahmed",
+     "designation": "Director",
+     "ownership_pct": "15.00"
+    },
+    {
+     "company": "MCL & ATI JV.",
+     "tenderer_id": "1241964",
+     "owner_name_as_shown": "Mir Sabbir Ahmed",
+     "designation": "Director",
+     "ownership_pct": "15.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
    "owner_key": "kazi mostafizur rahman dipu",
    "companies": [
     {
@@ -5233,6 +5300,26 @@
      "company": "SAC-NE-(JV)",
      "tenderer_id": "1234382",
      "owner_name_as_shown": "Md. Zakir Hossain Sarkar",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "ariful hoque misu",
+   "companies": [
+    {
+     "company": "Alif Trade International",
+     "tenderer_id": "1053893",
+     "owner_name_as_shown": "Ariful Hoque Misu",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "MCL & ATI JV.",
+     "tenderer_id": "1241964",
+     "owner_name_as_shown": "Ariful Hoque Misu",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
     }

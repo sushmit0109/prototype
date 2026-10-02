@@ -1083,11 +1083,11 @@
     "count": 9
    },
    {
-    "phrase": "Factory Building Having Foundation",
+    "phrase": "Standard Factory Building Having",
     "count": 8
    },
    {
-    "phrase": "Standard Factory Building Having",
+    "phrase": "Factory Building Having Foundation",
     "count": 8
    },
    {
@@ -1107,7 +1107,7 @@
     "count": 3
    },
    {
-    "phrase": "Having Foundation for Six",
+    "phrase": "Foundation for Six Storied",
     "count": 3
    }
   ],
@@ -1240,11 +1240,11 @@
     "count": 6
    },
    {
-    "phrase": "Repair Painting",
+    "phrase": "External Repair",
     "count": 5
    },
    {
-    "phrase": "External Repair",
+    "phrase": "Repair Painting",
     "count": 5
    }
   ],
@@ -3167,8 +3167,8 @@
   ]
  },
  "4760": {
-  "value_bdt": 61180000.0,
-  "count": 39,
+  "value_bdt": 64830000.0,
+  "count": 40,
   "by_year": {
    "2021": {
     "value_bdt": 9970000.0,
@@ -3187,12 +3187,12 @@
     "count": 3
    },
    "2026": {
-    "value_bdt": 35350000.0,
-    "count": 22
+    "value_bdt": 39000000.0,
+    "count": 23
    }
   },
   "by_nature": {
-   "Works": 30,
+   "Works": 31,
    "Goods": 2
   },
   "top_vendors": [
@@ -3207,6 +3207,11 @@
     "count": 4
    },
    {
+    "company": "M/S. ISLAMI PARASH PATHAR",
+    "value_bdt": 6150000.0,
+    "count": 4
+   },
+   {
     "company": "Atika Project & Workshop",
     "value_bdt": 5130000.0,
     "count": 3
@@ -3215,17 +3220,12 @@
     "company": "M/S. NAHID ELECTRIC & ENGINEERING",
     "value_bdt": 4590000.0,
     "count": 2
-   },
-   {
-    "company": "M/s. Subecha Engineering",
-    "value_bdt": 4420000.0,
-    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Narayanganj",
-    "count": 39
+    "count": 40
    }
   ],
   "top_phrases": [
@@ -3242,15 +3242,15 @@
     "count": 5
    },
    {
+    "phrase": "Plot Adamjee",
+    "count": 5
+   },
+   {
     "phrase": "Street Light",
     "count": 5
    },
    {
     "phrase": "Feeder Line",
-    "count": 4
-   },
-   {
-    "phrase": "Plot Adamjee",
     "count": 4
    },
    {
@@ -3292,11 +3292,11 @@
     "description": "Purchase of 11/0.415 kV Transformer from GEM Co Ltd. at Adamjee EPZ"
    },
    {
-    "package_ref": "03.06.6758.327.07.200.26",
-    "awarded_to": "M/s. Subecha Engineering",
-    "value_bdt": 3520000.0,
-    "contract_signing_date": "2026-09-27",
-    "description": "Construction of new 11 KV feeder line and renovation of existing 11 KV line at Adamjee EPZ."
+    "package_ref": "03.06.6758.325.07.043.2025-821",
+    "awarded_to": "M/S. ISLAMI PARASH PATHAR",
+    "value_bdt": 3650000.0,
+    "contract_signing_date": "2026-10-01",
+    "description": "Construction of footpath at North side of plot no. 215 & 196 at Adamjee EPZ."
    }
   ]
  },
@@ -4005,15 +4005,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
-    "count": 3
-   },
-   {
     "phrase": "Mujib Shilpa Nagar Development",
     "count": 3
    },
    {
     "phrase": "Sheikh Mujib Shilpa Nagar",
+    "count": 3
+   },
+   {
+    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
     "count": 3
    },
    {
@@ -4801,15 +4801,15 @@
     "count": 4
    },
    {
-    "phrase": "Water Distribution Network Group",
-    "count": 3
-   },
-   {
     "phrase": "Treated Water Distribution Network",
     "count": 3
    },
    {
-    "phrase": "Distribution Network Group Patuakhali",
+    "phrase": "Network Group Patuakhali Project",
+    "count": 3
+   },
+   {
+    "phrase": "Water Distribution Network Group",
     "count": 3
    }
   ],
@@ -4922,11 +4922,11 @@
     "count": 3
    },
    {
-    "phrase": "Carpeting Plot Sector Karnaphuli",
+    "phrase": "Road Dense Bituminous Carpeting",
     "count": 3
    },
    {
-    "phrase": "Bituminous Carpeting Plot Sector",
+    "phrase": "Carpeting Plot Sector Karnaphuli",
     "count": 3
    },
    {
@@ -5735,12 +5735,12 @@
   ]
  },
  "8301": {
-  "value_bdt": 6280000.0,
-  "count": 7,
+  "value_bdt": 6480000.0,
+  "count": 8,
   "by_year": {
    "2026": {
-    "value_bdt": 6280000.0,
-    "count": 7
+    "value_bdt": 6480000.0,
+    "count": 8
    }
   },
   "by_nature": {
@@ -5766,12 +5766,17 @@
     "company": "Z N Enterprise",
     "value_bdt": 830000.0,
     "count": 2
+   },
+   {
+    "company": "M/S. SHAHEN TECHNOCRACY",
+    "value_bdt": 200000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Bagerhat",
-    "count": 7
+    "count": 8
    }
   ],
   "top_phrases": [
@@ -5810,11 +5815,11 @@
     "description": "Supply of Uniform and Liveries of 17-20th Grade Employees at Mongla EPZ at Bagerhat."
    },
    {
-    "package_ref": "03.06.0158.308.07.869.26.329",
-    "awarded_to": "X FORCE",
-    "value_bdt": 190000.0,
-    "contract_signing_date": "2026-07-12",
-    "description": "Supply of Foggar RO and Water Purifier at Mongla EPZ at Bagerhat."
+    "package_ref": "01/2026-27",
+    "awarded_to": "M/S. SHAHEN TECHNOCRACY",
+    "value_bdt": 200000.0,
+    "contract_signing_date": "2026-10-01",
+    "description": "Repair of Hydrolick Beam Lifter"
    }
   ]
  },

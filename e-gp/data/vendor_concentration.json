@@ -1,9 +1,9 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 873514,
-  "district_month_cells_total": 10042,
-  "district_month_cells_kept": 9636,
+  "total_contracts": 873595,
+  "district_month_cells_total": 10062,
+  "district_month_cells_kept": 9641,
   "min_contracts_for_hhi": 3,
   "unmatched_district_strings": {}
  },
@@ -7453,6 +7453,14 @@
      "total_value_bdt": 78980000.0,
      "top_vendor_share": 0.1783,
      "top_vendor_display": "SML CONSTRUCTION"
+    },
+    "2026-10": {
+     "hhi": 0.9587,
+     "n_vendors": 4,
+     "n_contracts": 4,
+     "total_value_bdt": 120820000.0,
+     "top_vendor_share": 0.9791,
+     "top_vendor_display": "MCL & ATI JV."
     }
    }
   },
@@ -9933,6 +9941,14 @@
      "total_value_bdt": 9487090000.0,
      "top_vendor_share": 0.1657,
      "top_vendor_display": "Confidence Infrastructure PLC"
+    },
+    "2026-10": {
+     "hhi": 0.1445,
+     "n_vendors": 24,
+     "n_contracts": 36,
+     "total_value_bdt": 140980000.0,
+     "top_vendor_share": 0.2498,
+     "top_vendor_display": "M/S. AUTONIC POWER ENGINEERING SERVICES"
     }
    }
   },
@@ -11169,6 +11185,14 @@
      "total_value_bdt": 96680000.0,
      "top_vendor_share": 0.2902,
      "top_vendor_display": "M/S Hassan Enterprise"
+    },
+    "2026-10": {
+     "hhi": 0.4089,
+     "n_vendors": 3,
+     "n_contracts": 3,
+     "total_value_bdt": 21940000.0,
+     "top_vendor_share": 0.4672,
+     "top_vendor_display": "M/S PARENTS & SONS"
     }
    }
   },
@@ -13633,6 +13657,14 @@
      "total_value_bdt": 423340000.0,
      "top_vendor_share": 0.243,
      "top_vendor_display": "AxEnTec PLC."
+    },
+    "2026-10": {
+     "hhi": 0.1074,
+     "n_vendors": 12,
+     "n_contracts": 14,
+     "total_value_bdt": 24860000.0,
+     "top_vendor_share": 0.175,
+     "top_vendor_display": "Md. Khair Hossain"
     }
    }
   },
@@ -35425,6 +35457,14 @@
      "total_value_bdt": 33130000.0,
      "top_vendor_share": 0.4437,
      "top_vendor_display": "M/S Sawda Traders"
+    },
+    "2026-10": {
+     "hhi": 0.4552,
+     "n_vendors": 5,
+     "n_contracts": 5,
+     "total_value_bdt": 56040000.0,
+     "top_vendor_share": 0.4959,
+     "top_vendor_display": "M/S. Progati Enterprise"
     }
    }
   },
