@@ -64,8 +64,13 @@ function inflMult(from,to){ return px(yr(to))/px(yr(from)); }
 const F="nps_2015", T="nps_2026";
 const INF=inflMult(F,T);
 (function(){
+  /* "verified" means checked step by step against the gazette's own table, which
+     is true of 2015 and 2026 only; the rest are expanded from printed increment
+     bands, which is a weaker claim and is labelled as such */
+  let gaz=0; for(const e of [F,T]) for(const g in LAD[e]) gaz+=LAD[e][g].length;
   let steps=0; for(const e of ERAS) for(const g in LAD[e]) steps+=LAD[e][g].length;
-  document.getElementById("s-steps").textContent=steps.toLocaleString("en-US");
+  document.getElementById("s-steps").textContent=gaz.toLocaleString("en-US");
+  document.getElementById("s-steps-all").textContent=steps.toLocaleString("en-US");
   const r10=gradeRows(F,T,10), r20=gradeRows(F,T,20);
   const worst=Math.min(...Array.from({length:19},(_,k)=>k+2)
     .map(g=>{const r=gradeRows(F,T,g);return r?Math.min(...r.map(x=>x.move)):0;}));
@@ -91,8 +96,16 @@ const INF=inflMult(F,T);
 })();
 
 /* =================== calculator =================== */
+/* The 1973 order set TEN national scales, not twenty grades: its scale 10 is the
+   bottom of its system, where 1977's grade 10 is mid-table. Comparing them by
+   number is meaningless -- it reported +107% real at entry where a like-for-like
+   bottom-to-bottom reading gives -15% -- so 1973 is not paired with 1977 here. */
+const INCOMPARABLE=new Set(["nps_1973"]);
 const PAIRS=[];
-for(let i=1;i<ERAS.length;i++) PAIRS.push([ERAS[i-1],ERAS[i]]);
+for(let i=1;i<ERAS.length;i++){
+  if(INCOMPARABLE.has(ERAS[i-1])||INCOMPARABLE.has(ERAS[i])) continue;
+  PAIRS.push([ERAS[i-1],ERAS[i]]);
+}
 const elPair=document.getElementById("c-pair"), elGrade=document.getElementById("c-grade"),
       elStep=document.getElementById("c-step"), elPhase=document.getElementById("c-phase");
 PAIRS.forEach(([a,b],i)=>{const o=document.createElement("option");
@@ -399,6 +412,7 @@ const range=(a,b)=>Array.from({length:b-a+1},(_,i)=>a+i);
   const rows=[];
   for(let i=1;i<ERAS.length;i++){
     const from=ERAS[i-1], to=ERAS[i];
+    if(INCOMPARABLE.has(from)||INCOMPARABLE.has(to)) continue;
     let collapsed=0,demoted=0,tot=0,worst=0,sp=[],r1=[],rt=[];
     for(let g=1;g<=20;g++){
       const r=gradeRows(from,to,g); if(!r||r.length<2) continue;
@@ -495,35 +509,44 @@ const range=(a,b)=>Array.from({length:b-a+1},(_,i)=>a+i);
 
 /* =================== allowances =================== */
 (function(){
-  /* an allowance is either a percentage of basic or a flat taka amount, and the
-     item's own `basis` says which — reading every number as a percentage turned
-     the ৳200 tiffin allowance into "200% of basic" */
-  const describe=v=>{
+  /* Every figure here is read from articles 12-30 of the gazette. An allowance is
+     a percentage of basic, a flat taka amount, or something paid per occurrence,
+     and the item's own `basis` says which -- reading every number as a percentage
+     once turned the \u09f3200 tiffin allowance into "200% of basic". */
+  const PCT = new Set(["rate_of_basic","uplift_pct"]);
+  const describe = v => {
     if(!v) return "<em>not in this order</em>";
-    const flat=v.basis==="flat";
-    const amt=n=>flat?"৳"+fmt(n):n+"% of basic";
-    const bits=[];
-    if(v.rate!=null) bits.push(amt(v.rate));
-    if(v.bands) bits.push(v.bands.map(b=>`grades ${b.grades}: ${b.dhaka}% Dhaka / ${b.other_city}% other city / ${b.elsewhere}% elsewhere`).join("; "));
+    const flat = v.basis === "flat";
+    const bits = [];
+    if(v.rate != null) bits.push(flat ? "\u09f3"+fmt(v.rate) : v.rate+"% of basic");
+    if(v.bands) bits.push(v.bands.map(b =>
+      `grades ${b.grades}: ${b.dhaka}% Dhaka / ${b.other_city}% other city / ${b.elsewhere}% elsewhere`).join("; "));
     for(const [k,val] of Object.entries(v)){
-      if(["basis","rate","bands","note","effective"].includes(k)) continue;
-      if(val==null) continue;
-      /* keys like grade_1_5 are a grade RANGE, not a word, and a flat allowance's
-         numbers are taka — "grade 1 5: 500" was neither */
-      const label=k.replace(/_/g," ").replace(/^grade (\d+) (\d+)$/,"grades $1–$2");
-      const money=typeof val==="number" && val>=50 && (flat||/cap/.test(label));
-      bits.push(label+": "+(money?"৳"+fmt(val):val));}
-    if(v.note) bits.push(v.note);
-    if(v.effective) bits.push("<b>effective "+v.effective+"</b>");
-    return bits.join("<br>")||"—";};
-  document.getElementById("al-body").innerHTML=DATA.allowances.items.map(it=>`
-    <tr><td><b>${esc(it.en)}</b><br><span class="bn" style="color:var(--ink-3)">${esc(it.bn)}</span></td>
+      if(["basis","rate","bands","note","effective","interim"].includes(k)) continue;
+      if(val == null) continue;
+      const label = k.replace(/_/g," ").replace(/^grade (\d+) (\d+)$/,"grades $1\u2013$2");
+      if(PCT.has(k)){ bits.push(label.replace(/ pct$/,"")+": "+val+"%"); continue; }
+      const money = typeof val === "number" && val >= 50 && (flat || /cap/.test(label));
+      bits.push(label+": "+(money ? "\u09f3"+fmt(val) : val));
+    }
+    if(v.note) bits.push('<span style="color:var(--ink-3)">'+esc(v.note)+"</span>");
+    if(v.interim) bits.push('<span style="color:var(--warn)">until then: '+esc(v.interim)+"</span>");
+    if(v.effective) bits.push('<b style="color:var(--warn)">from '+esc(v.effective)+"</b>");
+    return bits.join("<br>") || "\u2014";
+  };
+  const C = DATA.allowances.commencement;
+  document.getElementById("al-body").innerHTML = DATA.allowances.items.map(it => `
+    <tr><td><b>${esc(it.en)}</b><br><span class="bn" style="color:var(--ink-3)">${esc(it.bn)}</span>
+          ${it.article ? `<br><span class="num" style="font-size:11px;color:var(--ink-3)">article ${esc(it.article)}</span>` : ""}</td>
       <td style="text-align:left;font-size:13px">${describe(it.y2015)}</td>
       <td style="text-align:left;font-size:13px">${describe(it.y2026)}</td>
       <td style="text-align:left;font-size:13px;color:${
-        /CUT|real cut/.test(it.direction)?cv("--loss"):
-        /NEW|raised|doubled|caps raised|progressive/.test(it.direction)?cv("--gain"):cv("--ink-2")
-      }">${esc(it.direction)}</td></tr>`).join("");
+        /CUT|real cut|no longer rises|does not rise|cap becomes the rate|deepest|frozen/.test(it.direction) ? cv("--loss")
+        : /NEW|raised|doubled|caps raised|progressive/.test(it.direction) ? cv("--gain")
+        : cv("--ink-2")}">${esc(it.direction)}</td></tr>`).join("");
+  if(C) document.getElementById("al-note").innerHTML =
+    "<b>Article "+esc(C.article)+".</b> "+esc(C.rule)+" "+esc(C.interim)+
+    " <b>"+esc(C.implication)+"</b>";
   document.getElementById("sx-body").innerHTML=DATA.allowances.structural_changes
     .map(c=>`<tr><td class="num">${c.year}</td>
       <td style="text-align:left">${esc(c.change)}</td></tr>`).join("");

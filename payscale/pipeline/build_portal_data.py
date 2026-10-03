@@ -56,7 +56,9 @@ REGISTER = [
      "title": "The raise is advertised as doubling, but only a first-day entrant doubles",
      "body": "At step 1 the new scale is exactly 2.00× the old for grades 1-11, and "
              "more than that — up to 2.42× at grade 20 — for grades 12-20. At the "
-             "top step the same grades get between 1.42× and 1.87×. The gap between "
+             "top step nobody doubles: grades 12-20 get between 1.52× and 1.63×, and "
+             "across the whole service the top step runs from 1.42× at grade 8 to "
+             "1.87× at grade 2. The gap between "
              "the best-treated and worst-treated officer inside a single grade "
              "reaches 79.5 percentage points. The raise is not regressive across "
              "grades; it is regressive across seniority, which is harder to see and "
@@ -83,14 +85,34 @@ REGISTER = [
      "check": "The allowance table shows the 2015 and 2026 figures side by side with "
               "the real change after inflation."},
 
-    {"id": "house-rent-lag", "scope": "internal", "severity": "medium",
-     "title": "The most progressive change in the order is deferred by 18 months",
-     "body": "House rent is restructured so the lowest grades draw the highest "
-             "percentage — 60% of basic in Dhaka for grades 16-20 against 40% for "
-             "grades 1-4. That is the clearest redistributive move in the whole "
-             "order, and it does not start until 1 January 2028, a year and a half "
-             "after the pay scale itself.",
-     "check": "Allowance table, house rent row, effective date column."},
+    {"id": "allowance-commencement", "scope": "internal", "severity": "high",
+     "title": "Every raised allowance in the order is deferred to 2028",
+     "body": "Article 12 says the allowance rates set out in this order are payable "
+             "from 1 January 2028. Article 15(1) keeps house rent at the taka amount "
+             "drawn on 30 June 2026 until 31 December 2027, and article 12(2) does the "
+             "same for anyone appointed in between. So the doubled medical allowance, "
+             "the tiffin allowance raised from \u09f3200 to \u09f3500, the doubled "
+             "conveyance allowance, the new mobile and remote-area allowances and the "
+             "restructured house rent all begin eighteen months after the pay scale "
+             "does, and about three and a half years after the price level the scale "
+             "is meant to answer. The restructured house rent is the most "
+             "redistributive thing in the order \u2014 it gives the lowest grades the "
+             "highest percentage \u2014 and it is the furthest away.",
+     "check": "The allowance table carries the gazette article number and the "
+              "commencement date for every row."},
+
+    {"id": "risk-decoupled", "scope": "internal", "severity": "medium",
+     "title": "Two payments were cut loose from basic pay as it doubled",
+     "body": "Article 29 keeps the risk allowance for 24 categories of staff \u2014 "
+             "prison officers, fire service crews, coast guard ratings, leprosy and "
+             "tuberculosis field workers, Ansar commanders \u2014 and then states that "
+             "its rate shall not be fixed as a percentage of basic pay. Article 20 "
+             "turns the charge allowance from 10% of basic capped at \u09f31,500 into "
+             "a flat \u09f31,500, so the cap becomes the rate and stops rising with "
+             "pay. Both sever a payment from the scale at the moment the scale "
+             "doubles. Article 30, by contrast, gives the intelligence and security "
+             "bodies a flat 20% uplift on what they already drew.",
+     "check": "Allowance table \u2014 the risk, charge and special-allowance rows."},
 
     {"id": "phasing", "scope": "internal", "severity": "medium",
      "title": "The full scale is not paid until the middle of 2027",
