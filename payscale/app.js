@@ -474,7 +474,12 @@ const range=(a,b)=>Array.from({length:b-a+1},(_,i)=>a+i);
 /* =================== services =================== */
 (function(){
   const CD=DATA.cadre;
+  /* 1973 is left out here for the same reason it is left out of the calculator:
+     its ten national scales do not map onto grade numbers, so "grade 10 on the
+     1973 scale" would read as mid-table when it was the bottom of the service.
+     It also carries only one service chapter, so it compares nothing. */
   const years=[...new Set(Object.values(CD).flatMap(v=>Object.keys(v)))]
+    .filter(y=>!INCOMPARABLE.has("nps_"+y))
     .sort((a,b)=>+a-+b);
   const se=document.getElementById("sv-era"), sg=document.getElementById("sv-grade");
   years.forEach(y=>{const o=document.createElement("option");o.value=y;
