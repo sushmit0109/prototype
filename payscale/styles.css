@@ -1,0 +1,184 @@
+/* The Civil Service Paybook — Bangladesh national pay scales 1973-2026.
+   Standalone: no build step, no framework. Tokens first, components from tokens. */
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: one 1080px column of stacked sections; the pay ladder — a stack of
+   rungs, the gazette's own visual form — is the recurring structural device. */
+:root{
+  color-scheme: light;
+  --paper:#e9ece7; --panel:#fcfdfb; --sunk:#f2f4ef;
+  --ink:#131a16; --ink-2:#4d5a53; --ink-3:#7c8a82;
+  --rule:#ccd3c9; --rule-2:#dfe4db;
+  --accent:#00674a; --accent-soft:#dbe8e1;
+  --gain:#0f7a52; --loss:#ab3b26; --warn:#8c6406;
+  --l1:#00674a; --l2:#b4531b; --l3:#2d63a8; --l4:#8a3d7a; --l5:#6d7a24;
+  --cpi:#ab3b26;
+  --display:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bn:"Noto Sans Bengali","IBM Plex Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --paper:#11150f; --panel:#1a1f18; --sunk:#151a13;
+    --ink:#eef1e8; --ink-2:#aeb8aa; --ink-3:#7e8a7c;
+    --rule:#2d342a; --rule-2:#232820;
+    --accent:#63c4a0; --accent-soft:#1a2a22;
+    --gain:#63c4a0; --loss:#e07a62; --warn:#d6a938;
+    --l1:#63c4a0; --l2:#e08a4a; --l3:#6fa4e8; --l4:#cc8ac0; --l5:#afc04d;
+    --cpi:#e07a62;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#11150f; --panel:#1a1f18; --sunk:#151a13;
+  --ink:#eef1e8; --ink-2:#aeb8aa; --ink-3:#7e8a7c;
+  --rule:#2d342a; --rule-2:#232820;
+  --accent:#63c4a0; --accent-soft:#1a2a22;
+  --gain:#63c4a0; --loss:#e07a62; --warn:#d6a938;
+  --l1:#63c4a0; --l2:#e08a4a; --l3:#6fa4e8; --l4:#cc8ac0; --l5:#afc04d;
+  --cpi:#e07a62;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;font-weight:600;
+  letter-spacing:-.012em}
+.bn{font-family:var(--bn)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;font-family:var(--sans)}
+
+/* ---------- masthead ---------- */
+header{padding-block:40px 0}
+.rungs{display:flex;flex-direction:column;gap:3px;margin-bottom:22px}
+.rungs i{height:3px;background:var(--accent);border-radius:2px;display:block}
+header h1{font-size:clamp(36px,6.6vw,64px);line-height:1.02;font-weight:700}
+header .sub{max-width:62ch;color:var(--ink-2);margin-top:16px;font-size:17.5px}
+.stamp{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:24px;padding-block:14px;
+  border-top:1px solid var(--rule);border-bottom:2px solid var(--ink);
+  font-size:12.5px;color:var(--ink-3)}
+.stamp b{color:var(--ink-2);font-weight:600;font-family:var(--mono)}
+
+section{padding-block:52px;border-bottom:1px solid var(--rule)}
+section>.eyebrow{display:block;margin-bottom:9px}
+section h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15}
+section .lede{color:var(--ink-2);max-width:68ch;margin-top:12px}
+
+/* ---------- verdict strip ---------- */
+/* six tiles, so three columns fill exactly two rows with no orphan cell */
+.verdicts{display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:26px}
+@media(max-width:840px){.verdicts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.verdicts{grid-template-columns:1fr}}
+.vd{background:var(--panel);padding:20px 22px;min-width:0}
+.vd .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.vd .v{font-family:var(--mono);font-size:30px;font-weight:600;margin-top:7px;
+  letter-spacing:-.03em;line-height:1.1}
+.vd .n{font-size:13px;color:var(--ink-3);margin-top:5px;line-height:1.45}
+.up{color:var(--gain)}.dn{color:var(--loss)}
+
+/* ---------- controls / calculator ---------- */
+.instr{background:var(--panel);border:1px solid var(--rule);margin-top:26px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));
+  gap:18px;padding:22px;border-bottom:1px solid var(--rule-2);background:var(--sunk)}
+.ctl{min-width:0}
+.ctl label{display:block;font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin-bottom:7px}
+.ctl select,.ctl input[type=range]{width:100%}
+.ctl select{font:inherit;font-size:14px;padding:8px 9px;border:1px solid var(--rule);
+  background:var(--panel);color:var(--ink);border-radius:2px}
+.ctl output{font-family:var(--mono);font-size:18px;font-weight:600;color:var(--accent)}
+input[type=range]{accent-color:var(--accent);margin:5px 0 0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.derive{padding:20px 22px;border-bottom:1px solid var(--rule-2);font-size:14.5px;
+  color:var(--ink-2);line-height:1.75}
+.derive .step{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.derive .step+.step{margin-top:7px;padding-top:7px;border-top:1px dotted var(--rule-2)}
+.derive .tag{font-family:var(--mono);font-size:11.5px;color:var(--accent);
+  background:var(--accent-soft);padding:2px 7px;border-radius:2px;flex:none;
+  font-weight:500}
+.derive b{color:var(--ink);font-family:var(--mono);font-weight:600}
+.outgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(164px,1fr));
+  gap:1px;background:var(--rule-2)}
+.og{background:var(--panel);padding:18px 20px;min-width:0}
+.og .k{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600}
+.og .v{font-family:var(--mono);font-size:25px;font-weight:600;margin-top:6px;
+  letter-spacing:-.02em}
+.og .n{font-size:12.5px;color:var(--ink-3);margin-top:4px;line-height:1.4}
+
+/* ---------- charts ---------- */
+figure{margin:28px 0 0}
+figcaption{font-size:13px;color:var(--ink-3);margin-top:12px;max-width:72ch}
+.chart{width:100%;overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:12.5px;
+  color:var(--ink-2);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.sw{width:15px;height:3px;border-radius:2px;flex:none}
+.tabs{display:flex;flex-wrap:wrap;margin-top:20px;border:1px solid var(--rule);
+  width:fit-content;max-width:100%;overflow:hidden;border-radius:2px}
+.tabs button{font:inherit;font-size:13px;padding:8px 15px;border:0;cursor:pointer;
+  background:var(--panel);color:var(--ink-2)}
+.tabs button+button{border-left:1px solid var(--rule)}
+.tabs button[aria-pressed=true]{background:var(--accent);color:var(--panel)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips button{font:inherit;font-size:12.5px;padding:5px 11px;border:1px solid var(--rule);
+  background:var(--panel);color:var(--ink-2);border-radius:2px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--paper);
+  border-color:var(--ink)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+caption{text-align:left;padding:14px 14px 0;color:var(--ink-3)}
+th,td{text-align:right;padding:8px 13px;border-bottom:1px solid var(--rule-2)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:600;border-bottom:1px solid var(--rule);position:sticky;top:0;
+  background:var(--panel)}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+tbody tr:hover{background:var(--sunk)}
+tr.hl td{background:var(--accent-soft)}
+tbody tr:last-child td{border-bottom:0}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:26px}
+/* a grid item defaults to min-width:auto, so the 560px min-content of the table
+   inside one of these columns widened the whole page instead of scrolling */
+.grid2>*{min-width:0}
+@media(max-width:780px){.grid2{grid-template-columns:1fr}}
+.finding{border-left:3px solid var(--accent);padding:3px 0 3px 18px;margin-top:24px}
+.finding h3{font-size:18px;margin-bottom:5px}
+.finding p{margin:0;color:var(--ink-2);font-size:15px}
+
+/* ---------- register ---------- */
+.reg{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin-top:26px}
+.item{background:var(--panel);padding:20px 22px}
+.item .hd{display:flex;gap:11px;align-items:baseline;flex-wrap:wrap}
+.item h3{font-size:17.5px;flex:1 1 15rem;min-width:0}
+.item p{margin:9px 0 0;color:var(--ink-2);font-size:14.5px;max-width:74ch}
+.item .chk{margin-top:10px;font-size:12.5px;color:var(--ink-3);
+  border-left:2px solid var(--rule);padding-left:11px}
+.sev{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:2px;flex:none}
+.sev.high{background:var(--loss);color:var(--panel)}
+.sev.medium{background:var(--warn);color:var(--panel)}
+.sev.low{background:var(--rule);color:var(--ink-2)}
+.sev.good{background:var(--gain);color:var(--panel)}
+
+footer{padding-block:42px 70px;color:var(--ink-3);font-size:13.5px}
+footer h2{font-size:21px;color:var(--ink);margin-bottom:12px}
+footer p{max-width:76ch}
+footer code{font-family:var(--mono);font-size:12px;background:var(--sunk);
+  padding:1px 5px;border-radius:2px}
+.caveat{border:1px solid var(--rule);border-left:3px solid var(--warn);
+  padding:15px 18px;margin-top:20px;color:var(--ink-2);background:var(--panel)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Civil Service Paybook — Bangladesh national pay scales</title>
+<meta name="description" content="A step-by-step audit of Bangladesh's 2026 pay order against the 2015 scale, inflation and national income, with a working article 5 fixation calculator.">
+<meta property="og:title" content="The Civil Service Paybook">
+<meta property="og:description" content="The 2026 pay order doubles the scale. This is what the doubling actually does — grade by grade, step by step, against the prices it is meant to cover.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p id="loadstate" class="wrap" style="padding-block:14px;color:var(--ink-3);font-size:13.5px">
+  Loading the figures from the gazette…
+</p>
+<div class="wrap">
+<header>
+  <div class="rungs" aria-hidden="true"><i style="width:100%"></i><i style="width:84%"></i><i style="width:69%"></i><i style="width:56%"></i><i style="width:45%"></i><i style="width:36%"></i></div>
+  <div class="eyebrow">Bangladesh · national pay scales 1973–2026</div>
+  <h1>The Civil Service Paybook</h1>
+  <p class="sub">The 2026 pay order doubles the scale. This is what the doubling
+  actually does — grade by grade, step by step, against the prices it is meant to
+  cover, read from the Finance Division's own gazettes.</p>
+  <div class="stamp">
+    <span><b>9</b> pay commissions</span>
+    <span><b>20</b> grades</span>
+    <span><b id="s-steps">—</b> verified step amounts</span>
+    <span><b>7</b> service chapters</span>
+    <span><b>1970–2028</b> price index</span>
+  </div>
+</header>
+
+<!-- ======================= VERDICT ======================= -->
+<section id="verdict">
+  <span class="eyebrow">The short answer</span>
+  <h2>A doubling that does not cover the decade it is paying for</h2>
+  <p class="lede">Between the 2015 scale and the 2026 scale, consumer prices in
+  Bangladesh rose <b>115.3%</b>. The scale rose <b>100%</b>. That gap, and the way
+  the shortfall is distributed between juniors and seniors, is the whole story.</p>
+  <div class="verdicts" id="verdictstrip"></div>
+  <p class="lede" id="scopenote" style="margin-top:20px"></p>
+</section>
+
+<!-- ======================= CALCULATOR ======================= -->
+<section id="calc">
+  <span class="eyebrow">Ask it about one person</span>
+  <h2>What happens to this officer's pay?</h2>
+  <p class="lede">Pick any two pay scales, a grade and the step held on the old
+  scale. The calculator runs the fixation rule printed in the order itself —
+  <span class="bn">অনুচ্ছেদ ৫</span>, article 5 — and shows every stage of the
+  derivation, so the result can be checked against the gazette by hand.</p>
+
+  <div class="instr">
+    <div class="controls">
+      <div class="ctl"><label for="c-pair">Pay scales compared</label>
+        <select id="c-pair"></select></div>
+      <div class="ctl"><label for="c-grade">Grade</label>
+        <select id="c-grade"></select></div>
+      <div class="ctl"><label for="c-step">Step held on the old scale — <output id="c-step-o">10</output></label>
+        <input type="range" id="c-step" min="1" max="19" step="1" value="10"></div>
+      <div class="ctl"><label for="c-phase">Paid from</label>
+        <select id="c-phase"></select></div>
+    </div>
+    <div class="derive" id="c-derive"></div>
+    <div class="outgrid" id="c-out"></div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption class="eyebrow" id="gt-cap">Every step of this grade</caption>
+      <thead><tr>
+        <th>Step</th><th class="num">Old basic</th><th class="num">New basic</th>
+        <th class="num">Lands on step</th><th class="num">Moved</th>
+        <th class="num">Raise</th><th class="num">After inflation</th>
+      </tr></thead>
+      <tbody id="gt-body"></tbody>
+    </table>
+  </div>
+  <p class="lede" style="font-size:14px;margin-top:14px" id="gt-note"></p>
+</section>
+
+<!-- ======================= REGRESSIVITY ======================= -->
+<section id="regressive">
+  <span class="eyebrow">Inter-grade and intra-grade</span>
+  <h2>The raise is not the same for everyone in the same grade</h2>
+  <p class="lede">A pay order is announced as one number. Inside a grade it is
+  nineteen different numbers, and they fall as seniority rises. The dashed line is
+  the inflation the raise has to clear to leave an officer no worse off than in
+  2015.</p>
+  <div class="chips" id="rg-chips" role="group" aria-label="Choose grades to plot"></div>
+  <figure>
+    <div class="chart" id="chart-regress"></div>
+    <div class="legend" id="leg-regress"></div>
+    <figcaption>Raise on fixation at each step of the old scale. Above the dashed
+    line the officer gains purchasing power; below it, they lose it.</figcaption>
+  </figure>
+  <div class="finding">
+    <h3 id="regress-finding">—</h3>
+    <p id="regress-detail">—</p>
+  </div>
+</section>
+
+<!-- ======================= COMPRESSION ======================= -->
+<section id="compression">
+  <span class="eyebrow">Accounting for seniority</span>
+  <h2>Steps collapse, and officers move down the ladder</h2>
+  <p class="lede">Article 5 adds the officer's distance above the old starting step
+  to the new starting step, then rounds up to the next printed step. Because the
+  2026 ladder climbs in smaller proportional jumps, officers who were on different
+  steps land on the same one — and almost everybody lands lower in the ladder than
+  they stood. Each line below is one step of the old scale finding its place in the
+  new.</p>
+  <div class="chips" id="cp-chips" role="group" aria-label="Choose a grade"></div>
+  <figure>
+    <div class="chart" id="chart-compress"></div>
+    <figcaption id="cp-cap">—</figcaption>
+  </figure>
+  <div class="finding">
+    <h3>Reduction to a lower stage is normally a punishment</h3>
+    <p>Rule 4(3) of the Government Servants (Discipline and Appeal) Rules 2018 lists
+    <span class="bn">বেতন স্কেলের নিম্ন ধাপে অবনমিতকরণ</span> — reduction to a lower
+    stage in the pay scale — as a <b>major penalty</b>, requiring a charge, a hearing
+    and a right of appeal. Here the fixation formula moves
+    <span id="demote-range">most officers</span> down the ladder as a matter of
+    arithmetic, with no process and no finding against anyone.</p>
+  </div>
+</section>
+
+<!-- ======================= MACRO ======================= -->
+<section id="macro">
+  <span class="eyebrow">Macro test</span>
+  <h2>Is the jump justified?</h2>
+  <p class="lede">Three benchmarks, all indexed to 2015 = 100: the consumer price
+  index, which says whether pay holds its purchasing power; nominal GDP per head,
+  which says whether pay holds its share of what the country produces; and real
+  income per head at purchasing power parity, which says whether public servants
+  share in growth. The pay line is the entry step of the grade selected.</p>
+  <div class="tabs" role="group" aria-label="Choose a measure">
+    <button id="m-idx" aria-pressed="true">Indexed to 2015</button>
+    <button id="m-real" aria-pressed="false">Real value of the scale</button>
+  </div>
+  <div class="chips" id="m-chips" role="group" aria-label="Choose a grade"></div>
+  <figure>
+    <div class="chart" id="chart-macro"></div>
+    <div class="legend" id="leg-macro"></div>
+    <figcaption id="macro-cap">—</figcaption>
+  </figure>
+  <div class="grid2">
+    <div>
+      <div class="tw" style="margin-top:0">
+        <table><caption class="eyebrow">2015 to 2026, multiples</caption>
+          <thead><tr><th>Measure</th><th class="num">Multiple</th><th class="num">vs pay</th></tr></thead>
+          <tbody id="macro-body"></tbody></table>
+      </div>
+    </div>
+    <div>
+      <div class="finding" style="margin-top:0">
+        <h3>Purchasing power parity is the wrong instrument here</h3>
+        <p>PPP exists to compare one country's pay with another's. A Bangladeshi
+        civil servant buys rice, rent and school fees in taka, at home, so the test
+        of whether a raise is adequate is the domestic consumer price index — and on
+        that test the scale is short. The PPP series is shown because it answers a
+        different and equally awkward question: real income per head grew
+        <b id="ppp-growth">—</b> over the same period, which the pay scale did not
+        follow.</p>
+      </div>
+      <div class="finding">
+        <h3 id="phase-head">—</h3>
+        <p id="phase-detail">—</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HISTORY ======================= -->
+<section id="history">
+  <span class="eyebrow">Every commission since 1973</span>
+  <h2>Is each order fixing what the last one broke?</h2>
+  <p class="lede">The same four pathologies recur at every transition: steps
+  collapse, officers are demoted within the ladder, the raise falls as seniority
+  rises, and the real value of the previous scale has already been eaten before the
+  new one lands. The columns below let the orders be judged against each other
+  rather than against their own press release.</p>
+  <div class="tw">
+    <table>
+      <caption class="eyebrow">Pooled across all grades in each transition</caption>
+      <thead><tr>
+        <th>Transition</th><th class="num">Steps collapsed</th>
+        <th class="num">Positions demoted</th><th class="num">Worst move</th>
+        <th class="num">Raise spread</th><th class="num">Real, entry</th>
+        <th class="num">Real, top step</th><th class="num">Top:bottom</th>
+      </tr></thead>
+      <tbody id="hist-body"></tbody>
+    </table>
+  </div>
+  <figure>
+    <div class="chart" id="chart-hier"></div>
+    <figcaption>What a grade 1 officer starts on, as a multiple of a grade 20
+    employee's starting pay. Lower is a flatter service.</figcaption>
+  </figure>
+  <div class="finding">
+    <h3 id="hier-head">—</h3>
+    <p id="hier-detail">—</p>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section id="services">
+  <span class="eyebrow">Inter-service</span>
+  <h2>One ladder for everyone, for exactly one pay scale</h2>
+  <p class="lede">For decades the same grade number paid different money depending on
+  which service an officer was in. The 2015 order ended that and put every cadre on
+  one ladder. The 2026 order applies to the civil service alone.</p>
+  <div class="controls" style="border:1px solid var(--rule);background:var(--sunk);margin-top:24px">
+    <div class="ctl"><label for="sv-era">Pay scale</label><select id="sv-era"></select></div>
+    <div class="ctl"><label for="sv-grade">Grade</label><select id="sv-grade"></select></div>
+  </div>
+  <div class="tw">
+    <table><caption class="eyebrow" id="sv-cap">Starting basic by service chapter</caption>
+      <thead><tr><th>Service chapter</th><th class="num">Start</th>
+        <th class="num">Ceiling</th><th class="num">vs civil</th></tr></thead>
+      <tbody id="sv-body"></tbody></table>
+  </div>
+  <div class="finding">
+    <h3>Who the 2026 order leaves out</h3>
+    <p id="excluded">—</p>
+  </div>
+</section>
+
+<!-- ======================= ALLOWANCES ======================= -->
+<section id="allow">
+  <span class="eyebrow">Beyond basic pay</span>
+  <h2>The allowances, where a frozen number is a cut</h2>
+  <p class="lede">Allowances can exceed half of basic pay. Several were raised
+  sharply in 2026; one was cut in rate; one was left at exactly the figure it has
+  held since 2015, which after 115% inflation is the largest reduction in the order.</p>
+  <div class="tw">
+    <table><caption class="eyebrow">2015 order against 2026 order</caption>
+      <thead><tr><th>Allowance</th><th>2015</th><th>2026</th><th>Direction</th></tr></thead>
+      <tbody id="al-body"></tbody></table>
+  </div>
+  <div class="tw">
+    <table><caption class="eyebrow">Structural changes to the service, 2015 and 2026</caption>
+      <thead><tr><th>Scale</th><th>Change</th></tr></thead>
+      <tbody id="sx-body"></tbody></table>
+  </div>
+</section>
+
+<!-- ======================= REGISTER ======================= -->
+<section id="discrep">
+  <span class="eyebrow">Discrepancy register</span>
+  <h2>What does not add up</h2>
+  <p class="lede">Each entry names the figure on this page that tests it. Nothing
+  here is an assertion the data cannot carry.</p>
+  <div class="tabs" id="rg-scope" role="group" aria-label="Filter the register">
+    <button data-scope="all" aria-pressed="true">All</button>
+    <button data-scope="internal" aria-pressed="false">Inside the 2026 order</button>
+    <button data-scope="cross-scale" aria-pressed="false">Against earlier scales</button>
+    <button data-scope="macro" aria-pressed="false">Against the economy</button>
+  </div>
+  <div class="reg" id="discrep-list"></div>
+</section>
+
+<footer>
+  <h2>How this was built, and what to distrust</h2>
+  <p>The 17 September 2026 gazette prints the 2015 and 2026 ladders side by side,
+  step by step, which makes it the authoritative source for both. Every step amount
+  shown for those two scales was read from that table and then checked twice: each
+  ladder must rise strictly, and each step must sit within a tight band of the
+  ladder's own median step ratio. Fifteen OCR lines failed those checks — the
+  recogniser renders some Bengali numerals as Latin digits, and dropped one line
+  outright — and each was re-read from the page image and recorded as an explicit
+  override. Scales from 1973 to 2009 are expanded from the increment bands the
+  gazettes print (<code>7x490;11x540</code>), cross-checked against the same scale as
+  reprinted in other service chapters.</p>
+  <p style="margin-top:12px">Prices are a chained index: World Bank WDI consumer
+  price index (<code>FP.CPI.TOTL</code>) from 1986, extended back to 1980 and forward
+  through 2028 with IMF World Economic Outlook inflation. GDP per head is World Bank
+  <code>NY.GDP.PCAP.CN</code> and <code>NY.GDP.PCAP.PP.KD</code>. Figures from the
+  1970s rest on the GDP deflator rather than a consumer price index.</p>
+  <div class="caveat" id="limits">—</div>
+  <p style="margin-top:18px" id="src">—</p>
+</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
