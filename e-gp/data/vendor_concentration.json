@@ -1,8 +1,8 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 873595,
-  "district_month_cells_total": 10062,
+  "total_contracts": 873597,
+  "district_month_cells_total": 10063,
   "district_month_cells_kept": 9641,
   "min_contracts_for_hhi": 3,
   "unmatched_district_strings": {}

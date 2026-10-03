@@ -3,8 +3,8 @@
   "generated_office_count": 9904,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 873595,
-  "nature_matched": 462530,
+  "contracts_scanned": 873597,
+  "nature_matched": 462532,
   "nature_match_rate": 0.5295
  },
  "ministries": [
@@ -74,8 +74,8 @@
   {
    "id": 26,
    "name": "Ministry of Home Affairs",
-   "value_bdt": 90132150000.0,
-   "count": 14998,
+   "value_bdt": 90141050000.0,
+   "count": 15000,
    "office_count": 349
   },
   {
@@ -41493,6 +41493,14 @@
    "count": 19
   },
   {
+   "id": 8064,
+   "name": "Office of the Superintendent of Police, Meherpur",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 38420000.0,
+   "count": 10
+  },
+  {
    "id": 3617,
    "name": "Office of the Principal, Jamalpur Technical School & College",
    "ministry_id": 6,
@@ -44395,14 +44403,6 @@
    "division_id": 5,
    "value_bdt": 29560000.0,
    "count": 2
-  },
-  {
-   "id": 8064,
-   "name": "Office of the Superintendent of Police, Meherpur",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 29520000.0,
-   "count": 8
   },
   {
    "id": 9508,
