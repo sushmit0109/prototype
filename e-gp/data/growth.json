@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56499,
+  "vendors_scanned": 56505,
   "ownership_groups_checked": 230
  },
  "top_growers": [
@@ -140,6 +140,36 @@
    "shared_owner_keys": []
   },
   {
+   "company": "ESSENTIAL DRUGS COMPANY LIMITED",
+   "company_key": "essential drugs",
+   "first_year": "2018",
+   "baseline_value_bdt": 15300000.0,
+   "baseline_count": 4,
+   "recent_value_bdt": 795830000.0,
+   "recent_count": 13,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 1,
+     "value_bdt": 227150000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 4,
+     "value_bdt": 67710000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 8,
+     "value_bdt": 500970000.0
+    }
+   },
+   "recent_distinct_ministries": 5,
+   "recent_top_ministry": "Ministry of Health and Family Welfare",
+   "recent_distinct_offices": 9,
+   "recent_top_office": "Logistics & Supply Unit",
+   "recent_top_office_share": 0.3077,
+   "growth_ratio_value": 69.35,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Md. Zinnat Hossain Biswas",
    "company_key": "md zinnat hossain biswas",
    "first_year": "2013",
@@ -205,8 +235,8 @@
    "first_year": "2015",
    "baseline_value_bdt": 18220000.0,
    "baseline_count": 19,
-   "recent_value_bdt": 774870000.0,
-   "recent_count": 499,
+   "recent_value_bdt": 776550000.0,
+   "recent_count": 500,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 157,
@@ -217,16 +247,16 @@
      "value_bdt": 375030000.0
     },
     "Elected Government (2026–)": {
-     "count": 111,
-     "value_bdt": 199000000.0
+     "count": 112,
+     "value_bdt": 200680000.0
     }
    },
    "recent_distinct_ministries": 6,
    "recent_top_ministry": "Ministry of Water Resources",
-   "recent_distinct_offices": 125,
+   "recent_distinct_offices": 126,
    "recent_top_office": "Bogura WD Division",
-   "recent_top_office_share": 0.0481,
-   "growth_ratio_value": 56.7,
+   "recent_top_office_share": 0.048,
+   "growth_ratio_value": 56.83,
    "shared_owner_keys": []
   },
   {
@@ -559,36 +589,6 @@
    "recent_top_office": "Establishment of Lalmonirhat Textile Institute Project",
    "recent_top_office_share": 0.125,
    "growth_ratio_value": 37.22,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "ESSENTIAL DRUGS COMPANY LIMITED",
-   "company_key": "essential drugs",
-   "first_year": "2018",
-   "baseline_value_bdt": 15300000.0,
-   "baseline_count": 4,
-   "recent_value_bdt": 405830000.0,
-   "recent_count": 12,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 1,
-     "value_bdt": 227150000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 4,
-     "value_bdt": 67710000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 7,
-     "value_bdt": 110970000.0
-    }
-   },
-   "recent_distinct_ministries": 5,
-   "recent_top_ministry": "Ministry of Health and Family Welfare",
-   "recent_distinct_offices": 8,
-   "recent_top_office": "Logistics & Supply Unit",
-   "recent_top_office_share": 0.3333,
-   "growth_ratio_value": 35.37,
    "shared_owner_keys": []
   },
   {
@@ -1763,8 +1763,8 @@
    "first_year": "2024",
    "baseline_value_bdt": 0,
    "baseline_count": 0,
-   "recent_value_bdt": 2460660000.0,
-   "recent_count": 112,
+   "recent_value_bdt": 2462260000.0,
+   "recent_count": 113,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 3,
@@ -1775,15 +1775,15 @@
      "value_bdt": 791670000.0
     },
     "Elected Government (2026–)": {
-     "count": 46,
-     "value_bdt": 1284900000.0
+     "count": 47,
+     "value_bdt": 1286500000.0
     }
    },
    "recent_distinct_ministries": 22,
    "recent_top_ministry": "Ministry of Education",
-   "recent_distinct_offices": 77,
+   "recent_distinct_offices": 78,
    "recent_top_office": "Bangladesh Computer Council(BCC)",
-   "recent_top_office_share": 0.0446,
+   "recent_top_office_share": 0.0442,
    "shared_owner_keys": []
   },
   {
@@ -2946,7 +2946,7 @@
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1043820000.0,
    "combined_recent_value_bdt": 4283870000.0,
-   "combined_recent_count": 110,
+   "combined_recent_count": 111,
    "combined_growth_ratio_value": 5.47,
    "combined_recent_distinct_ministries": 12
   },
@@ -3341,9 +3341,9 @@
    ],
    "member_companies_matched": 3,
    "combined_baseline_value_bdt": 610390000.0,
-   "combined_recent_value_bdt": 2740880000.0,
-   "combined_recent_count": 82,
-   "combined_growth_ratio_value": 5.99,
+   "combined_recent_value_bdt": 2748170000.0,
+   "combined_recent_count": 83,
+   "combined_growth_ratio_value": 6.0,
    "combined_recent_distinct_ministries": 11
   },
   {

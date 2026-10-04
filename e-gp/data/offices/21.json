@@ -1107,7 +1107,7 @@
     "count": 3
    },
    {
-    "phrase": "Having Foundation for Six",
+    "phrase": "Foundation for Six Storied",
     "count": 3
    }
   ],
@@ -1240,11 +1240,11 @@
     "count": 6
    },
    {
-    "phrase": "Repair Painting",
+    "phrase": "External Repair",
     "count": 5
    },
    {
-    "phrase": "External Repair",
+    "phrase": "Repair Painting",
     "count": 5
    }
   ],
@@ -4005,7 +4005,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Shilpa Nagar Development Project",
+    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
+    "count": 3
+   },
+   {
+    "phrase": "Sheikh Mujib Shilpa Nagar",
     "count": 3
    },
    {
@@ -4013,11 +4017,7 @@
     "count": 3
    },
    {
-    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
-    "count": 3
-   },
-   {
-    "phrase": "Sheikh Mujib Shilpa Nagar",
+    "phrase": "Shilpa Nagar Development Project",
     "count": 3
    }
   ],
@@ -4173,11 +4173,11 @@
     "count": 4
    },
    {
-    "phrase": "Steel Window Along",
+    "phrase": "Window Along Repair-painting",
     "count": 3
    },
    {
-    "phrase": "Window Along Repair-painting",
+    "phrase": "Steel Window Along",
     "count": 3
    },
    {
@@ -4789,11 +4789,11 @@
     "count": 6
    },
    {
-    "phrase": "Street Light Patuakhali Project",
+    "phrase": "Solar Street Light Patuakhali",
     "count": 4
    },
    {
-    "phrase": "Solar Street Light Patuakhali",
+    "phrase": "Street Light Patuakhali Project",
     "count": 4
    },
    {
@@ -4801,7 +4801,7 @@
     "count": 4
    },
    {
-    "phrase": "Distribution Network Group Patuakhali",
+    "phrase": "Treated Water Distribution Network",
     "count": 3
    },
    {
@@ -4809,7 +4809,7 @@
     "count": 3
    },
    {
-    "phrase": "Treated Water Distribution Network",
+    "phrase": "Water Distribution Network Group",
     "count": 3
    }
   ],
@@ -4926,11 +4926,11 @@
     "count": 3
    },
    {
-    "phrase": "Dense Bituminous Carpeting Plot",
+    "phrase": "Carpeting Plot Sector Karnaphuli",
     "count": 3
    },
    {
-    "phrase": "Carpeting Plot Sector Karnaphuli",
+    "phrase": "Dense Bituminous Carpeting Plot",
     "count": 3
    }
   ],
@@ -5407,12 +5407,12 @@
   ]
  },
  "8024": {
-  "value_bdt": 9590000.0,
-  "count": 7,
+  "value_bdt": 10090000.0,
+  "count": 8,
   "by_year": {
    "2026": {
-    "value_bdt": 9590000.0,
-    "count": 7
+    "value_bdt": 10090000.0,
+    "count": 8
    }
   },
   "by_nature": {
@@ -5440,25 +5440,29 @@
     "count": 1
    },
    {
-    "company": "S M Construction",
-    "value_bdt": 420000.0,
+    "company": "Marvi Co",
+    "value_bdt": 500000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 8
    }
   ],
   "top_phrases": [
    {
     "phrase": "Complex Dhanmondi Dhaka",
-    "count": 3
+    "count": 4
    },
    {
     "phrase": "Dhanmondi Dhaka",
-    "count": 4
+    "count": 5
+   },
+   {
+    "phrase": "Various Electronics",
+    "count": 3
    }
   ],
   "top_contracts": [
@@ -5484,18 +5488,18 @@
     "description": "Supply of Liveries and Uniforms at BEPZA Executive Office Dhanmondi Dhaka"
    },
    {
+    "package_ref": "03.06.2616.308.07.014.26",
+    "awarded_to": "Marvi Co",
+    "value_bdt": 500000.0,
+    "contract_signing_date": "2026-10-04",
+    "description": "Supply of iPad & Various Electronics Stationery & Others Item at BEPZA Complex Dhanmondi Dhaka."
+   },
+   {
     "package_ref": "03.06.2616.308.07.004.26-",
     "awarded_to": "R.K TRADE INTERNATIONAL",
     "value_bdt": 490000.0,
     "contract_signing_date": "2026-06-21",
     "description": "Supply of Various Electronics Items Office Furniture & Others Items at BEPZA Complex Dhanmondi Dhaka."
-   },
-   {
-    "package_ref": "03.06.2616.308.07.002.26",
-    "awarded_to": "R.K TRADE INTERNATIONAL",
-    "value_bdt": 490000.0,
-    "contract_signing_date": "2026-05-12",
-    "description": "Supply of various stationery items for recruitment exam mobile phone set office furnitture & books at BEPZA complex Dhanmondi Dhaka."
    }
   ]
  },

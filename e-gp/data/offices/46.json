@@ -95,11 +95,11 @@
     "count": 5
    },
    {
-    "phrase": "Computers Professional Sound Card",
+    "phrase": "Broadcast Computers Professional Sound",
     "count": 5
    },
    {
-    "phrase": "Broadcast Computers Professional Sound",
+    "phrase": "Computers Professional Sound Card",
     "count": 5
    },
    {
@@ -245,11 +245,11 @@
     "count": 7
    },
    {
-    "phrase": "Bangladesh Television Rampura Dhaka",
+    "phrase": "Supply Installation Testing Commissioning",
     "count": 5
    },
    {
-    "phrase": "Supply Installation Testing Commissioning",
+    "phrase": "Bangladesh Television Rampura Dhaka",
     "count": 5
    },
    {
@@ -453,11 +453,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Information Complexes District Level",
-    "count": 5
-   },
-   {
-    "phrase": "District Level St Phase",
+    "phrase": "Complexes District Level St",
     "count": 5
    },
    {
@@ -465,7 +461,11 @@
     "count": 5
    },
    {
-    "phrase": "Complexes District Level St",
+    "phrase": "Information Complexes District Level",
+    "count": 5
+   },
+   {
+    "phrase": "District Level St Phase",
     "count": 5
    },
    {
@@ -1001,11 +1001,11 @@
     "count": 7
    },
    {
-    "phrase": "Broadcasting House Bangladesh Radio",
+    "phrase": "House Bangladesh Radio Dhaka",
     "count": 5
    },
    {
-    "phrase": "House Bangladesh Radio Dhaka",
+    "phrase": "Broadcasting House Bangladesh Radio",
     "count": 5
    },
    {
@@ -3167,6 +3167,40 @@
     "value_bdt": 90000.0,
     "contract_signing_date": "2026-10-01",
     "description": "Procurement of Air- Conditioning System."
+   }
+  ]
+ },
+ "9910": {
+  "value_bdt": 90000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 90000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "M/S N H Enterprise",
+    "value_bdt": 90000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Chattogram",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "15.53.1500.102.22.001.26.7470",
+    "awarded_to": "M/S N H Enterprise",
+    "value_bdt": 90000.0,
+    "contract_signing_date": "2026-10-04",
+    "description": "Procurement of various office stationery items"
    }
   ]
  }

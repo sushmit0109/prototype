@@ -1,10 +1,10 @@
 {
  "meta": {
-  "plan_line_items": 747549,
-  "plan_packages_with_estimate": 744401,
-  "contracts_scanned": 873597,
-  "matched_pairs": 119805,
-  "match_rate_of_plan": 0.1609,
+  "plan_line_items": 747999,
+  "plan_packages_with_estimate": 744851,
+  "contracts_scanned": 873723,
+  "matched_pairs": 119806,
+  "match_rate_of_plan": 0.1608,
   "generic_refs_excluded": 4060,
   "pairs_excluded_generic": 2529,
   "pairs_excluded_sanity": 289
@@ -21,7 +21,7 @@
    "70-85%": 7578,
    "85-95%": 64178,
    "95-100%": 36807,
-   "100-115%": 7555,
+   "100-115%": 7556,
    ">115%": 938
   },
   "fine_histogram": {
@@ -66,7 +66,7 @@
    "0.98": 2315,
    "0.99": 3948,
    "1.00": 13428,
-   "1.01": 1227,
+   "1.01": 1228,
    "1.02": 415,
    "1.03": 258,
    "1.04": 264,
@@ -88,7 +88,7 @@
    "1.20": 26
   },
   "overrun_bands": {
-   "100-105%": 6363,
+   "100-105%": 6364,
    "105-110%": 910,
    "110-115%": 282,
    "115-125%": 186,
@@ -115,7 +115,7 @@
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8493,
+   "count_above_estimate": 8494,
    "count_above_115": 938,
    "share_above_115_of_matched": 0.0078,
    "median_ratio_above_115": 1.6156,
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119577,
+  "unchanged": 119578,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 60993,
+   "OTM->OTM": 60994,
    "LTM->LTM": 55166,
    "RFQU->RFQU": 2082,
    "OSTETM->OSTETM": 934,
@@ -560,7 +560,7 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 9011,
+    "matched_pairs": 9012,
     "median_ratio": 0.9475,
     "iqr": 0.0529,
     "share_above_115": 0.0142,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11692,
+    "matched_pairs": 11693,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,9 +764,9 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9275,
+    "matched_pairs": 9276,
     "median_ratio": 0.9444,
-    "iqr": 0.0549,
+    "iqr": 0.055,
     "share_above_115": 0.0017,
     "share_at_10pct_below": 0.0536
    }

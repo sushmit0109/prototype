@@ -379,22 +379,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Item Size Gm Sheets",
-    "count": 8
-   },
-   {
-    "phrase": "Sheets Ream Offset Paper",
-    "count": 8
-   },
-   {
-    "phrase": "Size Gm Sheets Ream",
-    "count": 8
-   },
-   {
-    "phrase": "Gm Sheets Ream Offset",
-    "count": 8
-   },
-   {
     "phrase": "Office Stationary Item Size",
     "count": 8
    },
@@ -403,11 +387,27 @@
     "count": 8
    },
    {
+    "phrase": "Sheets Ream Offset Paper",
+    "count": 8
+   },
+   {
+    "phrase": "Gm Sheets Ream Offset",
+    "count": 8
+   },
+   {
+    "phrase": "Item Size Gm Sheets",
+    "count": 8
+   },
+   {
+    "phrase": "Size Gm Sheets Ream",
+    "count": 8
+   },
+   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Printers Ink-jet Printers Fax",
+    "phrase": "Type Copy Paper Basic",
     "count": 4
    }
   ],
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Goods Offset Paper Gsm",
+    "phrase": "Paper Gsm White Paper",
     "count": 3
    }
   ],
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
-    "phrase": "Equipment Laptop Desktop Computer",
-    "count": 3
-   },
-   {
     "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
     "phrase": "Computer and Other Equipment",
+    "count": 3
+   },
+   {
+    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
@@ -3449,12 +3449,12 @@
   ]
  },
  "8083": {
-  "value_bdt": 22410000.0,
-  "count": 9,
+  "value_bdt": 25080000.0,
+  "count": 12,
   "by_year": {
    "2026": {
-    "value_bdt": 22410000.0,
-    "count": 9
+    "value_bdt": 25080000.0,
+    "count": 12
    }
   },
   "by_nature": {
@@ -3464,8 +3464,8 @@
   "top_vendors": [
    {
     "company": "BTR CORPORATION",
-    "value_bdt": 6380000.0,
-    "count": 2
+    "value_bdt": 8260000.0,
+    "count": 4
    },
    {
     "company": "M/S Sojib Enterprise",
@@ -3483,15 +3483,15 @@
     "count": 1
    },
    {
-    "company": "M/S. KHAN ENTERPRISE",
-    "value_bdt": 780000.0,
-    "count": 1
+    "company": "Rahat Computer",
+    "value_bdt": 1540000.0,
+    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 9
+    "count": 12
    }
   ],
   "top_phrases": [],
@@ -3693,18 +3693,24 @@
   ]
  },
  "8282": {
-  "value_bdt": 1790000.0,
-  "count": 1,
+  "value_bdt": 57330000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 1790000.0,
-    "count": 1
+    "value_bdt": 57330000.0,
+    "count": 2
    }
   },
   "by_nature": {
-   "Goods": 1
+   "Goods": 1,
+   "Services": 1
   },
   "top_vendors": [
+   {
+    "company": "Elite Construction",
+    "value_bdt": 55540000.0,
+    "count": 1
+   },
    {
     "company": "Z S Technologies",
     "value_bdt": 1790000.0,
@@ -3714,11 +3720,18 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "52.01.0000.000.909.07.0012.26.947",
+    "awarded_to": "Elite Construction",
+    "value_bdt": 55540000.0,
+    "contract_signing_date": "2026-10-04",
+    "description": "Hiring of Vehicle for SCEM Project"
+   },
    {
     "package_ref": "52.01.0000.000.909.07.0001.26.315",
     "awarded_to": "Z S Technologies",

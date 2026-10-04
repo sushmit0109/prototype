@@ -67,7 +67,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Boundary Wall River Training",
+    "phrase": "Site Office Boundary Wall",
     "count": 4
    },
    {
@@ -75,11 +75,11 @@
     "count": 4
    },
    {
-    "phrase": "Development Site Office Boundary",
+    "phrase": "Land Development Site Office",
     "count": 4
    },
    {
-    "phrase": "Land Development Site Office",
+    "phrase": "Boundary Wall River Training",
     "count": 4
    },
    {
@@ -87,11 +87,11 @@
     "count": 4
    },
    {
-    "phrase": "Wall River Training Etc",
+    "phrase": "Development Site Office Boundary",
     "count": 4
    },
    {
-    "phrase": "Site Office Boundary Wall",
+    "phrase": "Wall River Training Etc",
     "count": 4
    },
    {
@@ -686,15 +686,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Picks Dm Tolerance Moisture",
+    "phrase": "Ends Dm Tolerance Shots",
     "count": 1027
    },
    {
-    "phrase": "Dm Tolerance Moisture Regain",
+    "phrase": "Porter Ends Dm Tolerance",
     "count": 1027
    },
    {
-    "phrase": "Dm Tolerance Shots Ins",
+    "phrase": "Maximum Sewn Hemmed Mouth",
     "count": 1027
    },
    {
@@ -702,19 +702,19 @@
     "count": 1027
    },
    {
+    "phrase": "Dm Tolerance Shots Ins",
+    "count": 1027
+   },
+   {
     "phrase": "Tolerance Shots Ins Picks",
     "count": 1027
    },
    {
-    "phrase": "Ends Dm Tolerance Shots",
+    "phrase": "Dm Tolerance Moisture Regain",
     "count": 1027
    },
    {
     "phrase": "Shots Ins Picks Dm",
-    "count": 1027
-   },
-   {
-    "phrase": "Maximum Sewn Hemmed Mouth",
     "count": 1027
    }
   ],
@@ -968,11 +968,11 @@
     "count": 3
    },
    {
-    "phrase": "Rubber Conveyor Belt",
+    "phrase": "Bucket Elevator Belt",
     "count": 3
    },
    {
-    "phrase": "Bucket Elevator Belt",
+    "phrase": "Rubber Conveyor Belt",
     "count": 3
    },
    {
@@ -2321,11 +2321,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "New Food Godown Ancillary",
+    "phrase": "Food Godown Ancillary Facilities",
     "count": 31
    },
    {
-    "phrase": "Food Godown Ancillary Facilities",
+    "phrase": "New Food Godown Ancillary",
     "count": 31
    }
   ],
@@ -2868,20 +2868,20 @@
   ]
  },
  "8708": {
-  "value_bdt": 12710000.0,
-  "count": 18,
+  "value_bdt": 14510000.0,
+  "count": 20,
   "by_year": {
    "2026": {
-    "value_bdt": 12710000.0,
-    "count": 18
+    "value_bdt": 14510000.0,
+    "count": 20
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "M/S. Concept International",
-    "value_bdt": 3720000.0,
-    "count": 6
+    "value_bdt": 4320000.0,
+    "count": 7
    },
    {
     "company": "M/S HIRA TRADE SYNDICATE",
@@ -2899,24 +2899,24 @@
     "count": 4
    },
    {
-    "company": "M/S GOMTI TRADERS",
-    "value_bdt": 1160000.0,
-    "count": 3
+    "company": "M/S JALAL ENTERPRISE",
+    "value_bdt": 1500000.0,
+    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Brahmanbaria",
-    "count": 18
+    "count": 20
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Parts for Ashuganj Silo",
+    "phrase": "Spare Parts for Ashuganj",
     "count": 8
    },
    {
-    "phrase": "Spare Parts for Ashuganj",
+    "phrase": "Parts for Ashuganj Silo",
     "count": 8
    },
    {
@@ -2929,19 +2929,19 @@
    },
    {
     "phrase": "Ashuganj Silo Brahmanbaria",
-    "count": 12
+    "count": 14
    },
    {
     "phrase": "Mechanical Spare Parts",
     "count": 6
    },
    {
-    "phrase": "Sewing Machine",
-    "count": 4
+    "phrase": "Several Electrical Items",
+    "count": 3
    },
    {
-    "phrase": "Sewing Thread",
-    "count": 3
+    "phrase": "Sewing Machine",
+    "count": 4
    }
   ],
   "top_contracts": [
@@ -2967,18 +2967,18 @@
     "description": "Supply of sewing machine spare parts for Ashuganj Silo Brahmanbaria."
    },
    {
+    "package_ref": "13.01.0000.290.55.013.26-416",
+    "awarded_to": "M/S JALAL ENTERPRISE",
+    "value_bdt": 1200000.0,
+    "contract_signing_date": "2026-10-04",
+    "description": "Procurement of several electrical items for Ashuganj Silo Brahmanbaria."
+   },
+   {
     "package_ref": "ASNSILO/Mech/LTM/03",
     "awarded_to": "M/S. Sajib Construction",
     "value_bdt": 900000.0,
     "contract_signing_date": "2026-05-06",
     "description": "Supply of various types Mechanical spare parts for Ashuganj Silo Brahmanbaria."
-   },
-   {
-    "package_ref": "13.01.0000.290.55.004.26-266",
-    "awarded_to": "M/S. Sajib Construction",
-    "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-19",
-    "description": "Procurement of Roller Bearing and other Mechanical Spare Parts and tools for Ashuganj Silo Brahmanbaria."
    }
   ]
  },
