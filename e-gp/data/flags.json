@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-10-04T23:38:55.156967+00:00",
-  "contracts_scanned": 873723,
+  "generated_at": "2026-10-07T00:28:20.612040+00:00",
+  "contracts_scanned": 873950,
   "debarment_records": 1027,
-  "flag_count": 1973,
+  "flag_count": 1975,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1727
+   "post_debarment_award": 1729
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -21064,6 +21064,25 @@
   },
   {
    "flag_type": "post_debarment_award",
+   "severity": "low",
+   "company": "M/S. KELLA SHAHID ENTERPRISE",
+   "company_key": "kella shahid enterprise",
+   "tender_id": "1322232",
+   "pkg_lot_id": "2123458",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Brahmanbaria",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "district": "Brahmanbaria",
+   "contract_signing_date": "2026-10-05",
+   "value_bdt": 9690000.0,
+   "debar_start": "19-Nov-2020",
+   "debar_end": "18-Nov-2021",
+   "debarred_by": "PE Office Name: Office of the Akhaura Pourashava, Brahmanbaria ;",
+   "debarment_reason": "By not allowing the use of substandard construction materials in development work and by not giving you illegal facilities. Explain why your organization should not be debar for misbehaving with buyers(PE) and other employees of Akhaura Paurashava at different times.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
+  },
+  {
+   "flag_type": "post_debarment_award",
    "severity": "medium",
    "company": "M/S. Milon Printing Press",
    "company_key": "milon printing press",
@@ -36432,6 +36451,25 @@
    "debarment_reason": "This is to inform you that you were submitted 3 fake certificates in Tender ID 715276 as TAIF AND ASSOCIATES, 107, Green Road, Tejgaon, Dhaka-1207 which is fraudulent practice as per ITT clause 4.2(b). (Copy Attached) According to PPR 2008 rules 127(3) you are requested to reply regarding fraudulent practice within 22/08/2022 days. Otherwise action will be taken as per PPR 2008 rules 127(4).",
    "debarment_scope": "Unspecified",
    "era": "Interim Government (2024–2026)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "low",
+   "company": "TAIF AND ASSOCIATES",
+   "company_key": "taif and associates",
+   "tender_id": "1326788",
+   "pkg_lot_id": "2159076",
+   "procuring_entity": "Engineering & Estate Division",
+   "ministry": "Ministry of Finance",
+   "district": "Dhaka",
+   "contract_signing_date": "2026-10-06",
+   "value_bdt": 3820000.0,
+   "debar_start": "08-Sep-2022",
+   "debar_end": "04-Sep-2023",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "This is to inform you that you were submitted 3 fake certificates in Tender ID 715276 as TAIF AND ASSOCIATES, 107, Green Road, Tejgaon, Dhaka-1207 which is fraudulent practice as per ITT clause 4.2(b). (Copy Attached) According to PPR 2008 rules 127(3) you are requested to reply regarding fraudulent practice within 22/08/2022 days. Otherwise action will be taken as per PPR 2008 rules 127(4).",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
   },
   {
    "flag_type": "post_debarment_award",

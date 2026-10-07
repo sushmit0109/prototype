@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20044,
-  "vendors_with_owner_data": 8391,
-  "vendors_with_tenderer_id": 8580,
+  "vendors_sampled": 20048,
+  "vendors_with_owner_data": 8395,
+  "vendors_with_tenderer_id": 8584,
   "owner_data_coverage": 0.419
  },
  "shared_owner_groups": [
@@ -917,6 +917,40 @@
    "distinct_companies": 4
   },
   {
+   "owner_key": "harun ur rashid",
+   "companies": [
+    {
+     "company": "DON ENTERPRISE",
+     "tenderer_id": "1000544",
+     "owner_name_as_shown": "Md. Harun Ur Rashid",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M/S HASIN ENTERPRISE",
+     "tenderer_id": "1010498",
+     "owner_name_as_shown": "Md Harun Ur Rashid",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M/S Bismillah Enterprise & Feed Center",
+     "tenderer_id": "1004831",
+     "owner_name_as_shown": "Md Harun Ur Rashid",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "DON ENTERPRISE & M/S. CHOWDHURY CONSTRUCTION JV",
+     "tenderer_id": "1244608",
+     "owner_name_as_shown": "Md. Harun Ur Rashid",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 4
+  },
+  {
    "owner_key": "mushfikur rahman kanchon",
    "companies": [
     {
@@ -1371,33 +1405,6 @@
      "company": "MD. MIZANUR RAHMAN AND MIR MAMUN HOSSAIN JV",
      "tenderer_id": "1217382",
      "owner_name_as_shown": "Md. Mejanur Rahman (Masum)",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    }
-   ],
-   "distinct_companies": 3
-  },
-  {
-   "owner_key": "harun ur rashid",
-   "companies": [
-    {
-     "company": "DON ENTERPRISE",
-     "tenderer_id": "1000544",
-     "owner_name_as_shown": "Md. Harun Ur Rashid",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M/S HASIN ENTERPRISE",
-     "tenderer_id": "1010498",
-     "owner_name_as_shown": "Md Harun Ur Rashid",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M/S Bismillah Enterprise & Feed Center",
-     "tenderer_id": "1004831",
-     "owner_name_as_shown": "Md Harun Ur Rashid",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
     }
@@ -5588,6 +5595,13 @@
   }
  ],
  "tenderer_id_aliases": [
+  {
+   "tenderer_id": "1025071",
+   "company_keys": [
+    "popular pharmaceuticals",
+    "popular pharmaceuticals plc"
+   ]
+  },
   {
    "tenderer_id": "-",
    "company_keys": [

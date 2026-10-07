@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56505,
+  "vendors_scanned": 56524,
   "ownership_groups_checked": 230
  },
  "top_growers": [
@@ -897,8 +897,8 @@
    "first_year": "2015",
    "baseline_value_bdt": 12530000.0,
    "baseline_count": 10,
-   "recent_value_bdt": 260520000.0,
-   "recent_count": 57,
+   "recent_value_bdt": 260790000.0,
+   "recent_count": 58,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 16,
@@ -909,16 +909,16 @@
      "value_bdt": 75940000.0
     },
     "Elected Government (2026–)": {
-     "count": 20,
-     "value_bdt": 90960000.0
+     "count": 21,
+     "value_bdt": 91230000.0
     }
    },
    "recent_distinct_ministries": 10,
    "recent_top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "recent_distinct_offices": 37,
+   "recent_distinct_offices": 38,
    "recent_top_office": "KHDC",
-   "recent_top_office_share": 0.0877,
-   "growth_ratio_value": 27.72,
+   "recent_top_office_share": 0.0862,
+   "growth_ratio_value": 27.75,
    "shared_owner_keys": []
   },
   {
@@ -1046,6 +1046,36 @@
    ]
   },
   {
+   "company": "The ACME Laboratories Ltd.",
+   "company_key": "the acme laboratories",
+   "first_year": "2017",
+   "baseline_value_bdt": 23700000.0,
+   "baseline_count": 14,
+   "recent_value_bdt": 445360000.0,
+   "recent_count": 39,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 16,
+     "value_bdt": 179990000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 10,
+     "value_bdt": 233170000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 13,
+     "value_bdt": 32200000.0
+    }
+   },
+   "recent_distinct_ministries": 5,
+   "recent_top_ministry": "Ministry of Home Affairs",
+   "recent_distinct_offices": 13,
+   "recent_top_office": "Medical Branch",
+   "recent_top_office_share": 0.3846,
+   "growth_ratio_value": 25.06,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Zinnat Ali Zinnah Ltd",
    "company_key": "zinnat ali zinnah",
    "first_year": "2019",
@@ -1076,36 +1106,6 @@
    "shared_owner_keys": [
     "zinnat ali zinna"
    ]
-  },
-  {
-   "company": "The ACME Laboratories Ltd.",
-   "company_key": "the acme laboratories",
-   "first_year": "2017",
-   "baseline_value_bdt": 23700000.0,
-   "baseline_count": 14,
-   "recent_value_bdt": 444290000.0,
-   "recent_count": 37,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 16,
-     "value_bdt": 179990000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 10,
-     "value_bdt": 233170000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 11,
-     "value_bdt": 31130000.0
-    }
-   },
-   "recent_distinct_ministries": 5,
-   "recent_top_ministry": "Ministry of Home Affairs",
-   "recent_distinct_offices": 13,
-   "recent_top_office": "Medical Branch",
-   "recent_top_office_share": 0.4054,
-   "growth_ratio_value": 25.0,
-   "shared_owner_keys": []
   },
   {
    "company": "M/S. Confidence Trade International",
@@ -2921,14 +2921,18 @@
     {
      "company": "M/S Bismillah Enterprise & Feed Center",
      "designation": "Proprietor"
+    },
+    {
+     "company": "DON ENTERPRISE & M/S. CHOWDHURY CONSTRUCTION JV",
+     "designation": "Proprietor"
     }
    ],
-   "member_companies_matched": 3,
+   "member_companies_matched": 4,
    "combined_baseline_value_bdt": 544040000.0,
-   "combined_recent_value_bdt": 4325430000.0,
-   "combined_recent_count": 120,
-   "combined_growth_ratio_value": 10.6,
-   "combined_recent_distinct_ministries": 10
+   "combined_recent_value_bdt": 4372060000.0,
+   "combined_recent_count": 121,
+   "combined_growth_ratio_value": 10.72,
+   "combined_recent_distinct_ministries": 11
   },
   {
    "owner_key": "aktar nahar khanam",
@@ -3047,6 +3051,26 @@
    "combined_recent_distinct_ministries": 5
   },
   {
+   "owner_key": "u t mong",
+   "owner_name": "U T Mong",
+   "companies": [
+    {
+     "company": "Mr. U.T.Mong",
+     "designation": "Proprietor"
+    },
+    {
+     "company": "SS ENTERPRISE UT MONG JV",
+     "designation": "Proprietor"
+    }
+   ],
+   "member_companies_matched": 2,
+   "combined_baseline_value_bdt": 3341500000.0,
+   "combined_recent_value_bdt": 4165030000.0,
+   "combined_recent_count": 214,
+   "combined_growth_ratio_value": 1.66,
+   "combined_recent_distinct_ministries": 11
+  },
+  {
    "owner_key": "mejanur rahman (masum)",
    "owner_name": "Md. Mejanur Rahman (Masum)",
    "companies": [
@@ -3069,26 +3093,6 @@
    "combined_recent_count": 51,
    "combined_growth_ratio_value": 6.45,
    "combined_recent_distinct_ministries": 4
-  },
-  {
-   "owner_key": "u t mong",
-   "owner_name": "U T Mong",
-   "companies": [
-    {
-     "company": "Mr. U.T.Mong",
-     "designation": "Proprietor"
-    },
-    {
-     "company": "SS ENTERPRISE UT MONG JV",
-     "designation": "Proprietor"
-    }
-   ],
-   "member_companies_matched": 2,
-   "combined_baseline_value_bdt": 3341500000.0,
-   "combined_recent_value_bdt": 3975180000.0,
-   "combined_recent_count": 213,
-   "combined_growth_ratio_value": 1.59,
-   "combined_recent_distinct_ministries": 11
   },
   {
    "owner_key": "niaz ahmed khan",

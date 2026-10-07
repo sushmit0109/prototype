@@ -135,8 +135,8 @@
   ]
  },
  "2107": {
-  "value_bdt": 114170000.0,
-  "count": 29,
+  "value_bdt": 145060000.0,
+  "count": 30,
   "by_year": {
    "2017": {
     "value_bdt": 8580000.0,
@@ -171,15 +171,20 @@
     "count": 2
    },
    "2026": {
-    "value_bdt": 3680000.0,
-    "count": 4
+    "value_bdt": 34570000.0,
+    "count": 5
    }
   },
   "by_nature": {
-   "Goods": 28,
+   "Goods": 29,
    "Services": 1
   },
   "top_vendors": [
+   {
+    "company": "Hazi Traders",
+    "value_bdt": 32080000.0,
+    "count": 3
+   },
    {
     "company": "Smart Technologies (BD) Ltd.",
     "value_bdt": 22440000.0,
@@ -199,17 +204,12 @@
     "company": "Panorama Enterprise",
     "value_bdt": 13790000.0,
     "count": 1
-   },
-   {
-    "company": "aamra networks limited",
-    "value_bdt": 12390000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 29
+    "count": 30
    }
   ],
   "top_phrases": [
@@ -223,6 +223,13 @@
    }
   ],
   "top_contracts": [
+   {
+    "package_ref": "05.00.0000.000.113.07.0034.26",
+    "awarded_to": "Hazi Traders",
+    "value_bdt": 30890000.0,
+    "contract_signing_date": "2026-10-05",
+    "description": "Supply of Computer Equipment and Accessories for FY 2026â??27"
+   },
    {
     "package_ref": "05.00.0000.113.07.051.2021-268",
     "awarded_to": "Popular Teknowlogies Ltd.",
@@ -250,13 +257,6 @@
     "value_bdt": 8790000.0,
     "contract_signing_date": "2018-03-18",
     "description": "Modular Data Centre Passive Item Fire detention & Suppression System"
-   },
-   {
-    "package_ref": "05.00.0000.113.26.09.17.273",
-    "awarded_to": "Navana Limited",
-    "value_bdt": 8000000.0,
-    "contract_signing_date": "2017-06-06",
-    "description": "New Microbus"
    }
   ]
  },
@@ -1140,11 +1140,11 @@
     "count": 5
    },
    {
-    "phrase": "Bi-color Offset Press",
+    "phrase": "Heidelberg Four Color",
     "count": 4
    },
    {
-    "phrase": "Heidelberg Four Color",
+    "phrase": "Bi-color Offset Press",
     "count": 4
    }
   ],
@@ -1364,8 +1364,8 @@
   ]
  },
  "4595": {
-  "value_bdt": 121060000.0,
-  "count": 61,
+  "value_bdt": 121890000.0,
+  "count": 62,
   "by_year": {
    "2021": {
     "value_bdt": 5040000.0,
@@ -1388,12 +1388,12 @@
     "count": 17
    },
    "2026": {
-    "value_bdt": 17960000.0,
-    "count": 9
+    "value_bdt": 18790000.0,
+    "count": 10
    }
   },
   "by_nature": {
-   "Goods": 61
+   "Goods": 62
   },
   "top_vendors": [
    {
@@ -1425,7 +1425,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 61
+    "count": 62
    }
   ],
   "top_phrases": [
@@ -1438,11 +1438,15 @@
     "count": 3
    },
    {
+    "phrase": "Lexmark Color Printer Spare",
+    "count": 3
+   },
+   {
     "phrase": "Color Printer Spare Parts",
     "count": 3
    },
    {
-    "phrase": "Lexmark Color Printer Spare",
+    "phrase": "Examination and Answer Sheets",
     "count": 3
    },
    {
@@ -1451,10 +1455,6 @@
    },
    {
     "phrase": "Sheets for Mental Ability",
-    "count": 3
-   },
-   {
-    "phrase": "Examination and Answer Sheets",
     "count": 3
    },
    {
@@ -1803,15 +1803,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Repair Renewal and Modernization",
-    "count": 3
-   },
-   {
     "phrase": "Internal Electrical Repair Renewal",
     "count": 3
    },
    {
     "phrase": "Renewal and Modernization Work",
+    "count": 3
+   },
+   {
+    "phrase": "Repair Renewal and Modernization",
     "count": 3
    },
    {
@@ -2312,11 +2312,11 @@
     "count": 3
    },
    {
-    "phrase": "Equipment Etc",
+    "phrase": "Related Equipment",
     "count": 3
    },
    {
-    "phrase": "Related Equipment",
+    "phrase": "Equipment Etc",
     "count": 3
    }
   ],
@@ -3131,12 +3131,12 @@
   ]
  },
  "8004": {
-  "value_bdt": 4760000.0,
-  "count": 5,
+  "value_bdt": 5250000.0,
+  "count": 6,
   "by_year": {
    "2026": {
-    "value_bdt": 4760000.0,
-    "count": 5
+    "value_bdt": 5250000.0,
+    "count": 6
    }
   },
   "by_nature": {
@@ -3152,12 +3152,17 @@
     "company": "SBSCORPORATION",
     "value_bdt": 830000.0,
     "count": 4
+   },
+   {
+    "company": "Icon Infotech Limited",
+    "value_bdt": 490000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [
@@ -3173,6 +3178,13 @@
     "value_bdt": 3930000.0,
     "contract_signing_date": "2026-06-17",
     "description": "Supply outsourcing services (Cleaner Security Guard and related services)"
+   },
+   {
+    "package_ref": "05.81.0000.000.007.18.0137.22",
+    "awarded_to": "Icon Infotech Limited",
+    "value_bdt": 490000.0,
+    "contract_signing_date": "2026-10-05",
+    "description": "Establishment and operational management of the BKKB Call Center including software supply & installation agent service technical support and system maintenance"
    },
    {
     "package_ref": "05.81.0000.007.07.033.26",
@@ -3194,13 +3206,6 @@
     "value_bdt": 130000.0,
     "contract_signing_date": "2026-08-19",
     "description": "Supply of paper for questionprint and related service for recruitment of 11-20 grade employees of BKKB."
-   },
-   {
-    "package_ref": "05.81.0000.007.07.030.26",
-    "awarded_to": "SBSCORPORATION",
-    "value_bdt": 90000.0,
-    "contract_signing_date": "2026-08-17",
-    "description": "Supply of paperprint and related service for recruitment of 9-10 and 11-20 grade employees of BKKB"
    }
   ]
  },

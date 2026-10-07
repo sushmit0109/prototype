@@ -1,15 +1,15 @@
 {
  "meta": {
-  "contracts_scanned": 873723,
+  "contracts_scanned": 873950,
   "districts_mapped": 64,
   "unmatched_district_strings": {},
-  "nature_matched": 462589,
+  "nature_matched": 462681,
   "nature_match_rate": 0.5294
  },
  "districts": {
   "Dhaka": {
-   "value_bdt": 1858949460000.0,
-   "count": 176858,
+   "value_bdt": 1860197980000.0,
+   "count": 176930,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 1349262470000.0,
@@ -20,8 +20,8 @@
      "count": 33488
     },
     "Elected Government (2026–)": {
-     "value_bdt": 169800690000.0,
-     "count": 17376
+     "value_bdt": 171049210000.0,
+     "count": 17448
     }
    },
    "by_year": {
@@ -86,8 +86,8 @@
      "count": 23187
     },
     "2026": {
-     "value_bdt": 209961380000.0,
-     "count": 21230
+     "value_bdt": 211209900000.0,
+     "count": 21302
     }
    },
    "by_month": {
@@ -768,30 +768,30 @@
      "count": 464
     },
     "2026-10": {
-     "value_bdt": 783400000.0,
-     "count": 74
+     "value_bdt": 2031920000.0,
+     "count": 146
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "NATIONAL DEVELOPMENT ENGINEERS LTD.",
    "nature_count": {
-    "Goods": 47839,
-    "Works": 62111,
-    "Goods (Framework Agreement)": 993,
-    "Physical Services": 385,
+    "Goods": 47869,
+    "Works": 62117,
+    "Goods (Framework Agreement)": 997,
+    "Physical Services": 386,
     "Services": 76
    },
    "nature_value": {
-    "Goods": 619924820000.0,
-    "Works": 1075808740000.0,
-    "Goods (Framework Agreement)": 30089170000.0,
-    "Physical Services": 5316940000.0,
+    "Goods": 620590040000.0,
+    "Works": 1075848250000.0,
+    "Goods (Framework Agreement)": 30138440000.0,
+    "Physical Services": 5782400000.0,
     "Services": 284110000.0
    }
   },
   "Faridpur": {
-   "value_bdt": 91622510000.0,
-   "count": 13151,
+   "value_bdt": 91628470000.0,
+   "count": 13155,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 77046760000.0,
@@ -802,8 +802,8 @@
      "count": 1850
     },
     "Elected Government (2026–)": {
-     "value_bdt": 5400980000.0,
-     "count": 783
+     "value_bdt": 5406940000.0,
+     "count": 787
     }
    },
    "by_year": {
@@ -864,8 +864,8 @@
      "count": 1255
     },
     "2026": {
-     "value_bdt": 6938530000.0,
-     "count": 1085
+     "value_bdt": 6944490000.0,
+     "count": 1089
     }
    },
    "by_month": {
@@ -1522,28 +1522,28 @@
      "count": 16
     },
     "2026-10": {
-     "value_bdt": 190000.0,
-     "count": 2
+     "value_bdt": 6150000.0,
+     "count": 6
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/S S.B Traders",
    "nature_count": {
-    "Works": 5924,
+    "Works": 5925,
     "Goods": 841,
     "Goods (Framework Agreement)": 29,
     "Physical Services": 4
    },
    "nature_value": {
-    "Works": 67112080000.0,
+    "Works": 67112530000.0,
     "Goods": 3589300000.0,
     "Goods (Framework Agreement)": 135210000.0,
     "Physical Services": 20860000.0
    }
   },
   "Nilphamari": {
-   "value_bdt": 48579230000.0,
-   "count": 8026,
+   "value_bdt": 48600160000.0,
+   "count": 8036,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 38276030000.0,
@@ -1554,8 +1554,8 @@
      "count": 1658
     },
     "Elected Government (2026–)": {
-     "value_bdt": 2086360000.0,
-     "count": 585
+     "value_bdt": 2107290000.0,
+     "count": 595
     }
    },
    "by_year": {
@@ -1616,8 +1616,8 @@
      "count": 1081
     },
     "2026": {
-     "value_bdt": 3197160000.0,
-     "count": 896
+     "value_bdt": 3218090000.0,
+     "count": 906
     }
    },
    "by_month": {
@@ -2264,26 +2264,30 @@
     "2026-09": {
      "value_bdt": 92900000.0,
      "count": 8
+    },
+    "2026-10": {
+     "value_bdt": 20930000.0,
+     "count": 10
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
    "nature_count": {
-    "Works": 3322,
+    "Works": 3331,
     "Goods": 952,
     "Goods (Framework Agreement)": 30,
     "Physical Services": 5
    },
    "nature_value": {
-    "Works": 37574090000.0,
+    "Works": 37589380000.0,
     "Goods": 2497630000.0,
     "Goods (Framework Agreement)": 46470000.0,
     "Physical Services": 28860000.0
    }
   },
   "Shariatpur": {
-   "value_bdt": 67235760000.0,
-   "count": 6084,
+   "value_bdt": 67236150000.0,
+   "count": 6085,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 57646740000.0,
@@ -2294,8 +2298,8 @@
      "count": 888
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4697810000.0,
-     "count": 500
+     "value_bdt": 4698200000.0,
+     "count": 501
     }
    },
    "by_year": {
@@ -2356,8 +2360,8 @@
      "count": 512
     },
     "2026": {
-     "value_bdt": 5446100000.0,
-     "count": 654
+     "value_bdt": 5446490000.0,
+     "count": 655
     }
    },
    "by_month": {
@@ -2980,6 +2984,10 @@
     "2026-09": {
      "value_bdt": 27200000.0,
      "count": 19
+    },
+    "2026-10": {
+     "value_bdt": 390000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -2998,8 +3006,8 @@
    }
   },
   "Thakurgaon": {
-   "value_bdt": 38847130000.0,
-   "count": 5801,
+   "value_bdt": 38864730000.0,
+   "count": 5802,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 29686300000.0,
@@ -3010,8 +3018,8 @@
      "count": 1059
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3897490000.0,
-     "count": 577
+     "value_bdt": 3915090000.0,
+     "count": 578
     }
    },
    "by_year": {
@@ -3072,8 +3080,8 @@
      "count": 707
     },
     "2026": {
-     "value_bdt": 4899810000.0,
-     "count": 743
+     "value_bdt": 4917410000.0,
+     "count": 744
     }
    },
    "by_month": {
@@ -3706,8 +3714,8 @@
      "count": 8
     },
     "2026-10": {
-     "value_bdt": 2250000.0,
-     "count": 1
+     "value_bdt": 19850000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -3726,8 +3734,8 @@
    }
   },
   "Gopalganj": {
-   "value_bdt": 123241610000.0,
-   "count": 10615,
+   "value_bdt": 123242260000.0,
+   "count": 10617,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 112505940000.0,
@@ -3738,8 +3746,8 @@
      "count": 1249
     },
     "Elected Government (2026–)": {
-     "value_bdt": 1963180000.0,
-     "count": 535
+     "value_bdt": 1963830000.0,
+     "count": 537
     }
    },
    "by_year": {
@@ -3800,8 +3808,8 @@
      "count": 797
     },
     "2026": {
-     "value_bdt": 2805380000.0,
-     "count": 743
+     "value_bdt": 2806030000.0,
+     "count": 745
     }
    },
    "by_month": {
@@ -4468,6 +4476,10 @@
     "2026-09": {
      "value_bdt": 30210000.0,
      "count": 17
+    },
+    "2026-10": {
+     "value_bdt": 650000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -5218,8 +5230,8 @@
    }
   },
   "Sunamganj": {
-   "value_bdt": 104693050000.0,
-   "count": 7578,
+   "value_bdt": 104698190000.0,
+   "count": 7580,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 71234430000.0,
@@ -5230,8 +5242,8 @@
      "count": 1341
     },
     "Elected Government (2026–)": {
-     "value_bdt": 5828330000.0,
-     "count": 571
+     "value_bdt": 5833470000.0,
+     "count": 573
     }
    },
    "by_year": {
@@ -5292,8 +5304,8 @@
      "count": 909
     },
     "2026": {
-     "value_bdt": 19996150000.0,
-     "count": 729
+     "value_bdt": 20001290000.0,
+     "count": 731
     }
    },
    "by_month": {
@@ -5936,26 +5948,30 @@
     "2026-09": {
      "value_bdt": 553310000.0,
      "count": 12
+    },
+    "2026-10": {
+     "value_bdt": 5140000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M. M. Builders & Engineers Ltd.",
    "nature_count": {
     "Works": 3606,
-    "Goods": 597,
+    "Goods": 599,
     "Goods (Framework Agreement)": 6,
     "Physical Services": 2
    },
    "nature_value": {
     "Works": 94006980000.0,
-    "Goods": 2001420000.0,
+    "Goods": 2006560000.0,
     "Goods (Framework Agreement)": 7640000.0,
     "Physical Services": 7090000.0
    }
   },
   "Chattogram": {
-   "value_bdt": 420036730000.0,
-   "count": 59863,
+   "value_bdt": 420054590000.0,
+   "count": 59872,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 338520960000.0,
@@ -5966,8 +5982,8 @@
      "count": 10576
     },
     "Elected Government (2026–)": {
-     "value_bdt": 21305930000.0,
-     "count": 5027
+     "value_bdt": 21323790000.0,
+     "count": 5036
     }
    },
    "by_year": {
@@ -6028,8 +6044,8 @@
      "count": 7288
     },
     "2026": {
-     "value_bdt": 27706410000.0,
-     "count": 6638
+     "value_bdt": 27724270000.0,
+     "count": 6647
     }
    },
    "by_month": {
@@ -6666,30 +6682,30 @@
      "count": 117
     },
     "2026-10": {
-     "value_bdt": 43280000.0,
-     "count": 20
+     "value_bdt": 61140000.0,
+     "count": 29
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Spectra Engineers Ltd.",
    "nature_count": {
     "Works": 27219,
-    "Goods": 13102,
+    "Goods": 13104,
     "Goods (Framework Agreement)": 90,
     "Physical Services": 74,
     "Services": 1
    },
    "nature_value": {
     "Works": 340122450000.0,
-    "Goods": 37772750000.0,
+    "Goods": 37780590000.0,
     "Goods (Framework Agreement)": 347130000.0,
     "Physical Services": 706500000.0,
     "Services": 840000.0
    }
   },
   "Sylhet": {
-   "value_bdt": 191606870000.0,
-   "count": 20603,
+   "value_bdt": 191607150000.0,
+   "count": 20604,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 148212020000.0,
@@ -6700,8 +6716,8 @@
      "count": 3859
     },
     "Elected Government (2026–)": {
-     "value_bdt": 13058300000.0,
-     "count": 1510
+     "value_bdt": 13058580000.0,
+     "count": 1511
     }
    },
    "by_year": {
@@ -6762,8 +6778,8 @@
      "count": 2605
     },
     "2026": {
-     "value_bdt": 16405010000.0,
-     "count": 2143
+     "value_bdt": 16405290000.0,
+     "count": 2144
     }
    },
    "by_month": {
@@ -7408,28 +7424,28 @@
      "count": 25
     },
     "2026-10": {
-     "value_bdt": 9540000.0,
-     "count": 10
+     "value_bdt": 9820000.0,
+     "count": 11
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Ohiduzzaman Chowdhury & M/S Janmabumi Nirmata (JON) JV",
    "nature_count": {
     "Works": 7721,
-    "Goods": 3754,
+    "Goods": 3755,
     "Goods (Framework Agreement)": 50,
     "Physical Services": 21
    },
    "nature_value": {
     "Works": 154482320000.0,
-    "Goods": 10348730000.0,
+    "Goods": 10349010000.0,
     "Goods (Framework Agreement)": 170800000.0,
     "Physical Services": 212910000.0
    }
   },
   "Rajshahi": {
-   "value_bdt": 240510020000.0,
-   "count": 21251,
+   "value_bdt": 240536630000.0,
+   "count": 21261,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 206390860000.0,
@@ -7440,8 +7456,8 @@
      "count": 3449
     },
     "Elected Government (2026–)": {
-     "value_bdt": 8384900000.0,
-     "count": 1794
+     "value_bdt": 8411510000.0,
+     "count": 1804
     }
    },
    "by_year": {
@@ -7502,8 +7518,8 @@
      "count": 2422
     },
     "2026": {
-     "value_bdt": 11062110000.0,
-     "count": 2287
+     "value_bdt": 11088720000.0,
+     "count": 2297
     }
    },
    "by_month": {
@@ -8144,28 +8160,28 @@
      "count": 31
     },
     "2026-10": {
-     "value_bdt": 12160000.0,
-     "count": 5
+     "value_bdt": 38770000.0,
+     "count": 15
     }
    },
    "top_ministry": "Ministry of Road Transport and Bridges",
    "top_vendor": "Mazid Sons Construction Ltd.",
    "nature_count": {
     "Works": 8878,
-    "Goods": 3487,
+    "Goods": 3491,
     "Goods (Framework Agreement)": 69,
     "Physical Services": 25
    },
    "nature_value": {
     "Works": 179973310000.0,
-    "Goods": 35341720000.0,
+    "Goods": 35352860000.0,
     "Goods (Framework Agreement)": 790840000.0,
     "Physical Services": 81530000.0
    }
   },
   "Cumilla": {
-   "value_bdt": 254849650000.0,
-   "count": 26952,
+   "value_bdt": 254934270000.0,
+   "count": 26959,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 208015260000.0,
@@ -8176,8 +8192,8 @@
      "count": 4449
     },
     "Elected Government (2026–)": {
-     "value_bdt": 12797400000.0,
-     "count": 1965
+     "value_bdt": 12882020000.0,
+     "count": 1972
     }
    },
    "by_year": {
@@ -8238,8 +8254,8 @@
      "count": 3020
     },
     "2026": {
-     "value_bdt": 17325540000.0,
-     "count": 2505
+     "value_bdt": 17410160000.0,
+     "count": 2512
     }
    },
    "by_month": {
@@ -8892,28 +8908,28 @@
      "count": 33
     },
     "2026-10": {
-     "value_bdt": 1810000.0,
-     "count": 5
+     "value_bdt": 86430000.0,
+     "count": 12
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Hassan Techno Builders Ltd.",
    "nature_count": {
-    "Works": 10078,
+    "Works": 10081,
     "Goods": 1826,
     "Goods (Framework Agreement)": 65,
     "Physical Services": 15
    },
    "nature_value": {
-    "Works": 201680140000.0,
+    "Works": 201762780000.0,
     "Goods": 5539370000.0,
     "Goods (Framework Agreement)": 402260000.0,
     "Physical Services": 244650000.0
    }
   },
   "Jhalokati": {
-   "value_bdt": 39414020000.0,
-   "count": 4494,
+   "value_bdt": 39423510000.0,
+   "count": 4495,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 25261200000.0,
@@ -8924,8 +8940,8 @@
      "count": 844
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3231320000.0,
-     "count": 346
+     "value_bdt": 3240810000.0,
+     "count": 347
     }
    },
    "by_year": {
@@ -8982,8 +8998,8 @@
      "count": 570
     },
     "2026": {
-     "value_bdt": 3612710000.0,
-     "count": 479
+     "value_bdt": 3622200000.0,
+     "count": 480
     }
    },
    "by_month": {
@@ -9610,6 +9626,10 @@
     "2026-09": {
      "value_bdt": 11190000.0,
      "count": 12
+    },
+    "2026-10": {
+     "value_bdt": 9490000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -10358,8 +10378,8 @@
    }
   },
   "Dinajpur": {
-   "value_bdt": 96632860000.0,
-   "count": 14643,
+   "value_bdt": 96687940000.0,
+   "count": 14649,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 80819090000.0,
@@ -10370,8 +10390,8 @@
      "count": 2266
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4678280000.0,
-     "count": 1039
+     "value_bdt": 4733360000.0,
+     "count": 1045
     }
    },
    "by_year": {
@@ -10428,8 +10448,8 @@
      "count": 1572
     },
     "2026": {
-     "value_bdt": 5798510000.0,
-     "count": 1341
+     "value_bdt": 5853590000.0,
+     "count": 1347
     }
    },
    "by_month": {
@@ -11062,21 +11082,21 @@
      "count": 20
     },
     "2026-10": {
-     "value_bdt": 134180000.0,
-     "count": 11
+     "value_bdt": 189260000.0,
+     "count": 17
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Muhammad Aminul Haque (Pvt.) Ltd.",
    "nature_count": {
     "Works": 5217,
-    "Goods": 1806,
+    "Goods": 1809,
     "Goods (Framework Agreement)": 28,
     "Physical Services": 18
    },
    "nature_value": {
     "Works": 68927350000.0,
-    "Goods": 4023920000.0,
+    "Goods": 4050080000.0,
     "Goods (Framework Agreement)": 111870000.0,
     "Physical Services": 170880000.0
    }
@@ -11790,8 +11810,8 @@
    }
   },
   "Brahamanbaria": {
-   "value_bdt": 74055920000.0,
-   "count": 11831,
+   "value_bdt": 74074910000.0,
+   "count": 11837,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 56066510000.0,
@@ -11802,8 +11822,8 @@
      "count": 1939
     },
     "Elected Government (2026–)": {
-     "value_bdt": 6243120000.0,
-     "count": 1039
+     "value_bdt": 6262110000.0,
+     "count": 1045
     }
    },
    "by_year": {
@@ -11860,8 +11880,8 @@
      "count": 1326
     },
     "2026": {
-     "value_bdt": 7824630000.0,
-     "count": 1271
+     "value_bdt": 7843620000.0,
+     "count": 1277
     }
    },
    "by_month": {
@@ -12494,8 +12514,8 @@
      "count": 34
     },
     "2026-10": {
-     "value_bdt": 40110000.0,
-     "count": 7
+     "value_bdt": 59100000.0,
+     "count": 13
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -12514,8 +12534,8 @@
    }
   },
   "Pirojpur": {
-   "value_bdt": 59147760000.0,
-   "count": 7637,
+   "value_bdt": 59147930000.0,
+   "count": 7638,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 49878230000.0,
@@ -12526,8 +12546,8 @@
      "count": 1054
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3553880000.0,
-     "count": 657
+     "value_bdt": 3554050000.0,
+     "count": 658
     }
    },
    "by_year": {
@@ -12584,8 +12604,8 @@
      "count": 690
     },
     "2026": {
-     "value_bdt": 4324700000.0,
-     "count": 813
+     "value_bdt": 4324870000.0,
+     "count": 814
     }
    },
    "by_month": {
@@ -13200,6 +13220,10 @@
     "2026-09": {
      "value_bdt": 44040000.0,
      "count": 15
+    },
+    "2026-10": {
+     "value_bdt": 170000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -13934,8 +13958,8 @@
    }
   },
   "Narayanganj": {
-   "value_bdt": 99081610000.0,
-   "count": 12919,
+   "value_bdt": 99082950000.0,
+   "count": 12920,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 84147710000.0,
@@ -13946,8 +13970,8 @@
      "count": 1945
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4971370000.0,
-     "count": 1066
+     "value_bdt": 4972710000.0,
+     "count": 1067
     }
    },
    "by_year": {
@@ -14004,8 +14028,8 @@
      "count": 1354
     },
     "2026": {
-     "value_bdt": 6895930000.0,
-     "count": 1386
+     "value_bdt": 6897270000.0,
+     "count": 1387
     }
    },
    "by_month": {
@@ -14642,8 +14666,8 @@
      "count": 8
     },
     "2026-10": {
-     "value_bdt": 3850000.0,
-     "count": 2
+     "value_bdt": 5190000.0,
+     "count": 3
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -14662,8 +14686,8 @@
    }
   },
   "Jamalpur": {
-   "value_bdt": 106184550000.0,
-   "count": 9973,
+   "value_bdt": 106185920000.0,
+   "count": 9974,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 91878570000.0,
@@ -14674,8 +14698,8 @@
      "count": 1566
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3407850000.0,
-     "count": 616
+     "value_bdt": 3409220000.0,
+     "count": 617
     }
    },
    "by_year": {
@@ -14732,8 +14756,8 @@
      "count": 994
     },
     "2026": {
-     "value_bdt": 6261760000.0,
-     "count": 871
+     "value_bdt": 6263130000.0,
+     "count": 872
     }
    },
    "by_month": {
@@ -15370,28 +15394,28 @@
      "count": 15
     },
     "2026-10": {
-     "value_bdt": 1000000.0,
-     "count": 1
+     "value_bdt": 2370000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/S Chowdhury Enterpreise",
    "nature_count": {
     "Works": 3589,
-    "Goods": 861,
+    "Goods": 862,
     "Goods (Framework Agreement)": 27,
     "Physical Services": 13
    },
    "nature_value": {
     "Works": 82328330000.0,
-    "Goods": 1719090000.0,
+    "Goods": 1720460000.0,
     "Goods (Framework Agreement)": 89450000.0,
     "Physical Services": 60080000.0
    }
   },
   "Satkhira": {
-   "value_bdt": 72011060000.0,
-   "count": 8179,
+   "value_bdt": 72015310000.0,
+   "count": 8184,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 51688520000.0,
@@ -15402,8 +15426,8 @@
      "count": 1329
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4820290000.0,
-     "count": 577
+     "value_bdt": 4824540000.0,
+     "count": 582
     }
    },
    "by_year": {
@@ -15460,8 +15484,8 @@
      "count": 865
     },
     "2026": {
-     "value_bdt": 5653640000.0,
-     "count": 749
+     "value_bdt": 5657890000.0,
+     "count": 754
     }
    },
    "by_month": {
@@ -16102,8 +16126,8 @@
      "count": 13
     },
     "2026-10": {
-     "value_bdt": 100000.0,
-     "count": 1
+     "value_bdt": 4350000.0,
+     "count": 6
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -16870,8 +16894,8 @@
    }
   },
   "Munshiganj": {
-   "value_bdt": 44002670000.0,
-   "count": 6747,
+   "value_bdt": 44199810000.0,
+   "count": 6752,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 27234750000.0,
@@ -16882,8 +16906,8 @@
      "count": 1196
     },
     "Elected Government (2026–)": {
-     "value_bdt": 5678610000.0,
-     "count": 367
+     "value_bdt": 5875750000.0,
+     "count": 372
     }
    },
    "by_year": {
@@ -16940,8 +16964,8 @@
      "count": 802
     },
     "2026": {
-     "value_bdt": 7131970000.0,
-     "count": 564
+     "value_bdt": 7329110000.0,
+     "count": 569
     }
    },
    "by_month": {
@@ -17566,19 +17590,19 @@
      "count": 6
     },
     "2026-10": {
-     "value_bdt": 9760000.0,
-     "count": 2
+     "value_bdt": 206900000.0,
+     "count": 7
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "RAB-RC (PVT) LIMITED-BDE LIMITED JV",
    "nature_count": {
-    "Works": 2141,
+    "Works": 2144,
     "Goods": 733,
     "Physical Services": 2
    },
    "nature_value": {
-    "Works": 32980920000.0,
+    "Works": 33172850000.0,
     "Goods": 1343830000.0,
     "Physical Services": 16850000.0
    }
@@ -18308,8 +18332,8 @@
    }
   },
   "Gazipur": {
-   "value_bdt": 145330870000.0,
-   "count": 15366,
+   "value_bdt": 145332680000.0,
+   "count": 15369,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 110985890000.0,
@@ -18320,8 +18344,8 @@
      "count": 2614
     },
     "Elected Government (2026–)": {
-     "value_bdt": 12038630000.0,
-     "count": 1322
+     "value_bdt": 12040440000.0,
+     "count": 1325
     }
    },
    "by_year": {
@@ -18378,8 +18402,8 @@
      "count": 1763
     },
     "2026": {
-     "value_bdt": 15750910000.0,
-     "count": 1771
+     "value_bdt": 15752720000.0,
+     "count": 1774
     }
    },
    "by_month": {
@@ -19008,28 +19032,28 @@
      "count": 37
     },
     "2026-10": {
-     "value_bdt": 54460000.0,
-     "count": 6
+     "value_bdt": 56270000.0,
+     "count": 9
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/S Amzad Traders",
    "nature_count": {
     "Works": 5611,
-    "Goods": 2947,
+    "Goods": 2948,
     "Goods (Framework Agreement)": 58,
     "Physical Services": 13
    },
    "nature_value": {
     "Works": 111130670000.0,
-    "Goods": 13614430000.0,
+    "Goods": 13614680000.0,
     "Goods (Framework Agreement)": 283120000.0,
     "Physical Services": 134450000.0
    }
   },
   "Naogaon": {
-   "value_bdt": 60999630000.0,
-   "count": 10108,
+   "value_bdt": 61029760000.0,
+   "count": 10112,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 44996950000.0,
@@ -19040,8 +19064,8 @@
      "count": 1831
     },
     "Elected Government (2026–)": {
-     "value_bdt": 5174990000.0,
-     "count": 649
+     "value_bdt": 5205120000.0,
+     "count": 653
     }
    },
    "by_year": {
@@ -19098,8 +19122,8 @@
      "count": 1280
     },
     "2026": {
-     "value_bdt": 6096800000.0,
-     "count": 853
+     "value_bdt": 6126930000.0,
+     "count": 857
     }
    },
    "by_month": {
@@ -19742,6 +19766,10 @@
     "2026-09": {
      "value_bdt": 118940000.0,
      "count": 9
+    },
+    "2026-10": {
+     "value_bdt": 30130000.0,
+     "count": 4
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -20456,8 +20484,8 @@
    }
   },
   "Panchagarh": {
-   "value_bdt": 31542370000.0,
-   "count": 4733,
+   "value_bdt": 31596810000.0,
+   "count": 4742,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 24827270000.0,
@@ -20468,8 +20496,8 @@
      "count": 953
     },
     "Elected Government (2026–)": {
-     "value_bdt": 2565370000.0,
-     "count": 374
+     "value_bdt": 2619810000.0,
+     "count": 383
     }
    },
    "by_year": {
@@ -20526,8 +20554,8 @@
      "count": 674
     },
     "2026": {
-     "value_bdt": 3079670000.0,
-     "count": 498
+     "value_bdt": 3134110000.0,
+     "count": 507
     }
    },
    "by_month": {
@@ -21146,18 +21174,22 @@
     "2026-09": {
      "value_bdt": 1680000.0,
      "count": 3
+    },
+    "2026-10": {
+     "value_bdt": 54440000.0,
+     "count": 9
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "NATIONAL DEVELOPMENT ENGINEERS LTD.",
    "nature_count": {
-    "Works": 1638,
+    "Works": 1639,
     "Goods": 311,
     "Goods (Framework Agreement)": 4,
     "Physical Services": 2
    },
    "nature_value": {
-    "Works": 22171870000.0,
+    "Works": 22202050000.0,
     "Goods": 439730000.0,
     "Goods (Framework Agreement)": 6930000.0,
     "Physical Services": 8050000.0
@@ -21868,8 +21900,8 @@
    }
   },
   "Magura": {
-   "value_bdt": 29396740000.0,
-   "count": 5063,
+   "value_bdt": 29412820000.0,
+   "count": 5065,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 22432850000.0,
@@ -21880,8 +21912,8 @@
      "count": 860
     },
     "Elected Government (2026–)": {
-     "value_bdt": 1923900000.0,
-     "count": 361
+     "value_bdt": 1939980000.0,
+     "count": 363
     }
    },
    "by_year": {
@@ -21938,8 +21970,8 @@
      "count": 491
     },
     "2026": {
-     "value_bdt": 2851750000.0,
-     "count": 568
+     "value_bdt": 2867830000.0,
+     "count": 570
     }
    },
    "by_month": {
@@ -22582,6 +22614,10 @@
     "2026-09": {
      "value_bdt": 20200000.0,
      "count": 3
+    },
+    "2026-10": {
+     "value_bdt": 16080000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -22589,19 +22625,19 @@
    "nature_count": {
     "Works": 2124,
     "Goods": 434,
-    "Goods (Framework Agreement)": 15,
+    "Goods (Framework Agreement)": 16,
     "Physical Services": 3
    },
    "nature_value": {
     "Works": 22533710000.0,
     "Goods": 502610000.0,
-    "Goods (Framework Agreement)": 23410000.0,
+    "Goods (Framework Agreement)": 39010000.0,
     "Physical Services": 15820000.0
    }
   },
   "Pabna": {
-   "value_bdt": 92533520000.0,
-   "count": 14286,
+   "value_bdt": 92538580000.0,
+   "count": 14291,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 79393100000.0,
@@ -22612,8 +22648,8 @@
      "count": 2391
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3423130000.0,
-     "count": 1006
+     "value_bdt": 3428190000.0,
+     "count": 1011
     }
    },
    "by_year": {
@@ -22670,8 +22706,8 @@
      "count": 1538
     },
     "2026": {
-     "value_bdt": 4325750000.0,
-     "count": 1358
+     "value_bdt": 4330810000.0,
+     "count": 1363
     }
    },
    "by_month": {
@@ -23308,28 +23344,28 @@
      "count": 29
     },
     "2026-10": {
-     "value_bdt": 1120000.0,
-     "count": 2
+     "value_bdt": 6180000.0,
+     "count": 7
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Sazin Construction Ltd.",
    "nature_count": {
-    "Works": 6207,
-    "Goods": 1623,
+    "Works": 6209,
+    "Goods": 1625,
     "Goods (Framework Agreement)": 15,
     "Physical Services": 3
    },
    "nature_value": {
-    "Works": 67699660000.0,
-    "Goods": 6159150000.0,
+    "Works": 67700820000.0,
+    "Goods": 6162480000.0,
     "Goods (Framework Agreement)": 87400000.0,
     "Physical Services": 29810000.0
    }
   },
   "Bhola": {
-   "value_bdt": 117514140000.0,
-   "count": 7729,
+   "value_bdt": 117514400000.0,
+   "count": 7730,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 108984510000.0,
@@ -23340,8 +23376,8 @@
      "count": 927
     },
     "Elected Government (2026–)": {
-     "value_bdt": 1929120000.0,
-     "count": 566
+     "value_bdt": 1929380000.0,
+     "count": 567
     }
    },
    "by_year": {
@@ -23398,8 +23434,8 @@
      "count": 564
     },
     "2026": {
-     "value_bdt": 2466000000.0,
-     "count": 761
+     "value_bdt": 2466260000.0,
+     "count": 762
     }
    },
    "by_month": {
@@ -24032,8 +24068,8 @@
      "count": 8
     },
     "2026-10": {
-     "value_bdt": 1020000.0,
-     "count": 2
+     "value_bdt": 1280000.0,
+     "count": 3
     }
    },
    "top_ministry": "Ministry of Water Resources",
@@ -24052,8 +24088,8 @@
    }
   },
   "Noakhali": {
-   "value_bdt": 125122840000.0,
-   "count": 16252,
+   "value_bdt": 125315000000.0,
+   "count": 16255,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 96750530000.0,
@@ -24064,8 +24100,8 @@
      "count": 2218
     },
     "Elected Government (2026–)": {
-     "value_bdt": 10835810000.0,
-     "count": 1081
+     "value_bdt": 11027970000.0,
+     "count": 1084
     }
    },
    "by_year": {
@@ -24122,8 +24158,8 @@
      "count": 1457
     },
     "2026": {
-     "value_bdt": 13849190000.0,
-     "count": 1473
+     "value_bdt": 14041350000.0,
+     "count": 1476
     }
    },
    "by_month": {
@@ -24760,21 +24796,21 @@
      "count": 23
     },
     "2026-10": {
-     "value_bdt": 59420000.0,
-     "count": 9
+     "value_bdt": 251580000.0,
+     "count": 12
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Reliable Builders Ltd.",
    "nature_count": {
-    "Works": 5541,
-    "Goods": 1038,
+    "Works": 5542,
+    "Goods": 1039,
     "Goods (Framework Agreement)": 36,
     "Physical Services": 5
    },
    "nature_value": {
-    "Works": 93157510000.0,
-    "Goods": 2453550000.0,
+    "Works": 93347360000.0,
+    "Goods": 2455300000.0,
     "Goods (Framework Agreement)": 137080000.0,
     "Physical Services": 9050000.0
    }
@@ -25500,8 +25536,8 @@
    }
   },
   "Manikganj": {
-   "value_bdt": 51764640000.0,
-   "count": 8581,
+   "value_bdt": 51775150000.0,
+   "count": 8583,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 41439980000.0,
@@ -25512,8 +25548,8 @@
      "count": 1381
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3303700000.0,
-     "count": 544
+     "value_bdt": 3314210000.0,
+     "count": 546
     }
    },
    "by_year": {
@@ -25570,8 +25606,8 @@
      "count": 973
     },
     "2026": {
-     "value_bdt": 4065820000.0,
-     "count": 709
+     "value_bdt": 4076330000.0,
+     "count": 711
     }
    },
    "by_month": {
@@ -26184,8 +26220,8 @@
      "count": 18
     },
     "2026-10": {
-     "value_bdt": 4530000.0,
-     "count": 4
+     "value_bdt": 15040000.0,
+     "count": 6
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -26904,8 +26940,8 @@
    }
   },
   "Kishoreganj": {
-   "value_bdt": 94500250000.0,
-   "count": 10925,
+   "value_bdt": 94502340000.0,
+   "count": 10927,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 83306330000.0,
@@ -26916,8 +26952,8 @@
      "count": 1425
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3174690000.0,
-     "count": 820
+     "value_bdt": 3176780000.0,
+     "count": 822
     }
    },
    "by_year": {
@@ -26974,8 +27010,8 @@
      "count": 948
     },
     "2026": {
-     "value_bdt": 4474900000.0,
-     "count": 1050
+     "value_bdt": 4476990000.0,
+     "count": 1052
     }
    },
    "by_month": {
@@ -27590,6 +27626,10 @@
     "2026-09": {
      "value_bdt": 8190000.0,
      "count": 10
+    },
+    "2026-10": {
+     "value_bdt": 2090000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -27608,8 +27648,8 @@
    }
   },
   "Jashore": {
-   "value_bdt": 103673930000.0,
-   "count": 13726,
+   "value_bdt": 103691940000.0,
+   "count": 13729,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 78970330000.0,
@@ -27620,8 +27660,8 @@
      "count": 2455
     },
     "Elected Government (2026–)": {
-     "value_bdt": 6242290000.0,
-     "count": 917
+     "value_bdt": 6260300000.0,
+     "count": 920
     }
    },
    "by_year": {
@@ -27678,8 +27718,8 @@
      "count": 1592
     },
     "2026": {
-     "value_bdt": 8938570000.0,
-     "count": 1258
+     "value_bdt": 8956580000.0,
+     "count": 1261
     }
    },
    "by_month": {
@@ -28316,8 +28356,8 @@
      "count": 17
     },
     "2026-10": {
-     "value_bdt": 15150000.0,
-     "count": 3
+     "value_bdt": 33160000.0,
+     "count": 6
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -28334,8 +28374,8 @@
    }
   },
   "Narsingdi": {
-   "value_bdt": 58566130000.0,
-   "count": 10746,
+   "value_bdt": 58590210000.0,
+   "count": 10748,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 46105270000.0,
@@ -28346,8 +28386,8 @@
      "count": 1835
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3201910000.0,
-     "count": 773
+     "value_bdt": 3225990000.0,
+     "count": 775
     }
    },
    "by_year": {
@@ -28404,8 +28444,8 @@
      "count": 1325
     },
     "2026": {
-     "value_bdt": 4218140000.0,
-     "count": 1037
+     "value_bdt": 4242220000.0,
+     "count": 1039
     }
    },
    "by_month": {
@@ -29044,26 +29084,30 @@
     "2026-09": {
      "value_bdt": 218250000.0,
      "count": 23
+    },
+    "2026-10": {
+     "value_bdt": 24080000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/S Bhuiyan Construction",
    "nature_count": {
     "Works": 4023,
-    "Goods": 1591,
+    "Goods": 1592,
     "Goods (Framework Agreement)": 25,
     "Physical Services": 11
    },
    "nature_value": {
     "Works": 39795400000.0,
-    "Goods": 2711300000.0,
+    "Goods": 2713680000.0,
     "Goods (Framework Agreement)": 79790000.0,
     "Physical Services": 64410000.0
    }
   },
   "Tangail": {
-   "value_bdt": 108125820000.0,
-   "count": 15742,
+   "value_bdt": 108379250000.0,
+   "count": 15743,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 91788880000.0,
@@ -29074,8 +29118,8 @@
      "count": 2591
     },
     "Elected Government (2026–)": {
-     "value_bdt": 5433680000.0,
-     "count": 1291
+     "value_bdt": 5687110000.0,
+     "count": 1292
     }
    },
    "by_year": {
@@ -29132,8 +29176,8 @@
      "count": 1713
     },
     "2026": {
-     "value_bdt": 7072440000.0,
-     "count": 1707
+     "value_bdt": 7325870000.0,
+     "count": 1708
     }
    },
    "by_month": {
@@ -29768,26 +29812,30 @@
     "2026-09": {
      "value_bdt": 47970000.0,
      "count": 37
+    },
+    "2026-10": {
+     "value_bdt": 253430000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/S. Das Traders",
    "nature_count": {
-    "Works": 4951,
+    "Works": 4952,
     "Goods": 1239,
     "Goods (Framework Agreement)": 19,
     "Physical Services": 8
    },
    "nature_value": {
-    "Works": 72981020000.0,
+    "Works": 73234450000.0,
     "Goods": 2460390000.0,
     "Goods (Framework Agreement)": 61290000.0,
     "Physical Services": 73200000.0
    }
   },
   "Rangpur": {
-   "value_bdt": 157266250000.0,
-   "count": 13274,
+   "value_bdt": 157321500000.0,
+   "count": 13286,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 138621980000.0,
@@ -29798,8 +29846,8 @@
      "count": 1945
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4717950000.0,
-     "count": 944
+     "value_bdt": 4773200000.0,
+     "count": 956
     }
    },
    "by_year": {
@@ -29856,8 +29904,8 @@
      "count": 1364
     },
     "2026": {
-     "value_bdt": 6552990000.0,
-     "count": 1256
+     "value_bdt": 6608240000.0,
+     "count": 1268
     }
    },
    "by_month": {
@@ -30486,28 +30534,28 @@
      "count": 39
     },
     "2026-10": {
-     "value_bdt": 15980000.0,
-     "count": 1
+     "value_bdt": 71230000.0,
+     "count": 13
     }
    },
    "top_ministry": "Ministry of Road Transport and Bridges",
    "top_vendor": "Md. Khairul Kabir Rana",
    "nature_count": {
-    "Works": 5295,
+    "Works": 5297,
     "Goods": 1202,
-    "Goods (Framework Agreement)": 55,
-    "Physical Services": 12
+    "Goods (Framework Agreement)": 56,
+    "Physical Services": 14
    },
    "nature_value": {
-    "Works": 131798020000.0,
+    "Works": 131798830000.0,
     "Goods": 6154610000.0,
-    "Goods (Framework Agreement)": 328730000.0,
-    "Physical Services": 59310000.0
+    "Goods (Framework Agreement)": 332600000.0,
+    "Physical Services": 59830000.0
    }
   },
   "Mymensingh": {
-   "value_bdt": 232543820000.0,
-   "count": 19534,
+   "value_bdt": 232546520000.0,
+   "count": 19536,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 204797980000.0,
@@ -30518,8 +30566,8 @@
      "count": 3315
     },
     "Elected Government (2026–)": {
-     "value_bdt": 9339320000.0,
-     "count": 1820
+     "value_bdt": 9342020000.0,
+     "count": 1822
     }
    },
    "by_year": {
@@ -30576,8 +30624,8 @@
      "count": 2231
     },
     "2026": {
-     "value_bdt": 11202110000.0,
-     "count": 2348
+     "value_bdt": 11204810000.0,
+     "count": 2350
     }
    },
    "by_month": {
@@ -31220,26 +31268,30 @@
     "2026-09": {
      "value_bdt": 77140000.0,
      "count": 28
+    },
+    "2026-10": {
+     "value_bdt": 2700000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Road Transport and Bridges",
    "top_vendor": "National Development Engineers Ltd. - Hasan Techno Builders Ltd. JV (NDE - HTBL JV)",
    "nature_count": {
     "Works": 8042,
-    "Goods": 1968,
+    "Goods": 1969,
     "Goods (Framework Agreement)": 24,
     "Physical Services": 8
    },
    "nature_value": {
     "Works": 192177660000.0,
-    "Goods": 8362310000.0,
+    "Goods": 8364710000.0,
     "Goods (Framework Agreement)": 17890000.0,
     "Physical Services": 105180000.0
    }
   },
   "Khulna": {
-   "value_bdt": 215357480000.0,
-   "count": 21716,
+   "value_bdt": 215357650000.0,
+   "count": 21717,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 186863910000.0,
@@ -31250,8 +31302,8 @@
      "count": 3792
     },
     "Elected Government (2026–)": {
-     "value_bdt": 6139930000.0,
-     "count": 1973
+     "value_bdt": 6140100000.0,
+     "count": 1974
     }
    },
    "by_year": {
@@ -31308,8 +31360,8 @@
      "count": 2418
     },
     "2026": {
-     "value_bdt": 9374550000.0,
-     "count": 2666
+     "value_bdt": 9374720000.0,
+     "count": 2667
     }
    },
    "by_month": {
@@ -31960,19 +32012,23 @@
     "2026-09": {
      "value_bdt": 137670000.0,
      "count": 65
+    },
+    "2026-10": {
+     "value_bdt": 170000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Road Transport and Bridges",
    "top_vendor": "MOZAHAR ENTERPRISE (PVT.) LTD.",
    "nature_count": {
-    "Works": 7874,
+    "Works": 7875,
     "Goods": 3886,
     "Goods (Framework Agreement)": 26,
     "Physical Services": 20,
     "Services": 1
    },
    "nature_value": {
-    "Works": 171053950000.0,
+    "Works": 171054120000.0,
     "Goods": 21235620000.0,
     "Goods (Framework Agreement)": 54510000.0,
     "Physical Services": 134950000.0,
@@ -31980,8 +32036,8 @@
    }
   },
   "Bogura": {
-   "value_bdt": 95613800000.0,
-   "count": 19442,
+   "value_bdt": 95635910000.0,
+   "count": 19453,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 70865260000.0,
@@ -31992,8 +32048,8 @@
      "count": 3908
     },
     "Elected Government (2026–)": {
-     "value_bdt": 9008060000.0,
-     "count": 1979
+     "value_bdt": 9030170000.0,
+     "count": 1990
     }
    },
    "by_year": {
@@ -32050,8 +32106,8 @@
      "count": 2612
     },
     "2026": {
-     "value_bdt": 11058510000.0,
-     "count": 2581
+     "value_bdt": 11080620000.0,
+     "count": 2592
     }
    },
    "by_month": {
@@ -32696,8 +32752,8 @@
      "count": 114
     },
     "2026-10": {
-     "value_bdt": 43210000.0,
-     "count": 9
+     "value_bdt": 65320000.0,
+     "count": 20
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -32716,8 +32772,8 @@
    }
   },
   "Habiganj": {
-   "value_bdt": 58941110000.0,
-   "count": 7791,
+   "value_bdt": 58949950000.0,
+   "count": 7792,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 37969270000.0,
@@ -32728,8 +32784,8 @@
      "count": 1319
     },
     "Elected Government (2026–)": {
-     "value_bdt": 5240680000.0,
-     "count": 567
+     "value_bdt": 5249520000.0,
+     "count": 568
     }
    },
    "by_year": {
@@ -32786,8 +32842,8 @@
      "count": 873
     },
     "2026": {
-     "value_bdt": 6273780000.0,
-     "count": 743
+     "value_bdt": 6282620000.0,
+     "count": 744
     }
    },
    "by_month": {
@@ -33416,8 +33472,8 @@
      "count": 9
     },
     "2026-10": {
-     "value_bdt": 1420000.0,
-     "count": 1
+     "value_bdt": 10260000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -33436,8 +33492,8 @@
    }
   },
   "Kushtia": {
-   "value_bdt": 81014880000.0,
-   "count": 12024,
+   "value_bdt": 81015160000.0,
+   "count": 12026,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 66502800000.0,
@@ -33448,8 +33504,8 @@
      "count": 2174
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3279120000.0,
-     "count": 809
+     "value_bdt": 3279400000.0,
+     "count": 811
     }
    },
    "by_year": {
@@ -33506,8 +33562,8 @@
      "count": 1347
     },
     "2026": {
-     "value_bdt": 5710690000.0,
-     "count": 1210
+     "value_bdt": 5710970000.0,
+     "count": 1212
     }
    },
    "by_month": {
@@ -34138,6 +34194,10 @@
     "2026-09": {
      "value_bdt": 21170000.0,
      "count": 7
+    },
+    "2026-10": {
+     "value_bdt": 280000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -34156,8 +34216,8 @@
    }
   },
   "Patuakhali": {
-   "value_bdt": 76665820000.0,
-   "count": 10604,
+   "value_bdt": 76687690000.0,
+   "count": 10605,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 60231620000.0,
@@ -34168,8 +34228,8 @@
      "count": 1764
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4301620000.0,
-     "count": 907
+     "value_bdt": 4323490000.0,
+     "count": 908
     }
    },
    "by_year": {
@@ -34226,8 +34286,8 @@
      "count": 1166
     },
     "2026": {
-     "value_bdt": 7418240000.0,
-     "count": 1197
+     "value_bdt": 7440110000.0,
+     "count": 1198
     }
    },
    "by_month": {
@@ -34858,26 +34918,30 @@
     "2026-09": {
      "value_bdt": 103620000.0,
      "count": 16
+    },
+    "2026-10": {
+     "value_bdt": 21870000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/S Mohiuddin Ahmed",
    "nature_count": {
-    "Works": 4377,
+    "Works": 4378,
     "Goods": 1517,
     "Goods (Framework Agreement)": 17,
     "Physical Services": 3
    },
    "nature_value": {
-    "Works": 58937340000.0,
+    "Works": 58959210000.0,
     "Goods": 3182310000.0,
     "Goods (Framework Agreement)": 95320000.0,
     "Physical Services": 17960000.0
    }
   },
   "Khagrachhari": {
-   "value_bdt": 35179280000.0,
-   "count": 5924,
+   "value_bdt": 35179550000.0,
+   "count": 5925,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 25332880000.0,
@@ -34888,8 +34952,8 @@
      "count": 995
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4227670000.0,
-     "count": 687
+     "value_bdt": 4227940000.0,
+     "count": 688
     }
    },
    "by_year": {
@@ -34946,8 +35010,8 @@
      "count": 719
     },
     "2026": {
-     "value_bdt": 4544280000.0,
-     "count": 784
+     "value_bdt": 4544550000.0,
+     "count": 785
     }
    },
    "by_month": {
@@ -35538,6 +35602,10 @@
     "2026-09": {
      "value_bdt": 50150000.0,
      "count": 8
+    },
+    "2026-10": {
+     "value_bdt": 270000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -35556,8 +35624,8 @@
    }
   },
   "Sirajganj": {
-   "value_bdt": 87281610000.0,
-   "count": 11836,
+   "value_bdt": 87282770000.0,
+   "count": 11839,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 74938250000.0,
@@ -35568,8 +35636,8 @@
      "count": 2023
     },
     "Elected Government (2026–)": {
-     "value_bdt": 3351770000.0,
-     "count": 817
+     "value_bdt": 3352930000.0,
+     "count": 820
     }
    },
    "by_year": {
@@ -35626,8 +35694,8 @@
      "count": 1305
     },
     "2026": {
-     "value_bdt": 4790310000.0,
-     "count": 1207
+     "value_bdt": 4791470000.0,
+     "count": 1210
     }
    },
    "by_month": {
@@ -36280,21 +36348,21 @@
      "count": 13
     },
     "2026-10": {
-     "value_bdt": 1630000.0,
-     "count": 4
+     "value_bdt": 2790000.0,
+     "count": 7
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
    "nature_count": {
     "Works": 4034,
-    "Goods": 1416,
+    "Goods": 1417,
     "Goods (Framework Agreement)": 14,
     "Physical Services": 6
    },
    "nature_value": {
     "Works": 65827450000.0,
-    "Goods": 4229470000.0,
+    "Goods": 4230410000.0,
     "Goods (Framework Agreement)": 106220000.0,
     "Physical Services": 95110000.0
    }
@@ -37036,8 +37104,8 @@
    }
   },
   "Nawabganj": {
-   "value_bdt": 47393340000.0,
-   "count": 6392,
+   "value_bdt": 47393440000.0,
+   "count": 6393,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 32717730000.0,
@@ -37048,8 +37116,8 @@
      "count": 1429
     },
     "Elected Government (2026–)": {
-     "value_bdt": 4415120000.0,
-     "count": 504
+     "value_bdt": 4415220000.0,
+     "count": 505
     }
    },
    "by_year": {
@@ -37106,8 +37174,8 @@
      "count": 953
     },
     "2026": {
-     "value_bdt": 5813460000.0,
-     "count": 757
+     "value_bdt": 5813560000.0,
+     "count": 758
     }
    },
    "by_month": {
@@ -37738,6 +37806,10 @@
     "2026-09": {
      "value_bdt": 200000.0,
      "count": 1
+    },
+    "2026-10": {
+     "value_bdt": 100000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -37756,8 +37828,8 @@
    }
   },
   "Bagerhat": {
-   "value_bdt": 79911790000.0,
-   "count": 9866,
+   "value_bdt": 79911990000.0,
+   "count": 9867,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 58691770000.0,
@@ -37768,8 +37840,8 @@
      "count": 1524
     },
     "Elected Government (2026–)": {
-     "value_bdt": 6446130000.0,
-     "count": 913
+     "value_bdt": 6446330000.0,
+     "count": 914
     }
    },
    "by_year": {
@@ -37826,8 +37898,8 @@
      "count": 1013
     },
     "2026": {
-     "value_bdt": 8011440000.0,
-     "count": 1125
+     "value_bdt": 8011640000.0,
+     "count": 1126
     }
    },
    "by_month": {
@@ -38452,8 +38524,8 @@
      "count": 20
     },
     "2026-10": {
-     "value_bdt": 420000.0,
-     "count": 4
+     "value_bdt": 620000.0,
+     "count": 5
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -38472,8 +38544,8 @@
    }
   },
   "Narail": {
-   "value_bdt": 27048890000.0,
-   "count": 4226,
+   "value_bdt": 27049240000.0,
+   "count": 4227,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 22154160000.0,
@@ -38484,8 +38556,8 @@
      "count": 617
     },
     "Elected Government (2026–)": {
-     "value_bdt": 1631480000.0,
-     "count": 339
+     "value_bdt": 1631830000.0,
+     "count": 340
     }
    },
    "by_year": {
@@ -38542,8 +38614,8 @@
      "count": 462
     },
     "2026": {
-     "value_bdt": 1963970000.0,
-     "count": 419
+     "value_bdt": 1964320000.0,
+     "count": 420
     }
    },
    "by_month": {
@@ -39182,26 +39254,30 @@
     "2026-09": {
      "value_bdt": 6290000.0,
      "count": 5
+    },
+    "2026-10": {
+     "value_bdt": 350000.0,
+     "count": 1
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "M/s. Eden Prise",
    "nature_count": {
-    "Works": 1917,
+    "Works": 1918,
     "Goods": 339,
     "Goods (Framework Agreement)": 20,
     "Physical Services": 2
    },
    "nature_value": {
-    "Works": 21083460000.0,
+    "Works": 21083810000.0,
     "Goods": 687800000.0,
     "Goods (Framework Agreement)": 29160000.0,
     "Physical Services": 66790000.0
    }
   },
   "Lalmonirhat": {
-   "value_bdt": 29115620000.0,
-   "count": 5672,
+   "value_bdt": 29115860000.0,
+   "count": 5674,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 21745020000.0,
@@ -39212,8 +39288,8 @@
      "count": 1051
     },
     "Elected Government (2026–)": {
-     "value_bdt": 2119260000.0,
-     "count": 429
+     "value_bdt": 2119500000.0,
+     "count": 431
     }
    },
    "by_year": {
@@ -39270,8 +39346,8 @@
      "count": 698
     },
     "2026": {
-     "value_bdt": 3009760000.0,
-     "count": 609
+     "value_bdt": 3010000000.0,
+     "count": 611
     }
    },
    "by_month": {
@@ -39898,6 +39974,10 @@
     "2026-09": {
      "value_bdt": 137800000.0,
      "count": 28
+    },
+    "2026-10": {
+     "value_bdt": 240000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -44144,8 +44224,8 @@
    }
   },
   "Joypurhat": {
-   "value_bdt": 25035360000.0,
-   "count": 5752,
+   "value_bdt": 25038200000.0,
+   "count": 5754,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 18104780000.0,
@@ -44156,8 +44236,8 @@
      "count": 1242
     },
     "Elected Government (2026–)": {
-     "value_bdt": 1517470000.0,
-     "count": 369
+     "value_bdt": 1520310000.0,
+     "count": 371
     }
    },
    "by_year": {
@@ -44214,8 +44294,8 @@
      "count": 756
     },
     "2026": {
-     "value_bdt": 2544090000.0,
-     "count": 594
+     "value_bdt": 2546930000.0,
+     "count": 596
     }
    },
    "by_month": {
@@ -44806,6 +44886,10 @@
     "2026-09": {
      "value_bdt": 5390000.0,
      "count": 3
+    },
+    "2026-10": {
+     "value_bdt": 2840000.0,
+     "count": 2
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
@@ -44824,8 +44908,8 @@
    }
   },
   "Jhenaidah": {
-   "value_bdt": 41662930000.0,
-   "count": 7988,
+   "value_bdt": 41667540000.0,
+   "count": 7992,
    "by_era": {
     "Awami League (2009–2024)": {
      "value_bdt": 31909220000.0,
@@ -44836,8 +44920,8 @@
      "count": 1455
     },
     "Elected Government (2026–)": {
-     "value_bdt": 2646290000.0,
-     "count": 633
+     "value_bdt": 2650900000.0,
+     "count": 637
     }
    },
    "by_year": {
@@ -44894,8 +44978,8 @@
      "count": 1006
     },
     "2026": {
-     "value_bdt": 3553780000.0,
-     "count": 904
+     "value_bdt": 3558390000.0,
+     "count": 908
     }
    },
    "by_month": {
@@ -45510,18 +45594,22 @@
     "2026-09": {
      "value_bdt": 3030000.0,
      "count": 6
+    },
+    "2026-10": {
+     "value_bdt": 4610000.0,
+     "count": 4
     }
    },
    "top_ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "top_vendor": "Md.Mejanur Rahman",
    "nature_count": {
-    "Works": 2736,
+    "Works": 2737,
     "Goods": 573,
     "Goods (Framework Agreement)": 25,
     "Physical Services": 4
    },
    "nature_value": {
-    "Works": 24236580000.0,
+    "Works": 24237720000.0,
     "Goods": 1246070000.0,
     "Goods (Framework Agreement)": 36610000.0,
     "Physical Services": 27160000.0
