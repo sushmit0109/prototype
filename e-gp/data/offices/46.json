@@ -457,7 +457,7 @@
     "count": 5
    },
    {
-    "phrase": "Modern Information Complexes District",
+    "phrase": "District Level St Phase",
     "count": 5
    },
    {
@@ -465,7 +465,7 @@
     "count": 5
    },
    {
-    "phrase": "District Level St Phase",
+    "phrase": "Modern Information Complexes District",
     "count": 5
    },
    {
@@ -473,11 +473,11 @@
     "count": 5
    },
    {
-    "phrase": "Project Office the Project",
+    "phrase": "Office the Project Construction",
     "count": 3
    },
    {
-    "phrase": "Office the Project Construction",
+    "phrase": "Project Office the Project",
     "count": 3
    },
    {
@@ -1409,41 +1409,60 @@
   ]
  },
  "8029": {
-  "value_bdt": 290000.0,
-  "count": 3,
+  "value_bdt": 570000.0,
+  "count": 5,
   "by_year": {
    "2026": {
-    "value_bdt": 290000.0,
-    "count": 3
+    "value_bdt": 570000.0,
+    "count": 5
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
-    "company": "MS B Enterprise",
-    "value_bdt": 170000.0,
+    "company": "M/S Oram Construction Firm",
+    "value_bdt": 210000.0,
+    "count": 3
+   },
+   {
+    "company": "M/S Gazi Builders",
+    "value_bdt": 190000.0,
     "count": 1
    },
    {
-    "company": "M/S Oram Construction Firm",
-    "value_bdt": 120000.0,
-    "count": 2
+    "company": "MS B Enterprise",
+    "value_bdt": 170000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Barishal",
-    "count": 3
+    "count": 5
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "15.53.0600.321.000.46.0001.26-2057",
+    "awarded_to": "M/S Gazi Builders",
+    "value_bdt": 190000.0,
+    "contract_signing_date": "2026-10-07",
+    "description": "Procurement of necessary cleaning items and toiletries including brooms bleaching powder Harpic pedal bins mop brushes Lysol soap Vim liquid Phenyle grass cutte"
+   },
    {
     "package_ref": "15.53.0600.321.000.45.0001.26-1940",
     "awarded_to": "MS B Enterprise",
     "value_bdt": 170000.0,
     "contract_signing_date": "2026-08-17",
     "description": "Procurement of miscellaneous electrical goods including electric lamps (bulbs) electric cables circuit breakers switches relays electric fans magnetic contactor"
+   },
+   {
+    "package_ref": "15.53.0600.321.000.46.0001.26-2054",
+    "awarded_to": "M/S Oram Construction Firm",
+    "value_bdt": 90000.0,
+    "contract_signing_date": "2026-10-07",
+    "description": "Procurement of office stationeries and supplies including paper pens registers logbooks air fresheners aerosols towels curtains various types of tapes calculato"
    },
    {
     "package_ref": "15.53.0600.321.000.45.0001.26-1941",

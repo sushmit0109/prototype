@@ -379,15 +379,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Size Gm Sheets Ream",
-    "count": 8
-   },
-   {
     "phrase": "Office Stationary Item Size",
-    "count": 8
-   },
-   {
-    "phrase": "Sheets Ream Offset Paper",
     "count": 8
    },
    {
@@ -399,7 +391,15 @@
     "count": 8
    },
    {
+    "phrase": "Sheets Ream Offset Paper",
+    "count": 8
+   },
+   {
     "phrase": "Item Size Gm Sheets",
+    "count": 8
+   },
+   {
+    "phrase": "Size Gm Sheets Ream",
     "count": 8
    },
    {
@@ -407,7 +407,7 @@
     "count": 7
    },
    {
-    "phrase": "Origin Thailand Singapore Malaysia",
+    "phrase": "Offset Paper Type Copy",
     "count": 4
    }
   ],
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Paper Gsm White Paper",
+    "phrase": "Goods Offset Paper Gsm",
     "count": 3
    }
   ],
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
-    "phrase": "Computer and Other Equipment",
-    "count": 3
-   },
-   {
     "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
     "phrase": "Equipment Laptop Desktop Computer",
+    "count": 3
+   },
+   {
+    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
@@ -3275,27 +3275,32 @@
   ]
  },
  "7370": {
-  "value_bdt": 31950000.0,
-  "count": 7,
+  "value_bdt": 33300000.0,
+  "count": 8,
   "by_year": {
    "2025": {
     "value_bdt": 25000000.0,
     "count": 1
    },
    "2026": {
-    "value_bdt": 6950000.0,
-    "count": 6
+    "value_bdt": 8300000.0,
+    "count": 7
    }
   },
   "by_nature": {
    "Goods": 1,
-   "Services": 3
+   "Services": 4
   },
   "top_vendors": [
    {
     "company": "Smart Technologies (BD) Ltd.",
     "value_bdt": 25000000.0,
     "count": 1
+   },
+   {
+    "company": "Business Unlimited",
+    "value_bdt": 2340000.0,
+    "count": 2
    },
    {
     "company": "Mehedi Iqbal",
@@ -3311,20 +3316,20 @@
     "company": "M/S. FAHAD ENTERPRISE",
     "value_bdt": 1000000.0,
     "count": 1
-   },
-   {
-    "company": "M/S. KHAN ENTERPRISE",
-    "value_bdt": 1000000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 8
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Mouza Maps",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "52.01.0000.231.07.027.24.753",
@@ -3348,18 +3353,18 @@
     "description": "Cartography Consultant"
    },
    {
+    "package_ref": "52.01.0000.231.37.016.24-(Part-5).1374",
+    "awarded_to": "Business Unlimited",
+    "value_bdt": 1350000.0,
+    "contract_signing_date": "2026-10-07",
+    "description": "Correction of the Boundaries of Mouza Maps Used in the Census"
+   },
+   {
     "package_ref": "52.01.0000.231.37.016.24.(Part-4).1434",
     "awarded_to": "M/S. FAHAD ENTERPRISE",
     "value_bdt": 1000000.0,
     "contract_signing_date": "2026-10-06",
     "description": "Printing and Binding of Mouza Maps and Scanned Maps"
-   },
-   {
-    "package_ref": "52.01.0000.231.37.016.24-(Part-3).1433",
-    "awarded_to": "M/S. KHAN ENTERPRISE",
-    "value_bdt": 1000000.0,
-    "contract_signing_date": "2026-10-06",
-    "description": "Preparation of a Catalogue of Mouza Maps Preserved at BBS"
    }
   ]
  },

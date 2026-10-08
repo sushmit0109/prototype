@@ -2,11 +2,11 @@
  "meta": {
   "plan_line_items": 748641,
   "plan_packages_with_estimate": 745493,
-  "contracts_scanned": 873950,
-  "matched_pairs": 119843,
+  "contracts_scanned": 874078,
+  "matched_pairs": 119844,
   "match_rate_of_plan": 0.1608,
   "generic_refs_excluded": 4060,
-  "pairs_excluded_generic": 2530,
+  "pairs_excluded_generic": 2531,
   "pairs_excluded_sanity": 290
  },
  "award_vs_estimate": {
@@ -19,7 +19,7 @@
   "buckets": {
    "<70%": 2751,
    "70-85%": 7584,
-   "85-95%": 64193,
+   "85-95%": 64194,
    "95-100%": 36819,
    "100-115%": 7558,
    ">115%": 938
@@ -53,7 +53,7 @@
    "0.85": 1704,
    "0.86": 1092,
    "0.87": 1668,
-   "0.88": 2336,
+   "0.88": 2337,
    "0.89": 3716,
    "0.90": 23909,
    "0.91": 2262,
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119615,
+  "unchanged": 119616,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61025,
+   "OTM->OTM": 61026,
    "LTM->LTM": 55172,
    "RFQU->RFQU": 2082,
    "OSTETM->OSTETM": 934,
@@ -592,7 +592,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70868,
+    "matched_pairs": 70869,
     "median_ratio": 0.9456,
     "iqr": 0.0535,
     "share_above_115": 0.0066,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11696,
+    "matched_pairs": 11697,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9278,
+    "matched_pairs": 9279,
     "median_ratio": 0.9444,
     "iqr": 0.055,
     "share_above_115": 0.0017,
