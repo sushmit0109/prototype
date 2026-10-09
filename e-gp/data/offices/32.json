@@ -151,7 +151,7 @@
     "count": 4
    },
    {
-    "phrase": "Storied Office Cum Factory",
+    "phrase": "Supply Installation Testing Commissioning",
     "count": 3
    },
    {
@@ -159,11 +159,11 @@
     "count": 3
    },
    {
-    "phrase": "Supply Installation Testing Commissioning",
+    "phrase": "Factory Building Light Assembling",
     "count": 3
    },
    {
-    "phrase": "Factory Building Light Assembling",
+    "phrase": "Storied Office Cum Factory",
     "count": 3
    },
    {
@@ -549,31 +549,31 @@
     "count": 7
    },
    {
-    "phrase": "Loading Unloading Packaged Urea",
-    "count": 6
-   },
-   {
-    "phrase": "Produced Through Truck Wagons",
-    "count": 6
-   },
-   {
     "phrase": "Packaged Urea Fertilizer Imported",
     "count": 6
    },
    {
-    "phrase": "Unloading Packaged Urea Fertilizer",
+    "phrase": "Discharge and Retransport All",
     "count": 6
    },
    {
-    "phrase": "Different Transportation Authorized Ratio",
+    "phrase": "Retransport All Necessary Sacks",
     "count": 6
    },
    {
-    "phrase": "Bag Factories Bag Godown",
+    "phrase": "Loading Unloading Packaged Urea",
     "count": 6
    },
    {
-    "phrase": "Double Height Stack Does",
+    "phrase": "Different Roads Bags Double",
+    "count": 6
+   },
+   {
+    "phrase": "Authorized Ratio Bag Factories",
+    "count": 6
+   },
+   {
+    "phrase": "Imported the Produced Through",
     "count": 6
    }
   ],
@@ -796,15 +796,15 @@
     "count": 9
    },
    {
-    "phrase": "Maintenance Plumbing Carpentry Works",
-    "count": 6
-   },
-   {
     "phrase": "Annual Maintenance Plumbing Carpentry",
     "count": 6
    },
    {
     "phrase": "Plumbing Carpentry Works Housing",
+    "count": 6
+   },
+   {
+    "phrase": "Maintenance Plumbing Carpentry Works",
     "count": 6
    },
    {
@@ -917,11 +917,11 @@
     "count": 4
    },
    {
-    "phrase": "Parts for Vehicles Items",
+    "phrase": "Spare Parts for Vehicles",
     "count": 4
    },
    {
-    "phrase": "Spare Parts for Vehicles",
+    "phrase": "Parts for Vehicles Items",
     "count": 4
    },
    {
@@ -937,11 +937,11 @@
     "count": 3
    },
    {
-    "phrase": "Cotton Hand Gloves Waste",
+    "phrase": "Hand Gloves Waste Cloth",
     "count": 3
    },
    {
-    "phrase": "Hand Gloves Waste Cloth",
+    "phrase": "Cotton Hand Gloves Waste",
     "count": 3
    }
   ],
@@ -984,8 +984,8 @@
   ]
  },
  "2355": {
-  "value_bdt": 117300000.0,
-  "count": 129,
+  "value_bdt": 124470000.0,
+  "count": 130,
   "by_year": {
    "2018": {
     "value_bdt": 12750000.0,
@@ -1016,12 +1016,12 @@
     "count": 17
    },
    "2026": {
-    "value_bdt": 36030000.0,
-    "count": 31
+    "value_bdt": 43200000.0,
+    "count": 32
    }
   },
   "by_nature": {
-   "Goods": 93,
+   "Goods": 94,
    "Services": 7
   },
   "top_vendors": [
@@ -1036,6 +1036,11 @@
     "count": 2
    },
    {
+    "company": "M/S Shah Traders",
+    "value_bdt": 7170000.0,
+    "count": 1
+   },
+   {
     "company": "M/S BONDHU ENTERPRISE",
     "value_bdt": 6810000.0,
     "count": 13
@@ -1044,30 +1049,25 @@
     "company": "WATA Chemicals Limited",
     "value_bdt": 5070000.0,
     "count": 2
-   },
-   {
-    "company": "MECHATRONICS ENGINEERING",
-    "value_bdt": 4950000.0,
-    "count": 4
    }
   ],
   "top_districts": [
    {
     "district": "Jamalpur",
-    "count": 129
+    "count": 130
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Net Bagged Urea Fertilizer",
+    "phrase": "Jamuna Fertilizer Company Limited",
     "count": 7
    },
    {
-    "phrase": "Various Open Places Nearby",
+    "phrase": "Bagged Urea Fertilizer Trucks",
     "count": 7
    },
    {
-    "phrase": "Inside and Various Open",
+    "phrase": "Similar Transports for Two",
     "count": 7
    },
    {
@@ -1075,19 +1075,19 @@
     "count": 7
    },
    {
-    "phrase": "Contractor Appointment for Loading",
+    "phrase": "Net Bagged Urea Fertilizer",
     "count": 7
    },
    {
-    "phrase": "Which Controlled Jamuna Fertilizer",
+    "phrase": "Inside and Various Open",
+    "count": 7
+   },
+   {
+    "phrase": "Various Open Places Nearby",
     "count": 7
    },
    {
     "phrase": "Controlled Jamuna Fertilizer Company",
-    "count": 7
-   },
-   {
-    "phrase": "Bagged Urea Fertilizer Trucks",
     "count": 7
    }
   ],
@@ -1098,6 +1098,13 @@
     "value_bdt": 7790000.0,
     "contract_signing_date": "2025-09-04",
     "description": "100 M.Ton Caustic Soda (Flake)"
+   },
+   {
+    "package_ref": "JFCL/LP/UTILITY AND AMMONIA/UTILITY/4.2815/803",
+    "awarded_to": "M/S Shah Traders",
+    "value_bdt": 7170000.0,
+    "contract_signing_date": "2026-10-08",
+    "description": "Aluminium Sulphate"
    },
    {
     "package_ref": "JFCL/LP/OPERATION/UTILITY/6.298/200 Dated 20/05/20",
@@ -1119,13 +1126,6 @@
     "value_bdt": 5480000.0,
     "contract_signing_date": "2019-03-27",
     "description": "100 MT Caustic Soda (Flake)"
-   },
-   {
-    "package_ref": "JFCL/SALES/BUFFER_BOGURA/2025-26/946",
-    "awarded_to": "M/S KABBO ENTERPRISE",
-    "value_bdt": 4570000.0,
-    "contract_signing_date": "2026-05-14",
-    "description": "Contractor Appointment for Loading/handling work of approximately 230000 MT (more or Less) net 50 kg bagged Urea/TSP/DAP Fertilizer on trucks or similar transpo"
    }
   ]
  },
@@ -1263,7 +1263,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Centre and Dormitory Building",
+    "phrase": "Training Centre and Dormitory",
     "count": 3
    },
    {
@@ -1271,7 +1271,7 @@
     "count": 3
    },
    {
-    "phrase": "Training Centre and Dormitory",
+    "phrase": "Centre and Dormitory Building",
     "count": 3
    }
   ],
@@ -1782,11 +1782,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Yearly Civil Maintenance Work",
+    "phrase": "Shed and Others Area",
     "count": 6
    },
    {
-    "phrase": "Shed and Others Area",
+    "phrase": "Yearly Civil Maintenance Work",
     "count": 6
    },
    {
@@ -1940,19 +1940,7 @@
     "count": 8
    },
    {
-    "phrase": "Fertilizer Per Bag Stacks",
-    "count": 7
-   },
-   {
-    "phrase": "Compound Carrying It Via",
-    "count": 7
-   },
-   {
-    "phrase": "Headload and Loading Approximately",
-    "count": 7
-   },
-   {
-    "phrase": "Lakh Bags More Less",
+    "phrase": "Carrying It Via Headload",
     "count": 7
    },
    {
@@ -1960,11 +1948,23 @@
     "count": 7
    },
    {
-    "phrase": "Godown Compound Carrying It",
+    "phrase": "Via Headload and Loading",
     "count": 7
    },
    {
-    "phrase": "Carrying It Via Headload",
+    "phrase": "Fertilizer Per Bag Stacks",
+    "count": 7
+   },
+   {
+    "phrase": "Unloading Bagged Fertilizer Per",
+    "count": 7
+   },
+   {
+    "phrase": "Headload and Loading Approximately",
+    "count": 7
+   },
+   {
+    "phrase": "Bagged Fertilizer Per Bag",
     "count": 7
    }
   ],
@@ -2098,11 +2098,11 @@
     "count": 4
    },
    {
-    "phrase": "Divisional Office District Office",
+    "phrase": "Office Divisional Office District",
     "count": 3
    },
    {
-    "phrase": "Office Divisional Office District",
+    "phrase": "Divisional Office District Office",
     "count": 3
    },
    {
@@ -3914,11 +3914,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Different Districts",
+    "phrase": "Buffer Godown",
     "count": 3
    },
    {
-    "phrase": "Buffer Godown",
+    "phrase": "Different Districts",
     "count": 3
    }
   ],
@@ -5067,18 +5067,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Insert Polythene Bag Hessian",
-    "count": 3
-   },
-   {
-    "phrase": "After Filling the Urea",
-    "count": 3
-   },
-   {
-    "phrase": "Sew Stack After Filling",
-    "count": 3
-   },
-   {
     "phrase": "Polythene Bag Hessian Sacking",
     "count": 3
    },
@@ -5087,7 +5075,19 @@
     "count": 3
    },
    {
-    "phrase": "Hessian Sacking Leminated Per",
+    "phrase": "Sew Stack After Filling",
+    "count": 3
+   },
+   {
+    "phrase": "After Filling the Urea",
+    "count": 3
+   },
+   {
+    "phrase": "Insert Polythene Bag Hessian",
+    "count": 3
+   },
+   {
+    "phrase": "Bag Stack the Bag",
     "count": 3
    },
    {
@@ -5095,7 +5095,7 @@
     "count": 3
    },
    {
-    "phrase": "After Folding the Mouth",
+    "phrase": "Urea Hessian Sacking Leminated",
     "count": 3
    }
   ],
@@ -5625,7 +5625,7 @@
     "count": 3
    },
    {
-    "phrase": "Machine Shop Electrical Installation",
+    "phrase": "Material for Machine Shop",
     "count": 3
    },
    {
@@ -5637,7 +5637,7 @@
     "count": 3
    },
    {
-    "phrase": "Material for Machine Shop",
+    "phrase": "Machine Shop Electrical Installation",
     "count": 3
    },
    {
@@ -6204,7 +6204,7 @@
     "count": 6
    },
    {
-    "phrase": "Less Bagged Urea Fertilizer",
+    "phrase": "More Less Bagged Urea",
     "count": 6
    },
    {
@@ -6212,19 +6212,19 @@
     "count": 6
    },
    {
-    "phrase": "Bagged Urea Fertilizer Trucks",
-    "count": 6
-   },
-   {
-    "phrase": "More Less Bagged Urea",
-    "count": 6
-   },
-   {
     "phrase": "Controlled Shahjalal Fertilizer Company",
     "count": 6
    },
    {
-    "phrase": "Fertilizer Trucks Similar Transport",
+    "phrase": "Less Bagged Urea Fertilizer",
+    "count": 6
+   },
+   {
+    "phrase": "Bagged Urea Fertilizer Trucks",
+    "count": 6
+   },
+   {
+    "phrase": "Urea Fertilizer Trucks Similar",
     "count": 5
    }
   ],
@@ -6389,11 +6389,11 @@
     "count": 4
    },
    {
-    "phrase": "Items Printing",
+    "phrase": "Printing Materials",
     "count": 3
    },
    {
-    "phrase": "Printing Materials",
+    "phrase": "Items Printing",
     "count": 3
    }
   ],
@@ -6872,8 +6872,8 @@
   ]
  },
  "6159": {
-  "value_bdt": 667040000.0,
-  "count": 235,
+  "value_bdt": 676420000.0,
+  "count": 236,
   "by_year": {
    "2023": {
     "value_bdt": 1120000.0,
@@ -6888,14 +6888,14 @@
     "count": 103
    },
    "2026": {
-    "value_bdt": 340810000.0,
-    "count": 102
+    "value_bdt": 350190000.0,
+    "count": 103
    }
   },
   "by_nature": {
    "Goods": 160,
    "Works": 1,
-   "Services": 3
+   "Services": 4
   },
   "top_vendors": [
    {
@@ -6927,7 +6927,7 @@
   "top_districts": [
    {
     "district": "Norshingdi",
-    "count": 235
+    "count": 236
    }
   ],
   "top_phrases": [
@@ -6944,11 +6944,11 @@
     "count": 4
    },
    {
-    "phrase": "Module and Related Field",
+    "phrase": "Card Module and Related",
     "count": 4
    },
    {
-    "phrase": "Card Module and Related",
+    "phrase": "Module and Related Field",
     "count": 4
    },
    {
@@ -8690,11 +8690,11 @@
     "count": 5
    },
    {
-    "phrase": "Printed Corrugated",
+    "phrase": "More Than",
     "count": 4
    },
    {
-    "phrase": "More Than",
+    "phrase": "Printed Corrugated",
     "count": 4
    },
    {
@@ -8702,11 +8702,11 @@
     "count": 4
    },
    {
-    "phrase": "Hold Bottles",
+    "phrase": "Material Brown",
     "count": 3
    },
    {
-    "phrase": "Material Brown",
+    "phrase": "Hold Bottles",
     "count": 3
    }
   ],
@@ -9500,28 +9500,33 @@
   ]
  },
  "8363": {
-  "value_bdt": 17510000.0,
-  "count": 3,
+  "value_bdt": 20600000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 17510000.0,
-    "count": 3
+    "value_bdt": 20600000.0,
+    "count": 4
    }
   },
   "by_nature": {
-   "Services": 3
+   "Services": 4
   },
   "top_vendors": [
    {
     "company": "T.S.P. Complex Employees & Workers Co-Operative Society Ltd",
     "value_bdt": 17510000.0,
     "count": 3
+   },
+   {
+    "company": "M/S TAREQ ENTERPRISE",
+    "value_bdt": 3090000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -9546,6 +9551,13 @@
     "value_bdt": 3210000.0,
     "contract_signing_date": "2026-07-15",
     "description": "Hiring 02 (Two) Cars For The Transportation Of The Senior Officers On General Shift With Others Duty At TSPCL."
+   },
+   {
+    "package_ref": "36.01.1565.668.18.209.26-27/Cleaning",
+    "awarded_to": "M/S TAREQ ENTERPRISE",
+    "value_bdt": 3090000.0,
+    "contract_signing_date": "2026-10-08",
+    "description": "Appointing a contractor for cleanliness work within the TSPCL residential colony factory premises and cleaning of septic tanks and inspection pits."
    }
   ]
  },
@@ -9803,18 +9815,23 @@
   ]
  },
  "8514": {
-  "value_bdt": 1800000.0,
-  "count": 5,
+  "value_bdt": 2590000.0,
+  "count": 6,
   "by_year": {
    "2026": {
-    "value_bdt": 1800000.0,
-    "count": 5
+    "value_bdt": 2590000.0,
+    "count": 6
    }
   },
   "by_nature": {
    "Goods": 1
   },
   "top_vendors": [
+   {
+    "company": "KING STAR LIGHTING CO.",
+    "value_bdt": 790000.0,
+    "count": 1
+   },
    {
     "company": "M/S. Mahadi Enterprise",
     "value_bdt": 480000.0,
@@ -9834,21 +9851,23 @@
     "company": "M/S Anowara Enterprise",
     "value_bdt": 370000.0,
     "count": 1
-   },
-   {
-    "company": "NDS Supply & Construction Limited",
-    "value_bdt": 80000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "ETL/COM/RFQ/GlassTube-2/26-27",
+    "awarded_to": "KING STAR LIGHTING CO.",
+    "value_bdt": 790000.0,
+    "contract_signing_date": "2026-10-08",
+    "description": "Procurement of SKD Components for manufacturing of 5000 (Five Thousand) Pcs of LED Glass Tube"
+   },
    {
     "package_ref": "ETL/COM/RFQ/001/BulbComponents/26-27",
     "awarded_to": "M/S. Mahadi Enterprise",
@@ -9876,13 +9895,6 @@
     "value_bdt": 370000.0,
     "contract_signing_date": "2026-05-24",
     "description": "Procurement of Uniform"
-   },
-   {
-    "package_ref": "etl-Comm-rfq-001-25-26",
-    "awarded_to": "NDS Supply & Construction Limited",
-    "value_bdt": 80000.0,
-    "contract_signing_date": "2026-03-02",
-    "description": "Procurement of Photocopier machine"
    }
   ]
  },

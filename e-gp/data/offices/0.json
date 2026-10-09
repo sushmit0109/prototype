@@ -383,15 +383,7 @@
     "count": 8
    },
    {
-    "phrase": "Stationary Item Size Gm",
-    "count": 8
-   },
-   {
-    "phrase": "Gm Sheets Ream Offset",
-    "count": 8
-   },
-   {
-    "phrase": "Sheets Ream Offset Paper",
+    "phrase": "Size Gm Sheets Ream",
     "count": 8
    },
    {
@@ -399,7 +391,15 @@
     "count": 8
    },
    {
-    "phrase": "Size Gm Sheets Ream",
+    "phrase": "Gm Sheets Ream Offset",
+    "count": 8
+   },
+   {
+    "phrase": "Stationary Item Size Gm",
+    "count": 8
+   },
+   {
+    "phrase": "Sheets Ream Offset Paper",
     "count": 8
    },
    {
@@ -407,7 +407,7 @@
     "count": 7
    },
    {
-    "phrase": "Offset Paper Type Copy",
+    "phrase": "Paper Basic Weight Gsm",
     "count": 4
    }
   ],
@@ -1186,11 +1186,11 @@
     "count": 4
    },
    {
-    "phrase": "Other Equipment Laptop Desktop",
+    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
-    "phrase": "Equipment Laptop Desktop Computer",
+    "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
@@ -3454,12 +3454,12 @@
   ]
  },
  "8083": {
-  "value_bdt": 25080000.0,
-  "count": 12,
+  "value_bdt": 26070000.0,
+  "count": 13,
   "by_year": {
    "2026": {
-    "value_bdt": 25080000.0,
-    "count": 12
+    "value_bdt": 26070000.0,
+    "count": 13
    }
   },
   "by_nature": {
@@ -3474,8 +3474,8 @@
    },
    {
     "company": "M/S Sojib Enterprise",
-    "value_bdt": 5910000.0,
-    "count": 2
+    "value_bdt": 6900000.0,
+    "count": 3
    },
    {
     "company": "HAQUE CORPORATION",
@@ -3496,7 +3496,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 12
+    "count": 13
    }
   ],
   "top_phrases": [],

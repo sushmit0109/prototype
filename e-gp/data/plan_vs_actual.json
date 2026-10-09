@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 748641,
   "plan_packages_with_estimate": 745493,
-  "contracts_scanned": 874078,
-  "matched_pairs": 119844,
+  "contracts_scanned": 874188,
+  "matched_pairs": 119847,
   "match_rate_of_plan": 0.1608,
   "generic_refs_excluded": 4060,
   "pairs_excluded_generic": 2531,
@@ -20,8 +20,8 @@
    "<70%": 2751,
    "70-85%": 7584,
    "85-95%": 64194,
-   "95-100%": 36819,
-   "100-115%": 7558,
+   "95-100%": 36820,
+   "100-115%": 7560,
    ">115%": 938
   },
   "fine_histogram": {
@@ -60,14 +60,14 @@
    "0.92": 1595,
    "0.93": 8985,
    "0.94": 9151,
-   "0.95": 23162,
+   "0.95": 23163,
    "0.96": 4353,
    "0.97": 2161,
    "0.98": 2316,
    "0.99": 3951,
    "1.00": 13428,
    "1.01": 1229,
-   "1.02": 416,
+   "1.02": 418,
    "1.03": 258,
    "1.04": 264,
    "1.05": 268,
@@ -88,7 +88,7 @@
    "1.20": 26
   },
   "overrun_bands": {
-   "100-105%": 6366,
+   "100-105%": 6368,
    "105-110%": 910,
    "110-115%": 282,
    "115-125%": 186,
@@ -102,7 +102,7 @@
     "share": 0.1996
    },
    "at_5pct_below": {
-    "count": 23212,
+    "count": 23213,
     "share": 0.1937
    },
    "at_15pct_below": {
@@ -115,7 +115,7 @@
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8496,
+   "count_above_estimate": 8498,
    "count_above_115": 938,
    "share_above_115_of_matched": 0.0078,
    "median_ratio_above_115": 1.6156,
@@ -123,15 +123,15 @@
   }
  },
  "method_change": {
-  "unchanged": 119616,
+  "unchanged": 119619,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
    "OTM->OTM": 61026,
-   "LTM->LTM": 55172,
+   "LTM->LTM": 55173,
    "RFQU->RFQU": 2082,
    "OSTETM->OSTETM": 934,
-   "RFQ->RFQ": 347,
+   "RFQ->RFQ": 349,
    "LTM->OTM": 83,
    "OTM->LTM": 64,
    "DPM->DPM": 32,
@@ -584,7 +584,7 @@
    },
    {
     "ministry": "Ministry of Education",
-    "matched_pairs": 5210,
+    "matched_pairs": 5211,
     "median_ratio": 0.95,
     "iqr": 0.055,
     "share_above_115": 0.0073,
@@ -616,11 +616,11 @@
    },
    {
     "ministry": "Ministry of Shipping",
-    "matched_pairs": 1154,
-    "median_ratio": 0.9871,
-    "iqr": 0.0635,
+    "matched_pairs": 1156,
+    "median_ratio": 0.9872,
+    "iqr": 0.0634,
     "share_above_115": 0.0052,
-    "share_at_10pct_below": 0.0269
+    "share_at_10pct_below": 0.0268
    },
    {
     "ministry": "Ministry of Water Resources",
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11697,
+    "matched_pairs": 11700,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9279,
+    "matched_pairs": 9282,
     "median_ratio": 0.9444,
     "iqr": 0.055,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0536
+    "share_at_10pct_below": 0.0535
    }
   ],
   "min_pairs_for_ministry": 30
