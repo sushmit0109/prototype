@@ -617,5 +617,41 @@
     "description": "Procurement of Computer & Related Service for Divisional Social Services Office Khulna."
    }
   ]
+ },
+ "9935": {
+  "value_bdt": 9910000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 9910000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {
+   "Services": 1
+  },
+  "top_vendors": [
+   {
+    "company": "Arham Enterprise",
+    "value_bdt": 9910000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "41.01.0000.103.99.002.26.48",
+    "awarded_to": "Arham Enterprise",
+    "value_bdt": 9910000.0,
+    "contract_signing_date": "2026-10-11",
+    "description": "Procurement of Hiring Transport (Contractual)"
+   }
+  ]
  }
 }

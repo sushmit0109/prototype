@@ -584,11 +584,11 @@
     "count": 5
    },
    {
-    "phrase": "South Side",
+    "phrase": "Pourashava Construction",
     "count": 3
    },
    {
-    "phrase": "Pourashava Construction",
+    "phrase": "South Side",
     "count": 3
    },
    {
@@ -814,11 +814,11 @@
     "count": 23
    },
    {
-    "phrase": "Pourashava Area Dist Dinajpur",
+    "phrase": "Hili Pourashava Area Dist",
     "count": 5
    },
    {
-    "phrase": "Hili Pourashava Area Dist",
+    "phrase": "Pourashava Area Dist Dinajpur",
     "count": 5
    },
    {
@@ -1438,11 +1438,11 @@
     "count": 3
    },
    {
-    "phrase": "Color Printer Spare Parts",
+    "phrase": "Lexmark Color Printer Spare",
     "count": 3
    },
    {
-    "phrase": "Lexmark Color Printer Spare",
+    "phrase": "Color Printer Spare Parts",
     "count": 3
    },
    {
@@ -1450,11 +1450,11 @@
     "count": 3
    },
    {
-    "phrase": "Answer Sheets for Mental",
+    "phrase": "Examination and Answer Sheets",
     "count": 3
    },
    {
-    "phrase": "Examination and Answer Sheets",
+    "phrase": "Answer Sheets for Mental",
     "count": 3
    },
    {
@@ -1803,7 +1803,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Internal Electrical Repair Renewal",
+    "phrase": "Renewal and Modernization Work",
     "count": 3
    },
    {
@@ -1811,7 +1811,7 @@
     "count": 3
    },
    {
-    "phrase": "Renewal and Modernization Work",
+    "phrase": "Internal Electrical Repair Renewal",
     "count": 3
    },
    {
@@ -1874,8 +1874,8 @@
   ]
  },
  "5085": {
-  "value_bdt": 134490000.0,
-  "count": 50,
+  "value_bdt": 144030000.0,
+  "count": 51,
   "by_year": {
    "2021": {
     "value_bdt": 15950000.0,
@@ -1894,8 +1894,8 @@
     "count": 18
    },
    "2026": {
-    "value_bdt": 21700000.0,
-    "count": 12
+    "value_bdt": 31240000.0,
+    "count": 13
    }
   },
   "by_nature": {
@@ -1907,6 +1907,11 @@
     "company": "JAKAULLAH AND BROTHERS LIMITED",
     "value_bdt": 41870000.0,
     "count": 1
+   },
+   {
+    "company": "EXPO ENERGY",
+    "value_bdt": 10320000.0,
+    "count": 3
    },
    {
     "company": "NIPPON TECHNO SYSTEM",
@@ -1922,23 +1927,18 @@
     "company": "Hatil Complex Ltd",
     "value_bdt": 6350000.0,
     "count": 1
-   },
-   {
-    "company": "BABOR ASSOCIATES",
-    "value_bdt": 6230000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 50
+    "count": 51
    }
   ],
   "top_phrases": [
    {
     "phrase": "Supply and Installation",
-    "count": 16
+    "count": 17
    },
    {
     "phrase": "Foundation Regional Centre",
@@ -1957,16 +1957,16 @@
     "count": 3
    },
    {
+    "phrase": "Foundation Regional Center",
+    "count": 3
+   },
+   {
     "phrase": "Foundation Dhaka",
     "count": 23
    },
    {
     "phrase": "Foundation Regional",
-    "count": 6
-   },
-   {
-    "phrase": "Hall Foundation",
-    "count": 4
+    "count": 7
    }
   ],
   "top_contracts": [
@@ -1976,6 +1976,13 @@
     "value_bdt": 41870000.0,
     "contract_signing_date": "2025-10-16",
     "description": "Construction of 05 storied Residential building cum Dormitory building BIAM Foundation Regional Center at Cox's-Bazar"
+   },
+   {
+    "package_ref": "05.05.0000.006.11.001.24.813",
+    "awarded_to": "EXPO ENERGY",
+    "value_bdt": 9540000.0,
+    "contract_signing_date": "2026-10-11",
+    "description": "Supply and installation of Solar System with High-voltage Lithium Iron Phosphate (LiFePO4) Battery in BIAM Foundation Regional Center Bogura."
    },
    {
     "package_ref": "05.05.0000.006.18.026.25_26 GR23",
@@ -1997,13 +2004,6 @@
     "value_bdt": 6220000.0,
     "contract_signing_date": "2024-03-31",
     "description": "Construction of Boundary Wall at Uttara under BIAM Foundation Dhaka."
-   },
-   {
-    "package_ref": "05.05.0000.006.16.028.20-02",
-    "awarded_to": "M/S Mohiuddin Ahmed",
-    "value_bdt": 4910000.0,
-    "contract_signing_date": "2021-02-11",
-    "description": "Painting with other related works for BIAM buildings"
    }
   ]
  },
@@ -2186,11 +2186,11 @@
     "count": 5
    },
    {
-    "phrase": "Foundation Regional Center",
+    "phrase": "Regional Center Bogura",
     "count": 4
    },
    {
-    "phrase": "Regional Center Bogura",
+    "phrase": "Foundation Regional Center",
     "count": 4
    },
    {
@@ -2312,11 +2312,11 @@
     "count": 3
    },
    {
-    "phrase": "Equipment Etc",
+    "phrase": "Related Equipment",
     "count": 3
    },
    {
-    "phrase": "Related Equipment",
+    "phrase": "Equipment Etc",
     "count": 3
    }
   ],
@@ -2418,11 +2418,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Buildings and Installations Office",
+    "phrase": "Other Buildings and Installations",
     "count": 3
    },
    {
-    "phrase": "Other Buildings and Installations",
+    "phrase": "Buildings and Installations Office",
     "count": 3
    },
    {

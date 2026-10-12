@@ -453,19 +453,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Level St Phase",
-    "count": 5
-   },
-   {
-    "phrase": "Complexes District Level St",
-    "count": 5
-   },
-   {
     "phrase": "Information Complexes District Level",
     "count": 5
    },
    {
     "phrase": "Modern Information Complexes District",
+    "count": 5
+   },
+   {
+    "phrase": "District Level St Phase",
+    "count": 5
+   },
+   {
+    "phrase": "Complexes District Level St",
     "count": 5
    },
    {
@@ -1409,12 +1409,12 @@
   ]
  },
  "8029": {
-  "value_bdt": 570000.0,
-  "count": 5,
+  "value_bdt": 760000.0,
+  "count": 6,
   "by_year": {
    "2026": {
-    "value_bdt": 570000.0,
-    "count": 5
+    "value_bdt": 760000.0,
+    "count": 6
    }
   },
   "by_nature": {},
@@ -1430,6 +1430,11 @@
     "count": 1
    },
    {
+    "company": "M/S ARIF TRADING CORPORATION",
+    "value_bdt": 190000.0,
+    "count": 1
+   },
+   {
     "company": "MS B Enterprise",
     "value_bdt": 170000.0,
     "count": 1
@@ -1438,7 +1443,7 @@
   "top_districts": [
    {
     "district": "Barishal",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [],
@@ -1449,6 +1454,13 @@
     "value_bdt": 190000.0,
     "contract_signing_date": "2026-10-07",
     "description": "Procurement of necessary cleaning items and toiletries including brooms bleaching powder Harpic pedal bins mop brushes Lysol soap Vim liquid Phenyle grass cutte"
+   },
+   {
+    "package_ref": "15.53.0600.321.000.46.0001.26-2068",
+    "awarded_to": "M/S ARIF TRADING CORPORATION",
+    "value_bdt": 190000.0,
+    "contract_signing_date": "2026-10-11",
+    "description": "Repair Replacement of Spare Parts & Maintenance of 100 KVA 42.5 KVA 30 KVA Diesel Generator Airconditionig plant Different Air condition machineElectrical Chang"
    },
    {
     "package_ref": "15.53.0600.321.000.45.0001.26-1940",
@@ -1470,13 +1482,6 @@
     "value_bdt": 70000.0,
     "contract_signing_date": "2026-08-18",
     "description": "Procurement of PrinterscannerUPSPortable hardiskHDMI cablePendrive Key boardprinter cartigueMouse VGA CableBroadcasting SpeakerPower SupplyDifferent types of co"
-   },
-   {
-    "package_ref": "15.53.0600.321.000.46.0001.26-1964",
-    "awarded_to": "M/S Oram Construction Firm",
-    "value_bdt": 50000.0,
-    "contract_signing_date": "2026-09-02",
-    "description": "Repair and maintenance work of office furniture including chairs tables file cabinets steel and wooden almirahs (wardrobes) sofa sets maintenance tables compute"
    }
   ]
  },
