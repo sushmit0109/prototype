@@ -1,11 +1,11 @@
 {
  "meta": {
-  "plan_line_items": 749525,
-  "plan_packages_with_estimate": 746377,
-  "contracts_scanned": 874324,
-  "matched_pairs": 120039,
+  "plan_line_items": 749859,
+  "plan_packages_with_estimate": 746711,
+  "contracts_scanned": 874454,
+  "matched_pairs": 120045,
   "match_rate_of_plan": 0.1608,
-  "generic_refs_excluded": 4060,
+  "generic_refs_excluded": 4062,
   "pairs_excluded_generic": 2531,
   "pairs_excluded_sanity": 290
  },
@@ -19,8 +19,8 @@
   "buckets": {
    "<70%": 2754,
    "70-85%": 7585,
-   "85-95%": 64315,
-   "95-100%": 36887,
+   "85-95%": 64318,
+   "95-100%": 36890,
    "100-115%": 7560,
    ">115%": 938
   },
@@ -54,14 +54,14 @@
    "0.86": 1093,
    "0.87": 1668,
    "0.88": 2337,
-   "0.89": 3718,
+   "0.89": 3719,
    "0.90": 23909,
    "0.91": 2264,
    "0.92": 1596,
-   "0.93": 8987,
+   "0.93": 8989,
    "0.94": 9206,
-   "0.95": 23247,
-   "0.96": 4392,
+   "0.95": 23248,
+   "0.96": 4394,
    "0.97": 2162,
    "0.98": 2316,
    "0.99": 3952,
@@ -102,7 +102,7 @@
     "share": 0.1993
    },
    "at_5pct_below": {
-    "count": 23297,
+    "count": 23298,
     "share": 0.1941
    },
    "at_15pct_below": {
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119811,
+  "unchanged": 119817,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61034,
-   "LTM->LTM": 55355,
+   "OTM->OTM": 61035,
+   "LTM->LTM": 55360,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
    "RFQ->RFQ": 350,
@@ -592,7 +592,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70870,
+    "matched_pairs": 70876,
     "median_ratio": 0.9456,
     "iqr": 0.0535,
     "share_above_115": 0.0066,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11707,
+    "matched_pairs": 11713,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9289,
+    "matched_pairs": 9295,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,

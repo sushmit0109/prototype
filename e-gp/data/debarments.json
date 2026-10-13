@@ -1,18 +1,18 @@
 {
  "meta": {
   "source": "https://www.eprocure.gov.bd/resources/common/DebarmentRpt.jsp",
-  "generated_at": "2026-10-12T00:47:11.247390+00:00",
-  "record_count": 1027
+  "generated_at": "2026-10-13T02:48:12.921363+00:00",
+  "record_count": 1028
  },
  "summary": {
   "by_severity": {
-   "medium": 282,
-   "low": 178,
-   "critical": 344,
+   "medium": 283,
+   "critical": 345,
+   "low": 177,
    "high": 223
   },
   "by_reason": {
-   "unspecified": 591,
+   "unspecified": 592,
    "forgery_false_document": 78,
    "fraud": 404,
    "corruption": 11,
@@ -25,6 +25,7 @@
    "AKM Akramuzzaman",
    "BHAWAL ENGINEERS & CONSTRUCTION LTD.",
    "BISMILLAH DREAM CONSTRUCTION (PVT.) LTD.",
+   "Express Elevator Ltd",
    "Furniture Concept & Interior Ltd.",
    "Hassan Techno Builders Ltd.",
    "INFRATECH CONSTRUCTION COMPANY LTD-CEAMAC ENGINEERING LTD.",
@@ -124,6 +125,25 @@
    "duration_days": 616,
    "repeat_offender_count": 1,
    "severity": "medium"
+  },
+  {
+   "company": "Express Elevator Ltd",
+   "country": "Bangladesh",
+   "address": "77, Biruttam C.R Datta Road, Hatirpool, Dhaka.,Dhaka North City Corporation,Dhaka.",
+   "debarred_by": "e-GP Portal",
+   "debar_start": "13-Oct-2026",
+   "debar_end": "12-Oct-2028",
+   "stay_order_note": null,
+   "scope": "Khulna University , Secondary and Higher Education Division , Ministry of Education",
+   "reason": "The tenderer did not complete the elevator supply and installation and related works according to the agreement.",
+   "company_key": "express elevator",
+   "scope_label": "Nationwide (e-GP Portal)",
+   "reason_tags": [
+    "unspecified"
+   ],
+   "duration_days": 730,
+   "repeat_offender_count": 2,
+   "severity": "critical"
   },
   {
    "company": "a2z sourcing",
@@ -1932,8 +1952,8 @@
     "unspecified"
    ],
    "duration_days": 293,
-   "repeat_offender_count": 1,
-   "severity": "low"
+   "repeat_offender_count": 2,
+   "severity": "medium"
   },
   {
    "company": "M/S. Selim & Brothers",
