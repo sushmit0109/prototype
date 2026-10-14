@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-10-13T02:48:47.393043+00:00",
-  "contracts_scanned": 874454,
+  "generated_at": "2026-10-14T00:26:25.472903+00:00",
+  "contracts_scanned": 874612,
   "debarment_records": 1028,
-  "flag_count": 1975,
+  "flag_count": 1976,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1729
+   "post_debarment_award": 1730
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -31321,6 +31321,25 @@
    "debarment_reason": "This is to inform you that you (M/S Aminul momin JV) have submitted a tender of package no-MGSP/GOB/2016-17/W-3 (Tender ID-108151) under Municipal Governance and Services Project(LGED) of Gobindagonj Pourashava, Gobindagonj, Gaibandha. You have submitted a similar work certificate amounting Tk. 5.71,73,175.08 issued by the Executive Engineer, Rangpur City Corporation, Rangpur. After verification it is found Tk. 1,92,78,647.00, that is fake. You have also submitted 7 Nos fake work certificates against Construction turnover issued by the others Procuring Entity So it is treated as fraudulent practice as per tender ITT clause no 4.2 and 4.4 & Regulation 127(2)(b) & 4(c) of PPR-2008. So you are requested to submit your clarification as why your firm should be debarred.",
    "debarment_scope": "Unspecified",
    "era": "Awami League (2009–2024)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "medium",
+   "company": "MD. EMROZE HOQUE",
+   "company_key": "md emroze hoque",
+   "tender_id": "1323375",
+   "pkg_lot_id": "2128498",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Thakurgaon",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "district": "Thakurgaon",
+   "contract_signing_date": "2026-10-13",
+   "value_bdt": 3090000.0,
+   "debar_start": "09-Jan-2024",
+   "debar_end": "08-Jan-2026",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "1.Fundamental breach of contract2. According to GCC 36.1bi the Contractor stops work for twenty-eight 28days when no stoppage of work is shown on the current Programme and the stoppage has not been authorized by the Project Manager3. The contractor has not started the work within the allowable time and the completion time of the contract is over.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
   },
   {
    "flag_type": "post_debarment_award",

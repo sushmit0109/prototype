@@ -91,10 +91,6 @@
     "count": 13
    },
    {
-    "phrase": "Including Civil Sanitary Electrical",
-    "count": 4
-   },
-   {
     "phrase": "Para Borua Khilkhet Dhaka",
     "count": 4
    },
@@ -103,12 +99,12 @@
     "count": 4
    },
    {
-    "phrase": "Bhaban the Wage Earners",
+    "phrase": "Including Civil Sanitary Electrical",
     "count": 4
    },
    {
-    "phrase": "Earners Welfare Board Lonjoni",
-    "count": 3
+    "phrase": "Bhaban the Wage Earners",
+    "count": 4
    },
    {
     "phrase": "Work Including Civil Sanitary",
@@ -116,6 +112,10 @@
    },
    {
     "phrase": "Welfare Board Lonjoni Para",
+    "count": 3
+   },
+   {
+    "phrase": "Earners Welfare Board Lonjoni",
     "count": 3
    }
   ],
@@ -366,11 +366,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Select Manpower Providing Firm",
+    "phrase": "Manpower the Outsourcing Process",
     "count": 3
    },
    {
-    "phrase": "Manpower the Outsourcing Process",
+    "phrase": "Select Manpower Providing Firm",
     "count": 3
    },
    {
@@ -495,11 +495,11 @@
     "count": 3
    },
    {
-    "phrase": "Booklet File Folder Calendar",
+    "phrase": "File Folder Calendar Etc",
     "count": 3
    },
    {
-    "phrase": "File Folder Calendar Etc",
+    "phrase": "Booklet File Folder Calendar",
     "count": 3
    },
    {
@@ -507,15 +507,15 @@
     "count": 3
    },
    {
-    "phrase": "Toner Keyboard Mouse Pen",
+    "phrase": "Center Printer Toner Photocopier",
     "count": 3
    },
    {
-    "phrase": "Field Center Printer Toner",
+    "phrase": "Photocopier Toner Keyboard Mouse",
     "count": 3
    },
    {
-    "phrase": "Mouse Pen Drive Power",
+    "phrase": "Toner Photocopier Toner Keyboard",
     "count": 3
    }
   ],
@@ -616,19 +616,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Related Services for Technical",
-    "count": 14
-   },
-   {
-    "phrase": "Training Equipment and Related",
-    "count": 14
-   },
-   {
     "phrase": "Equipment and Related Services",
     "count": 14
    },
    {
     "phrase": "Services for Technical Training",
+    "count": 14
+   },
+   {
+    "phrase": "Related Services for Technical",
+    "count": 14
+   },
+   {
+    "phrase": "Training Equipment and Related",
     "count": 14
    },
    {
@@ -1799,16 +1799,16 @@
   ]
  },
  "7183": {
-  "value_bdt": 4090000.0,
-  "count": 4,
+  "value_bdt": 4250000.0,
+  "count": 5,
   "by_year": {
    "2025": {
     "value_bdt": 3580000.0,
     "count": 3
    },
    "2026": {
-    "value_bdt": 510000.0,
-    "count": 1
+    "value_bdt": 670000.0,
+    "count": 2
    }
   },
   "by_nature": {
@@ -1829,12 +1829,17 @@
     "company": "M/S. Mondol Enterprise",
     "value_bdt": 500000.0,
     "count": 1
+   },
+   {
+    "company": "Pabel Enterprise",
+    "value_bdt": 160000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Mymensingh",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
@@ -1866,6 +1871,13 @@
     "value_bdt": 500000.0,
     "contract_signing_date": "2025-12-21",
     "description": "Painting of Academic Building Hostel Rest House Boundary Walls & Residential Building (3258108)"
+   },
+   {
+    "package_ref": "TTC/Myn/RFQ/OwnF/26-27/PG1",
+    "awarded_to": "Pabel Enterprise",
+    "value_bdt": 160000.0,
+    "contract_signing_date": "2026-10-13",
+    "description": "Procurement of a Motorcycle for SVP (Takamol) test."
    }
   ]
  },
@@ -2369,19 +2381,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Consumable Material for Training",
-    "count": 3
-   },
-   {
     "phrase": "Material for Training Masonry",
     "count": 3
    },
    {
-    "phrase": "Masonry and Graphics Occupation",
+    "phrase": "Consumable Material for Training",
     "count": 3
    },
    {
     "phrase": "Training Masonry and Graphics",
+    "count": 3
+   },
+   {
+    "phrase": "Masonry and Graphics Occupation",
     "count": 3
    },
    {
@@ -2490,15 +2502,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Parts for Different Trade",
-    "count": 4
-   },
-   {
     "phrase": "Spare Parts for Different",
     "count": 4
    },
    {
     "phrase": "Raw Materials Spare Parts",
+    "count": 4
+   },
+   {
+    "phrase": "Parts for Different Trade",
     "count": 4
    },
    {
@@ -2683,11 +2695,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Tools Equipment and Raw",
+    "phrase": "Equipment and Raw Materials",
     "count": 4
    },
    {
-    "phrase": "Equipment and Raw Materials",
+    "phrase": "Tools Equipment and Raw",
     "count": 4
    },
    {
@@ -2784,11 +2796,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Tools and Equipment",
+    "phrase": "Equipment for Bogura",
     "count": 4
    },
    {
-    "phrase": "Equipment for Bogura",
+    "phrase": "Tools and Equipment",
     "count": 4
    },
    {
@@ -2960,7 +2972,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials Spare Parts",
+    "phrase": "Spare Parts for Various",
     "count": 3
    },
    {
@@ -2968,7 +2980,7 @@
     "count": 3
    },
    {
-    "phrase": "Spare Parts for Various",
+    "phrase": "Raw Materials Spare Parts",
     "count": 3
    },
    {
@@ -4959,11 +4971,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials for Machine",
+    "phrase": "Materials for Machine Shop",
     "count": 3
    },
    {
-    "phrase": "Materials for Machine Shop",
+    "phrase": "Raw Materials for Machine",
     "count": 3
    },
    {

@@ -1240,11 +1240,11 @@
     "count": 6
    },
    {
-    "phrase": "Repair Painting",
+    "phrase": "External Repair",
     "count": 5
    },
    {
-    "phrase": "External Repair",
+    "phrase": "Repair Painting",
     "count": 5
    }
   ],
@@ -4009,15 +4009,15 @@
     "count": 3
    },
    {
-    "phrase": "Mujib Shilpa Nagar Development",
-    "count": 3
-   },
-   {
     "phrase": "Sheikh Mujib Shilpa Nagar",
     "count": 3
    },
    {
     "phrase": "Shilpa Nagar Development Project",
+    "count": 3
+   },
+   {
+    "phrase": "Mujib Shilpa Nagar Development",
     "count": 3
    }
   ],
@@ -4173,11 +4173,11 @@
     "count": 4
    },
    {
-    "phrase": "Window Along Repair-painting",
+    "phrase": "Steel Window Along",
     "count": 3
    },
    {
-    "phrase": "Steel Window Along",
+    "phrase": "Window Along Repair-painting",
     "count": 3
    },
    {
@@ -4789,11 +4789,11 @@
     "count": 6
    },
    {
-    "phrase": "Solar Street Light Patuakhali",
+    "phrase": "Street Light Patuakhali Project",
     "count": 4
    },
    {
-    "phrase": "Street Light Patuakhali Project",
+    "phrase": "Solar Street Light Patuakhali",
     "count": 4
    },
    {
@@ -4805,11 +4805,11 @@
     "count": 3
    },
    {
-    "phrase": "Water Distribution Network Group",
+    "phrase": "Treated Water Distribution Network",
     "count": 3
    },
    {
-    "phrase": "Treated Water Distribution Network",
+    "phrase": "Distribution Network Group Patuakhali",
     "count": 3
    }
   ],
@@ -4906,11 +4906,11 @@
     "count": 8
    },
    {
-    "phrase": "Sector Karnaphuli North Patenga",
+    "phrase": "Plot Sector Karnaphuli North",
     "count": 4
    },
    {
-    "phrase": "Plot Sector Karnaphuli North",
+    "phrase": "Sector Karnaphuli North Patenga",
     "count": 4
    },
    {
@@ -4926,11 +4926,11 @@
     "count": 3
    },
    {
-    "phrase": "Road Dense Bituminous Carpeting",
+    "phrase": "Dense Bituminous Carpeting Plot",
     "count": 3
    },
    {
-    "phrase": "Bituminous Carpeting Plot Sector",
+    "phrase": "Road Dense Bituminous Carpeting",
     "count": 3
    }
   ],
@@ -5257,20 +5257,20 @@
   ]
  },
  "7376": {
-  "value_bdt": 5241180000.0,
-  "count": 7,
+  "value_bdt": 5798520000.0,
+  "count": 8,
   "by_year": {
    "2025": {
     "value_bdt": 2089940000.0,
     "count": 1
    },
    "2026": {
-    "value_bdt": 3151240000.0,
-    "count": 6
+    "value_bdt": 3708580000.0,
+    "count": 7
    }
   },
   "by_nature": {
-   "Works": 6,
+   "Works": 7,
    "Services": 1
   },
   "top_vendors": [
@@ -5278,6 +5278,11 @@
     "company": "Monico Limited",
     "value_bdt": 4412600000.0,
     "count": 3
+   },
+   {
+    "company": "Turn-Anwara (JV)",
+    "value_bdt": 557340000.0,
+    "count": 1
    },
    {
     "company": "NATIONAL DEVELOPMENT ENGINEERS LTD.",
@@ -5293,17 +5298,12 @@
     "company": "MEH-MCL JV",
     "value_bdt": 256010000.0,
     "count": 1
-   },
-   {
-    "company": "NEW AVIS SERVICES",
-    "value_bdt": 35930000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 8
    }
   ],
   "top_phrases": [],
@@ -5330,18 +5330,18 @@
     "description": "Canal development and lining including ghats and walkway"
    },
    {
+    "package_ref": "03.07.0000.056.014.319.26-4383",
+    "awarded_to": "Turn-Anwara (JV)",
+    "value_bdt": 557340000.0,
+    "contract_signing_date": "2026-10-13",
+    "description": "Solid waste management"
+   },
+   {
     "package_ref": "03.07.0000.056.014.093.21-3556",
     "awarded_to": "NATIONAL DEVELOPMENT ENGINEERS LTD.",
     "value_bdt": 280000000.0,
     "contract_signing_date": "2026-06-22",
     "description": "Construction of Mosque at NSEZ Mirsorai Chattogram"
-   },
-   {
-    "package_ref": "03.07.0000.056.011.273.25-3976",
-    "awarded_to": "FortInn-AFRA JV",
-    "value_bdt": 256640000.0,
-    "contract_signing_date": "2026-09-09",
-    "description": "Construction of 1 DG Residence 2 Officer's Quarter (4 storied) at NSEZ Mirsorai Chattogram"
    }
   ]
  },

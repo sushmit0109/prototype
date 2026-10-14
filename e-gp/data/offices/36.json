@@ -653,5 +653,39 @@
     "description": "Procurement of Hiring Transport (Contractual)"
    }
   ]
+ },
+ "9940": {
+  "value_bdt": 200000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 200000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "M/S. RONY ENTERPRISE",
+    "value_bdt": 200000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Jamalpur",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "41.01.3900.000.041.07.0001.21.267",
+    "awarded_to": "M/S. RONY ENTERPRISE",
+    "value_bdt": 200000.0,
+    "contract_signing_date": "2026-10-13",
+    "description": "Procurement of Furniture for Urban Social Services Office Jamalpur"
+   }
+  ]
  }
 }
