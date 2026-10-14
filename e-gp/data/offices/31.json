@@ -859,8 +859,8 @@
   ]
  },
  "5444": {
-  "value_bdt": 31750000.0,
-  "count": 26,
+  "value_bdt": 36690000.0,
+  "count": 27,
   "by_year": {
    "2022": {
     "value_bdt": 1330000.0,
@@ -879,13 +879,13 @@
     "count": 6
    },
    "2026": {
-    "value_bdt": 6070000.0,
-    "count": 5
+    "value_bdt": 11010000.0,
+    "count": 6
    }
   },
   "by_nature": {
    "Goods": 22,
-   "Services": 1
+   "Services": 2
   },
   "top_vendors": [
    {
@@ -899,6 +899,11 @@
     "count": 2
    },
    {
+    "company": "Eco Aid Foundation",
+    "value_bdt": 4940000.0,
+    "count": 1
+   },
+   {
     "company": "M/S Zakir and Brothers",
     "value_bdt": 3080000.0,
     "count": 3
@@ -907,23 +912,22 @@
     "company": "Web Soft BD",
     "value_bdt": 2870000.0,
     "count": 2
-   },
-   {
-    "company": "Star Tech & Engineering Ltd.",
-    "value_bdt": 2280000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 26
+    "count": 27
    }
   ],
   "top_phrases": [
    {
     "phrase": "Caustic Soda Flakes Ferrosilicon",
     "count": 4
+   },
+   {
+    "phrase": "Microbus Non-ac Minibus",
+    "count": 3
    },
    {
     "phrase": "Including Drivers",
@@ -950,6 +954,13 @@
     "description": "Hiring of AC Microbus & Non-AC Minibus including drivers"
    },
    {
+    "package_ref": "23.09.2680.174.26.003.26.2264",
+    "awarded_to": "Eco Aid Foundation",
+    "value_bdt": 4940000.0,
+    "contract_signing_date": "2026-10-14",
+    "description": "Hiring of 03 AC Microbus & 02 Non-AC Minibus"
+   },
+   {
     "package_ref": "23.09.2680.174.26.010.24",
     "awarded_to": "AL MADINA RENT A CAR",
     "value_bdt": 3290000.0,
@@ -962,13 +973,6 @@
     "value_bdt": 2280000.0,
     "contract_signing_date": "2024-02-25",
     "description": "Supply of Computer & Accessories"
-   },
-   {
-    "package_ref": "23.09.2680.174.07.016.24.",
-    "awarded_to": "M/S Zakir and Brothers",
-    "value_bdt": 2170000.0,
-    "contract_signing_date": "2024-06-19",
-    "description": "Supply of Toner Cartridge & Other Usable Goods"
    }
   ]
  },

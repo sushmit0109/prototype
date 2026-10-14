@@ -379,19 +379,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Item Size Gm Sheets",
+    "count": 8
+   },
+   {
     "phrase": "Office Stationary Item Size",
     "count": 8
    },
    {
     "phrase": "Stationary Item Size Gm",
-    "count": 8
-   },
-   {
-    "phrase": "Sheets Ream Offset Paper",
-    "count": 8
-   },
-   {
-    "phrase": "Item Size Gm Sheets",
     "count": 8
    },
    {
@@ -403,11 +399,15 @@
     "count": 8
    },
    {
+    "phrase": "Sheets Ream Offset Paper",
+    "count": 8
+   },
+   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Offset Paper Type Copy",
+    "phrase": "Machines Laser Printers Ink-jet",
     "count": 4
    }
   ],
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Offset Paper Gsm White",
+    "phrase": "Paper Gsm White Paper",
     "count": 3
    }
   ],
@@ -1186,11 +1186,11 @@
     "count": 4
    },
    {
-    "phrase": "Other Equipment Laptop Desktop",
+    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
-    "phrase": "Computer and Other Equipment",
+    "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
@@ -2957,16 +2957,16 @@
   ]
  },
  "7080": {
-  "value_bdt": 21180000.0,
-  "count": 19,
+  "value_bdt": 22340000.0,
+  "count": 20,
   "by_year": {
    "2025": {
     "value_bdt": 1180000.0,
     "count": 2
    },
    "2026": {
-    "value_bdt": 20000000.0,
-    "count": 17
+    "value_bdt": 21160000.0,
+    "count": 18
    }
   },
   "by_nature": {
@@ -3003,7 +3003,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 19
+    "count": 20
    }
   ],
   "top_phrases": [
@@ -3369,17 +3369,17 @@
   ]
  },
  "8067": {
-  "value_bdt": 9080000.0,
-  "count": 7,
+  "value_bdt": 8110000.0,
+  "count": 6,
   "by_year": {
    "2026": {
-    "value_bdt": 9080000.0,
-    "count": 7
+    "value_bdt": 8110000.0,
+    "count": 6
    }
   },
   "by_nature": {
    "Services": 2,
-   "Goods": 2
+   "Goods": 1
   },
   "top_vendors": [
    {
@@ -3393,11 +3393,6 @@
     "count": 2
    },
    {
-    "company": "S&S Enterprise",
-    "value_bdt": 970000.0,
-    "count": 1
-   },
-   {
     "company": "M/S. FAHAD ENTERPRISE",
     "value_bdt": 790000.0,
     "count": 1
@@ -3406,12 +3401,17 @@
     "company": "RFL Plastics Limited",
     "value_bdt": 760000.0,
     "count": 1
+   },
+   {
+    "company": "AMCO TEX",
+    "value_bdt": 640000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 6
    }
   ],
   "top_phrases": [],
@@ -3431,13 +3431,6 @@
     "description": "Procurement of Outsourcing Manpower"
    },
    {
-    "package_ref": "52.01.0000.508.32.132.26-460",
-    "awarded_to": "S&S Enterprise",
-    "value_bdt": 970000.0,
-    "contract_signing_date": "2026-10-13",
-    "description": "Procurement of Power Bank"
-   },
-   {
     "package_ref": "52.01.0000.508.30.049.26-259",
     "awarded_to": "M/S. FAHAD ENTERPRISE",
     "value_bdt": 790000.0,
@@ -3450,6 +3443,13 @@
     "value_bdt": 780000.0,
     "contract_signing_date": "2026-08-16",
     "description": "Procurement of High Configure Laptop Laser Printer Smart LED TV and other necessaries"
+   },
+   {
+    "package_ref": "52.01.0000.508.34.047.26-203",
+    "awarded_to": "RFL Plastics Limited",
+    "value_bdt": 760000.0,
+    "contract_signing_date": "2026-06-16",
+    "description": "Procurement of Furniture"
    }
   ]
  },

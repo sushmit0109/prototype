@@ -1,12 +1,12 @@
 {
  "meta": {
-  "plan_line_items": 750281,
-  "plan_packages_with_estimate": 747133,
-  "contracts_scanned": 874612,
-  "matched_pairs": 120063,
-  "match_rate_of_plan": 0.1607,
+  "plan_line_items": 750512,
+  "plan_packages_with_estimate": 747363,
+  "contracts_scanned": 874547,
+  "matched_pairs": 120062,
+  "match_rate_of_plan": 0.1606,
   "generic_refs_excluded": 4062,
-  "pairs_excluded_generic": 2531,
+  "pairs_excluded_generic": 2532,
   "pairs_excluded_sanity": 291
  },
  "award_vs_estimate": {
@@ -20,7 +20,7 @@
    "<70%": 2754,
    "70-85%": 7586,
    "85-95%": 64332,
-   "95-100%": 36893,
+   "95-100%": 36892,
    "100-115%": 7560,
    ">115%": 938
   },
@@ -52,18 +52,18 @@
    "0.84": 813,
    "0.85": 1704,
    "0.86": 1093,
-   "0.87": 1668,
+   "0.87": 1669,
    "0.88": 2337,
    "0.89": 3723,
-   "0.90": 23913,
-   "0.91": 2269,
+   "0.90": 23914,
+   "0.91": 2268,
    "0.92": 1596,
-   "0.93": 8990,
+   "0.93": 8989,
    "0.94": 9206,
    "0.95": 23248,
    "0.96": 4395,
    "0.97": 2162,
-   "0.98": 2317,
+   "0.98": 2316,
    "0.99": 3953,
    "1.00": 13428,
    "1.01": 1229,
@@ -98,7 +98,7 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23925,
+    "count": 23926,
     "share": 0.1993
    },
    "at_5pct_below": {
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119835,
+  "unchanged": 119834,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61052,
+   "OTM->OTM": 61051,
    "LTM->LTM": 55361,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
@@ -544,11 +544,11 @@
    },
    {
     "ministry": "Ministry of Energy, Power and Mineral Resources",
-    "matched_pairs": 1742,
+    "matched_pairs": 1741,
     "median_ratio": 0.8912,
     "iqr": 0.1359,
     "share_above_115": 0.0161,
-    "share_at_10pct_below": 0.1102
+    "share_at_10pct_below": 0.1103
    },
    {
     "ministry": "Ministry of Communications",
@@ -584,15 +584,15 @@
    },
    {
     "ministry": "Ministry of Education",
-    "matched_pairs": 5211,
+    "matched_pairs": 5212,
     "median_ratio": 0.95,
     "iqr": 0.055,
     "share_above_115": 0.0073,
-    "share_at_10pct_below": 0.0549
+    "share_at_10pct_below": 0.0551
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70876,
+    "matched_pairs": 70877,
     "median_ratio": 0.9456,
     "iqr": 0.0535,
     "share_above_115": 0.0066,
@@ -600,7 +600,7 @@
    },
    {
     "ministry": "Ministry of Civil Aviation & Tourism",
-    "matched_pairs": 979,
+    "matched_pairs": 978,
     "median_ratio": 0.9977,
     "iqr": 0.017,
     "share_above_115": 0.0061,
@@ -608,7 +608,7 @@
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
-    "matched_pairs": 27300,
+    "matched_pairs": 27299,
     "median_ratio": 0.9,
     "iqr": 0.028,
     "share_above_115": 0.0052,
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11716,
+    "matched_pairs": 11715,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0603
+    "share_at_10pct_below": 0.0604
    }
   ],
   "by_era": [
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9298,
+    "matched_pairs": 9297,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0535
+    "share_at_10pct_below": 0.0536
    }
   ],
   "min_pairs_for_ministry": 30

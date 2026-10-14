@@ -304,14 +304,6 @@
     "count": 4
    },
    {
-    "phrase": "Conducted Financed Finance Division",
-    "count": 3
-   },
-   {
-    "phrase": "Tot Training Occupational Health",
-    "count": 3
-   },
-   {
     "phrase": "Bags for the Participants",
     "count": 3
    },
@@ -321,6 +313,14 @@
    },
    {
     "phrase": "Health and Safety Conducted",
+    "count": 3
+   },
+   {
+    "phrase": "Tot Training Occupational Health",
+    "count": 3
+   },
+   {
+    "phrase": "Conducted Financed Finance Division",
     "count": 3
    },
    {
@@ -555,6 +555,40 @@
     "value_bdt": 720000.0,
     "contract_signing_date": "2026-03-25",
     "description": "Procurement of Laser printer"
+   }
+  ]
+ },
+ "9942": {
+  "value_bdt": 3380000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 3380000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "Pan Star Furniture",
+    "value_bdt": 3380000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "40.01.0000.105.07.026.23-1698",
+    "awarded_to": "Pan Star Furniture",
+    "value_bdt": 3380000.0,
+    "contract_signing_date": "2026-10-14",
+    "description": "Purchase of Furniture (02 Districts)"
    }
   ]
  }
