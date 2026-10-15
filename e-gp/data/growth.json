@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56555,
+  "vendors_scanned": 56561,
   "ownership_groups_checked": 230
  },
  "top_growers": [
@@ -295,8 +295,8 @@
    "first_year": "2018",
    "baseline_value_bdt": 14230000.0,
    "baseline_count": 11,
-   "recent_value_bdt": 502880000.0,
-   "recent_count": 25,
+   "recent_value_bdt": 540260000.0,
+   "recent_count": 26,
    "recent_by_era": {
     "Awami League (2009–2024)": {
      "count": 11,
@@ -307,16 +307,16 @@
      "value_bdt": 218140000.0
     },
     "Elected Government (2026–)": {
-     "count": 4,
-     "value_bdt": 100660000.0
+     "count": 5,
+     "value_bdt": 138040000.0
     }
    },
    "recent_distinct_ministries": 3,
    "recent_top_ministry": "Ministry of Health and Family Welfare",
    "recent_distinct_offices": 9,
    "recent_top_office": "Kurmitola General Hospital",
-   "recent_top_office_share": 0.44,
-   "growth_ratio_value": 47.12,
+   "recent_top_office_share": 0.4231,
+   "growth_ratio_value": 50.62,
    "shared_owner_keys": []
   },
   {
@@ -772,6 +772,36 @@
    "shared_owner_keys": []
   },
   {
+   "company": "M/S. Mayer Doa Enterprise",
+   "company_key": "mayer doa enterprise",
+   "first_year": "2017",
+   "baseline_value_bdt": 13590000.0,
+   "baseline_count": 17,
+   "recent_value_bdt": 296160000.0,
+   "recent_count": 140,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 47,
+     "value_bdt": 96230000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 65,
+     "value_bdt": 129250000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 28,
+     "value_bdt": 70680000.0
+    }
+   },
+   "recent_distinct_ministries": 5,
+   "recent_top_ministry": "Ministry of Health and Family Welfare",
+   "recent_distinct_offices": 44,
+   "recent_top_office": "Lakhai Upazila Health Complex, Habiganj",
+   "recent_top_office_share": 0.0857,
+   "growth_ratio_value": 29.06,
+   "shared_owner_keys": []
+  },
+  {
    "company": "M/s. Toybia Construction",
    "company_key": "toybia construction",
    "first_year": "2019",
@@ -859,36 +889,6 @@
    "recent_top_office": "Office of the Executive Director (CEMSU)",
    "recent_top_office_share": 0.6,
    "growth_ratio_value": 28.46,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "M/S. Mayer Doa Enterprise",
-   "company_key": "mayer doa enterprise",
-   "first_year": "2017",
-   "baseline_value_bdt": 13590000.0,
-   "baseline_count": 17,
-   "recent_value_bdt": 289950000.0,
-   "recent_count": 135,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 47,
-     "value_bdt": 96230000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 65,
-     "value_bdt": 129250000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 23,
-     "value_bdt": 64470000.0
-    }
-   },
-   "recent_distinct_ministries": 5,
-   "recent_top_ministry": "Ministry of Health and Family Welfare",
-   "recent_distinct_offices": 44,
-   "recent_top_office": "Lakhai Upazila Health Complex, Habiganj",
-   "recent_top_office_share": 0.0889,
-   "growth_ratio_value": 28.45,
    "shared_owner_keys": []
   },
   {
@@ -1350,6 +1350,37 @@
    "shared_owner_keys": []
   },
   {
+   "company": "Sheltech Engineering Limited",
+   "company_key": "sheltech engineering",
+   "first_year": "2021",
+   "baseline_value_bdt": 0,
+   "baseline_count": 0,
+   "recent_value_bdt": 4910940000.0,
+   "recent_count": 20,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 6,
+     "value_bdt": 2618080000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 9,
+     "value_bdt": 911260000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 5,
+     "value_bdt": 1381600000.0
+    }
+   },
+   "recent_distinct_ministries": 6,
+   "recent_top_ministry": "Ministry of Education",
+   "recent_distinct_offices": 11,
+   "recent_top_office": "Office of the Chief Planning, Development & Works",
+   "recent_top_office_share": 0.2,
+   "shared_owner_keys": [
+    "sk. bashir ahmed"
+   ]
+  },
+  {
    "company": "MATIN CONSTRUCTION LIMITED",
    "company_key": "matin construction",
    "first_year": "2023",
@@ -1377,37 +1408,6 @@
    "recent_top_office": "Jhalokathi WD Division",
    "recent_top_office_share": 0.5,
    "shared_owner_keys": []
-  },
-  {
-   "company": "Sheltech Engineering Limited",
-   "company_key": "sheltech engineering",
-   "first_year": "2021",
-   "baseline_value_bdt": 0,
-   "baseline_count": 0,
-   "recent_value_bdt": 4585580000.0,
-   "recent_count": 19,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 6,
-     "value_bdt": 2618080000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 9,
-     "value_bdt": 911260000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 4,
-     "value_bdt": 1056240000.0
-    }
-   },
-   "recent_distinct_ministries": 5,
-   "recent_top_ministry": "Ministry of Education",
-   "recent_distinct_offices": 10,
-   "recent_top_office": "Office of the Chief Planning, Development & Works",
-   "recent_top_office_share": 0.2105,
-   "shared_owner_keys": [
-    "sk. bashir ahmed"
-   ]
   },
   {
    "company": "M. M. Builders & Engineers Ltd-M/S. Amir Engineering Corporation (JV)",
@@ -2429,8 +2429,8 @@
    ],
    "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29781210000.0,
-   "combined_recent_count": 692,
+   "combined_recent_value_bdt": 29788610000.0,
+   "combined_recent_count": 693,
    "combined_growth_ratio_value": 6.7,
    "combined_recent_distinct_ministries": 26
   },
@@ -2461,8 +2461,8 @@
    ],
    "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29781210000.0,
-   "combined_recent_count": 692,
+   "combined_recent_value_bdt": 29788610000.0,
+   "combined_recent_count": 693,
    "combined_growth_ratio_value": 6.7,
    "combined_recent_distinct_ministries": 26
   },
@@ -2521,9 +2521,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 4675480000.0,
-   "combined_recent_value_bdt": 9306660000.0,
-   "combined_recent_count": 327,
-   "combined_growth_ratio_value": 2.65,
+   "combined_recent_value_bdt": 9311070000.0,
+   "combined_recent_count": 328,
+   "combined_growth_ratio_value": 2.66,
    "combined_recent_distinct_ministries": 9
   },
   {
@@ -2789,10 +2789,10 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 0.0,
-   "combined_recent_value_bdt": 4716290000.0,
-   "combined_recent_count": 25,
+   "combined_recent_value_bdt": 5041650000.0,
+   "combined_recent_count": 26,
    "combined_growth_ratio_value": null,
-   "combined_recent_distinct_ministries": 7
+   "combined_recent_distinct_ministries": 8
   },
   {
    "owner_key": "malika farhana sharmin",
@@ -3095,6 +3095,30 @@
    "combined_recent_distinct_ministries": 4
   },
   {
+   "owner_key": "iftekhar uddin shahin",
+   "owner_name": "IFTEKHAR UDDIN SHAHIN",
+   "companies": [
+    {
+     "company": "M/S Bhati Bangla Enterprise",
+     "designation": "Proprietor"
+    },
+    {
+     "company": "M/S Bhati Bangla Enterprise-M/S RABIUL ENTERPRISE (JV)",
+     "designation": "Proprietor"
+    },
+    {
+     "company": "bbejvmh",
+     "designation": "Proprietor"
+    }
+   ],
+   "member_companies_matched": 3,
+   "combined_baseline_value_bdt": 717590000.0,
+   "combined_recent_value_bdt": 3786640000.0,
+   "combined_recent_count": 79,
+   "combined_growth_ratio_value": 7.04,
+   "combined_recent_distinct_ministries": 2
+  },
+  {
    "owner_key": "niaz ahmed khan",
    "owner_name": "Niaz Ahmed Khan",
    "companies": [
@@ -3199,30 +3223,6 @@
    "combined_recent_distinct_ministries": 6
   },
   {
-   "owner_key": "iftekhar uddin shahin",
-   "owner_name": "IFTEKHAR UDDIN SHAHIN",
-   "companies": [
-    {
-     "company": "M/S Bhati Bangla Enterprise",
-     "designation": "Proprietor"
-    },
-    {
-     "company": "M/S Bhati Bangla Enterprise-M/S RABIUL ENTERPRISE (JV)",
-     "designation": "Proprietor"
-    },
-    {
-     "company": "bbejvmh",
-     "designation": "Proprietor"
-    }
-   ],
-   "member_companies_matched": 3,
-   "combined_baseline_value_bdt": 717590000.0,
-   "combined_recent_value_bdt": 3236150000.0,
-   "combined_recent_count": 76,
-   "combined_growth_ratio_value": 6.01,
-   "combined_recent_distinct_ministries": 2
-  },
-  {
    "owner_key": "sea pearl beach resort and spa ltd.",
    "owner_name": "Sea Pearl Beach Resort and Spa Ltd.",
    "companies": [
@@ -3321,9 +3321,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 570000.0,
-   "combined_recent_value_bdt": 2766030000.0,
-   "combined_recent_count": 189,
-   "combined_growth_ratio_value": 6470.25,
+   "combined_recent_value_bdt": 2776510000.0,
+   "combined_recent_count": 190,
+   "combined_growth_ratio_value": 6494.76,
    "combined_recent_distinct_ministries": 22
   },
   {

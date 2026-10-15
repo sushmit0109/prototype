@@ -159,11 +159,11 @@
     "count": 5
    },
    {
-    "phrase": "Academy Amar Ekushey Boi",
+    "phrase": "Bangla Academy Amar Ekushey",
     "count": 5
    },
    {
-    "phrase": "Bangla Academy Amar Ekushey",
+    "phrase": "Academy Amar Ekushey Boi",
     "count": 5
    },
    {
@@ -297,27 +297,27 @@
     "count": 4
    },
    {
-    "phrase": "Accessories for Th Grade",
-    "count": 4
-   },
-   {
     "phrase": "Other Accessories for Th",
     "count": 4
    },
    {
-    "phrase": "Frame Display Board Furniture",
-    "count": 3
-   },
-   {
-    "phrase": "Wall Showcase Table Showcase",
-    "count": 3
+    "phrase": "Accessories for Th Grade",
+    "count": 4
    },
    {
     "phrase": "Showcase Table Showcase Photo",
     "count": 3
    },
    {
-    "phrase": "Photo Frame Display Board",
+    "phrase": "Table Showcase Photo Frame",
+    "count": 3
+   },
+   {
+    "phrase": "Showcase Photo Frame Display",
+    "count": 3
+   },
+   {
+    "phrase": "Frame Display Board Furniture",
     "count": 3
    }
   ],
@@ -588,11 +588,11 @@
     "count": 13
    },
    {
-    "phrase": "Material for Conservation Work",
+    "phrase": "Supply Material for Conservation",
     "count": 4
    },
    {
-    "phrase": "Supply Material for Conservation",
+    "phrase": "Material for Conservation Work",
     "count": 4
    },
    {
@@ -875,11 +875,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Bangladesh Shilpakala Academy Segunbagicha",
+    "phrase": "National Music and Dance",
     "count": 4
    },
    {
-    "phrase": "National Music and Dance",
+    "phrase": "Bangladesh Shilpakala Academy Segunbagicha",
     "count": 4
    },
    {
@@ -1144,11 +1144,11 @@
     "count": 9
    },
    {
-    "phrase": "Rangpur Division Regional Director",
+    "phrase": "Rajshahi and Rangpur Division",
     "count": 3
    },
    {
-    "phrase": "Rajshahi and Rangpur Division",
+    "phrase": "Rangpur Division Regional Director",
     "count": 3
    },
    {
@@ -2061,12 +2061,12 @@
   ]
  },
  "8977": {
-  "value_bdt": 3540000.0,
-  "count": 7,
+  "value_bdt": 4140000.0,
+  "count": 8,
   "by_year": {
    "2026": {
-    "value_bdt": 3540000.0,
-    "count": 7
+    "value_bdt": 4140000.0,
+    "count": 8
    }
   },
   "by_nature": {
@@ -2084,6 +2084,11 @@
     "count": 1
    },
    {
+    "company": "M/S. GAZI AUTO",
+    "value_bdt": 600000.0,
+    "count": 1
+   },
+   {
     "company": "M/S ARJITA TRADERS",
     "value_bdt": 490000.0,
     "count": 1
@@ -2092,17 +2097,12 @@
     "company": "Domain Engineering",
     "value_bdt": 450000.0,
     "count": 1
-   },
-   {
-    "company": "M/S. MOU ENTERPRISE",
-    "value_bdt": 450000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Khulna",
-    "count": 7
+    "count": 8
    }
   ],
   "top_phrases": [],
@@ -2122,6 +2122,13 @@
     "description": "Repair work of Boundary Wall and others at Vorat Voyna Mound Jessor 2025-26"
    },
    {
+    "package_ref": "KHU/DOA/WORKS/2026-27/W-14",
+    "awarded_to": "M/S. GAZI AUTO",
+    "value_bdt": 600000.0,
+    "contract_signing_date": "2026-10-15",
+    "description": "Archaeological survey operations across Sadar Kawkhali Nazirpur and Swarupkathi Upazilas of Pirojpur District 2026-27"
+   },
+   {
     "package_ref": "KHU/DOA/WORKS/2025-26/W-16",
     "awarded_to": "M/S ARJITA TRADERS",
     "value_bdt": 490000.0,
@@ -2134,13 +2141,6 @@
     "value_bdt": 450000.0,
     "contract_signing_date": "2026-01-14",
     "description": "Weed removal and site cleaning works of Robert Henry Morolganj Kuthi Bari at Morrelganj Upazila Bagerhat District 2025Ã¢??26"
-   },
-   {
-    "package_ref": "KHU/DOA/WORKS/2025-26/W-13",
-    "awarded_to": "M/S. MOU ENTERPRISE",
-    "value_bdt": 450000.0,
-    "contract_signing_date": "2026-01-14",
-    "description": "Repair works of the museum section of Michael Madhusudan DuttÃ¢??s house at Keshabpur Upazila Jashore District 2025Ã¢??26."
    }
   ]
  },
@@ -2451,11 +2451,11 @@
     "count": 3
    },
    {
-    "phrase": "Archaeological Sites Mymensingh",
+    "phrase": "Conservation and Development",
     "count": 4
    },
    {
-    "phrase": "Conservation and Development",
+    "phrase": "Archaeological Sites Mymensingh",
     "count": 4
    }
   ],

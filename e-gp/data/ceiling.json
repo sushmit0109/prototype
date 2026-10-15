@@ -3,8 +3,8 @@
   "source": "https://www.eprocure.gov.bd/resources/common/SearchNOA.jsp",
   "threshold_bdt": 500000000.0,
   "window_days": 45,
-  "contracts_scanned": 874547,
-  "contracts_with_value": 874048
+  "contracts_scanned": 874678,
+  "contracts_with_value": 874178
  },
  "bunching": {
   "fine_histogram_crore": {
@@ -13,9 +13,9 @@
    "31.00": 49,
    "31.50": 47,
    "32.00": 53,
-   "32.50": 38,
+   "32.50": 39,
    "33.00": 41,
-   "33.50": 33,
+   "33.50": 34,
    "34.00": 50,
    "34.50": 35,
    "35.00": 45,
@@ -44,7 +44,7 @@
    "46.50": 12,
    "47.00": 18,
    "47.50": 15,
-   "48.00": 16,
+   "48.00": 17,
    "48.50": 13,
    "49.00": 26,
    "49.50": 20,
@@ -80,10 +80,10 @@
    "64.50": 5,
    "65.00": 4
   },
-  "just_under_45_50": 161,
+  "just_under_45_50": 162,
   "just_over_50_55": 106,
-  "asymmetry_ratio": 1.52,
-  "wide_under_35_50": 635,
+  "asymmetry_ratio": 1.53,
+  "wide_under_35_50": 636,
   "wide_over_50_65": 288,
   "by_era": [
    {
@@ -100,9 +100,9 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "just_under_45_50": 12,
+    "just_under_45_50": 13,
     "just_over_50_55": 8,
-    "contracts_in_era": 72337
+    "contracts_in_era": 72467
    }
   ]
  },
@@ -803,10 +803,10 @@
    "era": "Awami League (2009–2024)"
   }
  ],
- "split_clusters_total_count": 402,
+ "split_clusters_total_count": 404,
  "split_clusters_by_era": {
   "Awami League (2009–2024)": 324,
   "Interim Government (2024–2026)": 57,
-  "Elected Government (2026–)": 21
+  "Elected Government (2026–)": 23
  }
 }

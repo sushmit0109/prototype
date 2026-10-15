@@ -67,10 +67,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Land Development Site Office",
-    "count": 4
-   },
-   {
     "phrase": "Site Office Boundary Wall",
     "count": 4
    },
@@ -79,7 +75,11 @@
     "count": 4
    },
    {
-    "phrase": "Site Land Development Site",
+    "phrase": "Boundary Wall River Training",
+    "count": 4
+   },
+   {
+    "phrase": "Land Development Site Office",
     "count": 4
    },
    {
@@ -87,7 +87,7 @@
     "count": 4
    },
    {
-    "phrase": "Boundary Wall River Training",
+    "phrase": "Site Land Development Site",
     "count": 4
    },
    {
@@ -686,15 +686,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Picks Dm Tolerance Moisture",
-    "count": 1027
-   },
-   {
-    "phrase": "Maximum Sewn Hemmed Mouth",
-    "count": 1027
-   },
-   {
     "phrase": "Tolerance Shots Ins Picks",
+    "count": 1027
+   },
+   {
+    "phrase": "Ends Dm Tolerance Shots",
+    "count": 1027
+   },
+   {
+    "phrase": "Shots Ins Picks Dm",
+    "count": 1027
+   },
+   {
+    "phrase": "Picks Dm Tolerance Moisture",
     "count": 1027
    },
    {
@@ -706,15 +710,11 @@
     "count": 1027
    },
    {
-    "phrase": "Shots Ins Picks Dm",
+    "phrase": "Maximum Sewn Hemmed Mouth",
     "count": 1027
    },
    {
     "phrase": "Dm Tolerance Moisture Regain",
-    "count": 1027
-   },
-   {
-    "phrase": "Ends Dm Tolerance Shots",
     "count": 1027
    }
   ],
@@ -2043,11 +2043,11 @@
     "count": 9
    },
    {
-    "phrase": "Repair Re-construction",
+    "phrase": "Boundary Wall",
     "count": 3
    },
    {
-    "phrase": "Boundary Wall",
+    "phrase": "Repair Re-construction",
     "count": 3
    }
   ],
@@ -3161,12 +3161,12 @@
   ]
  },
  "8881": {
-  "value_bdt": 1200000.0,
-  "count": 4,
+  "value_bdt": 1500000.0,
+  "count": 5,
   "by_year": {
    "2026": {
-    "value_bdt": 1200000.0,
-    "count": 4
+    "value_bdt": 1500000.0,
+    "count": 5
    }
   },
   "by_nature": {},
@@ -3185,12 +3185,17 @@
     "company": "JANANI TRADERS",
     "value_bdt": 300000.0,
     "count": 1
+   },
+   {
+    "company": "M/S DITTA ENTERPRISE",
+    "value_bdt": 300000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Tangail",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
@@ -3222,6 +3227,13 @@
     "value_bdt": 300000.0,
     "contract_signing_date": "2026-01-25",
     "description": "procurement of various types of mechanical equipments and spare parts"
+   },
+   {
+    "package_ref": "Silo/Mad/goods/26-27/02",
+    "awarded_to": "M/S DITTA ENTERPRISE",
+    "value_bdt": 300000.0,
+    "contract_signing_date": "2026-10-15",
+    "description": "procurement of sewing threads"
    }
   ]
  },
