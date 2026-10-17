@@ -1,10 +1,10 @@
 {
  "meta": {
-  "generated_office_count": 9955,
+  "generated_office_count": 9958,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 874678,
-  "nature_matched": 463027,
+  "contracts_scanned": 874699,
+  "nature_matched": 463043,
   "nature_match_rate": 0.5294
  },
  "ministries": [
@@ -39,15 +39,15 @@
   {
    "id": 8,
    "name": "Ministry of Housing and Public Works",
-   "value_bdt": 618012620000.0,
-   "count": 132787,
+   "value_bdt": 618012900000.0,
+   "count": 132788,
    "office_count": 255
   },
   {
    "id": 3,
    "name": "Ministry of Energy, Power and Mineral Resources",
-   "value_bdt": 298594450000.0,
-   "count": 55446,
+   "value_bdt": 298823810000.0,
+   "count": 55448,
    "office_count": 1101
   },
   {
@@ -60,8 +60,8 @@
   {
    "id": 9,
    "name": "Ministry of Health and Family Welfare",
-   "value_bdt": 154479890000.0,
-   "count": 29931,
+   "value_bdt": 154483480000.0,
+   "count": 29936,
    "office_count": 805
   },
   {
@@ -95,8 +95,8 @@
   {
    "id": 10,
    "name": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 53140850000.0,
-   "count": 1527,
+   "value_bdt": 53141040000.0,
+   "count": 1529,
    "office_count": 166
   },
   {
@@ -151,9 +151,9 @@
   {
    "id": 7,
    "name": "Ministry of Finance",
-   "value_bdt": 22755710000.0,
-   "count": 2681,
-   "office_count": 173
+   "value_bdt": 22768710000.0,
+   "count": 2690,
+   "office_count": 175
   },
   {
    "id": 22,
@@ -207,9 +207,9 @@
   {
    "id": 12,
    "name": "Ministry of Expatriates' Welfare and Overseas Employment",
-   "value_bdt": 4153420000.0,
-   "count": 534,
-   "office_count": 70
+   "value_bdt": 4153650000.0,
+   "count": 535,
+   "office_count": 71
   },
   {
    "id": 1,
@@ -263,8 +263,8 @@
   {
    "id": 46,
    "name": "Ministry of Information And Broadcasting",
-   "value_bdt": 1130380000.0,
-   "count": 565,
+   "value_bdt": 1130560000.0,
+   "count": 566,
    "office_count": 48
   },
   {
@@ -374,16 +374,16 @@
    "id": 4,
    "name": "Power Division",
    "ministry_id": 3,
-   "value_bdt": 276676400000.0,
-   "count": 51243,
+   "value_bdt": 276905760000.0,
+   "count": 51245,
    "office_count": 964
   },
   {
    "id": 27,
    "name": "Health Services Division",
    "ministry_id": 9,
-   "value_bdt": 60087490000.0,
-   "count": 12257,
+   "value_bdt": 60091080000.0,
+   "count": 12262,
    "office_count": 689
   },
   {
@@ -438,8 +438,8 @@
    "id": 13,
    "name": "Post & Telecommunication Division",
    "ministry_id": 10,
-   "value_bdt": 10956000000.0,
-   "count": 822,
+   "value_bdt": 10956190000.0,
+   "count": 824,
    "office_count": 108
   },
   {
@@ -494,9 +494,9 @@
    "id": 6,
    "name": "Internal Resource Division",
    "ministry_id": 7,
-   "value_bdt": 2543620000.0,
-   "count": 315,
-   "office_count": 40
+   "value_bdt": 2556620000.0,
+   "count": 324,
+   "office_count": 42
   },
   {
    "id": 14,
@@ -649,8 +649,8 @@
    "name": "Directorate of Procurement",
    "ministry_id": 3,
    "division_id": 4,
-   "value_bdt": 48866170000.0,
-   "count": 307
+   "value_bdt": 49095530000.0,
+   "count": 308
   },
   {
    "id": 1011,
@@ -842,7 +842,7 @@
    "ministry_id": 3,
    "division_id": 4,
    "value_bdt": 28387150000.0,
-   "count": 711
+   "count": 712
   },
   {
    "id": 142,
@@ -1417,8 +1417,8 @@
    "name": "Sunamganj PWD Division",
    "ministry_id": 8,
    "division_id": null,
-   "value_bdt": 13392070000.0,
-   "count": 988
+   "value_bdt": 13392350000.0,
+   "count": 989
   },
   {
    "id": 32,
@@ -52333,6 +52333,14 @@
    "count": 11
   },
   {
+   "id": 6428,
+   "name": "Juri Upazila Health Complex",
+   "ministry_id": 9,
+   "division_id": 27,
+   "value_bdt": 14930000.0,
+   "count": 32
+  },
+  {
    "id": 5981,
    "name": "Bagha Upazila Health Complex",
    "ministry_id": 9,
@@ -55517,14 +55525,6 @@
    "count": 3
   },
   {
-   "id": 6428,
-   "name": "Juri Upazila Health Complex",
-   "ministry_id": 9,
-   "division_id": 27,
-   "value_bdt": 11340000.0,
-   "count": 27
-  },
-  {
    "id": 6552,
    "name": "Patnitala Upazila Health Complex",
    "ministry_id": 9,
@@ -57467,6 +57467,14 @@
    "division_id": 6,
    "value_bdt": 9420000.0,
    "count": 11
+  },
+  {
+   "id": 9955,
+   "name": "Taxes Zone-4, Dhaka",
+   "ministry_id": 7,
+   "division_id": 6,
+   "value_bdt": 9420000.0,
+   "count": 6
   },
   {
    "id": 6113,
@@ -64965,6 +64973,14 @@
    "count": 2
   },
   {
+   "id": 9956,
+   "name": "Taxes Zone-6, Dhaka",
+   "ministry_id": 7,
+   "division_id": 6,
+   "value_bdt": 3580000.0,
+   "count": 3
+  },
+  {
    "id": 2839,
    "name": "Office of the SPM, CP-6210, SUST, Sylhet 3114",
    "ministry_id": 6,
@@ -68357,6 +68373,14 @@
    "count": 2
   },
   {
+   "id": 9808,
+   "name": "DGM, (Switch), BTCL, Moghbazar, Dhaka-1217",
+   "ministry_id": 10,
+   "division_id": 13,
+   "value_bdt": 2110000.0,
+   "count": 6
+  },
+  {
    "id": 2628,
    "name": "Faculty of Animal Husbandry ,BAU,Represented by SPM of CPSF-2005",
    "ministry_id": 6,
@@ -68955,14 +68979,6 @@
    "division_id": 18,
    "value_bdt": 1920000.0,
    "count": 2
-  },
-  {
-   "id": 9808,
-   "name": "DGM, (Switch), BTCL, Moghbazar, Dhaka-1217",
-   "ministry_id": 10,
-   "division_id": 13,
-   "value_bdt": 1920000.0,
-   "count": 4
   },
   {
    "id": 4513,
@@ -72429,6 +72445,14 @@
    "count": 1
   },
   {
+   "id": 8829,
+   "name": "Bangladesh Betar, Sylhet (Engineering)",
+   "ministry_id": 46,
+   "division_id": null,
+   "value_bdt": 1030000.0,
+   "count": 3
+  },
+  {
    "id": 9559,
    "name": "Farm Manager's Office, Fish Seed Multiplication Farm, Ramrail, Brahmanbaria",
    "ministry_id": 14,
@@ -73563,14 +73587,6 @@
    "division_id": 4,
    "value_bdt": 850000.0,
    "count": 5
-  },
-  {
-   "id": 8829,
-   "name": "Bangladesh Betar, Sylhet (Engineering)",
-   "ministry_id": 46,
-   "division_id": null,
-   "value_bdt": 850000.0,
-   "count": 2
   },
   {
    "id": 9114,
@@ -78419,6 +78435,14 @@
    "division_id": null,
    "value_bdt": 230000.0,
    "count": 2
+  },
+  {
+   "id": 9957,
+   "name": "Technical Training Center, Gangachara",
+   "ministry_id": 12,
+   "division_id": null,
+   "value_bdt": 230000.0,
+   "count": 1
   },
   {
    "id": 4454,

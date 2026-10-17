@@ -91,11 +91,11 @@
     "count": 13
    },
    {
-    "phrase": "Including Civil Sanitary Electrical",
+    "phrase": "Lonjoni Para Borua Khilkhet",
     "count": 4
    },
    {
-    "phrase": "Lonjoni Para Borua Khilkhet",
+    "phrase": "Including Civil Sanitary Electrical",
     "count": 4
    },
    {
@@ -107,11 +107,11 @@
     "count": 4
    },
    {
-    "phrase": "Board Lonjoni Para Borua",
+    "phrase": "Welfare Board Lonjoni Para",
     "count": 3
    },
    {
-    "phrase": "Work Including Civil Sanitary",
+    "phrase": "Board Lonjoni Para Borua",
     "count": 3
    },
    {
@@ -366,11 +366,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Manpower the Outsourcing Process",
+    "phrase": "Select Manpower Providing Firm",
     "count": 3
    },
    {
-    "phrase": "Select Manpower Providing Firm",
+    "phrase": "Manpower the Outsourcing Process",
     "count": 3
    },
    {
@@ -503,11 +503,7 @@
     "count": 3
    },
    {
-    "phrase": "Toner Photocopier Toner Keyboard",
-    "count": 3
-   },
-   {
-    "phrase": "Keyboard Mouse Pen Drive",
+    "phrase": "Printer Toner Photocopier Toner",
     "count": 3
    },
    {
@@ -515,7 +511,11 @@
     "count": 3
    },
    {
-    "phrase": "Photocopier Toner Keyboard Mouse",
+    "phrase": "Toner Photocopier Toner Keyboard",
+    "count": 3
+   },
+   {
+    "phrase": "Mouse Pen Drive Power",
     "count": 3
    }
   ],
@@ -616,15 +616,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Services for Technical Training",
+    "count": 14
+   },
+   {
     "phrase": "Training Equipment and Related",
     "count": 14
    },
    {
     "phrase": "Related Services for Technical",
-    "count": 14
-   },
-   {
-    "phrase": "Services for Technical Training",
     "count": 14
    },
    {
@@ -1322,11 +1322,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 3
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 3
    },
    {
@@ -1748,11 +1748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
@@ -2369,11 +2369,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Training Masonry and Graphics",
+    "phrase": "Material for Training Masonry",
     "count": 3
    },
    {
-    "phrase": "Masonry and Graphics Occupation",
+    "phrase": "Training Masonry and Graphics",
     "count": 3
    },
    {
@@ -2381,15 +2381,15 @@
     "count": 3
    },
    {
-    "phrase": "Material for Training Masonry",
-    "count": 3
-   },
-   {
-    "phrase": "Graphics Occupation Satkhira",
+    "phrase": "Masonry and Graphics Occupation",
     "count": 3
    },
    {
     "phrase": "Batch Consumable Material",
+    "count": 3
+   },
+   {
+    "phrase": "Graphics Occupation Satkhira",
     "count": 3
    },
    {
@@ -2490,7 +2490,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Spare Parts for Different",
+    "phrase": "Parts for Different Trade",
     "count": 4
    },
    {
@@ -2498,7 +2498,7 @@
     "count": 4
    },
    {
-    "phrase": "Parts for Different Trade",
+    "phrase": "Spare Parts for Different",
     "count": 4
    },
    {
@@ -2683,11 +2683,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Equipment and Raw Materials",
+    "phrase": "Tools Equipment and Raw",
     "count": 4
    },
    {
-    "phrase": "Tools Equipment and Raw",
+    "phrase": "Equipment and Raw Materials",
     "count": 4
    },
    {
@@ -2960,7 +2960,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials Spare Parts",
+    "phrase": "Spare Parts for Various",
     "count": 3
    },
    {
@@ -2968,7 +2968,7 @@
     "count": 3
    },
    {
-    "phrase": "Spare Parts for Various",
+    "phrase": "Raw Materials Spare Parts",
     "count": 3
    },
    {
@@ -5537,6 +5537,40 @@
     "value_bdt": 280000.0,
     "contract_signing_date": "2026-01-08",
     "description": "Procuring of Raw Materials for Different Trades at Kurigram TTC"
+   }
+  ]
+ },
+ "9957": {
+  "value_bdt": 230000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 230000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "SAGOR DESIGN & CONSTRUCTION-SDC",
+    "value_bdt": 230000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Rangpur",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "BMET/GTTC/2026-2027/GD-01",
+    "awarded_to": "SAGOR DESIGN & CONSTRUCTION-SDC",
+    "value_bdt": 230000.0,
+    "contract_signing_date": "2026-10-17",
+    "description": "Supply of Raw Materials for Different Trade at TTC Gangachara."
    }
   ]
  }

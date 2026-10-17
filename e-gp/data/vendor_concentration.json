@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 874678,
+  "total_contracts": 874699,
   "district_month_cells_total": 10105,
   "district_month_cells_kept": 9693,
   "min_contracts_for_hhi": 3,
@@ -9983,11 +9983,11 @@
      "top_vendor_display": "Confidence Infrastructure PLC"
     },
     "2026-10": {
-     "hhi": 0.0798,
-     "n_vendors": 260,
-     "n_contracts": 338,
-     "total_value_bdt": 3988200000.0,
-     "top_vendor_share": 0.1806,
+     "hhi": 0.0739,
+     "n_vendors": 270,
+     "n_contracts": 351,
+     "total_value_bdt": 4230750000.0,
+     "top_vendor_share": 0.1703,
      "top_vendor_display": "M/s. Sarker Kabir Ahamed"
     }
    }
@@ -30611,11 +30611,11 @@
      "top_vendor_display": "M/S Janmabumi Nirmata"
     },
     "2026-10": {
-     "hhi": 0.3769,
-     "n_vendors": 5,
-     "n_contracts": 9,
-     "total_value_bdt": 14220000.0,
-     "top_vendor_share": 0.5084,
+     "hhi": 0.3107,
+     "n_vendors": 6,
+     "n_contracts": 14,
+     "total_value_bdt": 17810000.0,
+     "top_vendor_share": 0.4172,
      "top_vendor_display": "Master Mind Incorporation"
     }
    }
@@ -46639,10 +46639,10 @@
      "top_vendor_display": "M/S. JALAL ENTERPRISE"
     },
     "2026-10": {
-     "hhi": 0.1608,
-     "n_vendors": 29,
-     "n_contracts": 39,
-     "total_value_bdt": 960750000.0,
+     "hhi": 0.1607,
+     "n_vendors": 30,
+     "n_contracts": 40,
+     "total_value_bdt": 960930000.0,
      "top_vendor_share": 0.3088,
      "top_vendor_display": "Orient Trading & Builders Ltd."
     }
@@ -47883,11 +47883,11 @@
      "top_vendor_display": "THE CIVIL ENGINEERS LIMITED"
     },
     "2026-10": {
-     "hhi": 0.0873,
-     "n_vendors": 33,
-     "n_contracts": 38,
-     "total_value_bdt": 135630000.0,
-     "top_vendor_share": 0.1278,
+     "hhi": 0.087,
+     "n_vendors": 34,
+     "n_contracts": 39,
+     "total_value_bdt": 135860000.0,
+     "top_vendor_share": 0.1276,
      "top_vendor_display": "M/S SONIYA ENTERPRISE"
     }
    }
@@ -69467,11 +69467,11 @@
      "top_vendor_display": "bbejvmh"
     },
     "2026-10": {
-     "hhi": 0.515,
-     "n_vendors": 8,
-     "n_contracts": 10,
-     "total_value_bdt": 432770000.0,
-     "top_vendor_share": 0.646,
+     "hhi": 0.5143,
+     "n_vendors": 9,
+     "n_contracts": 11,
+     "total_value_bdt": 433050000.0,
+     "top_vendor_share": 0.6455,
      "top_vendor_display": "HTMS Limited"
     }
    }

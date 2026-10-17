@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 874678,
-  "distinct_vendors": 56561
+  "record_count": 874699,
+  "distinct_vendors": 56564
  },
  "national_by_year": {
   "2011": {
@@ -65,8 +65,8 @@
    "value_bdt": 724502930000.0
   },
   "2026": {
-   "count": 94928,
-   "value_bdt": 653521200000.0
+   "count": 94949,
+   "value_bdt": 653768030000.0
   }
  },
  "procurement_method_by_year": {
@@ -414,28 +414,28 @@
   },
   "2026": {
    "OTM": {
-    "count": 40859,
-    "value_bdt": 501944880000.0
+    "count": 40875,
+    "value_bdt": 502190830000.0
    },
    "DPM": {
     "count": 610,
     "value_bdt": 4044980000.0
    },
    "LTM": {
-    "count": 37296,
-    "value_bdt": 93411570000.0
+    "count": 37297,
+    "value_bdt": 93411850000.0
    },
    "RFQL": {
     "count": 822,
     "value_bdt": 280730000.0
    },
    "RFQ": {
-    "count": 7186,
-    "value_bdt": 2141850000.0
+    "count": 7189,
+    "value_bdt": 2142350000.0
    },
    "RFQU": {
-    "count": 7858,
-    "value_bdt": 3090320000.0
+    "count": 7859,
+    "value_bdt": 3090420000.0
    },
    "OSTETM": {
     "count": 141,
@@ -478,11 +478,11 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "value_bdt": 620643670000.0
+   "value_bdt": 620643950000.0
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "value_bdt": 298804680000.0
+   "value_bdt": 299034040000.0
   },
   {
    "ministry": "Ministry of Shipping",
@@ -490,7 +490,7 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "value_bdt": 154418120000.0
+   "value_bdt": 154421710000.0
   },
   {
    "ministry": "Ministry of Agriculture",
@@ -510,7 +510,7 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 53135520000.0
+   "value_bdt": 53135710000.0
   },
   {
    "ministry": "Ministry of Civil Aviation & Tourism",
@@ -820,8 +820,8 @@
     "value_bdt": 44556880000.0
    },
    "2026": {
-    "count": 10732,
-    "value_bdt": 38273830000.0
+    "count": 10733,
+    "value_bdt": 38274110000.0
    }
   },
   "Ministry of Energy, Power and Mineral Resources": {
@@ -882,8 +882,8 @@
     "value_bdt": 34992120000.0
    },
    "2026": {
-    "count": 9548,
-    "value_bdt": 34947640000.0
+    "count": 9550,
+    "value_bdt": 35177000000.0
    }
   },
   "Ministry of Shipping": {
@@ -978,8 +978,8 @@
     "value_bdt": 24655160000.0
    },
    "2026": {
-    "count": 6243,
-    "value_bdt": 27617610000.0
+    "count": 6248,
+    "value_bdt": 27621200000.0
    }
   },
   "Ministry of Agriculture": {
@@ -1204,8 +1204,8 @@
     "value_bdt": 2438370000.0
    },
    "2026": {
-    "count": 539,
-    "value_bdt": 3542160000.0
+    "count": 541,
+    "value_bdt": 3542350000.0
    }
   },
   "Ministry of Civil Aviation & Tourism": {
@@ -1518,8 +1518,8 @@
  "top_districts_by_value": [
   {
    "district": "Dhaka",
-   "count": 177122,
-   "value_bdt": 1862154260000.0
+   "count": 177135,
+   "value_bdt": 1862396810000.0
   },
   {
    "district": "Chattogram",
@@ -1543,8 +1543,8 @@
   },
   {
    "district": "Sylhet",
-   "count": 20632,
-   "value_bdt": 192558080000.0
+   "count": 20633,
+   "value_bdt": 192558260000.0
   },
   {
    "district": "Cumilla",
@@ -1553,8 +1553,8 @@
   },
   {
    "district": "Rangpur",
-   "count": 13311,
-   "value_bdt": 157385900000.0
+   "count": 13312,
+   "value_bdt": 157386130000.0
   },
   {
    "district": "Gazipur",
@@ -1593,8 +1593,8 @@
   },
   {
    "district": "Sunamganj",
-   "count": 7588,
-   "value_bdt": 105125820000.0
+   "count": 7589,
+   "value_bdt": 105126100000.0
   },
   {
    "district": "Cox's Bazar",
@@ -2944,7 +2944,7 @@
   }
  ],
  "tender_funnel": {
-  "record_count": 632737,
+  "record_count": 632770,
   "by_status": {
    "Contract Awarded": 460075,
    "Cancelled": 6387,
@@ -2954,7 +2954,7 @@
    "Rejected": 5850,
    "Contract Terminated": 1742,
    "Amendment/Corrigendum issued : 20": 1,
-   "Live": 13806,
+   "Live": 13839,
    "Amendment/Corrigendum issued : 1": 329,
    "Amendment/Corrigendum issued : 2": 82,
    "Amendment/Corrigendum issued : 3": 23,
@@ -3091,7 +3091,7 @@
     "Contract Terminated": 53
    },
    "2026": {
-    "Live": 13806,
+    "Live": 13839,
     "Amendment/Corrigendum issued : 1": 329,
     "Cancelled": 475,
     "Amendment/Corrigendum issued : 2": 82,
