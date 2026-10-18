@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20060,
-  "vendors_with_owner_data": 8407,
-  "vendors_with_tenderer_id": 8596,
+  "vendors_sampled": 20061,
+  "vendors_with_owner_data": 8408,
+  "vendors_with_tenderer_id": 8597,
   "owner_data_coverage": 0.419
  },
  "shared_owner_groups": [
@@ -225,9 +225,16 @@
      "owner_name_as_shown": "Md. Abul Kalam Azad",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
+    },
+    {
+     "company": "MB-AF (JV)",
+     "tenderer_id": "1235746",
+     "owner_name_as_shown": "Md Abul Kalam Azad",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
     }
    ],
-   "distinct_companies": 31
+   "distinct_companies": 32
   },
   {
    "owner_key": "harun or rashid",
@@ -3867,6 +3874,26 @@
      "company": "AE-SB JV",
      "tenderer_id": "1214469",
      "owner_name_as_shown": "Abul Hasnat Md. Saifullah",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "mir sahidul alam",
+   "companies": [
+    {
+     "company": "M/S. Mir Brothers",
+     "tenderer_id": "1000214",
+     "owner_name_as_shown": "Mir Sahidul Alam",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "MB-AF (JV)",
+     "tenderer_id": "1235746",
+     "owner_name_as_shown": "Mir Sahidul Alam",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
     }

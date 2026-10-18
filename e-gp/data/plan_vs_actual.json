@@ -2,11 +2,11 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 874699,
-  "matched_pairs": 120063,
-  "match_rate_of_plan": 0.1606,
-  "generic_refs_excluded": 4063,
-  "pairs_excluded_generic": 2532,
+  "contracts_scanned": 874986,
+  "matched_pairs": 120067,
+  "match_rate_of_plan": 0.1607,
+  "generic_refs_excluded": 4066,
+  "pairs_excluded_generic": 2535,
   "pairs_excluded_sanity": 291
  },
  "award_vs_estimate": {
@@ -19,8 +19,8 @@
   "buckets": {
    "<70%": 2754,
    "70-85%": 7586,
-   "85-95%": 64333,
-   "95-100%": 36892,
+   "85-95%": 64336,
+   "95-100%": 36893,
    "100-115%": 7560,
    ">115%": 938
   },
@@ -54,15 +54,15 @@
    "0.86": 1093,
    "0.87": 1669,
    "0.88": 2338,
-   "0.89": 3723,
-   "0.90": 23914,
+   "0.89": 3724,
+   "0.90": 23915,
    "0.91": 2268,
    "0.92": 1596,
    "0.93": 8989,
-   "0.94": 9206,
+   "0.94": 9207,
    "0.95": 23248,
    "0.96": 4395,
-   "0.97": 2162,
+   "0.97": 2163,
    "0.98": 2316,
    "0.99": 3953,
    "1.00": 13428,
@@ -98,7 +98,7 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23926,
+    "count": 23927,
     "share": 0.1993
    },
    "at_5pct_below": {
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119835,
+  "unchanged": 119839,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61052,
-   "LTM->LTM": 55361,
+   "OTM->OTM": 61054,
+   "LTM->LTM": 55363,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
    "RFQ->RFQ": 350,
@@ -592,7 +592,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70877,
+    "matched_pairs": 70879,
     "median_ratio": 0.9456,
     "iqr": 0.0535,
     "share_above_115": 0.0066,
@@ -608,7 +608,7 @@
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
-    "matched_pairs": 27300,
+    "matched_pairs": 27301,
     "median_ratio": 0.9,
     "iqr": 0.028,
     "share_above_115": 0.0052,
@@ -616,11 +616,11 @@
    },
    {
     "ministry": "Ministry of Shipping",
-    "matched_pairs": 1158,
+    "matched_pairs": 1159,
     "median_ratio": 0.9871,
     "iqr": 0.0635,
     "share_above_115": 0.0052,
-    "share_at_10pct_below": 0.0268
+    "share_at_10pct_below": 0.0267
    },
    {
     "ministry": "Ministry of Water Resources",
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11716,
+    "matched_pairs": 11720,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0604
+    "share_at_10pct_below": 0.0605
    }
   ],
   "by_era": [
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9298,
+    "matched_pairs": 9302,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,

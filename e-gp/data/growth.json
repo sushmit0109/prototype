@@ -15,8 +15,8 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56564,
-  "ownership_groups_checked": 230
+  "vendors_scanned": 56586,
+  "ownership_groups_checked": 231
  },
  "top_growers": [
   {
@@ -742,6 +742,36 @@
    "shared_owner_keys": []
   },
   {
+   "company": "M/S. Mayer Doa Enterprise",
+   "company_key": "mayer doa enterprise",
+   "first_year": "2017",
+   "baseline_value_bdt": 13590000.0,
+   "baseline_count": 17,
+   "recent_value_bdt": 300180000.0,
+   "recent_count": 142,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 47,
+     "value_bdt": 96230000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 65,
+     "value_bdt": 129250000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 30,
+     "value_bdt": 74700000.0
+    }
+   },
+   "recent_distinct_ministries": 5,
+   "recent_top_ministry": "Ministry of Health and Family Welfare",
+   "recent_distinct_offices": 45,
+   "recent_top_office": "Lakhai Upazila Health Complex, Habiganj",
+   "recent_top_office_share": 0.0845,
+   "growth_ratio_value": 29.45,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Starlabs International",
    "company_key": "starlabs international",
    "first_year": "2018",
@@ -769,36 +799,6 @@
    "recent_top_office": "Office Of Project Director, Strengthening Land Survey Education in Bangladesh Project",
    "recent_top_office_share": 0.1351,
    "growth_ratio_value": 29.11,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "M/S. Mayer Doa Enterprise",
-   "company_key": "mayer doa enterprise",
-   "first_year": "2017",
-   "baseline_value_bdt": 13590000.0,
-   "baseline_count": 17,
-   "recent_value_bdt": 296160000.0,
-   "recent_count": 140,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 47,
-     "value_bdt": 96230000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 65,
-     "value_bdt": 129250000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 28,
-     "value_bdt": 70680000.0
-    }
-   },
-   "recent_distinct_ministries": 5,
-   "recent_top_ministry": "Ministry of Health and Family Welfare",
-   "recent_distinct_offices": 44,
-   "recent_top_office": "Lakhai Upazila Health Complex, Habiganj",
-   "recent_top_office_share": 0.0857,
-   "growth_ratio_value": 29.06,
    "shared_owner_keys": []
   },
   {
@@ -2595,50 +2595,6 @@
    "combined_recent_distinct_ministries": 13
   },
   {
-   "owner_key": "shafiqul haque talukder",
-   "owner_name": "Engr. Shafiqul Haque Talukder",
-   "companies": [
-    {
-     "company": "Starlite Services Limited",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "STARLITE SERVICES LIMITED AND M/S. NAYMA ENTERPRISE (JV)",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "SSL- ALI JV",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "SSL-RI JV",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "SSL- Convoy JV",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "Starlite- EHA(JV)",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "SSL-SC JV",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "Starlite-EHA(JV)",
-     "designation": "Managing Director"
-    }
-   ],
-   "member_companies_matched": 8,
-   "combined_baseline_value_bdt": 1950910000.0,
-   "combined_recent_value_bdt": 6070340000.0,
-   "combined_recent_count": 57,
-   "combined_growth_ratio_value": 4.15,
-   "combined_recent_distinct_ministries": 9
-  },
-  {
    "owner_key": "abul kalam azad",
    "owner_name": "Abul Kalam Azad",
    "companies": [
@@ -2765,14 +2721,62 @@
     {
      "company": "M/S A.K. Azad & Brothers",
      "designation": "Proprietor"
+    },
+    {
+     "company": "MB-AF (JV)",
+     "designation": "Proprietor"
     }
    ],
-   "member_companies_matched": 31,
+   "member_companies_matched": 32,
    "combined_baseline_value_bdt": 6862790000.0,
-   "combined_recent_value_bdt": 6000820000.0,
-   "combined_recent_count": 545,
-   "combined_growth_ratio_value": 1.17,
+   "combined_recent_value_bdt": 6107630000.0,
+   "combined_recent_count": 546,
+   "combined_growth_ratio_value": 1.19,
    "combined_recent_distinct_ministries": 17
+  },
+  {
+   "owner_key": "shafiqul haque talukder",
+   "owner_name": "Engr. Shafiqul Haque Talukder",
+   "companies": [
+    {
+     "company": "Starlite Services Limited",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "STARLITE SERVICES LIMITED AND M/S. NAYMA ENTERPRISE (JV)",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "SSL- ALI JV",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "SSL-RI JV",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "SSL- Convoy JV",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "Starlite- EHA(JV)",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "SSL-SC JV",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "Starlite-EHA(JV)",
+     "designation": "Managing Director"
+    }
+   ],
+   "member_companies_matched": 8,
+   "combined_baseline_value_bdt": 1950910000.0,
+   "combined_recent_value_bdt": 6070340000.0,
+   "combined_recent_count": 57,
+   "combined_growth_ratio_value": 4.15,
+   "combined_recent_distinct_ministries": 9
   },
   {
    "owner_key": "sk. bashir ahmed",

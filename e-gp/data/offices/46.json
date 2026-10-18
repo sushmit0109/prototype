@@ -453,7 +453,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Information Complexes District Level",
+    "phrase": "District Level St Phase",
+    "count": 5
+   },
+   {
+    "phrase": "Modern Information Complexes District",
     "count": 5
    },
    {
@@ -461,11 +465,7 @@
     "count": 5
    },
    {
-    "phrase": "District Level St Phase",
-    "count": 5
-   },
-   {
-    "phrase": "Modern Information Complexes District",
+    "phrase": "Information Complexes District Level",
     "count": 5
    },
    {
@@ -2475,12 +2475,12 @@
   ]
  },
  "9349": {
-  "value_bdt": 860000.0,
-  "count": 4,
+  "value_bdt": 1010000.0,
+  "count": 5,
   "by_year": {
    "2026": {
-    "value_bdt": 860000.0,
-    "count": 4
+    "value_bdt": 1010000.0,
+    "count": 5
    }
   },
   "by_nature": {},
@@ -2504,15 +2504,33 @@
     "company": "H.K Traders",
     "value_bdt": 150000.0,
     "count": 1
+   },
+   {
+    "company": "RHK ENTERPRISE",
+    "value_bdt": 150000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 5
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Transmitting Station Bangladesh Betar",
+    "count": 3
+   },
+   {
+    "phrase": "Power Transmitting Station Bangladesh",
+    "count": 3
+   },
+   {
+    "phrase": "High Power Transmitting Station",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "15.53.2672.308.000.51.0001.25.1355",
@@ -2541,6 +2559,13 @@
     "value_bdt": 150000.0,
     "contract_signing_date": "2026-04-21",
     "description": "Servicing leakage repair gas charging change of compressor of AC in High Power Transmitting Station-1 Bangladesh Betar Savar Dhaka"
+   },
+   {
+    "package_ref": "Hpt-1/3255101/GR1",
+    "awarded_to": "RHK ENTERPRISE",
+    "value_bdt": 150000.0,
+    "contract_signing_date": "2026-10-18",
+    "description": "Procurement of necessary computer parts including monitors CPUs printers mice keyboards scanners UPS routers switches speakers pen drives antivirus etc. for var"
    }
   ]
  },
