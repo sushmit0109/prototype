@@ -91,11 +91,11 @@
     "count": 13
    },
    {
-    "phrase": "Lonjoni Para Borua Khilkhet",
+    "phrase": "Para Borua Khilkhet Dhaka",
     "count": 4
    },
    {
-    "phrase": "Para Borua Khilkhet Dhaka",
+    "phrase": "Lonjoni Para Borua Khilkhet",
     "count": 4
    },
    {
@@ -107,15 +107,15 @@
     "count": 4
    },
    {
-    "phrase": "Earners Welfare Board Lonjoni",
-    "count": 3
-   },
-   {
     "phrase": "Work Including Civil Sanitary",
     "count": 3
    },
    {
-    "phrase": "Board Lonjoni Para Borua",
+    "phrase": "Welfare Board Lonjoni Para",
+    "count": 3
+   },
+   {
+    "phrase": "Earners Welfare Board Lonjoni",
     "count": 3
    }
   ],
@@ -366,11 +366,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Manpower the Outsourcing Process",
+    "phrase": "Select Manpower Providing Firm",
     "count": 3
    },
    {
-    "phrase": "Select Manpower Providing Firm",
+    "phrase": "Manpower the Outsourcing Process",
     "count": 3
    },
    {
@@ -503,19 +503,19 @@
     "count": 3
    },
    {
-    "phrase": "Pen Drive Power Supply",
-    "count": 3
-   },
-   {
     "phrase": "Toner Photocopier Toner Keyboard",
     "count": 3
    },
    {
-    "phrase": "Keyboard Mouse Pen Drive",
+    "phrase": "Photocopier Toner Keyboard Mouse",
     "count": 3
    },
    {
-    "phrase": "Consumables for and Field",
+    "phrase": "Center Printer Toner Photocopier",
+    "count": 3
+   },
+   {
+    "phrase": "Field Center Printer Toner",
     "count": 3
    }
   ],
@@ -616,11 +616,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Services for Technical Training",
-    "count": 14
-   },
-   {
-    "phrase": "Training Equipment and Related",
+    "phrase": "Equipment and Related Services",
     "count": 14
    },
    {
@@ -628,7 +624,11 @@
     "count": 14
    },
    {
-    "phrase": "Equipment and Related Services",
+    "phrase": "Training Equipment and Related",
+    "count": 14
+   },
+   {
+    "phrase": "Services for Technical Training",
     "count": 14
    },
    {
@@ -1047,11 +1047,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Training Materials Supply Work",
+    "phrase": "Teaching Training Materials Supply",
     "count": 4
    },
    {
-    "phrase": "Teaching Training Materials Supply",
+    "phrase": "Training Materials Supply Work",
     "count": 4
    },
    {
@@ -1748,11 +1748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
@@ -1866,6 +1866,91 @@
     "value_bdt": 500000.0,
     "contract_signing_date": "2025-12-21",
     "description": "Painting of Academic Building Hostel Rest House Boundary Walls & Residential Building (3258108)"
+   }
+  ]
+ },
+ "7190": {
+  "value_bdt": 1460000.0,
+  "count": 5,
+  "by_year": {
+   "2025": {
+    "value_bdt": 400000.0,
+    "count": 1
+   },
+   "2026": {
+    "value_bdt": 1060000.0,
+    "count": 4
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "Shahinur Goods Supplier",
+    "value_bdt": 760000.0,
+    "count": 3
+   },
+   {
+    "company": "Mehedi Engineering",
+    "value_bdt": 400000.0,
+    "count": 1
+   },
+   {
+    "company": "JAMDHMM",
+    "value_bdt": 300000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Manikganj",
+    "count": 5
+   }
+  ],
+  "top_phrases": [
+   {
+    "phrase": "Different Trade Manikganj",
+    "count": 3
+   },
+   {
+    "phrase": "Raw Materials",
+    "count": 3
+   }
+  ],
+  "top_contracts": [
+   {
+    "package_ref": "APP ID : 217782",
+    "awarded_to": "Mehedi Engineering",
+    "value_bdt": 400000.0,
+    "contract_signing_date": "2025-12-21",
+    "description": "Supply of raw materials for 7th cycle of five trades."
+   },
+   {
+    "package_ref": "TTC/Manik/GOB/25-26/GD-04",
+    "awarded_to": "Shahinur Goods Supplier",
+    "value_bdt": 300000.0,
+    "contract_signing_date": "2026-04-23",
+    "description": "Procurement of Raw Materials and Spare Parts for Different Trade at Manikganj TTC"
+   },
+   {
+    "package_ref": "TTC/Manik/GOB/25-26/GD-03",
+    "awarded_to": "Shahinur Goods Supplier",
+    "value_bdt": 300000.0,
+    "contract_signing_date": "2026-04-23",
+    "description": "Procurement of Raw Materials and Spare Parts for Different Trade at Manikganj TTC"
+   },
+   {
+    "package_ref": "TTC/Manik/GOB/26-27/Engineering/GD-02",
+    "awarded_to": "JAMDHMM",
+    "value_bdt": 300000.0,
+    "contract_signing_date": "2026-10-19",
+    "description": "Procurement of Engineering and Other Equipment for different trade at Manikganj TTC."
+   },
+   {
+    "package_ref": "TTC/MANIKGANJ/ASSET/C8/TTM/25-26/GD-5",
+    "awarded_to": "Shahinur Goods Supplier",
+    "value_bdt": 160000.0,
+    "contract_signing_date": "2026-03-15",
+    "description": "Supply of Training manual (CBLM) Genji/Apron Safety shoe Mask Safety goggles Hand gloves High quality bag with ASSET logo Pad Pen Pencil Rubber Sharpner Batch w"
    }
   ]
  },
@@ -2369,11 +2454,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Masonry and Graphics Occupation",
-    "count": 3
-   },
-   {
-    "phrase": "Consumable Material for Training",
+    "phrase": "Training Masonry and Graphics",
     "count": 3
    },
    {
@@ -2381,7 +2462,11 @@
     "count": 3
    },
    {
-    "phrase": "Training Masonry and Graphics",
+    "phrase": "Masonry and Graphics Occupation",
+    "count": 3
+   },
+   {
+    "phrase": "Consumable Material for Training",
     "count": 3
    },
    {
@@ -2494,11 +2579,11 @@
     "count": 4
    },
    {
-    "phrase": "Spare Parts for Different",
+    "phrase": "Parts for Different Trade",
     "count": 4
    },
    {
-    "phrase": "Parts for Different Trade",
+    "phrase": "Spare Parts for Different",
     "count": 4
    },
    {
@@ -2584,11 +2669,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials for Deferent Trade",
+    "phrase": "Raw Materials for Deferent",
     "count": 5
    },
    {
-    "phrase": "Raw Materials for Deferent",
+    "phrase": "Materials for Deferent Trade",
     "count": 5
    },
    {
@@ -2683,11 +2768,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Equipment and Raw Materials",
+    "phrase": "Tools Equipment and Raw",
     "count": 4
    },
    {
-    "phrase": "Tools Equipment and Raw",
+    "phrase": "Equipment and Raw Materials",
     "count": 4
    },
    {
@@ -2784,11 +2869,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Equipment for Bogura",
+    "phrase": "Tools and Equipment",
     "count": 4
    },
    {
-    "phrase": "Tools and Equipment",
+    "phrase": "Equipment for Bogura",
     "count": 4
    },
    {
@@ -2960,15 +3045,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Spare Parts for Various",
-    "count": 3
-   },
-   {
     "phrase": "Parts for Various Trade",
     "count": 3
    },
    {
     "phrase": "Raw Materials Spare Parts",
+    "count": 3
+   },
+   {
+    "phrase": "Spare Parts for Various",
     "count": 3
    },
    {
@@ -3410,11 +3495,11 @@
     "count": 5
    },
    {
-    "phrase": "Materials for Different Trades",
+    "phrase": "Raw Materials for Different",
     "count": 3
    },
    {
-    "phrase": "Raw Materials for Different",
+    "phrase": "Materials for Different Trades",
     "count": 3
    },
    {
@@ -3908,16 +3993,21 @@
   ]
  },
  "8863": {
-  "value_bdt": 200000.0,
-  "count": 1,
+  "value_bdt": 440000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 200000.0,
-    "count": 1
+    "value_bdt": 440000.0,
+    "count": 2
    }
   },
   "by_nature": {},
   "top_vendors": [
+   {
+    "company": "BICHARAN GROUP",
+    "value_bdt": 240000.0,
+    "count": 1
+   },
    {
     "company": "IES-Industrial Engineering Services",
     "value_bdt": 200000.0,
@@ -3927,11 +4017,18 @@
   "top_districts": [
    {
     "district": "Sherpur",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "49.01.8967.003.06.001.26.495 Date:14/10/2026",
+    "awarded_to": "BICHARAN GROUP",
+    "value_bdt": 240000.0,
+    "contract_signing_date": "2026-10-19",
+    "description": "Supply of Training Raw Materials for Three trades (EIM ASMO and IT Support Service) Under SICIP Tranche-1 (September to December -2026 Session)"
+   },
    {
     "package_ref": "4901.8967.003.25.001.26.264 Date:01/06/2026",
     "awarded_to": "IES-Industrial Engineering Services",
@@ -4594,11 +4691,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Trade Madaripur",
+    "phrase": "Spare Parts",
     "count": 3
    },
    {
-    "phrase": "Spare Parts",
+    "phrase": "Trade Madaripur",
     "count": 3
    }
   ],

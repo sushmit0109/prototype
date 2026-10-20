@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-10-18T23:30:53.332987+00:00",
-  "contracts_scanned": 874986,
+  "generated_at": "2026-10-20T23:46:43.225901+00:00",
+  "contracts_scanned": 875221,
   "debarment_records": 1028,
-  "flag_count": 1975,
+  "flag_count": 1976,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1729
+   "post_debarment_award": 1730
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -18186,6 +18186,25 @@
    "district": "Khagrachari",
    "contract_signing_date": "2026-03-12",
    "value_bdt": 530000.0,
+   "debar_start": "17-Nov-2022",
+   "debar_end": "13-Nov-2024",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "M/S Samyak enterprise submitted fake similar work certificate and fake turnover document on tender ID 662713,662714,662715 and 662723.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "medium",
+   "company": "M/S Sammyak enterprise",
+   "company_key": "sammyak enterprise",
+   "tender_id": "1337039",
+   "pkg_lot_id": "2176785",
+   "procuring_entity": "APBn 6, Khagrachari",
+   "ministry": "Ministry of Home Affairs",
+   "district": "Khagrachari",
+   "contract_signing_date": "2026-10-19",
+   "value_bdt": 2140000.0,
    "debar_start": "17-Nov-2022",
    "debar_end": "13-Nov-2024",
    "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
