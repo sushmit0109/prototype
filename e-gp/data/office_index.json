@@ -3,8 +3,8 @@
   "generated_office_count": 9981,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 875221,
-  "nature_matched": 463273,
+  "contracts_scanned": 875239,
+  "nature_matched": 463288,
   "nature_match_rate": 0.5293
  },
  "ministries": [
@@ -74,8 +74,8 @@
   {
    "id": 26,
    "name": "Ministry of Home Affairs",
-   "value_bdt": 90711760000.0,
-   "count": 15166,
+   "value_bdt": 90726350000.0,
+   "count": 15184,
    "office_count": 349
   },
   {
@@ -430,8 +430,8 @@
    "id": 17,
    "name": "Security Services Division",
    "ministry_id": 26,
-   "value_bdt": 13662960000.0,
-   "count": 6733,
+   "value_bdt": 13664150000.0,
+   "count": 6736,
    "office_count": 104
   },
   {
@@ -33797,6 +33797,14 @@
    "count": 43
   },
   {
+   "id": 8166,
+   "name": "RAB-7, Chittagong",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 76490000.0,
+   "count": 21
+  },
+  {
    "id": 9172,
    "name": "Grain Warehouse Modernization and Digitalization Project",
    "ministry_id": 13,
@@ -35995,14 +36003,6 @@
    "division_id": null,
    "value_bdt": 64430000.0,
    "count": 5
-  },
-  {
-   "id": 8166,
-   "name": "RAB-7, Chittagong",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 64400000.0,
-   "count": 9
   },
   {
    "id": 9769,
@@ -39437,6 +39437,14 @@
    "count": 31
   },
   {
+   "id": 8038,
+   "name": "Office of the Superintendent of Police, Panchagarh",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 47600000.0,
+   "count": 40
+  },
+  {
    "id": 1274,
    "name": "Director Mohanagar General Hospital",
    "ministry_id": 2,
@@ -39571,14 +39579,6 @@
    "division_id": 3,
    "value_bdt": 47110000.0,
    "count": 58
-  },
-  {
-   "id": 8038,
-   "name": "Office of the Superintendent of Police, Panchagarh",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 47050000.0,
-   "count": 38
   },
   {
    "id": 3432,
@@ -43253,6 +43253,14 @@
    "count": 7
   },
   {
+   "id": 4110,
+   "name": "Panchagarh District Jail",
+   "ministry_id": 26,
+   "division_id": 17,
+   "value_bdt": 32830000.0,
+   "count": 77
+  },
+  {
    "id": 8590,
    "name": "Shishu Hridrogider bina operatione o operationer maddhomay bina mullay Chikitsa Karjokrom",
    "ministry_id": 9,
@@ -43779,14 +43787,6 @@
    "division_id": null,
    "value_bdt": 31640000.0,
    "count": 20
-  },
-  {
-   "id": 4110,
-   "name": "Panchagarh District Jail",
-   "ministry_id": 26,
-   "division_id": 17,
-   "value_bdt": 31640000.0,
-   "count": 74
   },
   {
    "id": 8714,
@@ -65557,6 +65557,14 @@
    "count": 8
   },
   {
+   "id": 8198,
+   "name": "Railway Police, Sylhet",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 3380000.0,
+   "count": 7
+  },
+  {
    "id": 9098,
    "name": "Taxes Zone-5, Chattogram",
    "ministry_id": 7,
@@ -67139,14 +67147,6 @@
    "division_id": 25,
    "value_bdt": 2620000.0,
    "count": 14
-  },
-  {
-   "id": 8198,
-   "name": "Railway Police, Sylhet",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 2620000.0,
-   "count": 6
   },
   {
    "id": 9609,

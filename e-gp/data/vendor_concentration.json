@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 875221,
+  "total_contracts": 875239,
   "district_month_cells_total": 10106,
   "district_month_cells_kept": 9698,
   "min_contracts_for_hhi": 3,
@@ -13715,11 +13715,11 @@
      "top_vendor_display": "AxEnTec PLC."
     },
     "2026-10": {
-     "hhi": 0.0405,
-     "n_vendors": 89,
-     "n_contracts": 103,
-     "total_value_bdt": 199100000.0,
-     "top_vendor_share": 0.0953,
+     "hhi": 0.0373,
+     "n_vendors": 92,
+     "n_contracts": 115,
+     "total_value_bdt": 211190000.0,
+     "top_vendor_share": 0.0898,
      "top_vendor_display": "Rian Engineering Co."
     }
    }
@@ -29423,11 +29423,11 @@
      "top_vendor_display": "K M INTERNATIONAL"
     },
     "2026-10": {
-     "hhi": 0.362,
-     "n_vendors": 9,
-     "n_contracts": 10,
-     "total_value_bdt": 54590000.0,
-     "top_vendor_share": 0.5528,
+     "hhi": 0.3405,
+     "n_vendors": 11,
+     "n_contracts": 15,
+     "total_value_bdt": 56330000.0,
+     "top_vendor_share": 0.5358,
      "top_vendor_display": "Md. Khairul Kabir Rana"
     }
    }
@@ -46655,11 +46655,11 @@
      "top_vendor_display": "M/S. JALAL ENTERPRISE"
     },
     "2026-10": {
-     "hhi": 0.1585,
-     "n_vendors": 36,
-     "n_contracts": 52,
-     "total_value_bdt": 967820000.0,
-     "top_vendor_share": 0.3066,
+     "hhi": 0.1582,
+     "n_vendors": 37,
+     "n_contracts": 53,
+     "total_value_bdt": 968580000.0,
+     "top_vendor_share": 0.3063,
      "top_vendor_display": "Orient Trading & Builders Ltd."
     }
    }

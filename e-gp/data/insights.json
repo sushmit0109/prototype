@@ -1,6 +1,6 @@
 {
  "meta": {
-  "record_count": 875221,
+  "record_count": 875239,
   "distinct_vendors": 56601
  },
  "national_by_year": {
@@ -65,8 +65,8 @@
    "value_bdt": 724502930000.0
   },
   "2026": {
-   "count": 95471,
-   "value_bdt": 656795720000.0
+   "count": 95489,
+   "value_bdt": 656810310000.0
   }
  },
  "procurement_method_by_year": {
@@ -414,16 +414,16 @@
   },
   "2026": {
    "OTM": {
-    "count": 41153,
-    "value_bdt": 504478170000.0
+    "count": 41168,
+    "value_bdt": 504491570000.0
    },
    "DPM": {
     "count": 623,
     "value_bdt": 4119840000.0
    },
    "LTM": {
-    "count": 37418,
-    "value_bdt": 93776160000.0
+    "count": 37421,
+    "value_bdt": 93777350000.0
    },
    "RFQL": {
     "count": 837,
@@ -498,7 +498,7 @@
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "value_bdt": 90711760000.0
+   "value_bdt": 90726350000.0
   },
   {
    "ministry": "Ministry of Disaster Management & Relief",
@@ -1066,8 +1066,8 @@
     "value_bdt": 16676510000.0
    },
    "2026": {
-    "count": 7366,
-    "value_bdt": 28898970000.0
+    "count": 7384,
+    "value_bdt": 28913560000.0
    }
   },
   "Ministry of Disaster Management & Relief": {
@@ -1523,8 +1523,8 @@
   },
   {
    "district": "Chattogram",
-   "count": 48070,
-   "value_bdt": 341398120000.0
+   "count": 48082,
+   "value_bdt": 341410210000.0
   },
   {
    "district": "Rajshahi",
@@ -1543,8 +1543,8 @@
   },
   {
    "district": "Sylhet",
-   "count": 20645,
-   "value_bdt": 192565150000.0
+   "count": 20646,
+   "value_bdt": 192565910000.0
   },
   {
    "district": "Cumilla",
@@ -2944,7 +2944,7 @@
   }
  ],
  "tender_funnel": {
-  "record_count": 634170,
+  "record_count": 634180,
   "by_status": {
    "Contract Awarded": 460075,
    "Cancelled": 6392,
@@ -2954,7 +2954,7 @@
    "Rejected": 5850,
    "Contract Terminated": 1742,
    "Amendment/Corrigendum issued : 20": 1,
-   "Live": 15230,
+   "Live": 15240,
    "Amendment/Corrigendum issued : 1": 333,
    "Amendment/Corrigendum issued : 2": 82,
    "Amendment/Corrigendum issued : 3": 23,
@@ -3091,7 +3091,7 @@
     "Contract Terminated": 53
    },
    "2026": {
-    "Live": 15230,
+    "Live": 15240,
     "Amendment/Corrigendum issued : 1": 333,
     "Cancelled": 480,
     "Amendment/Corrigendum issued : 2": 82,
