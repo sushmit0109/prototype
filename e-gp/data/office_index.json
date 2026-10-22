@@ -3,8 +3,8 @@
   "generated_office_count": 9981,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 875239,
-  "nature_matched": 463288,
+  "contracts_scanned": 875252,
+  "nature_matched": 463299,
   "nature_match_rate": 0.5293
  },
  "ministries": [
@@ -74,8 +74,8 @@
   {
    "id": 26,
    "name": "Ministry of Home Affairs",
-   "value_bdt": 90726350000.0,
-   "count": 15184,
+   "value_bdt": 90734650000.0,
+   "count": 15195,
    "office_count": 349
   },
   {
@@ -95,8 +95,8 @@
   {
    "id": 10,
    "name": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 53180050000.0,
-   "count": 1556,
+   "value_bdt": 53180170000.0,
+   "count": 1557,
    "office_count": 166
   },
   {
@@ -151,8 +151,8 @@
   {
    "id": 7,
    "name": "Ministry of Finance",
-   "value_bdt": 22836040000.0,
-   "count": 2727,
+   "value_bdt": 22836820000.0,
+   "count": 2728,
    "office_count": 180
   },
   {
@@ -422,8 +422,8 @@
    "id": 23,
    "name": "Financial Institutions Division",
    "ministry_id": 7,
-   "value_bdt": 14612000000.0,
-   "count": 2231,
+   "value_bdt": 14612780000.0,
+   "count": 2232,
    "office_count": 110
   },
   {
@@ -438,8 +438,8 @@
    "id": 13,
    "name": "Post & Telecommunication Division",
    "ministry_id": 10,
-   "value_bdt": 10976250000.0,
-   "count": 847,
+   "value_bdt": 10976370000.0,
+   "count": 848,
    "office_count": 108
   },
   {
@@ -28509,6 +28509,14 @@
    "count": 28
   },
   {
+   "id": 8086,
+   "name": "Office of the Superintendent of Police, Jhenaidah",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 112850000.0,
+   "count": 58
+  },
+  {
    "id": 1303,
    "name": "Office of the Project Director, Construction of Multistoried Warehouse at Santahar",
    "ministry_id": 11,
@@ -29443,14 +29451,6 @@
    "division_id": null,
    "value_bdt": 104590000.0,
    "count": 86
-  },
-  {
-   "id": 8086,
-   "name": "Office of the Superintendent of Police, Jhenaidah",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 104550000.0,
-   "count": 47
   },
   {
    "id": 6498,
@@ -62333,6 +62333,14 @@
    "count": 2
   },
   {
+   "id": 8108,
+   "name": "Divisional Office, Mymensingh",
+   "ministry_id": 7,
+   "division_id": 23,
+   "value_bdt": 5160000.0,
+   "count": 10
+  },
+  {
    "id": 7743,
    "name": "Khansama Upazila Health Complex, Dinajpur",
    "ministry_id": 9,
@@ -63547,14 +63555,6 @@
    "division_id": 13,
    "value_bdt": 4380000.0,
    "count": 1
-  },
-  {
-   "id": 8108,
-   "name": "Divisional Office, Mymensingh",
-   "ministry_id": 7,
-   "division_id": 23,
-   "value_bdt": 4380000.0,
-   "count": 9
   },
   {
    "id": 8710,
@@ -74533,6 +74533,14 @@
    "count": 2
   },
   {
+   "id": 9844,
+   "name": "Office of the DGM (Phones 1). Mirpur South, Mirpur, Dhaka",
+   "ministry_id": 10,
+   "division_id": 13,
+   "value_bdt": 730000.0,
+   "count": 4
+  },
+  {
    "id": 6459,
    "name": "Smart Agriculture Card and Digital Agriculture (Pilot) Project",
    "ministry_id": 13,
@@ -75219,14 +75227,6 @@
    "division_id": null,
    "value_bdt": 610000.0,
    "count": 1
-  },
-  {
-   "id": 9844,
-   "name": "Office of the DGM (Phones 1). Mirpur South, Mirpur, Dhaka",
-   "ministry_id": 10,
-   "division_id": 13,
-   "value_bdt": 610000.0,
-   "count": 3
   },
   {
    "id": 3430,

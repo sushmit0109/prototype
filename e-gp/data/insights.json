@@ -1,6 +1,6 @@
 {
  "meta": {
-  "record_count": 875239,
+  "record_count": 875252,
   "distinct_vendors": 56601
  },
  "national_by_year": {
@@ -65,8 +65,8 @@
    "value_bdt": 724502930000.0
   },
   "2026": {
-   "count": 95489,
-   "value_bdt": 656810310000.0
+   "count": 95502,
+   "value_bdt": 656819510000.0
   }
  },
  "procurement_method_by_year": {
@@ -414,24 +414,24 @@
   },
   "2026": {
    "OTM": {
-    "count": 41168,
-    "value_bdt": 504491570000.0
+    "count": 41179,
+    "value_bdt": 504499870000.0
    },
    "DPM": {
     "count": 623,
     "value_bdt": 4119840000.0
    },
    "LTM": {
-    "count": 37421,
-    "value_bdt": 93777350000.0
+    "count": 37422,
+    "value_bdt": 93778130000.0
    },
    "RFQL": {
     "count": 837,
     "value_bdt": 282430000.0
    },
    "RFQ": {
-    "count": 7243,
-    "value_bdt": 2156860000.0
+    "count": 7244,
+    "value_bdt": 2156980000.0
    },
    "RFQU": {
     "count": 7897,
@@ -498,7 +498,7 @@
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "value_bdt": 90726350000.0
+   "value_bdt": 90734650000.0
   },
   {
    "ministry": "Ministry of Disaster Management & Relief",
@@ -510,7 +510,7 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 53174720000.0
+   "value_bdt": 53174840000.0
   },
   {
    "ministry": "Ministry of Civil Aviation & Tourism",
@@ -1066,8 +1066,8 @@
     "value_bdt": 16676510000.0
    },
    "2026": {
-    "count": 7384,
-    "value_bdt": 28913560000.0
+    "count": 7395,
+    "value_bdt": 28921860000.0
    }
   },
   "Ministry of Disaster Management & Relief": {
@@ -1204,8 +1204,8 @@
     "value_bdt": 2438370000.0
    },
    "2026": {
-    "count": 568,
-    "value_bdt": 3581360000.0
+    "count": 569,
+    "value_bdt": 3581480000.0
    }
   },
   "Ministry of Civil Aviation & Tourism": {
@@ -1518,8 +1518,8 @@
  "top_districts_by_value": [
   {
    "district": "Dhaka",
-   "count": 177300,
-   "value_bdt": 1863184930000.0
+   "count": 177301,
+   "value_bdt": 1863185050000.0
   },
   {
    "district": "Chattogram",
@@ -1533,8 +1533,8 @@
   },
   {
    "district": "Mymensingh",
-   "count": 19555,
-   "value_bdt": 232571620000.0
+   "count": 19556,
+   "value_bdt": 232572400000.0
   },
   {
    "district": "Khulna",
@@ -2944,7 +2944,7 @@
   }
  ],
  "tender_funnel": {
-  "record_count": 634180,
+  "record_count": 634203,
   "by_status": {
    "Contract Awarded": 460075,
    "Cancelled": 6392,
@@ -2954,7 +2954,7 @@
    "Rejected": 5850,
    "Contract Terminated": 1742,
    "Amendment/Corrigendum issued : 20": 1,
-   "Live": 15240,
+   "Live": 15263,
    "Amendment/Corrigendum issued : 1": 333,
    "Amendment/Corrigendum issued : 2": 82,
    "Amendment/Corrigendum issued : 3": 23,
@@ -3091,7 +3091,7 @@
     "Contract Terminated": 53
    },
    "2026": {
-    "Live": 15240,
+    "Live": 15263,
     "Amendment/Corrigendum issued : 1": 333,
     "Cancelled": 480,
     "Amendment/Corrigendum issued : 2": 82,

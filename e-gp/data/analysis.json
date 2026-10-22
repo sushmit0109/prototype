@@ -1,7 +1,7 @@
 {
  "meta": {
-  "contracts": 875239,
-  "total_value_bdt": 7485344670000.0,
+  "contracts": 875252,
+  "total_value_bdt": 7485353870000.0,
   "years": [
    "2011",
    "2012",
@@ -69,8 +69,8 @@
     "share": 0.0459
    },
    "10": {
-    "count": 49867,
-    "value_bdt": 499262540000.0,
+    "count": 49880,
+    "value_bdt": 499271740000.0,
     "share": 0.057
    },
    "11": {
@@ -151,8 +151,8 @@
     "partial_year": false
    },
    "2026": {
-    "share": 0.2,
-    "total": 95489,
+    "share": 0.1999,
+    "total": 95502,
     "partial_year": true
    }
   }
@@ -160,12 +160,12 @@
  "method_mix": {
   "overall": {
    "OTM": {
-    "count": 449082,
-    "value_bdt": 5619327840000.0
+    "count": 449093,
+    "value_bdt": 5619336140000.0
    },
    "LTM": {
-    "count": 385570,
-    "value_bdt": 1095398520000.0
+    "count": 385571,
+    "value_bdt": 1095399300000.0
    },
    "OSTETM": {
     "count": 14423,
@@ -180,8 +180,8 @@
     "value_bdt": 4473940000.0
    },
    "RFQ": {
-    "count": 9675,
-    "value_bdt": 2646540000.0
+    "count": 9676,
+    "value_bdt": 2646660000.0
    },
    "QCBS": {
     "count": 35,
@@ -401,8 +401,8 @@
    {
     "ministry": "Ministry of Home Affairs",
     "hhi": 116.6,
-    "vendors": 2181,
-    "value_bdt": 90648600000.0,
+    "vendors": 2182,
+    "value_bdt": 90656900000.0,
     "top5_share": 0.1814
    },
    {
@@ -416,7 +416,7 @@
     "ministry": "Ministry of Post, Telecommunications & Information Technology",
     "hhi": 235.0,
     "vendors": 705,
-    "value_bdt": 53174270000.0,
+    "value_bdt": 53174390000.0,
     "top5_share": 0.245
    },
    {
@@ -644,7 +644,7 @@
    },
    {
     "value_bdt": 480000.0,
-    "count": 12465,
+    "count": 12466,
     "ltm_share": 0.8675,
     "top_method": "LTM"
    },
@@ -774,19 +774,19 @@
   "ltm_share_overall": 0.4405,
   "histogram_lakh_bins": {
    "0": 15090,
-   "1": 36170,
+   "1": 36171,
    "2": 62617,
-   "3": 44491,
-   "4": 58437,
-   "5": 36498,
+   "3": 44492,
+   "4": 58439,
+   "5": 36501,
    "6": 26943,
-   "7": 26597,
+   "7": 26598,
    "8": 22213,
-   "9": 36357,
-   "10": 20057,
-   "11": 17692,
+   "9": 36359,
+   "10": 20058,
+   "11": 17693,
    "12": 13039,
-   "13": 13872,
+   "13": 13873,
    "14": 19349,
    "15": 10206,
    "16": 8696,
@@ -855,11 +855,11 @@
    "ltm_share": 0.1707
   },
   "Elected Government (2026–)": {
-   "count": 73133,
-   "value_bdt": 502095140000.0,
-   "observed_span_days": 246,
-   "contracts_per_day": 297.29,
-   "value_bdt_per_day": 2041037154.47,
+   "count": 73146,
+   "value_bdt": 502104340000.0,
+   "observed_span_days": 247,
+   "contracts_per_day": 296.14,
+   "value_bdt_per_day": 2032811093.12,
    "otm_share": 0.8201,
    "ltm_share": 0.1204
   }

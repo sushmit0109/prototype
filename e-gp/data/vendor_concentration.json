@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 875239,
+  "total_contracts": 875252,
   "district_month_cells_total": 10106,
   "district_month_cells_kept": 9698,
   "min_contracts_for_hhi": 3,
@@ -9993,8 +9993,8 @@
     "2026-10": {
      "hhi": 0.0542,
      "n_vendors": 385,
-     "n_contracts": 516,
-     "total_value_bdt": 5018870000.0,
+     "n_contracts": 517,
+     "total_value_bdt": 5018990000.0,
      "top_vendor_share": 0.1435,
      "top_vendor_display": "M/s. Sarker Kabir Ahamed"
     }
@@ -49151,11 +49151,11 @@
      "top_vendor_display": "M/S. Joyan Enterprise"
     },
     "2026-10": {
-     "hhi": 0.169,
-     "n_vendors": 15,
-     "n_contracts": 21,
-     "total_value_bdt": 27800000.0,
-     "top_vendor_share": 0.355,
+     "hhi": 0.1607,
+     "n_vendors": 16,
+     "n_contracts": 22,
+     "total_value_bdt": 28580000.0,
+     "top_vendor_share": 0.3453,
      "top_vendor_display": "M/S. Arnob Enterprise"
     }
    }
@@ -75455,11 +75455,11 @@
      "top_vendor_display": "Con Amore Construction"
     },
     "2026-10": {
-     "hhi": 0.1616,
-     "n_vendors": 19,
-     "n_contracts": 20,
-     "total_value_bdt": 30280000.0,
-     "top_vendor_share": 0.289,
+     "hhi": 0.1187,
+     "n_vendors": 22,
+     "n_contracts": 31,
+     "total_value_bdt": 38580000.0,
+     "top_vendor_share": 0.2268,
      "top_vendor_display": "M S International"
     }
    }
