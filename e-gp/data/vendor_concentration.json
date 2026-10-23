@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 875252,
+  "total_contracts": 875253,
   "district_month_cells_total": 10106,
   "district_month_cells_kept": 9698,
   "min_contracts_for_hhi": 3,
@@ -9993,8 +9993,8 @@
     "2026-10": {
      "hhi": 0.0542,
      "n_vendors": 385,
-     "n_contracts": 517,
-     "total_value_bdt": 5018990000.0,
+     "n_contracts": 518,
+     "total_value_bdt": 5019100000.0,
      "top_vendor_share": 0.1435,
      "top_vendor_display": "M/s. Sarker Kabir Ahamed"
     }
