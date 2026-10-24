@@ -3,8 +3,8 @@
   "generated_office_count": 9981,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 875253,
-  "nature_matched": 463299,
+  "contracts_scanned": 875256,
+  "nature_matched": 463302,
   "nature_match_rate": 0.5293
  },
  "ministries": [
@@ -60,8 +60,8 @@
   {
    "id": 9,
    "name": "Ministry of Health and Family Welfare",
-   "value_bdt": 155205020000.0,
-   "count": 30017,
+   "value_bdt": 155210010000.0,
+   "count": 30020,
    "office_count": 807
   },
   {
@@ -382,8 +382,8 @@
    "id": 27,
    "name": "Health Services Division",
    "ministry_id": 9,
-   "value_bdt": 60778170000.0,
-   "count": 12341,
+   "value_bdt": 60783160000.0,
+   "count": 12344,
    "office_count": 691
   },
   {
@@ -48573,6 +48573,14 @@
    "count": 1
   },
   {
+   "id": 7534,
+   "name": "Cumilla Sadar Daxin Upazila Health Complex , Cumilla",
+   "ministry_id": 9,
+   "division_id": 27,
+   "value_bdt": 20530000.0,
+   "count": 18
+  },
+  {
    "id": 6411,
    "name": "Strengthening of three newly created laboratories program",
    "ministry_id": 13,
@@ -52123,14 +52131,6 @@
    "division_id": 3,
    "value_bdt": 15540000.0,
    "count": 18
-  },
-  {
-   "id": 7534,
-   "name": "Cumilla Sadar Daxin Upazila Health Complex , Cumilla",
-   "ministry_id": 9,
-   "division_id": 27,
-   "value_bdt": 15540000.0,
-   "count": 15
   },
   {
    "id": 411,

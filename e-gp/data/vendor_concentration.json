@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 875253,
+  "total_contracts": 875256,
   "district_month_cells_total": 10106,
   "district_month_cells_kept": 9698,
   "min_contracts_for_hhi": 3,
@@ -31903,11 +31903,11 @@
      "top_vendor_display": "M/s. Maitry Builders"
     },
     "2026-10": {
-     "hhi": 0.1588,
-     "n_vendors": 34,
-     "n_contracts": 43,
-     "total_value_bdt": 152700000.0,
-     "top_vendor_share": 0.2579,
+     "hhi": 0.1498,
+     "n_vendors": 36,
+     "n_contracts": 46,
+     "total_value_bdt": 157690000.0,
+     "top_vendor_share": 0.2497,
      "top_vendor_display": "Sikder Enterprise"
     }
    }

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "record_count": 875253,
+  "record_count": 875256,
   "distinct_vendors": 56601
  },
  "national_by_year": {
@@ -65,8 +65,8 @@
    "value_bdt": 724502930000.0
   },
   "2026": {
-   "count": 95503,
-   "value_bdt": 656819620000.0
+   "count": 95506,
+   "value_bdt": 656824610000.0
   }
  },
  "procurement_method_by_year": {
@@ -414,8 +414,8 @@
   },
   "2026": {
    "OTM": {
-    "count": 41179,
-    "value_bdt": 504499870000.0
+    "count": 41182,
+    "value_bdt": 504504860000.0
    },
    "DPM": {
     "count": 623,
@@ -490,7 +490,7 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "value_bdt": 155143250000.0
+   "value_bdt": 155148240000.0
   },
   {
    "ministry": "Ministry of Agriculture",
@@ -978,8 +978,8 @@
     "value_bdt": 24655160000.0
    },
    "2026": {
-    "count": 6329,
-    "value_bdt": 28342740000.0
+    "count": 6332,
+    "value_bdt": 28347730000.0
    }
   },
   "Ministry of Agriculture": {
@@ -1548,8 +1548,8 @@
   },
   {
    "district": "Cumilla",
-   "count": 21765,
-   "value_bdt": 189858170000.0
+   "count": 21768,
+   "value_bdt": 189863160000.0
   },
   {
    "district": "Rangpur",
@@ -2944,7 +2944,7 @@
   }
  ],
  "tender_funnel": {
-  "record_count": 634203,
+  "record_count": 634204,
   "by_status": {
    "Contract Awarded": 460075,
    "Cancelled": 6392,
@@ -2954,7 +2954,7 @@
    "Rejected": 5850,
    "Contract Terminated": 1742,
    "Amendment/Corrigendum issued : 20": 1,
-   "Live": 15263,
+   "Live": 15264,
    "Amendment/Corrigendum issued : 1": 333,
    "Amendment/Corrigendum issued : 2": 82,
    "Amendment/Corrigendum issued : 3": 23,
@@ -3091,7 +3091,7 @@
     "Contract Terminated": 53
    },
    "2026": {
-    "Live": 15263,
+    "Live": 15264,
     "Amendment/Corrigendum issued : 1": 333,
     "Cancelled": 480,
     "Amendment/Corrigendum issued : 2": 82,
