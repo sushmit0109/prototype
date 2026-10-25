@@ -1083,11 +1083,11 @@
     "count": 9
    },
    {
-    "phrase": "Factory Building Having Foundation",
+    "phrase": "Standard Factory Building Having",
     "count": 8
    },
    {
-    "phrase": "Standard Factory Building Having",
+    "phrase": "Factory Building Having Foundation",
     "count": 8
    },
    {
@@ -1107,7 +1107,7 @@
     "count": 3
    },
    {
-    "phrase": "Having Foundation for Six",
+    "phrase": "Foundation for Six Storied",
     "count": 3
    }
   ],
@@ -4005,7 +4005,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
+    "phrase": "Mujib Shilpa Nagar Development",
     "count": 3
    },
    {
@@ -4013,11 +4013,11 @@
     "count": 3
    },
    {
-    "phrase": "Mujib Shilpa Nagar Development",
+    "phrase": "Sheikh Mujib Shilpa Nagar",
     "count": 3
    },
    {
-    "phrase": "Sheikh Mujib Shilpa Nagar",
+    "phrase": "Bangabandhu Sheikh Mujib Shilpa",
     "count": 3
    }
   ],
@@ -4643,8 +4643,8 @@
   ]
  },
  "6290": {
-  "value_bdt": 6290000.0,
-  "count": 5,
+  "value_bdt": 7940000.0,
+  "count": 6,
   "by_year": {
    "2023": {
     "value_bdt": 2360000.0,
@@ -4655,12 +4655,12 @@
     "count": 1
    },
    "2026": {
-    "value_bdt": 1340000.0,
-    "count": 2
+    "value_bdt": 2990000.0,
+    "count": 3
    }
   },
   "by_nature": {
-   "Works": 3,
+   "Works": 4,
    "Services": 1
   },
   "top_vendors": [
@@ -4668,6 +4668,11 @@
     "company": "M/s. Subecha Engineering",
     "value_bdt": 4780000.0,
     "count": 3
+   },
+   {
+    "company": "M/S. NAHID ELECTRIC & ENGINEERING",
+    "value_bdt": 1650000.0,
+    "count": 1
    },
    {
     "company": "Horizon Techno Ltd.",
@@ -4683,7 +4688,7 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [],
@@ -4703,6 +4708,13 @@
     "description": "Repair and replacement of existing battery of DC Supply system of 33/11 KV Sub-Station at Chattogram EPZ"
    },
    {
+    "package_ref": "03.06.1535.327.99.966.2026",
+    "awarded_to": "M/S. NAHID ELECTRIC & ENGINEERING",
+    "value_bdt": 1650000.0,
+    "contract_signing_date": "2026-10-25",
+    "description": "Supply & installation of catch-type cradle guard at Chattogram EPZ"
+   },
+   {
     "package_ref": "03.06.1535.327.33.943.26.1258",
     "awarded_to": "Horizon Techno Ltd.",
     "value_bdt": 870000.0,
@@ -4715,13 +4727,6 @@
     "value_bdt": 640000.0,
     "contract_signing_date": "2023-08-13",
     "description": "Painting of street light HP security light and 11 KV pole at Chattogram EPZ"
-   },
-   {
-    "package_ref": "03.06.1535.327.07.942.26.1285",
-    "awarded_to": "M/s. Subecha Engineering",
-    "value_bdt": 470000.0,
-    "contract_signing_date": "2026-07-16",
-    "description": "Supply and Installation of Reverse Osmosis (RO) water purifier at departmental buildings of Chattogram EPZ"
    }
   ]
  },
@@ -4801,15 +4806,15 @@
     "count": 4
    },
    {
-    "phrase": "Water Distribution Network Group",
-    "count": 3
-   },
-   {
-    "phrase": "Treated Water Distribution Network",
+    "phrase": "Network Group Patuakhali Project",
     "count": 3
    },
    {
     "phrase": "Distribution Network Group Patuakhali",
+    "count": 3
+   },
+   {
+    "phrase": "Treated Water Distribution Network",
     "count": 3
    }
   ],
@@ -4922,15 +4927,15 @@
     "count": 3
    },
    {
-    "phrase": "Carpeting Plot Sector Karnaphuli",
-    "count": 3
-   },
-   {
-    "phrase": "Bituminous Carpeting Plot Sector",
-    "count": 3
-   },
-   {
     "phrase": "Road Dense Bituminous Carpeting",
+    "count": 3
+   },
+   {
+    "phrase": "Dense Bituminous Carpeting Plot",
+    "count": 3
+   },
+   {
+    "phrase": "Carpeting Plot Sector Karnaphuli",
     "count": 3
    }
   ],

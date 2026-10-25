@@ -91,6 +91,10 @@
     "count": 13
    },
    {
+    "phrase": "Including Civil Sanitary Electrical",
+    "count": 4
+   },
+   {
     "phrase": "Lonjoni Para Borua Khilkhet",
     "count": 4
    },
@@ -99,23 +103,19 @@
     "count": 4
    },
    {
-    "phrase": "Including Civil Sanitary Electrical",
-    "count": 4
-   },
-   {
     "phrase": "Bhaban the Wage Earners",
     "count": 4
-   },
-   {
-    "phrase": "Welfare Board Lonjoni Para",
-    "count": 3
    },
    {
     "phrase": "Board Lonjoni Para Borua",
     "count": 3
    },
    {
-    "phrase": "Work Including Civil Sanitary",
+    "phrase": "Welfare Board Lonjoni Para",
+    "count": 3
+   },
+   {
+    "phrase": "Earners Welfare Board Lonjoni",
     "count": 3
    }
   ],
@@ -503,19 +503,19 @@
     "count": 3
    },
    {
-    "phrase": "Mouse Pen Drive Power",
-    "count": 3
-   },
-   {
-    "phrase": "Toner Keyboard Mouse Pen",
-    "count": 3
-   },
-   {
-    "phrase": "Pen Drive Power Supply",
+    "phrase": "Photocopier Toner Keyboard Mouse",
     "count": 3
    },
    {
     "phrase": "Field Center Printer Toner",
+    "count": 3
+   },
+   {
+    "phrase": "Keyboard Mouse Pen Drive",
+    "count": 3
+   },
+   {
+    "phrase": "Mouse Pen Drive Power",
     "count": 3
    }
   ],
@@ -616,19 +616,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Training Equipment and Related",
-    "count": 14
-   },
-   {
-    "phrase": "Equipment and Related Services",
-    "count": 14
-   },
-   {
     "phrase": "Related Services for Technical",
     "count": 14
    },
    {
+    "phrase": "Training Equipment and Related",
+    "count": 14
+   },
+   {
     "phrase": "Services for Technical Training",
+    "count": 14
+   },
+   {
+    "phrase": "Equipment and Related Services",
     "count": 14
    },
    {
@@ -1322,11 +1322,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 3
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 3
    },
    {
@@ -1748,11 +1748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
@@ -2454,7 +2454,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Consumable Material for Training",
+    "phrase": "Training Masonry and Graphics",
+    "count": 3
+   },
+   {
+    "phrase": "Masonry and Graphics Occupation",
     "count": 3
    },
    {
@@ -2462,11 +2466,7 @@
     "count": 3
    },
    {
-    "phrase": "Training Masonry and Graphics",
-    "count": 3
-   },
-   {
-    "phrase": "Masonry and Graphics Occupation",
+    "phrase": "Consumable Material for Training",
     "count": 3
    },
    {
@@ -2575,11 +2575,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials Spare Parts",
+    "phrase": "Parts for Different Trade",
     "count": 4
    },
    {
-    "phrase": "Parts for Different Trade",
+    "phrase": "Raw Materials Spare Parts",
     "count": 4
    },
    {
@@ -2768,11 +2768,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Tools Equipment and Raw",
+    "phrase": "Equipment and Raw Materials",
     "count": 4
    },
    {
-    "phrase": "Equipment and Raw Materials",
+    "phrase": "Tools Equipment and Raw",
     "count": 4
    },
    {
@@ -3045,7 +3045,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials Spare Parts",
+    "phrase": "Parts for Various Trade",
     "count": 3
    },
    {
@@ -3053,7 +3053,7 @@
     "count": 3
    },
    {
-    "phrase": "Parts for Various Trade",
+    "phrase": "Raw Materials Spare Parts",
     "count": 3
    },
    {
@@ -5064,11 +5064,11 @@
     "count": 3
    },
    {
-    "phrase": "Machine Shop Practice",
+    "phrase": "Electrical Installation Maintenance",
     "count": 3
    },
    {
-    "phrase": "Electrical Installation Maintenance",
+    "phrase": "Machine Shop Practice",
     "count": 3
    },
    {
@@ -5539,20 +5539,20 @@
   ]
  },
  "9766": {
-  "value_bdt": 1070000.0,
-  "count": 3,
+  "value_bdt": 1520000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 1070000.0,
-    "count": 3
+    "value_bdt": 1520000.0,
+    "count": 4
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "M/S. Jaman Enterprisre",
-    "value_bdt": 500000.0,
-    "count": 1
+    "value_bdt": 950000.0,
+    "count": 2
    },
    {
     "company": "M/S. ASAD ENTERPRISE",
@@ -5568,7 +5568,7 @@
   "top_districts": [
    {
     "district": "Lalmonirhat",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -5579,6 +5579,13 @@
     "value_bdt": 500000.0,
     "contract_signing_date": "2026-10-15",
     "description": "Supply of Raw Materials for Different Trade at TTC Lalmonirhat"
+   },
+   {
+    "package_ref": "TTC/Lal/GoB/2026-27/WO-02",
+    "awarded_to": "M/S. Jaman Enterprisre",
+    "value_bdt": 450000.0,
+    "contract_signing_date": "2026-10-25",
+    "description": "Repair Maintenance and Minor Renovation Works of Academic Building and Principal Residential Building at Lalmonirhat LTTC"
    },
    {
     "package_ref": "Purchasing of training raw materials /2025/GD-01",
@@ -5668,6 +5675,40 @@
     "value_bdt": 230000.0,
     "contract_signing_date": "2026-10-17",
     "description": "Supply of Raw Materials for Different Trade at TTC Gangachara."
+   }
+  ]
+ },
+ "9982": {
+  "value_bdt": 120000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 120000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "M/S. Mollah Enterprise",
+    "value_bdt": 120000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Khulna",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "49.01.4764.003.07.001.26.34 Date:18/10/2026",
+    "awarded_to": "M/S. Mollah Enterprise",
+    "value_bdt": 120000.0,
+    "contract_signing_date": "2026-10-25",
+    "description": "Supply of raw materials & spare parts for Computer & EIM trade Regular course October-December/26 session at TTC Paikgacha."
    }
   ]
  }

@@ -464,11 +464,11 @@
     "count": 18
    },
    {
-    "phrase": "Size Cm X Cm",
+    "phrase": "Cm X Cm X",
     "count": 18
    },
    {
-    "phrase": "Cm X Cm X",
+    "phrase": "Size Cm X Cm",
     "count": 18
    },
    {
@@ -1446,11 +1446,11 @@
     "count": 3
    },
    {
-    "phrase": "Examination and Answer Sheets",
+    "phrase": "Answer Sheets for Mental",
     "count": 3
    },
    {
-    "phrase": "Answer Sheets for Mental",
+    "phrase": "Examination and Answer Sheets",
     "count": 3
    },
    {
@@ -1803,11 +1803,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Renewal and Modernization Work",
+    "phrase": "Repair Renewal and Modernization",
     "count": 3
    },
    {
-    "phrase": "Repair Renewal and Modernization",
+    "phrase": "Renewal and Modernization Work",
     "count": 3
    },
    {
@@ -2186,11 +2186,11 @@
     "count": 5
    },
    {
-    "phrase": "Foundation Regional Center",
+    "phrase": "Regional Center Bogura",
     "count": 4
    },
    {
-    "phrase": "Regional Center Bogura",
+    "phrase": "Foundation Regional Center",
     "count": 4
    },
    {
@@ -2489,8 +2489,8 @@
   ]
  },
  "6203": {
-  "value_bdt": 35970000.0,
-  "count": 11,
+  "value_bdt": 51660000.0,
+  "count": 16,
   "by_year": {
    "2023": {
     "value_bdt": 11510000.0,
@@ -2503,16 +2503,25 @@
    "2025": {
     "value_bdt": 17970000.0,
     "count": 6
+   },
+   "2026": {
+    "value_bdt": 15690000.0,
+    "count": 5
    }
   },
   "by_nature": {
-   "Goods": 11
+   "Goods": 16
   },
   "top_vendors": [
    {
     "company": "Priyanka Printing & Publication",
-    "value_bdt": 24460000.0,
-    "count": 10
+    "value_bdt": 26980000.0,
+    "count": 11
+   },
+   {
+    "company": "M/S THE GOODLUCK PRINTERS",
+    "value_bdt": 13170000.0,
+    "count": 4
    },
    {
     "company": "M/S. Silicon Trade International",
@@ -2523,13 +2532,37 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 11
+    "count": 16
    }
   ],
   "top_phrases": [
    {
+    "phrase": "Englsh Others Khata School",
+    "count": 3
+   },
+   {
+    "phrase": "Supply Englsh Others Khata",
+    "count": 3
+   },
+   {
+    "phrase": "Supply Math Khata School",
+    "count": 3
+   },
+   {
+    "phrase": "Supply Text Book School",
+    "count": 3
+   },
+   {
+    "phrase": "Supply Bangla Khata School",
+    "count": 3
+   },
+   {
+    "phrase": "Supply Diary School",
+    "count": 3
+   },
+   {
     "phrase": "Khata School",
-    "count": 6
+    "count": 9
    }
   ],
   "top_contracts": [
@@ -2541,6 +2574,13 @@
     "description": "Printing and Supply of Books Dairies and Notebooks at BIAM schools in all over the Country."
    },
    {
+    "package_ref": "05.05.0000.000.004.18.0011.26.358",
+    "awarded_to": "M/S THE GOODLUCK PRINTERS",
+    "value_bdt": 6070000.0,
+    "contract_signing_date": "2026-10-25",
+    "description": "Supply Math Khata at BIAM School"
+   },
+   {
     "package_ref": "05.05.0000.000.004.18.0010.25-486",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 5820000.0,
@@ -2548,25 +2588,18 @@
     "description": "Supply Math Khata at BIAM School"
    },
    {
+    "package_ref": "05.05.0000.000.004.18.0011.26.357",
+    "awarded_to": "M/S THE GOODLUCK PRINTERS",
+    "value_bdt": 3340000.0,
+    "contract_signing_date": "2026-10-25",
+    "description": "Supply Diary at BIAM School"
+   },
+   {
     "package_ref": "05.05.0000.000.004.18.0010.25-485",
     "awarded_to": "Priyanka Printing & Publication",
     "value_bdt": 3100000.0,
     "contract_signing_date": "2025-11-13",
     "description": "Supply Diary at BIAM School"
-   },
-   {
-    "package_ref": "05.05.0000.004.18.009.24-GR-8-3",
-    "awarded_to": "Priyanka Printing & Publication",
-    "value_bdt": 2800000.0,
-    "contract_signing_date": "2024-11-18",
-    "description": "Supply Math Khata at BIAM School"
-   },
-   {
-    "package_ref": "05.05.0000.000.004.18.0010.25-484",
-    "awarded_to": "Priyanka Printing & Publication",
-    "value_bdt": 2460000.0,
-    "contract_signing_date": "2025-11-13",
-    "description": "Supply Text Book at BIAM School"
    }
   ]
  },
@@ -4925,11 +4958,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Academy for Development Administration",
+    "phrase": "National Academy for Development",
     "count": 6
    },
    {
-    "phrase": "National Academy for Development",
+    "phrase": "Academy for Development Administration",
     "count": 6
    },
    {

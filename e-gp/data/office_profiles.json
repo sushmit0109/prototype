@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 875256,
-  "nature_matched": 463302,
+  "record_count": 875423,
+  "nature_matched": 463388,
   "nature_match_rate": 0.529
  },
  "top_offices_by_value": [
@@ -447,6 +447,37 @@
    ]
   },
   {
+   "procuring_entity": "Office of the Executive Engineer, LGED, Tangail",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "count": 5021,
+   "value_bdt": 43873850000.0,
+   "by_nature": {
+    "Works": 1580
+   },
+   "top_vendors": [
+    {
+     "company": "M/S Durga Enterprise",
+     "value_bdt": 961550000.0
+    },
+    {
+     "company": "M/S. Das Traders",
+     "value_bdt": 879580000.0
+    },
+    {
+     "company": "M/S Chowdhury Enterprise And M/S Durga Enterprise [JV]",
+     "value_bdt": 729900000.0
+    },
+    {
+     "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
+     "value_bdt": 706430000.0
+    },
+    {
+     "company": "M/S. Taposh Traders",
+     "value_bdt": 694250000.0
+    }
+   ]
+  },
+  {
    "procuring_entity": "Office of the Executive Engineer, LGED, Comilla",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "count": 4485,
@@ -474,37 +505,6 @@
     {
      "company": "Master Enterprise",
      "value_bdt": 780480000.0
-    }
-   ]
-  },
-  {
-   "procuring_entity": "Office of the Executive Engineer, LGED, Tangail",
-   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 5002,
-   "value_bdt": 43679510000.0,
-   "by_nature": {
-    "Works": 1580
-   },
-   "top_vendors": [
-    {
-     "company": "M/S Durga Enterprise",
-     "value_bdt": 961550000.0
-    },
-    {
-     "company": "M/S. Das Traders",
-     "value_bdt": 879580000.0
-    },
-    {
-     "company": "M/S Chowdhury Enterprise And M/S Durga Enterprise [JV]",
-     "value_bdt": 729900000.0
-    },
-    {
-     "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
-     "value_bdt": 706430000.0
-    },
-    {
-     "company": "M/S. Taposh Traders",
-     "value_bdt": 694250000.0
     }
    ]
   },
@@ -824,6 +824,38 @@
    ]
   },
   {
+   "procuring_entity": "Office of the Executive Engineer, LGED, Cox'sbazar",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "count": 1694,
+   "value_bdt": 31397380000.0,
+   "by_nature": {
+    "Works": 690,
+    "Goods": 1
+   },
+   "top_vendors": [
+    {
+     "company": "Hassan Techno Builders Ltd.",
+     "value_bdt": 1478380000.0
+    },
+    {
+     "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
+     "value_bdt": 1416340000.0
+    },
+    {
+     "company": "M/S. Nipa Enterprise",
+     "value_bdt": 903450000.0
+    },
+    {
+     "company": "Delta Engineers & Consortium Ltd. - Hasan Enterprise (JV)",
+     "value_bdt": 871600000.0
+    },
+    {
+     "company": "M/S ASAD ENTERPRISE-M.M.BUILDERS & ENGINEERS LTD(JV)",
+     "value_bdt": 790100000.0
+    }
+   ]
+  },
+  {
    "procuring_entity": "Office of the Executive Engineer, LGED, Bagerhat",
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
    "count": 3020,
@@ -851,38 +883,6 @@
     {
      "company": "M/S Jhorna Enterprise",
      "value_bdt": 688610000.0
-    }
-   ]
-  },
-  {
-   "procuring_entity": "Office of the Executive Engineer, LGED, Cox'sbazar",
-   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 1692,
-   "value_bdt": 31185340000.0,
-   "by_nature": {
-    "Works": 688,
-    "Goods": 1
-   },
-   "top_vendors": [
-    {
-     "company": "Hassan Techno Builders Ltd.",
-     "value_bdt": 1478380000.0
-    },
-    {
-     "company": "Mohammed Eunus & Brothers (Pvt.) Ltd.",
-     "value_bdt": 1416340000.0
-    },
-    {
-     "company": "M/S. Nipa Enterprise",
-     "value_bdt": 903450000.0
-    },
-    {
-     "company": "Delta Engineers & Consortium Ltd. - Hasan Enterprise (JV)",
-     "value_bdt": 871600000.0
-    },
-    {
-     "company": "M/S ASAD ENTERPRISE-M.M.BUILDERS & ENGINEERS LTD(JV)",
-     "value_bdt": 790100000.0
     }
    ]
   },
@@ -953,13 +953,13 @@
  "ministries_by_value": [
   {
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "count": 361251,
-   "value_bdt": 3048860860000.0,
+   "count": 361287,
+   "value_bdt": 3049525800000.0,
    "by_nature": {
-    "Works": 139124,
+    "Works": 139135,
     "Goods": 10782,
-    "Goods (Framework Agreement)": 91,
-    "Services": 13,
+    "Goods (Framework Agreement)": 92,
+    "Services": 14,
     "Physical Services": 12
    },
    "top_vendors": [
@@ -969,7 +969,7 @@
     },
     {
      "company": "Barendra Construction Ltd.",
-     "value_bdt": 23609400000.0
+     "value_bdt": 23649530000.0
     },
     {
      "company": "NATIONAL DEVELOPMENT ENGINEERS LTD.",
@@ -987,12 +987,12 @@
   },
   {
    "ministry": "Ministry of Road Transport and Bridges",
-   "count": 49469,
-   "value_bdt": 988001280000.0,
+   "count": 49471,
+   "value_bdt": 988011240000.0,
    "by_nature": {
-    "Works": 29824,
+    "Works": 29825,
     "Goods": 15716,
-    "Goods (Framework Agreement)": 7,
+    "Goods (Framework Agreement)": 8,
     "Physical Services": 20,
     "Services": 10
    },
@@ -1021,11 +1021,11 @@
   },
   {
    "ministry": "Ministry of Education",
-   "count": 98646,
-   "value_bdt": 740602300000.0,
+   "count": 98652,
+   "value_bdt": 740638710000.0,
    "by_nature": {
-    "Goods": 26355,
-    "Works": 18302,
+    "Goods": 26357,
+    "Works": 18304,
     "Goods (Framework Agreement)": 76,
     "Physical Services": 16,
     "Services": 16
@@ -1055,8 +1055,8 @@
   },
   {
    "ministry": "Ministry of Water Resources",
-   "count": 32863,
-   "value_bdt": 696598050000.0,
+   "count": 32864,
+   "value_bdt": 696700900000.0,
    "by_nature": {
     "Works": 22356,
     "Goods": 802,
@@ -1087,10 +1087,10 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "count": 132840,
-   "value_bdt": 620658340000.0,
+   "count": 132844,
+   "value_bdt": 620673160000.0,
    "by_nature": {
-    "Works": 47611,
+    "Works": 47612,
     "Goods": 3124,
     "Goods (Framework Agreement)": 54,
     "Physical Services": 112
@@ -1120,13 +1120,13 @@
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "count": 55565,
-   "value_bdt": 299155170000.0,
+   "count": 55606,
+   "value_bdt": 299184970000.0,
    "by_nature": {
-    "Goods": 17558,
-    "Works": 24926,
+    "Goods": 17568,
+    "Works": 24930,
     "Goods (Framework Agreement)": 46,
-    "Physical Services": 180
+    "Physical Services": 181
    },
    "top_vendors": [
     {
@@ -1186,13 +1186,13 @@
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "count": 30001,
-   "value_bdt": 155148240000.0,
+   "count": 30019,
+   "value_bdt": 155168660000.0,
    "by_nature": {
-    "Goods": 12106,
+    "Goods": 12118,
     "Works": 4697,
-    "Goods (Framework Agreement)": 942,
-    "Physical Services": 127,
+    "Goods (Framework Agreement)": 946,
+    "Physical Services": 129,
     "Services": 1
    },
    "top_vendors": [
@@ -1220,10 +1220,10 @@
   },
   {
    "ministry": "Ministry of Agriculture",
-   "count": 25790,
-   "value_bdt": 113655230000.0,
+   "count": 25794,
+   "value_bdt": 113680080000.0,
    "by_nature": {
-    "Goods": 4393,
+    "Goods": 4394,
     "Works": 18850,
     "Goods (Framework Agreement)": 15,
     "Physical Services": 46,
@@ -1254,12 +1254,12 @@
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "count": 15195,
-   "value_bdt": 90734650000.0,
+   "count": 15206,
+   "value_bdt": 90775410000.0,
    "by_nature": {
-    "Goods": 11526,
-    "Works": 1358,
-    "Goods (Framework Agreement)": 622,
+    "Goods": 11531,
+    "Works": 1359,
+    "Goods (Framework Agreement)": 625,
     "Physical Services": 44
    },
    "top_vendors": [
@@ -1320,11 +1320,11 @@
   },
   {
    "ministry": "Ministry of Fisheries & Livestock",
-   "count": 5475,
-   "value_bdt": 53958770000.0,
+   "count": 5478,
+   "value_bdt": 53964130000.0,
    "by_nature": {
     "Works": 1341,
-    "Goods": 3507,
+    "Goods": 3508,
     "Goods (Framework Agreement)": 109,
     "Physical Services": 10,
     "Services": 1
@@ -1354,8 +1354,8 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "count": 1557,
-   "value_bdt": 53174950000.0,
+   "count": 1562,
+   "value_bdt": 53175820000.0,
    "by_nature": {
     "Goods": 690,
     "Works": 395,
@@ -1421,11 +1421,11 @@
   },
   {
    "ministry": "Ministry of Railways",
-   "count": 8827,
-   "value_bdt": 45718210000.0,
+   "count": 8834,
+   "value_bdt": 45727140000.0,
    "by_nature": {
-    "Works": 5898,
-    "Goods": 2466,
+    "Works": 5899,
+    "Goods": 2472,
     "Goods (Framework Agreement)": 14,
     "Physical Services": 11
    },
@@ -1517,13 +1517,13 @@
   },
   {
    "ministry": "Ministry of Industries",
-   "count": 5037,
-   "value_bdt": 35007510000.0,
+   "count": 5043,
+   "value_bdt": 35056140000.0,
    "by_nature": {
     "Goods": 2338,
-    "Works": 352,
+    "Works": 353,
     "Goods (Framework Agreement)": 13,
-    "Physical Services": 65,
+    "Physical Services": 66,
     "Services": 1
    },
    "top_vendors": [
@@ -1584,11 +1584,11 @@
   },
   {
    "ministry": "Prime Minister's Office",
-   "count": 1188,
-   "value_bdt": 32848450000.0,
+   "count": 1189,
+   "value_bdt": 32850100000.0,
    "by_nature": {
     "Goods": 125,
-    "Works": 918,
+    "Works": 919,
     "Goods (Framework Agreement)": 32,
     "Physical Services": 5,
     "Services": 2
@@ -1618,11 +1618,11 @@
   },
   {
    "ministry": "Ministry of Finance",
-   "count": 2898,
-   "value_bdt": 23977790000.0,
+   "count": 2907,
+   "value_bdt": 23994350000.0,
    "by_nature": {
-    "Goods": 1306,
-    "Works": 211,
+    "Goods": 1308,
+    "Works": 215,
     "Goods (Framework Agreement)": 39,
     "Physical Services": 13,
     "Services": 7
@@ -1683,11 +1683,11 @@
   },
   {
    "ministry": "Ministry of Science and Technology",
-   "count": 1470,
-   "value_bdt": 13827840000.0,
+   "count": 1471,
+   "value_bdt": 13828710000.0,
    "by_nature": {
     "Goods": 963,
-    "Works": 300,
+    "Works": 301,
     "Goods (Framework Agreement)": 9,
     "Physical Services": 7
    },
@@ -1749,8 +1749,8 @@
   },
   {
    "ministry": "Ministry of Environment, Forest and Climate Change",
-   "count": 3642,
-   "value_bdt": 8955910000.0,
+   "count": 3646,
+   "value_bdt": 8957010000.0,
    "by_nature": {
     "Goods": 1616,
     "Works": 1190,
@@ -1783,10 +1783,10 @@
   },
   {
    "ministry": "Ministry of Public Administration",
-   "count": 1250,
-   "value_bdt": 7625250000.0,
+   "count": 1255,
+   "value_bdt": 7640940000.0,
    "by_nature": {
-    "Goods": 864,
+    "Goods": 869,
     "Works": 97,
     "Goods (Framework Agreement)": 56,
     "Physical Services": 10
@@ -1913,8 +1913,8 @@
   },
   {
    "ministry": "Ministry of Expatriates' Welfare and Overseas Employment",
-   "count": 536,
-   "value_bdt": 4153710000.0,
+   "count": 538,
+   "value_bdt": 4154280000.0,
    "by_nature": {
     "Goods": 203,
     "Works": 30,
@@ -2141,8 +2141,8 @@
   },
   {
    "ministry": "Ministry of Information And Broadcasting",
-   "count": 529,
-   "value_bdt": 1044580000.0,
+   "count": 530,
+   "value_bdt": 1044730000.0,
    "by_nature": {
     "Goods": 242,
     "Works": 93,
@@ -2515,8 +2515,8 @@
  "cross_departmental_vendors": [
   {
    "company": "Smart Technologies (BD) Ltd.",
-   "value_bdt": 11949740000.0,
-   "count": 830,
+   "value_bdt": 11950380000.0,
+   "count": 831,
    "distinct_ministries": 41,
    "ministries": [
     {
@@ -3139,8 +3139,8 @@
   },
   {
    "company": "Furniture Concept & Interior Ltd.",
-   "value_bdt": 2466970000.0,
-   "count": 204,
+   "value_bdt": 2480600000.0,
+   "count": 205,
    "distinct_ministries": 24,
    "ministries": [
     {
@@ -3149,7 +3149,7 @@
     },
     {
      "ministry": "Ministry of Education",
-     "value_bdt": 778520000.0
+     "value_bdt": 792150000.0
     },
     {
      "ministry": "Ministry of Health and Family Welfare",
@@ -3379,8 +3379,8 @@
   },
   {
    "company": "Global Brand PLC.",
-   "value_bdt": 2468410000.0,
-   "count": 115,
+   "value_bdt": 2469380000.0,
+   "count": 116,
    "distinct_ministries": 22,
    "ministries": [
     {
@@ -3397,7 +3397,7 @@
     },
     {
      "ministry": "Ministry of Finance",
-     "value_bdt": 129800000.0
+     "value_bdt": 130770000.0
     },
     {
      "ministry": "Ministry of Land",
@@ -3715,8 +3715,8 @@
   },
   {
    "company": "M/S Mahi Enterprise",
-   "value_bdt": 1346090000.0,
-   "count": 507,
+   "value_bdt": 1346350000.0,
+   "count": 508,
    "distinct_ministries": 21,
    "ministries": [
     {
