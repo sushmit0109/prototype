@@ -379,15 +379,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Item Size Gm Sheets",
-    "count": 8
-   },
-   {
     "phrase": "Office Stationary Item Size",
     "count": 8
    },
    {
-    "phrase": "Gm Sheets Ream Offset",
+    "phrase": "Size Gm Sheets Ream",
     "count": 8
    },
    {
@@ -399,7 +395,11 @@
     "count": 8
    },
    {
-    "phrase": "Size Gm Sheets Ream",
+    "phrase": "Item Size Gm Sheets",
+    "count": 8
+   },
+   {
+    "phrase": "Gm Sheets Ream Offset",
     "count": 8
    },
    {
@@ -407,7 +407,7 @@
     "count": 7
    },
    {
-    "phrase": "Basic Weight Gsm Size",
+    "phrase": "Type Copy Paper Basic",
     "count": 4
    }
   ],
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Paper Gsm White Paper",
+    "phrase": "Offset Paper Gsm White",
     "count": 3
    }
   ],
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
-    "phrase": "Equipment Laptop Desktop Computer",
-    "count": 3
-   },
-   {
     "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
     "phrase": "Other Equipment Laptop Desktop",
+    "count": 3
+   },
+   {
+    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
@@ -4358,12 +4358,12 @@
   ]
  },
  "9589": {
-  "value_bdt": 4980000.0,
-  "count": 1,
+  "value_bdt": 6320000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 4980000.0,
-    "count": 1
+    "value_bdt": 6320000.0,
+    "count": 2
    }
   },
   "by_nature": {
@@ -4374,12 +4374,17 @@
     "company": "Global Brand PLC.",
     "value_bdt": 4980000.0,
     "count": 1
+   },
+   {
+    "company": "Biva Solution",
+    "value_bdt": 1340000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
@@ -4390,6 +4395,13 @@
     "value_bdt": 4980000.0,
     "contract_signing_date": "2026-03-16",
     "description": "Supply of Computer Laptop & Printer for SDPP Project"
+   },
+   {
+    "package_ref": "20.29.0000.000.14.033.25-849",
+    "awarded_to": "Biva Solution",
+    "value_bdt": 1340000.0,
+    "contract_signing_date": "2026-10-26",
+    "description": "Procurement of Batteries for Online UPS of Data Center"
    }
   ]
  },

@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 875423,
-  "matched_pairs": 120072,
+  "contracts_scanned": 875554,
+  "matched_pairs": 120074,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4066,
   "pairs_excluded_generic": 2536,
@@ -20,7 +20,7 @@
    "<70%": 2754,
    "70-85%": 7586,
    "85-95%": 64340,
-   "95-100%": 36894,
+   "95-100%": 36896,
    "100-115%": 7560,
    ">115%": 938
   },
@@ -61,9 +61,9 @@
    "0.93": 8990,
    "0.94": 9207,
    "0.95": 23248,
-   "0.96": 4395,
+   "0.96": 4396,
    "0.97": 2163,
-   "0.98": 2316,
+   "0.98": 2317,
    "0.99": 3953,
    "1.00": 13429,
    "1.01": 1229,
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119844,
+  "unchanged": 119846,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61057,
-   "LTM->LTM": 55365,
+   "OTM->OTM": 61058,
+   "LTM->LTM": 55366,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
    "RFQ->RFQ": 350,
@@ -528,10 +528,10 @@
    },
    {
     "ministry": "Ministry of Science and Technology",
-    "matched_pairs": 161,
-    "median_ratio": 0.8889,
-    "iqr": 0.2006,
-    "share_above_115": 0.0186,
+    "matched_pairs": 162,
+    "median_ratio": 0.8907,
+    "iqr": 0.2031,
+    "share_above_115": 0.0185,
     "share_at_10pct_below": 0.0062
    },
    {
@@ -616,8 +616,8 @@
    },
    {
     "ministry": "Ministry of Shipping",
-    "matched_pairs": 1161,
-    "median_ratio": 0.9871,
+    "matched_pairs": 1162,
+    "median_ratio": 0.987,
     "iqr": 0.0635,
     "share_above_115": 0.0052,
     "share_at_10pct_below": 0.0267
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11725,
+    "matched_pairs": 11727,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9307,
+    "matched_pairs": 9309,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,

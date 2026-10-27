@@ -464,11 +464,11 @@
     "count": 18
    },
    {
-    "phrase": "Cm X Cm X",
+    "phrase": "Size Cm X Cm",
     "count": 18
    },
    {
-    "phrase": "Size Cm X Cm",
+    "phrase": "Cm X Cm X",
     "count": 18
    },
    {
@@ -584,11 +584,11 @@
     "count": 5
    },
    {
-    "phrase": "Pourashava Construction",
+    "phrase": "South Side",
     "count": 3
    },
    {
-    "phrase": "South Side",
+    "phrase": "Pourashava Construction",
     "count": 3
    },
    {
@@ -814,11 +814,11 @@
     "count": 23
    },
    {
-    "phrase": "Pourashava Area Dist Dinajpur",
+    "phrase": "Hili Pourashava Area Dist",
     "count": 5
    },
    {
-    "phrase": "Hili Pourashava Area Dist",
+    "phrase": "Pourashava Area Dist Dinajpur",
     "count": 5
    },
    {
@@ -1438,11 +1438,11 @@
     "count": 3
    },
    {
-    "phrase": "Color Printer Spare Parts",
+    "phrase": "Lexmark Color Printer Spare",
     "count": 3
    },
    {
-    "phrase": "Lexmark Color Printer Spare",
+    "phrase": "Color Printer Spare Parts",
     "count": 3
    },
    {
@@ -1450,11 +1450,11 @@
     "count": 3
    },
    {
-    "phrase": "Examination and Answer Sheets",
+    "phrase": "Sheets for Mental Ability",
     "count": 3
    },
    {
-    "phrase": "Sheets for Mental Ability",
+    "phrase": "Examination and Answer Sheets",
     "count": 3
    },
    {
@@ -1803,11 +1803,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Repair Renewal and Modernization",
+    "phrase": "Renewal and Modernization Work",
     "count": 3
    },
    {
-    "phrase": "Renewal and Modernization Work",
+    "phrase": "Repair Renewal and Modernization",
     "count": 3
    },
    {
@@ -2537,11 +2537,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Englsh Others Khata School",
+    "phrase": "Supply Englsh Others Khata",
     "count": 3
    },
    {
-    "phrase": "Supply Englsh Others Khata",
+    "phrase": "Englsh Others Khata School",
     "count": 3
    },
    {
@@ -4958,11 +4958,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "National Academy for Development",
+    "phrase": "Academy for Development Administration",
     "count": 6
    },
    {
-    "phrase": "Academy for Development Administration",
+    "phrase": "National Academy for Development",
     "count": 6
    },
    {
@@ -5303,16 +5303,23 @@
   ]
  },
  "9020": {
-  "value_bdt": 1040000.0,
-  "count": 1,
+  "value_bdt": 3970000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 1040000.0,
-    "count": 1
+    "value_bdt": 3970000.0,
+    "count": 2
    }
   },
-  "by_nature": {},
+  "by_nature": {
+   "Goods": 1
+  },
   "top_vendors": [
+   {
+    "company": "BASHU DEV DAS",
+    "value_bdt": 2930000.0,
+    "count": 1
+   },
    {
     "company": "Engineers Pac Bangladesh Ltd.",
     "value_bdt": 1040000.0,
@@ -5322,11 +5329,18 @@
   "top_districts": [
    {
     "district": "Shariatpur",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "05.30.8600.000.009.04.0001.26.300",
+    "awarded_to": "BASHU DEV DAS",
+    "value_bdt": 2930000.0,
+    "contract_signing_date": "2026-10-26",
+    "description": "Expenses for various stationery and office supplies (including pen holders files calculators paper forms writing instruments stamps binders envelopes ID accesso"
+   },
    {
     "package_ref": "05.30.8600.000.006.12.0031.26-210",
     "awarded_to": "Engineers Pac Bangladesh Ltd.",
