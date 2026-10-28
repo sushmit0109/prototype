@@ -151,10 +151,6 @@
     "count": 4
    },
    {
-    "phrase": "Office Cum Factory Building",
-    "count": 3
-   },
-   {
     "phrase": "Factory Building Light Assembling",
     "count": 3
    },
@@ -163,11 +159,15 @@
     "count": 3
    },
    {
-    "phrase": "Storied Office Cum Factory",
+    "phrase": "Cum Factory Building Light",
     "count": 3
    },
    {
-    "phrase": "Cum Factory Building Light",
+    "phrase": "Office Cum Factory Building",
+    "count": 3
+   },
+   {
+    "phrase": "Storied Office Cum Factory",
     "count": 3
    },
    {
@@ -549,31 +549,31 @@
     "count": 7
    },
    {
-    "phrase": "Imported the Produced Through",
-    "count": 6
-   },
-   {
-    "phrase": "Transportation Authorized Ratio Bag",
-    "count": 6
-   },
-   {
-    "phrase": "Ratio Bag Factories Bag",
-    "count": 6
-   },
-   {
-    "phrase": "Sheds and Different Roads",
-    "count": 6
-   },
-   {
     "phrase": "Stack Depending the Roads",
     "count": 6
    },
    {
-    "phrase": "Barge Wagon and Trucks",
+    "phrase": "Roads the Same Way",
     "count": 6
    },
    {
-    "phrase": "Various Roads the Same",
+    "phrase": "Packaged Urea Fertilizer Imported",
+    "count": 6
+   },
+   {
+    "phrase": "Roads Bags Double Height",
+    "count": 6
+   },
+   {
+    "phrase": "Retransport All Necessary Sacks",
+    "count": 6
+   },
+   {
+    "phrase": "Necessary Sacks for Different",
+    "count": 6
+   },
+   {
+    "phrase": "Transportation Authorized Ratio Bag",
     "count": 6
    }
   ],
@@ -788,12 +788,16 @@
     "count": 19
    },
    {
+    "phrase": "Colony Tarakandi Sarishabari Jamalpur",
+    "count": 9
+   },
+   {
     "phrase": "Housing Colony Tarakandi Sarishabari",
     "count": 9
    },
    {
-    "phrase": "Colony Tarakandi Sarishabari Jamalpur",
-    "count": 9
+    "phrase": "Annual Maintenance Plumbing Carpentry",
+    "count": 6
    },
    {
     "phrase": "Plumbing Carpentry Works Housing",
@@ -801,10 +805,6 @@
    },
    {
     "phrase": "Maintenance Plumbing Carpentry Works",
-    "count": 6
-   },
-   {
-    "phrase": "Annual Maintenance Plumbing Carpentry",
     "count": 6
    },
    {
@@ -984,8 +984,8 @@
   ]
  },
  "2355": {
-  "value_bdt": 124780000.0,
-  "count": 131,
+  "value_bdt": 133130000.0,
+  "count": 132,
   "by_year": {
    "2018": {
     "value_bdt": 12750000.0,
@@ -1016,12 +1016,12 @@
     "count": 17
    },
    "2026": {
-    "value_bdt": 43510000.0,
-    "count": 33
+    "value_bdt": 51860000.0,
+    "count": 34
    }
   },
   "by_nature": {
-   "Goods": 95,
+   "Goods": 96,
    "Services": 7
   },
   "top_vendors": [
@@ -1036,6 +1036,11 @@
     "count": 2
    },
    {
+    "company": "CITY ENGINEERING WORKS",
+    "value_bdt": 8350000.0,
+    "count": 1
+   },
+   {
     "company": "M/S Shah Traders",
     "value_bdt": 7170000.0,
     "count": 1
@@ -1044,38 +1049,17 @@
     "company": "M/S BONDHU ENTERPRISE",
     "value_bdt": 6810000.0,
     "count": 13
-   },
-   {
-    "company": "WATA Chemicals Limited",
-    "value_bdt": 5070000.0,
-    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Jamalpur",
-    "count": 131
+    "count": 132
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Similar Transports for Two",
-    "count": 7
-   },
-   {
-    "phrase": "Bagged Urea Fertilizer Trucks",
-    "count": 7
-   },
-   {
-    "phrase": "Urea Fertilizer Trucks Similar",
-    "count": 7
-   },
-   {
-    "phrase": "Fertilizer Trucks Similar Transports",
-    "count": 7
-   },
-   {
-    "phrase": "Controlled Jamuna Fertilizer Company",
+    "phrase": "Appointment for Loading Handling",
     "count": 7
    },
    {
@@ -1083,15 +1067,38 @@
     "count": 7
    },
    {
-    "phrase": "Contractor Appointment for Loading",
+    "phrase": "Which Controlled Jamuna Fertilizer",
     "count": 7
    },
    {
-    "phrase": "Inside and Various Open",
+    "phrase": "Fertilizer Trucks Similar Transports",
+    "count": 7
+   },
+   {
+    "phrase": "Bagged Urea Fertilizer Trucks",
+    "count": 7
+   },
+   {
+    "phrase": "Jamuna Fertilizer Company Limited",
+    "count": 7
+   },
+   {
+    "phrase": "Similar Transports for Two",
+    "count": 7
+   },
+   {
+    "phrase": "Contractor Appointment for Loading",
     "count": 7
    }
   ],
   "top_contracts": [
+   {
+    "package_ref": "JFCL/LP/MAINTENANCE/PM/4.2854",
+    "awarded_to": "CITY ENGINEERING WORKS",
+    "value_bdt": 8350000.0,
+    "contract_signing_date": "2026-10-27",
+    "description": "Complete Set of after Cooler & Chilled Cooler for Ammonia Plant's NG Booster Compressor with Installation & Commissioning"
+   },
    {
     "package_ref": "JFCL/LP/OPERATION/UTILITY/7.272",
     "awarded_to": "M/S AFFIX CORPORATION",
@@ -1119,13 +1126,6 @@
     "value_bdt": 5650000.0,
     "contract_signing_date": "2020-03-23",
     "description": "100 M.T Caustic Soda (Flake)"
-   },
-   {
-    "package_ref": "JFCL/LP/OPERATION/UTILITY/6.306/219 dt. 19-12-18",
-    "awarded_to": "M/S AFFIX CORPORATION",
-    "value_bdt": 5480000.0,
-    "contract_signing_date": "2019-03-27",
-    "description": "100 MT Caustic Soda (Flake)"
    }
   ]
  },
@@ -1263,15 +1263,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Storied Foundation Storied Building",
+    "count": 3
+   },
+   {
     "phrase": "Centre and Dormitory Building",
     "count": 3
    },
    {
     "phrase": "Training Centre and Dormitory",
-    "count": 3
-   },
-   {
-    "phrase": "Storied Foundation Storied Building",
     "count": 3
    }
   ],
@@ -1307,8 +1307,8 @@
   ]
  },
  "2496": {
-  "value_bdt": 335340000.0,
-  "count": 508,
+  "value_bdt": 335660000.0,
+  "count": 509,
   "by_year": {
    "2018": {
     "value_bdt": 1140000.0,
@@ -1343,8 +1343,8 @@
     "count": 33
    },
    "2026": {
-    "value_bdt": 20510000.0,
-    "count": 32
+    "value_bdt": 20830000.0,
+    "count": 33
    }
   },
   "by_nature": {
@@ -1380,7 +1380,7 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 503
+    "count": 504
    },
    {
     "district": "Chittagong",
@@ -1401,11 +1401,11 @@
     "count": 4
    },
    {
-    "phrase": "Procurement for Spare Parts",
+    "phrase": "Parts Replace and Maintenance",
     "count": 4
    },
    {
-    "phrase": "Parts Replace and Maintenance",
+    "phrase": "Procurement for Spare Parts",
     "count": 4
    },
    {
@@ -1782,11 +1782,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Yearly Civil Maintenance Work",
+    "phrase": "Shed and Others Area",
     "count": 6
    },
    {
-    "phrase": "Shed and Others Area",
+    "phrase": "Yearly Civil Maintenance Work",
     "count": 6
    },
    {
@@ -1940,7 +1940,11 @@
     "count": 8
    },
    {
-    "phrase": "Via Headload and Loading",
+    "phrase": "Headload and Loading Approximately",
+    "count": 7
+   },
+   {
+    "phrase": "Carrying It Via Headload",
     "count": 7
    },
    {
@@ -1948,7 +1952,7 @@
     "count": 7
    },
    {
-    "phrase": "Unloading Bagged Fertilizer Per",
+    "phrase": "Lakh Bags More Less",
     "count": 7
    },
    {
@@ -1956,15 +1960,11 @@
     "count": 7
    },
    {
-    "phrase": "Headload and Loading Approximately",
-    "count": 7
-   },
-   {
     "phrase": "Fertilizer Per Bag Stacks",
     "count": 7
    },
    {
-    "phrase": "Carrying It Via Headload",
+    "phrase": "Bagged Fertilizer Per Bag",
     "count": 7
    }
   ],
@@ -2235,11 +2235,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Work for Maintenance Construction",
+    "phrase": "Renovation Work for Maintenance",
     "count": 3
    },
    {
-    "phrase": "Renovation Work for Maintenance",
+    "phrase": "Work for Maintenance Construction",
     "count": 3
    },
    {
@@ -3186,11 +3186,11 @@
     "count": 10
    },
    {
-    "phrase": "Housing Colony All Type",
+    "phrase": "Colony All Type Building",
     "count": 8
    },
    {
-    "phrase": "Colony All Type Building",
+    "phrase": "Housing Colony All Type",
     "count": 8
    },
    {
@@ -3206,7 +3206,7 @@
     "count": 6
    },
    {
-    "phrase": "Maintenance Works for New",
+    "phrase": "Yearly Civil Maintenance Works",
     "count": 6
    }
   ],
@@ -5016,8 +5016,8 @@
   ]
  },
  "4245": {
-  "value_bdt": 90290000.0,
-  "count": 10,
+  "value_bdt": 93680000.0,
+  "count": 11,
   "by_year": {
    "2020": {
     "value_bdt": 7450000.0,
@@ -5042,16 +5042,21 @@
    "2025": {
     "value_bdt": 9950000.0,
     "count": 2
+   },
+   "2026": {
+    "value_bdt": 3390000.0,
+    "count": 1
    }
   },
   "by_nature": {
-   "Works": 10
+   "Works": 10,
+   "Services": 1
   },
   "top_vendors": [
    {
     "company": "M/s. Zahirul Islam",
-    "value_bdt": 83930000.0,
-    "count": 7
+    "value_bdt": 87320000.0,
+    "count": 8
    },
    {
     "company": "M/S. Alamgir Enterprise",
@@ -5062,18 +5067,10 @@
   "top_districts": [
    {
     "district": "Brahmanbaria",
-    "count": 10
+    "count": 11
    }
   ],
   "top_phrases": [
-   {
-    "phrase": "Sew Stack After Filling",
-    "count": 3
-   },
-   {
-    "phrase": "Insert Polythene Bag Hessian",
-    "count": 3
-   },
    {
     "phrase": "Fill Urea These Bags",
     "count": 3
@@ -5083,11 +5080,15 @@
     "count": 3
    },
    {
-    "phrase": "Polythene Bag Hessian Sacking",
+    "phrase": "Insert Polythene Bag Hessian",
     "count": 3
    },
    {
-    "phrase": "Stack the Bag Definite",
+    "phrase": "Sew Stack After Filling",
+    "count": 3
+   },
+   {
+    "phrase": "Polythene Bag Hessian Sacking",
     "count": 3
    },
    {
@@ -5096,6 +5097,10 @@
    },
    {
     "phrase": "Bag Stack the Bag",
+    "count": 3
+   },
+   {
+    "phrase": "Places After Sewing Case",
     "count": 3
    }
   ],
@@ -5562,8 +5567,8 @@
   ]
  },
  "4808": {
-  "value_bdt": 65930000.0,
-  "count": 74,
+  "value_bdt": 66330000.0,
+  "count": 75,
   "by_year": {
    "2021": {
     "value_bdt": 430000.0,
@@ -5578,8 +5583,8 @@
     "count": 29
    },
    "2026": {
-    "value_bdt": 15390000.0,
-    "count": 25
+    "value_bdt": 15790000.0,
+    "count": 26
    }
   },
   "by_nature": {
@@ -5616,16 +5621,20 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 74
+    "count": 75
    }
   ],
   "top_phrases": [
+   {
+    "phrase": "Installation and Maintenance Trade",
+    "count": 3
+   },
    {
     "phrase": "Training Material for Machine",
     "count": 3
    },
    {
-    "phrase": "Installation and Maintenance Trade",
+    "phrase": "Material for Machine Shop",
     "count": 3
    },
    {
@@ -5634,10 +5643,6 @@
    },
    {
     "phrase": "Electrical Installation and Maintenance",
-    "count": 3
-   },
-   {
-    "phrase": "Material for Machine Shop",
     "count": 3
    },
    {
@@ -5650,7 +5655,7 @@
    },
    {
     "phrase": "Various Type",
-    "count": 13
+    "count": 14
    }
   ],
   "top_contracts": [
@@ -6200,11 +6205,7 @@
     "count": 8
    },
    {
-    "phrase": "More Less Bagged Urea",
-    "count": 6
-   },
-   {
-    "phrase": "Less Bagged Urea Fertilizer",
+    "phrase": "Similar Transport for One",
     "count": 6
    },
    {
@@ -6216,15 +6217,19 @@
     "count": 6
    },
    {
+    "phrase": "More Less Bagged Urea",
+    "count": 6
+   },
+   {
     "phrase": "Godown Controlled Shahjalal Fertilizer",
     "count": 6
    },
    {
-    "phrase": "Similar Transport for One",
+    "phrase": "Less Bagged Urea Fertilizer",
     "count": 6
    },
    {
-    "phrase": "Urea Fertilizer Trucks Similar",
+    "phrase": "Thousand More Less Bagged",
     "count": 5
    }
   ],
@@ -6872,8 +6877,8 @@
   ]
  },
  "6159": {
-  "value_bdt": 714980000.0,
-  "count": 247,
+  "value_bdt": 716930000.0,
+  "count": 249,
   "by_year": {
    "2023": {
     "value_bdt": 1120000.0,
@@ -6888,12 +6893,12 @@
     "count": 103
    },
    "2026": {
-    "value_bdt": 388750000.0,
-    "count": 114
+    "value_bdt": 390700000.0,
+    "count": 116
    }
   },
   "by_nature": {
-   "Goods": 169,
+   "Goods": 170,
    "Works": 1,
    "Services": 4
   },
@@ -6927,7 +6932,7 @@
   "top_districts": [
    {
     "district": "Norshingdi",
-    "count": 247
+    "count": 249
    }
   ],
   "top_phrases": [
@@ -6944,10 +6949,6 @@
     "count": 4
    },
    {
-    "phrase": "Card Module and Related",
-    "count": 4
-   },
-   {
     "phrase": "Module and Related Field",
     "count": 4
    },
@@ -6957,6 +6958,10 @@
    },
    {
     "phrase": "Related Field Device Spares",
+    "count": 4
+   },
+   {
+    "phrase": "Card Module and Related",
     "count": 4
    },
    {
@@ -8702,11 +8707,11 @@
     "count": 4
    },
    {
-    "phrase": "Opposite Side",
+    "phrase": "Hold Bottles",
     "count": 3
    },
    {
-    "phrase": "Material Brown",
+    "phrase": "Opposite Side",
     "count": 3
    }
   ],

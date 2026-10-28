@@ -2,11 +2,11 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 875554,
-  "matched_pairs": 120074,
+  "contracts_scanned": 875687,
+  "matched_pairs": 120076,
   "match_rate_of_plan": 0.1607,
-  "generic_refs_excluded": 4066,
-  "pairs_excluded_generic": 2536,
+  "generic_refs_excluded": 4067,
+  "pairs_excluded_generic": 2537,
   "pairs_excluded_sanity": 291
  },
  "award_vs_estimate": {
@@ -19,9 +19,9 @@
   "buckets": {
    "<70%": 2754,
    "70-85%": 7586,
-   "85-95%": 64340,
+   "85-95%": 64341,
    "95-100%": 36896,
-   "100-115%": 7560,
+   "100-115%": 7561,
    ">115%": 938
   },
   "fine_histogram": {
@@ -55,7 +55,7 @@
    "0.87": 1670,
    "0.88": 2338,
    "0.89": 3724,
-   "0.90": 23915,
+   "0.90": 23916,
    "0.91": 2269,
    "0.92": 1596,
    "0.93": 8990,
@@ -67,7 +67,7 @@
    "0.99": 3953,
    "1.00": 13429,
    "1.01": 1229,
-   "1.02": 418,
+   "1.02": 419,
    "1.03": 258,
    "1.04": 264,
    "1.05": 268,
@@ -88,7 +88,7 @@
    "1.20": 26
   },
   "overrun_bands": {
-   "100-105%": 6368,
+   "100-105%": 6369,
    "105-110%": 910,
    "110-115%": 282,
    "115-125%": 186,
@@ -98,7 +98,7 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23927,
+    "count": 23928,
     "share": 0.1993
    },
    "at_5pct_below": {
@@ -115,7 +115,7 @@
    }
   },
   "overrun_summary": {
-   "count_above_estimate": 8498,
+   "count_above_estimate": 8499,
    "count_above_115": 938,
    "share_above_115_of_matched": 0.0078,
    "median_ratio_above_115": 1.6156,
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119846,
+  "unchanged": 119848,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61058,
-   "LTM->LTM": 55366,
+   "OTM->OTM": 61059,
+   "LTM->LTM": 55367,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
    "RFQ->RFQ": 350,
@@ -592,7 +592,7 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70879,
+    "matched_pairs": 70880,
     "median_ratio": 0.9456,
     "iqr": 0.0535,
     "share_above_115": 0.0066,
@@ -600,9 +600,9 @@
    },
    {
     "ministry": "Ministry of Civil Aviation & Tourism",
-    "matched_pairs": 978,
-    "median_ratio": 0.9977,
-    "iqr": 0.017,
+    "matched_pairs": 979,
+    "median_ratio": 0.9978,
+    "iqr": 0.0171,
     "share_above_115": 0.0061,
     "share_at_10pct_below": 0.047
    },
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11727,
+    "matched_pairs": 11729,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9309,
+    "matched_pairs": 9311,
     "median_ratio": 0.9444,
-    "iqr": 0.0551,
+    "iqr": 0.0552,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0536
+    "share_at_10pct_below": 0.0537
    }
   ],
   "min_pairs_for_ministry": 30
