@@ -1,10 +1,10 @@
 {
- "built_at":"2026-10-27T22:58:43+00:00",
+ "built_at":"2026-10-28T02:19:10+00:00",
  "coverage":{
   "hourly":{
    "from":"2015-04-17T00:00",
-   "to":"2026-10-28T00:00",
-   "rows":99992,
+   "to":"2026-10-28T06:00",
+   "rows":99998,
    "months":[
     "2015-04",
     "2015-05",
@@ -158,9 +158,9 @@
    "to":"2026-10-25"
   },
   "areawise":{
-   "days":4218,
+   "days":4219,
    "usable":3873,
-   "suspect":345
+   "suspect":346
   }
  },
  "sources":[
@@ -183,7 +183,7 @@
    "name_en":"BPDB area-wise demand",
    "name_bn":"বিপিডিবি এলাকাভিত্তিক চাহিদা",
    "url":"https://misc.bpdb.gov.bd/area-wise-demand",
-   "latest":"2026-10-27"
+   "latest":"2026-10-28"
   },
   {
    "id":"pgcb_erp",
