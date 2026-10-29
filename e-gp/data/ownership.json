@@ -1,8 +1,8 @@
 {
  "meta": {
-  "vendors_sampled": 20071,
-  "vendors_with_owner_data": 8418,
-  "vendors_with_tenderer_id": 8607,
+  "vendors_sampled": 20073,
+  "vendors_with_owner_data": 8420,
+  "vendors_with_tenderer_id": 8609,
   "owner_data_coverage": 0.419
  },
  "shared_owner_groups": [
@@ -2096,6 +2096,33 @@
      "owner_name_as_shown": "Tanjima Binthe Mostafa",
      "designation": "Director",
      "ownership_pct": "12.50"
+    }
+   ],
+   "distinct_companies": 3
+  },
+  {
+   "owner_key": "khademul islam (jony)",
+   "companies": [
+    {
+     "company": "M/s JBL Trading",
+     "tenderer_id": "1055525",
+     "owner_name_as_shown": "Md. Khademul Islam (Jony)",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "JBL - BAS (JV).",
+     "tenderer_id": "1236622",
+     "owner_name_as_shown": "Md. Khademul Islam (Jony)",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "JBL - MRT (JV).",
+     "tenderer_id": "1242279",
+     "owner_name_as_shown": "Md. Khademul Islam (Jony)",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
     }
    ],
    "distinct_companies": 3
@@ -4555,6 +4582,26 @@
    "distinct_companies": 2
   },
   {
+   "owner_key": "bijoy kumar sarker",
+   "companies": [
+    {
+     "company": "M/S RAM TRADERS",
+     "tenderer_id": "1080369",
+     "owner_name_as_shown": "Bijoy Kumar Sarker",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "JBL - MRT (JV).",
+     "tenderer_id": "1242279",
+     "owner_name_as_shown": "Bijoy Kumar Sarker",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
    "owner_key": "abdul hamid bachu",
    "companies": [
     {
@@ -5170,26 +5217,6 @@
      "owner_name_as_shown": "Tasnim Binthe Mostafa",
      "designation": "Director",
      "ownership_pct": "12.50"
-    }
-   ],
-   "distinct_companies": 2
-  },
-  {
-   "owner_key": "khademul islam (jony)",
-   "companies": [
-    {
-     "company": "M/s JBL Trading",
-     "tenderer_id": "1055525",
-     "owner_name_as_shown": "Md. Khademul Islam (Jony)",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "JBL - BAS (JV).",
-     "tenderer_id": "1236622",
-     "owner_name_as_shown": "Md. Khademul Islam (Jony)",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
     }
    ],
    "distinct_companies": 2

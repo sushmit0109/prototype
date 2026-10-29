@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-10-28T00:16:54.143718+00:00",
-  "contracts_scanned": 875687,
+  "generated_at": "2026-10-29T00:49:04.216183+00:00",
+  "contracts_scanned": 875840,
   "debarment_records": 1028,
-  "flag_count": 1977,
+  "flag_count": 1978,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1731
+   "post_debarment_award": 1732
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -8059,6 +8059,25 @@
    "district": "Netrokona",
    "contract_signing_date": "2026-03-10",
    "value_bdt": 23960000.0,
+   "debar_start": "23-Aug-2022",
+   "debar_end": "22-Aug-2023",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "Clarify about submission of attached fake certificate in Tender ID -607080 & 607021",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "low",
+   "company": "Golam Arshadur Rahman",
+   "company_key": "golam arshadur rahman",
+   "tender_id": "1318631",
+   "pkg_lot_id": "2108906",
+   "procuring_entity": "Office of the Executive Engineer, LGED, Netrokona",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "district": "Netrokona",
+   "contract_signing_date": "2026-10-28",
+   "value_bdt": 15840000.0,
    "debar_start": "23-Aug-2022",
    "debar_end": "22-Aug-2023",
    "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",

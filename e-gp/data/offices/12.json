@@ -91,15 +91,15 @@
     "count": 13
    },
    {
-    "phrase": "Including Civil Sanitary Electrical",
-    "count": 4
-   },
-   {
     "phrase": "Lonjoni Para Borua Khilkhet",
     "count": 4
    },
    {
     "phrase": "Para Borua Khilkhet Dhaka",
+    "count": 4
+   },
+   {
+    "phrase": "Including Civil Sanitary Electrical",
     "count": 4
    },
    {
@@ -111,11 +111,11 @@
     "count": 3
    },
    {
-    "phrase": "Work Including Civil Sanitary",
+    "phrase": "Welfare Board Lonjoni Para",
     "count": 3
    },
    {
-    "phrase": "Board Lonjoni Para Borua",
+    "phrase": "Work Including Civil Sanitary",
     "count": 3
    }
   ],
@@ -366,11 +366,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Manpower the Outsourcing Process",
+    "phrase": "Select Manpower Providing Firm",
     "count": 3
    },
    {
-    "phrase": "Select Manpower Providing Firm",
+    "phrase": "Manpower the Outsourcing Process",
     "count": 3
    },
    {
@@ -495,23 +495,23 @@
     "count": 3
    },
    {
-    "phrase": "Booklet File Folder Calendar",
-    "count": 3
-   },
-   {
     "phrase": "File Folder Calendar Etc",
     "count": 3
    },
    {
-    "phrase": "Center Printer Toner Photocopier",
-    "count": 3
-   },
-   {
-    "phrase": "Toner Photocopier Toner Keyboard",
+    "phrase": "Booklet File Folder Calendar",
     "count": 3
    },
    {
     "phrase": "Printer Toner Photocopier Toner",
+    "count": 3
+   },
+   {
+    "phrase": "Mouse Pen Drive Power",
+    "count": 3
+   },
+   {
+    "phrase": "Keyboard Mouse Pen Drive",
     "count": 3
    },
    {
@@ -616,19 +616,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Services for Technical Training",
-    "count": 14
-   },
-   {
     "phrase": "Equipment and Related Services",
     "count": 14
    },
    {
-    "phrase": "Related Services for Technical",
+    "phrase": "Training Equipment and Related",
     "count": 14
    },
    {
-    "phrase": "Training Equipment and Related",
+    "phrase": "Services for Technical Training",
+    "count": 14
+   },
+   {
+    "phrase": "Related Services for Technical",
     "count": 14
    },
    {
@@ -1748,11 +1748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
@@ -1955,24 +1955,24 @@
   ]
  },
  "7193": {
-  "value_bdt": 1690000.0,
-  "count": 5,
+  "value_bdt": 2020000.0,
+  "count": 6,
   "by_year": {
    "2025": {
     "value_bdt": 1410000.0,
     "count": 4
    },
    "2026": {
-    "value_bdt": 280000.0,
-    "count": 1
+    "value_bdt": 610000.0,
+    "count": 2
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "M/S. Maya Enterprise",
-    "value_bdt": 750000.0,
-    "count": 2
+    "value_bdt": 1080000.0,
+    "count": 3
    },
    {
     "company": "SAIED TRADERS",
@@ -1988,7 +1988,7 @@
   "top_districts": [
    {
     "district": "Laksmipur",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [
@@ -2013,6 +2013,13 @@
     "description": "Repair of Main Gate for Lakshmipur TTC"
    },
    {
+    "package_ref": "49.01.5100.000.18.001.26.252",
+    "awarded_to": "M/S. Maya Enterprise",
+    "value_bdt": 330000.0,
+    "contract_signing_date": "2026-10-28",
+    "description": "Supply of Row Materials For Computer ENT TDM AutoCADRAC & ET Occupation for October-December/2026 Session"
+   },
+   {
     "package_ref": "49.01.5100.000.07.001.26.66",
     "awarded_to": "SAIED TRADERS",
     "value_bdt": 280000.0,
@@ -2025,13 +2032,6 @@
     "value_bdt": 260000.0,
     "contract_signing_date": "2025-09-29",
     "description": "Supply of Raw Materials for Computer & SMO Occupation for July to September Session."
-   },
-   {
-    "package_ref": "49.01.5100.000.07.001.25.12",
-    "awarded_to": "M/S. Maya Enterprise",
-    "value_bdt": 250000.0,
-    "contract_signing_date": "2025-09-29",
-    "description": "Supply of Raw Materials for MPS CADEIM Occupation for July to September Session."
    }
   ]
  },
@@ -2360,11 +2360,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials for Different Trades",
+    "phrase": "Raw Materials for Different",
     "count": 3
    },
    {
-    "phrase": "Raw Materials for Different",
+    "phrase": "Materials for Different Trades",
     "count": 3
    },
    {
@@ -2454,14 +2454,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Material for Training Masonry",
-    "count": 3
-   },
-   {
-    "phrase": "Training Masonry and Graphics",
-    "count": 3
-   },
-   {
     "phrase": "Consumable Material for Training",
     "count": 3
    },
@@ -2470,11 +2462,19 @@
     "count": 3
    },
    {
-    "phrase": "Batch Consumable Material",
+    "phrase": "Material for Training Masonry",
+    "count": 3
+   },
+   {
+    "phrase": "Training Masonry and Graphics",
     "count": 3
    },
    {
     "phrase": "Graphics Occupation Satkhira",
+    "count": 3
+   },
+   {
+    "phrase": "Batch Consumable Material",
     "count": 3
    },
    {
@@ -2669,11 +2669,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials for Deferent",
+    "phrase": "Materials for Deferent Trade",
     "count": 5
    },
    {
-    "phrase": "Materials for Deferent Trade",
+    "phrase": "Raw Materials for Deferent",
     "count": 5
    },
    {
@@ -2819,16 +2819,16 @@
   ]
  },
  "7329": {
-  "value_bdt": 11560000.0,
-  "count": 19,
+  "value_bdt": 12060000.0,
+  "count": 20,
   "by_year": {
    "2025": {
     "value_bdt": 5950000.0,
     "count": 7
    },
    "2026": {
-    "value_bdt": 5610000.0,
-    "count": 12
+    "value_bdt": 6110000.0,
+    "count": 13
    }
   },
   "by_nature": {
@@ -2846,14 +2846,14 @@
     "count": 5
    },
    {
+    "company": "NAHIN ENTERPRISE",
+    "value_bdt": 1800000.0,
+    "count": 4
+   },
+   {
     "company": "Total Solution",
     "value_bdt": 1740000.0,
     "count": 1
-   },
-   {
-    "company": "NAHIN ENTERPRISE",
-    "value_bdt": 1300000.0,
-    "count": 3
    },
    {
     "company": "M/S. KAZI TRADERS",
@@ -2864,28 +2864,32 @@
   "top_districts": [
    {
     "district": "Bogura",
-    "count": 19
+    "count": 20
    }
   ],
   "top_phrases": [
-   {
-    "phrase": "Tools and Equipment",
-    "count": 4
-   },
    {
     "phrase": "Equipment for Bogura",
     "count": 4
    },
    {
+    "phrase": "Tools and Equipment",
+    "count": 4
+   },
+   {
     "phrase": "Others Trade",
-    "count": 5
+    "count": 6
    },
    {
     "phrase": "Training Materials",
-    "count": 5
+    "count": 6
    },
    {
     "phrase": "Raw Materials",
+    "count": 3
+   },
+   {
+    "phrase": "Computer Operation",
     "count": 3
    }
   ],
@@ -3045,15 +3049,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials Spare Parts",
-    "count": 3
-   },
-   {
     "phrase": "Spare Parts for Various",
     "count": 3
    },
    {
     "phrase": "Parts for Various Trade",
+    "count": 3
+   },
+   {
+    "phrase": "Raw Materials Spare Parts",
     "count": 3
    },
    {
@@ -3495,11 +3499,11 @@
     "count": 5
    },
    {
-    "phrase": "Materials for Different Trades",
+    "phrase": "Raw Materials for Different",
     "count": 3
    },
    {
-    "phrase": "Raw Materials for Different",
+    "phrase": "Materials for Different Trades",
     "count": 3
    },
    {
@@ -4231,11 +4235,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Lite Equipment for Trades",
+    "phrase": "Raw Materials Lite Equipment",
     "count": 3
    },
    {
-    "phrase": "Raw Materials Lite Equipment",
+    "phrase": "Lite Equipment for Trades",
     "count": 3
    },
    {
@@ -5056,19 +5060,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials for Machine",
-    "count": 3
-   },
-   {
     "phrase": "Materials for Machine Shop",
     "count": 3
    },
    {
-    "phrase": "Machine Shop Practice",
+    "phrase": "Raw Materials for Machine",
     "count": 3
    },
    {
     "phrase": "Electrical Installation Maintenance",
+    "count": 3
+   },
+   {
+    "phrase": "Machine Shop Practice",
     "count": 3
    },
    {

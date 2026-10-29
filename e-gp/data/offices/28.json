@@ -814,11 +814,11 @@
     "count": 23
    },
    {
-    "phrase": "Hili Pourashava Area Dist",
+    "phrase": "Pourashava Area Dist Dinajpur",
     "count": 5
    },
    {
-    "phrase": "Pourashava Area Dist Dinajpur",
+    "phrase": "Hili Pourashava Area Dist",
     "count": 5
    },
    {
@@ -1140,11 +1140,11 @@
     "count": 5
    },
    {
-    "phrase": "Heidelberg Four Color",
+    "phrase": "Bi-color Offset Press",
     "count": 4
    },
    {
-    "phrase": "Bi-color Offset Press",
+    "phrase": "Heidelberg Four Color",
     "count": 4
    }
   ],
@@ -1438,19 +1438,19 @@
     "count": 3
    },
    {
-    "phrase": "Lexmark Color Printer Spare",
-    "count": 3
-   },
-   {
     "phrase": "Color Printer Spare Parts",
     "count": 3
    },
    {
-    "phrase": "Answer Sheets for Mental",
+    "phrase": "Lexmark Color Printer Spare",
     "count": 3
    },
    {
     "phrase": "Examination and Answer Sheets",
+    "count": 3
+   },
+   {
+    "phrase": "Answer Sheets for Mental",
     "count": 3
    },
    {
@@ -1803,7 +1803,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Repair Renewal and Modernization",
+    "phrase": "Renewal and Modernization Work",
     "count": 3
    },
    {
@@ -1811,7 +1811,7 @@
     "count": 3
    },
    {
-    "phrase": "Renewal and Modernization Work",
+    "phrase": "Repair Renewal and Modernization",
     "count": 3
    },
    {
@@ -2312,11 +2312,11 @@
     "count": 3
    },
    {
-    "phrase": "Related Equipment",
+    "phrase": "Equipment Etc",
     "count": 3
    },
    {
-    "phrase": "Equipment Etc",
+    "phrase": "Related Equipment",
     "count": 3
    }
   ],
@@ -2418,15 +2418,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Deputy Commissioner Narail Campus",
+    "count": 3
+   },
+   {
     "phrase": "Buildings and Installations Office",
     "count": 3
    },
    {
     "phrase": "Other Buildings and Installations",
-    "count": 3
-   },
-   {
-    "phrase": "Deputy Commissioner Narail Campus",
     "count": 3
    },
    {
@@ -2537,11 +2537,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Supply Englsh Others Khata",
+    "phrase": "Englsh Others Khata School",
     "count": 3
    },
    {
-    "phrase": "Englsh Others Khata School",
+    "phrase": "Supply Englsh Others Khata",
     "count": 3
    },
    {
@@ -4444,19 +4444,31 @@
   ]
  },
  "8842": {
-  "value_bdt": 2220000.0,
-  "count": 2,
+  "value_bdt": 5060000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 2220000.0,
-    "count": 2
+    "value_bdt": 5060000.0,
+    "count": 4
    }
   },
-  "by_nature": {},
+  "by_nature": {
+   "Goods": 2
+  },
   "top_vendors": [
+   {
+    "company": "JUNAYED INTERNATIONAL",
+    "value_bdt": 2160000.0,
+    "count": 1
+   },
    {
     "company": "Engineers Pac Bangladesh Ltd.",
     "value_bdt": 2020000.0,
+    "count": 1
+   },
+   {
+    "company": "M/S IFFAT FAHMIDA TRADERS",
+    "value_bdt": 680000.0,
     "count": 1
    },
    {
@@ -4468,17 +4480,36 @@
   "top_districts": [
    {
     "district": "Bagerhat",
-    "count": 2
+    "count": 4
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Office Bagerhat",
+    "count": 3
+   }
+  ],
   "top_contracts": [
+   {
+    "package_ref": "05.44.0100.010.49.010.26.580; Date: 09.09.2026",
+    "awarded_to": "JUNAYED INTERNATIONAL",
+    "value_bdt": 2160000.0,
+    "contract_signing_date": "2026-10-28",
+    "description": "Supply and delivery of Other Stationery products under Deputy Commissioner's Office Bagerhat"
+   },
    {
     "package_ref": "05.44.0100.010.49.040.26.309; Date: 03.05.2026",
     "awarded_to": "Engineers Pac Bangladesh Ltd.",
     "value_bdt": 2020000.0,
     "contract_signing_date": "2026-06-15",
     "description": "Supply Installation and Commissioning of 50 KWp On Grid Net-metering Rooftop Solar System in DC office Bagerhat."
+   },
+   {
+    "package_ref": "05.44.0100.010.49.005.25.568; Date: 02.09.2026",
+    "awarded_to": "M/S IFFAT FAHMIDA TRADERS",
+    "value_bdt": 680000.0,
+    "contract_signing_date": "2026-10-28",
+    "description": "Supply and Delivery of Computer Consumables for DC Office Bagerhat"
    },
    {
     "package_ref": "DC_Bgrht/2025-26/GR7",

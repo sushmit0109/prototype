@@ -383,11 +383,11 @@
     "count": 8
    },
    {
-    "phrase": "Item Size Gm Sheets",
+    "phrase": "Office Stationary Item Size",
     "count": 8
    },
    {
-    "phrase": "Office Stationary Item Size",
+    "phrase": "Gm Sheets Ream Offset",
     "count": 8
    },
    {
@@ -399,7 +399,7 @@
     "count": 8
    },
    {
-    "phrase": "Gm Sheets Ream Offset",
+    "phrase": "Item Size Gm Sheets",
     "count": 8
    },
    {
@@ -407,7 +407,7 @@
     "count": 7
    },
    {
-    "phrase": "Stationery Item Size Offset",
+    "phrase": "Singapore Malaysia Taiwan Selected",
     "count": 4
    }
   ],
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Offset Paper Gsm White",
+    "phrase": "Goods Offset Paper Gsm",
     "count": 3
    }
   ],
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
+    "phrase": "Equipment Laptop Desktop Computer",
+    "count": 3
+   },
+   {
     "phrase": "Other Equipment Laptop Desktop",
     "count": 3
    },
    {
     "phrase": "Computer and Other Equipment",
-    "count": 3
-   },
-   {
-    "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
@@ -3954,24 +3954,29 @@
   ]
  },
  "8747": {
-  "value_bdt": 2300000.0,
-  "count": 4,
+  "value_bdt": 4560000.0,
+  "count": 7,
   "by_year": {
    "2026": {
-    "value_bdt": 2300000.0,
-    "count": 4
+    "value_bdt": 4560000.0,
+    "count": 7
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "N. S. L",
-    "value_bdt": 1250000.0,
-    "count": 2
+    "value_bdt": 2010000.0,
+    "count": 3
    },
    {
     "company": "R. K. Enterprise",
-    "value_bdt": 560000.0,
+    "value_bdt": 1360000.0,
+    "count": 2
+   },
+   {
+    "company": "KHAN JAHAN ALI ASSOCIATES",
+    "value_bdt": 700000.0,
     "count": 1
    },
    {
@@ -3983,11 +3988,25 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 7
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "52.01.00.507.20.010.24.677",
+    "awarded_to": "R. K. Enterprise",
+    "value_bdt": 800000.0,
+    "contract_signing_date": "2026-10-28",
+    "description": "Computer software"
+   },
+   {
+    "package_ref": "52.01.00.507.20.009.28.678",
+    "awarded_to": "N. S. L",
+    "value_bdt": 760000.0,
+    "contract_signing_date": "2026-10-28",
+    "description": "consumable goods"
+   },
    {
     "package_ref": "52.01.0000.507.20.009.24.412",
     "awarded_to": "N. S. L",
@@ -3996,25 +4015,18 @@
     "description": "Procurement of consumable goods"
    },
    {
+    "package_ref": "52.01.00.507.20.017.24.673",
+    "awarded_to": "KHAN JAHAN ALI ASSOCIATES",
+    "value_bdt": 700000.0,
+    "contract_signing_date": "2026-10-28",
+    "description": "Other Stationary"
+   },
+   {
     "package_ref": "52.01.0000.507.20.0à§§à§­.24.41à§ª",
     "awarded_to": "R. K. Enterprise",
     "value_bdt": 560000.0,
     "contract_signing_date": "2026-06-11",
     "description": "Procurement of other stationary."
-   },
-   {
-    "package_ref": "52.01.0000.507.20.010.24.415",
-    "awarded_to": "N. S. L",
-    "value_bdt": 500000.0,
-    "contract_signing_date": "2026-06-11",
-    "description": "Procurement of Computer Software"
-   },
-   {
-    "package_ref": "52.01.0000.507.20.001.24.442; date: 10-06-2026",
-    "awarded_to": "National Computer",
-    "value_bdt": 490000.0,
-    "contract_signing_date": "2026-06-18",
-    "description": "Procurement of computer accessories"
    }
   ]
  },

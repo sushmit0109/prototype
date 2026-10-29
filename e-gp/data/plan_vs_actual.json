@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 875687,
-  "matched_pairs": 120076,
+  "contracts_scanned": 875840,
+  "matched_pairs": 120077,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4067,
   "pairs_excluded_generic": 2537,
@@ -20,7 +20,7 @@
    "<70%": 2754,
    "70-85%": 7586,
    "85-95%": 64341,
-   "95-100%": 36896,
+   "95-100%": 36897,
    "100-115%": 7561,
    ">115%": 938
   },
@@ -63,7 +63,7 @@
    "0.95": 23248,
    "0.96": 4396,
    "0.97": 2163,
-   "0.98": 2317,
+   "0.98": 2318,
    "0.99": 3953,
    "1.00": 13429,
    "1.01": 1229,
@@ -123,12 +123,12 @@
   }
  },
  "method_change": {
-  "unchanged": 119848,
+  "unchanged": 119849,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
    "OTM->OTM": 61059,
-   "LTM->LTM": 55367,
+   "LTM->LTM": 55368,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
    "RFQ->RFQ": 350,
@@ -600,11 +600,11 @@
    },
    {
     "ministry": "Ministry of Civil Aviation & Tourism",
-    "matched_pairs": 979,
-    "median_ratio": 0.9978,
+    "matched_pairs": 980,
+    "median_ratio": 0.9977,
     "iqr": 0.0171,
     "share_above_115": 0.0061,
-    "share_at_10pct_below": 0.047
+    "share_at_10pct_below": 0.0469
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11729,
+    "matched_pairs": 11730,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9311,
+    "matched_pairs": 9312,
     "median_ratio": 0.9444,
     "iqr": 0.0552,
     "share_above_115": 0.0017,
