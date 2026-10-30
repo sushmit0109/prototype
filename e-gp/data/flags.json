@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-10-29T00:49:04.216183+00:00",
-  "contracts_scanned": 875840,
+  "generated_at": "2026-10-30T00:47:56.930693+00:00",
+  "contracts_scanned": 876017,
   "debarment_records": 1028,
-  "flag_count": 1978,
+  "flag_count": 1979,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1732
+   "post_debarment_award": 1733
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -35995,6 +35995,25 @@
    "debarment_reason": "Dear M/S. Ray Entrprize, You are Requested to submit Your Explanation about Submitting False Similar Work Experience Certificate in Tender ID No. 14378 under LGED, Sunamganj Best Regards XEN, LGED",
    "debarment_scope": "Unspecified",
    "era": "Awami League (2009–2024)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "high",
+   "company": "S.H.K Construction (Pvt) Ltd.",
+   "company_key": "shk construction ()",
+   "tender_id": "1278349",
+   "pkg_lot_id": "2026808",
+   "procuring_entity": "Office of Executive Engineer (Civil), BEPZA",
+   "ministry": "Prime Minister's Office",
+   "district": "Dhaka",
+   "contract_signing_date": "2026-09-17",
+   "value_bdt": 88550000.0,
+   "debar_start": "02-Sep-2026",
+   "debar_end": "02-Sep-2026",
+   "debarred_by": "e-GP Portal",
+   "debarment_reason": "Please Clarify as per Dhaka Circle vide Memo No 35.01.2690.175.07.001.24-436 Date 15.02.2024",
+   "debarment_scope": "Nationwide (e-GP Portal)",
+   "era": "Elected Government (2026–)"
   },
   {
    "flag_type": "post_debarment_award",

@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 875840,
-  "matched_pairs": 120077,
+  "contracts_scanned": 876017,
+  "matched_pairs": 120080,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4067,
   "pairs_excluded_generic": 2537,
@@ -19,7 +19,7 @@
   "buckets": {
    "<70%": 2754,
    "70-85%": 7586,
-   "85-95%": 64341,
+   "85-95%": 64344,
    "95-100%": 36897,
    "100-115%": 7561,
    ">115%": 938
@@ -53,9 +53,9 @@
    "0.85": 1704,
    "0.86": 1094,
    "0.87": 1670,
-   "0.88": 2338,
+   "0.88": 2340,
    "0.89": 3724,
-   "0.90": 23916,
+   "0.90": 23917,
    "0.91": 2269,
    "0.92": 1596,
    "0.93": 8990,
@@ -98,7 +98,7 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23928,
+    "count": 23929,
     "share": 0.1993
    },
    "at_5pct_below": {
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119849,
+  "unchanged": 119852,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61059,
+   "OTM->OTM": 61062,
    "LTM->LTM": 55368,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
@@ -568,7 +568,7 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 9220,
+    "matched_pairs": 9221,
     "median_ratio": 0.9476,
     "iqr": 0.0527,
     "share_above_115": 0.0139,
@@ -608,7 +608,7 @@
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
-    "matched_pairs": 27302,
+    "matched_pairs": 27304,
     "median_ratio": 0.9,
     "iqr": 0.028,
     "share_above_115": 0.0052,
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11730,
+    "matched_pairs": 11733,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0605
+    "share_at_10pct_below": 0.0606
    }
   ],
   "by_era": [
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9312,
+    "matched_pairs": 9315,
     "median_ratio": 0.9444,
     "iqr": 0.0552,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0537
+    "share_at_10pct_below": 0.0538
    }
   ],
   "min_pairs_for_ministry": 30

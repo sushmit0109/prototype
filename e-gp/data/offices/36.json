@@ -573,20 +573,20 @@
   ]
  },
  "9804": {
-  "value_bdt": 410000.0,
-  "count": 2,
+  "value_bdt": 570000.0,
+  "count": 3,
   "by_year": {
    "2026": {
-    "value_bdt": 410000.0,
-    "count": 2
+    "value_bdt": 570000.0,
+    "count": 3
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "Hatil Complex Ltd",
-    "value_bdt": 230000.0,
-    "count": 1
+    "value_bdt": 390000.0,
+    "count": 2
    },
    {
     "company": "ARIANA SYSTEMS",
@@ -597,10 +597,19 @@
   "top_districts": [
    {
     "district": "Khulna",
-    "count": 2
+    "count": 3
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Office Khulna",
+    "count": 3
+   },
+   {
+    "phrase": "Divisional Social",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "dss/div/2026-27/N-01",
@@ -615,6 +624,13 @@
     "value_bdt": 180000.0,
     "contract_signing_date": "2026-09-28",
     "description": "Procurement of Computer & Related Service for Divisional Social Services Office Khulna."
+   },
+   {
+    "package_ref": "41.24.4000.000.000.06.0003.26.148",
+    "awarded_to": "Hatil Complex Ltd",
+    "value_bdt": 160000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "Procurement (Repairment) of furniture for Divisional Social service office khulna."
    }
   ]
  },

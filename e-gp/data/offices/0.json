@@ -379,19 +379,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Stationary Item Size Gm",
-    "count": 8
-   },
-   {
-    "phrase": "Office Stationary Item Size",
-    "count": 8
-   },
-   {
     "phrase": "Gm Sheets Ream Offset",
     "count": 8
    },
    {
     "phrase": "Size Gm Sheets Ream",
+    "count": 8
+   },
+   {
+    "phrase": "Stationary Item Size Gm",
     "count": 8
    },
    {
@@ -403,11 +399,15 @@
     "count": 8
    },
    {
+    "phrase": "Office Stationary Item Size",
+    "count": 8
+   },
+   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Singapore Malaysia Taiwan Selected",
+    "phrase": "Malaysia Taiwan Selected Case",
     "count": 4
    }
   ],
@@ -627,11 +627,11 @@
     "count": 4
    },
    {
-    "phrase": "Passenger Lift Brand Schindler",
+    "phrase": "Lift Brand Schindler Switzerland",
     "count": 4
    },
    {
-    "phrase": "Lift Brand Schindler Switzerland",
+    "phrase": "Passenger Lift Brand Schindler",
     "count": 4
    },
    {
@@ -1186,15 +1186,15 @@
     "count": 4
    },
    {
+    "phrase": "Computer and Other Equipment",
+    "count": 3
+   },
+   {
     "phrase": "Equipment Laptop Desktop Computer",
     "count": 3
    },
    {
     "phrase": "Other Equipment Laptop Desktop",
-    "count": 3
-   },
-   {
-    "phrase": "Computer and Other Equipment",
     "count": 3
    },
    {
@@ -1301,8 +1301,8 @@
   ]
  },
  "2063": {
-  "value_bdt": 1580000.0,
-  "count": 4,
+  "value_bdt": 1980000.0,
+  "count": 5,
   "by_year": {
    "2017": {
     "value_bdt": 480000.0,
@@ -1313,8 +1313,8 @@
     "count": 1
    },
    "2026": {
-    "value_bdt": 740000.0,
-    "count": 2
+    "value_bdt": 1140000.0,
+    "count": 3
    }
   },
   "by_nature": {
@@ -1332,6 +1332,11 @@
     "count": 1
    },
    {
+    "company": "R.E.Trade International",
+    "value_bdt": 400000.0,
+    "count": 1
+   },
+   {
     "company": "M/S LEE SYANDICAT",
     "value_bdt": 360000.0,
     "count": 1
@@ -1345,7 +1350,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
@@ -1363,6 +1368,13 @@
     "value_bdt": 400000.0,
     "contract_signing_date": "2026-09-06",
     "description": "Procurement of Journal publication \"Multidisciplinary Journal of Social Science Research Council Volume-2\"."
+   },
+   {
+    "package_ref": "20.00.0000.000.309.07.0057.26-754",
+    "awarded_to": "R.E.Trade International",
+    "value_bdt": 400000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "Computer Materials: Printer Tonner Cartridge(black) Printer Tonner Cartridge(color) photocopier tonner cartridge(black) photocopier tonner cartridge(color) key "
    },
    {
     "package_ref": "20.00.0000.309.07.087.18",
@@ -3369,17 +3381,17 @@
   ]
  },
  "8067": {
-  "value_bdt": 8110000.0,
-  "count": 6,
+  "value_bdt": 9600000.0,
+  "count": 7,
   "by_year": {
    "2026": {
-    "value_bdt": 8110000.0,
-    "count": 6
+    "value_bdt": 9600000.0,
+    "count": 7
    }
   },
   "by_nature": {
    "Services": 2,
-   "Goods": 1
+   "Goods": 2
   },
   "top_vendors": [
    {
@@ -3393,6 +3405,11 @@
     "count": 2
    },
    {
+    "company": "IT SOUL INTERNATIONAL",
+    "value_bdt": 1490000.0,
+    "count": 1
+   },
+   {
     "company": "M/S. FAHAD ENTERPRISE",
     "value_bdt": 790000.0,
     "count": 1
@@ -3401,17 +3418,12 @@
     "company": "RFL Plastics Limited",
     "value_bdt": 760000.0,
     "count": 1
-   },
-   {
-    "company": "AMCO TEX",
-    "value_bdt": 640000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 6
+    "count": 7
    }
   ],
   "top_phrases": [],
@@ -3431,6 +3443,13 @@
     "description": "Procurement of Outsourcing Manpower"
    },
    {
+    "package_ref": "52.01.0000.508.32.129.26-546",
+    "awarded_to": "IT SOUL INTERNATIONAL",
+    "value_bdt": 1490000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "Procurement of Computer and other accessories."
+   },
+   {
     "package_ref": "52.01.0000.508.30.049.26-259",
     "awarded_to": "M/S. FAHAD ENTERPRISE",
     "value_bdt": 790000.0,
@@ -3443,13 +3462,6 @@
     "value_bdt": 780000.0,
     "contract_signing_date": "2026-08-16",
     "description": "Procurement of High Configure Laptop Laser Printer Smart LED TV and other necessaries"
-   },
-   {
-    "package_ref": "52.01.0000.508.34.047.26-203",
-    "awarded_to": "RFL Plastics Limited",
-    "value_bdt": 760000.0,
-    "contract_signing_date": "2026-06-16",
-    "description": "Procurement of Furniture"
    }
   ]
  },
@@ -3954,12 +3966,12 @@
   ]
  },
  "8747": {
-  "value_bdt": 4560000.0,
-  "count": 7,
+  "value_bdt": 5720000.0,
+  "count": 9,
   "by_year": {
    "2026": {
-    "value_bdt": 4560000.0,
-    "count": 7
+    "value_bdt": 5720000.0,
+    "count": 9
    }
   },
   "by_nature": {},
@@ -3975,6 +3987,11 @@
     "count": 2
    },
    {
+    "company": "M/S. FAHAD ENTERPRISE",
+    "value_bdt": 800000.0,
+    "count": 1
+   },
+   {
     "company": "KHAN JAHAN ALI ASSOCIATES",
     "value_bdt": 700000.0,
     "count": 1
@@ -3988,7 +4005,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 9
    }
   ],
   "top_phrases": [],
@@ -3999,6 +4016,13 @@
     "value_bdt": 800000.0,
     "contract_signing_date": "2026-10-28",
     "description": "Computer software"
+   },
+   {
+    "package_ref": "52.01.00.507.99.061.684",
+    "awarded_to": "M/S. FAHAD ENTERPRISE",
+    "value_bdt": 800000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "questionnaire manual notebook and report printing"
    },
    {
     "package_ref": "52.01.00.507.20.009.28.678",
@@ -4020,13 +4044,6 @@
     "value_bdt": 700000.0,
     "contract_signing_date": "2026-10-28",
     "description": "Other Stationary"
-   },
-   {
-    "package_ref": "52.01.0000.507.20.0à§§à§­.24.41à§ª",
-    "awarded_to": "R. K. Enterprise",
-    "value_bdt": 560000.0,
-    "contract_signing_date": "2026-06-11",
-    "description": "Procurement of other stationary."
    }
   ]
  },

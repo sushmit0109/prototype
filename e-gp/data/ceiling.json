@@ -3,8 +3,8 @@
   "source": "https://www.eprocure.gov.bd/resources/common/SearchNOA.jsp",
   "threshold_bdt": 500000000.0,
   "window_days": 45,
-  "contracts_scanned": 875840,
-  "contracts_with_value": 875332
+  "contracts_scanned": 876017,
+  "contracts_with_value": 875509
  },
  "bunching": {
   "fine_histogram_crore": {
@@ -36,7 +36,7 @@
    "42.50": 19,
    "43.00": 21,
    "43.50": 18,
-   "44.00": 24,
+   "44.00": 25,
    "44.50": 18,
    "45.00": 9,
    "45.50": 17,
@@ -58,7 +58,7 @@
    "53.50": 14,
    "54.00": 9,
    "54.50": 15,
-   "55.00": 11,
+   "55.00": 12,
    "55.50": 7,
    "56.00": 10,
    "56.50": 15,
@@ -83,8 +83,8 @@
   "just_under_45_50": 162,
   "just_over_50_55": 106,
   "asymmetry_ratio": 1.53,
-  "wide_under_35_50": 636,
-  "wide_over_50_65": 288,
+  "wide_under_35_50": 637,
+  "wide_over_50_65": 289,
   "by_era": [
    {
     "era": "Awami League (2009–2024)",
@@ -102,7 +102,7 @@
     "era": "Elected Government (2026–)",
     "just_under_45_50": 13,
     "just_over_50_55": 8,
-    "contracts_in_era": 73621
+    "contracts_in_era": 73798
    }
   ]
  },
@@ -691,6 +691,25 @@
    "era": "Awami League (2009–2024)"
   },
   {
+   "total_bdt": 1170490000.0,
+   "count": 7,
+   "first_date": "2026-10-29",
+   "last_date": "2026-10-29",
+   "package_refs": [
+    "APP ID 228223",
+    "APP ID 228223",
+    "APP ID 228223",
+    "APP ID 228223",
+    "APP ID 228223",
+    "APP ID 228223",
+    "APP ID 228223"
+   ],
+   "vendor": "Sohel Engineering & Construction Ltd.",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "procuring_entity": "Office of the Project Director, FDRIRP-2022, LGED",
+   "era": "Elected Government (2026–)"
+  },
+  {
    "total_bdt": 1155020000.0,
    "count": 4,
    "first_date": "2018-12-20",
@@ -785,28 +804,12 @@
    "ministry": "Ministry of Water Resources",
    "procuring_entity": "Chattogram O&M Division -2",
    "era": "Awami League (2009–2024)"
-  },
-  {
-   "total_bdt": 1113940000.0,
-   "count": 4,
-   "first_date": "2024-05-06",
-   "last_date": "2024-05-06",
-   "package_refs": [
-    "EE/NOA/O&M/1T- 5/3113",
-    "EE/NOA/O&M/1T- 5/3113",
-    "EE/NOA/O&M/1T- 5/3113",
-    "EE/NOA/O&M/1T- 5/3113"
-   ],
-   "vendor": "PROPERTY DEVELOPMENT LIMITED",
-   "ministry": "Ministry of Water Resources",
-   "procuring_entity": "Noakhali O&M Division",
-   "era": "Awami League (2009–2024)"
   }
  ],
- "split_clusters_total_count": 404,
+ "split_clusters_total_count": 405,
  "split_clusters_by_era": {
   "Awami League (2009–2024)": 324,
   "Interim Government (2024–2026)": 57,
-  "Elected Government (2026–)": 23
+  "Elected Government (2026–)": 24
  }
 }

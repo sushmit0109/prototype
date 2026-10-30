@@ -91,10 +91,6 @@
     "count": 13
    },
    {
-    "phrase": "Lonjoni Para Borua Khilkhet",
-    "count": 4
-   },
-   {
     "phrase": "Para Borua Khilkhet Dhaka",
     "count": 4
    },
@@ -103,11 +99,15 @@
     "count": 4
    },
    {
+    "phrase": "Lonjoni Para Borua Khilkhet",
+    "count": 4
+   },
+   {
     "phrase": "Bhaban the Wage Earners",
     "count": 4
    },
    {
-    "phrase": "Earners Welfare Board Lonjoni",
+    "phrase": "Work Including Civil Sanitary",
     "count": 3
    },
    {
@@ -115,7 +115,7 @@
     "count": 3
    },
    {
-    "phrase": "Work Including Civil Sanitary",
+    "phrase": "Board Lonjoni Para Borua",
     "count": 3
    }
   ],
@@ -366,11 +366,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Select Manpower Providing Firm",
+    "phrase": "Manpower the Outsourcing Process",
     "count": 3
    },
    {
-    "phrase": "Manpower the Outsourcing Process",
+    "phrase": "Select Manpower Providing Firm",
     "count": 3
    },
    {
@@ -503,19 +503,19 @@
     "count": 3
    },
    {
-    "phrase": "Printer Toner Photocopier Toner",
+    "phrase": "Consumables for and Field",
     "count": 3
    },
    {
-    "phrase": "Mouse Pen Drive Power",
+    "phrase": "Center Printer Toner Photocopier",
     "count": 3
    },
    {
-    "phrase": "Keyboard Mouse Pen Drive",
+    "phrase": "Toner Photocopier Toner Keyboard",
     "count": 3
    },
    {
-    "phrase": "Photocopier Toner Keyboard Mouse",
+    "phrase": "Field Center Printer Toner",
     "count": 3
    }
   ],
@@ -624,11 +624,11 @@
     "count": 14
    },
    {
-    "phrase": "Services for Technical Training",
+    "phrase": "Related Services for Technical",
     "count": 14
    },
    {
-    "phrase": "Related Services for Technical",
+    "phrase": "Services for Technical Training",
     "count": 14
    },
    {
@@ -1047,11 +1047,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Training Materials Supply Work",
+    "phrase": "Teaching Training Materials Supply",
     "count": 4
    },
    {
-    "phrase": "Teaching Training Materials Supply",
+    "phrase": "Training Materials Supply Work",
     "count": 4
    },
    {
@@ -1322,11 +1322,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 3
    },
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 3
    },
    {
@@ -1748,11 +1748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
@@ -2458,11 +2458,11 @@
     "count": 3
    },
    {
-    "phrase": "Masonry and Graphics Occupation",
+    "phrase": "Material for Training Masonry",
     "count": 3
    },
    {
-    "phrase": "Material for Training Masonry",
+    "phrase": "Masonry and Graphics Occupation",
     "count": 3
    },
    {
@@ -2470,11 +2470,11 @@
     "count": 3
    },
    {
-    "phrase": "Graphics Occupation Satkhira",
+    "phrase": "Batch Consumable Material",
     "count": 3
    },
    {
-    "phrase": "Batch Consumable Material",
+    "phrase": "Graphics Occupation Satkhira",
     "count": 3
    },
    {
@@ -2575,15 +2575,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Spare Parts for Different",
+    "count": 4
+   },
+   {
     "phrase": "Parts for Different Trade",
     "count": 4
    },
    {
     "phrase": "Raw Materials Spare Parts",
-    "count": 4
-   },
-   {
-    "phrase": "Spare Parts for Different",
     "count": 4
    },
    {
@@ -2630,30 +2630,34 @@
   ]
  },
  "7310": {
-  "value_bdt": 2800000.0,
-  "count": 8,
+  "value_bdt": 3890000.0,
+  "count": 11,
   "by_year": {
    "2025": {
     "value_bdt": 2800000.0,
     "count": 8
+   },
+   "2026": {
+    "value_bdt": 1090000.0,
+    "count": 3
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "M/S. Jahedul Hossain",
-    "value_bdt": 1210000.0,
-    "count": 4
+    "value_bdt": 1860000.0,
+    "count": 6
+   },
+   {
+    "company": "Sultan Ahmed",
+    "value_bdt": 940000.0,
+    "count": 2
    },
    {
     "company": "M/S Masuda Enterprise",
     "value_bdt": 790000.0,
     "count": 2
-   },
-   {
-    "company": "Sultan Ahmed",
-    "value_bdt": 500000.0,
-    "count": 1
    },
    {
     "company": "M/S Enaya Traders",
@@ -2664,20 +2668,16 @@
   "top_districts": [
    {
     "district": "Rangpur",
-    "count": 8
+    "count": 11
    }
   ],
   "top_phrases": [
    {
     "phrase": "Materials for Deferent Trade",
-    "count": 5
+    "count": 6
    },
    {
     "phrase": "Raw Materials for Deferent",
-    "count": 5
-   },
-   {
-    "phrase": "Raw Materials",
     "count": 6
    }
   ],
@@ -2690,6 +2690,13 @@
     "description": "Procurement of Engineering Equipment for other Accessories."
    },
    {
+    "package_ref": "TTC/Rangpur/BMET/2026-27/Engr-M/GD-03",
+    "awarded_to": "M/S. Jahedul Hossain",
+    "value_bdt": 500000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "Procurement of Engineering Equipment other Accessories."
+   },
+   {
     "package_ref": "TTC/Rangpur/BMET/2025-26/RM/GD-07",
     "awarded_to": "M/S Masuda Enterprise",
     "value_bdt": 490000.0,
@@ -2697,25 +2704,18 @@
     "description": "Procurement of Raw Materials for Deferent Trade"
    },
    {
+    "package_ref": "TTC/Rangpur/BMET/2026-27/RM/GD-01",
+    "awarded_to": "Sultan Ahmed",
+    "value_bdt": 440000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "Procurement of Raw Materials for Deferent Trade-01"
+   },
+   {
     "package_ref": "TTC/Rangpur/BMET/2025-26/WORKS/WR-01",
     "awarded_to": "M/S. Jahedul Hossain",
     "value_bdt": 310000.0,
     "contract_signing_date": "2025-12-02",
     "description": "Normal Glass Change To Thai Glass Electronics & RAC Work Shop"
-   },
-   {
-    "package_ref": "TTC/Rangpur/BMET/2025-26/RM/GD-01",
-    "awarded_to": "M/S. Jahedul Hossain",
-    "value_bdt": 300000.0,
-    "contract_signing_date": "2025-09-28",
-    "description": "Procurement of Raw Materials for Deferent Trade-1"
-   },
-   {
-    "package_ref": "TTC/Rangpur/BMET/2025-26/RM/GD-02",
-    "awarded_to": "M/S Enaya Traders",
-    "value_bdt": 300000.0,
-    "contract_signing_date": "2025-09-28",
-    "description": "Procurement of Raw Materials for Deferent Trade-2"
    }
   ]
  },
@@ -2768,11 +2768,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Equipment and Raw Materials",
+    "phrase": "Tools Equipment and Raw",
     "count": 4
    },
    {
-    "phrase": "Tools Equipment and Raw",
+    "phrase": "Equipment and Raw Materials",
     "count": 4
    },
    {
@@ -2869,11 +2869,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Equipment for Bogura",
+    "phrase": "Tools and Equipment",
     "count": 4
    },
    {
-    "phrase": "Tools and Equipment",
+    "phrase": "Equipment for Bogura",
     "count": 4
    },
    {
@@ -4235,11 +4235,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials Lite Equipment",
+    "phrase": "Lite Equipment for Trades",
     "count": 3
    },
    {
-    "phrase": "Lite Equipment for Trades",
+    "phrase": "Raw Materials Lite Equipment",
     "count": 3
    },
    {

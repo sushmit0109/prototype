@@ -1040,11 +1040,11 @@
     "count": 6
    },
    {
-    "phrase": "Chemicals Isopropanol",
+    "phrase": "Wash Etc",
     "count": 3
    },
    {
-    "phrase": "Wash Etc",
+    "phrase": "Chemicals Isopropanol",
     "count": 3
    },
    {
@@ -1523,20 +1523,20 @@
   ]
  },
  "7107": {
-  "value_bdt": 101160000.0,
-  "count": 34,
+  "value_bdt": 106760000.0,
+  "count": 38,
   "by_year": {
    "2025": {
     "value_bdt": 56150000.0,
     "count": 11
    },
    "2026": {
-    "value_bdt": 45010000.0,
-    "count": 23
+    "value_bdt": 50610000.0,
+    "count": 27
    }
   },
   "by_nature": {
-   "Goods": 24,
+   "Goods": 28,
    "Works": 1,
    "Services": 1
   },
@@ -1570,13 +1570,17 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 34
+    "count": 38
    }
   ],
   "top_phrases": [
    {
     "phrase": "Receiver Accessories",
     "count": 4
+   },
+   {
+    "phrase": "Wash Etc",
+    "count": 3
    },
    {
     "phrase": "Related Goods",

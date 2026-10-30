@@ -1,9 +1,9 @@
 {
  "meta": {
-  "vendors_sampled": 20073,
-  "vendors_with_owner_data": 8420,
-  "vendors_with_tenderer_id": 8609,
-  "owner_data_coverage": 0.419
+  "vendors_sampled": 20079,
+  "vendors_with_owner_data": 8426,
+  "vendors_with_tenderer_id": 8615,
+  "owner_data_coverage": 0.42
  },
  "shared_owner_groups": [
   {
@@ -999,6 +999,40 @@
    "distinct_companies": 4
   },
   {
+   "owner_key": "iftekhar uddin shahin",
+   "companies": [
+    {
+     "company": "M/S Bhati Bangla Enterprise",
+     "tenderer_id": "1002886",
+     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "M/S Bhati Bangla Enterprise-M/S RABIUL ENTERPRISE (JV)",
+     "tenderer_id": "1237260",
+     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "bbejvmh",
+     "tenderer_id": "1234594",
+     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "bbejvse763",
+     "tenderer_id": "1249718",
+     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 4
+  },
+  {
    "owner_key": "kazi md. zilan haider",
    "companies": [
     {
@@ -1230,6 +1264,40 @@
      "company": "M/s. Siddik Enterprise",
      "tenderer_id": "1075474",
      "owner_name_as_shown": "Abu Bakar Siddik",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 4
+  },
+  {
+   "owner_key": "azizur rahman bhuiyan khokon",
+   "companies": [
+    {
+     "company": "Antara Engineering",
+     "tenderer_id": "1227887",
+     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Ms Shanta Enterprise and Ms Setu Enterprise JV",
+     "tenderer_id": "1215637",
+     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Shanta & Tisha JV",
+     "tenderer_id": "1222921",
+     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Reliance Construction Materials",
+     "tenderer_id": "1235321",
+     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
     }
@@ -1475,33 +1543,6 @@
      "owner_name_as_shown": "Sea Pearl Beach Resort and Spa Ltd.",
      "designation": "Chairman",
      "ownership_pct": "30.00"
-    }
-   ],
-   "distinct_companies": 3
-  },
-  {
-   "owner_key": "iftekhar uddin shahin",
-   "companies": [
-    {
-     "company": "M/S Bhati Bangla Enterprise",
-     "tenderer_id": "1002886",
-     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "M/S Bhati Bangla Enterprise-M/S RABIUL ENTERPRISE (JV)",
-     "tenderer_id": "1237260",
-     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "bbejvmh",
-     "tenderer_id": "1234594",
-     "owner_name_as_shown": "IFTEKHAR UDDIN SHAHIN",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
     }
    ],
    "distinct_companies": 3
@@ -2121,33 +2162,6 @@
      "company": "JBL - MRT (JV).",
      "tenderer_id": "1242279",
      "owner_name_as_shown": "Md. Khademul Islam (Jony)",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    }
-   ],
-   "distinct_companies": 3
-  },
-  {
-   "owner_key": "azizur rahman bhuiyan khokon",
-   "companies": [
-    {
-     "company": "Antara Engineering",
-     "tenderer_id": "1227887",
-     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "Ms Shanta Enterprise and Ms Setu Enterprise JV",
-     "tenderer_id": "1215637",
-     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
-     "designation": "Proprietor",
-     "ownership_pct": "100.00"
-    },
-    {
-     "company": "Shanta & Tisha JV",
-     "tenderer_id": "1222921",
-     "owner_name_as_shown": "MD AZIZUR RAHMAN BHUIYAN KHOKON",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
     }
@@ -5355,6 +5369,26 @@
      "company": "M/S. Baba & Maa Enterprise",
      "tenderer_id": "1068546",
      "owner_name_as_shown": "Mst Momena Begum",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    }
+   ],
+   "distinct_companies": 2
+  },
+  {
+   "owner_key": "ruhul amin mandal",
+   "companies": [
+    {
+     "company": "Antara Engineering",
+     "tenderer_id": "1227887",
+     "owner_name_as_shown": "MD. RUHUL AMIN MANDAL",
+     "designation": "Proprietor",
+     "ownership_pct": "100.00"
+    },
+    {
+     "company": "Reliance Construction Materials",
+     "tenderer_id": "1235321",
+     "owner_name_as_shown": "MD. RUHUL AMIN MANDAL",
      "designation": "Proprietor",
      "ownership_pct": "100.00"
     }

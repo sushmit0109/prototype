@@ -444,7 +444,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Safari Half Safari Sarees",
+    "phrase": "Full Safari Half Safari",
+    "count": 3
+   },
+   {
+    "phrase": "Safari Sarees Shoe Etc",
     "count": 3
    },
    {
@@ -452,11 +456,7 @@
     "count": 3
    },
    {
-    "phrase": "Full Safari Half Safari",
-    "count": 3
-   },
-   {
-    "phrase": "Safari Sarees Shoe Etc",
+    "phrase": "Safari Half Safari Sarees",
     "count": 3
    },
    {
@@ -787,23 +787,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fabric Flags Cut Outs",
-    "count": 3
-   },
-   {
-    "phrase": "Bangladesh Secretariat Important Road",
-    "count": 3
-   },
-   {
-    "phrase": "Building Bangladesh Secretariat Important",
-    "count": 3
-   },
-   {
     "phrase": "Frame Fabric Flags Cut",
     "count": 3
    },
    {
-    "phrase": "Banners Fastoon Placards Balloons",
+    "phrase": "Fabric Flags Cut Outs",
+    "count": 3
+   },
+   {
+    "phrase": "Flags Cut Outs Etc",
+    "count": 3
+   },
+   {
+    "phrase": "Secretariat Important Road Sides",
     "count": 3
    },
    {
@@ -811,11 +807,15 @@
     "count": 3
    },
    {
-    "phrase": "Placards Balloons Flowers Drop",
+    "phrase": "Building Bangladesh Secretariat Important",
     "count": 3
    },
    {
-    "phrase": "Flags Cut Outs Etc",
+    "phrase": "Banners Wooden Frame Fabric",
+    "count": 3
+   },
+   {
+    "phrase": "Down Banners Wooden Frame",
     "count": 3
    }
   ],
@@ -1452,16 +1452,23 @@
   ]
  },
  "9273": {
-  "value_bdt": 820000.0,
-  "count": 3,
+  "value_bdt": 1900000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 820000.0,
-    "count": 3
+    "value_bdt": 1900000.0,
+    "count": 4
    }
   },
-  "by_nature": {},
+  "by_nature": {
+   "Goods": 1
+  },
   "top_vendors": [
+   {
+    "company": "Sizan Printers",
+    "value_bdt": 1080000.0,
+    "count": 1
+   },
    {
     "company": "SABUJ STATIONERY",
     "value_bdt": 540000.0,
@@ -1476,11 +1483,18 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "26.04.0000.000.116.29.0834.26.",
+    "awarded_to": "Sizan Printers",
+    "value_bdt": 1080000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "Printing of Leaflet & Pamphlet"
+   },
    {
     "package_ref": "26.04.0000.000.121.07.0003.26.40",
     "awarded_to": "SABUJ STATIONERY",
@@ -1501,6 +1515,40 @@
     "value_bdt": 230000.0,
     "contract_signing_date": "2026-05-17",
     "description": "Supply of stationery items"
+   }
+  ]
+ },
+ "10002": {
+  "value_bdt": 275000000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 275000000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "Unilever Bangladesh Limited",
+    "value_bdt": 275000000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "26.05.0000.016.25.236.26.3782; Date: 08-10-2026",
+    "awarded_to": "Unilever Bangladesh Limited",
+    "value_bdt": 275000000.0,
+    "contract_signing_date": "2026-10-29",
+    "description": "5000000 (Fifty Lac) Packet Synthetic Detergent Powder (Net Weight 500 Gram)"
    }
   ]
  }

@@ -15,8 +15,8 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56643,
-  "ownership_groups_checked": 234
+  "vendors_scanned": 56657,
+  "ownership_groups_checked": 235
  },
  "top_growers": [
   {
@@ -1758,6 +1758,35 @@
    "shared_owner_keys": []
   },
   {
+   "company": "Rimi Nirman Ltd.",
+   "company_key": "rimi nirman",
+   "first_year": "2022",
+   "baseline_value_bdt": 0,
+   "baseline_count": 0,
+   "recent_value_bdt": 2568190000.0,
+   "recent_count": 31,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 11,
+     "value_bdt": 844720000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 4,
+     "value_bdt": 355940000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 16,
+     "value_bdt": 1367530000.0
+    }
+   },
+   "recent_distinct_ministries": 2,
+   "recent_top_ministry": "Ministry of Road Transport and Bridges",
+   "recent_distinct_offices": 17,
+   "recent_top_office": "Bandarban Road Division",
+   "recent_top_office_share": 0.1935,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Global Brand PLC.",
    "company_key": "global brand plc",
    "first_year": "2024",
@@ -2076,35 +2105,6 @@
    "recent_distinct_offices": 5,
    "recent_top_office": "Central Medical Store Depot (CMSD) , DGHS",
    "recent_top_office_share": 0.4286,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "Rimi Nirman Ltd.",
-   "company_key": "rimi nirman",
-   "first_year": "2022",
-   "baseline_value_bdt": 0,
-   "baseline_count": 0,
-   "recent_value_bdt": 2015900000.0,
-   "recent_count": 30,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 11,
-     "value_bdt": 844720000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 4,
-     "value_bdt": 355940000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 15,
-     "value_bdt": 815240000.0
-    }
-   },
-   "recent_distinct_ministries": 2,
-   "recent_top_ministry": "Ministry of Road Transport and Bridges",
-   "recent_distinct_offices": 16,
-   "recent_top_office": "Bandarban Road Division",
-   "recent_top_office_share": 0.2,
    "shared_owner_keys": []
   },
   {
@@ -3113,13 +3113,17 @@
     {
      "company": "bbejvmh",
      "designation": "Proprietor"
+    },
+    {
+     "company": "bbejvse763",
+     "designation": "Proprietor"
     }
    ],
-   "member_companies_matched": 3,
+   "member_companies_matched": 4,
    "combined_baseline_value_bdt": 717590000.0,
-   "combined_recent_value_bdt": 3786640000.0,
-   "combined_recent_count": 79,
-   "combined_growth_ratio_value": 7.04,
+   "combined_recent_value_bdt": 3908080000.0,
+   "combined_recent_count": 80,
+   "combined_growth_ratio_value": 7.26,
    "combined_recent_distinct_ministries": 2
   },
   {
@@ -3285,9 +3289,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1155210000.0,
-   "combined_recent_value_bdt": 3094930000.0,
-   "combined_recent_count": 169,
-   "combined_growth_ratio_value": 3.57,
+   "combined_recent_value_bdt": 3100290000.0,
+   "combined_recent_count": 170,
+   "combined_growth_ratio_value": 3.58,
    "combined_recent_distinct_ministries": 8
   },
   {
@@ -3305,9 +3309,9 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1155210000.0,
-   "combined_recent_value_bdt": 3094930000.0,
-   "combined_recent_count": 169,
-   "combined_growth_ratio_value": 3.57,
+   "combined_recent_value_bdt": 3100290000.0,
+   "combined_recent_count": 170,
+   "combined_growth_ratio_value": 3.58,
    "combined_recent_distinct_ministries": 8
   },
   {
