@@ -30,7 +30,8 @@
    "2026-07",
    "2026-08",
    "2026-09",
-   "2026-10"
+   "2026-10",
+   "2026-11"
   ],
   "interim_months": [
    "2024-08",
@@ -61,52 +62,53 @@
    "2026-07",
    "2026-08",
    "2026-09",
-   "2026-10"
+   "2026-10",
+   "2026-11"
   ],
   "placebo_split_month": "2025-11",
   "placebo_midpoint_split_month": "2025-05"
  },
  "main": {
   "bnp_won": {
-   "coefficient": -0.0541,
-   "std_error": 0.1158,
-   "t_stat": -0.467,
-   "p_value": 0.6422,
+   "coefficient": -0.0746,
+   "std_error": 0.1226,
+   "t_stat": -0.608,
+   "p_value": 0.5454,
    "df": 63,
-   "n_obs": 1728,
+   "n_obs": 1792,
    "n_districts": 64,
-   "n_periods": 27,
-   "approx_proportional_effect": -0.0526,
+   "n_periods": 28,
+   "approx_proportional_effect": -0.0718,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
    "denominator": "total_voters"
   },
   "bnp_vote_share": {
-   "coefficient": 0.1253,
-   "std_error": 0.6727,
-   "t_stat": 0.186,
-   "p_value": 0.8529,
+   "coefficient": 0.077,
+   "std_error": 0.6658,
+   "t_stat": 0.116,
+   "p_value": 0.9083,
    "df": 63,
-   "n_obs": 1728,
+   "n_obs": 1792,
    "n_districts": 64,
-   "n_periods": 27,
-   "approx_proportional_effect": 0.1335,
+   "n_periods": 28,
+   "approx_proportional_effect": 0.0801,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
    "denominator": "total_voters"
   },
   "bnp_seat_share": {
-   "coefficient": 0.1735,
-   "std_error": 0.2142,
-   "t_stat": 0.81,
-   "p_value": 0.4212,
+   "coefficient": 0.2004,
+   "std_error": 0.2489,
+   "t_stat": 0.805,
+   "p_value": 0.4239,
    "df": 63,
-   "n_obs": 1728,
+   "n_obs": 1792,
    "n_districts": 64,
-   "n_periods": 27,
-   "approx_proportional_effect": 0.1894,
+   "n_periods": 28,
+   "approx_proportional_effect": 0.2219,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
@@ -116,11 +118,11 @@
  "main_simple": {
   "cell_means_bdt_per_voter": {
    "bnp_won=0_post=0": 434.12,
-   "bnp_won=0_post=1": 430.09,
+   "bnp_won=0_post=1": 382.85,
    "bnp_won=1_post=0": 477.02,
-   "bnp_won=1_post=1": 427.32
+   "bnp_won=1_post=1": 380.52
   },
-  "did_bdt_per_voter": -45.66
+  "did_bdt_per_voter": -45.23
  },
  "placebo": {
   "bnp_won": {
@@ -238,45 +240,45 @@
   "note": "Same regressions with two independent checks a real district-level political effect should survive: (1) scaling spending by 2022 census population instead of registered voters (census_population.py); (2) adding a division x period fixed effect so a region rolling out its own unrelated programme on its own schedule isn't mistaken for a district-level political effect (district_divisions.py). Population-scaled results sit here as main_population/placebo_population; the division-controlled regression sits alongside each category result as regression_division_controlled.",
   "main_population": {
    "bnp_won": {
-    "coefficient": -0.0534,
-    "std_error": 0.1151,
-    "t_stat": -0.464,
-    "p_value": 0.6439,
+    "coefficient": -0.0701,
+    "std_error": 0.1204,
+    "t_stat": -0.582,
+    "p_value": 0.5627,
     "df": 63,
-    "n_obs": 1728,
+    "n_obs": 1792,
     "n_districts": 64,
-    "n_periods": 27,
-    "approx_proportional_effect": -0.052,
+    "n_periods": 28,
+    "approx_proportional_effect": -0.0677,
     "division_controlled": false,
     "n_divisions": null,
     "rank_deficient": false,
     "denominator": "population"
    },
    "bnp_vote_share": {
-    "coefficient": 0.1232,
-    "std_error": 0.6706,
-    "t_stat": 0.184,
-    "p_value": 0.8548,
+    "coefficient": 0.0513,
+    "std_error": 0.6559,
+    "t_stat": 0.078,
+    "p_value": 0.9379,
     "df": 63,
-    "n_obs": 1728,
+    "n_obs": 1792,
     "n_districts": 64,
-    "n_periods": 27,
-    "approx_proportional_effect": 0.1312,
+    "n_periods": 28,
+    "approx_proportional_effect": 0.0527,
     "division_controlled": false,
     "n_divisions": null,
     "rank_deficient": false,
     "denominator": "population"
    },
    "bnp_seat_share": {
-    "coefficient": 0.1723,
-    "std_error": 0.2124,
+    "coefficient": 0.1976,
+    "std_error": 0.2438,
     "t_stat": 0.811,
-    "p_value": 0.4203,
+    "p_value": 0.4206,
     "df": 63,
-    "n_obs": 1728,
+    "n_obs": 1792,
     "n_districts": 64,
-    "n_periods": 27,
-    "approx_proportional_effect": 0.188,
+    "n_periods": 28,
+    "approx_proportional_effect": 0.2185,
     "division_controlled": false,
     "n_divisions": null,
     "rank_deficient": false,
@@ -336,7 +338,7 @@
    "treatment": "bnp_won",
    "reference_period": "2024-08",
    "n_districts": 64,
-   "n_periods": 27,
+   "n_periods": 28,
    "df": 63,
    "rank_deficient": false,
    "points": [
@@ -350,183 +352,190 @@
     {
      "period": "2024-09",
      "coefficient": -0.7223,
-     "std_error": 0.2825,
-     "p_value": 0.013,
+     "std_error": 0.2823,
+     "p_value": 0.0129,
      "is_reference": false
     },
     {
      "period": "2024-10",
      "coefficient": -0.1458,
-     "std_error": 0.2324,
-     "p_value": 0.5327,
+     "std_error": 0.2322,
+     "p_value": 0.5324,
      "is_reference": false
     },
     {
      "period": "2024-11",
      "coefficient": -0.2053,
-     "std_error": 0.2399,
-     "p_value": 0.3953,
+     "std_error": 0.2397,
+     "p_value": 0.395,
      "is_reference": false
     },
     {
      "period": "2024-12",
      "coefficient": -0.4103,
-     "std_error": 0.208,
-     "p_value": 0.053,
+     "std_error": 0.2079,
+     "p_value": 0.0528,
      "is_reference": false
     },
     {
      "period": "2025-01",
      "coefficient": -0.4913,
-     "std_error": 0.2106,
+     "std_error": 0.2104,
      "p_value": 0.0228,
      "is_reference": false
     },
     {
      "period": "2025-02",
      "coefficient": -0.5003,
-     "std_error": 0.2187,
-     "p_value": 0.0255,
+     "std_error": 0.2186,
+     "p_value": 0.0254,
      "is_reference": false
     },
     {
      "period": "2025-03",
      "coefficient": -0.4613,
-     "std_error": 0.211,
-     "p_value": 0.0325,
+     "std_error": 0.2109,
+     "p_value": 0.0324,
      "is_reference": false
     },
     {
      "period": "2025-04",
      "coefficient": -0.5682,
-     "std_error": 0.2301,
-     "p_value": 0.0163,
+     "std_error": 0.2299,
+     "p_value": 0.0162,
      "is_reference": false
     },
     {
      "period": "2025-05",
      "coefficient": -0.4182,
-     "std_error": 0.1811,
-     "p_value": 0.0242,
+     "std_error": 0.181,
+     "p_value": 0.0241,
      "is_reference": false
     },
     {
      "period": "2025-06",
      "coefficient": -0.5179,
-     "std_error": 0.2676,
-     "p_value": 0.0574,
+     "std_error": 0.2674,
+     "p_value": 0.0573,
      "is_reference": false
     },
     {
      "period": "2025-07",
      "coefficient": -0.4557,
-     "std_error": 0.2943,
-     "p_value": 0.1265,
+     "std_error": 0.2941,
+     "p_value": 0.1262,
      "is_reference": false
     },
     {
      "period": "2025-08",
      "coefficient": -0.1902,
-     "std_error": 0.296,
-     "p_value": 0.523,
+     "std_error": 0.2958,
+     "p_value": 0.5227,
      "is_reference": false
     },
     {
      "period": "2025-09",
      "coefficient": -0.1514,
-     "std_error": 0.2313,
-     "p_value": 0.5152,
+     "std_error": 0.2311,
+     "p_value": 0.5149,
      "is_reference": false
     },
     {
      "period": "2025-10",
      "coefficient": -0.3266,
-     "std_error": 0.2891,
-     "p_value": 0.2629,
+     "std_error": 0.2889,
+     "p_value": 0.2625,
      "is_reference": false
     },
     {
      "period": "2025-11",
      "coefficient": -0.1883,
-     "std_error": 0.3008,
-     "p_value": 0.5336,
+     "std_error": 0.3006,
+     "p_value": 0.5334,
      "is_reference": false
     },
     {
      "period": "2025-12",
      "coefficient": -0.2617,
-     "std_error": 0.3502,
-     "p_value": 0.4577,
+     "std_error": 0.35,
+     "p_value": 0.4574,
      "is_reference": false
     },
     {
      "period": "2026-01",
      "coefficient": -0.4002,
-     "std_error": 0.2333,
-     "p_value": 0.0912,
+     "std_error": 0.2332,
+     "p_value": 0.091,
      "is_reference": false
     },
     {
      "period": "2026-02",
      "coefficient": -0.4502,
-     "std_error": 0.2324,
-     "p_value": 0.0572,
+     "std_error": 0.2323,
+     "p_value": 0.057,
      "is_reference": false
     },
     {
      "period": "2026-03",
      "coefficient": -0.3281,
-     "std_error": 0.2099,
-     "p_value": 0.123,
+     "std_error": 0.2097,
+     "p_value": 0.1227,
      "is_reference": false
     },
     {
      "period": "2026-04",
      "coefficient": -0.2381,
-     "std_error": 0.2403,
-     "p_value": 0.3256,
+     "std_error": 0.2402,
+     "p_value": 0.3253,
      "is_reference": false
     },
     {
      "period": "2026-05",
      "coefficient": -0.2863,
-     "std_error": 0.2431,
-     "p_value": 0.2434,
+     "std_error": 0.243,
+     "p_value": 0.2431,
      "is_reference": false
     },
     {
      "period": "2026-06",
      "coefficient": -0.3789,
-     "std_error": 0.2295,
-     "p_value": 0.1037,
+     "std_error": 0.2293,
+     "p_value": 0.1034,
      "is_reference": false
     },
     {
      "period": "2026-07",
      "coefficient": -0.5905,
-     "std_error": 0.2848,
-     "p_value": 0.0422,
+     "std_error": 0.2846,
+     "p_value": 0.0421,
      "is_reference": false
     },
     {
      "period": "2026-08",
      "coefficient": -0.275,
-     "std_error": 0.3433,
-     "p_value": 0.4261,
+     "std_error": 0.343,
+     "p_value": 0.4257,
      "is_reference": false
     },
     {
      "period": "2026-09",
      "coefficient": -0.6312,
-     "std_error": 0.4145,
-     "p_value": 0.1328,
+     "std_error": 0.4142,
+     "p_value": 0.1325,
      "is_reference": false
     },
     {
      "period": "2026-10",
      "coefficient": -0.5951,
-     "std_error": 0.3995,
-     "p_value": 0.1412,
+     "std_error": 0.3992,
+     "p_value": 0.141,
+     "is_reference": false
+    },
+    {
+     "period": "2026-11",
+     "coefficient": -0.5997,
+     "std_error": 0.3499,
+     "p_value": 0.0914,
      "is_reference": false
     }
    ]
@@ -535,7 +544,7 @@
    "treatment": "bnp_seat_share",
    "reference_period": "2024-08",
    "n_districts": 64,
-   "n_periods": 27,
+   "n_periods": 28,
    "df": 63,
    "rank_deficient": false,
    "points": [
@@ -549,183 +558,190 @@
     {
      "period": "2024-09",
      "coefficient": -1.0985,
-     "std_error": 0.5011,
-     "p_value": 0.0321,
+     "std_error": 0.5008,
+     "p_value": 0.032,
      "is_reference": false
     },
     {
      "period": "2024-10",
      "coefficient": -0.3576,
-     "std_error": 0.3974,
-     "p_value": 0.3717,
+     "std_error": 0.3972,
+     "p_value": 0.3713,
      "is_reference": false
     },
     {
      "period": "2024-11",
      "coefficient": -0.5872,
-     "std_error": 0.4319,
-     "p_value": 0.1788,
+     "std_error": 0.4316,
+     "p_value": 0.1785,
      "is_reference": false
     },
     {
      "period": "2024-12",
      "coefficient": -0.6439,
-     "std_error": 0.3323,
-     "p_value": 0.0572,
+     "std_error": 0.3321,
+     "p_value": 0.057,
      "is_reference": false
     },
     {
      "period": "2025-01",
      "coefficient": -0.7564,
-     "std_error": 0.3624,
-     "p_value": 0.0409,
+     "std_error": 0.3621,
+     "p_value": 0.0408,
      "is_reference": false
     },
     {
      "period": "2025-02",
      "coefficient": -1.1475,
-     "std_error": 0.3499,
+     "std_error": 0.3497,
      "p_value": 0.0017,
      "is_reference": false
     },
     {
      "period": "2025-03",
      "coefficient": -0.5909,
-     "std_error": 0.4013,
-     "p_value": 0.1459,
+     "std_error": 0.4011,
+     "p_value": 0.1456,
      "is_reference": false
     },
     {
      "period": "2025-04",
      "coefficient": -1.027,
-     "std_error": 0.4555,
-     "p_value": 0.0276,
+     "std_error": 0.4552,
+     "p_value": 0.0275,
      "is_reference": false
     },
     {
      "period": "2025-05",
      "coefficient": -0.499,
-     "std_error": 0.3253,
-     "p_value": 0.13,
+     "std_error": 0.3251,
+     "p_value": 0.1298,
      "is_reference": false
     },
     {
      "period": "2025-06",
      "coefficient": -1.0209,
-     "std_error": 0.4855,
-     "p_value": 0.0395,
+     "std_error": 0.4852,
+     "p_value": 0.0394,
      "is_reference": false
     },
     {
      "period": "2025-07",
      "coefficient": -0.7465,
-     "std_error": 0.5779,
-     "p_value": 0.2012,
+     "std_error": 0.5776,
+     "p_value": 0.2009,
      "is_reference": false
     },
     {
      "period": "2025-08",
      "coefficient": -1.1155,
-     "std_error": 0.546,
-     "p_value": 0.0452,
+     "std_error": 0.5457,
+     "p_value": 0.0451,
      "is_reference": false
     },
     {
      "period": "2025-09",
      "coefficient": -0.4403,
-     "std_error": 0.4374,
-     "p_value": 0.3181,
+     "std_error": 0.4371,
+     "p_value": 0.3177,
      "is_reference": false
     },
     {
      "period": "2025-10",
      "coefficient": -0.94,
-     "std_error": 0.6467,
-     "p_value": 0.1511,
+     "std_error": 0.6463,
+     "p_value": 0.1508,
      "is_reference": false
     },
     {
      "period": "2025-11",
      "coefficient": -0.7481,
-     "std_error": 0.6076,
-     "p_value": 0.2228,
+     "std_error": 0.6072,
+     "p_value": 0.2225,
      "is_reference": false
     },
     {
      "period": "2025-12",
      "coefficient": -1.3777,
-     "std_error": 0.8221,
-     "p_value": 0.0987,
+     "std_error": 0.8215,
+     "p_value": 0.0985,
      "is_reference": false
     },
     {
      "period": "2026-01",
      "coefficient": -0.8368,
-     "std_error": 0.3972,
-     "p_value": 0.0391,
+     "std_error": 0.3969,
+     "p_value": 0.039,
      "is_reference": false
     },
     {
      "period": "2026-02",
      "coefficient": -0.7227,
-     "std_error": 0.4369,
-     "p_value": 0.103,
+     "std_error": 0.4366,
+     "p_value": 0.1028,
      "is_reference": false
     },
     {
      "period": "2026-03",
      "coefficient": -0.6429,
-     "std_error": 0.3637,
-     "p_value": 0.082,
+     "std_error": 0.3634,
+     "p_value": 0.0818,
      "is_reference": false
     },
     {
      "period": "2026-04",
      "coefficient": -0.414,
-     "std_error": 0.3782,
-     "p_value": 0.2779,
+     "std_error": 0.378,
+     "p_value": 0.2776,
      "is_reference": false
     },
     {
      "period": "2026-05",
      "coefficient": 0.0292,
-     "std_error": 0.3725,
-     "p_value": 0.9377,
+     "std_error": 0.3723,
+     "p_value": 0.9376,
      "is_reference": false
     },
     {
      "period": "2026-06",
      "coefficient": -0.6108,
-     "std_error": 0.366,
-     "p_value": 0.1001,
+     "std_error": 0.3657,
+     "p_value": 0.0999,
      "is_reference": false
     },
     {
      "period": "2026-07",
      "coefficient": -0.6357,
-     "std_error": 0.5251,
-     "p_value": 0.2306,
+     "std_error": 0.5247,
+     "p_value": 0.2303,
      "is_reference": false
     },
     {
      "period": "2026-08",
      "coefficient": -1.3134,
-     "std_error": 0.644,
-     "p_value": 0.0456,
+     "std_error": 0.6436,
+     "p_value": 0.0455,
      "is_reference": false
     },
     {
      "period": "2026-09",
      "coefficient": -0.0005,
-     "std_error": 0.8799,
+     "std_error": 0.8793,
      "p_value": 0.9996,
      "is_reference": false
     },
     {
      "period": "2026-10",
      "coefficient": -1.1955,
-     "std_error": 0.7225,
-     "p_value": 0.103,
+     "std_error": 0.722,
+     "p_value": 0.1027,
+     "is_reference": false
+    },
+    {
+     "period": "2026-11",
+     "coefficient": -0.3559,
+     "std_error": 0.7936,
+     "p_value": 0.6554,
      "is_reference": false
     }
    ]
@@ -736,13 +752,13 @@
   "main": {
    "bnp_won": {
     "coefficient": 0.0125,
-    "std_error": 0.0162,
-    "t_stat": 0.771,
-    "p_value": 0.4434,
+    "std_error": 0.0159,
+    "t_stat": 0.786,
+    "p_value": 0.4348,
     "df": 63,
-    "n_obs": 1721,
+    "n_obs": 1735,
     "n_districts": 64,
-    "n_periods": 27,
+    "n_periods": 28,
     "approx_proportional_effect": null,
     "division_controlled": false,
     "n_divisions": null,
@@ -750,14 +766,14 @@
     "denominator": "hhi"
    },
    "bnp_vote_share": {
-    "coefficient": 0.0157,
-    "std_error": 0.1068,
-    "t_stat": 0.147,
-    "p_value": 0.8834,
+    "coefficient": 0.0213,
+    "std_error": 0.1081,
+    "t_stat": 0.197,
+    "p_value": 0.8445,
     "df": 63,
-    "n_obs": 1721,
+    "n_obs": 1735,
     "n_districts": 64,
-    "n_periods": 27,
+    "n_periods": 28,
     "approx_proportional_effect": null,
     "division_controlled": false,
     "n_divisions": null,
@@ -765,14 +781,14 @@
     "denominator": "hhi"
    },
    "bnp_seat_share": {
-    "coefficient": 0.0342,
-    "std_error": 0.0347,
-    "t_stat": 0.986,
-    "p_value": 0.3279,
+    "coefficient": 0.0336,
+    "std_error": 0.0346,
+    "t_stat": 0.971,
+    "p_value": 0.3353,
     "df": 63,
-    "n_obs": 1721,
+    "n_obs": 1735,
     "n_districts": 64,
-    "n_periods": 27,
+    "n_periods": 28,
     "approx_proportional_effect": null,
     "division_controlled": false,
     "n_divisions": null,
@@ -889,8 +905,8 @@
      "Satkhira"
     ],
     "avg_interim_value_per_voter_bdt": 6009.76,
-    "avg_elected_value_per_voter_bdt": 2006.43,
-    "avg_change_bdt_per_voter": -4003.33
+    "avg_elected_value_per_voter_bdt": 2010.88,
+    "avg_change_bdt_per_voter": -3998.88
    },
    "some": {
     "n_districts": 54,
@@ -951,8 +967,8 @@
      "Thakurgaon"
     ],
     "avg_interim_value_per_voter_bdt": 8156.83,
-    "avg_elected_value_per_voter_bdt": 3722.26,
-    "avg_change_bdt_per_voter": -4434.56
+    "avg_elected_value_per_voter_bdt": 3726.1,
+    "avg_change_bdt_per_voter": -4430.72
    },
    "all": {
     "n_districts": 3,
@@ -962,8 +978,8 @@
      "Bhola"
     ],
     "avg_interim_value_per_voter_bdt": 16526.12,
-    "avg_elected_value_per_voter_bdt": 6483.82,
-    "avg_change_bdt_per_voter": -10042.3
+    "avg_elected_value_per_voter_bdt": 6520.93,
+    "avg_change_bdt_per_voter": -10005.19
    }
   },
   "main": {
@@ -971,101 +987,101 @@
     "n_districts": 61,
     "n_some": 54,
     "regression": {
-     "coefficient": 0.059,
-     "std_error": 0.097,
-     "t_stat": 0.608,
-     "p_value": 0.5453,
+     "coefficient": 0.0654,
+     "std_error": 0.1156,
+     "t_stat": 0.566,
+     "p_value": 0.5738,
      "df": 60,
-     "n_obs": 1647,
+     "n_obs": 1708,
      "n_districts": 61,
-     "n_periods": 27,
-     "approx_proportional_effect": 0.0608,
+     "n_periods": 28,
+     "approx_proportional_effect": 0.0675,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "total_voters"
     },
     "regression_division_controlled": {
-     "coefficient": 0.0711,
-     "std_error": 0.1612,
-     "t_stat": 0.441,
-     "p_value": 0.6608,
+     "coefficient": 0.0555,
+     "std_error": 0.1714,
+     "t_stat": 0.324,
+     "p_value": 0.747,
      "df": 60,
-     "n_obs": 1647,
+     "n_obs": 1708,
      "n_districts": 61,
-     "n_periods": 27,
-     "approx_proportional_effect": 0.0737,
+     "n_periods": 28,
+     "approx_proportional_effect": 0.0571,
      "division_controlled": true,
      "n_divisions": 8,
      "rank_deficient": false,
      "denominator": "total_voters"
     },
     "regression_population_denominator": {
-     "coefficient": 0.0564,
-     "std_error": 0.0946,
-     "t_stat": 0.597,
-     "p_value": 0.5531,
+     "coefficient": 0.0574,
+     "std_error": 0.1099,
+     "t_stat": 0.522,
+     "p_value": 0.6037,
      "df": 60,
-     "n_obs": 1647,
+     "n_obs": 1708,
      "n_districts": 61,
-     "n_periods": 27,
-     "approx_proportional_effect": 0.058,
+     "n_periods": 28,
+     "approx_proportional_effect": 0.0591,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "population"
     },
-    "simple_did_bdt_per_voter": 88.89
+    "simple_did_bdt_per_voter": 65.96
    },
    "all_vs_none": {
     "n_districts": 10,
     "n_all": 3,
     "regression": {
-     "coefficient": 0.1345,
-     "std_error": 0.3755,
-     "t_stat": 0.358,
-     "p_value": 0.7285,
+     "coefficient": 0.2886,
+     "std_error": 0.4954,
+     "t_stat": 0.583,
+     "p_value": 0.5745,
      "df": 9,
-     "n_obs": 270,
+     "n_obs": 280,
      "n_districts": 10,
-     "n_periods": 27,
-     "approx_proportional_effect": 0.1439,
+     "n_periods": 28,
+     "approx_proportional_effect": 0.3346,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "total_voters"
     },
     "regression_division_controlled": {
-     "coefficient": -0.7818,
-     "std_error": 0.6426,
-     "t_stat": -1.217,
-     "p_value": 0.2547,
+     "coefficient": -0.6555,
+     "std_error": 0.7644,
+     "t_stat": -0.858,
+     "p_value": 0.4134,
      "df": 9,
-     "n_obs": 270,
+     "n_obs": 280,
      "n_districts": 10,
-     "n_periods": 27,
-     "approx_proportional_effect": -0.5424,
+     "n_periods": 28,
+     "approx_proportional_effect": -0.4808,
      "division_controlled": true,
      "n_divisions": 5,
      "rank_deficient": true,
      "denominator": "total_voters"
     },
     "regression_population_denominator": {
-     "coefficient": 0.1299,
-     "std_error": 0.3745,
-     "t_stat": 0.347,
-     "p_value": 0.7366,
+     "coefficient": 0.2674,
+     "std_error": 0.4893,
+     "t_stat": 0.547,
+     "p_value": 0.598,
      "df": 9,
-     "n_obs": 270,
+     "n_obs": 280,
      "n_districts": 10,
-     "n_periods": 27,
-     "approx_proportional_effect": 0.1387,
+     "n_periods": 28,
+     "approx_proportional_effect": 0.3066,
      "division_controlled": false,
      "n_divisions": null,
      "rank_deficient": false,
      "denominator": "population"
     },
-    "simple_did_bdt_per_voter": -23.3
+    "simple_did_bdt_per_voter": -79.95
    }
   },
   "placebo": {
@@ -1276,15 +1292,15 @@
  "legacy": {
   "note": "The original design: 2015-2025 (or 2015-2023 for the placebo) averaged as the pre-period. Confounded by e-GP's own decade-long coverage expansion (hybrid, partial platform support before the interim government mandated its use) -- kept here for transparency about the correction, not as evidence for anything.",
   "main_did": {
-   "coefficient": 0.1833,
-   "std_error": 0.1411,
-   "t_stat": 1.299,
-   "p_value": 0.1986,
+   "coefficient": 0.1834,
+   "std_error": 0.141,
+   "t_stat": 1.3,
+   "p_value": 0.1982,
    "df": 63,
    "n_obs": 768,
    "n_districts": 64,
    "n_periods": 12,
-   "approx_proportional_effect": 0.2012,
+   "approx_proportional_effect": 0.2013,
    "division_controlled": false,
    "n_divisions": null,
    "rank_deficient": false,
@@ -1293,11 +1309,11 @@
   "main_did_simple": {
    "cell_means_bdt_per_voter": {
     "bnp_won=0_post=0": 4691.87,
-    "bnp_won=0_post=1": 3662.55,
+    "bnp_won=0_post=1": 3667.55,
     "bnp_won=1_post=0": 4497.8,
-    "bnp_won=1_post=1": 3666.08
+    "bnp_won=1_post=1": 3672.19
    },
-   "did_bdt_per_voter": 197.59
+   "did_bdt_per_voter": 198.7
   },
   "placebo_did": {
    "coefficient": 0.161,
@@ -1331,7 +1347,7 @@
    "bnp_seat_share": 0.2,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 11946.88,
-   "elected_value_per_voter_bdt": 5249.29,
+   "elected_value_per_voter_bdt": 5257.29,
    "total_voters": 1236632
   },
   {
@@ -1340,7 +1356,7 @@
    "bnp_seat_share": 1.0,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 37261.78,
-   "elected_value_per_voter_bdt": 11591.68,
+   "elected_value_per_voter_bdt": 11593.46,
    "total_voters": 230398
   },
   {
@@ -1358,7 +1374,7 @@
    "bnp_seat_share": 1.0,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 8077.46,
-   "elected_value_per_voter_bdt": 6608.07,
+   "elected_value_per_voter_bdt": 6714.78,
    "total_voters": 2121539
   },
   {
@@ -1367,7 +1383,7 @@
    "bnp_seat_share": 1.0,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4239.12,
-   "elected_value_per_voter_bdt": 1251.71,
+   "elected_value_per_voter_bdt": 1254.54,
    "total_voters": 1557049
   },
   {
@@ -1376,7 +1392,7 @@
    "bnp_seat_share": 0.7,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 5586.32,
-   "elected_value_per_voter_bdt": 3542.84,
+   "elected_value_per_voter_bdt": 3549.1,
    "total_voters": 2817684
   },
   {
@@ -1385,7 +1401,7 @@
    "bnp_seat_share": 0.5556,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4672.81,
-   "elected_value_per_voter_bdt": 2561.88,
+   "elected_value_per_voter_bdt": 2562.22,
    "total_voters": 2513754
   },
   {
@@ -1403,7 +1419,7 @@
    "bnp_seat_share": 0.7059,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 11290.6,
-   "elected_value_per_voter_bdt": 4041.72,
+   "elected_value_per_voter_bdt": 4042.88,
    "total_voters": 5332742
   },
   {
@@ -1412,7 +1428,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 3778.49,
-   "elected_value_per_voter_bdt": 1234.12,
+   "elected_value_per_voter_bdt": 1234.8,
    "total_voters": 937946
   },
   {
@@ -1421,7 +1437,7 @@
    "bnp_seat_share": 0.8,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 13690.36,
-   "elected_value_per_voter_bdt": 5823.45,
+   "elected_value_per_voter_bdt": 5829.86,
    "total_voters": 1663540
   },
   {
@@ -1430,7 +1446,7 @@
    "bnp_seat_share": 0.5333,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 7441.72,
-   "elected_value_per_voter_bdt": 2855.39,
+   "elected_value_per_voter_bdt": 2857.84,
    "total_voters": 4573807
   },
   {
@@ -1439,7 +1455,7 @@
    "bnp_seat_share": 0.4062,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 43026.92,
-   "elected_value_per_voter_bdt": 22388.83,
+   "elected_value_per_voter_bdt": 22436.93,
    "total_voters": 7899388
   },
   {
@@ -1457,7 +1473,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5440.28,
-   "elected_value_per_voter_bdt": 3258.11,
+   "elected_value_per_voter_bdt": 3261.25,
    "total_voters": 1686453
   },
   {
@@ -1484,7 +1500,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 8788.48,
-   "elected_value_per_voter_bdt": 5022.88,
+   "elected_value_per_voter_bdt": 5046.05,
    "total_voters": 2538136
   },
   {
@@ -1493,7 +1509,7 @@
    "bnp_seat_share": 0.2,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 8610.71,
-   "elected_value_per_voter_bdt": 2021.45,
+   "elected_value_per_voter_bdt": 2030.49,
    "total_voters": 1018788
   },
   {
@@ -1511,7 +1527,7 @@
    "bnp_seat_share": 0.4545,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5369.18,
-   "elected_value_per_voter_bdt": 1741.34,
+   "elected_value_per_voter_bdt": 1745.23,
    "total_voters": 2029757
   },
   {
@@ -1538,7 +1554,7 @@
    "bnp_seat_share": 0.125,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4758.03,
-   "elected_value_per_voter_bdt": 1853.17,
+   "elected_value_per_voter_bdt": 1853.8,
    "total_voters": 1493773
   },
   {
@@ -1547,7 +1563,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 7196.89,
-   "elected_value_per_voter_bdt": 2047.98,
+   "elected_value_per_voter_bdt": 2048.35,
    "total_voters": 752146
   },
   {
@@ -1565,7 +1581,7 @@
    "bnp_seat_share": 0.4444,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 11574.9,
-   "elected_value_per_voter_bdt": 3293.86,
+   "elected_value_per_voter_bdt": 3301.23,
    "total_voters": 1931217
   },
   {
@@ -1601,7 +1617,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 12245.6,
-   "elected_value_per_voter_bdt": 5511.38,
+   "elected_value_per_voter_bdt": 5514.55,
    "total_voters": 1440668
   },
   {
@@ -1628,7 +1644,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 6169.23,
-   "elected_value_per_voter_bdt": 2441.7,
+   "elected_value_per_voter_bdt": 2442.96,
    "total_voters": 816956
   },
   {
@@ -1664,7 +1680,7 @@
    "bnp_seat_share": 0.75,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 8264.85,
-   "elected_value_per_voter_bdt": 4379.38,
+   "elected_value_per_voter_bdt": 4395.7,
    "total_voters": 1341744
   },
   {
@@ -1673,7 +1689,7 @@
    "bnp_seat_share": 0.5333,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4186.04,
-   "elected_value_per_voter_bdt": 2133.34,
+   "elected_value_per_voter_bdt": 2133.63,
    "total_voters": 4397116
   },
   {
@@ -1682,7 +1698,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5076.4,
-   "elected_value_per_voter_bdt": 2514.89,
+   "elected_value_per_voter_bdt": 2533.1,
    "total_voters": 2132948
   },
   {
@@ -1700,7 +1716,7 @@
    "bnp_seat_share": 0.2857,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4300.11,
-   "elected_value_per_voter_bdt": 2160.83,
+   "elected_value_per_voter_bdt": 2164.77,
    "total_voters": 2316810
   },
   {
@@ -1709,7 +1725,7 @@
    "bnp_seat_share": 0.4167,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4930.18,
-   "elected_value_per_voter_bdt": 1796.17,
+   "elected_value_per_voter_bdt": 1796.68,
    "total_voters": 1878016
   },
   {
@@ -1727,7 +1743,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 7400.03,
-   "elected_value_per_voter_bdt": 3348.85,
+   "elected_value_per_voter_bdt": 3349.14,
    "total_voters": 1386548
   },
   {
@@ -1763,7 +1779,7 @@
    "bnp_seat_share": 0.25,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 4401.43,
-   "elected_value_per_voter_bdt": 1687.55,
+   "elected_value_per_voter_bdt": 1695.06,
    "total_voters": 2207755
   },
   {
@@ -1790,7 +1806,7 @@
    "bnp_seat_share": 0.2222,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5820.5,
-   "elected_value_per_voter_bdt": 3847.87,
+   "elected_value_per_voter_bdt": 3849.66,
    "total_voters": 981986
   },
   {
@@ -1799,7 +1815,7 @@
    "bnp_seat_share": 0.6667,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 3977.59,
-   "elected_value_per_voter_bdt": 1018.04,
+   "elected_value_per_voter_bdt": 1029.62,
    "total_voters": 951455
   },
   {
@@ -1808,7 +1824,7 @@
    "bnp_seat_share": 0.5714,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 11551.92,
-   "elected_value_per_voter_bdt": 4530.23,
+   "elected_value_per_voter_bdt": 4535.48,
    "total_voters": 2227705
   },
   {
@@ -1826,7 +1842,7 @@
    "bnp_seat_share": 0.0,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 5722.8,
-   "elected_value_per_voter_bdt": 1997.25,
+   "elected_value_per_voter_bdt": 2027.47,
    "total_voters": 2433482
   },
   {
@@ -1862,7 +1878,7 @@
    "bnp_seat_share": 0.5455,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 4240.53,
-   "elected_value_per_voter_bdt": 1588.06,
+   "elected_value_per_voter_bdt": 1588.44,
    "total_voters": 2120394
   },
   {
@@ -1871,7 +1887,7 @@
    "bnp_seat_share": 0.5,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 14631.28,
-   "elected_value_per_voter_bdt": 3796.49,
+   "elected_value_per_voter_bdt": 3804.19,
    "total_voters": 1888440
   },
   {
@@ -1880,7 +1896,7 @@
    "bnp_seat_share": 0.4545,
    "bnp_won": 0,
    "interim_value_per_voter_bdt": 11109.81,
-   "elected_value_per_voter_bdt": 5216.33,
+   "elected_value_per_voter_bdt": 5225.48,
    "total_voters": 2730610
   },
   {

@@ -1986,16 +1986,21 @@
   ]
  },
  "9520": {
-  "value_bdt": 140000.0,
-  "count": 1,
+  "value_bdt": 550000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 140000.0,
-    "count": 1
+    "value_bdt": 550000.0,
+    "count": 2
    }
   },
   "by_nature": {},
   "top_vendors": [
+   {
+    "company": "S.M.G Faruk",
+    "value_bdt": 410000.0,
+    "count": 1
+   },
    {
     "company": "B.S Enterprise",
     "value_bdt": 140000.0,
@@ -2005,11 +2010,18 @@
   "top_districts": [
    {
     "district": "Rangpur",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "23.09.8549.265.06.009.26.OtherStationary26-27",
+    "awarded_to": "S.M.G Faruk",
+    "value_bdt": 410000.0,
+    "contract_signing_date": "2026-11-01",
+    "description": "Different types of stationary required for office as like papers Printer Cartridge calculator Aerosol Air Fresheners etc.."
+   },
    {
     "package_ref": "23.09.8549.265.06.009.25.Stationary01",
     "awarded_to": "B.S Enterprise",

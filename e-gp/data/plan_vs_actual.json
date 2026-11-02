@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 876017,
-  "matched_pairs": 120080,
+  "contracts_scanned": 876130,
+  "matched_pairs": 120082,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4067,
   "pairs_excluded_generic": 2537,
@@ -19,7 +19,7 @@
   "buckets": {
    "<70%": 2754,
    "70-85%": 7586,
-   "85-95%": 64344,
+   "85-95%": 64346,
    "95-100%": 36897,
    "100-115%": 7561,
    ">115%": 938
@@ -52,9 +52,9 @@
    "0.84": 813,
    "0.85": 1704,
    "0.86": 1094,
-   "0.87": 1670,
+   "0.87": 1671,
    "0.88": 2340,
-   "0.89": 3724,
+   "0.89": 3725,
    "0.90": 23917,
    "0.91": 2269,
    "0.92": 1596,
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119852,
+  "unchanged": 119854,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61062,
+   "OTM->OTM": 61064,
    "LTM->LTM": 55368,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
@@ -592,9 +592,9 @@
    },
    {
     "ministry": "Ministry of Housing and Public Works",
-    "matched_pairs": 70880,
+    "matched_pairs": 70881,
     "median_ratio": 0.9456,
-    "iqr": 0.0535,
+    "iqr": 0.0536,
     "share_above_115": 0.0066,
     "share_at_10pct_below": 0.1454
    },
@@ -608,7 +608,7 @@
    },
    {
     "ministry": "Ministry of Road Transport and Bridges",
-    "matched_pairs": 27304,
+    "matched_pairs": 27305,
     "median_ratio": 0.9,
     "iqr": 0.028,
     "share_above_115": 0.0052,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11733,
+    "matched_pairs": 11735,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,9 +764,9 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9315,
+    "matched_pairs": 9317,
     "median_ratio": 0.9444,
-    "iqr": 0.0552,
+    "iqr": 0.0551,
     "share_above_115": 0.0017,
     "share_at_10pct_below": 0.0538
    }
