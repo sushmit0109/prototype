@@ -1,81 +1,81 @@
 {
  "meta": {
-  "generated_office_count": 10009,
+  "generated_office_count": 10013,
   "ministry_count": 48,
   "division_count": 30,
-  "contracts_scanned": 876130,
-  "nature_matched": 463724,
+  "contracts_scanned": 876224,
+  "nature_matched": 463757,
   "nature_match_rate": 0.5293
  },
  "ministries": [
   {
    "id": 2,
    "name": "Ministry of Local Government, Rural Development and Co-operatives",
-   "value_bdt": 3045308080000.0,
-   "count": 361424,
+   "value_bdt": 3045512570000.0,
+   "count": 361444,
    "office_count": 3023
   },
   {
    "id": 5,
    "name": "Ministry of Road Transport and Bridges",
-   "value_bdt": 1005970990000.0,
-   "count": 51251,
+   "value_bdt": 1005981800000.0,
+   "count": 51254,
    "office_count": 177
   },
   {
    "id": 6,
    "name": "Ministry of Education",
-   "value_bdt": 755080270000.0,
-   "count": 99267,
+   "value_bdt": 755103530000.0,
+   "count": 99274,
    "office_count": 1236
   },
   {
    "id": 4,
    "name": "Ministry of Water Resources",
-   "value_bdt": 696690890000.0,
-   "count": 32842,
+   "value_bdt": 696692470000.0,
+   "count": 32848,
    "office_count": 277
   },
   {
    "id": 8,
    "name": "Ministry of Housing and Public Works",
-   "value_bdt": 618326870000.0,
-   "count": 132862,
+   "value_bdt": 618530070000.0,
+   "count": 132868,
    "office_count": 257
   },
   {
    "id": 3,
    "name": "Ministry of Energy, Power and Mineral Resources",
-   "value_bdt": 300035100000.0,
-   "count": 55707,
+   "value_bdt": 300151110000.0,
+   "count": 55720,
    "office_count": 1105
   },
   {
    "id": 16,
    "name": "Ministry of Shipping",
-   "value_bdt": 163107350000.0,
-   "count": 13456,
-   "office_count": 199
+   "value_bdt": 163119480000.0,
+   "count": 13464,
+   "office_count": 201
   },
   {
    "id": 9,
    "name": "Ministry of Health and Family Welfare",
-   "value_bdt": 155759510000.0,
-   "count": 30114,
+   "value_bdt": 155766420000.0,
+   "count": 30120,
    "office_count": 809
   },
   {
    "id": 13,
    "name": "Ministry of Agriculture",
-   "value_bdt": 114954030000.0,
-   "count": 25791,
+   "value_bdt": 114955150000.0,
+   "count": 25794,
    "office_count": 514
   },
   {
    "id": 26,
    "name": "Ministry of Home Affairs",
-   "value_bdt": 91009810000.0,
-   "count": 15257,
+   "value_bdt": 91027850000.0,
+   "count": 15261,
    "office_count": 349
   },
   {
@@ -88,15 +88,15 @@
   {
    "id": 14,
    "name": "Ministry of Fisheries & Livestock",
-   "value_bdt": 54089860000.0,
-   "count": 5493,
+   "value_bdt": 54089960000.0,
+   "count": 5494,
    "office_count": 437
   },
   {
    "id": 10,
    "name": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 53224910000.0,
-   "count": 1586,
+   "value_bdt": 53230840000.0,
+   "count": 1591,
    "office_count": 166
   },
   {
@@ -109,8 +109,8 @@
   {
    "id": 24,
    "name": "Ministry of Railways",
-   "value_bdt": 45728020000.0,
-   "count": 8836,
+   "value_bdt": 45728140000.0,
+   "count": 8837,
    "office_count": 119
   },
   {
@@ -130,8 +130,8 @@
   {
    "id": 32,
    "name": "Ministry of Industries",
-   "value_bdt": 34186100000.0,
-   "count": 4892,
+   "value_bdt": 34190890000.0,
+   "count": 4897,
    "office_count": 131
   },
   {
@@ -144,16 +144,16 @@
   {
    "id": 21,
    "name": "Prime Minister's Office",
-   "value_bdt": 32732170000.0,
-   "count": 1181,
+   "value_bdt": 32739860000.0,
+   "count": 1182,
    "office_count": 72
   },
   {
    "id": 7,
    "name": "Ministry of Finance",
-   "value_bdt": 22947570000.0,
-   "count": 2779,
-   "office_count": 184
+   "value_bdt": 22953600000.0,
+   "count": 2781,
+   "office_count": 185
   },
   {
    "id": 22,
@@ -207,8 +207,8 @@
   {
    "id": 12,
    "name": "Ministry of Expatriates' Welfare and Overseas Employment",
-   "value_bdt": 4157840000.0,
-   "count": 548,
+   "value_bdt": 4158090000.0,
+   "count": 549,
    "office_count": 73
   },
   {
@@ -228,9 +228,9 @@
   {
    "id": 36,
    "name": "Ministry of Social Welfare",
-   "value_bdt": 2256420000.0,
-   "count": 88,
-   "office_count": 10
+   "value_bdt": 2282640000.0,
+   "count": 89,
+   "office_count": 11
   },
   {
    "id": 33,
@@ -331,17 +331,17 @@
    "office_count": 1
   },
   {
+   "id": 43,
+   "name": "Ministry of Liberation War Affairs",
+   "value_bdt": 5670000.0,
+   "count": 8,
+   "office_count": 2
+  },
+  {
    "id": 47,
    "name": "President's Office",
    "value_bdt": 4560000.0,
    "count": 12,
-   "office_count": 2
-  },
-  {
-   "id": 43,
-   "name": "Ministry of Liberation War Affairs",
-   "value_bdt": 3780000.0,
-   "count": 7,
    "office_count": 2
   }
  ],
@@ -350,40 +350,40 @@
    "id": 3,
    "name": "Local Government Division",
    "ministry_id": 2,
-   "value_bdt": 3036837340000.0,
-   "count": 360357,
+   "value_bdt": 3037041830000.0,
+   "count": 360377,
    "office_count": 2972
   },
   {
    "id": 5,
    "name": "Road Transport and Highways Division",
    "ministry_id": 5,
-   "value_bdt": 1003460940000.0,
-   "count": 51147,
+   "value_bdt": 1003471750000.0,
+   "count": 51150,
    "office_count": 172
   },
   {
    "id": 18,
    "name": "Secondary and Higher Education Division",
    "ministry_id": 6,
-   "value_bdt": 481536130000.0,
-   "count": 65385,
+   "value_bdt": 481559390000.0,
+   "count": 65392,
    "office_count": 707
   },
   {
    "id": 4,
    "name": "Power Division",
    "ministry_id": 3,
-   "value_bdt": 278016980000.0,
-   "count": 51491,
+   "value_bdt": 278132990000.0,
+   "count": 51504,
    "office_count": 966
   },
   {
    "id": 27,
    "name": "Health Services Division",
    "ministry_id": 9,
-   "value_bdt": 61329700000.0,
-   "count": 12437,
+   "value_bdt": 61332990000.0,
+   "count": 12440,
    "office_count": 693
   },
   {
@@ -414,8 +414,8 @@
    "id": 20,
    "name": "Public Security Division",
    "ministry_id": 26,
-   "value_bdt": 16682020000.0,
-   "count": 2342,
+   "value_bdt": 16682490000.0,
+   "count": 2343,
    "office_count": 18
   },
   {
@@ -430,16 +430,16 @@
    "id": 17,
    "name": "Security Services Division",
    "ministry_id": 26,
-   "value_bdt": 13675200000.0,
-   "count": 6744,
+   "value_bdt": 13677060000.0,
+   "count": 6745,
    "office_count": 104
   },
   {
    "id": 13,
    "name": "Post & Telecommunication Division",
    "ministry_id": 10,
-   "value_bdt": 11020990000.0,
-   "count": 876,
+   "value_bdt": 11026920000.0,
+   "count": 881,
    "office_count": 108
   },
   {
@@ -470,8 +470,8 @@
    "id": 24,
    "name": "Medical Education and Family Welfare Division",
    "ministry_id": 9,
-   "value_bdt": 5753510000.0,
-   "count": 609,
+   "value_bdt": 5754000000.0,
+   "count": 610,
    "office_count": 50
   },
   {
@@ -494,9 +494,9 @@
    "id": 6,
    "name": "Internal Resource Division",
    "ministry_id": 7,
-   "value_bdt": 2651560000.0,
-   "count": 390,
-   "office_count": 50
+   "value_bdt": 2657590000.0,
+   "count": 392,
+   "office_count": 51
   },
   {
    "id": 14,
@@ -657,8 +657,8 @@
    "name": "Office of the Executive Engineer, LGED, Sunamganj",
    "ministry_id": 2,
    "division_id": 3,
-   "value_bdt": 48802170000.0,
-   "count": 2014
+   "value_bdt": 48826800000.0,
+   "count": 2015
   },
   {
    "id": 224,
@@ -705,8 +705,8 @@
    "name": "Office of the Executive Engineer, LGED, Tangail",
    "ministry_id": 2,
    "division_id": 3,
-   "value_bdt": 44008830000.0,
-   "count": 5042
+   "value_bdt": 44017960000.0,
+   "count": 5043
   },
   {
    "id": 45,
@@ -842,7 +842,7 @@
    "ministry_id": 3,
    "division_id": 4,
    "value_bdt": 28387150000.0,
-   "count": 712
+   "count": 713
   },
   {
    "id": 142,
@@ -873,8 +873,8 @@
    "name": "Office of the Executive Engineer, LGED, Naogaon",
    "ministry_id": 2,
    "division_id": 3,
-   "value_bdt": 27254110000.0,
-   "count": 3145
+   "value_bdt": 27258050000.0,
+   "count": 3146
   },
   {
    "id": 244,
@@ -1097,8 +1097,8 @@
    "name": "Office of the Executive Engineer, LGED, Manikganj",
    "ministry_id": 2,
    "division_id": 3,
-   "value_bdt": 20826880000.0,
-   "count": 1708
+   "value_bdt": 20847860000.0,
+   "count": 1711
   },
   {
    "id": 517,
@@ -1185,8 +1185,8 @@
    "name": "Pabna PWD Division, Pabna",
    "ministry_id": 8,
    "division_id": null,
-   "value_bdt": 16933230000.0,
-   "count": 989
+   "value_bdt": 16933510000.0,
+   "count": 990
   },
   {
    "id": 1566,
@@ -1281,8 +1281,8 @@
    "name": "Office of the Executive Engineer, LGED, Chapainawabganj",
    "ministry_id": 2,
    "division_id": 3,
-   "value_bdt": 15211310000.0,
-   "count": 1905
+   "value_bdt": 15217810000.0,
+   "count": 1906
   },
   {
    "id": 5394,
@@ -1389,6 +1389,14 @@
    "count": 1434
   },
   {
+   "id": 116,
+   "name": "Office of the Executive Engineer, LGED, Rajbari",
+   "ministry_id": 2,
+   "division_id": 3,
+   "value_bdt": 13564360000.0,
+   "count": 1528
+  },
+  {
    "id": 2855,
    "name": "Office of the Superintending Engineer",
    "ministry_id": 2,
@@ -1397,12 +1405,12 @@
    "count": 202
   },
   {
-   "id": 116,
-   "name": "Office of the Executive Engineer, LGED, Rajbari",
-   "ministry_id": 2,
-   "division_id": 3,
-   "value_bdt": 13436880000.0,
-   "count": 1516
+   "id": 557,
+   "name": "Sunamganj PWD Division",
+   "ministry_id": 8,
+   "division_id": null,
+   "value_bdt": 13450600000.0,
+   "count": 991
   },
   {
    "id": 42,
@@ -1411,14 +1419,6 @@
    "division_id": 3,
    "value_bdt": 13425680000.0,
    "count": 2085
-  },
-  {
-   "id": 557,
-   "name": "Sunamganj PWD Division",
-   "ministry_id": 8,
-   "division_id": null,
-   "value_bdt": 13405100000.0,
-   "count": 990
   },
   {
    "id": 32,
@@ -1433,8 +1433,8 @@
    "name": "Office of the Executive Engineer,EED, Chittagong, District.",
    "ministry_id": 6,
    "division_id": 18,
-   "value_bdt": 13096820000.0,
-   "count": 2174
+   "value_bdt": 13108200000.0,
+   "count": 2180
   },
   {
    "id": 370,
@@ -1937,8 +1937,8 @@
    "name": "Office of the Executive Engineer, LGED, Barishal",
    "ministry_id": 2,
    "division_id": 3,
-   "value_bdt": 8658740000.0,
-   "count": 714
+   "value_bdt": 8670570000.0,
+   "count": 715
   },
   {
    "id": 6018,
@@ -2373,20 +2373,20 @@
    "count": 1134
   },
   {
+   "id": 896,
+   "name": "PWD EM Division-6, Dhaka",
+   "ministry_id": 8,
+   "division_id": null,
+   "value_bdt": 6637010000.0,
+   "count": 2058
+  },
+  {
    "id": 2300,
    "name": "Office of the Superintending Engineer (Civil)-2, Dredging Department",
    "ministry_id": 16,
    "division_id": null,
    "value_bdt": 6636800000.0,
    "count": 58
-  },
-  {
-   "id": 896,
-   "name": "PWD EM Division-6, Dhaka",
-   "ministry_id": 8,
-   "division_id": null,
-   "value_bdt": 6635450000.0,
-   "count": 2055
   },
   {
    "id": 160,
@@ -2753,8 +2753,8 @@
    "name": "Bogra Road Division",
    "ministry_id": 5,
    "division_id": 5,
-   "value_bdt": 5771770000.0,
-   "count": 1240
+   "value_bdt": 5778990000.0,
+   "count": 1242
   },
   {
    "id": 1653,
@@ -3169,8 +3169,8 @@
    "name": "Office of the Executive Engineer, EED, Jamalpur, District.",
    "ministry_id": 6,
    "division_id": 18,
-   "value_bdt": 5178060000.0,
-   "count": 1099
+   "value_bdt": 5189940000.0,
+   "count": 1100
   },
   {
    "id": 6825,
@@ -4817,8 +4817,8 @@
    "name": "Office of the Superintending Engineer, Dhaka Zone (South)",
    "ministry_id": 3,
    "division_id": 4,
-   "value_bdt": 3113450000.0,
-   "count": 490
+   "value_bdt": 3114790000.0,
+   "count": 492
   },
   {
    "id": 674,
@@ -7077,20 +7077,20 @@
    "count": 530
   },
   {
+   "id": 310,
+   "name": "Madaripur Road Division",
+   "ministry_id": 5,
+   "division_id": 5,
+   "value_bdt": 1806590000.0,
+   "count": 369
+  },
+  {
    "id": 4,
    "name": "Thakurgaon Road Division",
    "ministry_id": 5,
    "division_id": 5,
    "value_bdt": 1803200000.0,
    "count": 349
-  },
-  {
-   "id": 310,
-   "name": "Madaripur Road Division",
-   "ministry_id": 5,
-   "division_id": 5,
-   "value_bdt": 1803000000.0,
-   "count": 368
   },
   {
    "id": 3906,
@@ -7237,6 +7237,14 @@
    "count": 53
   },
   {
+   "id": 8088,
+   "name": "Customs Modernization and Infrastructure Development Project",
+   "ministry_id": 7,
+   "division_id": 6,
+   "value_bdt": 1739160000.0,
+   "count": 5
+  },
+  {
    "id": 1105,
    "name": "Haripur 412 MW Combined Cycle Power Plant",
    "ministry_id": 3,
@@ -7267,14 +7275,6 @@
    "division_id": null,
    "value_bdt": 1735260000.0,
    "count": 300
-  },
-  {
-   "id": 8088,
-   "name": "Customs Modernization and Infrastructure Development Project",
-   "ministry_id": 7,
-   "division_id": 6,
-   "value_bdt": 1733610000.0,
-   "count": 4
   },
   {
    "id": 1475,
@@ -7435,6 +7435,14 @@
    "division_id": 4,
    "value_bdt": 1642220000.0,
    "count": 30
+  },
+  {
+   "id": 5346,
+   "name": "Development of Residential and commercial Infrastructure at Jhilmil Residential Project Area",
+   "ministry_id": 8,
+   "division_id": null,
+   "value_bdt": 1642020000.0,
+   "count": 23
   },
   {
    "id": 1779,
@@ -7803,14 +7811,6 @@
    "division_id": 3,
    "value_bdt": 1486460000.0,
    "count": 163
-  },
-  {
-   "id": 5346,
-   "name": "Development of Residential and commercial Infrastructure at Jhilmil Residential Project Area",
-   "ministry_id": 8,
-   "division_id": null,
-   "value_bdt": 1486160000.0,
-   "count": 22
   },
   {
    "id": 1879,
@@ -9085,6 +9085,14 @@
    "count": 119
   },
   {
+   "id": 7273,
+   "name": "Office of Executive Engineer (Civil), BEPZA",
+   "ministry_id": 21,
+   "division_id": null,
+   "value_bdt": 1086610000.0,
+   "count": 47
+  },
+  {
    "id": 3372,
    "name": "PIU Office of Moheshkhali Pourashava, Cox's bazar",
    "ministry_id": 2,
@@ -9115,14 +9123,6 @@
    "division_id": 3,
    "value_bdt": 1082720000.0,
    "count": 170
-  },
-  {
-   "id": 7273,
-   "name": "Office of Executive Engineer (Civil), BEPZA",
-   "ministry_id": 21,
-   "division_id": null,
-   "value_bdt": 1078920000.0,
-   "count": 46
   },
   {
    "id": 9863,
@@ -13861,6 +13861,14 @@
    "count": 15
   },
   {
+   "id": 6199,
+   "name": "Narayanganj Palli Bidyut Samity-2",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 560790000.0,
+   "count": 21
+  },
+  {
    "id": 982,
    "name": "Office of the Upazila Engineer, LGED, Daulatkhan, Bhola",
    "ministry_id": 2,
@@ -14665,8 +14673,8 @@
    "name": "Office of the Controller of Stores-West, Rajshahi",
    "ministry_id": 24,
    "division_id": null,
-   "value_bdt": 509590000.0,
-   "count": 229
+   "value_bdt": 509710000.0,
+   "count": 230
   },
   {
    "id": 495,
@@ -14805,6 +14813,14 @@
    "count": 8
   },
   {
+   "id": 2967,
+   "name": "Office of the Superintending Engineer (Mech.) Dredger Base, Narayangonj.",
+   "ministry_id": 16,
+   "division_id": null,
+   "value_bdt": 504380000.0,
+   "count": 516
+  },
+  {
    "id": 4923,
    "name": "Office Of The Upazila Engineer, Mithapukur, Rangpur",
    "ministry_id": 2,
@@ -14819,14 +14835,6 @@
    "division_id": 3,
    "value_bdt": 503180000.0,
    "count": 16
-  },
-  {
-   "id": 2967,
-   "name": "Office of the Superintending Engineer (Mech.) Dredger Base, Narayangonj.",
-   "ministry_id": 16,
-   "division_id": null,
-   "value_bdt": 502980000.0,
-   "count": 515
   },
   {
    "id": 1142,
@@ -14933,6 +14941,14 @@
    "count": 77
   },
   {
+   "id": 2521,
+   "name": "Office Of the Executive Engineer Civil, Barishal, Dredging Dept.",
+   "ministry_id": 16,
+   "division_id": null,
+   "value_bdt": 497440000.0,
+   "count": 55
+  },
+  {
    "id": 968,
    "name": "Office of the Upazila Engineer, LGED, Batiaghata, Khulna",
    "ministry_id": 2,
@@ -14987,14 +15003,6 @@
    "division_id": 3,
    "value_bdt": 496270000.0,
    "count": 76
-  },
-  {
-   "id": 2521,
-   "name": "Office Of the Executive Engineer Civil, Barishal, Dredging Dept.",
-   "ministry_id": 16,
-   "division_id": null,
-   "value_bdt": 495730000.0,
-   "count": 54
   },
   {
    "id": 600,
@@ -15651,14 +15659,6 @@
    "division_id": null,
    "value_bdt": 459100000.0,
    "count": 448
-  },
-  {
-   "id": 6199,
-   "name": "Narayanganj Palli Bidyut Samity-2",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 458790000.0,
-   "count": 20
   },
   {
    "id": 680,
@@ -16861,6 +16861,14 @@
    "count": 331
   },
   {
+   "id": 1678,
+   "name": "Executive Engineer_Mech_Central Workshop_Maintenance",
+   "ministry_id": 16,
+   "division_id": null,
+   "value_bdt": 398350000.0,
+   "count": 348
+  },
+  {
    "id": 278,
    "name": "Office of the Upazila Engineer, LGED, Charghat, Rajshahi",
    "ministry_id": 2,
@@ -16907,14 +16915,6 @@
    "division_id": 3,
    "value_bdt": 397070000.0,
    "count": 1
-  },
-  {
-   "id": 1678,
-   "name": "Executive Engineer_Mech_Central Workshop_Maintenance",
-   "ministry_id": 16,
-   "division_id": null,
-   "value_bdt": 396950000.0,
-   "count": 345
   },
   {
    "id": 602,
@@ -26717,6 +26717,14 @@
    "count": 20
   },
   {
+   "id": 6163,
+   "name": "Office of the Director (Hospital)",
+   "ministry_id": 9,
+   "division_id": null,
+   "value_bdt": 131110000.0,
+   "count": 16
+  },
+  {
    "id": 5515,
    "name": "Manager-2, Planning and Development, BEZA",
    "ministry_id": 21,
@@ -26979,14 +26987,6 @@
    "division_id": null,
    "value_bdt": 128010000.0,
    "count": 85
-  },
-  {
-   "id": 6163,
-   "name": "Office of the Director (Hospital)",
-   "ministry_id": 9,
-   "division_id": null,
-   "value_bdt": 127980000.0,
-   "count": 14
   },
   {
    "id": 4741,
@@ -28925,6 +28925,14 @@
    "count": 144
   },
   {
+   "id": 199,
+   "name": "Moulvibazar Mech. O&M Division",
+   "ministry_id": 4,
+   "division_id": null,
+   "value_bdt": 109710000.0,
+   "count": 186
+  },
+  {
    "id": 4509,
    "name": "Office of the Elenga Pourashava, Tangail",
    "ministry_id": 2,
@@ -28979,14 +28987,6 @@
    "division_id": 5,
    "value_bdt": 109310000.0,
    "count": 2
-  },
-  {
-   "id": 199,
-   "name": "Moulvibazar Mech. O&M Division",
-   "ministry_id": 4,
-   "division_id": null,
-   "value_bdt": 109260000.0,
-   "count": 182
   },
   {
    "id": 3923,
@@ -29901,6 +29901,14 @@
    "count": 80
   },
   {
+   "id": 7524,
+   "name": "Jhenaidah 250 Bedded General Hospital, Jhenaidah",
+   "ministry_id": 9,
+   "division_id": 27,
+   "value_bdt": 100530000.0,
+   "count": 18
+  },
+  {
    "id": 5737,
    "name": "Establishment of Standalone Full Fledge Digital Television Station at Chattogram (1st Phase)",
    "ministry_id": 46,
@@ -30195,14 +30203,6 @@
    "division_id": null,
    "value_bdt": 98450000.0,
    "count": 42
-  },
-  {
-   "id": 7524,
-   "name": "Jhenaidah 250 Bedded General Hospital, Jhenaidah",
-   "ministry_id": 9,
-   "division_id": 27,
-   "value_bdt": 98330000.0,
-   "count": 17
   },
   {
    "id": 7050,
@@ -31165,6 +31165,14 @@
    "count": 66
   },
   {
+   "id": 5523,
+   "name": "Sylhet Metropolitan Police, Sylhet",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 92200000.0,
+   "count": 24
+  },
+  {
    "id": 5550,
    "name": "Office of the Upazila Engineer, Singra, Natore",
    "ministry_id": 2,
@@ -31251,6 +31259,14 @@
    "division_id": 3,
    "value_bdt": 91670000.0,
    "count": 15
+  },
+  {
+   "id": 4348,
+   "name": "Bogura ME Division",
+   "ministry_id": 4,
+   "division_id": null,
+   "value_bdt": 91580000.0,
+   "count": 149
   },
   {
    "id": 4715,
@@ -31467,14 +31483,6 @@
    "division_id": null,
    "value_bdt": 90450000.0,
    "count": 12
-  },
-  {
-   "id": 4348,
-   "name": "Bogura ME Division",
-   "ministry_id": 4,
-   "division_id": null,
-   "value_bdt": 90450000.0,
-   "count": 147
   },
   {
    "id": 7402,
@@ -32581,6 +32589,14 @@
    "count": 58
   },
   {
+   "id": 8193,
+   "name": "Office of the Superintendent of Police, Kurigram",
+   "ministry_id": 26,
+   "division_id": null,
+   "value_bdt": 83410000.0,
+   "count": 54
+  },
+  {
    "id": 3692,
    "name": "Office of the Project Director, CRMIDP, LGED",
    "ministry_id": 2,
@@ -33013,14 +33029,6 @@
    "count": 63
   },
   {
-   "id": 5523,
-   "name": "Sylhet Metropolitan Police, Sylhet",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 80930000.0,
-   "count": 23
-  },
-  {
    "id": 892,
    "name": "PIU office of Ranisankail Pourashava, Thakurgaon",
    "ministry_id": 2,
@@ -33379,14 +33387,6 @@
    "division_id": 17,
    "value_bdt": 79010000.0,
    "count": 80
-  },
-  {
-   "id": 8193,
-   "name": "Office of the Superintendent of Police, Kurigram",
-   "ministry_id": 26,
-   "division_id": null,
-   "value_bdt": 78970000.0,
-   "count": 53
   },
   {
    "id": 5837,
@@ -34285,6 +34285,14 @@
    "count": 2
   },
   {
+   "id": 6164,
+   "name": "Mymensingh Palli Bidyut Samity -1",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 74260000.0,
+   "count": 55
+  },
+  {
    "id": 4606,
    "name": "Office of the Upazila Engineer, Mohanganj, Netrokona",
    "ministry_id": 2,
@@ -34683,14 +34691,6 @@
    "division_id": 27,
    "value_bdt": 72420000.0,
    "count": 15
-  },
-  {
-   "id": 6164,
-   "name": "Mymensingh Palli Bidyut Samity -1",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 72360000.0,
-   "count": 53
   },
   {
    "id": 7125,
@@ -38557,6 +38557,14 @@
    "count": 5
   },
   {
+   "id": 7616,
+   "name": "DGM, Transmission, Rangpur.",
+   "ministry_id": 10,
+   "division_id": 13,
+   "value_bdt": 51330000.0,
+   "count": 8
+  },
+  {
    "id": 6022,
    "name": "Office of the Upazila Engineer, LGED, Monohorganj,Cumilla",
    "ministry_id": 2,
@@ -39915,14 +39923,6 @@
    "division_id": 4,
    "value_bdt": 45640000.0,
    "count": 51
-  },
-  {
-   "id": 7616,
-   "name": "DGM, Transmission, Rangpur.",
-   "ministry_id": 10,
-   "division_id": 13,
-   "value_bdt": 45620000.0,
-   "count": 5
   },
   {
    "id": 4860,
@@ -44373,6 +44373,14 @@
    "count": 43
   },
   {
+   "id": 8000,
+   "name": "GopalGanj Palli Bidyut Samity",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 30270000.0,
+   "count": 31
+  },
+  {
    "id": 3066,
    "name": "Admin-2 Section",
    "ministry_id": 18,
@@ -44715,14 +44723,6 @@
    "division_id": 3,
    "value_bdt": 29280000.0,
    "count": 18
-  },
-  {
-   "id": 8000,
-   "name": "GopalGanj Palli Bidyut Samity",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 29270000.0,
-   "count": 30
   },
   {
    "id": 1914,
@@ -45083,6 +45083,14 @@
    "division_id": null,
    "value_bdt": 28330000.0,
    "count": 4
+  },
+  {
+   "id": 7623,
+   "name": "Office of The Assistant Director, Fire Service & Civil Defence, Jashore",
+   "ministry_id": 26,
+   "division_id": 17,
+   "value_bdt": 28330000.0,
+   "count": 15
   },
   {
    "id": 1118,
@@ -45909,14 +45917,6 @@
    "count": 21
   },
   {
-   "id": 7623,
-   "name": "Office of The Assistant Director, Fire Service & Civil Defence, Jashore",
-   "ministry_id": 26,
-   "division_id": 17,
-   "value_bdt": 26470000.0,
-   "count": 14
-  },
-  {
    "id": 4351,
    "name": "Expansion,Renovation and Modernaization Project of BAPARD",
    "ministry_id": 2,
@@ -45939,6 +45939,14 @@
    "division_id": 27,
    "value_bdt": 26380000.0,
    "count": 32
+  },
+  {
+   "id": 7238,
+   "name": "Natore Palli Bidyut Samity-1",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 26370000.0,
+   "count": 51
   },
   {
    "id": 7914,
@@ -45987,6 +45995,14 @@
    "division_id": 3,
    "value_bdt": 26220000.0,
    "count": 13
+  },
+  {
+   "id": 10009,
+   "name": "Establishment Re-Establishment of Sarkari Shishu Paribar and Baby Home-2nd Revised Project.",
+   "ministry_id": 36,
+   "division_id": null,
+   "value_bdt": 26220000.0,
+   "count": 1
   },
   {
    "id": 2682,
@@ -46179,14 +46195,6 @@
    "division_id": 27,
    "value_bdt": 25890000.0,
    "count": 1
-  },
-  {
-   "id": 7238,
-   "name": "Natore Palli Bidyut Samity-1",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 25870000.0,
-   "count": 50
   },
   {
    "id": 5074,
@@ -46877,6 +46885,14 @@
    "count": 32
   },
   {
+   "id": 7181,
+   "name": "Habiganj Palli Bidyut Samity",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 24280000.0,
+   "count": 20
+  },
+  {
    "id": 4920,
    "name": "Duck Rearing Unit, Jhalokathi",
    "ministry_id": 14,
@@ -46931,6 +46947,14 @@
    "division_id": null,
    "value_bdt": 24190000.0,
    "count": 10
+  },
+  {
+   "id": 1702,
+   "name": "Executive Engineer Mechanical Division Shikalbaha 225 MW Dual Fuel CCPP BPDB, Chittagong.",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 24160000.0,
+   "count": 39
   },
   {
    "id": 2901,
@@ -47579,14 +47603,6 @@
    "division_id": 4,
    "value_bdt": 22920000.0,
    "count": 25
-  },
-  {
-   "id": 1702,
-   "name": "Executive Engineer Mechanical Division Shikalbaha 225 MW Dual Fuel CCPP BPDB, Chittagong.",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 22900000.0,
-   "count": 38
   },
   {
    "id": 8105,
@@ -49365,14 +49381,6 @@
    "count": 9
   },
   {
-   "id": 7181,
-   "name": "Habiganj Palli Bidyut Samity",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 19480000.0,
-   "count": 19
-  },
-  {
    "id": 3212,
    "name": "Dairy and Cattle Breed Development Farm, Hathazari, Chittagong",
    "ministry_id": 14,
@@ -49563,6 +49571,14 @@
    "division_id": 4,
    "value_bdt": 19230000.0,
    "count": 2
+  },
+  {
+   "id": 8582,
+   "name": "Bogura Palli Bidyut Samity 2",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 19230000.0,
+   "count": 27
   },
   {
    "id": 1856,
@@ -50789,6 +50805,14 @@
    "count": 12
   },
   {
+   "id": 8280,
+   "name": "Office of the Deputy General Manager, ONM-2, BTCL, Karail, Banani, Dhaka",
+   "ministry_id": 10,
+   "division_id": 13,
+   "value_bdt": 17570000.0,
+   "count": 11
+  },
+  {
    "id": 3548,
    "name": "Office of the Principal, Panchagarh Techincal School And College",
    "ministry_id": 6,
@@ -50843,14 +50867,6 @@
    "division_id": 18,
    "value_bdt": 17510000.0,
    "count": 8
-  },
-  {
-   "id": 8280,
-   "name": "Office of the Deputy General Manager, ONM-2, BTCL, Karail, Banani, Dhaka",
-   "ministry_id": 10,
-   "division_id": 13,
-   "value_bdt": 17510000.0,
-   "count": 10
   },
   {
    "id": 1649,
@@ -50971,6 +50987,14 @@
    "division_id": 27,
    "value_bdt": 17400000.0,
    "count": 16
+  },
+  {
+   "id": 9190,
+   "name": "Tangail Medical College, Tangail",
+   "ministry_id": 9,
+   "division_id": 24,
+   "value_bdt": 17400000.0,
+   "count": 9
   },
   {
    "id": 7361,
@@ -51133,6 +51157,14 @@
    "count": 13
   },
   {
+   "id": 8392,
+   "name": "Sirajgonj Palli Bidyut Samity- 1",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 17140000.0,
+   "count": 14
+  },
+  {
    "id": 7150,
    "name": "Iswardi Upazila Health Complex , Pabna",
    "ministry_id": 9,
@@ -51203,14 +51235,6 @@
    "division_id": 27,
    "value_bdt": 17040000.0,
    "count": 14
-  },
-  {
-   "id": 8582,
-   "name": "Bogura Palli Bidyut Samity 2",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 17030000.0,
-   "count": 26
   },
   {
    "id": 7669,
@@ -51307,14 +51331,6 @@
    "division_id": null,
    "value_bdt": 16920000.0,
    "count": 3
-  },
-  {
-   "id": 9190,
-   "name": "Tangail Medical College, Tangail",
-   "ministry_id": 9,
-   "division_id": 24,
-   "value_bdt": 16910000.0,
-   "count": 8
   },
   {
    "id": 3498,
@@ -51779,14 +51795,6 @@
    "division_id": 3,
    "value_bdt": 16280000.0,
    "count": 9
-  },
-  {
-   "id": 8392,
-   "name": "Sirajgonj Palli Bidyut Samity- 1",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 16280000.0,
-   "count": 13
   },
   {
    "id": 2125,
@@ -53693,6 +53701,14 @@
    "count": 5
   },
   {
+   "id": 3491,
+   "name": "Operations Directorate",
+   "ministry_id": 26,
+   "division_id": 20,
+   "value_bdt": 13570000.0,
+   "count": 3
+  },
+  {
    "id": 7751,
    "name": "Gabtali Upazila Health Complex, Bogura",
    "ministry_id": 9,
@@ -54003,14 +54019,6 @@
    "division_id": 5,
    "value_bdt": 13100000.0,
    "count": 34
-  },
-  {
-   "id": 3491,
-   "name": "Operations Directorate",
-   "ministry_id": 26,
-   "division_id": 20,
-   "value_bdt": 13100000.0,
-   "count": 2
   },
   {
    "id": 6680,
@@ -54427,6 +54435,14 @@
    "division_id": 4,
    "value_bdt": 12670000.0,
    "count": 28
+  },
+  {
+   "id": 7351,
+   "name": "Hakimpur Upazila Health Complex , Dinajpur",
+   "ministry_id": 9,
+   "division_id": 27,
+   "value_bdt": 12650000.0,
+   "count": 17
   },
   {
    "id": 7422,
@@ -55499,14 +55515,6 @@
    "division_id": 25,
    "value_bdt": 11580000.0,
    "count": 29
-  },
-  {
-   "id": 7351,
-   "name": "Hakimpur Upazila Health Complex , Dinajpur",
-   "ministry_id": 9,
-   "division_id": 27,
-   "value_bdt": 11560000.0,
-   "count": 15
   },
   {
    "id": 3976,
@@ -56715,6 +56723,14 @@
    "division_id": null,
    "value_bdt": 10260000.0,
    "count": 2
+  },
+  {
+   "id": 9881,
+   "name": "Carew and Company (Bangladesh) Ltd.-Commercial Department.",
+   "ministry_id": 32,
+   "division_id": null,
+   "value_bdt": 10260000.0,
+   "count": 14
   },
   {
    "id": 3647,
@@ -60925,6 +60941,14 @@
    "count": 8
   },
   {
+   "id": 9227,
+   "name": "Sales and Distribution Division - 4, NESCO PLC, Bogura",
+   "ministry_id": 3,
+   "division_id": 4,
+   "value_bdt": 6490000.0,
+   "count": 13
+  },
+  {
    "id": 7941,
    "name": "Bagmara Upazila Health Complex",
    "ministry_id": 9,
@@ -61051,14 +61075,6 @@
    "division_id": null,
    "value_bdt": 6340000.0,
    "count": 3
-  },
-  {
-   "id": 9227,
-   "name": "Sales and Distribution Division - 4, NESCO PLC, Bogura",
-   "ministry_id": 3,
-   "division_id": 4,
-   "value_bdt": 6340000.0,
-   "count": 12
   },
   {
    "id": 5952,
@@ -61635,14 +61651,6 @@
    "division_id": 3,
    "value_bdt": 5740000.0,
    "count": 1
-  },
-  {
-   "id": 9881,
-   "name": "Carew and Company (Bangladesh) Ltd.-Commercial Department.",
-   "ministry_id": 32,
-   "division_id": null,
-   "value_bdt": 5730000.0,
-   "count": 10
   },
   {
    "id": 8747,
@@ -63251,6 +63259,14 @@
    "division_id": 4,
    "value_bdt": 4700000.0,
    "count": 1
+  },
+  {
+   "id": 10010,
+   "name": "Bangladesh Marine Academy, Pabna",
+   "ministry_id": 16,
+   "division_id": null,
+   "value_bdt": 4700000.0,
+   "count": 2
   },
   {
    "id": 6642,
@@ -66661,6 +66677,14 @@
    "count": 18
   },
   {
+   "id": 10011,
+   "name": "Office of the Joint Director Servey,Hydrography Department",
+   "ministry_id": 16,
+   "division_id": null,
+   "value_bdt": 2920000.0,
+   "count": 1
+  },
+  {
    "id": 4809,
    "name": "Research and Technical Service",
    "ministry_id": 3,
@@ -67821,6 +67845,14 @@
    "count": 11
   },
   {
+   "id": 9361,
+   "name": "Institute of Marine Technology, Bagerhat",
+   "ministry_id": 12,
+   "division_id": null,
+   "value_bdt": 2410000.0,
+   "count": 6
+  },
+  {
    "id": 9782,
    "name": "Chittagong Hill Tracts Regional Council",
    "ministry_id": 29,
@@ -67867,6 +67899,14 @@
    "division_id": null,
    "value_bdt": 2390000.0,
    "count": 1
+  },
+  {
+   "id": 10007,
+   "name": "MInistry of Liberation War Affairs",
+   "ministry_id": 43,
+   "division_id": null,
+   "value_bdt": 2390000.0,
+   "count": 2
   },
   {
    "id": 8404,
@@ -68435,14 +68475,6 @@
    "division_id": 25,
    "value_bdt": 2160000.0,
    "count": 7
-  },
-  {
-   "id": 9361,
-   "name": "Institute of Marine Technology, Bagerhat",
-   "ministry_id": 12,
-   "division_id": null,
-   "value_bdt": 2160000.0,
-   "count": 5
   },
   {
    "id": 2035,
@@ -70469,6 +70501,14 @@
    "count": 10
   },
   {
+   "id": 9811,
+   "name": "Zeal Bangla Sugar Mills Ltd.-Commercial Department.",
+   "ministry_id": 32,
+   "division_id": null,
+   "value_bdt": 1560000.0,
+   "count": 5
+  },
+  {
    "id": 7412,
    "name": "Meherpur Technical Training Center",
    "ministry_id": 6,
@@ -71509,14 +71549,6 @@
    "count": 6
   },
   {
-   "id": 9811,
-   "name": "Zeal Bangla Sugar Mills Ltd.-Commercial Department.",
-   "ministry_id": 32,
-   "division_id": null,
-   "value_bdt": 1300000.0,
-   "count": 4
-  },
-  {
    "id": 1447,
    "name": "Distribution Division, PDB, Gaibandha",
    "ministry_id": 3,
@@ -71555,6 +71587,14 @@
    "division_id": null,
    "value_bdt": 1290000.0,
    "count": 1
+  },
+  {
+   "id": 9837,
+   "name": "Upazila Agriculture Office, Monirampur, Jashore",
+   "ministry_id": 13,
+   "division_id": null,
+   "value_bdt": 1290000.0,
+   "count": 3
   },
   {
    "id": 2712,
@@ -74725,6 +74765,14 @@
    "count": 4
   },
   {
+   "id": 9977,
+   "name": "Upazila Agriculture Office, Khaliajuri, Netrokona",
+   "ministry_id": 13,
+   "division_id": null,
+   "value_bdt": 720000.0,
+   "count": 2
+  },
+  {
    "id": 3741,
    "name": "Upazila Parishad, Banshkhali, Chattogram",
    "ministry_id": 2,
@@ -75781,14 +75829,6 @@
    "count": 3
   },
   {
-   "id": 9837,
-   "name": "Upazila Agriculture Office, Monirampur, Jashore",
-   "ministry_id": 13,
-   "division_id": null,
-   "value_bdt": 570000.0,
-   "count": 1
-  },
-  {
    "id": 9870,
    "name": "School of Architecture and Design -14014",
    "ministry_id": 6,
@@ -76003,6 +76043,14 @@
    "division_id": null,
    "value_bdt": 550000.0,
    "count": 1
+  },
+  {
+   "id": 9816,
+   "name": "Office of the DGM (Phones-3), Prime Ministers Office, Tejgaon, Dhaka.",
+   "ministry_id": 10,
+   "division_id": 13,
+   "value_bdt": 550000.0,
+   "count": 3
   },
   {
    "id": 9872,
@@ -76541,14 +76589,6 @@
    "count": 1
   },
   {
-   "id": 10007,
-   "name": "MInistry of Liberation War Affairs",
-   "ministry_id": 43,
-   "division_id": null,
-   "value_bdt": 500000.0,
-   "count": 1
-  },
-  {
    "id": 6970,
    "name": "Animal Production Research Division",
    "ministry_id": 14,
@@ -76793,6 +76833,14 @@
    "name": "Upazila Agriculture office, Mohammadpur, Magura",
    "ministry_id": 13,
    "division_id": null,
+   "value_bdt": 480000.0,
+   "count": 1
+  },
+  {
+   "id": 10012,
+   "name": "Taxes Zone-21, Dhaka",
+   "ministry_id": 7,
+   "division_id": 6,
    "value_bdt": 480000.0,
    "count": 1
   },
@@ -77525,14 +77573,6 @@
    "count": 1
   },
   {
-   "id": 9816,
-   "name": "Office of the DGM (Phones-3), Prime Ministers Office, Tejgaon, Dhaka.",
-   "ministry_id": 10,
-   "division_id": 13,
-   "value_bdt": 390000.0,
-   "count": 2
-  },
-  {
    "id": 9947,
    "name": "Upazila Agriculture Office, Bijoynagar, Brahmanbaria",
    "ministry_id": 13,
@@ -77923,14 +77963,6 @@
    "division_id": 4,
    "value_bdt": 320000.0,
    "count": 2
-  },
-  {
-   "id": 9977,
-   "name": "Upazila Agriculture Office, Khaliajuri, Netrokona",
-   "ministry_id": 13,
-   "division_id": null,
-   "value_bdt": 320000.0,
-   "count": 1
   },
   {
    "id": 2207,
@@ -78923,6 +78955,14 @@
    "division_id": null,
    "value_bdt": 200000.0,
    "count": 1
+  },
+  {
+   "id": 8765,
+   "name": "Upazila Fisheries Officer, Sadarpur, Faridpur",
+   "ministry_id": 14,
+   "division_id": null,
+   "value_bdt": 200000.0,
+   "count": 2
   },
   {
    "id": 8797,
@@ -79961,14 +80001,6 @@
    "name": "Department of English",
    "ministry_id": 6,
    "division_id": 18,
-   "value_bdt": 100000.0,
-   "count": 1
-  },
-  {
-   "id": 8765,
-   "name": "Upazila Fisheries Officer, Sadarpur, Faridpur",
-   "ministry_id": 14,
-   "division_id": null,
    "value_bdt": 100000.0,
    "count": 1
   },

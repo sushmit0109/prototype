@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 876130,
-  "matched_pairs": 120082,
+  "contracts_scanned": 876224,
+  "matched_pairs": 120083,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4067,
   "pairs_excluded_generic": 2537,
@@ -17,7 +17,7 @@
   "p90": 1.0,
   "share_above_estimate": 0.0708,
   "buckets": {
-   "<70%": 2754,
+   "<70%": 2755,
    "70-85%": 7586,
    "85-95%": 64346,
    "95-100%": 36897,
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119854,
+  "unchanged": 119855,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61064,
+   "OTM->OTM": 61065,
    "LTM->LTM": 55368,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
@@ -616,9 +616,9 @@
    },
    {
     "ministry": "Ministry of Shipping",
-    "matched_pairs": 1162,
+    "matched_pairs": 1163,
     "median_ratio": 0.987,
-    "iqr": 0.0635,
+    "iqr": 0.064,
     "share_above_115": 0.0052,
     "share_at_10pct_below": 0.0267
    },
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11735,
+    "matched_pairs": 11736,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9317,
+    "matched_pairs": 9318,
     "median_ratio": 0.9444,
     "iqr": 0.0551,
     "share_above_115": 0.0017,
