@@ -671,12 +671,12 @@
   ]
  },
  "10009": {
-  "value_bdt": 26220000.0,
-  "count": 1,
+  "value_bdt": 58880000.0,
+  "count": 3,
   "by_year": {
    "2026": {
-    "value_bdt": 26220000.0,
-    "count": 1
+    "value_bdt": 58880000.0,
+    "count": 3
    }
   },
   "by_nature": {},
@@ -685,12 +685,22 @@
     "company": "Posh Furniture & Interior Limited",
     "value_bdt": 26220000.0,
     "count": 1
+   },
+   {
+    "company": "Navana Furniture Limited",
+    "value_bdt": 16820000.0,
+    "count": 1
+   },
+   {
+    "company": "The Bangladesh Machine Tools Factory Limited",
+    "value_bdt": 15840000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 3
    }
   ],
   "top_phrases": [],
@@ -701,6 +711,20 @@
     "value_bdt": 26220000.0,
     "contract_signing_date": "2026-11-02",
     "description": "Procurement of sofa sets wooden tables wooden chairs steel almirahs steel cabinets computer tables & chairs plastic chairs dressing tables and meatsafes for Sup"
+   },
+   {
+    "package_ref": "DSS/SSP2nd/PTCF/GD-11 Lot-06",
+    "awarded_to": "Navana Furniture Limited",
+    "value_bdt": 16820000.0,
+    "contract_signing_date": "2026-11-03",
+    "description": "Procurement of trade course furniture for 19 centers"
+   },
+   {
+    "package_ref": "DSS/SSP2nd/PDT&DC/GD-11 Lot- 04",
+    "awarded_to": "The Bangladesh Machine Tools Factory Limited",
+    "value_bdt": 15840000.0,
+    "contract_signing_date": "2026-11-03",
+    "description": "Procurement of dining tables and dining chairs for 19 centers."
    }
   ]
  }

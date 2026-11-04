@@ -67,19 +67,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Wall River Training Etc",
-    "count": 4
-   },
-   {
-    "phrase": "Site Office Boundary Wall",
-    "count": 4
-   },
-   {
     "phrase": "Development Site Office Boundary",
-    "count": 4
-   },
-   {
-    "phrase": "Office Boundary Wall River",
     "count": 4
    },
    {
@@ -87,11 +75,23 @@
     "count": 4
    },
    {
-    "phrase": "Boundary Wall River Training",
+    "phrase": "Office Boundary Wall River",
     "count": 4
    },
    {
     "phrase": "Land Development Site Office",
+    "count": 4
+   },
+   {
+    "phrase": "Boundary Wall River Training",
+    "count": 4
+   },
+   {
+    "phrase": "Wall River Training Etc",
+    "count": 4
+   },
+   {
+    "phrase": "Site Office Boundary Wall",
     "count": 4
    },
    {
@@ -686,7 +686,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Ins Picks Dm Tolerance",
+    "phrase": "Dm Tolerance Moisture Regain",
     "count": 1027
    },
    {
@@ -694,7 +694,15 @@
     "count": 1027
    },
    {
-    "phrase": "Dm Tolerance Moisture Regain",
+    "phrase": "Tolerance Shots Ins Picks",
+    "count": 1027
+   },
+   {
+    "phrase": "Maximum Sewn Hemmed Mouth",
+    "count": 1027
+   },
+   {
+    "phrase": "Dm Tolerance Shots Ins",
     "count": 1027
    },
    {
@@ -706,15 +714,7 @@
     "count": 1027
    },
    {
-    "phrase": "Dm Tolerance Shots Ins",
-    "count": 1027
-   },
-   {
-    "phrase": "Tolerance Shots Ins Picks",
-    "count": 1027
-   },
-   {
-    "phrase": "Maximum Sewn Hemmed Mouth",
+    "phrase": "Picks Dm Tolerance Moisture",
     "count": 1027
    }
   ],
@@ -2043,11 +2043,11 @@
     "count": 9
    },
    {
-    "phrase": "Repair Re-construction",
+    "phrase": "Boundary Wall",
     "count": 3
    },
    {
-    "phrase": "Boundary Wall",
+    "phrase": "Repair Re-construction",
     "count": 3
    }
   ],
@@ -3458,6 +3458,40 @@
     "value_bdt": 790000.0,
     "contract_signing_date": "2026-05-14",
     "description": "Procurement of Desk and Wall calender for BFSA"
+   }
+  ]
+ },
+ "10015": {
+  "value_bdt": 500000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 500000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "JANANI TRADERS",
+    "value_bdt": 500000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "13.01.0000.000.334.38.002.26-985",
+    "awarded_to": "JANANI TRADERS",
+    "value_bdt": 500000.0,
+    "contract_signing_date": "2026-11-03",
+    "description": "Procurement of Electrical Spare Parts & Maintenance Materials"
    }
   ]
  }

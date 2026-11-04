@@ -397,11 +397,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Maintenance Repair and Adjustment",
+    "phrase": "Repair and Adjustment Allied",
     "count": 29
    },
    {
-    "phrase": "Repair and Adjustment Allied",
+    "phrase": "Maintenance Repair and Adjustment",
     "count": 29
    },
    {
@@ -417,15 +417,15 @@
     "count": 11
    },
    {
-    "phrase": "Ferry Ghat Approach Road",
-    "count": 10
-   },
-   {
     "phrase": "Ghat Approach Road St",
     "count": 10
    },
    {
     "phrase": "Approach Road St January",
+    "count": 10
+   },
+   {
+    "phrase": "Ferry Ghat Approach Road",
     "count": 10
    }
   ],
@@ -870,11 +870,7 @@
     "count": 32
    },
    {
-    "phrase": "Ferryghat About Upstream Package",
-    "count": 20
-   },
-   {
-    "phrase": "Ahmed Chowdhury Kathalbari Ferryghat",
+    "phrase": "Proposed Area for Shifting",
     "count": 20
    },
    {
@@ -882,11 +878,15 @@
     "count": 20
    },
    {
-    "phrase": "Proposed Area for Shifting",
+    "phrase": "Chowdhury Kathalbari Ferryghat About",
     "count": 20
    },
    {
-    "phrase": "Chowdhury Kathalbari Ferryghat About",
+    "phrase": "Ahmed Chowdhury Kathalbari Ferryghat",
+    "count": 20
+   },
+   {
+    "phrase": "Ferryghat About Upstream Package",
     "count": 20
    }
   ],
@@ -1159,8 +1159,8 @@
   ]
  },
  "1678": {
-  "value_bdt": 398350000.0,
-  "count": 348,
+  "value_bdt": 398850000.0,
+  "count": 349,
   "by_year": {
    "2017": {
     "value_bdt": 13570000.0,
@@ -1199,13 +1199,13 @@
     "count": 59
    },
    "2026": {
-    "value_bdt": 27980000.0,
-    "count": 26
+    "value_bdt": 28480000.0,
+    "count": 27
    }
   },
   "by_nature": {
    "Works": 86,
-   "Goods": 218
+   "Goods": 219
   },
   "top_vendors": [
    {
@@ -1237,7 +1237,7 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 261
+    "count": 262
    },
    {
     "district": "Chittagong",
@@ -1247,7 +1247,7 @@
   "top_phrases": [
    {
     "phrase": "Different Cargo Handling Equipment",
-    "count": 116
+    "count": 117
    },
    {
     "phrase": "Spare Parts for Ton",
@@ -1271,10 +1271,10 @@
    },
    {
     "phrase": "Spare Parts for Different",
-    "count": 32
+    "count": 33
    },
    {
-    "phrase": "Capacity Cargo Handling Forklifts",
+    "phrase": "Parts for Different Cargo",
     "count": 27
    }
   ],
@@ -1479,8 +1479,8 @@
   ]
  },
  "1689": {
-  "value_bdt": 30620000.0,
-  "count": 34,
+  "value_bdt": 31730000.0,
+  "count": 35,
   "by_year": {
    "2017": {
     "value_bdt": 3390000.0,
@@ -1503,12 +1503,12 @@
     "count": 7
    },
    "2026": {
-    "value_bdt": 10170000.0,
-    "count": 17
+    "value_bdt": 11280000.0,
+    "count": 18
    }
   },
   "by_nature": {
-   "Works": 23
+   "Works": 24
   },
   "top_vendors": [
    {
@@ -1522,6 +1522,11 @@
     "count": 5
    },
    {
+    "company": "PEU ENTERPRISE",
+    "value_bdt": 3260000.0,
+    "count": 3
+   },
+   {
     "company": "Masas Rana Store",
     "value_bdt": 3130000.0,
     "count": 1
@@ -1530,38 +1535,17 @@
     "company": "Esha Construction",
     "value_bdt": 2200000.0,
     "count": 2
-   },
-   {
-    "company": "PEU ENTERPRISE",
-    "value_bdt": 2150000.0,
-    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Bagerhat",
-    "count": 34
+    "count": 35
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Door-window Repair Painting Distempering",
-    "count": 9
-   },
-   {
     "phrase": "Plaster Door-window Repair Painting",
-    "count": 9
-   },
-   {
-    "phrase": "Painting Distempering Exchange Sanitary",
-    "count": 9
-   },
-   {
-    "phrase": "Distempering Exchange Sanitary Fitting-fixing",
-    "count": 9
-   },
-   {
-    "phrase": "Exchange Sanitary Fitting-fixing Works",
     "count": 9
    },
    {
@@ -1569,12 +1553,28 @@
     "count": 9
    },
    {
+    "phrase": "Door-window Repair Painting Distempering",
+    "count": 9
+   },
+   {
+    "phrase": "Distempering Exchange Sanitary Fitting-fixing",
+    "count": 9
+   },
+   {
     "phrase": "Repair Painting Distempering Exchange",
     "count": 9
    },
    {
-    "phrase": "Area Mongla Port Authority",
-    "count": 5
+    "phrase": "Painting Distempering Exchange Sanitary",
+    "count": 9
+   },
+   {
+    "phrase": "Exchange Sanitary Fitting-fixing Works",
+    "count": 9
+   },
+   {
+    "phrase": "Residential Area Mongla Port",
+    "count": 6
    }
   ],
   "top_contracts": [
@@ -1861,15 +1861,11 @@
     "count": 5
    },
    {
-    "phrase": "Machine for Door Window",
-    "count": 4
-   },
-   {
     "phrase": "Closer Machine for Door",
     "count": 4
    },
    {
-    "phrase": "Spare Parts and Allied",
+    "phrase": "Machine for Door Window",
     "count": 4
    },
    {
@@ -1877,7 +1873,11 @@
     "count": 4
    },
    {
-    "phrase": "Office the Project Procurement",
+    "phrase": "Spare Parts and Allied",
+    "count": 4
+   },
+   {
+    "phrase": "Ancillary Equipment and Accessories",
     "count": 4
    }
   ],
@@ -2023,11 +2023,11 @@
     "count": 42
    },
    {
-    "phrase": "Components Necessary Spare Accessories",
+    "phrase": "Local Repair Fabrication Works",
     "count": 35
    },
    {
-    "phrase": "Local Repair Fabrication Works",
+    "phrase": "Components Necessary Spare Accessories",
     "count": 35
    },
    {
@@ -2339,11 +2339,11 @@
     "count": 8
    },
    {
-    "phrase": "Quality for Marine Engineering",
+    "phrase": "Marine Quality for Marine",
     "count": 6
    },
    {
-    "phrase": "Marine Quality for Marine",
+    "phrase": "Quality for Marine Engineering",
     "count": 6
    },
    {
@@ -2481,11 +2481,11 @@
     "count": 27
    },
    {
-    "phrase": "Store Items for National",
+    "phrase": "Items for National Maritime",
     "count": 6
    },
    {
-    "phrase": "Items for National Maritime",
+    "phrase": "Store Items for National",
     "count": 6
    },
    {
@@ -2493,11 +2493,11 @@
     "count": 5
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
@@ -2919,11 +2919,11 @@
     "count": 11
    },
    {
-    "phrase": "Benapole Land Port Benapole",
+    "phrase": "Land Port Benapole Jessore",
     "count": 6
    },
    {
-    "phrase": "Land Port Benapole Jessore",
+    "phrase": "Benapole Land Port Benapole",
     "count": 6
    },
    {
@@ -3353,7 +3353,7 @@
     "count": 3
    },
    {
-    "phrase": "Existing Hypack Max Software",
+    "phrase": "License Renewal Up-gradation Maintenance",
     "count": 3
    }
   ],
@@ -3604,11 +3604,11 @@
     "count": 14
    },
    {
-    "phrase": "Ceiling Fan for Different",
+    "phrase": "Fan for Different Establishment",
     "count": 8
    },
    {
-    "phrase": "Fan for Different Establishment",
+    "phrase": "Ceiling Fan for Different",
     "count": 8
    },
    {
@@ -4226,11 +4226,11 @@
     "count": 14
    },
    {
-    "phrase": "Tyre Ring Size X",
+    "phrase": "Ring Size X X",
     "count": 13
    },
    {
-    "phrase": "Ring Size X X",
+    "phrase": "Tyre Ring Size X",
     "count": 13
    },
    {
@@ -4578,11 +4578,11 @@
     "count": 3
    },
    {
-    "phrase": "Residential Area",
+    "phrase": "Related Works",
     "count": 3
    },
    {
-    "phrase": "Related Works",
+    "phrase": "Residential Area",
     "count": 3
    },
    {
@@ -4720,11 +4720,11 @@
     "count": 3
    },
    {
-    "phrase": "Nylon Rope Shackle Wire",
+    "phrase": "Shackle Wire Clamp V-belt",
     "count": 3
    },
    {
-    "phrase": "Shackle Wire Clamp V-belt",
+    "phrase": "Nylon Rope Shackle Wire",
     "count": 3
    },
    {
@@ -5268,11 +5268,11 @@
     "count": 5
    },
    {
-    "phrase": "Both Main Engine Fitting",
+    "phrase": "Spare Parts for Both",
     "count": 5
    },
    {
-    "phrase": "Spare Parts for Both",
+    "phrase": "Both Main Engine Fitting",
     "count": 5
    },
    {
@@ -5409,11 +5409,11 @@
     "count": 10
    },
    {
-    "phrase": "Old Brahmaputra River Lot",
+    "phrase": "Performance Based Dredging Contract",
     "count": 8
    },
    {
-    "phrase": "Performance Based Dredging Contract",
+    "phrase": "Old Brahmaputra River Lot",
     "count": 8
    },
    {
@@ -5555,11 +5555,11 @@
     "count": 7
    },
    {
-    "phrase": "Ton Slipway Marine Engineering",
+    "phrase": "Slipway Marine Engineering Department",
     "count": 7
    },
    {
-    "phrase": "Slipway Marine Engineering Department",
+    "phrase": "Ton Slipway Marine Engineering",
     "count": 7
    },
    {
@@ -5668,11 +5668,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Associated Products for Vessels",
+    "phrase": "Fuel and Associated Products",
     "count": 18
    },
    {
-    "phrase": "Fuel and Associated Products",
+    "phrase": "Associated Products for Vessels",
     "count": 18
    },
    {
@@ -6144,11 +6144,11 @@
     "count": 6
    },
    {
-    "phrase": "Back Side Court Yard",
+    "phrase": "Bituminous Road and Back",
     "count": 6
    },
    {
-    "phrase": "Road and Back Side",
+    "phrase": "Back Side Court Yard",
     "count": 6
    }
   ],
@@ -6530,11 +6530,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Yard Plot Shed Area",
+    "phrase": "Container Yard Plot Shed",
     "count": 6
    },
    {
-    "phrase": "Container Yard Plot Shed",
+    "phrase": "Yard Plot Shed Area",
     "count": 6
    },
    {
@@ -6700,11 +6700,11 @@
     "count": 5
    },
    {
-    "phrase": "Container Terminal Patenga Area",
+    "phrase": "Laldia Container Terminal Patenga",
     "count": 5
    },
    {
-    "phrase": "Laldia Container Terminal Patenga",
+    "phrase": "Container Terminal Patenga Area",
     "count": 5
    },
    {
@@ -6712,7 +6712,7 @@
     "count": 4
    },
    {
-    "phrase": "House Army Camp Training",
+    "phrase": "Hospital Rest House Army",
     "count": 4
    }
   ],
@@ -6994,11 +6994,11 @@
     "count": 11
    },
    {
-    "phrase": "Steel Wooden Jetty Steel",
+    "phrase": "Wooden Jetty Steel Spud",
     "count": 10
    },
    {
-    "phrase": "Wooden Jetty Steel Spud",
+    "phrase": "Steel Wooden Jetty Steel",
     "count": 10
    },
    {
@@ -7407,11 +7407,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Docking-undocking and Docking Related",
+    "phrase": "Docking Related Repair Works",
     "count": 4
    },
    {
-    "phrase": "Docking Related Repair Works",
+    "phrase": "Docking-undocking and Docking Related",
     "count": 4
    }
   ],
@@ -7454,8 +7454,8 @@
   ]
  },
  "2407": {
-  "value_bdt": 189560000.0,
-  "count": 158,
+  "value_bdt": 190480000.0,
+  "count": 160,
   "by_year": {
    "2018": {
     "value_bdt": 3910000.0,
@@ -7490,8 +7490,8 @@
     "count": 38
    },
    "2026": {
-    "value_bdt": 43820000.0,
-    "count": 26
+    "value_bdt": 44740000.0,
+    "count": 28
    }
   },
   "by_nature": {
@@ -7527,13 +7527,13 @@
   "top_districts": [
    {
     "district": "Khulna",
-    "count": 158
+    "count": 160
    }
   ],
   "top_phrases": [
    {
     "phrase": "Allied Works Khulna Division",
-    "count": 30
+    "count": 31
    },
    {
     "phrase": "Jetty Allied Works Khulna",
@@ -7560,7 +7560,7 @@
     "count": 5
    },
    {
-    "phrase": "Ghat Allied Works Khulna",
+    "phrase": "House Allied Works Khulna",
     "count": 5
    }
   ],
@@ -7702,11 +7702,11 @@
     "count": 3
    },
    {
-    "phrase": "Fitting Fixing",
+    "phrase": "Spare Parts",
     "count": 4
    },
    {
-    "phrase": "Spare Parts",
+    "phrase": "Fitting Fixing",
     "count": 4
    },
    {
@@ -8121,14 +8121,6 @@
     "count": 26
    },
    {
-    "phrase": "Walling Work for Accommodation",
-    "count": 17
-   },
-   {
-    "phrase": "Bamboo Piling Tarja Walling",
-    "count": 17
-   },
-   {
     "phrase": "Dredged Spoil Connection Dredging",
     "count": 17
    },
@@ -8137,11 +8129,19 @@
     "count": 17
    },
    {
-    "phrase": "Dyke Bamboo Piling Tarja",
+    "phrase": "Earthen Dyke Bamboo Piling",
     "count": 17
    },
    {
-    "phrase": "Earthen Dyke Bamboo Piling",
+    "phrase": "Walling Work for Accommodation",
+    "count": 17
+   },
+   {
+    "phrase": "Bamboo Piling Tarja Walling",
+    "count": 17
+   },
+   {
+    "phrase": "Dyke Bamboo Piling Tarja",
     "count": 17
    }
   ],
@@ -9083,19 +9083,19 @@
     "count": 18
    },
    {
-    "phrase": "Allied Facilities Nagarbari St",
-    "count": 5
-   },
-   {
     "phrase": "Facilities Nagarbari St Revised",
     "count": 5
    },
    {
-    "phrase": "Other Related Works Nagarbari",
-    "count": 3
+    "phrase": "Allied Facilities Nagarbari St",
+    "count": 5
    },
    {
     "phrase": "Works Nagarbari the Project",
+    "count": 3
+   },
+   {
+    "phrase": "Other Related Works Nagarbari",
     "count": 3
    },
    {
@@ -9553,11 +9553,11 @@
     "count": 6
    },
    {
-    "phrase": "Parts for Stbd Side",
+    "phrase": "Spare Parts for Stbd",
     "count": 5
    },
    {
-    "phrase": "Spare Parts for Stbd",
+    "phrase": "Parts for Stbd Side",
     "count": 5
    },
    {
@@ -9957,11 +9957,11 @@
     "count": 15
    },
    {
-    "phrase": "Conventional Ferry Ghats Area",
+    "phrase": "Annual Maintenance and Adjustment",
     "count": 15
    },
    {
-    "phrase": "Annual Maintenance and Adjustment",
+    "phrase": "Conventional Ferry Ghats Area",
     "count": 15
    },
    {
@@ -10224,11 +10224,11 @@
     "count": 6
    },
    {
-    "phrase": "Survey and Pillar Installation",
+    "phrase": "Foreshore Survey and Pillar",
     "count": 6
    },
    {
-    "phrase": "Foreshore Survey and Pillar",
+    "phrase": "Survey and Pillar Installation",
     "count": 6
    },
    {
@@ -10236,7 +10236,7 @@
     "count": 6
    },
    {
-    "phrase": "Maintenance and Adjustment Other",
+    "phrase": "Adjustment Other Allied Work",
     "count": 5
    }
   ],
@@ -10781,15 +10781,15 @@
     "count": 5
    },
    {
-    "phrase": "Bollard Etc Civil Works",
-    "count": 5
-   },
-   {
     "phrase": "Protection Mooring Bollard Etc",
     "count": 5
    },
    {
-    "phrase": "Etc Civil Works Different",
+    "phrase": "Bollard Etc Civil Works",
+    "count": 5
+   },
+   {
+    "phrase": "Steel Spud Gangway Ramp",
     "count": 4
    }
   ],
@@ -10923,11 +10923,11 @@
     "count": 9
    },
    {
-    "phrase": "Quality for Marine Engineering",
+    "phrase": "Marine Quality for Marine",
     "count": 8
    },
    {
-    "phrase": "Marine Quality for Marine",
+    "phrase": "Quality for Marine Engineering",
     "count": 8
    },
    {
@@ -11187,11 +11187,11 @@
     "count": 8
    },
    {
-    "phrase": "Foot Bridge Allied Works",
+    "phrase": "System Foot Bridge Allied",
     "count": 8
    },
    {
-    "phrase": "System Foot Bridge Allied",
+    "phrase": "Foot Bridge Allied Works",
     "count": 8
    }
   ],
@@ -11696,11 +11696,11 @@
     "count": 5
    },
    {
-    "phrase": "Residential Area Remaining Works",
+    "phrase": "North Residential Area Remaining",
     "count": 3
    },
    {
-    "phrase": "North Residential Area Remaining",
+    "phrase": "Residential Area Remaining Works",
     "count": 3
    },
    {
@@ -11960,11 +11960,11 @@
     "count": 21
    },
    {
-    "phrase": "Heavy Duty Battery Electrolyte",
+    "phrase": "Battery Electrolyte for Dredgers",
     "count": 8
    },
    {
-    "phrase": "Battery Electrolyte for Dredgers",
+    "phrase": "Heavy Duty Battery Electrolyte",
     "count": 8
    },
    {
@@ -12090,7 +12090,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Parts for High Straddle",
+    "phrase": "High Straddle Carrier Model",
     "count": 9
    },
    {
@@ -12098,7 +12098,7 @@
     "count": 9
    },
    {
-    "phrase": "High Straddle Carrier Model",
+    "phrase": "Parts for High Straddle",
     "count": 9
    },
    {
@@ -12244,11 +12244,11 @@
     "count": 22
    },
    {
-    "phrase": "Related Works for Developing",
+    "phrase": "Works for Developing Navigability",
     "count": 14
    },
    {
-    "phrase": "Works for Developing Navigability",
+    "phrase": "Related Works for Developing",
     "count": 14
    },
    {
@@ -12256,11 +12256,11 @@
     "count": 14
    },
    {
-    "phrase": "River Route the River",
+    "phrase": "Suction Dredger and Excavator",
     "count": 11
    },
    {
-    "phrase": "Suction Dredger and Excavator",
+    "phrase": "River Route the River",
     "count": 11
    }
   ],
@@ -12373,11 +12373,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Docking Docking Related Repair",
+    "phrase": "Docking Related Repair Works",
     "count": 29
    },
    {
-    "phrase": "Docking Related Repair Works",
+    "phrase": "Docking Docking Related Repair",
     "count": 29
    },
    {
@@ -12729,11 +12729,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Docking Docking Related Repair",
+    "phrase": "Docking Related Repair Works",
     "count": 15
    },
    {
-    "phrase": "Docking Related Repair Works",
+    "phrase": "Docking Docking Related Repair",
     "count": 15
    },
    {
@@ -12823,11 +12823,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Simulators for National Maritime",
+    "phrase": "National Maritime Institute Chattogram",
     "count": 3
    },
    {
-    "phrase": "National Maritime Institute Chattogram",
+    "phrase": "Simulators for National Maritime",
     "count": 3
    },
    {
@@ -13074,11 +13074,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Port Authority Headquarters Building",
+    "phrase": "Mongla Port Authority Headquarters",
     "count": 4
    },
    {
-    "phrase": "Mongla Port Authority Headquarters",
+    "phrase": "Port Authority Headquarters Building",
     "count": 4
    },
    {
@@ -13316,11 +13316,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Port Residential Area Khalishpur",
+    "phrase": "Residential Area Khalishpur Khulna",
     "count": 8
    },
    {
-    "phrase": "Residential Area Khalishpur Khulna",
+    "phrase": "Port Residential Area Khalishpur",
     "count": 8
    },
    {
@@ -13607,7 +13607,7 @@
     "count": 33
    },
    {
-    "phrase": "Work Geo-bags Right Bank",
+    "phrase": "Protection Work Geo-bags Right",
     "count": 12
    },
    {
@@ -13615,7 +13615,7 @@
     "count": 12
    },
    {
-    "phrase": "Precautionary Bank Protection Work",
+    "phrase": "Work Geo-bags Right Bank",
     "count": 12
    }
   ],
@@ -14146,7 +14146,7 @@
     "count": 7
    },
    {
-    "phrase": "Connection Dredging Long Boom",
+    "phrase": "Work Connection Dredging Long",
     "count": 5
    }
   ],
@@ -14268,11 +14268,11 @@
     "count": 3
    },
    {
-    "phrase": "Log Book for Use",
+    "phrase": "Book for Use Ship",
     "count": 3
    },
    {
-    "phrase": "Book for Use Ship",
+    "phrase": "Log Book for Use",
     "count": 3
    },
    {
@@ -14377,7 +14377,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Structure and Other Ancillary",
+    "phrase": "Frame Structure and Other",
+    "count": 4
+   },
+   {
+    "phrase": "Brick Boundary Wall Frame",
     "count": 4
    },
    {
@@ -14385,11 +14389,7 @@
     "count": 4
    },
    {
-    "phrase": "Frame Structure and Other",
-    "count": 4
-   },
-   {
-    "phrase": "Brick Boundary Wall Frame",
+    "phrase": "Structure and Other Ancillary",
     "count": 4
    },
    {
@@ -14543,7 +14543,7 @@
     "count": 9
    },
    {
-    "phrase": "Long Prestressed Concrete Pole",
+    "phrase": "Prestressed Concrete Pole Pole",
     "count": 8
    }
   ],
@@ -15298,15 +15298,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Including Allied Facilities Paturia",
+    "count": 17
+   },
+   {
     "phrase": "River Port Including Allied",
     "count": 17
    },
    {
     "phrase": "Port Including Allied Facilities",
-    "count": 17
-   },
-   {
-    "phrase": "Including Allied Facilities Paturia",
     "count": 17
    },
    {
@@ -15318,15 +15318,15 @@
     "count": 9
    },
    {
-    "phrase": "Double Bollards Ramp Posts",
-    "count": 8
-   },
-   {
     "phrase": "Ferry Ghat the Project",
     "count": 8
    },
    {
-    "phrase": "Paturia and Daulatdia Group",
+    "phrase": "Bollards Ramp Posts Safety",
+    "count": 8
+   },
+   {
+    "phrase": "Safety Borders Title Boards",
     "count": 8
    }
   ],
@@ -15766,11 +15766,11 @@
     "count": 3
    },
    {
-    "phrase": "Work Cutter Suction Dredger",
+    "phrase": "Route Area the River",
     "count": 3
    },
    {
-    "phrase": "Route Area the River",
+    "phrase": "Work Cutter Suction Dredger",
     "count": 3
    },
    {
@@ -15926,15 +15926,15 @@
     "count": 19
    },
    {
+    "phrase": "Marine Engineering Department Narayanganj",
+    "count": 18
+   },
+   {
     "phrase": "Base Mechanical and Marine",
     "count": 18
    },
    {
     "phrase": "Fleet Repair Base Mechanical",
-    "count": 18
-   },
-   {
-    "phrase": "Marine Engineering Department Narayanganj",
     "count": 18
    }
   ],
@@ -16291,11 +16291,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fleet Base Barishal Mechanical",
+    "phrase": "Mechanical and Marine Engineering",
     "count": 55
    },
    {
-    "phrase": "Mechanical and Marine Engineering",
+    "phrase": "Fleet Base Barishal Mechanical",
     "count": 55
    },
    {
@@ -16319,7 +16319,7 @@
     "count": 20
    },
    {
-    "phrase": "Tugboat Fleet Base Barishal",
+    "phrase": "Miscellaneous Repair Works Deck",
     "count": 17
    }
   ],
@@ -16660,7 +16660,7 @@
     "count": 3
    },
    {
-    "phrase": "Parts for Stbd Side",
+    "phrase": "Spare Parts for Stbd",
     "count": 3
    },
    {
@@ -16668,11 +16668,11 @@
     "count": 3
    },
    {
-    "phrase": "Stbd Side Main Engine",
+    "phrase": "Parts for Stbd Side",
     "count": 3
    },
    {
-    "phrase": "Spare Parts for Stbd",
+    "phrase": "Stbd Side Main Engine",
     "count": 3
    },
    {
@@ -16841,11 +16841,7 @@
     "count": 4
    },
    {
-    "phrase": "River Port Adjucant Area",
-    "count": 4
-   },
-   {
-    "phrase": "Faridpur River Port Adjucant",
+    "phrase": "Ghat River Route Faridpur",
     "count": 4
    },
    {
@@ -16857,7 +16853,11 @@
     "count": 4
    },
    {
-    "phrase": "Ghat River Route Faridpur",
+    "phrase": "Faridpur River Port Adjucant",
+    "count": 4
+   },
+   {
+    "phrase": "River Port Adjucant Area",
     "count": 4
    }
   ],
@@ -17012,11 +17012,11 @@
     "count": 10
    },
    {
-    "phrase": "Dredger for Maintaining Navigability",
+    "phrase": "Dredging Work Cutter Suction",
     "count": 7
    },
    {
-    "phrase": "Dredging Work Cutter Suction",
+    "phrase": "Dredger for Maintaining Navigability",
     "count": 7
    },
    {
@@ -17032,7 +17032,7 @@
     "count": 7
    },
    {
-    "phrase": "Connection Dredging Bhola-laxmipur Ferry",
+    "phrase": "Dredging Bhola-laxmipur Ferry Route",
     "count": 6
    }
   ],
@@ -17544,15 +17544,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Stations Launch Ghats Including",
-    "count": 3
-   },
-   {
-    "phrase": "Works for Upgradation Construction",
-    "count": 3
-   },
-   {
     "phrase": "Landing Stations Launch Ghats",
+    "count": 3
+   },
+   {
+    "phrase": "Ghats Including Necessary Infrastructure",
     "count": 3
    },
    {
@@ -17560,7 +17556,11 @@
     "count": 3
    },
    {
-    "phrase": "Ghats Including Necessary Infrastructure",
+    "phrase": "Stations Launch Ghats Including",
+    "count": 3
+   },
+   {
+    "phrase": "Works for Upgradation Construction",
     "count": 3
    },
    {
@@ -17787,11 +17787,11 @@
     "count": 4
    },
    {
-    "phrase": "Repair and Maintenance Routine",
+    "phrase": "Servicing Repair and Maintenance",
     "count": 3
    },
    {
-    "phrase": "Servicing Repair and Maintenance",
+    "phrase": "Repair and Maintenance Routine",
     "count": 3
    },
    {
@@ -18544,7 +18544,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fuel and Associated Products",
+    "phrase": "Associated Products for Vessels",
+    "count": 10
+   },
+   {
+    "phrase": "Region Hydrography Dept Dhaka",
     "count": 10
    },
    {
@@ -18552,11 +18556,7 @@
     "count": 10
    },
    {
-    "phrase": "Associated Products for Vessels",
-    "count": 10
-   },
-   {
-    "phrase": "Region Hydrography Dept Dhaka",
+    "phrase": "Fuel and Associated Products",
     "count": 10
    }
   ],
@@ -18760,19 +18760,19 @@
     "count": 7
    },
    {
-    "phrase": "Walling Work for Accommodation",
-    "count": 6
-   },
-   {
-    "phrase": "Bamboo Piling Tarja Walling",
-    "count": 6
-   },
-   {
     "phrase": "Dredged Spoil Connection Dredging",
     "count": 6
    },
    {
     "phrase": "Piling Tarja Walling Work",
+    "count": 6
+   },
+   {
+    "phrase": "Walling Work for Accommodation",
+    "count": 6
+   },
+   {
+    "phrase": "Bamboo Piling Tarja Walling",
     "count": 6
    }
   ],
@@ -19185,11 +19185,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Container and Bulk Terminal",
+    "phrase": "Inland Container and Bulk",
     "count": 3
    },
    {
-    "phrase": "Inland Container and Bulk",
+    "phrase": "Container and Bulk Terminal",
     "count": 3
    },
    {
@@ -19667,7 +19667,7 @@
     "count": 4
    },
    {
-    "phrase": "River Port Area",
+    "phrase": "Area Patuakhali Division",
     "count": 3
    }
   ],
@@ -20035,7 +20035,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Fuel and Associated Products",
+    "phrase": "Associated Products for Vessels",
+    "count": 5
+   },
+   {
+    "phrase": "Region Hydrography Dept Dhaka",
     "count": 5
    },
    {
@@ -20043,11 +20047,7 @@
     "count": 5
    },
    {
-    "phrase": "Associated Products for Vessels",
-    "count": 5
-   },
-   {
-    "phrase": "Region Hydrography Dept Dhaka",
+    "phrase": "Fuel and Associated Products",
     "count": 5
    }
   ],
@@ -20815,11 +20815,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Services for the Transfer",
+    "phrase": "Newly Constructed Kanchpur Store",
     "count": 4
    },
    {
-    "phrase": "Newly Constructed Kanchpur Store",
+    "phrase": "Services for the Transfer",
     "count": 4
    },
    {
@@ -20827,11 +20827,11 @@
     "count": 3
    },
    {
-    "phrase": "Goods and Equipment",
+    "phrase": "Biwtas Khanpur Stores",
     "count": 4
    },
    {
-    "phrase": "Biwtas Khanpur Stores",
+    "phrase": "Goods and Equipment",
     "count": 4
    },
    {
@@ -20843,7 +20843,7 @@
     "count": 4
    },
    {
-    "phrase": "Dredging Department",
+    "phrase": "Physical Services",
     "count": 4
    }
   ],
@@ -20993,11 +20993,11 @@
     "count": 4
    },
    {
-    "phrase": "Vessels Balashi Dredger Base",
+    "phrase": "Dredgers and Other Vessels",
     "count": 3
    },
    {
-    "phrase": "Dredgers and Other Vessels",
+    "phrase": "Vessels Balashi Dredger Base",
     "count": 3
    },
    {
@@ -21094,11 +21094,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Dredger Excavators Including Dredging",
-    "count": 4
-   },
-   {
-    "phrase": "Including Dredging Related Works",
+    "phrase": "Cutter Suction Dredger Excavators",
     "count": 4
    },
    {
@@ -21106,15 +21102,19 @@
     "count": 4
    },
    {
-    "phrase": "Suction Dredger Excavators Including",
+    "phrase": "Including Dredging Related Works",
     "count": 4
    },
    {
-    "phrase": "Cutter Suction Dredger Excavators",
+    "phrase": "Dredger Excavators Including Dredging",
     "count": 4
    },
    {
     "phrase": "Work Cutter Suction Dredger",
+    "count": 4
+   },
+   {
+    "phrase": "Suction Dredger Excavators Including",
     "count": 4
    },
    {
@@ -21324,11 +21324,11 @@
     "count": 4
    },
    {
-    "phrase": "Vehicle Rental Service",
+    "phrase": "Officers and Staffs",
     "count": 4
    },
    {
-    "phrase": "Officers and Staffs",
+    "phrase": "Vehicle Rental Service",
     "count": 4
    }
   ],
