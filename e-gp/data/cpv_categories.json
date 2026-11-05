@@ -1,12 +1,12 @@
 {
  "meta": {
   "source": "https://www.eprocure.gov.bd/resources/common/AllTenders.jsp (Category tree)",
-  "generated_at": "2026-11-04T01:28:46.230183+00:00",
-  "all_tenders": 638526,
+  "generated_at": "2026-11-05T01:39:54.178930+00:00",
+  "all_tenders": 638885,
   "all_tenders_by_era": {
    "Awami League (2009–2024)": 490491,
    "Interim Government (2024–2026)": 97555,
-   "Elected Government (2026–)": 50480
+   "Elected Government (2026–)": 50839
   },
   "categories_tracked": 61,
   "note": "A tender can carry more than one CPV category, so category counts overlap and do not sum to all_tenders. value_bdt is the sum of awarded contract value for that category's tenders that were actually awarded -- see awarded_match_rate per category."
@@ -14,250 +14,250 @@
  "top_categories": [
   {
    "name": "Construction work",
-   "count": 342442,
+   "count": 342556,
    "by_era": {
+    "Elected Government (2026–)": 14017,
     "Interim Government (2024–2026)": 36955,
-    "Elected Government (2026–)": 13903,
     "Awami League (2009–2024)": 291584
    },
-   "value_bdt": 5049864790000.0,
-   "awarded_matched": 256427,
-   "awarded_match_rate": 0.7488
+   "value_bdt": 5051405240000.0,
+   "awarded_matched": 256460,
+   "awarded_match_rate": 0.7487
   },
   {
    "name": "Repair, maintenance and installation services",
-   "count": 58797,
+   "count": 58845,
    "by_era": {
-    "Elected Government (2026–)": 6167,
     "Interim Government (2024–2026)": 10233,
+    "Elected Government (2026–)": 6215,
     "Awami League (2009–2024)": 42397
    },
-   "value_bdt": 178764990000.0,
-   "awarded_matched": 43711,
-   "awarded_match_rate": 0.7434
+   "value_bdt": 178751960000.0,
+   "awarded_matched": 43715,
+   "awarded_match_rate": 0.7429
   },
   {
    "name": "Electrical machinery, apparatus, equipment and consumables",
-   "count": 42379,
+   "count": 42400,
    "by_era": {
-    "Elected Government (2026–)": 4390,
+    "Elected Government (2026–)": 4411,
     "Interim Government (2024–2026)": 7837,
     "Awami League (2009–2024)": 30152
    },
-   "value_bdt": 303552310000.0,
-   "awarded_matched": 29624,
-   "awarded_match_rate": 0.699
+   "value_bdt": 303801140000.0,
+   "awarded_matched": 29627,
+   "awarded_match_rate": 0.6987
   },
   {
    "name": "Machinery, equipment, appliances, apparatus and associated products",
-   "count": 29868,
+   "count": 29889,
    "by_era": {
-    "Elected Government (2026–)": 3442,
+    "Elected Government (2026–)": 3463,
     "Interim Government (2024–2026)": 6653,
     "Awami League (2009–2024)": 19773
    },
-   "value_bdt": 129219490000.0,
-   "awarded_matched": 20203,
-   "awarded_match_rate": 0.6764
+   "value_bdt": 129433760000.0,
+   "awarded_matched": 20206,
+   "awarded_match_rate": 0.676
   },
   {
    "name": "Manufactured goods, furniture, handicrafts, special-purpose products and associated consumables",
-   "count": 19937,
+   "count": 19954,
    "by_era": {
-    "Elected Government (2026–)": 2143,
     "Interim Government (2024–2026)": 3814,
+    "Elected Government (2026–)": 2160,
     "Awami League (2009–2024)": 13980
    },
-   "value_bdt": 49524110000.0,
-   "awarded_matched": 13601,
-   "awarded_match_rate": 0.6822
+   "value_bdt": 49523560000.0,
+   "awarded_matched": 13604,
+   "awarded_match_rate": 0.6818
   },
   {
    "name": "Medical and laboratory devices, optical and precision devices, watches and clocks, pharmaceuticals and related medical consumables",
-   "count": 15426,
+   "count": 15458,
    "by_era": {
-    "Elected Government (2026–)": 3527,
+    "Elected Government (2026–)": 3559,
     "Interim Government (2024–2026)": 6416,
     "Awami League (2009–2024)": 5483
    },
-   "value_bdt": 59849850000.0,
-   "awarded_matched": 9664,
-   "awarded_match_rate": 0.6265
+   "value_bdt": 59846310000.0,
+   "awarded_matched": 9667,
+   "awarded_match_rate": 0.6254
   },
   {
    "name": "Office and computing machinery, equipment and supplies",
-   "count": 14748,
+   "count": 14760,
    "by_era": {
     "Interim Government (2024–2026)": 3647,
-    "Elected Government (2026–)": 2283,
+    "Elected Government (2026–)": 2295,
     "Awami League (2009–2024)": 8818
    },
-   "value_bdt": 58927610000.0,
-   "awarded_matched": 9530,
-   "awarded_match_rate": 0.6459
+   "value_bdt": 58922820000.0,
+   "awarded_matched": 9534,
+   "awarded_match_rate": 0.6457
   },
   {
    "name": "Public utilities",
-   "count": 13493,
+   "count": 13500,
    "by_era": {
-    "Elected Government (2026–)": 920,
     "Interim Government (2024–2026)": 1490,
+    "Elected Government (2026–)": 927,
     "Awami League (2009–2024)": 11083
    },
-   "value_bdt": 107314860000.0,
-   "awarded_matched": 9699,
-   "awarded_match_rate": 0.7188
+   "value_bdt": 107299740000.0,
+   "awarded_matched": 9698,
+   "awarded_match_rate": 0.7184
   },
   {
    "name": "Motor vehicles, trailers and vehicle parts",
-   "count": 13095,
+   "count": 13110,
    "by_era": {
-    "Elected Government (2026–)": 1435,
+    "Elected Government (2026–)": 1450,
     "Interim Government (2024–2026)": 2746,
     "Awami League (2009–2024)": 8914
    },
-   "value_bdt": 42675890000.0,
-   "awarded_matched": 9017,
-   "awarded_match_rate": 0.6886
+   "value_bdt": 42682640000.0,
+   "awarded_matched": 9018,
+   "awarded_match_rate": 0.6879
   },
   {
    "name": "Food products and beverages",
-   "count": 12215,
+   "count": 12235,
    "by_era": {
+    "Elected Government (2026–)": 3592,
     "Interim Government (2024–2026)": 4934,
-    "Elected Government (2026–)": 3572,
     "Awami League (2009–2024)": 3709
    },
-   "value_bdt": 52649290000.0,
+   "value_bdt": 52641100000.0,
    "awarded_matched": 8335,
-   "awarded_match_rate": 0.6824
+   "awarded_match_rate": 0.6812
   },
   {
    "name": "Printing, publishing and related services",
-   "count": 9664,
+   "count": 9671,
    "by_era": {
     "Interim Government (2024–2026)": 2983,
-    "Elected Government (2026–)": 1562,
+    "Elected Government (2026–)": 1569,
     "Awami League (2009–2024)": 5119
    },
-   "value_bdt": 74216840000.0,
-   "awarded_matched": 6447,
-   "awarded_match_rate": 0.6671
+   "value_bdt": 74482120000.0,
+   "awarded_matched": 6457,
+   "awarded_match_rate": 0.6677
   },
   {
    "name": "Various types of printed matter and articles for printing",
-   "count": 9309,
+   "count": 9318,
    "by_era": {
     "Interim Government (2024–2026)": 3030,
-    "Elected Government (2026–)": 1680,
+    "Elected Government (2026–)": 1689,
     "Awami League (2009–2024)": 4599
    },
-   "value_bdt": 72949030000.0,
-   "awarded_matched": 5972,
-   "awarded_match_rate": 0.6415
+   "value_bdt": 72959960000.0,
+   "awarded_matched": 5973,
+   "awarded_match_rate": 0.641
   },
   {
    "name": "Chemicals, chemical products and man-made fibres",
-   "count": 8425,
+   "count": 8431,
    "by_era": {
-    "Elected Government (2026–)": 1391,
+    "Elected Government (2026–)": 1397,
     "Interim Government (2024–2026)": 2488,
     "Awami League (2009–2024)": 4546
    },
-   "value_bdt": 30747180000.0,
-   "awarded_matched": 5831,
-   "awarded_match_rate": 0.6921
+   "value_bdt": 30755140000.0,
+   "awarded_matched": 5833,
+   "awarded_match_rate": 0.6919
   },
   {
    "name": "Computer and related services",
-   "count": 8132,
+   "count": 8139,
    "by_era": {
     "Interim Government (2024–2026)": 1862,
-    "Elected Government (2026–)": 1325,
+    "Elected Government (2026–)": 1332,
     "Awami League (2009–2024)": 4945
    },
-   "value_bdt": 43628230000.0,
-   "awarded_matched": 4993,
-   "awarded_match_rate": 0.6133
+   "value_bdt": 43630140000.0,
+   "awarded_matched": 4996,
+   "awarded_match_rate": 0.6132
   },
   {
    "name": "Electricity, gas, nuclear energy and fuels, steam, hot water and other sources of energy",
-   "count": 7608,
+   "count": 7612,
    "by_era": {
-    "Elected Government (2026–)": 871,
+    "Elected Government (2026–)": 875,
     "Interim Government (2024–2026)": 1507,
     "Awami League (2009–2024)": 5230
    },
-   "value_bdt": 59761660000.0,
-   "awarded_matched": 5627,
-   "awarded_match_rate": 0.7396
+   "value_bdt": 59764510000.0,
+   "awarded_matched": 5628,
+   "awarded_match_rate": 0.7394
   },
   {
    "name": "Miscellaneous services",
-   "count": 7439,
+   "count": 7447,
    "by_era": {
-    "Elected Government (2026–)": 1752,
+    "Elected Government (2026–)": 1760,
     "Interim Government (2024–2026)": 1613,
     "Awami League (2009–2024)": 4074
    },
-   "value_bdt": 24684290000.0,
-   "awarded_matched": 5154,
-   "awarded_match_rate": 0.6928
+   "value_bdt": 24686080000.0,
+   "awarded_matched": 5155,
+   "awarded_match_rate": 0.6922
   },
   {
    "name": "Transport equipment",
-   "count": 6462,
+   "count": 6471,
    "by_era": {
-    "Awami League (2009–2024)": 4318,
-    "Elected Government (2026–)": 880,
-    "Interim Government (2024–2026)": 1264
+    "Interim Government (2024–2026)": 1264,
+    "Elected Government (2026–)": 889,
+    "Awami League (2009–2024)": 4318
    },
    "value_bdt": 27718310000.0,
    "awarded_matched": 4222,
-   "awarded_match_rate": 0.6534
+   "awarded_match_rate": 0.6524
   },
   {
    "name": "Radio, television, communication, telecommunication and related equipment and apparatus",
-   "count": 6140,
+   "count": 6145,
    "by_era": {
-    "Elected Government (2026–)": 787,
+    "Elected Government (2026–)": 792,
     "Interim Government (2024–2026)": 1576,
     "Awami League (2009–2024)": 3777
    },
-   "value_bdt": 33201310000.0,
-   "awarded_matched": 3974,
-   "awarded_match_rate": 0.6472
+   "value_bdt": 33201900000.0,
+   "awarded_matched": 3975,
+   "awarded_match_rate": 0.6469
   },
   {
    "name": "Agricultural, horticultural, hunting and related products",
-   "count": 5135,
+   "count": 5136,
    "by_era": {
     "Interim Government (2024–2026)": 1202,
-    "Elected Government (2026–)": 1180,
+    "Elected Government (2026–)": 1181,
     "Awami League (2009–2024)": 2753
    },
-   "value_bdt": 39404890000.0,
-   "awarded_matched": 3417,
-   "awarded_match_rate": 0.6654
+   "value_bdt": 39403390000.0,
+   "awarded_matched": 3416,
+   "awarded_match_rate": 0.6651
   },
   {
    "name": "Health and social work services",
-   "count": 4999,
+   "count": 5004,
    "by_era": {
+    "Elected Government (2026–)": 1169,
     "Interim Government (2024–2026)": 2625,
-    "Elected Government (2026–)": 1164,
     "Awami League (2009–2024)": 1210
    },
-   "value_bdt": 10502930000.0,
-   "awarded_matched": 3208,
-   "awarded_match_rate": 0.6417
+   "value_bdt": 10503780000.0,
+   "awarded_matched": 3209,
+   "awarded_match_rate": 0.6413
   },
   {
    "name": "Collected and purified water",
    "count": 4951,
    "by_era": {
-    "Elected Government (2026–)": 238,
     "Interim Government (2024–2026)": 678,
+    "Elected Government (2026–)": 238,
     "Awami League (2009–2024)": 4035
    },
    "value_bdt": 45304200000.0,
@@ -266,51 +266,51 @@
   },
   {
    "name": "Clothing and accessories",
-   "count": 4591,
+   "count": 4604,
    "by_era": {
-    "Elected Government (2026–)": 904,
+    "Elected Government (2026–)": 917,
     "Interim Government (2024–2026)": 1522,
     "Awami League (2009–2024)": 2165
    },
-   "value_bdt": 11101900000.0,
+   "value_bdt": 11101670000.0,
    "awarded_matched": 3185,
-   "awarded_match_rate": 0.6937
+   "awarded_match_rate": 0.6918
   },
   {
    "name": "Basic metals and associated products",
-   "count": 4045,
+   "count": 4047,
    "by_era": {
     "Interim Government (2024–2026)": 956,
-    "Elected Government (2026–)": 489,
+    "Elected Government (2026–)": 491,
     "Awami League (2009–2024)": 2600
    },
    "value_bdt": 31215070000.0,
    "awarded_matched": 2839,
-   "awarded_match_rate": 0.7019
+   "awarded_match_rate": 0.7015
   },
   {
    "name": "Rubber, plastic and film products",
-   "count": 3858,
+   "count": 3864,
    "by_era": {
-    "Elected Government (2026–)": 511,
+    "Elected Government (2026–)": 517,
     "Interim Government (2024–2026)": 1013,
     "Awami League (2009–2024)": 2334
    },
-   "value_bdt": 19005290000.0,
-   "awarded_matched": 2654,
-   "awarded_match_rate": 0.6879
+   "value_bdt": 19006140000.0,
+   "awarded_matched": 2655,
+   "awarded_match_rate": 0.6871
   },
   {
    "name": "Wood, wood products, cork products, basketware and wickerwork",
-   "count": 3798,
+   "count": 3801,
    "by_era": {
     "Interim Government (2024–2026)": 716,
-    "Elected Government (2026–)": 483,
+    "Elected Government (2026–)": 486,
     "Awami League (2009–2024)": 2599
    },
    "value_bdt": 19252850000.0,
    "awarded_matched": 2972,
-   "awarded_match_rate": 0.7825
+   "awarded_match_rate": 0.7819
   }
  ]
 }
