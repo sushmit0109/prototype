@@ -135,8 +135,8 @@
   ]
  },
  "2107": {
-  "value_bdt": 145060000.0,
-  "count": 30,
+  "value_bdt": 176260000.0,
+  "count": 31,
   "by_year": {
    "2017": {
     "value_bdt": 8580000.0,
@@ -171,12 +171,12 @@
     "count": 2
    },
    "2026": {
-    "value_bdt": 34570000.0,
-    "count": 5
+    "value_bdt": 65770000.0,
+    "count": 6
    }
   },
   "by_nature": {
-   "Goods": 29,
+   "Goods": 30,
    "Services": 1
   },
   "top_vendors": [
@@ -184,6 +184,11 @@
     "company": "Hazi Traders",
     "value_bdt": 32080000.0,
     "count": 3
+   },
+   {
+    "company": "Hatil Complex Ltd",
+    "value_bdt": 31200000.0,
+    "count": 1
    },
    {
     "company": "Smart Technologies (BD) Ltd.",
@@ -199,17 +204,12 @@
     "company": "M/S. Anisa Enterprise",
     "value_bdt": 14860000.0,
     "count": 5
-   },
-   {
-    "company": "Panorama Enterprise",
-    "value_bdt": 13790000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 30
+    "count": 31
    }
   ],
   "top_phrases": [
@@ -220,9 +220,20 @@
    {
     "phrase": "Offset Paper",
     "count": 3
+   },
+   {
+    "phrase": "Public Administration",
+    "count": 3
    }
   ],
   "top_contracts": [
+   {
+    "package_ref": "05.00.0000.000.113.07.0060.26",
+    "awarded_to": "Hatil Complex Ltd",
+    "value_bdt": 31200000.0,
+    "contract_signing_date": "2026-11-09",
+    "description": "Procurement of Office Furniture (Chair Table Sofa Set etc.) for the Ministry of Public Administration"
+   },
    {
     "package_ref": "05.00.0000.000.113.07.0034.26",
     "awarded_to": "Hazi Traders",
@@ -250,13 +261,6 @@
     "value_bdt": 12390000.0,
     "contract_signing_date": "2018-05-10",
     "description": "Hardware Firewall Bandwidth Manager and Storage"
-   },
-   {
-    "package_ref": "05.00.0000.113.07.041.17.1635",
-    "awarded_to": "RITE Solutions Limited",
-    "value_bdt": 8790000.0,
-    "contract_signing_date": "2018-03-18",
-    "description": "Modular Data Centre Passive Item Fire detention & Suppression System"
    }
   ]
  },
@@ -814,11 +818,11 @@
     "count": 23
    },
    {
-    "phrase": "Pourashava Area Dist Dinajpur",
+    "phrase": "Hili Pourashava Area Dist",
     "count": 5
    },
    {
-    "phrase": "Hili Pourashava Area Dist",
+    "phrase": "Pourashava Area Dist Dinajpur",
     "count": 5
    },
    {
@@ -1446,11 +1450,11 @@
     "count": 3
    },
    {
-    "phrase": "Sheets for Mental Ability",
+    "phrase": "Answer Sheets for Mental",
     "count": 3
    },
    {
-    "phrase": "Answer Sheets for Mental",
+    "phrase": "Sheets for Mental Ability",
     "count": 3
    },
    {
@@ -1803,11 +1807,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Repair Renewal and Modernization",
+    "phrase": "Renewal and Modernization Work",
     "count": 3
    },
    {
-    "phrase": "Renewal and Modernization Work",
+    "phrase": "Repair Renewal and Modernization",
     "count": 3
    },
    {
@@ -1874,8 +1878,8 @@
   ]
  },
  "5085": {
-  "value_bdt": 144030000.0,
-  "count": 51,
+  "value_bdt": 144050000.0,
+  "count": 52,
   "by_year": {
    "2021": {
     "value_bdt": 15950000.0,
@@ -1894,8 +1898,8 @@
     "count": 18
    },
    "2026": {
-    "value_bdt": 31240000.0,
-    "count": 13
+    "value_bdt": 31260000.0,
+    "count": 14
    }
   },
   "by_nature": {
@@ -1932,7 +1936,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 51
+    "count": 52
    }
   ],
   "top_phrases": [
@@ -2418,7 +2422,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Other Buildings and Installations",
+    "phrase": "Deputy Commissioner Narail Campus",
     "count": 3
    },
    {
@@ -2426,7 +2430,7 @@
     "count": 3
    },
    {
-    "phrase": "Deputy Commissioner Narail Campus",
+    "phrase": "Other Buildings and Installations",
     "count": 3
    },
    {

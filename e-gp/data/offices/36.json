@@ -602,11 +602,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Office Khulna",
+    "phrase": "Divisional Social",
     "count": 3
    },
    {
-    "phrase": "Divisional Social",
+    "phrase": "Office Khulna",
     "count": 3
    }
   ],
@@ -732,6 +732,42 @@
     "value_bdt": 15840000.0,
     "contract_signing_date": "2026-11-03",
     "description": "Procurement of dining tables and dining chairs for 19 centers."
+   }
+  ]
+ },
+ "10037": {
+  "value_bdt": 50530000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 50530000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {
+   "Goods": 1
+  },
+  "top_vendors": [
+   {
+    "company": "RFL Plastics Limited",
+    "value_bdt": 50530000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "DSS/SSP2nd/PSB/GD- 11 Lot-1",
+    "awarded_to": "RFL Plastics Limited",
+    "value_bdt": 50530000.0,
+    "contract_signing_date": "2026-11-09",
+    "description": "Procurement of steel beds for 19 centers"
    }
   ]
  }

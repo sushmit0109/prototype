@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56689,
+  "vendors_scanned": 56693,
   "ownership_groups_checked": 235
  },
  "top_growers": [
@@ -47,6 +47,36 @@
    "recent_top_office": "Logistics Section, Police Headquarters, Dhaka",
    "recent_top_office_share": 0.8667,
    "growth_ratio_value": 235.39,
+   "shared_owner_keys": []
+  },
+  {
+   "company": "M/S HASSAN ENTERPRISE",
+   "company_key": "hassan enterprise",
+   "first_year": "2018",
+   "baseline_value_bdt": 12460000.0,
+   "baseline_count": 6,
+   "recent_value_bdt": 875460000.0,
+   "recent_count": 74,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 23,
+     "value_bdt": 33360000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 19,
+     "value_bdt": 8270000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 32,
+     "value_bdt": 833830000.0
+    }
+   },
+   "recent_distinct_ministries": 8,
+   "recent_top_ministry": "Ministry of Road Transport and Bridges",
+   "recent_distinct_offices": 32,
+   "recent_top_office": "Workshop Division, Mymensingh",
+   "recent_top_office_share": 0.1486,
+   "growth_ratio_value": 93.68,
    "shared_owner_keys": []
   },
   {
@@ -107,36 +137,6 @@
    "recent_top_office": "Office of the Project Director, Establishment of 100 Technical School and Colleges(TSC) in Upzilla",
    "recent_top_office_share": 0.1707,
    "growth_ratio_value": 78.85,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "M/S HASSAN ENTERPRISE",
-   "company_key": "hassan enterprise",
-   "first_year": "2018",
-   "baseline_value_bdt": 12460000.0,
-   "baseline_count": 6,
-   "recent_value_bdt": 695970000.0,
-   "recent_count": 73,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 23,
-     "value_bdt": 33360000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 19,
-     "value_bdt": 8270000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 31,
-     "value_bdt": 654340000.0
-    }
-   },
-   "recent_distinct_ministries": 8,
-   "recent_top_ministry": "Ministry of Road Transport and Bridges",
-   "recent_distinct_offices": 31,
-   "recent_top_office": "Workshop Division, Mymensingh",
-   "recent_top_office_share": 0.1507,
-   "growth_ratio_value": 74.48,
    "shared_owner_keys": []
   },
   {
@@ -2429,10 +2429,10 @@
    ],
    "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29857390000.0,
-   "combined_recent_count": 697,
-   "combined_growth_ratio_value": 6.72,
-   "combined_recent_distinct_ministries": 26
+   "combined_recent_value_bdt": 29907920000.0,
+   "combined_recent_count": 698,
+   "combined_growth_ratio_value": 6.73,
+   "combined_recent_distinct_ministries": 27
   },
   {
    "owner_key": "ahsan khan chowdhury",
@@ -2461,10 +2461,10 @@
    ],
    "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 29857390000.0,
-   "combined_recent_count": 697,
-   "combined_growth_ratio_value": 6.72,
-   "combined_recent_distinct_ministries": 26
+   "combined_recent_value_bdt": 29907920000.0,
+   "combined_recent_count": 698,
+   "combined_growth_ratio_value": 6.73,
+   "combined_recent_distinct_ministries": 27
   },
   {
    "owner_key": "mosammat saheda begum",
@@ -3171,6 +3171,26 @@
    "combined_recent_distinct_ministries": 7
   },
   {
+   "owner_key": "abdullah al baset",
+   "owner_name": "Abdullah Al Baset",
+   "companies": [
+    {
+     "company": "Baset Prokousholi Limited",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "Baset Prokousholi Limited-M/S Mominul Hoque JV",
+     "designation": "Managing Director"
+    }
+   ],
+   "member_companies_matched": 2,
+   "combined_baseline_value_bdt": 813540000.0,
+   "combined_recent_value_bdt": 3604750000.0,
+   "combined_recent_count": 64,
+   "combined_growth_ratio_value": 5.91,
+   "combined_recent_distinct_ministries": 6
+  },
+  {
    "owner_key": "moinul islam khokan",
    "owner_name": "Md. Moinul Islam Khokan",
    "companies": [
@@ -3209,26 +3229,6 @@
    "combined_recent_count": 50,
    "combined_growth_ratio_value": null,
    "combined_recent_distinct_ministries": 9
-  },
-  {
-   "owner_key": "abdullah al baset",
-   "owner_name": "Abdullah Al Baset",
-   "companies": [
-    {
-     "company": "Baset Prokousholi Limited",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "Baset Prokousholi Limited-M/S Mominul Hoque JV",
-     "designation": "Managing Director"
-    }
-   ],
-   "member_companies_matched": 2,
-   "combined_baseline_value_bdt": 813540000.0,
-   "combined_recent_value_bdt": 3353550000.0,
-   "combined_recent_count": 63,
-   "combined_growth_ratio_value": 5.5,
-   "combined_recent_distinct_ministries": 6
   },
   {
    "owner_key": "sea pearl beach resort and spa ltd.",
