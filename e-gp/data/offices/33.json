@@ -352,10 +352,6 @@
     "count": 9
    },
    {
-    "phrase": "Rahman Shishu Granthamala Puna",
-    "count": 9
-   },
-   {
     "phrase": "Pita Bangabandhu Sheikh Mujibur",
     "count": 9
    },
@@ -368,11 +364,15 @@
     "count": 9
    },
    {
+    "phrase": "Rahman Shishu Granthamala Puna",
+    "count": 9
+   },
+   {
     "phrase": "Bangabandhu Sheikh Mujibur Rahman",
     "count": 9
    },
    {
-    "phrase": "Materials General Clothing Medicine",
+    "phrase": "Materials Essential Materials General",
     "count": 4
    }
   ],
@@ -858,23 +858,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Chair Visitor Chair Computer",
+    "phrase": "Almirah Steel File Cabinet",
     "count": 3
    },
    {
-    "phrase": "Chair Computer Table Steel",
+    "phrase": "Steel Almirah Steel File",
     "count": 3
    },
    {
-    "phrase": "Table Table Hi-quality Chair",
+    "phrase": "Computer Table Steel Almirah",
     "count": 3
    },
    {
-    "phrase": "Chair Normal Chair Visitor",
-    "count": 3
-   },
-   {
-    "phrase": "Table Steel Almirah Steel",
+    "phrase": "File Cabinet Notice Board",
     "count": 3
    },
    {
@@ -882,11 +878,15 @@
     "count": 3
    },
    {
+    "phrase": "Table Steel Almirah Steel",
+    "count": 3
+   },
+   {
     "phrase": "Half Secretariat Table Table",
     "count": 3
    },
    {
-    "phrase": "Visitor Chair Computer Chair",
+    "phrase": "Chair Visitor Chair Computer",
     "count": 3
    }
   ],
@@ -1230,12 +1230,12 @@
   ]
  },
  "8623": {
-  "value_bdt": 710000.0,
-  "count": 1,
+  "value_bdt": 940000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 710000.0,
-    "count": 1
+    "value_bdt": 940000.0,
+    "count": 2
    }
   },
   "by_nature": {},
@@ -1244,12 +1244,17 @@
     "company": "Titas Enterprise",
     "value_bdt": 710000.0,
     "count": 1
+   },
+   {
+    "company": "Adil Integrated Solutions",
+    "value_bdt": 230000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
@@ -1260,6 +1265,13 @@
     "value_bdt": 710000.0,
     "contract_signing_date": "2026-06-22",
     "description": "Procurement of Photocopy Machine TV Filter machine IPS & other Equipment."
+   },
+   {
+    "package_ref": "32.01.0000.027.07.051.26-158",
+    "awarded_to": "Adil Integrated Solutions",
+    "value_bdt": 230000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Office Equipment for Project Office (Refrigerator & AC)"
    }
   ]
  },

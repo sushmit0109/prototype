@@ -102,19 +102,19 @@
     "count": 30
    },
    {
-    "phrase": "Khulna Dhaka Chittagong Warehouse",
-    "count": 28
-   },
-   {
     "phrase": "Storing Khulna Dhaka Chittagong",
     "count": 28
    },
    {
-    "phrase": "Storing Dhaka Chittagong Khulna",
-    "count": 25
+    "phrase": "Khulna Dhaka Chittagong Warehouse",
+    "count": 28
    },
    {
     "phrase": "Dhaka Chittagong Khulna Warehouse",
+    "count": 25
+   },
+   {
+    "phrase": "Storing Dhaka Chittagong Khulna",
     "count": 25
    },
    {
@@ -170,7 +170,7 @@
  },
  "43": {
   "value_bdt": 28387150000.0,
-  "count": 715,
+  "count": 716,
   "by_year": {
    "2013": {
     "value_bdt": 16530000.0,
@@ -226,11 +226,11 @@
    },
    "2026": {
     "value_bdt": 1135860000.0,
-    "count": 70
+    "count": 71
    }
   },
   "by_nature": {
-   "Goods": 660,
+   "Goods": 661,
    "Works": 47,
    "Services": 2
   },
@@ -264,7 +264,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 715
+    "count": 716
    }
   ],
   "top_phrases": [
@@ -467,6 +467,10 @@
     "count": 7
    },
    {
+    "phrase": "Spot Site Etc Per",
+    "count": 6
+   },
+   {
     "phrase": "Cleaning the Spot Site",
     "count": 6
    },
@@ -475,19 +479,15 @@
     "count": 6
    },
    {
-    "phrase": "Spot Site Etc Per",
-    "count": 6
-   },
-   {
     "phrase": "Jungles and Shrub Including",
     "count": 5
    },
    {
-    "phrase": "Cutting Jungles and Shrub",
+    "phrase": "Including Removing and Cleaning",
     "count": 5
    },
    {
-    "phrase": "Including Removing and Cleaning",
+    "phrase": "Cutting Jungles and Shrub",
     "count": 5
    },
    {
@@ -657,7 +657,7 @@
     "count": 41
    },
    {
-    "phrase": "Maintenance and Regular Servicing",
+    "phrase": "Yearly Basis Operation Maintenance",
     "count": 39
    }
   ],
@@ -799,11 +799,11 @@
     "count": 11
    },
    {
-    "phrase": "Cutting Jungles and Scrub",
+    "phrase": "Jungles and Scrub Including",
     "count": 11
    },
    {
-    "phrase": "Jungles and Scrub Including",
+    "phrase": "Cutting Jungles and Scrub",
     "count": 11
    }
   ],
@@ -941,11 +941,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Road Drain Apron Master",
+    "phrase": "Drain Apron Master Drain",
     "count": 46
    },
    {
-    "phrase": "Drain Apron Master Drain",
+    "phrase": "Apron Master Drain All",
+    "count": 46
+   },
+   {
+    "phrase": "Road Drain Apron Master",
     "count": 46
    },
    {
@@ -954,10 +958,6 @@
    },
    {
     "phrase": "Yard Road Drain Apron",
-    "count": 46
-   },
-   {
-    "phrase": "Apron Master Drain All",
     "count": 46
    },
    {
@@ -1257,11 +1257,11 @@
     "count": 12
    },
    {
-    "phrase": "Removing Cleaning the Site",
+    "phrase": "Shrub Including Removing Cleaning",
     "count": 10
    },
    {
-    "phrase": "Shrub Including Removing Cleaning",
+    "phrase": "Removing Cleaning the Site",
     "count": 10
    },
    {
@@ -1419,11 +1419,11 @@
     "count": 6
    },
    {
-    "phrase": "Jungles Bushes Etc Different",
+    "phrase": "Cutting Jungles Bushes Etc",
     "count": 5
    },
    {
-    "phrase": "Cutting Jungles Bushes Etc",
+    "phrase": "Jungles Bushes Etc Different",
     "count": 5
    },
    {
@@ -2155,7 +2155,7 @@
     "count": 10
    },
    {
-    "phrase": "Off Grid Line Chapainawabgonj",
+    "phrase": "Electrical Off Grid Line",
     "count": 10
    }
   ],
@@ -3049,11 +3049,11 @@
     "count": 23
    },
    {
-    "phrase": "Roller Etc for Spinning",
+    "phrase": "Etc for Spinning Machine",
     "count": 21
    },
    {
-    "phrase": "Etc for Spinning Machine",
+    "phrase": "Roller Etc for Spinning",
     "count": 21
    },
    {
@@ -3195,11 +3195,11 @@
     "count": 7
    },
    {
-    "phrase": "Repair Maintenance and Painting",
+    "phrase": "Maintenance and Painting Works",
     "count": 5
    },
    {
-    "phrase": "Maintenance and Painting Works",
+    "phrase": "Repair Maintenance and Painting",
     "count": 5
    },
    {
@@ -3511,11 +3511,11 @@
     "count": 5
    },
    {
-    "phrase": "Shoe for the Staff",
+    "phrase": "Leverage Uniform for Winter",
     "count": 3
    },
    {
-    "phrase": "Uniform for Winter Summer",
+    "phrase": "Shoe for the Staff",
     "count": 3
    },
    {
@@ -3523,7 +3523,7 @@
     "count": 3
    },
    {
-    "phrase": "Leverage Uniform for Winter",
+    "phrase": "Uniform for Winter Summer",
     "count": 3
    },
    {
@@ -3674,11 +3674,11 @@
     "count": 4
    },
    {
-    "phrase": "Construction Works Overhead Lines",
+    "phrase": "Small-scale Construction Works Overhead",
     "count": 4
    },
    {
-    "phrase": "Small-scale Construction Works Overhead",
+    "phrase": "Construction Works Overhead Lines",
     "count": 4
    },
    {
@@ -3833,11 +3833,7 @@
     "count": 8
    },
    {
-    "phrase": "Preparation and Other Necessary",
-    "count": 7
-   },
-   {
-    "phrase": "Solution Preparation and Other",
+    "phrase": "Chemical Carrying Solution Preparation",
     "count": 7
    },
    {
@@ -3845,7 +3841,11 @@
     "count": 7
    },
    {
-    "phrase": "Chemical Carrying Solution Preparation",
+    "phrase": "Preparation and Other Necessary",
+    "count": 7
+   },
+   {
+    "phrase": "Solution Preparation and Other",
     "count": 7
    },
    {
@@ -4011,11 +4011,11 @@
     "count": 5
    },
    {
-    "phrase": "Spillway Power House Intake",
+    "phrase": "Intake Switchyard Cargo Area",
     "count": 5
    },
    {
-    "phrase": "Intake Switchyard Cargo Area",
+    "phrase": "Spillway Power House Intake",
     "count": 5
    },
    {
@@ -4480,7 +4480,7 @@
     "count": 12
    },
    {
-    "phrase": "Parts for Central Air",
+    "phrase": "Spare Parts for Central",
     "count": 12
    }
   ],
@@ -5523,7 +5523,7 @@
     "count": 4
    },
    {
-    "phrase": "Wall and Main Gate",
+    "phrase": "Boundary Wall and Main",
     "count": 3
    }
   ],
@@ -5677,7 +5677,7 @@
     "count": 93
    },
    {
-    "phrase": "Electric Distribution Line New",
+    "phrase": "Line New Up-gradation Underground",
     "count": 86
    },
    {
@@ -5685,7 +5685,7 @@
     "count": 86
    },
    {
-    "phrase": "Line New Up-gradation Underground",
+    "phrase": "Electric Distribution Line New",
     "count": 86
    },
    {
@@ -5912,11 +5912,11 @@
     "count": 6
    },
    {
-    "phrase": "Item Cutting Disk Grinding",
+    "phrase": "Cutting Disk Grinding Disk",
     "count": 3
    },
    {
-    "phrase": "Consumable Item Cutting Disk",
+    "phrase": "Item Cutting Disk Grinding",
     "count": 3
    },
    {
@@ -5924,11 +5924,11 @@
     "count": 3
    },
    {
-    "phrase": "Cutting Disk Grinding Disk",
+    "phrase": "Consumable Item Cutting Disk",
     "count": 3
    },
    {
-    "phrase": "Disk Grinding Disk Welding",
+    "phrase": "Mechanical Consumable Item Cutting",
     "count": 3
    }
   ],
@@ -6219,11 +6219,11 @@
     "count": 7
    },
    {
-    "phrase": "Gate Valves Sockets Pipes",
+    "phrase": "Cock Gate Valves Sockets",
     "count": 6
    },
    {
-    "phrase": "Cock Gate Valves Sockets",
+    "phrase": "Piller Cock Gate Valves",
     "count": 6
    }
   ],
@@ -6369,11 +6369,11 @@
     "count": 52
    },
    {
-    "phrase": "Repair Maintenance Development Works",
+    "phrase": "Feeder Sales and Distribution",
     "count": 15
    },
    {
-    "phrase": "Feeder Sales and Distribution",
+    "phrase": "Repair Maintenance Development Works",
     "count": 15
    },
    {
@@ -6389,7 +6389,7 @@
     "count": 9
    },
    {
-    "phrase": "Maintenance Work System Up-gradation",
+    "phrase": "Line Maintenance Work System",
     "count": 8
    }
   ],
@@ -6613,7 +6613,7 @@
     "count": 4
    },
    {
-    "phrase": "Type Bulb Switch Main",
+    "phrase": "Pin Type Bulb Switch",
     "count": 4
    },
    {
@@ -6621,7 +6621,7 @@
     "count": 4
    },
    {
-    "phrase": "Pin Type Bulb Switch",
+    "phrase": "Type Bulb Switch Main",
     "count": 4
    },
    {
@@ -6783,11 +6783,11 @@
     "count": 8
    },
    {
-    "phrase": "Line Pit Septic Tank",
+    "phrase": "Sewerage Line Pit Septic",
     "count": 6
    },
    {
-    "phrase": "Sewerage Line Pit Septic",
+    "phrase": "Line Pit Septic Tank",
     "count": 6
    },
    {
@@ -7100,11 +7100,11 @@
     "count": 12
    },
    {
-    "phrase": "Yearly Cleaning and Sweeping",
+    "phrase": "Cleaning and Sweeping Work",
     "count": 9
    },
    {
-    "phrase": "Cleaning and Sweeping Work",
+    "phrase": "Yearly Cleaning and Sweeping",
     "count": 9
    },
    {
@@ -7254,15 +7254,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Water Cleaning System Flat",
-    "count": 3
-   },
-   {
     "phrase": "Cleaning System Flat Brush",
     "count": 3
    },
    {
     "phrase": "Circulating Water Cleaning System",
+    "count": 3
+   },
+   {
+    "phrase": "Water Cleaning System Flat",
     "count": 3
    },
    {
@@ -7468,7 +7468,15 @@
     "count": 5
    },
    {
+    "phrase": "Fire Extinguisher Cylinder Used",
+    "count": 5
+   },
+   {
     "phrase": "Expired Fire Extinguisher Cylinder",
+    "count": 5
+   },
+   {
+    "phrase": "Extinguisher Cylinder Used Different",
     "count": 5
    },
    {
@@ -7476,19 +7484,11 @@
     "count": 5
    },
    {
-    "phrase": "Cylinder Used Different Grid",
-    "count": 5
-   },
-   {
     "phrase": "Grid Sub-stations Office Store",
     "count": 5
    },
    {
-    "phrase": "Fire Extinguisher Cylinder Used",
-    "count": 5
-   },
-   {
-    "phrase": "Extinguisher Cylinder Used Different",
+    "phrase": "Cylinder Used Different Grid",
     "count": 5
    }
   ],
@@ -7894,31 +7894,31 @@
     "count": 4
    },
    {
-    "phrase": "Work Rajshahi Training Center",
+    "phrase": "Service for Cleaning Rajshahi",
     "count": 3
    },
    {
-    "phrase": "Lift Block Ground Floor",
+    "phrase": "Center Building Entrance Reception",
     "count": 3
    },
    {
-    "phrase": "Hostel Rooms All Toilets",
+    "phrase": "Toilets Area Roof Top",
     "count": 3
    },
    {
-    "phrase": "Regular Cleaning Maintenance Service",
+    "phrase": "Reception Lobby Common Toilet",
     "count": 3
    },
    {
-    "phrase": "Regular Maintenance for Sanitary",
+    "phrase": "Common Area Corridors Mosque",
     "count": 3
    },
    {
-    "phrase": "Maintenance Service for Cleaning",
+    "phrase": "Rooms Conference Room Officers",
     "count": 3
    },
    {
-    "phrase": "Sanitary Electrical Plumbing Maintenance",
+    "phrase": "Blocks Stair Case Lift",
     "count": 3
    }
   ],
@@ -8072,11 +8072,11 @@
     "count": 4
    },
    {
-    "phrase": "Chemicals for Gopalgonj Peaking",
+    "phrase": "Different Chemicals for Gopalgonj",
     "count": 3
    },
    {
-    "phrase": "Different Chemicals for Gopalgonj",
+    "phrase": "Chemicals for Gopalgonj Peaking",
     "count": 3
    },
    {
@@ -8810,7 +8810,7 @@
     "count": 3
    },
    {
-    "phrase": "Goods Bulb Cable Switch",
+    "phrase": "Electrical Goods Bulb Cable",
     "count": 3
    },
    {
@@ -8818,7 +8818,7 @@
     "count": 3
    },
    {
-    "phrase": "Electrical Goods Bulb Cable",
+    "phrase": "Goods Bulb Cable Switch",
     "count": 3
    },
    {
@@ -9098,7 +9098,7 @@
     "count": 4
    },
    {
-    "phrase": "Cutting Grass Jungles Shrub",
+    "phrase": "Grass Jungles Shrub Etc",
     "count": 3
    },
    {
@@ -9106,7 +9106,7 @@
     "count": 3
    },
    {
-    "phrase": "Grass Jungles Shrub Etc",
+    "phrase": "Cutting Grass Jungles Shrub",
     "count": 3
    }
   ],
@@ -9495,7 +9495,7 @@
     "count": 3
    },
    {
-    "phrase": "Fencing Painting Cable Trance",
+    "phrase": "Installation Chain Link Fencing",
     "count": 3
    }
   ],
@@ -10058,15 +10058,15 @@
     "count": 14
    },
    {
-    "phrase": "Printer Cartridge Ribbon Printer",
-    "count": 12
-   },
-   {
     "phrase": "Cartridge Ribbon Printer Model",
     "count": 12
    },
    {
     "phrase": "Line Printer Cartridge Ribbon",
+    "count": 12
+   },
+   {
+    "phrase": "Printer Cartridge Ribbon Printer",
     "count": 12
    },
    {
@@ -10370,11 +10370,11 @@
     "count": 5
    },
    {
-    "phrase": "Office Building Premises Aftabnagar",
+    "phrase": "Building Premises Aftabnagar Dhaka",
     "count": 4
    },
    {
-    "phrase": "Building Premises Aftabnagar Dhaka",
+    "phrase": "Office Building Premises Aftabnagar",
     "count": 4
    },
    {
@@ -10670,19 +10670,19 @@
     "count": 4
    },
    {
-    "phrase": "Ceiling Fan and Fitting",
-    "count": 3
-   },
-   {
     "phrase": "Fan and Fitting Fixing",
     "count": 3
    },
    {
-    "phrase": "Mercury Bulbs Mercury Holders",
+    "phrase": "Ceiling Fan and Fitting",
     "count": 3
    },
    {
-    "phrase": "Metal Set Mercury Bulbs",
+    "phrase": "Coil and Various Types",
+    "count": 3
+   },
+   {
+    "phrase": "Bulbs Mercury Holders Mercury",
     "count": 3
    }
   ],
@@ -10835,11 +10835,11 @@
     "count": 4
    },
    {
-    "phrase": "Gopalgonj Grid Substation Faridpur",
+    "phrase": "System Gopalgonj Grid Substation",
     "count": 3
    },
    {
-    "phrase": "System Gopalgonj Grid Substation",
+    "phrase": "Gopalgonj Grid Substation Faridpur",
     "count": 3
    },
    {
@@ -11001,11 +11001,11 @@
     "count": 4
    },
    {
-    "phrase": "Line Matrix Printer Used",
+    "phrase": "Printer Used for Electricity",
     "count": 4
    },
    {
-    "phrase": "Printer Used for Electricity",
+    "phrase": "Line Matrix Printer Used",
     "count": 4
    },
    {
@@ -11155,11 +11155,11 @@
     "count": 6
    },
    {
-    "phrase": "Distribution Division Bangladesh Power",
+    "phrase": "Power Development Board Jamalpur",
     "count": 6
    },
    {
-    "phrase": "Power Development Board Jamalpur",
+    "phrase": "Distribution Division Bangladesh Power",
     "count": 6
    }
   ],
@@ -11524,12 +11524,16 @@
     "count": 12
    },
    {
+    "phrase": "Haripur Gas Turbine Power",
+    "count": 9
+   },
+   {
     "phrase": "Gas Turbine Power Plant",
     "count": 9
    },
    {
-    "phrase": "Haripur Gas Turbine Power",
-    "count": 9
+    "phrase": "Spot and Residential Area",
+    "count": 8
    },
    {
     "phrase": "Jungles Shrub Including Removing",
@@ -11540,15 +11544,11 @@
     "count": 8
    },
    {
-    "phrase": "Site Spot and Residential",
-    "count": 8
-   },
-   {
-    "phrase": "Spot and Residential Area",
-    "count": 8
-   },
-   {
     "phrase": "Cleaning the Site Spot",
+    "count": 8
+   },
+   {
+    "phrase": "Site Spot and Residential",
     "count": 8
    }
   ],
@@ -11930,31 +11930,31 @@
     "count": 26
    },
    {
-    "phrase": "Papers Inch X Inch",
-    "count": 15
-   },
-   {
     "phrase": "Billing Papers Inch X",
     "count": 15
    },
    {
-    "phrase": "Pre Printed Single Register",
-    "count": 12
+    "phrase": "Papers Inch X Inch",
+    "count": 15
    },
    {
     "phrase": "Register Billing Papers Inch",
     "count": 12
    },
    {
-    "phrase": "Printer Ribbon for Tally",
-    "count": 10
+    "phrase": "Pre Printed Single Register",
+    "count": 12
    },
    {
     "phrase": "Ribbon for Tally Genicom",
     "count": 10
    },
    {
-    "phrase": "Box Shit for Comilla",
+    "phrase": "Printer Ribbon for Tally",
+    "count": 10
+   },
+   {
+    "phrase": "Inch Per Box Shit",
     "count": 10
    }
   ],
@@ -12113,11 +12113,11 @@
     "count": 4
    },
    {
-    "phrase": "Storage Tanks and Other",
+    "phrase": "Pipe Lines Storage Tanks",
     "count": 4
    },
    {
-    "phrase": "Pipe Lines Storage Tanks",
+    "phrase": "Storage Tanks and Other",
     "count": 4
    },
    {
@@ -12559,7 +12559,7 @@
     "count": 4
    },
    {
-    "phrase": "Area Sft X Units",
+    "phrase": "Ft Storied Building Bibiyana",
     "count": 3
    }
   ],
@@ -12685,19 +12685,19 @@
     "count": 3
    },
    {
-    "phrase": "Cleaning Grass Cutting Power",
-    "count": 3
-   },
-   {
     "phrase": "Power House and Surrounding",
     "count": 3
    },
    {
-    "phrase": "Danguri Set Safety Shoes",
+    "phrase": "Cleaning Grass Cutting Power",
     "count": 3
    },
    {
     "phrase": "Umbrellas Danguri Set Safety",
+    "count": 3
+   },
+   {
+    "phrase": "Danguri Set Safety Shoes",
     "count": 3
    }
   ],
@@ -12860,7 +12860,7 @@
     "count": 3
    },
    {
-    "phrase": "Cutting Bushes Grass Cleaning",
+    "phrase": "Bushes Grass Cleaning Wastage",
     "count": 3
    }
   ],
@@ -12994,11 +12994,11 @@
     "count": 3
    },
    {
-    "phrase": "Cleaning Hazardous Substance Sludge",
+    "phrase": "Night Soil Septic Tank",
     "count": 3
    },
    {
-    "phrase": "Drain Etc Annual Basis",
+    "phrase": "Etc Annual Basis Residential",
     "count": 3
    }
   ],
@@ -13131,11 +13131,11 @@
     "count": 5
    },
    {
-    "phrase": "Goods for Different Official",
+    "phrase": "Stationary Goods for Different",
     "count": 3
    },
    {
-    "phrase": "Stationary Goods for Different",
+    "phrase": "Goods for Different Official",
     "count": 3
    },
    {
@@ -13735,11 +13735,11 @@
     "count": 4
    },
    {
-    "phrase": "Outsourcing for Fenchuganj Power",
+    "phrase": "Sweeper Outsourcing for Fenchuganj",
     "count": 3
    },
    {
-    "phrase": "Sweeper Outsourcing for Fenchuganj",
+    "phrase": "Outsourcing for Fenchuganj Power",
     "count": 3
    },
    {
@@ -14063,11 +14063,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Power Station",
+    "phrase": "Maintenance Work",
     "count": 4
    },
    {
-    "phrase": "Maintenance Work",
+    "phrase": "Power Station",
     "count": 4
    }
   ],
@@ -14495,11 +14495,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Siddhirganj Thermal Power Plant",
+    "phrase": "Related Areas Including Garbage",
     "count": 5
    },
    {
     "phrase": "Areas Including Garbage Disposal",
+    "count": 5
+   },
+   {
+    "phrase": "Siddhirganj Thermal Power Plant",
+    "count": 5
+   },
+   {
+    "phrase": "Different Equipments Related Areas",
     "count": 5
    },
    {
@@ -14508,14 +14516,6 @@
    },
    {
     "phrase": "Equipments Related Areas Including",
-    "count": 5
-   },
-   {
-    "phrase": "Different Equipments Related Areas",
-    "count": 5
-   },
-   {
-    "phrase": "Related Areas Including Garbage",
     "count": 5
    },
    {
@@ -14625,6 +14625,10 @@
     "count": 3
    },
    {
+    "phrase": "Guards for Different Offices",
+    "count": 3
+   },
+   {
     "phrase": "Installations Within the Geographical",
     "count": 3
    },
@@ -14633,15 +14637,11 @@
     "count": 3
    },
    {
-    "phrase": "Guards for Different Offices",
+    "phrase": "Different Offices and Installations",
     "count": 3
    },
    {
     "phrase": "Within the Geographical Area",
-    "count": 3
-   },
-   {
-    "phrase": "Different Offices and Installations",
     "count": 3
    },
    {
@@ -15106,7 +15106,7 @@
     "count": 6
    },
    {
-    "phrase": "Chemical Powder and Replacement",
+    "phrase": "Extinguisher for Various Places",
     "count": 5
    },
    {
@@ -15118,7 +15118,7 @@
     "count": 5
    },
    {
-    "phrase": "Extinguisher for Various Places",
+    "phrase": "Refilling Fire Extinguisher Dry",
     "count": 5
    }
   ],
@@ -15418,6 +15418,10 @@
     "count": 17
    },
    {
+    "phrase": "Connection Internet Data Connectivity",
+    "count": 11
+   },
+   {
     "phrase": "On-line New Connection Internet",
     "count": 11
    },
@@ -15426,19 +15430,15 @@
     "count": 11
    },
    {
-    "phrase": "Connection Internet Data Connectivity",
-    "count": 11
-   },
-   {
     "phrase": "Complete On-line New Connection",
     "count": 10
    },
    {
-    "phrase": "Operation and Computer System",
+    "phrase": "System Operation and Computer",
     "count": 10
    },
    {
-    "phrase": "System Operation and Computer",
+    "phrase": "Operation and Computer System",
     "count": 10
    }
   ],
@@ -16021,11 +16021,11 @@
     "count": 3
    },
    {
-    "phrase": "Repair Maintenance",
+    "phrase": "Maintenance Work",
     "count": 3
    },
    {
-    "phrase": "Maintenance Work",
+    "phrase": "Repair Maintenance",
     "count": 3
    }
   ],
@@ -16441,11 +16441,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Chattogram Power Station",
+    "phrase": "Repair and Maintenance",
     "count": 3
    },
    {
-    "phrase": "Repair and Maintenance",
+    "phrase": "Chattogram Power Station",
     "count": 3
    }
   ],
@@ -16897,6 +16897,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Fuels Maintenance Monthly Rental",
+    "count": 18
+   },
+   {
     "phrase": "Driver Fuels Maintenance Monthly",
     "count": 18
    },
@@ -16905,15 +16909,15 @@
     "count": 18
    },
    {
-    "phrase": "Fuels Maintenance Monthly Rental",
-    "count": 18
+    "phrase": "Reading Snap Shot System",
+    "count": 17
    },
    {
     "phrase": "Snap Shot System Using",
     "count": 17
    },
    {
-    "phrase": "Using Android Mobile Apps",
+    "phrase": "System Using Android Mobile",
     "count": 17
    },
    {
@@ -16921,11 +16925,7 @@
     "count": 17
    },
    {
-    "phrase": "Through Capturing Meter Reading",
-    "count": 17
-   },
-   {
-    "phrase": "System Using Android Mobile",
+    "phrase": "Using Android Mobile Apps",
     "count": 17
    }
   ],
@@ -17067,19 +17067,19 @@
     "count": 9
    },
    {
-    "phrase": "Hardware Materials Gas Burner",
-    "count": 8
-   },
-   {
     "phrase": "Plumbing and Hardware Materials",
     "count": 8
    },
    {
-    "phrase": "Bib Cock Stop Cock",
+    "phrase": "Hardware Materials Gas Burner",
     "count": 8
    },
    {
     "phrase": "Burner Bib Cock Stop",
+    "count": 8
+   },
+   {
+    "phrase": "Bib Cock Stop Cock",
     "count": 8
    },
    {
@@ -17197,11 +17197,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Siddhirganj Power Station Residential",
+    "phrase": "Power Station Residential Area",
     "count": 11
    },
    {
-    "phrase": "Power Station Residential Area",
+    "phrase": "Siddhirganj Power Station Residential",
     "count": 11
    },
    {
@@ -17209,7 +17209,7 @@
     "count": 11
    },
    {
-    "phrase": "Etc Removing Safe Distance",
+    "phrase": "Shrubs Etc Removing Safe",
     "count": 9
    },
    {
@@ -17221,11 +17221,11 @@
     "count": 9
    },
    {
-    "phrase": "Shrubs Etc Removing Safe",
+    "phrase": "Etc Removing Safe Distance",
     "count": 9
    },
    {
-    "phrase": "Yard Stair Approach Road",
+    "phrase": "Road and Yard Stair",
     "count": 5
    }
   ],
@@ -17359,11 +17359,11 @@
     "count": 4
    },
    {
-    "phrase": "Shikalbaha Chittagong for Yearly",
+    "phrase": "Residential Area Shikalbaha Power",
     "count": 4
    },
    {
-    "phrase": "Residential Area Shikalbaha Power",
+    "phrase": "Shikalbaha Chittagong for Yearly",
     "count": 4
    },
    {
@@ -17562,11 +17562,11 @@
     "count": 6
    },
    {
-    "phrase": "Manpower Driver Messengers Mali",
+    "phrase": "Driver Messengers Mali Sweeper",
     "count": 3
    },
    {
-    "phrase": "Driver Messengers Mali Sweeper",
+    "phrase": "Manpower Driver Messengers Mali",
     "count": 3
    },
    {
@@ -17724,11 +17724,11 @@
     "count": 7
    },
    {
-    "phrase": "Consumable Materials and Tools",
+    "phrase": "Etc Mechanical Consumable Materials",
     "count": 6
    },
    {
-    "phrase": "Etc Mechanical Consumable Materials",
+    "phrase": "Jhute Gloves Pressure Meter",
     "count": 6
    },
    {
@@ -17740,7 +17740,7 @@
     "count": 6
    },
    {
-    "phrase": "Jhute Gloves Pressure Meter",
+    "phrase": "Consumable Materials and Tools",
     "count": 6
    },
    {
@@ -17882,11 +17882,11 @@
     "count": 3
    },
    {
-    "phrase": "Cleaning Debris Accumulation",
+    "phrase": "Disposal for Unit",
     "count": 3
    },
    {
-    "phrase": "Disposal for Unit",
+    "phrase": "Cleaning Debris Accumulation",
     "count": 3
    },
    {
@@ -18036,11 +18036,11 @@
     "count": 3
    },
    {
-    "phrase": "Power Station Area",
+    "phrase": "Equipment Maintenance Cleaning",
     "count": 5
    },
    {
-    "phrase": "Equipment Maintenance Cleaning",
+    "phrase": "Power Station Area",
     "count": 5
    },
    {
@@ -18186,15 +18186,11 @@
     "count": 22
    },
    {
-    "phrase": "Maintenance Line Maintenance New",
-    "count": 18
-   },
-   {
-    "phrase": "Maintenance New Transformer Installation",
-    "count": 18
-   },
-   {
     "phrase": "Line Maintenance New Transformer",
+    "count": 18
+   },
+   {
+    "phrase": "Gradation and Related Maintenance",
     "count": 18
    },
    {
@@ -18202,7 +18198,11 @@
     "count": 18
    },
    {
-    "phrase": "Gradation and Related Maintenance",
+    "phrase": "Maintenance New Transformer Installation",
+    "count": 18
+   },
+   {
+    "phrase": "Maintenance Line Maintenance New",
     "count": 18
    },
    {
@@ -18520,11 +18520,11 @@
     "count": 3
    },
    {
-    "phrase": "Sourcing Method Consolidated Pay",
+    "phrase": "Out Sourcing Method Consolidated",
     "count": 3
    },
    {
-    "phrase": "Out Sourcing Method Consolidated",
+    "phrase": "Sourcing Method Consolidated Pay",
     "count": 3
    },
    {
@@ -18631,11 +18631,11 @@
     "count": 7
    },
    {
-    "phrase": "Emergency Repair Maintenance Works",
+    "phrase": "Line and Load Balancing",
     "count": 6
    },
    {
-    "phrase": "Line and Load Balancing",
+    "phrase": "Emergency Repair Maintenance Works",
     "count": 6
    },
    {
@@ -19357,11 +19357,11 @@
     "count": 10
    },
    {
-    "phrase": "Dosing Water Treatment Plant",
+    "phrase": "Chemicals for Dosing Water",
     "count": 3
    },
    {
-    "phrase": "Chemicals for Dosing Water",
+    "phrase": "Dosing Water Treatment Plant",
     "count": 3
    },
    {
@@ -19515,11 +19515,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Salt for Water Treatment",
+    "phrase": "Crude Salt for Water",
     "count": 15
    },
    {
-    "phrase": "Crude Salt for Water",
+    "phrase": "Salt for Water Treatment",
     "count": 15
    },
    {
@@ -19531,11 +19531,7 @@
     "count": 6
    },
    {
-    "phrase": "Area Railway Line Premises",
-    "count": 4
-   },
-   {
-    "phrase": "Residential Area Railway Line",
+    "phrase": "Bush Grass Waste Etc",
     "count": 4
    },
    {
@@ -19543,7 +19539,11 @@
     "count": 4
    },
    {
-    "phrase": "Bush Grass Waste Etc",
+    "phrase": "Power Plant Residential Area",
+    "count": 4
+   },
+   {
+    "phrase": "Residential Area Railway Line",
     "count": 4
    }
   ],
@@ -19843,11 +19843,11 @@
     "count": 9
    },
    {
-    "phrase": "Barapukuria Coal Fired Thermal",
+    "phrase": "Fired Thermal Power Station",
     "count": 9
    },
    {
-    "phrase": "Fired Thermal Power Station",
+    "phrase": "Barapukuria Coal Fired Thermal",
     "count": 9
    },
    {
@@ -20001,11 +20001,11 @@
     "count": 12
    },
    {
-    "phrase": "Barapukuria X Coal Fired",
+    "phrase": "X Coal Fired Power",
     "count": 11
    },
    {
-    "phrase": "X Coal Fired Power",
+    "phrase": "Barapukuria X Coal Fired",
     "count": 11
    },
    {
@@ -20168,15 +20168,7 @@
     "count": 6
    },
    {
-    "phrase": "Corporate Office Siddhirganj Haripur",
-    "count": 5
-   },
-   {
     "phrase": "Data Centre Corporate Office",
-    "count": 5
-   },
-   {
-    "phrase": "Among Data Centre Corporate",
     "count": 5
    },
    {
@@ -20184,11 +20176,19 @@
     "count": 5
    },
    {
-    "phrase": "Service Among Data Centre",
-    "count": 4
+    "phrase": "Among Data Centre Corporate",
+    "count": 5
+   },
+   {
+    "phrase": "Corporate Office Siddhirganj Haripur",
+    "count": 5
    },
    {
     "phrase": "Centre Corporate Office Siddhirganj",
+    "count": 4
+   },
+   {
+    "phrase": "Service Among Data Centre",
     "count": 4
    }
   ],
@@ -21348,11 +21348,11 @@
     "count": 3
    },
    {
-    "phrase": "Hose Pipe Nozzle",
+    "phrase": "Fire Fighting Equipment",
     "count": 3
    },
    {
-    "phrase": "Fire Fighting Equipment",
+    "phrase": "Hose Pipe Nozzle",
     "count": 3
    },
    {
@@ -21498,11 +21498,11 @@
     "count": 14
    },
    {
-    "phrase": "Center Near Overload Transformer",
+    "phrase": "Load Center Near Overload",
     "count": 12
    },
    {
-    "phrase": "Load Center Near Overload",
+    "phrase": "Center Near Overload Transformer",
     "count": 12
    },
    {
@@ -21514,11 +21514,11 @@
     "count": 12
    },
    {
-    "phrase": "Transformer the Area Like",
+    "phrase": "Overload Transformer the Area",
     "count": 10
    },
    {
-    "phrase": "Overload Transformer the Area",
+    "phrase": "Transformer the Area Like",
     "count": 10
    }
   ],
@@ -21656,11 +21656,11 @@
     "count": 4
    },
    {
-    "phrase": "Station and Residential Colony",
+    "phrase": "Power Station and Residential",
     "count": 3
    },
    {
-    "phrase": "Power Station and Residential",
+    "phrase": "Station and Residential Colony",
     "count": 3
    },
    {
@@ -21802,11 +21802,11 @@
     "count": 5
    },
    {
-    "phrase": "Screen Net Driving",
+    "phrase": "Circulating Water Pump",
     "count": 4
    },
    {
-    "phrase": "Circulating Water Pump",
+    "phrase": "Screen Net Driving",
     "count": 4
    },
    {
@@ -21952,7 +21952,7 @@
     "count": 6
    },
    {
-    "phrase": "Plant Area and Bagbari",
+    "phrase": "Kumargaon Residential Area Times",
     "count": 5
    },
    {
@@ -21960,11 +21960,11 @@
     "count": 5
    },
    {
-    "phrase": "Sylhet Power Plant Area",
+    "phrase": "Plant Area and Bagbari",
     "count": 5
    },
    {
-    "phrase": "Kumargaon Residential Area Times",
+    "phrase": "Sylhet Power Plant Area",
     "count": 5
    },
    {
@@ -21976,7 +21976,7 @@
     "count": 4
    },
    {
-    "phrase": "Chemicals for Water Treatment",
+    "phrase": "Different Chemicals for Water",
     "count": 3
    }
   ],
@@ -22769,11 +22769,11 @@
     "count": 3
    },
    {
-    "phrase": "Accessories for Office Manikganj",
+    "phrase": "Computer Accessories for Office",
     "count": 3
    },
    {
-    "phrase": "Computer Accessories for Office",
+    "phrase": "Accessories for Office Manikganj",
     "count": 3
    },
    {
@@ -22785,7 +22785,7 @@
     "count": 3
    },
    {
-    "phrase": "Grid Substation Aricha Power",
+    "phrase": "Substation Aricha Power Grid",
     "count": 3
    }
   ],
@@ -23210,11 +23210,11 @@
     "count": 4
    },
    {
-    "phrase": "Rehabilitation Renovation Rehabilitation Construction",
+    "phrase": "Renovation Rehabilitation Construction Expention",
     "count": 3
    },
    {
-    "phrase": "Renovation Rehabilitation Construction Expention",
+    "phrase": "Rehabilitation Renovation Rehabilitation Construction",
     "count": 3
    },
    {
@@ -23360,6 +23360,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Maintenance Recovery and Renovation",
+    "count": 9
+   },
+   {
     "phrase": "Recovery and Renovation Works",
     "count": 9
    },
@@ -23368,15 +23372,11 @@
     "count": 9
    },
    {
-    "phrase": "Maintenance Recovery and Renovation",
-    "count": 9
-   },
-   {
-    "phrase": "Overhead Lines and Distribution",
+    "phrase": "Lines and Distribution Transformers",
     "count": 6
    },
    {
-    "phrase": "Lines and Distribution Transformers",
+    "phrase": "Overhead Lines and Distribution",
     "count": 6
    },
    {
@@ -23522,15 +23522,15 @@
     "count": 6
    },
    {
-    "phrase": "Same Along Associated Works",
-    "count": 5
-   },
-   {
     "phrase": "Parts and Fitting-fixing Same",
     "count": 5
    },
    {
     "phrase": "Fitting-fixing Same Along Associated",
+    "count": 5
+   },
+   {
+    "phrase": "Same Along Associated Works",
     "count": 5
    },
    {
@@ -23684,11 +23684,11 @@
     "count": 19
    },
    {
-    "phrase": "Installment One Framework Agreement",
+    "phrase": "Four Installment One Framework",
     "count": 15
    },
    {
-    "phrase": "Four Installment One Framework",
+    "phrase": "Installment One Framework Agreement",
     "count": 15
    },
    {
@@ -23805,11 +23805,11 @@
     "count": 16
    },
    {
-    "phrase": "New Line Installation",
+    "phrase": "Other Related Works",
     "count": 17
    },
    {
-    "phrase": "Other Related Works",
+    "phrase": "New Line Installation",
     "count": 17
    },
    {
@@ -23817,11 +23817,11 @@
     "count": 16
    },
    {
-    "phrase": "Ext Line",
+    "phrase": "New Transformer",
     "count": 9
    },
    {
-    "phrase": "New Transformer",
+    "phrase": "Ext Line",
     "count": 9
    },
    {
@@ -23971,11 +23971,11 @@
     "count": 7
    },
    {
-    "phrase": "Against Overloaded Transformer Jurain",
+    "phrase": "Yearly Repair and Maintenance",
     "count": 5
    },
    {
-    "phrase": "Yearly Repair and Maintenance",
+    "phrase": "Against Overloaded Transformer Jurain",
     "count": 5
    },
    {
@@ -24121,11 +24121,11 @@
     "count": 9
    },
    {
-    "phrase": "Gardening Plantation Works Etc",
+    "phrase": "Cleaning Gardening Plantation Works",
     "count": 8
    },
    {
-    "phrase": "Cleaning Gardening Plantation Works",
+    "phrase": "Gardening Plantation Works Etc",
     "count": 8
    },
    {
@@ -24137,7 +24137,7 @@
     "count": 6
    },
    {
-    "phrase": "Oil for Crane Different",
+    "phrase": "Hydraulic Oil for Crane",
     "count": 5
    },
    {
@@ -24185,7 +24185,7 @@
  },
  "1068": {
   "value_bdt": 4219020000.0,
-  "count": 1326,
+  "count": 1327,
   "by_year": {
    "2016": {
     "value_bdt": 22980000.0,
@@ -24229,12 +24229,12 @@
    },
    "2026": {
     "value_bdt": 523370000.0,
-    "count": 194
+    "count": 195
    }
   },
   "by_nature": {
    "Works": 270,
-   "Goods": 961,
+   "Goods": 962,
    "Services": 3
   },
   "top_vendors": [
@@ -24267,7 +24267,7 @@
   "top_districts": [
    {
     "district": "Brahmanbaria",
-    "count": 1205
+    "count": 1206
    },
    {
     "district": "Dhaka",
@@ -24446,7 +24446,7 @@
     "count": 5
    },
    {
-    "phrase": "Administration Office Plant Office",
+    "phrase": "Mosque Bidyut Bhaban Rest",
     "count": 5
    },
    {
@@ -24454,11 +24454,11 @@
     "count": 5
    },
    {
-    "phrase": "Mosque Bidyut Bhaban Rest",
+    "phrase": "Administration Office Plant Office",
     "count": 5
    },
    {
-    "phrase": "Toilet Block Corridor Stair",
+    "phrase": "Manager Office Administration Office",
     "count": 5
    }
   ],
@@ -24608,11 +24608,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Tyre Tubes for Different",
+    "phrase": "Tubes for Different Vehicles",
     "count": 3
    },
    {
-    "phrase": "Tubes for Different Vehicles",
+    "phrase": "Tyre Tubes for Different",
     "count": 3
    },
    {
@@ -24912,11 +24912,11 @@
     "count": 26
    },
    {
-    "phrase": "Fertilizer Godowns and Construction",
+    "phrase": "Godowns and Construction Repair",
     "count": 21
    },
    {
-    "phrase": "Godowns and Construction Repair",
+    "phrase": "Fertilizer Godowns and Construction",
     "count": 21
    },
    {
@@ -25087,7 +25087,7 @@
     "count": 8
    },
    {
-    "phrase": "Item Mask Gloves Safety",
+    "phrase": "Shoes Umbrella Fire Safety",
     "count": 7
    }
   ],
@@ -25330,15 +25330,15 @@
     "count": 10
    },
    {
-    "phrase": "Repair Recovery and Re-installation",
-    "count": 9
-   },
-   {
     "phrase": "Overhead Lines and Distribution",
     "count": 9
    },
    {
-    "phrase": "Emergency Installation Repair Recovery",
+    "phrase": "Repair Recovery and Re-installation",
+    "count": 9
+   },
+   {
+    "phrase": "Lines and Distribution Transformers",
     "count": 9
    },
    {
@@ -25346,7 +25346,7 @@
     "count": 9
    },
    {
-    "phrase": "Lines and Distribution Transformers",
+    "phrase": "Emergency Installation Repair Recovery",
     "count": 9
    }
   ],
@@ -25645,7 +25645,7 @@
     "count": 10
    },
    {
-    "phrase": "Line and Systematic Improvement",
+    "phrase": "Emengency Repair and Maintenance",
     "count": 8
    },
    {
@@ -25653,15 +25653,15 @@
     "count": 8
    },
    {
-    "phrase": "Emengency Repair and Maintenance",
+    "phrase": "Line and Systematic Improvement",
     "count": 8
    },
    {
-    "phrase": "Improvement Non-standard Line Change",
+    "phrase": "Maintenance System Improvement Non-standard",
     "count": 6
    },
    {
-    "phrase": "Maintenance System Improvement Non-standard",
+    "phrase": "System Improvement Non-standard Line",
     "count": 6
    }
   ],
@@ -26204,11 +26204,11 @@
     "count": 15
    },
    {
-    "phrase": "Chief Engineer Distribution Southern",
+    "phrase": "Distribution Southern Zone Ctg",
     "count": 14
    },
    {
-    "phrase": "Distribution Southern Zone Ctg",
+    "phrase": "Chief Engineer Distribution Southern",
     "count": 14
    },
    {
@@ -26589,7 +26589,7 @@
     "count": 5
    },
    {
-    "phrase": "Transformers and Other Related",
+    "phrase": "Earthing Different Feeders Mugdapara",
     "count": 4
    },
    {
@@ -26597,11 +26597,11 @@
     "count": 4
    },
    {
-    "phrase": "Services Including Earthing Different",
+    "phrase": "Lines Poles Distribution Transformers",
     "count": 4
    },
    {
-    "phrase": "Distribution Transformers and Other",
+    "phrase": "Transformers and Other Related",
     "count": 4
    },
    {
@@ -26609,7 +26609,7 @@
     "count": 4
    },
    {
-    "phrase": "Lines Poles Distribution Transformers",
+    "phrase": "Services Including Earthing Different",
     "count": 4
    }
   ],
@@ -26743,15 +26743,15 @@
     "count": 7
    },
    {
-    "phrase": "Installation Various Overhead Feeders",
-    "count": 5
-   },
-   {
     "phrase": "Material Supply and Installation",
     "count": 5
    },
    {
     "phrase": "Supply and Installation Various",
+    "count": 5
+   },
+   {
+    "phrase": "Installation Various Overhead Feeders",
     "count": 5
    },
    {
@@ -26763,7 +26763,7 @@
     "count": 3
    },
    {
-    "phrase": "Repairing Recovery and Re-installation",
+    "phrase": "Lines and Distribution Transformers",
     "count": 3
    }
   ],
@@ -27225,11 +27225,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Matarbari Coal Based Power",
+    "phrase": "Coal Based Power Plant",
     "count": 22
    },
    {
-    "phrase": "Coal Based Power Plant",
+    "phrase": "Matarbari Coal Based Power",
     "count": 22
    },
    {
@@ -27627,15 +27627,15 @@
     "count": 4
    },
    {
-    "phrase": "Pre-payment Metering Project Distribution",
-    "count": 4
-   },
-   {
     "phrase": "Metering Project Distribution Southern",
     "count": 4
    },
    {
-    "phrase": "Distribution Southern Zone Chittagong",
+    "phrase": "Pre-payment Metering Project Distribution",
+    "count": 4
+   },
+   {
+    "phrase": "Zone Chittagong Phase Chittagong",
     "count": 4
    },
    {
@@ -27643,7 +27643,7 @@
     "count": 4
    },
    {
-    "phrase": "Zone Chittagong Phase Chittagong",
+    "phrase": "Distribution Southern Zone Chittagong",
     "count": 4
    },
    {
@@ -27748,11 +27748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Roads Highway Lane Road",
+    "phrase": "Highway Lane Road Extension",
     "count": 3
    },
    {
-    "phrase": "Highway Lane Road Extension",
+    "phrase": "Roads Highway Lane Road",
     "count": 3
    },
    {
@@ -27864,7 +27864,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Power Distribution System Project",
+    "phrase": "Division Strengthening Power Distribution",
     "count": 6
    },
    {
@@ -27872,7 +27872,7 @@
     "count": 6
    },
    {
-    "phrase": "Division Strengthening Power Distribution",
+    "phrase": "Power Distribution System Project",
     "count": 6
    },
    {
@@ -27990,11 +27990,11 @@
     "count": 3
    },
    {
-    "phrase": "Siddhirganj X Peaking Power",
+    "phrase": "X Peaking Power Plant",
     "count": 3
    },
    {
-    "phrase": "X Peaking Power Plant",
+    "phrase": "Siddhirganj X Peaking Power",
     "count": 3
    },
    {
@@ -28228,11 +28228,11 @@
     "count": 9
    },
    {
-    "phrase": "Circle South Grid South",
+    "phrase": "Grid Circle South Grid",
     "count": 9
    },
    {
-    "phrase": "Grid Circle South Grid",
+    "phrase": "Circle South Grid South",
     "count": 9
    },
    {
@@ -28520,11 +28520,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Repair Shop Tongi Gazipur",
+    "phrase": "Zonal Repair Shop Tongi",
     "count": 34
    },
    {
-    "phrase": "Zonal Repair Shop Tongi",
+    "phrase": "Repair Shop Tongi Gazipur",
     "count": 34
    },
    {
@@ -29176,11 +29176,11 @@
     "count": 17
    },
    {
-    "phrase": "Sharing and Other Related",
+    "phrase": "Load Sharing and Other",
     "count": 16
    },
    {
-    "phrase": "Load Sharing and Other",
+    "phrase": "Sharing and Other Related",
     "count": 16
    }
   ],
@@ -29331,11 +29331,11 @@
     "count": 26
    },
    {
-    "phrase": "Repair Maintenance and Development",
+    "phrase": "Maintenance and Development Method",
     "count": 26
    },
    {
-    "phrase": "Maintenance and Development Method",
+    "phrase": "Repair Maintenance and Development",
     "count": 26
    },
    {
@@ -29466,11 +29466,11 @@
     "count": 5
    },
    {
-    "phrase": "Repairs and Renovation Works",
+    "phrase": "Urgent Repairs and Renovation",
     "count": 5
    },
    {
-    "phrase": "Urgent Repairs and Renovation",
+    "phrase": "Branches and Other Urgent",
     "count": 5
    }
   ],
@@ -29616,15 +29616,15 @@
     "count": 9
    },
    {
-    "phrase": "Old Risky and Sub-standard",
+    "phrase": "Pole Straightening and Related",
     "count": 9
    },
    {
-    "phrase": "Sales and Distribution Division-patharghata",
+    "phrase": "Straightening and Related Repair",
     "count": 9
    },
    {
-    "phrase": "Conductors Etc Jumper Renewal",
+    "phrase": "Centers Transformer Maintenance Pole",
     "count": 9
    }
   ],
@@ -30083,11 +30083,11 @@
     "count": 6
    },
    {
-    "phrase": "Carrying Unloading Loading Pouring",
+    "phrase": "Loading Pouring and Mixing",
     "count": 6
    },
    {
-    "phrase": "Loading Pouring and Mixing",
+    "phrase": "Carrying Unloading Loading Pouring",
     "count": 6
    },
    {
@@ -30245,15 +30245,15 @@
     "count": 9
    },
    {
-    "phrase": "Materials Lather Wet Paper",
-    "count": 7
-   },
-   {
     "phrase": "Repair Materials Lather Wet",
     "count": 7
    },
    {
     "phrase": "Transformer Repair Materials Lather",
+    "count": 7
+   },
+   {
+    "phrase": "Materials Lather Wet Paper",
     "count": 7
    },
    {
@@ -30392,19 +30392,11 @@
     "count": 7
    },
    {
-    "phrase": "Boiler House Main Control",
+    "phrase": "Walls Floors Turbine Hall",
     "count": 7
    },
    {
     "phrase": "Turbine Hall Boiler House",
-    "count": 7
-   },
-   {
-    "phrase": "Ducts Walls Floors Turbine",
-    "count": 7
-   },
-   {
-    "phrase": "Walls Floors Turbine Hall",
     "count": 7
    },
    {
@@ -30416,7 +30408,15 @@
     "count": 7
    },
    {
-    "phrase": "Control Building Network Control",
+    "phrase": "Ducts Walls Floors Turbine",
+    "count": 7
+   },
+   {
+    "phrase": "Boiler House Main Control",
+    "count": 7
+   },
+   {
+    "phrase": "Main Control Building Network",
     "count": 6
    }
   ],
@@ -30712,11 +30712,11 @@
     "count": 21
    },
    {
-    "phrase": "Tanksoak Well Inspection Pit",
+    "phrase": "Septic Tanksoak Well Inspection",
     "count": 9
    },
    {
-    "phrase": "Septic Tanksoak Well Inspection",
+    "phrase": "Tanksoak Well Inspection Pit",
     "count": 9
    },
    {
@@ -30736,7 +30736,7 @@
     "count": 8
    },
    {
-    "phrase": "Water Tank Dust Bin",
+    "phrase": "Well Inspection Pit Soil",
     "count": 7
    }
   ],
@@ -31032,11 +31032,11 @@
     "count": 6
    },
    {
-    "phrase": "Fenchuganj Power Station",
+    "phrase": "Supply Installation Testing",
     "count": 4
    },
    {
-    "phrase": "Supply Installation Testing",
+    "phrase": "Fenchuganj Power Station",
     "count": 4
    },
    {
@@ -31048,11 +31048,11 @@
     "count": 6
    },
    {
-    "phrase": "Installation Testing",
+    "phrase": "Supply Installation",
     "count": 5
    },
    {
-    "phrase": "Supply Installation",
+    "phrase": "Installation Testing",
     "count": 5
    },
    {
@@ -31474,11 +31474,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Plant and Residential Area",
+    "phrase": "Power Plant and Residential",
     "count": 3
    },
    {
-    "phrase": "Power Plant and Residential",
+    "phrase": "Plant and Residential Area",
     "count": 3
    },
    {
@@ -31636,11 +31636,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Sales Dristribution Division Mohora",
+    "phrase": "Dristribution Division Mohora Chattogram",
     "count": 30
    },
    {
-    "phrase": "Dristribution Division Mohora Chattogram",
+    "phrase": "Sales Dristribution Division Mohora",
     "count": 30
    },
    {
@@ -31652,11 +31652,11 @@
     "count": 17
    },
    {
-    "phrase": "Disabled Transformer Different Areas",
+    "phrase": "New Transformer Besides Overloaded",
     "count": 15
    },
    {
-    "phrase": "New Transformer Besides Overloaded",
+    "phrase": "Disabled Transformer Different Areas",
     "count": 15
    },
    {
@@ -31928,7 +31928,7 @@
     "count": 22
    },
    {
-    "phrase": "Service Length Converting Lines",
+    "phrase": "Maintenance and System Improvement",
     "count": 21
    },
    {
@@ -32604,11 +32604,11 @@
     "count": 20
    },
    {
-    "phrase": "Power Transmission Center Circle",
+    "phrase": "Bangladesh-india Power Transmission Center",
     "count": 16
    },
    {
-    "phrase": "Bangladesh-india Power Transmission Center",
+    "phrase": "Power Transmission Center Circle",
     "count": 16
    },
    {
@@ -32620,11 +32620,11 @@
     "count": 12
    },
    {
-    "phrase": "Cutting Jungles and Shrub",
+    "phrase": "Including Removing and Cleaning",
     "count": 10
    },
    {
-    "phrase": "Cleaning the Spot Site",
+    "phrase": "Cutting Jungles and Shrub",
     "count": 10
    }
   ],
@@ -32921,11 +32921,11 @@
     "count": 3
    },
    {
-    "phrase": "Tools Contact Grease Adhesive",
+    "phrase": "Gasket Bush Tools Contact",
     "count": 3
    },
    {
-    "phrase": "Gasket Bush Tools Contact",
+    "phrase": "Tools Contact Grease Adhesive",
     "count": 3
    },
    {
@@ -33147,15 +33147,23 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Ship Khulna Benapol Berge",
+    "phrase": "Authority and Vat Given",
     "count": 3
    },
    {
-    "phrase": "Insurance Welfare Grants Given",
+    "phrase": "Port Mongla Port Hook",
     "count": 3
    },
    {
     "phrase": "Internal Insurance Welfare Grants",
+    "count": 3
+   },
+   {
+    "phrase": "Port Authority and Vat",
+    "count": 3
+   },
+   {
+    "phrase": "Insurance Welfare Grants Given",
     "count": 3
    },
    {
@@ -33167,15 +33175,7 @@
     "count": 3
    },
    {
-    "phrase": "Port Mongla Port Hook",
-    "count": 3
-   },
-   {
-    "phrase": "Authority and Vat Given",
-    "count": 3
-   },
-   {
-    "phrase": "Eqipments Port Mongla Port",
+    "phrase": "Electrical Eqipments Port Mongla",
     "count": 3
    }
   ],
@@ -33597,11 +33597,11 @@
     "count": 3
    },
    {
-    "phrase": "Spares and Consumables",
+    "phrase": "Air Conditioning System",
     "count": 4
    },
    {
-    "phrase": "Air Conditioning System",
+    "phrase": "Spares and Consumables",
     "count": 4
    },
    {
@@ -34204,11 +34204,11 @@
     "count": 5
    },
    {
-    "phrase": "Yearly Emergency Installation Repair",
+    "phrase": "Lines and Distribution Transformers",
     "count": 5
    },
    {
-    "phrase": "Lines and Distribution Transformers",
+    "phrase": "Yearly Emergency Installation Repair",
     "count": 5
    },
    {
@@ -34350,11 +34350,11 @@
     "count": 10
    },
    {
-    "phrase": "Installation Repair and Maintenance",
+    "phrase": "Improvement Transformer Installation Repair",
     "count": 7
    },
    {
-    "phrase": "Improvement Transformer Installation Repair",
+    "phrase": "Feeder Dist Division Brahmanbaria",
     "count": 7
    },
    {
@@ -34362,7 +34362,7 @@
     "count": 7
    },
    {
-    "phrase": "Feeder Dist Division Brahmanbaria",
+    "phrase": "Installation Repair and Maintenance",
     "count": 7
    },
    {
@@ -35012,7 +35012,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Dust Coal Mill Area",
+    "phrase": "Coal and Removal Dust",
     "count": 6
    },
    {
@@ -35020,7 +35020,7 @@
     "count": 6
    },
    {
-    "phrase": "Coal and Removal Dust",
+    "phrase": "Dust Coal Mill Area",
     "count": 6
    },
    {
@@ -35028,11 +35028,11 @@
     "count": 3
    },
    {
-    "phrase": "Handling and Mill Area",
+    "phrase": "Coal Handling and Mill",
     "count": 3
    },
    {
-    "phrase": "Coal Handling and Mill",
+    "phrase": "Handling and Mill Area",
     "count": 3
    },
    {
@@ -35132,11 +35132,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Development Project Bheramara Kushtia",
+    "phrase": "Bheramara Development Project Bheramara",
     "count": 8
    },
    {
-    "phrase": "Bheramara Development Project Bheramara",
+    "phrase": "Development Project Bheramara Kushtia",
     "count": 8
    },
    {
@@ -35356,11 +35356,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Power Station",
+    "phrase": "Division Unit",
     "count": 3
    },
    {
-    "phrase": "Division Unit",
+    "phrase": "Power Station",
     "count": 3
    }
   ],
@@ -36398,11 +36398,11 @@
     "count": 5
    },
    {
-    "phrase": "Training Centre Khulshi Ctg",
+    "phrase": "Chittagong Training Centre Khulshi",
     "count": 4
    },
    {
-    "phrase": "Chittagong Training Centre Khulshi",
+    "phrase": "Training Centre Khulshi Ctg",
     "count": 4
    },
    {
@@ -36422,7 +36422,7 @@
     "count": 3
    },
    {
-    "phrase": "Stair Block and Floor",
+    "phrase": "Hostel Building and Cutting",
     "count": 3
    }
   ],
@@ -36544,11 +36544,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Installation Other Emergency Repair",
+    "phrase": "Distribution Transformer Installation Other",
     "count": 9
    },
    {
-    "phrase": "Emergency Repair Maintenance Works",
+    "phrase": "Installation Other Emergency Repair",
     "count": 9
    },
    {
@@ -36560,7 +36560,7 @@
     "count": 9
    },
    {
-    "phrase": "Distribution Transformer Installation Other",
+    "phrase": "Emergency Repair Maintenance Works",
     "count": 9
    },
    {
@@ -36568,11 +36568,11 @@
     "count": 8
    },
    {
-    "phrase": "Overhead Distribution Lines Distribution",
+    "phrase": "Distribution Lines Distribution Transformer",
     "count": 8
    },
    {
-    "phrase": "Distribution Lines Distribution Transformer",
+    "phrase": "Overhead Distribution Lines Distribution",
     "count": 8
    }
   ],
@@ -36693,11 +36693,11 @@
     "count": 5
    },
    {
-    "phrase": "Officers Dormitory Building Ancillary",
+    "phrase": "Storey Officers Dormitory Building",
     "count": 3
    },
    {
-    "phrase": "Dormitory Building Ancillary Works",
+    "phrase": "Officers Dormitory Building Ancillary",
     "count": 3
    },
    {
@@ -36705,7 +36705,7 @@
     "count": 3
    },
    {
-    "phrase": "Storey Officers Dormitory Building",
+    "phrase": "Dormitory Building Ancillary Works",
     "count": 3
    },
    {
@@ -36998,15 +36998,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "All Other Required Works",
+    "count": 133
+   },
+   {
     "phrase": "Commissioning and All Other",
     "count": 133
    },
    {
     "phrase": "Testing Commissioning and All",
-    "count": 133
-   },
-   {
-    "phrase": "All Other Required Works",
     "count": 133
    },
    {
@@ -37144,11 +37144,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Distribution Transformers the Route",
+    "phrase": "Transformers the Route Alignment",
     "count": 6
    },
    {
-    "phrase": "Transformers the Route Alignment",
+    "phrase": "Distribution Transformers the Route",
     "count": 6
    },
    {
@@ -37330,19 +37330,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Channel and Pump House",
-    "count": 3
-   },
-   {
     "phrase": "Intake Channel and Pump",
     "count": 3
    },
    {
-    "phrase": "Removing Mud Water Intake",
+    "phrase": "Channel and Pump House",
     "count": 3
    },
    {
     "phrase": "Mud Water Intake Channel",
+    "count": 3
+   },
+   {
+    "phrase": "Removing Mud Water Intake",
     "count": 3
    },
    {
@@ -37521,15 +37521,7 @@
     "count": 5
    },
    {
-    "phrase": "Physical Service Works Power",
-    "count": 3
-   },
-   {
-    "phrase": "Guard Cook Clark Speed",
-    "count": 3
-   },
-   {
-    "phrase": "Service Works Power House",
+    "phrase": "Clark Speed Boat Driver",
     "count": 3
    },
    {
@@ -37537,15 +37529,23 @@
     "count": 3
    },
    {
-    "phrase": "Cook Clark Speed Boat",
-    "count": 3
-   },
-   {
     "phrase": "Out-sourcing Basis for Physical",
     "count": 3
    },
    {
+    "phrase": "Service Works Power House",
+    "count": 3
+   },
+   {
+    "phrase": "Guard Cook Clark Speed",
+    "count": 3
+   },
+   {
     "phrase": "Man Power Out-sourcing Basis",
+    "count": 3
+   },
+   {
+    "phrase": "Cook Clark Speed Boat",
     "count": 3
    }
   ],
@@ -37684,11 +37684,11 @@
     "count": 8
    },
    {
-    "phrase": "Office and Different Sites",
+    "phrase": "Head Office and Different",
     "count": 6
    },
    {
-    "phrase": "Head Office and Different",
+    "phrase": "Office and Different Sites",
     "count": 6
    },
    {
@@ -37704,7 +37704,7 @@
     "count": 6
    },
    {
-    "phrase": "Habiganj Bakhrabad and Meghna",
+    "phrase": "Bakhrabad and Meghna Fields",
     "count": 6
    }
   ],
@@ -37835,7 +37835,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Carrying Contractor for Transportation",
+    "phrase": "Godown Including Unloading Stacking",
+    "count": 7
+   },
+   {
+    "phrase": "Bagged Urea Fertilizer Bangladesh",
     "count": 7
    },
    {
@@ -37843,15 +37847,11 @@
     "count": 7
    },
    {
-    "phrase": "Godown Including Unloading Stacking",
+    "phrase": "Carrying Contractor for Transportation",
     "count": 7
    },
    {
     "phrase": "Urea Fertilizer Bangladesh Chittagong",
-    "count": 7
-   },
-   {
-    "phrase": "Bagged Urea Fertilizer Bangladesh",
     "count": 7
    },
    {
@@ -37989,7 +37989,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Emergency Repair Maintenance Works",
+    "phrase": "Other Emergency Repair Maintenance",
     "count": 8
    },
    {
@@ -37997,11 +37997,11 @@
     "count": 8
    },
    {
-    "phrase": "Other Emergency Repair Maintenance",
+    "phrase": "Emergency Repair Maintenance Works",
     "count": 8
    },
    {
-    "phrase": "Installation Other Emergency Repair",
+    "phrase": "Distribution Transformer Installation Other",
     "count": 7
    },
    {
@@ -38009,11 +38009,11 @@
     "count": 7
    },
    {
-    "phrase": "Transformer Installation Other Emergency",
+    "phrase": "Installation Other Emergency Repair",
     "count": 7
    },
    {
-    "phrase": "Distribution Transformer Installation Other",
+    "phrase": "Transformer Installation Other Emergency",
     "count": 7
    },
    {
@@ -38146,15 +38146,15 @@
     "count": 7
    },
    {
-    "phrase": "Extension Installation Re-connection Disconnected",
-    "count": 7
-   },
-   {
     "phrase": "Disconnected Customers Emergency Maintenance",
     "count": 7
    },
    {
     "phrase": "Re-connection Disconnected Customers Emergency",
+    "count": 7
+   },
+   {
+    "phrase": "Extension Installation Re-connection Disconnected",
     "count": 7
    },
    {
@@ -38166,11 +38166,11 @@
     "count": 6
    },
    {
-    "phrase": "Line Illegal Pipe Line",
+    "phrase": "Service Line Illegal Pipe",
     "count": 5
    },
    {
-    "phrase": "Illegal Pipe Line If",
+    "phrase": "Line Illegal Pipe Line",
     "count": 5
    }
   ],
@@ -38328,7 +38328,7 @@
     "count": 4
    },
    {
-    "phrase": "Cutting Jungles and Shrub",
+    "phrase": "Including Removing and Cleaning",
     "count": 4
    }
   ],
@@ -38672,11 +38672,11 @@
     "count": 3
    },
    {
-    "phrase": "Distribution Transformer Against Loaded",
+    "phrase": "Lines and Distribution Transformers",
     "count": 3
    },
    {
-    "phrase": "Lines and Distribution Transformers",
+    "phrase": "Distribution Transformer Against Loaded",
     "count": 3
    },
    {
@@ -39122,6 +39122,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Service Line Illegal Pipe",
+    "count": 9
+   },
+   {
     "phrase": "Line Illegal Pipe Line",
     "count": 9
    },
@@ -39130,19 +39134,15 @@
     "count": 9
    },
    {
-    "phrase": "Service Line Illegal Pipe",
-    "count": 9
-   },
-   {
     "phrase": "Distribution Service Gas Pipeline",
     "count": 7
    },
    {
-    "phrase": "Service Gas Pipeline Chittagong",
+    "phrase": "Chittagong Northern Area Phase",
     "count": 6
    },
    {
-    "phrase": "Chittagong Northern Area Phase",
+    "phrase": "Service Gas Pipeline Chittagong",
     "count": 6
    },
    {
@@ -39329,7 +39329,11 @@
     "count": 3
    },
    {
-    "phrase": "Cutting and Beautification Work",
+    "phrase": "Office and Residential Area",
+    "count": 3
+   },
+   {
+    "phrase": "Work Office and Residential",
     "count": 3
    },
    {
@@ -39337,11 +39341,7 @@
     "count": 3
    },
    {
-    "phrase": "Office and Residential Area",
-    "count": 3
-   },
-   {
-    "phrase": "Work Office and Residential",
+    "phrase": "Cutting and Beautification Work",
     "count": 3
    },
    {
@@ -40280,19 +40280,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Shahjibazar Combined Cycle Power",
-    "count": 4
-   },
-   {
     "phrase": "Combined Cycle Power Plant",
     "count": 4
    },
    {
-    "phrase": "Power Plant",
-    "count": 5
+    "phrase": "Shahjibazar Combined Cycle Power",
+    "count": 4
    },
    {
     "phrase": "Shahjibazar Combined",
+    "count": 5
+   },
+   {
+    "phrase": "Power Plant",
     "count": 5
    },
    {
@@ -40300,11 +40300,11 @@
     "count": 4
    },
    {
-    "phrase": "Different Types",
+    "phrase": "Maintenance Tools",
     "count": 3
    },
    {
-    "phrase": "Maintenance Tools",
+    "phrase": "Different Types",
     "count": 3
    },
    {
@@ -40579,7 +40579,7 @@
     "count": 4
    },
    {
-    "phrase": "Works for River Water",
+    "phrase": "Dredging Works for River",
     "count": 4
    }
   ],
@@ -40668,11 +40668,11 @@
     "count": 3
    },
    {
-    "phrase": "New Building Campus",
+    "phrase": "Pre-payment Metering Activities",
     "count": 3
    },
    {
-    "phrase": "Pre-payment Metering Activities",
+    "phrase": "New Building Campus",
     "count": 3
    },
    {
@@ -40948,7 +40948,7 @@
     "count": 9
    },
    {
-    "phrase": "Head Office Building",
+    "phrase": "Repair Maintenance Works",
     "count": 3
    }
   ],
@@ -41479,11 +41479,11 @@
     "count": 6
    },
    {
-    "phrase": "Power Plant Unit Soydabad",
+    "phrase": "Plant Unit Soydabad Sirajganj",
     "count": 5
    },
    {
-    "phrase": "Plant Unit Soydabad Sirajganj",
+    "phrase": "Power Plant Unit Soydabad",
     "count": 5
    },
    {
@@ -41735,7 +41735,7 @@
     "count": 32
    },
    {
-    "phrase": "Distribution Transformer Feeder Division",
+    "phrase": "Transformer Feeder Division Bakalia",
     "count": 28
    },
    {
@@ -41743,7 +41743,7 @@
     "count": 28
    },
    {
-    "phrase": "Transformer Feeder Division Bakalia",
+    "phrase": "Distribution Transformer Feeder Division",
     "count": 28
    },
    {
@@ -41755,7 +41755,7 @@
     "count": 19
    },
    {
-    "phrase": "Related Maintenance Renovation System",
+    "phrase": "Other Related Maintenance Renovation",
     "count": 18
    }
   ],
@@ -41852,7 +41852,11 @@
     "count": 11
    },
    {
-    "phrase": "Sales Distribution Division Jhenaidah",
+    "phrase": "Constructiron and Renovation Work",
+    "count": 6
+   },
+   {
+    "phrase": "Line Work Sales Distribution",
     "count": 6
    },
    {
@@ -41860,11 +41864,7 @@
     "count": 6
    },
    {
-    "phrase": "Constructiron and Renovation Work",
-    "count": 6
-   },
-   {
-    "phrase": "Line Work Sales Distribution",
+    "phrase": "Sales Distribution Division Jhenaidah",
     "count": 6
    },
    {
@@ -42277,11 +42277,7 @@
     "count": 35
    },
    {
-    "phrase": "Jumper Others Fittings Replacement",
-    "count": 22
-   },
-   {
-    "phrase": "Maintenance Work Along Jumper",
+    "phrase": "Along Jumper Others Fittings",
     "count": 22
    },
    {
@@ -42289,7 +42285,11 @@
     "count": 22
    },
    {
-    "phrase": "Along Jumper Others Fittings",
+    "phrase": "Jumper Others Fittings Replacement",
+    "count": 22
+   },
+   {
+    "phrase": "Maintenance Work Along Jumper",
     "count": 22
    },
    {
@@ -42423,11 +42423,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Transformer for Load Sharing",
+    "phrase": "Feeder and Distribution Lines",
     "count": 9
    },
    {
-    "phrase": "Feeder and Distribution Lines",
+    "phrase": "Transformer for Load Sharing",
     "count": 9
    },
    {
@@ -42435,11 +42435,15 @@
     "count": 9
    },
    {
+    "phrase": "Pole Straighten Conductor Re-tension",
+    "count": 8
+   },
+   {
     "phrase": "Reinstalled Poles Inclined Pole",
     "count": 8
    },
    {
-    "phrase": "Pole Straighten Conductor Re-tension",
+    "phrase": "Poles Inclined Pole Straighten",
     "count": 8
    },
    {
@@ -42448,10 +42452,6 @@
    },
    {
     "phrase": "Distribution Lines System Recovery",
-    "count": 8
-   },
-   {
-    "phrase": "Poles Inclined Pole Straighten",
     "count": 8
    }
   ],
@@ -42585,15 +42585,11 @@
     "count": 9
    },
    {
-    "phrase": "Oil Guptakhal North Patenga",
-    "count": 6
-   },
-   {
-    "phrase": "Padma Oil Guptakhal North",
-    "count": 6
-   },
-   {
     "phrase": "Installation Padma Oil Guptakhal",
+    "count": 6
+   },
+   {
+    "phrase": "Oil Guptakhal North Patenga",
     "count": 6
    },
    {
@@ -42601,15 +42597,19 @@
     "count": 6
    },
    {
+    "phrase": "Padma Oil Guptakhal North",
+    "count": 6
+   },
+   {
     "phrase": "New Empty Steel Drum",
     "count": 5
    },
    {
-    "phrase": "Self Carbonized Delivery Receive",
+    "phrase": "Carbonized Delivery Receive Invoice",
     "count": 5
    },
    {
-    "phrase": "Carbonized Delivery Receive Invoice",
+    "phrase": "Self Carbonized Delivery Receive",
     "count": 5
    }
   ],
@@ -42739,11 +42739,11 @@
     "count": 4
    },
    {
-    "phrase": "Spare Parts for Instrument",
+    "phrase": "Parts for Instrument Air",
     "count": 3
    },
    {
-    "phrase": "Parts for Instrument Air",
+    "phrase": "Spare Parts for Instrument",
     "count": 3
    },
    {
@@ -42985,15 +42985,15 @@
     "count": 3
    },
    {
+    "phrase": "Storage Tanks Pipelines Filling",
+    "count": 3
+   },
+   {
     "phrase": "Etc and Related Surface",
     "count": 3
    },
    {
     "phrase": "Tanks Pipelines Filling Points",
-    "count": 3
-   },
-   {
-    "phrase": "Storage Tanks Pipelines Filling",
     "count": 3
    },
    {
@@ -43379,7 +43379,7 @@
     "count": 21
    },
    {
-    "phrase": "Change Loop Pvc Cable",
+    "phrase": "Installation Change Loop Pvc",
     "count": 17
    }
   ],
@@ -44052,16 +44052,12 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Recovery and Renovation Works",
-    "count": 8
-   },
-   {
     "phrase": "Maintenance Recovery and Renovation",
     "count": 8
    },
    {
-    "phrase": "Distribution Transformers Different Feeder",
-    "count": 7
+    "phrase": "Recovery and Renovation Works",
+    "count": 8
    },
    {
     "phrase": "Overhead Lines and Distribution",
@@ -44073,6 +44069,10 @@
    },
    {
     "phrase": "Lines and Distribution Transformers",
+    "count": 7
+   },
+   {
+    "phrase": "Distribution Transformers Different Feeder",
     "count": 7
    },
    {
@@ -44214,11 +44214,11 @@
     "count": 5
    },
    {
-    "phrase": "Lines Poles and Distribution",
+    "phrase": "Repair and Maintenance Works",
     "count": 4
    },
    {
-    "phrase": "Repair and Maintenance Works",
+    "phrase": "Lines Poles and Distribution",
     "count": 4
    },
    {
@@ -45317,22 +45317,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Electric Bill Accompanied Certificates",
-    "count": 25
-   },
-   {
-    "phrase": "Certificates Leaflets Notice If",
-    "count": 25
-   },
-   {
-    "phrase": "Bill Accompanied Certificates Leaflets",
-    "count": 25
-   },
-   {
-    "phrase": "Respective Consumer Consumers Representative",
-    "count": 25
-   },
-   {
     "phrase": "Accompanied Certificates Leaflets Notice",
     "count": 25
    },
@@ -45341,11 +45325,27 @@
     "count": 25
    },
    {
-    "phrase": "Consumer Consumers Representative Electric",
-    "count": 9
+    "phrase": "Certificates Leaflets Notice If",
+    "count": 25
+   },
+   {
+    "phrase": "Electric Bill Accompanied Certificates",
+    "count": 25
+   },
+   {
+    "phrase": "Respective Consumer Consumers Representative",
+    "count": 25
+   },
+   {
+    "phrase": "Bill Accompanied Certificates Leaflets",
+    "count": 25
    },
    {
     "phrase": "Representative Electric Supply Unit",
+    "count": 9
+   },
+   {
+    "phrase": "Consumer Consumers Representative Electric",
     "count": 9
    }
   ],
@@ -45539,11 +45539,11 @@
     "count": 157
    },
    {
-    "phrase": "Power Distribution System Three",
+    "phrase": "Distribution System Three Hilly",
     "count": 157
    },
    {
-    "phrase": "Distribution System Three Hilly",
+    "phrase": "Power Distribution System Three",
     "count": 157
    },
    {
@@ -45685,14 +45685,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Different Offices Installations Area",
-    "count": 7
-   },
-   {
-    "phrase": "Installations Area Dry Powder",
-    "count": 7
-   },
-   {
     "phrase": "Offices Installations Area Dry",
     "count": 7
    },
@@ -45701,11 +45693,15 @@
     "count": 7
    },
    {
-    "phrase": "Fire Fighting Extinguisher Situated",
-    "count": 5
+    "phrase": "Different Offices Installations Area",
+    "count": 7
    },
    {
-    "phrase": "Extinguisher Situated Different Offices",
+    "phrase": "Installations Area Dry Powder",
+    "count": 7
+   },
+   {
+    "phrase": "Fire Fighting Extinguisher Situated",
     "count": 5
    },
    {
@@ -45713,7 +45709,11 @@
     "count": 5
    },
    {
-    "phrase": "Dry Powder and Related",
+    "phrase": "Extinguisher Situated Different Offices",
+    "count": 5
+   },
+   {
+    "phrase": "Powder and Related Accessories",
     "count": 3
    }
   ],
@@ -45993,11 +45993,11 @@
     "count": 6
    },
    {
-    "phrase": "Cock Pipe Etc",
+    "phrase": "Consumable Items Basin",
     "count": 3
    },
    {
-    "phrase": "Consumable Items Basin",
+    "phrase": "Cock Pipe Etc",
     "count": 3
    },
    {
@@ -46415,11 +46415,11 @@
     "count": 15
    },
    {
-    "phrase": "New Line Established Distribution",
+    "phrase": "Line Established Distribution Sub",
     "count": 10
    },
    {
-    "phrase": "Line Established Distribution Sub",
+    "phrase": "New Line Established Distribution",
     "count": 10
    },
    {
@@ -46427,11 +46427,11 @@
     "count": 10
    },
    {
-    "phrase": "Distribution System Development Project",
+    "phrase": "Development Project Cumilla Zone",
     "count": 10
    },
    {
-    "phrase": "Development Project Cumilla Zone",
+    "phrase": "Distribution System Development Project",
     "count": 10
    },
    {
@@ -46540,11 +46540,11 @@
     "count": 4
    },
    {
-    "phrase": "Services Microbus Seats Monthly",
+    "phrase": "Vehicle Services Microbus Seats",
     "count": 4
    },
    {
-    "phrase": "Vehicle Services Microbus Seats",
+    "phrase": "Services Microbus Seats Monthly",
     "count": 4
    },
    {
@@ -46670,11 +46670,11 @@
     "count": 4
    },
    {
-    "phrase": "Thermal Power Plant",
+    "phrase": "Soap Basket Envelop",
     "count": 3
    },
    {
-    "phrase": "Soap Basket Envelop",
+    "phrase": "Thermal Power Plant",
     "count": 3
    },
    {
@@ -46799,11 +46799,11 @@
     "count": 11
    },
    {
-    "phrase": "Transformer Sales and Distribution",
+    "phrase": "Kva Distribution Transformer Sales",
     "count": 11
    },
    {
-    "phrase": "Kva Distribution Transformer Sales",
+    "phrase": "Transformer Sales and Distribution",
     "count": 11
    },
    {
@@ -46928,11 +46928,11 @@
     "count": 12
    },
    {
-    "phrase": "Rahmatgonj and Rehabilitation Construction",
+    "phrase": "Proposed Rahmatgonj and Rehabilitation",
     "count": 3
    },
    {
-    "phrase": "Proposed Rahmatgonj and Rehabilitation",
+    "phrase": "Rahmatgonj and Rehabilitation Construction",
     "count": 3
    },
    {
@@ -47263,11 +47263,11 @@
     "count": 13
    },
    {
-    "phrase": "Ton Caustic Soda Naoh",
+    "phrase": "Metric Ton Caustic Soda",
     "count": 10
    },
    {
-    "phrase": "Metric Ton Caustic Soda",
+    "phrase": "Ton Caustic Soda Naoh",
     "count": 10
    },
    {
@@ -47402,15 +47402,15 @@
     "count": 13
    },
    {
-    "phrase": "Development Project Mymensingh Zone",
-    "count": 12
-   },
-   {
     "phrase": "Distribution System Development Project",
     "count": 12
    },
    {
     "phrase": "System Development Project Mymensingh",
+    "count": 12
+   },
+   {
+    "phrase": "Development Project Mymensingh Zone",
     "count": 12
    },
    {
@@ -47565,7 +47565,7 @@
     "count": 9
    },
    {
-    "phrase": "Damaged Loop Wire Establishment",
+    "phrase": "Quality Earthing New Installation",
     "count": 9
    },
    {
@@ -47573,11 +47573,11 @@
     "count": 9
    },
    {
-    "phrase": "Quality Earthing New Installation",
+    "phrase": "Damaged Loop Wire Establishment",
     "count": 9
    },
    {
-    "phrase": "Newmooring Division Different Store",
+    "phrase": "Different Store and Carrying",
     "count": 8
    }
   ],
@@ -47690,11 +47690,11 @@
     "count": 4
    },
    {
-    "phrase": "Distribution Transformer Sales Distribution",
+    "phrase": "Transformer Sales Distribution Division",
     "count": 4
    },
    {
-    "phrase": "Transformer Sales Distribution Division",
+    "phrase": "Distribution Transformer Sales Distribution",
     "count": 4
    },
    {
@@ -47957,15 +47957,11 @@
     "count": 13
    },
    {
-    "phrase": "Road Boundary Wall Gate",
-    "count": 12
-   },
-   {
     "phrase": "Gate Security Post Master",
     "count": 12
    },
    {
-    "phrase": "Security Post Master Drain",
+    "phrase": "Store Yard Other Civil",
     "count": 12
    },
    {
@@ -47973,7 +47969,11 @@
     "count": 12
    },
    {
-    "phrase": "Store Yard Other Civil",
+    "phrase": "Yard Other Civil Works",
+    "count": 12
+   },
+   {
+    "phrase": "Internal Road Boundary Wall",
     "count": 12
    }
   ],
@@ -48236,15 +48236,19 @@
     "count": 5
    },
    {
-    "phrase": "Dredging Intake Pump Station",
-    "count": 4
-   },
-   {
     "phrase": "Intake Pump Station Side",
     "count": 4
    },
    {
+    "phrase": "Dredging Intake Pump Station",
+    "count": 4
+   },
+   {
     "phrase": "Liquid Sodium Hydroxide Naoh",
+    "count": 3
+   },
+   {
+    "phrase": "Side Channel Dredging Intake",
     "count": 3
    },
    {
@@ -48253,10 +48257,6 @@
    },
    {
     "phrase": "River Side Channel Dredging",
-    "count": 3
-   },
-   {
-    "phrase": "Side Channel Dredging Intake",
     "count": 3
    }
   ],
@@ -48483,11 +48483,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Distribution Transformer Sales Distribution",
+    "phrase": "Transformer Sales Distribution Division",
     "count": 5
    },
    {
-    "phrase": "Transformer Sales Distribution Division",
+    "phrase": "Distribution Transformer Sales Distribution",
     "count": 5
    },
    {
@@ -48641,19 +48641,19 @@
     "count": 8
    },
    {
-    "phrase": "Electric Supply Distribution Division",
-    "count": 5
-   },
-   {
     "phrase": "Supply Distribution Division Rangamati",
     "count": 5
    },
    {
-    "phrase": "House Distribution Division Rangamati",
-    "count": 4
+    "phrase": "Electric Supply Distribution Division",
+    "count": 5
    },
    {
     "phrase": "Rest House Distribution Division",
+    "count": 4
+   },
+   {
+    "phrase": "House Distribution Division Rangamati",
     "count": 4
    },
    {
@@ -48787,11 +48787,11 @@
     "count": 5
    },
    {
-    "phrase": "Psig Long Gas Pipeline",
+    "phrase": "Dia Psig Long Gas",
     "count": 4
    },
    {
-    "phrase": "Dia Psig Long Gas",
+    "phrase": "Psig Long Gas Pipeline",
     "count": 4
    },
    {
@@ -48803,11 +48803,11 @@
     "count": 3
    },
    {
-    "phrase": "Officers Quarter Complex Chandgaon",
+    "phrase": "Quarter Complex Chandgaon Chattogram",
     "count": 3
    },
    {
-    "phrase": "Quarter Complex Chandgaon Chattogram",
+    "phrase": "Officers Quarter Complex Chandgaon",
     "count": 3
    },
    {
@@ -49126,11 +49126,11 @@
     "count": 20
    },
    {
-    "phrase": "Other Related Civil Electrical",
+    "phrase": "Related Civil Electrical Works",
     "count": 18
    },
    {
-    "phrase": "Related Civil Electrical Works",
+    "phrase": "Other Related Civil Electrical",
     "count": 18
    },
    {
@@ -49341,16 +49341,12 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Works Procurement for Grass",
-    "count": 6
-   },
-   {
     "phrase": "Procurement for Grass Cutting",
     "count": 6
    },
    {
-    "phrase": "Store Fuel Handling Plant",
-    "count": 5
+    "phrase": "Works Procurement for Grass",
+    "count": 6
    },
    {
     "phrase": "Fuel Handling Plant Etc",
@@ -49358,6 +49354,10 @@
    },
    {
     "phrase": "Handling Plant Etc Annual",
+    "count": 5
+   },
+   {
+    "phrase": "Store Fuel Handling Plant",
     "count": 5
    },
    {
@@ -49369,7 +49369,7 @@
     "count": 4
    },
    {
-    "phrase": "Plant and Residential Area",
+    "phrase": "Drain and Septic Tank",
     "count": 4
    }
   ],
@@ -49511,11 +49511,11 @@
     "count": 17
    },
    {
-    "phrase": "Works Pump House Ground",
+    "phrase": "Tube-well Works Pump House",
     "count": 14
    },
    {
-    "phrase": "Tube-well Works Pump House",
+    "phrase": "Reservoir Water Supply System",
     "count": 14
    },
    {
@@ -49523,7 +49523,11 @@
     "count": 14
    },
    {
-    "phrase": "Boundary Wall Master Drain",
+    "phrase": "Works Pump House Ground",
+    "count": 14
+   },
+   {
+    "phrase": "Ground Water Reservoir Water",
     "count": 14
    },
    {
@@ -49531,11 +49535,7 @@
     "count": 14
    },
    {
-    "phrase": "Water Reservoir Water Supply",
-    "count": 14
-   },
-   {
-    "phrase": "Reservoir Water Supply System",
+    "phrase": "House Ground Water Reservoir",
     "count": 14
    }
   ],
@@ -50095,10 +50095,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "X Meter Gas Distribution",
-    "count": 3
-   },
-   {
     "phrase": "Meter Gas Distribution Pipeline",
     "count": 3
    },
@@ -50107,11 +50103,15 @@
     "count": 3
    },
    {
+    "phrase": "X Psig X Meter",
+    "count": 3
+   },
+   {
     "phrase": "Dia X Psig X",
     "count": 3
    },
    {
-    "phrase": "X Psig X Meter",
+    "phrase": "X Meter Gas Distribution",
     "count": 3
    },
    {
@@ -50476,7 +50476,15 @@
     "count": 5
    },
    {
-    "phrase": "Above Ground Pipelines Regulating",
+    "phrase": "Ground Pipelines Regulating Metering",
+    "count": 3
+   },
+   {
+    "phrase": "Pipelines Regulating Metering Stations",
+    "count": 3
+   },
+   {
+    "phrase": "Metering Stations Valve Stations",
     "count": 3
    },
    {
@@ -50488,15 +50496,7 @@
     "count": 3
    },
    {
-    "phrase": "Metering Stations Valve Stations",
-    "count": 3
-   },
-   {
     "phrase": "Regulating Metering Stations Valve",
-    "count": 3
-   },
-   {
-    "phrase": "Valve Stations Trap Stations",
     "count": 3
    }
   ],
@@ -50928,19 +50928,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Plant Residential Area Railway",
-    "count": 3
-   },
-   {
     "phrase": "Bush Grass Waste Etc",
     "count": 3
    },
    {
-    "phrase": "Plant Bush Grass Waste",
-    "count": 3
-   },
-   {
-    "phrase": "Cleaning Plant Bush Grass",
+    "phrase": "Plant Residential Area Railway",
     "count": 3
    },
    {
@@ -50949,6 +50941,14 @@
    },
    {
     "phrase": "Cutting Cleaning Plant Bush",
+    "count": 3
+   },
+   {
+    "phrase": "Plant Bush Grass Waste",
+    "count": 3
+   },
+   {
+    "phrase": "Cleaning Plant Bush Grass",
     "count": 3
    },
    {
@@ -51102,11 +51102,11 @@
     "count": 3
    },
    {
-    "phrase": "Room Toilets Roads Drain",
+    "phrase": "Roads Drain Septic Tank",
     "count": 3
    },
    {
-    "phrase": "Roads Drain Septic Tank",
+    "phrase": "Drain Septic Tank Etc",
     "count": 3
    }
   ],
@@ -51224,19 +51224,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Combined Cycle Power Plant",
-    "count": 12
-   },
-   {
     "phrase": "Bheramara Combined Cycle Power",
     "count": 12
    },
    {
-    "phrase": "Power Plant Bheramara Kushtia",
-    "count": 9
+    "phrase": "Combined Cycle Power Plant",
+    "count": 12
    },
    {
     "phrase": "Cycle Power Plant Bheramara",
+    "count": 9
+   },
+   {
+    "phrase": "Power Plant Bheramara Kushtia",
     "count": 9
    },
    {
@@ -51381,11 +51381,11 @@
     "count": 3
    },
    {
-    "phrase": "Spare Parts for Air",
+    "phrase": "Parts for Air Conditioner",
     "count": 3
    },
    {
-    "phrase": "Parts for Air Conditioner",
+    "phrase": "Spare Parts for Air",
     "count": 3
    },
    {
@@ -51709,11 +51709,11 @@
     "count": 38
    },
    {
-    "phrase": "New Line Remove Remove",
+    "phrase": "Line Remove Remove Reuse",
     "count": 33
    },
    {
-    "phrase": "Line Remove Remove Reuse",
+    "phrase": "New Line Remove Remove",
     "count": 33
    },
    {
@@ -51729,7 +51729,7 @@
     "count": 19
    },
    {
-    "phrase": "New Line Dismantling Line",
+    "phrase": "Dismantling Line the Geographical",
     "count": 12
    }
   ],
@@ -51910,8 +51910,8 @@
   ]
  },
  "2983": {
-  "value_bdt": 2119480000.0,
-  "count": 132,
+  "value_bdt": 2129040000.0,
+  "count": 133,
   "by_year": {
    "2019": {
     "value_bdt": 303540000.0,
@@ -51942,12 +51942,12 @@
     "count": 6
    },
    "2026": {
-    "value_bdt": 349750000.0,
-    "count": 32
+    "value_bdt": 359310000.0,
+    "count": 33
    }
   },
   "by_nature": {
-   "Goods": 90,
+   "Goods": 91,
    "Works": 17,
    "Services": 3
   },
@@ -51981,7 +51981,7 @@
   "top_districts": [
    {
     "district": "Rajshahi",
-    "count": 132
+    "count": 133
    }
   ],
   "top_phrases": [
@@ -51990,7 +51990,7 @@
     "count": 7
    },
    {
-    "phrase": "Line and Equipment Maintenance",
+    "phrase": "Distribution Division Electricity Supply",
     "count": 7
    },
    {
@@ -51998,7 +51998,7 @@
     "count": 7
    },
    {
-    "phrase": "Distribution Division Electricity Supply",
+    "phrase": "Line and Equipment Maintenance",
     "count": 7
    },
    {
@@ -52006,7 +52006,7 @@
     "count": 5
    },
    {
-    "phrase": "Service for Sales Distribution",
+    "phrase": "Support Service for Sales",
     "count": 5
    },
    {
@@ -52014,7 +52014,7 @@
     "count": 5
    },
    {
-    "phrase": "Support Service for Sales",
+    "phrase": "Service for Sales Distribution",
     "count": 5
    }
   ],
@@ -52290,11 +52290,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Gas Distribution Co Ltd",
+    "phrase": "Bakhrabad Gas Distribution Co",
     "count": 3
    },
    {
-    "phrase": "Bakhrabad Gas Distribution Co",
+    "phrase": "Gas Distribution Co Ltd",
     "count": 3
    },
    {
@@ -52431,15 +52431,15 @@
     "count": 5
    },
    {
-    "phrase": "Close Circuit Camera System",
-    "count": 4
-   },
-   {
     "phrase": "Installation Testing and Commissioning",
     "count": 4
    },
    {
     "phrase": "Camera System and Related",
+    "count": 4
+   },
+   {
+    "phrase": "Close Circuit Camera System",
     "count": 4
    },
    {
@@ -53490,11 +53490,11 @@
     "count": 7
    },
    {
-    "phrase": "Materials Equipment Poles Wooden",
+    "phrase": "Line Construction Materials Equipment",
     "count": 6
    },
    {
-    "phrase": "Electrical Line Construction Materials",
+    "phrase": "Central Ware House Different",
     "count": 6
    }
   ],
@@ -53640,7 +53640,7 @@
     "count": 8
    },
    {
-    "phrase": "Shackle and Pin Insulator",
+    "phrase": "Insulator Along Necessary Repair",
     "count": 8
    }
   ],
@@ -53774,19 +53774,19 @@
     "count": 25
    },
    {
-    "phrase": "Equipment Different Warehouses Sources",
-    "count": 15
-   },
-   {
     "phrase": "Goods Equipment Different Warehouses",
     "count": 15
    },
    {
-    "phrase": "Materials Equipment Central Warehouse",
-    "count": 12
+    "phrase": "Equipment Different Warehouses Sources",
+    "count": 15
    },
    {
     "phrase": "Electrical Materials Equipment Central",
+    "count": 12
+   },
+   {
+    "phrase": "Materials Equipment Central Warehouse",
     "count": 12
    }
   ],
@@ -53904,11 +53904,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Plant Central Monitoring Basin",
+    "phrase": "Basin Large Drain Line",
     "count": 7
    },
    {
-    "phrase": "Tank Clarified Sump Different",
+    "phrase": "Clarifier and Plant Central",
     "count": 7
    },
    {
@@ -53916,23 +53916,23 @@
     "count": 7
    },
    {
+    "phrase": "Different Drain Lines Related",
+    "count": 7
+   },
+   {
+    "phrase": "Monitoring Basin Large Drain",
+    "count": 7
+   },
+   {
     "phrase": "Clarified Sump Different Drain",
     "count": 7
    },
    {
-    "phrase": "Basin Large Drain Line",
+    "phrase": "Plant Central Monitoring Basin",
     "count": 7
    },
    {
-    "phrase": "Waste Collection Tank Clarified",
-    "count": 7
-   },
-   {
-    "phrase": "Large Drain Line Area",
-    "count": 7
-   },
-   {
-    "phrase": "Collection Tank Clarified Sump",
+    "phrase": "Central Monitoring Basin Large",
     "count": 7
    }
   ],
@@ -54122,15 +54122,11 @@
     "count": 4
    },
    {
+    "phrase": "Building and Academy Yard",
+    "count": 3
+   },
+   {
     "phrase": "Cutting and Cleaning Jungle",
-    "count": 3
-   },
-   {
-    "phrase": "Gardening Cutting and Cleaning",
-    "count": 3
-   },
-   {
-    "phrase": "Common Room Auditorium Dining",
     "count": 3
    },
    {
@@ -54138,15 +54134,19 @@
     "count": 3
    },
    {
-    "phrase": "Hostel Building and Academy",
-    "count": 3
-   },
-   {
     "phrase": "Cleaning Jungle Cleaning Drains",
     "count": 3
    },
    {
-    "phrase": "Academy Yard Gardening Cutting",
+    "phrase": "Gardening Cutting and Cleaning",
+    "count": 3
+   },
+   {
+    "phrase": "Hostel Building and Academy",
+    "count": 3
+   },
+   {
+    "phrase": "Common Room Auditorium Dining",
     "count": 3
    }
   ],
@@ -55010,15 +55010,7 @@
     "count": 8
    },
    {
-    "phrase": "Boiler House Main Control",
-    "count": 5
-   },
-   {
     "phrase": "Turbine Hall Boiler House",
-    "count": 5
-   },
-   {
-    "phrase": "House Main Control Building",
     "count": 5
    },
    {
@@ -55026,11 +55018,19 @@
     "count": 5
    },
    {
-    "phrase": "Control Building Network Control",
-    "count": 4
+    "phrase": "Boiler House Main Control",
+    "count": 5
+   },
+   {
+    "phrase": "House Main Control Building",
+    "count": 5
    },
    {
     "phrase": "Main Control Building Network",
+    "count": 4
+   },
+   {
+    "phrase": "Control Building Network Control",
     "count": 4
    },
    {
@@ -55160,11 +55160,7 @@
     "count": 3
    },
    {
-    "phrase": "Dredging Intake Pump Station",
-    "count": 3
-   },
-   {
-    "phrase": "River Side Channel Dredging",
+    "phrase": "Side Channel Dredging Intake",
     "count": 3
    },
    {
@@ -55172,7 +55168,11 @@
     "count": 3
    },
    {
-    "phrase": "Side Channel Dredging Intake",
+    "phrase": "Dredging Intake Pump Station",
+    "count": 3
+   },
+   {
+    "phrase": "River Side Channel Dredging",
     "count": 3
    },
    {
@@ -55428,7 +55428,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Oil Handling Plant Etc",
+    "phrase": "House Oil Handling Plant",
     "count": 7
    },
    {
@@ -55436,7 +55436,7 @@
     "count": 7
    },
    {
-    "phrase": "House Oil Handling Plant",
+    "phrase": "Oil Handling Plant Etc",
     "count": 7
    },
    {
@@ -55448,15 +55448,15 @@
     "count": 7
    },
    {
+    "phrase": "Central Control Room House",
+    "count": 6
+   },
+   {
     "phrase": "House Central Control Room",
     "count": 6
    },
    {
-    "phrase": "Control Room House Oil",
-    "count": 6
-   },
-   {
-    "phrase": "Central Control Room House",
+    "phrase": "Room House Oil Handling",
     "count": 6
    }
   ],
@@ -56558,11 +56558,11 @@
     "count": 8
    },
    {
-    "phrase": "Buildings for Each Offices",
+    "phrase": "Centers and Utility Vending",
     "count": 7
    },
    {
-    "phrase": "Single-storied Buildings for Each",
+    "phrase": "Buildings for Each Offices",
     "count": 7
    },
    {
@@ -56570,11 +56570,11 @@
     "count": 7
    },
    {
-    "phrase": "Centers and Utility Vending",
+    "phrase": "Single-storied Buildings for Each",
     "count": 7
    },
    {
-    "phrase": "Smart Pre-payment Metering Project",
+    "phrase": "Zone Power Distribution Company",
     "count": 6
    },
    {
@@ -56931,11 +56931,11 @@
     "count": 6
    },
    {
-    "phrase": "River Water Intake Pipe",
+    "phrase": "Pontoon Base Suction Lines",
     "count": 4
    },
    {
-    "phrase": "Pontoon Base Suction Lines",
+    "phrase": "River Water Intake Pipe",
     "count": 4
    },
    {
@@ -56943,7 +56943,7 @@
     "count": 4
    },
    {
-    "phrase": "Instrument Air Compressors Atlas",
+    "phrase": "Air Compressors Atlas Copco",
     "count": 4
    }
   ],
@@ -57446,11 +57446,11 @@
     "count": 3
    },
    {
-    "phrase": "Plate Cap for Workers",
+    "phrase": "Summer and Winter Dress",
     "count": 3
    },
    {
-    "phrase": "Summer and Winter Dress",
+    "phrase": "Plate Cap for Workers",
     "count": 3
    },
    {
@@ -57901,11 +57901,11 @@
     "count": 11
    },
    {
-    "phrase": "Road Extension",
+    "phrase": "Pole Line",
     "count": 5
    },
    {
-    "phrase": "Transformer Shifting",
+    "phrase": "Road Extension",
     "count": 5
    }
   ],
@@ -58014,11 +58014,11 @@
     "count": 5
    },
    {
-    "phrase": "Dhaka and Western Zone",
+    "phrase": "Zone Transmission Grid Expansion",
     "count": 5
    },
    {
-    "phrase": "Zone Transmission Grid Expansion",
+    "phrase": "Dhaka and Western Zone",
     "count": 5
    },
    {
@@ -58026,7 +58026,7 @@
     "count": 5
    },
    {
-    "phrase": "Rental Basis for Dhaka",
+    "phrase": "Seated Microbus for Months",
     "count": 4
    },
    {
@@ -58034,7 +58034,7 @@
     "count": 4
    },
    {
-    "phrase": "Seated Microbus for Months",
+    "phrase": "Rental Basis for Dhaka",
     "count": 4
    }
   ],
@@ -58537,11 +58537,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Grid Substation Power Grid",
+    "phrase": "Substation Power Grid Faridpur",
     "count": 6
    },
    {
-    "phrase": "Substation Power Grid Faridpur",
+    "phrase": "Grid Substation Power Grid",
     "count": 6
    },
    {
@@ -58935,11 +58935,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Dual Fuel Construction Project",
+    "phrase": "Fuel Construction Project Khulna",
     "count": 3
    },
    {
-    "phrase": "Fuel Construction Project Khulna",
+    "phrase": "Dual Fuel Construction Project",
     "count": 3
    },
    {
@@ -59070,11 +59070,11 @@
     "count": 6
    },
    {
-    "phrase": "Lines Ishwardi Including Jumper",
+    "phrase": "Transmission Lines Ishwardi Including",
     "count": 5
    },
    {
-    "phrase": "Transmission Lines Ishwardi Including",
+    "phrase": "Lines Ishwardi Including Jumper",
     "count": 5
    },
    {
@@ -59204,11 +59204,11 @@
     "count": 7
    },
    {
-    "phrase": "Grid Sub-stations Gmd-khulna South",
+    "phrase": "Different Grid Sub-stations Gmd-khulna",
     "count": 5
    },
    {
-    "phrase": "Different Grid Sub-stations Gmd-khulna",
+    "phrase": "Grid Sub-stations Gmd-khulna South",
     "count": 5
    },
    {
@@ -59330,11 +59330,11 @@
     "count": 8
    },
    {
-    "phrase": "Pole Fittings and Line",
+    "phrase": "Fittings and Line Accessories",
     "count": 6
    },
    {
-    "phrase": "Fittings and Line Accessories",
+    "phrase": "Pole Fittings and Line",
     "count": 6
    },
    {
@@ -59342,19 +59342,19 @@
     "count": 6
    },
    {
-    "phrase": "Fittings Disk Insulator Fittings",
-    "count": 4
-   },
-   {
     "phrase": "Insulator Fittings and Insulator",
     "count": 4
    },
    {
-    "phrase": "Insulator Fittings Disk Insulator",
+    "phrase": "Fittings and Insulator Fittings",
     "count": 4
    },
    {
-    "phrase": "Fittings and Insulator Fittings",
+    "phrase": "Fittings Disk Insulator Fittings",
+    "count": 4
+   },
+   {
+    "phrase": "Insulator Fittings Disk Insulator",
     "count": 4
    }
   ],
@@ -60001,11 +60001,15 @@
     "count": 7
    },
    {
-    "phrase": "Yard Stair Approach Road",
+    "phrase": "Road and Yard Stair",
     "count": 7
    },
    {
-    "phrase": "Siddhirganj Power Station Residential",
+    "phrase": "Main Road and Yard",
+    "count": 7
+   },
+   {
+    "phrase": "Yard Stair Approach Road",
     "count": 7
    },
    {
@@ -60013,11 +60017,7 @@
     "count": 7
    },
    {
-    "phrase": "Road and Yard Stair",
-    "count": 7
-   },
-   {
-    "phrase": "Main Road and Yard",
+    "phrase": "Siddhirganj Power Station Residential",
     "count": 7
    }
   ],
@@ -60060,8 +60060,8 @@
   ]
  },
  "3945": {
-  "value_bdt": 246690000.0,
-  "count": 113,
+  "value_bdt": 247570000.0,
+  "count": 114,
   "by_year": {
    "2020": {
     "value_bdt": 41940000.0,
@@ -60088,12 +60088,12 @@
     "count": 14
    },
    "2026": {
-    "value_bdt": 10660000.0,
-    "count": 15
+    "value_bdt": 11540000.0,
+    "count": 16
    }
   },
   "by_nature": {
-   "Works": 85,
+   "Works": 86,
    "Goods": 28
   },
   "top_vendors": [
@@ -60126,16 +60126,16 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 113
+    "count": 114
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Substation Dhaka-south Power Grid",
+    "phrase": "Grid Substation Dhaka-south Power",
     "count": 21
    },
    {
-    "phrase": "Grid Substation Dhaka-south Power",
+    "phrase": "Substation Dhaka-south Power Grid",
     "count": 21
    },
    {
@@ -60410,11 +60410,11 @@
     "count": 14
    },
    {
-    "phrase": "Substation Dhaka-central Power Grid",
+    "phrase": "Grid Substation Dhaka-central Power",
     "count": 13
    },
    {
-    "phrase": "Grid Substation Dhaka-central Power",
+    "phrase": "Substation Dhaka-central Power Grid",
     "count": 13
    },
    {
@@ -60560,11 +60560,11 @@
     "count": 49
    },
    {
-    "phrase": "Sag Along Other Necessary",
+    "phrase": "Reduce Sag Along Other",
     "count": 48
    },
    {
-    "phrase": "Reduce Sag Along Other",
+    "phrase": "Sag Along Other Necessary",
     "count": 48
    },
    {
@@ -60940,11 +60940,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Etc for Bibiyana Power",
+    "phrase": "Area Etc for Bibiyana",
     "count": 6
    },
    {
-    "phrase": "Area Etc for Bibiyana",
+    "phrase": "Etc for Bibiyana Power",
     "count": 6
    },
    {
@@ -60956,15 +60956,15 @@
     "count": 5
    },
    {
-    "phrase": "Power House and Residential",
-    "count": 5
-   },
-   {
     "phrase": "Sweeping Cleaning and Drain",
     "count": 5
    },
    {
     "phrase": "Cleaning and Drain Cleaning",
+    "count": 5
+   },
+   {
+    "phrase": "Power House and Residential",
     "count": 5
    },
    {
@@ -61371,7 +61371,7 @@
     "count": 6
    },
    {
-    "phrase": "Dohazari-kaliaish Peaking Power Station",
+    "phrase": "Peaking Power Station Area",
     "count": 6
    },
    {
@@ -61379,7 +61379,7 @@
     "count": 6
    },
    {
-    "phrase": "Peaking Power Station Area",
+    "phrase": "Dohazari-kaliaish Peaking Power Station",
     "count": 6
    },
    {
@@ -61851,11 +61851,11 @@
     "count": 3
    },
    {
-    "phrase": "Along Calendar Design",
+    "phrase": "Printing and Supply",
     "count": 3
    },
    {
-    "phrase": "Printing and Supply",
+    "phrase": "Along Calendar Design",
     "count": 3
    },
    {
@@ -62172,11 +62172,11 @@
     "count": 3
    },
    {
-    "phrase": "Dispose the Garbage Residential",
+    "phrase": "Residential and Power House",
     "count": 3
    },
    {
-    "phrase": "Residential and Power House",
+    "phrase": "Dispose the Garbage Residential",
     "count": 3
    },
    {
@@ -62870,15 +62870,19 @@
     "count": 10
    },
    {
-    "phrase": "Support Services for Maintenance",
+    "phrase": "Disposal for Th Unit",
     "count": 4
    },
    {
-    "phrase": "Cleaning Debris Accumulation Power",
+    "phrase": "Debris Accumulation Power Station",
     "count": 4
    },
    {
-    "phrase": "Maintenance Work Equipment Cleaning",
+    "phrase": "Area Removal and Disposal",
+    "count": 4
+   },
+   {
+    "phrase": "Services for Maintenance Work",
     "count": 4
    },
    {
@@ -62886,11 +62890,7 @@
     "count": 4
    },
    {
-    "phrase": "Work Equipment Cleaning Debris",
-    "count": 4
-   },
-   {
-    "phrase": "Accumulation Power Station Area",
+    "phrase": "Support Services for Maintenance",
     "count": 4
    }
   ],
@@ -62933,8 +62933,8 @@
   ]
  },
  "4140": {
-  "value_bdt": 27960000.0,
-  "count": 52,
+  "value_bdt": 28150000.0,
+  "count": 53,
   "by_year": {
    "2020": {
     "value_bdt": 1940000.0,
@@ -62961,8 +62961,8 @@
     "count": 7
    },
    "2026": {
-    "value_bdt": 11180000.0,
-    "count": 27
+    "value_bdt": 11370000.0,
+    "count": 28
    }
   },
   "by_nature": {
@@ -62982,8 +62982,8 @@
    },
    {
     "company": "M/S MAHIN MOTORS",
-    "value_bdt": 2600000.0,
-    "count": 5
+    "value_bdt": 2790000.0,
+    "count": 6
    },
    {
     "company": "M/S Mahmud Enterprise",
@@ -62999,7 +62999,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 52
+    "count": 53
    }
   ],
   "top_phrases": [
@@ -63024,15 +63024,15 @@
     "count": 6
    },
    {
+    "phrase": "Entrance Reception Common Area",
+    "count": 6
+   },
+   {
     "phrase": "Floor Th Floor Th",
     "count": 6
    },
    {
     "phrase": "Main Entrance Reception Common",
-    "count": 6
-   },
-   {
-    "phrase": "Entrance Reception Common Area",
     "count": 6
    }
   ],
@@ -63154,11 +63154,15 @@
     "count": 3
    },
    {
-    "phrase": "Filter Pool Backwash Tank",
+    "phrase": "Backwash Tank Fire Fighting",
     "count": 3
    },
    {
-    "phrase": "Tank Valve Less Gravity",
+    "phrase": "Basin Clarifier Filter Pool",
+    "count": 3
+   },
+   {
+    "phrase": "Sand Washing Refilling Refitting",
     "count": 3
    },
    {
@@ -63166,15 +63170,11 @@
     "count": 3
    },
    {
-    "phrase": "Backwash Tank Fire Fighting",
-    "count": 3
-   },
-   {
     "phrase": "Tank Acid Tank Base",
     "count": 3
    },
    {
-    "phrase": "Washing Refilling Refitting Etc",
+    "phrase": "Acid Tank Base Tank",
     "count": 3
    }
   ],
@@ -63372,11 +63372,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Maintenance Work Gas Leak",
+    "phrase": "Work Gas Leak Repair",
     "count": 4
    },
    {
-    "phrase": "Work Gas Leak Repair",
+    "phrase": "Maintenance Work Gas Leak",
     "count": 4
    },
    {
@@ -63392,7 +63392,7 @@
     "count": 4
    },
    {
-    "phrase": "Spares Annual Maintenance Contract",
+    "phrase": "Related Spares Annual Maintenance",
     "count": 4
    },
    {
@@ -63400,7 +63400,7 @@
     "count": 4
    },
    {
-    "phrase": "Related Spares Annual Maintenance",
+    "phrase": "Spares Annual Maintenance Contract",
     "count": 4
    }
   ],
@@ -63653,10 +63653,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Type Air Cooler Supply",
-    "count": 5
-   },
-   {
     "phrase": "Annual Maintenance and Repair",
     "count": 5
    },
@@ -63665,11 +63661,15 @@
     "count": 5
    },
    {
-    "phrase": "Ton Capacity Window Type",
-    "count": 4
+    "phrase": "Type Air Cooler Supply",
+    "count": 5
    },
    {
     "phrase": "Capacity Window Type Air",
+    "count": 4
+   },
+   {
+    "phrase": "Ton Capacity Window Type",
     "count": 4
    },
    {
@@ -64082,11 +64082,11 @@
     "count": 6
    },
    {
-    "phrase": "Gas Pipe Line Riser",
+    "phrase": "Line Riser Height Increase",
     "count": 6
    },
    {
-    "phrase": "Line Riser Height Increase",
+    "phrase": "Gas Pipe Line Riser",
     "count": 6
    },
    {
@@ -64455,11 +64455,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Sirajganj Power Station Soydabad",
+    "phrase": "Power Station Soydabad Sirajganj",
     "count": 4
    },
    {
-    "phrase": "Power Station Soydabad Sirajganj",
+    "phrase": "Sirajganj Power Station Soydabad",
     "count": 4
    },
    {
@@ -64633,7 +64633,7 @@
     "count": 5
    },
    {
-    "phrase": "Maintenance Work Equipment Cleaning",
+    "phrase": "Support Service for Maintenance",
     "count": 4
    },
    {
@@ -64641,7 +64641,7 @@
     "count": 4
    },
    {
-    "phrase": "Work Equipment Cleaning Debris",
+    "phrase": "Maintenance Work Equipment Cleaning",
     "count": 4
    },
    {
@@ -64649,15 +64649,15 @@
     "count": 4
    },
    {
-    "phrase": "Support Service for Maintenance",
+    "phrase": "Work Equipment Cleaning Debris",
     "count": 4
    },
    {
-    "phrase": "Station Area Th Unit",
+    "phrase": "Equipment Maintenance Cleaning Work",
     "count": 3
    },
    {
-    "phrase": "Equipment Maintenance Cleaning Work",
+    "phrase": "Power Station Area Th",
     "count": 3
    }
   ],
@@ -65010,11 +65010,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Cleaning Debris Accumulation Power",
-    "count": 4
-   },
-   {
-    "phrase": "Maintenance Work Equipment Cleaning",
+    "phrase": "Debris Accumulation Power Station",
     "count": 4
    },
    {
@@ -65022,11 +65018,11 @@
     "count": 4
    },
    {
-    "phrase": "Work Equipment Cleaning Debris",
+    "phrase": "Maintenance Work Equipment Cleaning",
     "count": 4
    },
    {
-    "phrase": "Accumulation Power Station Area",
+    "phrase": "Cleaning Debris Accumulation Power",
     "count": 4
    },
    {
@@ -65034,7 +65030,11 @@
     "count": 4
    },
    {
-    "phrase": "Debris Accumulation Power Station",
+    "phrase": "Accumulation Power Station Area",
+    "count": 4
+   },
+   {
+    "phrase": "Work Equipment Cleaning Debris",
     "count": 4
    },
    {
@@ -65164,15 +65164,15 @@
     "count": 3
    },
    {
-    "phrase": "Fan Light Flood Light",
-    "count": 3
-   },
-   {
     "phrase": "Fan Down Ceiling Light",
     "count": 3
    },
    {
     "phrase": "Exhaust Fan Down Ceiling",
+    "count": 3
+   },
+   {
+    "phrase": "Fan Light Flood Light",
     "count": 3
    },
    {
@@ -65274,6 +65274,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Related Areas Including Garbage",
+    "count": 7
+   },
+   {
     "phrase": "Areas Including Garbage Disposal",
     "count": 7
    },
@@ -65282,15 +65286,11 @@
     "count": 7
    },
    {
-    "phrase": "Related Areas Including Garbage",
-    "count": 7
-   },
-   {
-    "phrase": "Equipments Related Areas Including",
+    "phrase": "Different Equipments Related Areas",
     "count": 4
    },
    {
-    "phrase": "Different Equipments Related Areas",
+    "phrase": "Equipments Related Areas Including",
     "count": 4
    },
    {
@@ -65298,11 +65298,11 @@
     "count": 3
    },
    {
-    "phrase": "Equipment Related Areas Including",
+    "phrase": "Different Equipment Related Areas",
     "count": 3
    },
    {
-    "phrase": "Different Equipment Related Areas",
+    "phrase": "Equipment Related Areas Including",
     "count": 3
    }
   ],
@@ -65919,11 +65919,7 @@
     "count": 5
    },
    {
-    "phrase": "Driver Fuels Maintenance Monthly",
-    "count": 4
-   },
-   {
-    "phrase": "Maintenance Monthly Rental Basis",
+    "phrase": "Fuels Maintenance Monthly Rental",
     "count": 4
    },
    {
@@ -65931,7 +65927,11 @@
     "count": 4
    },
    {
-    "phrase": "Fuels Maintenance Monthly Rental",
+    "phrase": "Driver Fuels Maintenance Monthly",
+    "count": 4
+   },
+   {
+    "phrase": "Maintenance Monthly Rental Basis",
     "count": 4
    },
    {
@@ -66826,15 +66826,15 @@
     "count": 4
    },
    {
-    "phrase": "Jungle Grass and Shrubs",
-    "count": 4
-   },
-   {
     "phrase": "Yearly Cutting Jungle Grass",
     "count": 4
    },
    {
     "phrase": "Grass and Shrubs Arboriculture",
+    "count": 4
+   },
+   {
+    "phrase": "Jungle Grass and Shrubs",
     "count": 4
    },
    {
@@ -66964,19 +66964,19 @@
     "count": 6
    },
    {
-    "phrase": "Essential Chemicals Ie Lime",
-    "count": 5
-   },
-   {
     "phrase": "Ammonia Hydrazine Sodium Chloride",
     "count": 5
    },
    {
-    "phrase": "Chemicals Ie Lime Ammonia",
+    "phrase": "Lime Ammonia Hydrazine Sodium",
     "count": 5
    },
    {
-    "phrase": "Lime Ammonia Hydrazine Sodium",
+    "phrase": "Ie Lime Ammonia Hydrazine",
+    "count": 5
+   },
+   {
+    "phrase": "Essential Chemicals Ie Lime",
     "count": 5
    }
   ],
@@ -67642,11 +67642,11 @@
     "count": 66
    },
    {
-    "phrase": "Cleaning the Spot Site",
+    "phrase": "Including Removing and Cleaning",
     "count": 28
    },
    {
-    "phrase": "Including Removing and Cleaning",
+    "phrase": "Cleaning the Spot Site",
     "count": 28
    },
    {
@@ -67902,11 +67902,11 @@
     "count": 21
    },
    {
-    "phrase": "Sub-station Power Grid Barishal",
+    "phrase": "Grid Sub-station Power Grid",
     "count": 8
    },
    {
-    "phrase": "Grid Sub-station Power Grid",
+    "phrase": "Sub-station Power Grid Barishal",
     "count": 8
    },
    {
@@ -68433,11 +68433,11 @@
     "count": 3
    },
    {
-    "phrase": "Power Station",
+    "phrase": "Shahjibazar Power",
     "count": 22
    },
    {
-    "phrase": "Shahjibazar Power",
+    "phrase": "Power Station",
     "count": 22
    },
    {
@@ -68815,11 +68815,11 @@
     "count": 12
    },
    {
-    "phrase": "Transformer for Load Sharing",
+    "phrase": "Division Khulna and Installation",
     "count": 3
    },
    {
-    "phrase": "Division Khulna and Installation",
+    "phrase": "Transformer for Load Sharing",
     "count": 3
    },
    {
@@ -68948,11 +68948,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Unit Ghorashal Power Station",
+    "phrase": "Th Unit Ghorashal Power",
     "count": 6
    },
    {
-    "phrase": "Th Unit Ghorashal Power",
+    "phrase": "Unit Ghorashal Power Station",
     "count": 6
    },
    {
@@ -69142,11 +69142,11 @@
     "count": 4
    },
    {
-    "phrase": "Grid Substations Power Grid",
+    "phrase": "Substations Power Grid Sylhet",
     "count": 4
    },
    {
-    "phrase": "Substations Power Grid Sylhet",
+    "phrase": "Grid Substations Power Grid",
     "count": 4
    },
    {
@@ -69362,15 +69362,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Building Control Room Roads",
+    "count": 6
+   },
+   {
     "phrase": "Works for Admin Building",
     "count": 6
    },
    {
     "phrase": "Cleaning Works for Admin",
-    "count": 6
-   },
-   {
-    "phrase": "Building Control Room Roads",
     "count": 6
    },
    {
@@ -69382,11 +69382,11 @@
     "count": 5
    },
    {
-    "phrase": "Room Roads Store Etc",
+    "phrase": "Control Room Roads Store",
     "count": 5
    },
    {
-    "phrase": "Control Room Roads Store",
+    "phrase": "Room Roads Store Etc",
     "count": 5
    },
    {
@@ -69620,11 +69620,11 @@
     "count": 18
    },
    {
-    "phrase": "Phosphate Lithium Hydroxide Potassium",
+    "phrase": "Potassium Hydroxide Nitric Acid",
     "count": 5
    },
    {
-    "phrase": "Liquid Amonia Tri-sodium Phosphate",
+    "phrase": "Amonia Tri-sodium Phosphate Lithium",
     "count": 5
    },
    {
@@ -69632,19 +69632,19 @@
     "count": 5
    },
    {
-    "phrase": "Lithium Hydroxide Potassium Hydroxide",
-    "count": 5
-   },
-   {
-    "phrase": "Chemicals Sulfuric Acid Hypo",
-    "count": 5
-   },
-   {
-    "phrase": "Potassium Hydroxide Nitric Acid",
+    "phrase": "Phosphate Lithium Hydroxide Potassium",
     "count": 5
    },
    {
     "phrase": "Tri-sodium Phosphate Lithium Hydroxide",
+    "count": 5
+   },
+   {
+    "phrase": "Hydroxide Nitric Acid Etc",
+    "count": 5
+   },
+   {
+    "phrase": "Liquid Amonia Tri-sodium Phosphate",
     "count": 5
    }
   ],
@@ -69988,11 +69988,11 @@
     "count": 7
    },
    {
-    "phrase": "Cooler Office Control Room",
+    "phrase": "Air Cooler Office Control",
     "count": 6
    },
    {
-    "phrase": "Air Cooler Office Control",
+    "phrase": "Cooler Office Control Room",
     "count": 6
    },
    {
@@ -70147,11 +70147,11 @@
     "count": 6
    },
    {
-    "phrase": "Flood Light",
+    "phrase": "Fan Etc",
     "count": 3
    },
    {
-    "phrase": "Fan Etc",
+    "phrase": "Flood Light",
     "count": 3
    }
   ],
@@ -70492,11 +70492,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Unloading Railway Wagon Unloading",
+    "phrase": "Railway Wagon Unloading Station",
     "count": 6
    },
    {
-    "phrase": "Railway Wagon Unloading Station",
+    "phrase": "Unloading Railway Wagon Unloading",
     "count": 6
    },
    {
@@ -70504,11 +70504,11 @@
     "count": 6
    },
    {
-    "phrase": "Pump House Lube Oil",
+    "phrase": "Oily Water Treatment Plant",
     "count": 6
    },
    {
-    "phrase": "Lube Oil Tank Area",
+    "phrase": "Treatment Plant Drain Oil",
     "count": 6
    },
    {
@@ -70516,7 +70516,7 @@
     "count": 6
    },
    {
-    "phrase": "Water Treatment Plant Drain",
+    "phrase": "Lube Oil Tank Area",
     "count": 6
    },
    {
@@ -70819,11 +70819,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Satkhira Electric Supply Satkhira",
+    "phrase": "Feeder Satkhira Electric Supply",
     "count": 3
    },
    {
-    "phrase": "Feeder Satkhira Electric Supply",
+    "phrase": "Satkhira Electric Supply Satkhira",
     "count": 3
    },
    {
@@ -70957,11 +70957,11 @@
     "count": 4
    },
    {
-    "phrase": "Plant and Other Premises",
+    "phrase": "Bush Grass Waste Etc",
     "count": 4
    },
    {
-    "phrase": "Bush Grass Waste Etc",
+    "phrase": "Power Plant and Other",
     "count": 4
    },
    {
@@ -70969,7 +70969,7 @@
     "count": 4
    },
    {
-    "phrase": "Plant Bush Grass Waste",
+    "phrase": "Other Premises for Santahar",
     "count": 4
    }
   ],
@@ -71083,11 +71083,11 @@
     "count": 5
    },
    {
-    "phrase": "Air Cooler Repair Works",
+    "phrase": "Yearly Air Cooler Repair",
     "count": 3
    },
    {
-    "phrase": "Yearly Air Cooler Repair",
+    "phrase": "Air Cooler Repair Works",
     "count": 3
    },
    {
@@ -71592,15 +71592,15 @@
     "count": 5
    },
    {
+    "phrase": "Substation Grid Circle Power",
+    "count": 4
+   },
+   {
     "phrase": "Grid Circle Power Grid",
     "count": 4
    },
    {
     "phrase": "Circle Power Grid Khulna",
-    "count": 4
-   },
-   {
-    "phrase": "Substation Grid Circle Power",
     "count": 4
    },
    {
@@ -71722,6 +71722,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Power Station Siddhirganj Narayanganj",
+    "count": 7
+   },
+   {
     "phrase": "Thermal Power Station Siddhirganj",
     "count": 7
    },
@@ -71730,15 +71734,7 @@
     "count": 7
    },
    {
-    "phrase": "Power Station Siddhirganj Narayanganj",
-    "count": 7
-   },
-   {
     "phrase": "Power Station and Residential",
-    "count": 3
-   },
-   {
-    "phrase": "Etc for Power Station",
     "count": 3
    },
    {
@@ -71746,11 +71742,15 @@
     "count": 3
    },
    {
-    "phrase": "House and Plant Areas",
+    "phrase": "Etc for Power Station",
     "count": 3
    },
    {
     "phrase": "Residential House and Plant",
+    "count": 3
+   },
+   {
+    "phrase": "Etc for Maintenance Works",
     "count": 3
    }
   ],
@@ -71911,11 +71911,11 @@
     "count": 3
    },
    {
-    "phrase": "Engine Overhauling",
+    "phrase": "Engine Related",
     "count": 3
    },
    {
-    "phrase": "Engine Related",
+    "phrase": "Engine Overhauling",
     "count": 3
    }
   ],
@@ -72207,7 +72207,7 @@
     "count": 3
    },
    {
-    "phrase": "Construction Purging Pneumatic Pressure",
+    "phrase": "Valve Pit Construction Purging",
     "count": 3
    },
    {
@@ -72215,11 +72215,11 @@
     "count": 3
    },
    {
-    "phrase": "Including Cleaning Coating Wrapping",
+    "phrase": "Wrapping Welding Road Crossing",
     "count": 3
    },
    {
-    "phrase": "Valve Pit Construction Purging",
+    "phrase": "Including Cleaning Coating Wrapping",
     "count": 3
    }
   ],
@@ -73468,11 +73468,11 @@
     "count": 3
    },
    {
-    "phrase": "Bakhrabad-meghnaghat-haripur Gas Transmission Pipeline",
+    "phrase": "Land Development and Construction",
     "count": 3
    },
    {
-    "phrase": "Land Development and Construction",
+    "phrase": "Bakhrabad-meghnaghat-haripur Gas Transmission Pipeline",
     "count": 3
    }
   ],
@@ -73566,11 +73566,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Complain Center",
+    "phrase": "Office Resthouse",
     "count": 3
    },
    {
-    "phrase": "Office Resthouse",
+    "phrase": "Complain Center",
     "count": 3
    }
   ],
@@ -73677,11 +73677,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Distribution Electric Distribution Facilities",
+    "phrase": "Overhead Distribution Electric Distribution",
     "count": 69
    },
    {
-    "phrase": "Overhead Distribution Electric Distribution",
+    "phrase": "Distribution Electric Distribution Facilities",
     "count": 69
    },
    {
@@ -73810,11 +73810,11 @@
     "count": 3
    },
    {
-    "phrase": "Bhola Electric Supply Office",
+    "phrase": "Electric Line Shifting Work",
     "count": 3
    },
    {
-    "phrase": "Electric Line Shifting Work",
+    "phrase": "Bhola Electric Supply Office",
     "count": 3
    },
    {
@@ -73936,11 +73936,11 @@
     "count": 4
    },
    {
-    "phrase": "Dia X",
+    "phrase": "Gas Pipeline",
     "count": 4
    },
    {
-    "phrase": "Gas Pipeline",
+    "phrase": "Dia X",
     "count": 4
    },
    {
@@ -74349,7 +74349,7 @@
     "count": 3
    },
    {
-    "phrase": "Aluminium Chloride Sodium Hypochloride",
+    "phrase": "Poly Aluminium Chloride Sodium",
     "count": 3
    }
   ],
@@ -74553,8 +74553,8 @@
   ]
  },
  "5470": {
-  "value_bdt": 195140000.0,
-  "count": 27,
+  "value_bdt": 195810000.0,
+  "count": 28,
   "by_year": {
    "2022": {
     "value_bdt": 3060000.0,
@@ -74569,8 +74569,8 @@
     "count": 10
    },
    "2026": {
-    "value_bdt": 166420000.0,
-    "count": 14
+    "value_bdt": 167090000.0,
+    "count": 15
    }
   },
   "by_nature": {
@@ -74606,7 +74606,7 @@
   "top_districts": [
    {
     "district": "Norshingdi",
-    "count": 27
+    "count": 28
    }
   ],
   "top_phrases": [
@@ -74721,15 +74721,15 @@
     "count": 10
    },
    {
-    "phrase": "Line Upgradation New Maintenance",
-    "count": 7
-   },
-   {
     "phrase": "Distribution Line Upgradation New",
     "count": 7
    },
    {
     "phrase": "Upgradation New Maintenance Dhaka",
+    "count": 7
+   },
+   {
+    "phrase": "Line Upgradation New Maintenance",
     "count": 7
    },
    {
@@ -74964,11 +74964,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Super Thermal Power Plant",
+    "phrase": "Thermal Power Plant Project",
     "count": 4
    },
    {
-    "phrase": "Development Protection for Patuakhali",
+    "phrase": "Protection for Patuakhali Super",
+    "count": 4
+   },
+   {
+    "phrase": "Super Thermal Power Plant",
     "count": 4
    },
    {
@@ -74984,11 +74988,7 @@
     "count": 4
    },
    {
-    "phrase": "Thermal Power Plant Project",
-    "count": 4
-   },
-   {
-    "phrase": "Protection for Patuakhali Super",
+    "phrase": "Development Protection for Patuakhali",
     "count": 4
    }
   ],
@@ -75297,11 +75297,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Gas Leak Detection Works",
+    "phrase": "Defect Gas Leak Detection",
     "count": 3
    },
    {
-    "phrase": "Defect Gas Leak Detection",
+    "phrase": "Gas Leak Detection Works",
     "count": 3
    },
    {
@@ -75525,11 +75525,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Gas Pipeline Network",
+    "phrase": "Based Digital Mapping",
     "count": 6
    },
    {
-    "phrase": "Based Digital Mapping",
+    "phrase": "Gas Pipeline Network",
     "count": 6
    }
   ],
@@ -76505,15 +76505,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "X Gas Distribution Pipeline",
-    "count": 9
-   },
-   {
     "phrase": "Inch Dia X Psig",
     "count": 9
    },
    {
-    "phrase": "Psig X Gas Distribution",
+    "phrase": "X Gas Distribution Pipeline",
+    "count": 9
+   },
+   {
+    "phrase": "Dia X Psig X",
     "count": 9
    },
    {
@@ -76521,7 +76521,7 @@
     "count": 9
    },
    {
-    "phrase": "Dia X Psig X",
+    "phrase": "Psig X Gas Distribution",
     "count": 9
    },
    {
@@ -76655,11 +76655,11 @@
     "count": 14
    },
    {
-    "phrase": "Surrounding Trees and Other",
+    "phrase": "Cutting Off the Branches",
     "count": 10
    },
    {
-    "phrase": "Cutting Off the Branches",
+    "phrase": "Surrounding Trees and Other",
     "count": 10
    },
    {
@@ -76898,11 +76898,11 @@
     "count": 5
    },
    {
-    "phrase": "Renovation Works",
+    "phrase": "Distribution Lines",
     "count": 3
    },
    {
-    "phrase": "Distribution Lines",
+    "phrase": "Renovation Works",
     "count": 3
    }
   ],
@@ -77705,11 +77705,11 @@
     "count": 4
    },
    {
-    "phrase": "School Staff Residential Area",
+    "phrase": "Office School Staff Residential",
     "count": 4
    },
    {
-    "phrase": "Office School Staff Residential",
+    "phrase": "School Staff Residential Area",
     "count": 4
    },
    {
@@ -78043,15 +78043,11 @@
     "count": 10
    },
    {
-    "phrase": "Transformer Removed the Line",
+    "phrase": "Season the Transformer Removed",
     "count": 10
    },
    {
-    "phrase": "Kept the Customer Based",
-    "count": 10
-   },
-   {
-    "phrase": "Customer Based the Consumer",
+    "phrase": "Irrigation Season the Transformer",
     "count": 10
    },
    {
@@ -78059,11 +78055,15 @@
     "count": 10
    },
    {
-    "phrase": "Season the Transformer Removed",
+    "phrase": "Kept the Customer Based",
     "count": 10
    },
    {
-    "phrase": "Irrigation Season the Transformer",
+    "phrase": "Transformer Removed the Line",
+    "count": 10
+   },
+   {
+    "phrase": "Customer Based the Consumer",
     "count": 10
    }
   ],
@@ -78156,15 +78156,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Jamuna Office Building Jamuna",
+    "count": 3
+   },
+   {
     "phrase": "Office Building Jamuna Bhaban",
     "count": 3
    },
    {
     "phrase": "Building Jamuna Bhaban Kawran",
-    "count": 3
-   },
-   {
-    "phrase": "Jamuna Office Building Jamuna",
     "count": 3
    }
   ],
@@ -78408,15 +78408,15 @@
     "count": 6
    },
    {
-    "phrase": "Upgradation Maintenance Work F",
+    "phrase": "Overhead Electriic Distribution Facilities",
+    "count": 5
+   },
+   {
+    "phrase": "Maintenance Work F Overhead",
     "count": 5
    },
    {
     "phrase": "Work F Overhead Electriic",
-    "count": 5
-   },
-   {
-    "phrase": "Overhead Electriic Distribution Facilities",
     "count": 5
    }
   ],
@@ -78534,19 +78534,19 @@
     "count": 14
    },
    {
-    "phrase": "Grid Sub-station Grid Circle",
-    "count": 11
-   },
-   {
     "phrase": "Sub-station Grid Circle Dhaka",
     "count": 11
    },
    {
-    "phrase": "Grid Substation Grid Circle",
-    "count": 10
+    "phrase": "Grid Sub-station Grid Circle",
+    "count": 11
    },
    {
     "phrase": "Substation Grid Circle Dhaka",
+    "count": 10
+   },
+   {
+    "phrase": "Grid Substation Grid Circle",
     "count": 10
    }
   ],
@@ -78632,11 +78632,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Impressed Current Cathodic Protection",
+    "phrase": "Current Cathodic Protection System",
     "count": 5
    },
    {
-    "phrase": "Current Cathodic Protection System",
+    "phrase": "Impressed Current Cathodic Protection",
     "count": 5
    },
    {
@@ -78644,11 +78644,11 @@
     "count": 3
    },
    {
-    "phrase": "Defect Survey Gas Leak",
+    "phrase": "Coating Defect Survey Gas",
     "count": 3
    },
    {
-    "phrase": "Coating Defect Survey Gas",
+    "phrase": "Defect Survey Gas Leak",
     "count": 3
    },
    {
@@ -78891,19 +78891,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Underground Electrical Distribution Facilities",
-    "count": 101
-   },
-   {
     "phrase": "Overhead Underground Electrical Distribution",
     "count": 101
    },
    {
-    "phrase": "Line Construction Up-gradation Shifting",
-    "count": 53
+    "phrase": "Underground Electrical Distribution Facilities",
+    "count": 101
    },
    {
     "phrase": "Construction Up-gradation Shifting Works",
+    "count": 53
+   },
+   {
+    "phrase": "Line Construction Up-gradation Shifting",
     "count": 53
    },
    {
@@ -78911,11 +78911,11 @@
     "count": 38
    },
    {
-    "phrase": "Line Construction Up-gradation Emergency",
+    "phrase": "Up-gradation Emergency Line Maintenance",
     "count": 38
    },
    {
-    "phrase": "Up-gradation Emergency Line Maintenance",
+    "phrase": "Line Construction Up-gradation Emergency",
     "count": 38
    },
    {
@@ -79020,11 +79020,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Overhead Electric Distribution Line",
+    "phrase": "Electric Distribution Line Construction",
     "count": 10
    },
    {
-    "phrase": "Electric Distribution Line Construction",
+    "phrase": "Overhead Electric Distribution Line",
     "count": 10
    },
    {
@@ -79305,15 +79305,11 @@
     "count": 4
    },
    {
-    "phrase": "Goods Measuring Instrument Circuit",
-    "count": 3
-   },
-   {
     "phrase": "Measuring Instrument Circuit Breaker",
     "count": 3
    },
    {
-    "phrase": "Fan Exhaust Fan Etc",
+    "phrase": "Goods Measuring Instrument Circuit",
     "count": 3
    },
    {
@@ -79325,11 +79321,15 @@
     "count": 3
    },
    {
+    "phrase": "Fan Exhaust Fan Etc",
+    "count": 3
+   },
+   {
     "phrase": "Repair Maintenance and Activation",
     "count": 3
    },
    {
-    "phrase": "Ear Muff Cleaning Brush",
+    "phrase": "Hand Gloves Ear Muff",
     "count": 3
    }
   ],
@@ -79604,11 +79604,11 @@
     "count": 11
    },
    {
-    "phrase": "Overhead Distribution Electric Line",
+    "phrase": "Line Construction Upgradation Shifting",
     "count": 10
    },
    {
-    "phrase": "Line Construction Upgradation Shifting",
+    "phrase": "Overhead Distribution Electric Line",
     "count": 10
    },
    {
@@ -79738,11 +79738,11 @@
     "count": 3
    },
    {
-    "phrase": "Scrap Yard River Water",
+    "phrase": "Yard River Water Intake",
     "count": 3
    },
    {
-    "phrase": "Yard River Water Intake",
+    "phrase": "Scrap Yard River Water",
     "count": 3
    },
    {
@@ -79867,18 +79867,6 @@
     "count": 4
    },
    {
-    "phrase": "Valve Pits Different Areas",
-    "count": 3
-   },
-   {
-    "phrase": "Related Services for Repair",
-    "count": 3
-   },
-   {
-    "phrase": "Services for Repair Maintenance",
-    "count": 3
-   },
-   {
     "phrase": "Damaged Valve Pits Different",
     "count": 3
    },
@@ -79888,6 +79876,18 @@
    },
    {
     "phrase": "Dhaka City Metro Dhaka",
+    "count": 3
+   },
+   {
+    "phrase": "Services for Repair Maintenance",
+    "count": 3
+   },
+   {
+    "phrase": "Related Services for Repair",
+    "count": 3
+   },
+   {
+    "phrase": "Valve Pits Different Areas",
     "count": 3
    }
   ],
@@ -79992,7 +79992,11 @@
     "count": 10
    },
    {
-    "phrase": "Work Installing Substation Line",
+    "phrase": "Systematic Development Work Installing",
+    "count": 6
+   },
+   {
+    "phrase": "Development Work Installing Substation",
     "count": 6
    },
    {
@@ -80000,15 +80004,11 @@
     "count": 6
    },
    {
-    "phrase": "Systematic Development Work Installing",
+    "phrase": "Work Installing Substation Line",
     "count": 6
    },
    {
     "phrase": "Renovation and Systematic Development",
-    "count": 6
-   },
-   {
-    "phrase": "Development Work Installing Substation",
     "count": 6
    },
    {
@@ -80122,11 +80122,11 @@
     "count": 6
    },
    {
-    "phrase": "Treatment Plant",
+    "phrase": "Related Services",
     "count": 4
    },
    {
-    "phrase": "Related Services",
+    "phrase": "Treatment Plant",
     "count": 4
    },
    {
@@ -80345,11 +80345,11 @@
     "count": 11
    },
    {
-    "phrase": "Distribution Electric Distribution Facilities",
+    "phrase": "Overhead Distribution Electric Distribution",
     "count": 7
    },
    {
-    "phrase": "Overhead Distribution Electric Distribution",
+    "phrase": "Distribution Electric Distribution Facilities",
     "count": 7
    },
    {
@@ -80467,11 +80467,11 @@
     "count": 7
    },
    {
-    "phrase": "Project Store",
+    "phrase": "Islands Bhola",
     "count": 5
    },
    {
-    "phrase": "Islands Bhola",
+    "phrase": "Project Store",
     "count": 5
    },
    {
@@ -80578,8 +80578,8 @@
   ]
  },
  "6173": {
-  "value_bdt": 83530000.0,
-  "count": 118,
+  "value_bdt": 84200000.0,
+  "count": 119,
   "by_year": {
    "2023": {
     "value_bdt": 6710000.0,
@@ -80594,12 +80594,12 @@
     "count": 49
    },
    "2026": {
-    "value_bdt": 34530000.0,
-    "count": 42
+    "value_bdt": 35200000.0,
+    "count": 43
    }
   },
   "by_nature": {
-   "Goods": 43,
+   "Goods": 44,
    "Works": 1
   },
   "top_vendors": [
@@ -80607,6 +80607,11 @@
     "company": "M/S A R AGRO ENTERPRISE",
     "value_bdt": 5230000.0,
     "count": 13
+   },
+   {
+    "company": "Adarsha Printers",
+    "value_bdt": 4120000.0,
+    "count": 4
    },
    {
     "company": "Oriental Systems",
@@ -80619,11 +80624,6 @@
     "count": 1
    },
    {
-    "company": "Adarsha Printers",
-    "value_bdt": 3450000.0,
-    "count": 3
-   },
-   {
     "company": "M/S. Emran Enterprise",
     "value_bdt": 2530000.0,
     "count": 3
@@ -80632,7 +80632,7 @@
   "top_districts": [
    {
     "district": "Gazipur",
-    "count": 118
+    "count": 119
    }
   ],
   "top_phrases": [
@@ -80749,11 +80749,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Distribution-smart Grids Phase Project",
+    "phrase": "Power Distribution-smart Grids Phase",
     "count": 4
    },
    {
-    "phrase": "Power Distribution-smart Grids Phase",
+    "phrase": "Distribution-smart Grids Phase Project",
     "count": 4
    },
    {
@@ -81060,11 +81060,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Underground Electrical Distribution Facilities",
+    "phrase": "Overhead Underground Electrical Distribution",
     "count": 29
    },
    {
-    "phrase": "Overhead Underground Electrical Distribution",
+    "phrase": "Underground Electrical Distribution Facilities",
     "count": 29
    },
    {
@@ -81084,11 +81084,11 @@
     "count": 7
    },
    {
-    "phrase": "Gradation Emergency Line Maintenance",
+    "phrase": "Emergency Line Maintenance Works",
     "count": 7
    },
    {
-    "phrase": "Emergency Line Maintenance Works",
+    "phrase": "Gradation Emergency Line Maintenance",
     "count": 7
    }
   ],
@@ -81219,16 +81219,16 @@
   ]
  },
  "6229": {
-  "value_bdt": 1930000.0,
-  "count": 8,
+  "value_bdt": 2580000.0,
+  "count": 10,
   "by_year": {
    "2023": {
     "value_bdt": 730000.0,
     "count": 1
    },
    "2026": {
-    "value_bdt": 1200000.0,
-    "count": 7
+    "value_bdt": 1850000.0,
+    "count": 9
    }
   },
   "by_nature": {
@@ -81241,33 +81241,38 @@
     "count": 1
    },
    {
+    "company": "M/S HASAN TRADERS",
+    "value_bdt": 580000.0,
+    "count": 4
+   },
+   {
+    "company": "M/S SAOUM AND HAQUE CONSTRUCTION",
+    "value_bdt": 460000.0,
+    "count": 1
+   },
+   {
     "company": "M/S. SUME CONSTRUCTION",
     "value_bdt": 420000.0,
     "count": 2
    },
    {
-    "company": "M/S HASAN TRADERS",
-    "value_bdt": 390000.0,
-    "count": 3
-   },
-   {
     "company": "M/S MOSTAFIZUR TRADERS",
     "value_bdt": 250000.0,
-    "count": 1
-   },
-   {
-    "company": "ARIYANA CORPORATION",
-    "value_bdt": 140000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Lalmonirhat",
-    "count": 8
+    "count": 10
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Tree Trimming Works",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "426",
@@ -81275,6 +81280,13 @@
     "value_bdt": 730000.0,
     "contract_signing_date": "2023-10-08",
     "description": "PAT-01 33 KV Line Dismantle Work from Hatibandha 33/11 KV Sub station to Baura under Sales and Distribution Division NESCO PLC Patgram Lalmonirhat."
+   },
+   {
+    "package_ref": "27.29.5270.000.000.16.26-176",
+    "awarded_to": "M/S SAOUM AND HAQUE CONSTRUCTION",
+    "value_bdt": 460000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Tree Trimming Works of 11 KV & 0.4 KV Line."
    },
    {
     "package_ref": "1266",
@@ -81296,13 +81308,6 @@
     "value_bdt": 190000.0,
     "contract_signing_date": "2026-10-06",
     "description": "Tree Trimming Works of 33 KV Line"
-   },
-   {
-    "package_ref": "27.29.5270.000.000.16.26-1571",
-    "awarded_to": "M/S HASAN TRADERS",
-    "value_bdt": 150000.0,
-    "contract_signing_date": "2026-06-22",
-    "description": "Maintenance Work of 33KV 11KV Line & 0.4 KV Line at Patgram Alauddin Nagar Panbari Rajarhat Sarkarerhat and Jogotber Feeder."
    }
   ]
  },
@@ -81825,8 +81830,8 @@
   ]
  },
  "6309": {
-  "value_bdt": 49080000.0,
-  "count": 58,
+  "value_bdt": 50260000.0,
+  "count": 60,
   "by_year": {
    "2023": {
     "value_bdt": 940000.0,
@@ -81837,8 +81842,8 @@
     "count": 1
    },
    "2026": {
-    "value_bdt": 44180000.0,
-    "count": 54
+    "value_bdt": 45360000.0,
+    "count": 56
    }
   },
   "by_nature": {
@@ -81874,16 +81879,12 @@
   "top_districts": [
    {
     "district": "Kishoreganj",
-    "count": 58
+    "count": 60
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Distribution Line Line Maintenance",
-    "count": 18
-   },
-   {
-    "phrase": "Kishoreganj Maintenance Upgradation Work",
+    "phrase": "Line Line Maintenance Upgradation",
     "count": 18
    },
    {
@@ -81891,7 +81892,11 @@
     "count": 18
    },
    {
-    "phrase": "Line Line Maintenance Upgradation",
+    "phrase": "Kishoreganj Maintenance Upgradation Work",
+    "count": 18
+   },
+   {
+    "phrase": "Distribution Line Line Maintenance",
     "count": 18
    },
    {
@@ -81904,10 +81909,10 @@
    },
    {
     "phrase": "Line Construction Maintenance Upgradation",
-    "count": 6
+    "count": 8
    },
    {
-    "phrase": "Overhead Line Construction Line",
+    "phrase": "Construction Line Shifting Work",
     "count": 4
    }
   ],
@@ -82149,11 +82154,11 @@
     "count": 3
    },
    {
-    "phrase": "Oil Railway Wagon July",
+    "phrase": "Furnace Oil Railway Wagon",
     "count": 3
    },
    {
-    "phrase": "Furnace Oil Railway Wagon",
+    "phrase": "Oil Railway Wagon July",
     "count": 3
    },
    {
@@ -82408,7 +82413,7 @@
     "count": 3
    },
    {
-    "phrase": "Damaged Transformers Earthing Insulator",
+    "phrase": "Cutting for Uninterrupted Power",
     "count": 3
    }
   ],
@@ -82615,11 +82620,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Painting Servicing Testing Installation",
+    "phrase": "Refilling Painting Servicing Testing",
     "count": 5
    },
    {
-    "phrase": "Refilling Painting Servicing Testing",
+    "phrase": "Painting Servicing Testing Installation",
     "count": 5
    },
    {
@@ -83354,11 +83359,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Admin Building Control Building",
+    "phrase": "Building Control Building Area",
     "count": 3
    },
    {
-    "phrase": "Building Control Building Area",
+    "phrase": "Admin Building Control Building",
     "count": 3
    },
    {
@@ -83682,11 +83687,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Tyre and Tube Tha",
+    "phrase": "Tube Tha for Netrokona",
     "count": 4
    },
    {
-    "phrase": "Tube Tha for Netrokona",
+    "phrase": "Tyre and Tube Tha",
     "count": 4
    },
    {
@@ -83855,8 +83860,8 @@
   ]
  },
  "6441": {
-  "value_bdt": 1410000.0,
-  "count": 4,
+  "value_bdt": 1560000.0,
+  "count": 5,
   "by_year": {
    "2023": {
     "value_bdt": 630000.0,
@@ -83867,12 +83872,12 @@
     "count": 1
    },
    "2026": {
-    "value_bdt": 250000.0,
-    "count": 2
+    "value_bdt": 400000.0,
+    "count": 3
    }
   },
   "by_nature": {
-   "Works": 3
+   "Works": 4
   },
   "top_vendors": [
    {
@@ -83886,20 +83891,20 @@
     "count": 1
    },
    {
-    "company": "M/S. Rumana Enterprise",
-    "value_bdt": 170000.0,
-    "count": 1
+    "company": "M/S MARUF ENTERPRISE",
+    "value_bdt": 230000.0,
+    "count": 2
    },
    {
-    "company": "M/S MARUF ENTERPRISE",
-    "value_bdt": 80000.0,
+    "company": "M/S. Rumana Enterprise",
+    "value_bdt": 170000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Kushtia",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
@@ -83924,6 +83929,13 @@
     "value_bdt": 170000.0,
     "contract_signing_date": "2026-02-22",
     "description": "Repair & Maintenance of Boundary Wall under S&D-2 WZPDCL Kushtia."
+   },
+   {
+    "package_ref": "27.22.5079.302.52.002.2026- 650",
+    "awarded_to": "M/S MARUF ENTERPRISE",
+    "value_bdt": 150000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Line work fot Ecectrical network development under 11 Town Feeder"
    },
    {
     "package_ref": "22.27.4785.302.50.001.2026-407",
@@ -84297,7 +84309,7 @@
     "count": 8
    },
    {
-    "phrase": "Bidyut Bill Formsize X",
+    "phrase": "Bill Formsize X Gsm",
     "count": 3
    },
    {
@@ -84305,11 +84317,11 @@
     "count": 3
    },
    {
-    "phrase": "Bill Formsize X Gsm",
+    "phrase": "Formsize X Gsm Offset",
     "count": 3
    },
    {
-    "phrase": "Formsize X Gsm Offset",
+    "phrase": "Bidyut Bill Formsize X",
     "count": 3
    },
    {
@@ -84555,14 +84567,6 @@
     "count": 14
    },
    {
-    "phrase": "Electrical Line and Keeping",
-    "count": 3
-   },
-   {
-    "phrase": "Keeping It the Custody",
-    "count": 3
-   },
-   {
     "phrase": "Line and Keeping It",
     "count": 3
    },
@@ -84576,6 +84580,14 @@
    },
    {
     "phrase": "Removing the Irrigation Transformer",
+    "count": 3
+   },
+   {
+    "phrase": "Keeping It the Custody",
+    "count": 3
+   },
+   {
+    "phrase": "Electrical Line and Keeping",
     "count": 3
    }
   ],
@@ -84668,11 +84680,7 @@
     "count": 4
    },
    {
-    "phrase": "Basis Cleaning Sweeping Such",
-    "count": 3
-   },
-   {
-    "phrase": "Toilet Road Drain Etc",
+    "phrase": "Control Room Glass Toilet",
     "count": 3
    },
    {
@@ -84680,19 +84688,23 @@
     "count": 3
    },
    {
+    "phrase": "Cleaning Sweeping Such Control",
+    "count": 3
+   },
+   {
     "phrase": "Drain Etc and Grass",
     "count": 3
    },
    {
-    "phrase": "Control Room Glass Toilet",
-    "count": 3
-   },
-   {
-    "phrase": "Such Control Room Glass",
-    "count": 3
-   },
-   {
     "phrase": "Glass Toilet Road Drain",
+    "count": 3
+   },
+   {
+    "phrase": "Basis Cleaning Sweeping Such",
+    "count": 3
+   },
+   {
+    "phrase": "Sweeping Such Control Room",
     "count": 3
    }
   ],
@@ -84805,11 +84817,11 @@
     "count": 4
    },
    {
-    "phrase": "Industrial Area",
+    "phrase": "Area Tejgaon",
     "count": 3
    },
    {
-    "phrase": "Area Tejgaon",
+    "phrase": "Industrial Area",
     "count": 3
    }
   ],
@@ -85041,15 +85053,7 @@
     "count": 10
    },
    {
-    "phrase": "Line Renovation Work Low-voltage",
-    "count": 9
-   },
-   {
     "phrase": "Division Mymensingh the Scope",
-    "count": 9
-   },
-   {
-    "phrase": "Renovation Work Low-voltage Problem",
     "count": 9
    },
    {
@@ -85057,11 +85061,19 @@
     "count": 9
    },
    {
-    "phrase": "Work Low-voltage Problem Resolution",
+    "phrase": "Resolution and Long Service",
     "count": 9
    },
    {
-    "phrase": "Resolution and Long Service",
+    "phrase": "Line Renovation Work Low-voltage",
+    "count": 9
+   },
+   {
+    "phrase": "Renovation Work Low-voltage Problem",
+    "count": 9
+   },
+   {
+    "phrase": "Work Low-voltage Problem Resolution",
     "count": 9
    }
   ],
@@ -85422,11 +85434,11 @@
     "count": 23
    },
    {
-    "phrase": "Division Tangail Emergency Repair",
+    "phrase": "Distribution Division Tangail Emergency",
     "count": 17
    },
    {
-    "phrase": "Distribution Division Tangail Emergency",
+    "phrase": "Division Tangail Emergency Repair",
     "count": 17
    },
    {
@@ -85434,11 +85446,11 @@
     "count": 8
    },
    {
-    "phrase": "Cutting Works Both Sides",
+    "phrase": "Branch Cutting Works Both",
     "count": 8
    },
    {
-    "phrase": "Branch Cutting Works Both",
+    "phrase": "Cutting Works Both Sides",
     "count": 8
    }
   ],
@@ -85690,7 +85702,7 @@
     "count": 3
    },
    {
-    "phrase": "Cutting and Overhead Line",
+    "phrase": "Branch Cutting and Overhead",
     "count": 3
    }
   ],
@@ -85910,7 +85922,7 @@
     "count": 3
    },
    {
-    "phrase": "Tangail-tha the Sales Distribution",
+    "phrase": "Urgent Repair and Maintenance",
     "count": 3
    }
   ],
@@ -86016,19 +86028,19 @@
     "count": 6
    },
    {
-    "phrase": "Official Vehicle Dhaka Metro",
-    "count": 5
-   },
-   {
     "phrase": "Sub Station and Lines",
     "count": 5
    },
    {
-    "phrase": "Station and Lines Development",
+    "phrase": "Official Vehicle Dhaka Metro",
     "count": 5
    },
    {
     "phrase": "Executive Engineer Sub Station",
+    "count": 5
+   },
+   {
+    "phrase": "Station and Lines Development",
     "count": 5
    },
    {
@@ -86198,19 +86210,19 @@
     "count": 11
    },
    {
-    "phrase": "Trees and Branches Located",
-    "count": 8
-   },
-   {
-    "phrase": "Located Within the Right",
-    "count": 8
-   },
-   {
     "phrase": "Way Safe Distance Both",
     "count": 8
    },
    {
+    "phrase": "Trees and Branches Located",
+    "count": 8
+   },
+   {
     "phrase": "Safe Distance Both Sides",
+    "count": 8
+   },
+   {
+    "phrase": "Located Within the Right",
     "count": 8
    },
    {
@@ -86312,11 +86324,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Emergency Operation Repair Maintenance",
+    "phrase": "Operation Repair Maintenance Works",
     "count": 12
    },
    {
-    "phrase": "Operation Repair Maintenance Works",
+    "phrase": "Emergency Operation Repair Maintenance",
     "count": 12
    },
    {
@@ -86542,15 +86554,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Fuels Maintenance Monthly Rental",
+    "count": 4
+   },
+   {
     "phrase": "Driver Fuels Maintenance Monthly",
     "count": 4
    },
    {
     "phrase": "Maintenance Monthly Rental Basis",
-    "count": 4
-   },
-   {
-    "phrase": "Fuels Maintenance Monthly Rental",
     "count": 4
    },
    {
@@ -86562,11 +86574,11 @@
     "count": 3
    },
    {
-    "phrase": "Vehicle Services",
+    "phrase": "One Car",
     "count": 4
    },
    {
-    "phrase": "One Car",
+    "phrase": "Vehicle Services",
     "count": 4
    }
   ],
@@ -86965,11 +86977,11 @@
     "count": 8
    },
    {
-    "phrase": "Including Maintenance and System",
+    "phrase": "Service Installed Bamboo Improving",
     "count": 7
    },
    {
-    "phrase": "Service Installed Bamboo Improving",
+    "phrase": "Including Maintenance and System",
     "count": 7
    },
    {
@@ -87075,11 +87087,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Unit Barapukuria Thermal Power",
+    "phrase": "Rejected Coal and Removal",
     "count": 3
    },
    {
-    "phrase": "Rejected Coal and Removal",
+    "phrase": "Unit Barapukuria Thermal Power",
     "count": 3
    },
    {
@@ -87091,11 +87103,11 @@
     "count": 3
    },
    {
-    "phrase": "Power Plant",
+    "phrase": "Unit Barapukuria",
     "count": 4
    },
    {
-    "phrase": "Unit Barapukuria",
+    "phrase": "Power Plant",
     "count": 4
    },
    {
@@ -87205,11 +87217,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Condensate Storage",
+    "phrase": "Storage Tanks",
     "count": 3
    },
    {
-    "phrase": "Storage Tanks",
+    "phrase": "Condensate Storage",
     "count": 3
    },
    {
@@ -87323,19 +87335,19 @@
     "count": 5
    },
    {
-    "phrase": "Grid Circle Bogura Power",
-    "count": 3
-   },
-   {
     "phrase": "Circle Bogura Power Grid",
     "count": 3
    },
    {
-    "phrase": "Circle Power Grid Bogura",
+    "phrase": "Grid Circle Bogura Power",
     "count": 3
    },
    {
     "phrase": "Grid Circle Power Grid",
+    "count": 3
+   },
+   {
+    "phrase": "Circle Power Grid Bogura",
     "count": 3
    },
    {
@@ -87737,15 +87749,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Contract for All Computer",
-    "count": 3
-   },
-   {
     "phrase": "Paper Ink Toner Ribbon",
     "count": 3
    },
    {
     "phrase": "Framework Contract for All",
+    "count": 3
+   },
+   {
+    "phrase": "Contract for All Computer",
     "count": 3
    },
    {
@@ -87859,7 +87871,7 @@
     "count": 4
    },
    {
-    "phrase": "Grass Cutting Jungle Cutting",
+    "phrase": "Work Hilltop Residential Area",
     "count": 3
    },
    {
@@ -87875,7 +87887,7 @@
     "count": 3
    },
    {
-    "phrase": "Work Hilltop Residential Area",
+    "phrase": "Grass Cutting Jungle Cutting",
     "count": 3
    },
    {
@@ -87883,7 +87895,7 @@
     "count": 5
    },
    {
-    "phrase": "Jungle Cutting",
+    "phrase": "Grass Cutting",
     "count": 4
    }
   ],
@@ -88135,7 +88147,7 @@
     "count": 5
    },
    {
-    "phrase": "Triming and Cutting Adjacent",
+    "phrase": "Cutting Adjacent Brunchs Both",
     "count": 5
    },
    {
@@ -88143,7 +88155,7 @@
     "count": 5
    },
    {
-    "phrase": "Cutting Adjacent Brunchs Both",
+    "phrase": "Feeder Sales Distribution Division",
     "count": 5
    }
   ],
@@ -88245,15 +88257,11 @@
     "count": 17
    },
    {
-    "phrase": "Reduce Low Voltage Installing",
-    "count": 5
-   },
-   {
     "phrase": "Line Line and Installation",
     "count": 5
    },
    {
-    "phrase": "Areas Line Line Transformer",
+    "phrase": "Reduce Low Voltage Installing",
     "count": 5
    },
    {
@@ -88261,11 +88269,15 @@
     "count": 5
    },
    {
-    "phrase": "Surrounding Areas Line Line",
+    "phrase": "Areas Line Line Transformer",
     "count": 5
    },
    {
     "phrase": "Mymensingh Department the Line",
+    "count": 5
+   },
+   {
+    "phrase": "Surrounding Areas Line Line",
     "count": 5
    },
    {
@@ -88412,11 +88424,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Work Being Carried Out",
+    "phrase": "Surveillance Work Being Carried",
     "count": 3
    },
    {
-    "phrase": "Surveillance Work Being Carried",
+    "phrase": "Work Being Carried Out",
     "count": 3
    },
    {
@@ -89005,11 +89017,11 @@
     "count": 7
    },
    {
-    "phrase": "Line Construction Deposit Works",
+    "phrase": "Distribution Line Construction Deposit",
     "count": 5
    },
    {
-    "phrase": "Distribution Line Construction Deposit",
+    "phrase": "Line Construction Deposit Works",
     "count": 5
    },
    {
@@ -89119,15 +89131,7 @@
     "count": 5
    },
    {
-    "phrase": "Line Related Other Works",
-    "count": 5
-   },
-   {
-    "phrase": "Pole Installation Conductor Upgradation",
-    "count": 5
-   },
-   {
-    "phrase": "Overhead Line Related Other",
+    "phrase": "Upgradation and Overhead Line",
     "count": 5
    },
    {
@@ -89135,15 +89139,23 @@
     "count": 5
    },
    {
-    "phrase": "Upgradation and Overhead Line",
+    "phrase": "Pole Installation Conductor Upgradation",
     "count": 5
    },
    {
-    "phrase": "Line Maintenance Line Construction",
+    "phrase": "Line Related Other Works",
+    "count": 5
+   },
+   {
+    "phrase": "Overhead Line Related Other",
+    "count": 5
+   },
+   {
+    "phrase": "Damage Pole Change Push",
     "count": 3
    },
    {
-    "phrase": "Maintenance Line Construction Shifting",
+    "phrase": "Line Construction Shifting Damage",
     "count": 3
    }
   ],
@@ -89186,20 +89198,20 @@
   ]
  },
  "7039": {
-  "value_bdt": 55870000.0,
-  "count": 62,
+  "value_bdt": 56300000.0,
+  "count": 63,
   "by_year": {
    "2025": {
     "value_bdt": 20530000.0,
     "count": 19
    },
    "2026": {
-    "value_bdt": 35340000.0,
-    "count": 43
+    "value_bdt": 35770000.0,
+    "count": 44
    }
   },
   "by_nature": {
-   "Goods": 29
+   "Goods": 30
   },
   "top_vendors": [
    {
@@ -89231,7 +89243,7 @@
   "top_districts": [
    {
     "district": "Norshingdi",
-    "count": 62
+    "count": 63
    }
   ],
   "top_phrases": [
@@ -89676,19 +89688,19 @@
     "count": 38
    },
    {
-    "phrase": "Line Construction Up-gradation Shifting",
-    "count": 22
-   },
-   {
     "phrase": "Construction Up-gradation Shifting Conversion",
     "count": 22
    },
    {
-    "phrase": "Line Construction Up-gradation Maintenance",
-    "count": 15
+    "phrase": "Line Construction Up-gradation Shifting",
+    "count": 22
    },
    {
     "phrase": "Construction Up-gradation Maintenance Line",
+    "count": 15
+   },
+   {
+    "phrase": "Line Construction Up-gradation Maintenance",
     "count": 15
    },
    {
@@ -89801,7 +89813,7 @@
     "count": 24
    },
    {
-    "phrase": "Installation Irrigation Transformer Other",
+    "phrase": "Irrigation Transformer Other Equipment",
     "count": 24
    },
    {
@@ -89809,19 +89821,19 @@
     "count": 24
    },
    {
+    "phrase": "Installation Irrigation Transformer Other",
+    "count": 24
+   },
+   {
     "phrase": "Remove Installation Irrigation Transformer",
     "count": 24
    },
    {
-    "phrase": "Irrigation Transformer Other Equipment",
-    "count": 24
-   },
-   {
-    "phrase": "Electric Distribution Line Bogura",
+    "phrase": "Distribution Line Bogura Own",
     "count": 21
    },
    {
-    "phrase": "Distribution Line Bogura Own",
+    "phrase": "Line Bogura Own Fund",
     "count": 21
    }
   ],
@@ -90113,23 +90125,23 @@
     "count": 23
    },
    {
-    "phrase": "Pole Change Push Pole",
-    "count": 23
-   },
-   {
     "phrase": "Change Push Pole Installation",
     "count": 23
    },
    {
+    "phrase": "Pole Change Push Pole",
+    "count": 23
+   },
+   {
+    "phrase": "Damage Pole Change Push",
+    "count": 17
+   },
+   {
+    "phrase": "Line Construction Shifting Damage",
+    "count": 17
+   },
+   {
     "phrase": "Overhead Line-related Other Works",
-    "count": 17
-   },
-   {
-    "phrase": "Line Maintenance Line Construction",
-    "count": 17
-   },
-   {
-    "phrase": "Upgradation and Overhead Line-related",
     "count": 17
    }
   ],
@@ -90622,20 +90634,20 @@
   ]
  },
  "7126": {
-  "value_bdt": 85320000.0,
-  "count": 43,
+  "value_bdt": 85420000.0,
+  "count": 44,
   "by_year": {
    "2025": {
     "value_bdt": 15680000.0,
     "count": 16
    },
    "2026": {
-    "value_bdt": 69640000.0,
-    "count": 27
+    "value_bdt": 69740000.0,
+    "count": 28
    }
   },
   "by_nature": {
-   "Works": 41,
+   "Works": 42,
    "Goods": 2
   },
   "top_vendors": [
@@ -90668,7 +90680,7 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 43
+    "count": 44
    }
   ],
   "top_phrases": [
@@ -90682,7 +90694,7 @@
    },
    {
     "phrase": "Sub-station Rangamati Power Grid",
-    "count": 9
+    "count": 10
    },
    {
     "phrase": "Line Rangamati Power Grid",
@@ -90697,11 +90709,11 @@
     "count": 5
    },
    {
-    "phrase": "Shrubs Around Various Portions",
+    "phrase": "Jungle and Shrubs Around",
     "count": 4
    },
    {
-    "phrase": "Jungle and Shrubs Around",
+    "phrase": "Shrubs Around Various Portions",
     "count": 4
    }
   ],
@@ -90823,7 +90835,7 @@
     "count": 15
    },
    {
-    "phrase": "Construction Upgradation and Shifting",
+    "phrase": "Work Based Consumer Application",
     "count": 15
    }
   ],
@@ -91113,15 +91125,15 @@
     "count": 4
    },
    {
+    "phrase": "High Voltage Transmission Line",
+    "count": 3
+   },
+   {
     "phrase": "Protective Coating and Refurbishment",
     "count": 3
    },
    {
     "phrase": "Line Sirajganj Power Grid",
-    "count": 3
-   },
-   {
-    "phrase": "Transmission Line Sirajganj Power",
     "count": 3
    }
   ],
@@ -91215,7 +91227,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Construction Shifting Renovation Maintenance",
+    "phrase": "Renovation Maintenance Upgradation Work",
     "count": 21
    },
    {
@@ -91223,8 +91235,12 @@
     "count": 21
    },
    {
-    "phrase": "Renovation Maintenance Upgradation Work",
+    "phrase": "Construction Shifting Renovation Maintenance",
     "count": 21
+   },
+   {
+    "phrase": "Feni Palli Bidyut Samity",
+    "count": 14
    },
    {
     "phrase": "Located Within the Service",
@@ -91232,10 +91248,6 @@
    },
    {
     "phrase": "Within the Service Area",
-    "count": 14
-   },
-   {
-    "phrase": "Feni Palli Bidyut Samity",
     "count": 14
    },
    {
@@ -91568,11 +91580,11 @@
     "count": 6
    },
    {
-    "phrase": "Sylhet Deposit Work Based",
+    "phrase": "Work Based Consumer Application",
     "count": 5
    },
    {
-    "phrase": "Construction Upgradation and Shifting",
+    "phrase": "Upgradation and Shifting Works",
     "count": 5
    },
    {
@@ -91580,7 +91592,7 @@
     "count": 5
    },
    {
-    "phrase": "Work Based Consumer Application",
+    "phrase": "Sylhet Deposit Work Based",
     "count": 5
    }
   ],
@@ -91982,19 +91994,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Overhead Electric Line Maintenance",
-    "count": 18
-   },
-   {
     "phrase": "Electric Line Maintenance Work",
     "count": 18
    },
    {
-    "phrase": "Electric Line Deposit Work",
-    "count": 4
+    "phrase": "Overhead Electric Line Maintenance",
+    "count": 18
    },
    {
     "phrase": "Overhead Electric Line Deposit",
+    "count": 4
+   },
+   {
+    "phrase": "Electric Line Deposit Work",
     "count": 4
    },
    {
@@ -92103,15 +92115,15 @@
     "count": 6
    },
    {
-    "phrase": "Construction Relocation Removal Upgradation",
-    "count": 6
-   },
-   {
     "phrase": "Rajbari Deposit Work Following",
     "count": 6
    },
    {
     "phrase": "Deposit Work Following Instruction",
+    "count": 6
+   },
+   {
+    "phrase": "Construction Relocation Removal Upgradation",
     "count": 6
    },
    {
@@ -92166,25 +92178,30 @@
   ]
  },
  "7207": {
-  "value_bdt": 26180000.0,
-  "count": 26,
+  "value_bdt": 29870000.0,
+  "count": 27,
   "by_year": {
    "2025": {
     "value_bdt": 7900000.0,
     "count": 4
    },
    "2026": {
-    "value_bdt": 18280000.0,
-    "count": 22
+    "value_bdt": 21970000.0,
+    "count": 23
    }
   },
   "by_nature": {
-   "Goods": 12
+   "Goods": 13
   },
   "top_vendors": [
    {
     "company": "Star Tech & Engineering Ltd.",
     "value_bdt": 6190000.0,
+    "count": 1
+   },
+   {
+    "company": "Security Paper & Converting Ltd.",
+    "value_bdt": 3690000.0,
     "count": 1
    },
    {
@@ -92201,26 +92218,21 @@
     "company": "Agni Systems Limited",
     "value_bdt": 1730000.0,
     "count": 1
-   },
-   {
-    "company": "Hatil Complex Ltd",
-    "value_bdt": 1450000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Cumilla",
-    "count": 26
+    "count": 27
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Construction Shifting Work Deposit",
+    "phrase": "Line Construction Shifting Work",
     "count": 4
    },
    {
-    "phrase": "Line Construction Shifting Work",
+    "phrase": "Construction Shifting Work Deposit",
     "count": 4
    },
    {
@@ -92245,6 +92257,13 @@
     "description": "Procurement of Computer & Computer Accessories"
    },
    {
+    "package_ref": "27.12.1972.576.01.038.26.4207",
+    "awarded_to": "Security Paper & Converting Ltd.",
+    "value_bdt": 3690000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Procurement of Unified Computerized Electricity bill form"
+   },
+   {
     "package_ref": "27.12.1972.576.01.047.25.4054",
     "awarded_to": "Computer Palace",
     "value_bdt": 3670000.0,
@@ -92264,13 +92283,6 @@
     "value_bdt": 1730000.0,
     "contract_signing_date": "2026-04-12",
     "description": "Procurement of VPN Data Connectivity Bandwidth (Primary) for 05 Offices"
-   },
-   {
-    "package_ref": "27.12.1972.576.01.038.26.4208",
-    "awarded_to": "Hatil Complex Ltd",
-    "value_bdt": 1450000.0,
-    "contract_signing_date": "2026-11-03",
-    "description": "Procurement of Rest house furniture"
    }
   ]
  },
@@ -92320,11 +92332,11 @@
     "count": 7
    },
    {
-    "phrase": "Dhaka Part",
+    "phrase": "Civil Construction",
     "count": 3
    },
    {
-    "phrase": "Civil Construction",
+    "phrase": "Dhaka Part",
     "count": 3
    }
   ],
@@ -92421,15 +92433,11 @@
     "count": 28
    },
    {
-    "phrase": "Construction Upgradation Emergency Line",
-    "count": 17
-   },
-   {
-    "phrase": "Line Construction Upgradation Emergency",
-    "count": 17
-   },
-   {
     "phrase": "Upgradation Emergency Line Maintenance",
+    "count": 17
+   },
+   {
+    "phrase": "Construction Upgradation Emergency Line",
     "count": 17
    },
    {
@@ -92437,11 +92445,15 @@
     "count": 17
    },
    {
-    "phrase": "Line Construction Upgradation Shifting",
-    "count": 11
+    "phrase": "Line Construction Upgradation Emergency",
+    "count": 17
    },
    {
     "phrase": "Construction Upgradation Shifting Works",
+    "count": 11
+   },
+   {
+    "phrase": "Line Construction Upgradation Shifting",
     "count": 11
    },
    {
@@ -92640,7 +92652,7 @@
     "count": 14
    },
    {
-    "phrase": "Existing Irrigation Consumers Distribution",
+    "phrase": "Consumers Distribution Line System",
     "count": 14
    },
    {
@@ -92648,11 +92660,11 @@
     "count": 14
    },
    {
-    "phrase": "Irrigation Consumers Distribution Line",
+    "phrase": "Existing Irrigation Consumers Distribution",
     "count": 14
    },
    {
-    "phrase": "Consumers Distribution Line System",
+    "phrase": "Irrigation Consumers Distribution Line",
     "count": 14
    },
    {
@@ -92660,11 +92672,11 @@
     "count": 10
    },
    {
-    "phrase": "Overhead New Line Construction",
+    "phrase": "New Line Construction Line",
     "count": 9
    },
    {
-    "phrase": "New Line Construction Line",
+    "phrase": "Overhead New Line Construction",
     "count": 9
    }
   ],
@@ -92984,19 +92996,19 @@
     "count": 8
    },
    {
+    "phrase": "Poles Changing Pin Insulators",
+    "count": 7
+   },
+   {
     "phrase": "Pin Insulators and Shackle",
     "count": 7
    },
    {
-    "phrase": "Broken Poles Changing Pin",
-    "count": 7
-   },
-   {
-    "phrase": "Feeder Including Emergency Repair",
-    "count": 7
-   },
-   {
     "phrase": "Shackle Insulators Different Areas",
+    "count": 7
+   },
+   {
+    "phrase": "Changing Broken Poles Changing",
     "count": 7
    },
    {
@@ -93674,15 +93686,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Underground Electrical Distribution Facilities",
-    "count": 13
-   },
-   {
     "phrase": "Construction Up-gradation Emergency Line",
-    "count": 13
-   },
-   {
-    "phrase": "Line Construction Up-gradation Emergency",
     "count": 13
    },
    {
@@ -93690,7 +93694,7 @@
     "count": 13
    },
    {
-    "phrase": "Overhead Underground Electrical Distribution",
+    "phrase": "Line Construction Up-gradation Emergency",
     "count": 13
    },
    {
@@ -93698,11 +93702,19 @@
     "count": 13
    },
    {
-    "phrase": "Overhead Distribution Electrical Distribution",
+    "phrase": "Overhead Underground Electrical Distribution",
+    "count": 13
+   },
+   {
+    "phrase": "Underground Electrical Distribution Facilities",
     "count": 13
    },
    {
     "phrase": "Distribution Electrical Distribution Facilities",
+    "count": 13
+   },
+   {
+    "phrase": "Overhead Distribution Electrical Distribution",
     "count": 13
    }
   ],
@@ -94170,7 +94182,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Line Related Other Works",
+    "phrase": "Construction Shifting Damage Pole",
+    "count": 6
+   },
+   {
+    "phrase": "Upgradation and Overhead Line",
+    "count": 6
+   },
+   {
+    "phrase": "Conductor Upgradation and Overhead",
     "count": 6
    },
    {
@@ -94182,23 +94202,15 @@
     "count": 6
    },
    {
-    "phrase": "Conductor Upgradation and Overhead",
+    "phrase": "Line Related Other Works",
     "count": 6
-   },
-   {
-    "phrase": "Upgradation and Overhead Line",
-    "count": 6
-   },
-   {
-    "phrase": "Construction Shifting Damage Pole",
-    "count": 6
-   },
-   {
-    "phrase": "Maintenanceline Construction Shifting Damage",
-    "count": 5
    },
    {
     "phrase": "Shifting Damage Pole Changepush",
+    "count": 5
+   },
+   {
+    "phrase": "Damage Pole Changepush Pole",
     "count": 5
    }
   ],
@@ -94561,11 +94573,11 @@
     "count": 3
    },
    {
-    "phrase": "Magistrate Court",
+    "phrase": "Hired Vehicle",
     "count": 3
    },
    {
-    "phrase": "Hired Vehicle",
+    "phrase": "Magistrate Court",
     "count": 3
    }
   ],
@@ -95433,20 +95445,20 @@
   ]
  },
  "7587": {
-  "value_bdt": 6060000.0,
-  "count": 9,
+  "value_bdt": 6480000.0,
+  "count": 10,
   "by_year": {
    "2025": {
     "value_bdt": 2540000.0,
     "count": 2
    },
    "2026": {
-    "value_bdt": 3520000.0,
-    "count": 7
+    "value_bdt": 3940000.0,
+    "count": 8
    }
   },
   "by_nature": {
-   "Works": 8
+   "Works": 9
   },
   "top_vendors": [
    {
@@ -95465,20 +95477,20 @@
     "count": 2
    },
    {
-    "company": "M/S A.M. Trading",
-    "value_bdt": 140000.0,
+    "company": "M/S ANIK BUILDERS",
+    "value_bdt": 420000.0,
     "count": 1
    },
    {
-    "company": "M/S CIVIL ENGINEERS FIRM",
-    "value_bdt": 130000.0,
+    "company": "M/S A.M. Trading",
+    "value_bdt": 140000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Barishal",
-    "count": 9
+    "count": 10
    }
   ],
   "top_phrases": [
@@ -95492,7 +95504,11 @@
    },
    {
     "phrase": "Sales Distribution Division",
-    "count": 5
+    "count": 6
+   },
+   {
+    "phrase": "Distribution Division",
+    "count": 8
    }
   ],
   "top_contracts": [
@@ -95525,11 +95541,11 @@
     "description": "Repair and Maintenance Work of Rupatoli Primary School Building under Sales & Distribution Division-1WZPDCL Barisal."
    },
    {
-    "package_ref": "SND-1-WZPDCL-Barishal-WR07-Lotb-2025-2026",
-    "awarded_to": "M/S Manirul Enterprise",
-    "value_bdt": 410000.0,
-    "contract_signing_date": "2026-03-04",
-    "description": "Tiles Works in Rest House's Ground Floor and First Floor at Rupatali Barisal under Sales & Distribution Division-1 WZPDCL Barisal."
+    "package_ref": "SND-1-WZPDCL-Barishal-CIVIL-Lot-2026-2027",
+    "awarded_to": "M/S ANIK BUILDERS",
+    "value_bdt": 420000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Repairing and Painting work of the Old Single-Storey Project Building Located at the Chandmari Campus of Sales & Distribution Division-1 WZPDCL Barishal."
    }
   ]
  },
@@ -95936,27 +95952,27 @@
     "count": 5
    },
    {
+    "phrase": "Damaged Transformer for Sales",
+    "count": 5
+   },
+   {
     "phrase": "H-pole Installation for New",
     "count": 5
    },
    {
-    "phrase": "Transformer New Transformer Installing",
+    "phrase": "Transformer for Sales Distribution",
     "count": 5
    },
    {
-    "phrase": "New Transformer New Transformer",
+    "phrase": "Transformer Installing for Load",
     "count": 5
    },
    {
-    "phrase": "Area Like H-pole Installation",
+    "phrase": "Installing for Load Sharing",
     "count": 5
    },
    {
     "phrase": "Necessary Transformer Maintenance Works",
-    "count": 5
-   },
-   {
-    "phrase": "Installation for New Transformer",
     "count": 5
    }
   ],
@@ -96408,11 +96424,11 @@
     "count": 3
    },
    {
-    "phrase": "Quality Cable and Shifting",
+    "phrase": "Cable and Shifting Distribution",
     "count": 3
    },
    {
-    "phrase": "Repairmaintenance Renovation System Development",
+    "phrase": "Quality Cable and Shifting",
     "count": 3
    },
    {
@@ -96420,7 +96436,7 @@
     "count": 3
    },
    {
-    "phrase": "Cable and Shifting Distribution",
+    "phrase": "Repairmaintenance Renovation System Development",
     "count": 3
    }
   ],
@@ -96860,16 +96876,16 @@
   ]
  },
  "7973": {
-  "value_bdt": 3160000.0,
-  "count": 5,
+  "value_bdt": 3250000.0,
+  "count": 6,
   "by_year": {
    "2025": {
     "value_bdt": 1000000.0,
     "count": 1
    },
    "2026": {
-    "value_bdt": 2160000.0,
-    "count": 4
+    "value_bdt": 2250000.0,
+    "count": 5
    }
   },
   "by_nature": {
@@ -96898,14 +96914,14 @@
    },
    {
     "company": "M/S A.M. Trading",
-    "value_bdt": 150000.0,
-    "count": 1
+    "value_bdt": 240000.0,
+    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Patuakhali",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [
@@ -97083,7 +97099,7 @@
     "count": 8
    },
    {
-    "phrase": "Line Gopalganj Own Fund",
+    "phrase": "Distribution Line Gopalganj Own",
     "count": 5
    },
    {
@@ -97091,7 +97107,7 @@
     "count": 5
    },
    {
-    "phrase": "Distribution Line Gopalganj Own",
+    "phrase": "Line Gopalganj Own Fund",
     "count": 5
    }
   ],
@@ -97420,11 +97436,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Overhead Electric Lines",
+    "phrase": "Construction and Maintenance",
     "count": 8
    },
    {
-    "phrase": "Construction and Maintenance",
+    "phrase": "Overhead Electric Lines",
     "count": 8
    }
   ],
@@ -98567,7 +98583,7 @@
     "count": 5
    },
    {
-    "phrase": "Overhead Electrical Distribution Facilities",
+    "phrase": "Up-gradation Emergency Line Maintenance",
     "count": 5
    },
    {
@@ -98575,11 +98591,11 @@
     "count": 5
    },
    {
-    "phrase": "Up-gradation Emergency Line Maintenance",
+    "phrase": "Emergency Line Maintenance Works",
     "count": 5
    },
    {
-    "phrase": "Emergency Line Maintenance Works",
+    "phrase": "Overhead Electrical Distribution Facilities",
     "count": 5
    },
    {
@@ -98804,15 +98820,15 @@
     "count": 3
    },
    {
-    "phrase": "Control Room Roads Parking",
-    "count": 3
-   },
-   {
     "phrase": "Landing Roof and Drains",
     "count": 3
    },
    {
     "phrase": "Roof and Drains Etc",
+    "count": 3
+   },
+   {
+    "phrase": "Control Room Roads Parking",
     "count": 3
    }
   ],
@@ -99218,11 +99234,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Energy and Power Research",
+    "phrase": "Bangladesh Energy and Power",
     "count": 6
    },
    {
-    "phrase": "Bangladesh Energy and Power",
+    "phrase": "Energy and Power Research",
     "count": 6
    },
    {
@@ -99410,7 +99426,11 @@
     "count": 6
    },
    {
-    "phrase": "Related Others Work Meherpur",
+    "phrase": "Distribution Line Related Others",
+    "count": 6
+   },
+   {
+    "phrase": "Overhead Distribution Line Related",
     "count": 6
    },
    {
@@ -99422,7 +99442,7 @@
     "count": 6
    },
    {
-    "phrase": "Overhead Distribution Line Related",
+    "phrase": "Related Others Work Meherpur",
     "count": 6
    },
    {
@@ -99430,11 +99450,7 @@
     "count": 6
    },
    {
-    "phrase": "Distribution Line Related Others",
-    "count": 6
-   },
-   {
-    "phrase": "Construction Shifting Push Pole",
+    "phrase": "Line Construction Shifting Push",
     "count": 4
    }
   ],
@@ -99629,11 +99645,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Overhead Electric Distribution Line",
+    "phrase": "Electric Distribution Line Dhaka",
     "count": 20
    },
    {
-    "phrase": "Electric Distribution Line Dhaka",
+    "phrase": "Overhead Electric Distribution Line",
     "count": 20
    },
    {
@@ -99649,11 +99665,11 @@
     "count": 4
    },
    {
-    "phrase": "Line Maintenance Line Construction",
+    "phrase": "Maintenance Line Construction Deposit",
     "count": 4
    },
    {
-    "phrase": "Maintenance Line Construction Deposit",
+    "phrase": "Line Maintenance Line Construction",
     "count": 4
    },
    {
@@ -100315,11 +100331,11 @@
     "count": 28
    },
    {
-    "phrase": "Construction Upgradation and Shifting",
+    "phrase": "Upgradation and Shifting Works",
     "count": 10
    },
    {
-    "phrase": "Upgradation and Shifting Works",
+    "phrase": "Construction Upgradation and Shifting",
     "count": 10
    },
    {
@@ -100335,11 +100351,11 @@
     "count": 9
    },
    {
-    "phrase": "Line Construction Upgradation Maintenance",
+    "phrase": "Maintenance Works Package Lot",
     "count": 8
    },
    {
-    "phrase": "Construction Upgradation Maintenance Works",
+    "phrase": "Line Construction Upgradation Maintenance",
     "count": 8
    }
   ],
@@ -101192,6 +101208,14 @@
     "count": 10
    },
    {
+    "phrase": "Facilities Deposit Work Pabna",
+    "count": 9
+   },
+   {
+    "phrase": "Distribution Facilities Deposit Work",
+    "count": 9
+   },
+   {
     "phrase": "Electrical Distribution Facilities Deposit",
     "count": 9
    },
@@ -101200,19 +101224,11 @@
     "count": 9
    },
    {
-    "phrase": "Distribution Facilities Deposit Work",
-    "count": 9
-   },
-   {
-    "phrase": "Facilities Deposit Work Pabna",
-    "count": 9
-   },
-   {
-    "phrase": "Distribution Electric Distribution Facilities",
+    "phrase": "Overhead Distribution Electric Distribution",
     "count": 5
    },
    {
-    "phrase": "Overhead Distribution Electric Distribution",
+    "phrase": "Distribution Electric Distribution Facilities",
     "count": 5
    },
    {
@@ -101306,7 +101322,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Conversion Shifting and Others",
+    "phrase": "Electric Distribution Line Maintenance",
     "count": 9
    },
    {
@@ -101314,27 +101330,27 @@
     "count": 9
    },
    {
+    "phrase": "Instruction Funded Own Fund",
+    "count": 9
+   },
+   {
+    "phrase": "Remove Rehabilitation Gradation Conversion",
+    "count": 9
+   },
+   {
     "phrase": "Bazar Palli Bidyut Samity",
     "count": 9
    },
    {
-    "phrase": "Palli Bidyut Samity Accordance",
-    "count": 9
-   },
-   {
-    "phrase": "Electric Distribution Line Maintenance",
-    "count": 9
-   },
-   {
-    "phrase": "Shifting and Others Works",
-    "count": 9
-   },
-   {
-    "phrase": "Rehabilitation Gradation Conversion Shifting",
+    "phrase": "Bidyut Samity Accordance Instruction",
     "count": 9
    },
    {
     "phrase": "Distribution Line Maintenance Work",
+    "count": 9
+   },
+   {
+    "phrase": "Palli Bidyut Samity Accordance",
     "count": 9
    }
   ],
@@ -101423,35 +101439,35 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Overhead Electric Distribution Line",
-    "count": 8
-   },
-   {
     "phrase": "Electric Distribution Line Construction",
     "count": 8
    },
    {
-    "phrase": "Distribution Line Construction Maintenance",
-    "count": 6
+    "phrase": "Overhead Electric Distribution Line",
+    "count": 8
    },
    {
     "phrase": "Line Construction Maintenance Upgradation",
     "count": 6
    },
    {
-    "phrase": "Constructed Vincent Gtech Munnia",
-    "count": 3
+    "phrase": "Distribution Line Construction Maintenance",
+    "count": 6
    },
    {
     "phrase": "Lines Constructed Vincent Gtech",
     "count": 3
    },
    {
-    "phrase": "Overhead Lines Constructed Vincent",
+    "phrase": "Gtech Munnia Char Gaibandha",
     "count": 3
    },
    {
-    "phrase": "Gtech Munnia Char Gaibandha",
+    "phrase": "Constructed Vincent Gtech Munnia",
+    "count": 3
+   },
+   {
+    "phrase": "Overhead Lines Constructed Vincent",
     "count": 3
    }
   ],
@@ -101542,19 +101558,19 @@
     "count": 4
    },
    {
-    "phrase": "Yasin Nagar Feeder",
-    "count": 3
-   },
-   {
     "phrase": "Chalk Lokman Feeder",
     "count": 3
    },
    {
-    "phrase": "New Market Feeder",
+    "phrase": "Yasin Nagar Feeder",
     "count": 3
    },
    {
     "phrase": "Circuit House Feeder",
+    "count": 3
+   },
+   {
+    "phrase": "New Market Feeder",
     "count": 3
    },
    {
@@ -101566,7 +101582,7 @@
     "count": 6
    },
    {
-    "phrase": "Banani Feeder",
+    "phrase": "Hospital Feeder",
     "count": 3
    }
   ],
@@ -101729,11 +101745,11 @@
     "count": 3
    },
    {
-    "phrase": "Dhaka Camp Office Category",
+    "phrase": "Manpower Dhaka Camp Office",
     "count": 3
    },
    {
-    "phrase": "Camp Office Category Driver",
+    "phrase": "Dhaka Camp Office Category",
     "count": 3
    },
    {
@@ -101741,7 +101757,7 @@
     "count": 3
    },
    {
-    "phrase": "Manpower Dhaka Camp Office",
+    "phrase": "Camp Office Category Driver",
     "count": 3
    }
   ],
@@ -101892,11 +101908,11 @@
     "count": 5
    },
    {
-    "phrase": "Distribution Division Bhairab Twice",
+    "phrase": "Maintenance Works Including Trimming",
     "count": 5
    },
    {
-    "phrase": "Maintenance Works Including Trimming",
+    "phrase": "Distribution Division Bhairab Twice",
     "count": 5
    },
    {
@@ -102347,11 +102363,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Engineer Zonal Repairing Shop",
+    "phrase": "Executive Engineer Zonal Repairing",
     "count": 4
    },
    {
-    "phrase": "Executive Engineer Zonal Repairing",
+    "phrase": "Engineer Zonal Repairing Shop",
     "count": 4
    },
    {
@@ -102375,7 +102391,7 @@
     "count": 5
    },
    {
-    "phrase": "Repairing Shop",
+    "phrase": "Executive Engineer",
     "count": 5
    }
   ],
@@ -103250,10 +103266,6 @@
     "count": 7
    },
    {
-    "phrase": "Electric Distribution Line Bogura",
-    "count": 5
-   },
-   {
     "phrase": "Distribution Line Bogura Own",
     "count": 5
    },
@@ -103262,7 +103274,11 @@
     "count": 5
    },
    {
-    "phrase": "Distribution Line Construction Shifting",
+    "phrase": "Electric Distribution Line Bogura",
+    "count": 5
+   },
+   {
+    "phrase": "Electric Distribution Line Construction",
     "count": 3
    },
    {
@@ -103270,7 +103286,7 @@
     "count": 3
    },
    {
-    "phrase": "Electric Distribution Line Construction",
+    "phrase": "Distribution Line Construction Shifting",
     "count": 3
    }
   ],
@@ -103644,11 +103660,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Auditing Unit Division Cumilla",
+    "phrase": "Energy Auditing Unit Division",
     "count": 3
    },
    {
-    "phrase": "Energy Auditing Unit Division",
+    "phrase": "Auditing Unit Division Cumilla",
     "count": 3
    }
   ],
@@ -103806,7 +103822,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Engineer Operation Maintenance Circle",
+    "phrase": "Operation Maintenance Circle Mymensingh",
     "count": 5
    },
    {
@@ -103814,7 +103830,7 @@
     "count": 5
    },
    {
-    "phrase": "Operation Maintenance Circle Mymensingh",
+    "phrase": "Engineer Operation Maintenance Circle",
     "count": 5
    },
    {
@@ -104818,19 +104834,19 @@
     "count": 4
    },
    {
-    "phrase": "Yearly Times the Division",
-    "count": 4
-   },
-   {
     "phrase": "Times the Division Bajitpur",
     "count": 4
    },
    {
-    "phrase": "Distribution Division Bajitpur Kishoreganj",
-    "count": 3
+    "phrase": "Yearly Times the Division",
+    "count": 4
    },
    {
     "phrase": "Sales and Distribution Division",
+    "count": 3
+   },
+   {
+    "phrase": "Distribution Division Bajitpur Kishoreganj",
     "count": 3
    },
    {
@@ -104842,7 +104858,7 @@
     "count": 3
    },
    {
-    "phrase": "Branch Cutting Both Sides",
+    "phrase": "Tree Branch Cutting Both",
     "count": 3
    }
   ],
@@ -106381,7 +106397,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Distribution Central Zone Mymensingh",
+    "phrase": "Engineer Distribution Central Zone",
     "count": 3
    },
    {
@@ -106389,7 +106405,7 @@
     "count": 3
    },
    {
-    "phrase": "Engineer Distribution Central Zone",
+    "phrase": "Distribution Central Zone Mymensingh",
     "count": 3
    }
   ],
@@ -108025,11 +108041,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Cabin Pickup Dhaka Metro-tha",
+    "phrase": "Double Cabin Pickup Dhaka",
     "count": 3
    },
    {
-    "phrase": "Double Cabin Pickup Dhaka",
+    "phrase": "Cabin Pickup Dhaka Metro-tha",
     "count": 3
    }
   ],
@@ -108765,12 +108781,12 @@
   ]
  },
  "9133": {
-  "value_bdt": 810000.0,
-  "count": 3,
+  "value_bdt": 1210000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 810000.0,
-    "count": 3
+    "value_bdt": 1210000.0,
+    "count": 4
    }
   },
   "by_nature": {},
@@ -108781,6 +108797,11 @@
     "count": 2
    },
    {
+    "company": "M/S S.R CONSTRUCTION",
+    "value_bdt": 400000.0,
+    "count": 1
+   },
+   {
     "company": "M/s Islam Traders",
     "value_bdt": 140000.0,
     "count": 1
@@ -108789,7 +108810,7 @@
   "top_districts": [
    {
     "district": "Naogaon",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [
@@ -108805,6 +108826,13 @@
     "value_bdt": 480000.0,
     "contract_signing_date": "2026-04-27",
     "description": "Tree Trimming work of Line ( Budget Section-30)"
+   },
+   {
+    "package_ref": "27.29.6500.000.043.12.26-1841",
+    "awarded_to": "M/S S.R CONSTRUCTION",
+    "value_bdt": 400000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Tree Trimming work of Line"
    },
    {
     "package_ref": "27.29.6500.0000.043.26.12.1627",
@@ -110032,19 +110060,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Matarbari Coal Based Power",
-    "count": 3
-   },
-   {
     "phrase": "Coal Based Power Plant",
     "count": 3
    },
    {
-    "phrase": "Matarbari Coal",
-    "count": 5
+    "phrase": "Matarbari Coal Based Power",
+    "count": 3
    },
    {
     "phrase": "Power Plant",
+    "count": 5
+   },
+   {
+    "phrase": "Matarbari Coal",
     "count": 5
    }
   ],
@@ -111376,23 +111404,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Provider for Bakhrabad Gas",
-    "count": 3
-   },
-   {
-    "phrase": "Ltd Cumilla and Other",
-    "count": 3
-   },
-   {
-    "phrase": "Cumilla and Other Area",
-    "count": 3
-   },
-   {
     "phrase": "Distribution Company Ltd Cumilla",
-    "count": 3
-   },
-   {
-    "phrase": "Service Provider for Bakhrabad",
     "count": 3
    },
    {
@@ -111400,11 +111412,27 @@
     "count": 3
    },
    {
+    "phrase": "Provider for Bakhrabad Gas",
+    "count": 3
+   },
+   {
+    "phrase": "Cumilla and Other Area",
+    "count": 3
+   },
+   {
     "phrase": "Bakhrabad Gas Distribution Company",
     "count": 3
    },
    {
-    "phrase": "Other Area Offices",
+    "phrase": "Service Provider for Bakhrabad",
+    "count": 3
+   },
+   {
+    "phrase": "Ltd Cumilla and Other",
+    "count": 3
+   },
+   {
+    "phrase": "Via Service Provider",
     "count": 3
    }
   ],

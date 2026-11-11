@@ -95,11 +95,11 @@
     "count": 5
    },
    {
-    "phrase": "Broadcast Computers Professional Sound",
+    "phrase": "Computers Professional Sound Card",
     "count": 5
    },
    {
-    "phrase": "Computers Professional Sound Card",
+    "phrase": "Broadcast Computers Professional Sound",
     "count": 5
    },
    {
@@ -453,7 +453,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Level St Phase",
+    "phrase": "Information Complexes District Level",
     "count": 5
    },
    {
@@ -461,11 +461,11 @@
     "count": 5
    },
    {
-    "phrase": "Modern Information Complexes District",
+    "phrase": "District Level St Phase",
     "count": 5
    },
    {
-    "phrase": "Information Complexes District Level",
+    "phrase": "Modern Information Complexes District",
     "count": 5
    },
    {
@@ -748,8 +748,8 @@
   ]
  },
  "5871": {
-  "value_bdt": 14630000.0,
-  "count": 20,
+  "value_bdt": 16630000.0,
+  "count": 21,
   "by_year": {
    "2022": {
     "value_bdt": 1640000.0,
@@ -764,12 +764,12 @@
     "count": 3
    },
    "2026": {
-    "value_bdt": 5670000.0,
-    "count": 13
+    "value_bdt": 7670000.0,
+    "count": 14
    }
   },
   "by_nature": {
-   "Goods": 8
+   "Goods": 9
   },
   "top_vendors": [
    {
@@ -783,6 +783,11 @@
     "count": 2
    },
    {
+    "company": "H.K Traders",
+    "value_bdt": 2550000.0,
+    "count": 4
+   },
+   {
     "company": "AQUIB TRADING CORPORATION",
     "value_bdt": 1570000.0,
     "count": 1
@@ -791,17 +796,12 @@
     "company": "M/S KHAN TRADERS",
     "value_bdt": 980000.0,
     "count": 2
-   },
-   {
-    "company": "Skyline Construction",
-    "value_bdt": 790000.0,
-    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 20
+    "count": 21
    }
   ],
   "top_phrases": [],
@@ -812,6 +812,13 @@
     "value_bdt": 2210000.0,
     "contract_signing_date": "2023-10-10",
     "description": "Supply of 6K Full-Frame Camcorder With standard and Optional Accessories ."
+   },
+   {
+    "package_ref": "15.55.0000.000.301.07.0128.26.1685",
+    "awarded_to": "H.K Traders",
+    "value_bdt": 2000000.0,
+    "contract_signing_date": "2026-11-10",
+    "description": "Purchase of Training Materials"
    },
    {
     "package_ref": "15.55.0000.305.07.004.22.259; Date: 01.02.2022",
@@ -833,13 +840,6 @@
     "value_bdt": 1570000.0,
     "contract_signing_date": "2026-06-11",
     "description": "Purchase of ACr for the classroom and seminar room."
-   },
-   {
-    "package_ref": "15.55.0000.303.07.149.23.619 Date- 27.09.23",
-    "awarded_to": "camera bazar",
-    "value_bdt": 1420000.0,
-    "contract_signing_date": "2023-11-20",
-    "description": "Supply of 4K Full-Frame Camcorder With standard and Optional Accessories."
    }
   ]
  },
@@ -1409,12 +1409,12 @@
   ]
  },
  "8029": {
-  "value_bdt": 760000.0,
-  "count": 6,
+  "value_bdt": 820000.0,
+  "count": 7,
   "by_year": {
    "2026": {
-    "value_bdt": 760000.0,
-    "count": 6
+    "value_bdt": 820000.0,
+    "count": 7
    }
   },
   "by_nature": {},
@@ -1438,12 +1438,17 @@
     "company": "MS B Enterprise",
     "value_bdt": 170000.0,
     "count": 1
+   },
+   {
+    "company": "MS Khan Traders",
+    "value_bdt": 60000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Barishal",
-    "count": 6
+    "count": 7
    }
   ],
   "top_phrases": [],
@@ -2519,11 +2524,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "High Power Transmitting Station",
+    "phrase": "Transmitting Station Bangladesh Betar",
     "count": 4
    },
    {
-    "phrase": "Transmitting Station Bangladesh Betar",
+    "phrase": "High Power Transmitting Station",
     "count": 4
    },
    {
@@ -2531,7 +2536,7 @@
     "count": 4
    },
    {
-    "phrase": "Subordinate Office Low Power",
+    "phrase": "Office Low Power Transmitting",
     "count": 3
    },
    {
@@ -2539,15 +2544,15 @@
     "count": 3
    },
    {
-    "phrase": "Bangladesh Betar Kallyanpur Dhaka",
-    "count": 3
-   },
-   {
     "phrase": "Station Bangladesh Betar Kallyanpur",
     "count": 3
    },
    {
-    "phrase": "Office Low Power Transmitting",
+    "phrase": "Subordinate Office Low Power",
+    "count": 3
+   },
+   {
+    "phrase": "Bangladesh Betar Kallyanpur Dhaka",
     "count": 3
    }
   ],
