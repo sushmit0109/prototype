@@ -102,18 +102,27 @@
   ]
  },
  "6574": {
-  "value_bdt": 7530000.0,
-  "count": 1,
+  "value_bdt": 31090000.0,
+  "count": 3,
   "by_year": {
    "2024": {
     "value_bdt": 7530000.0,
     "count": 1
+   },
+   "2026": {
+    "value_bdt": 23560000.0,
+    "count": 2
    }
   },
   "by_nature": {
    "Goods": 1
   },
   "top_vendors": [
+   {
+    "company": "Infrastructure Investment Facilitation Company",
+    "value_bdt": 23560000.0,
+    "count": 2
+   },
    {
     "company": "Unique Business Systems Ltd.",
     "value_bdt": 7530000.0,
@@ -123,17 +132,31 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 3
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "ECS/CBTEP/NCS-2.2/2026",
+    "awarded_to": "Infrastructure Investment Facilitation Company",
+    "value_bdt": 16780000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Procurement of Services through Outsourcing (55 manpower of Category 1)"
+   },
    {
     "package_ref": "ECS/CBTEP/pro/GD-04/2024",
     "awarded_to": "Unique Business Systems Ltd.",
     "value_bdt": 7530000.0,
     "contract_signing_date": "2024-12-17",
     "description": "Supply of Computer and accessories with support service"
+   },
+   {
+    "package_ref": "ECS/CBTEP/NCS-1.2/2026",
+    "awarded_to": "Infrastructure Investment Facilitation Company",
+    "value_bdt": 6780000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Procurement of Services through Outsourcing (20 manpower of Special Services-2 and Category 1 2 and 5)"
    }
   ]
  },

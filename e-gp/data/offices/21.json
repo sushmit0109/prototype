@@ -1107,7 +1107,7 @@
     "count": 3
    },
    {
-    "phrase": "Having Foundation for Six",
+    "phrase": "Foundation for Six Storied",
     "count": 3
    }
   ],
@@ -1240,11 +1240,11 @@
     "count": 6
    },
    {
-    "phrase": "Repair Painting",
+    "phrase": "External Repair",
     "count": 5
    },
    {
-    "phrase": "External Repair",
+    "phrase": "Repair Painting",
     "count": 5
    }
   ],
@@ -4009,15 +4009,15 @@
     "count": 3
    },
    {
-    "phrase": "Mujib Shilpa Nagar Development",
-    "count": 3
-   },
-   {
     "phrase": "Sheikh Mujib Shilpa Nagar",
     "count": 3
    },
    {
     "phrase": "Shilpa Nagar Development Project",
+    "count": 3
+   },
+   {
+    "phrase": "Mujib Shilpa Nagar Development",
     "count": 3
    }
   ],
@@ -4643,8 +4643,8 @@
   ]
  },
  "6290": {
-  "value_bdt": 7940000.0,
-  "count": 6,
+  "value_bdt": 12170000.0,
+  "count": 7,
   "by_year": {
    "2023": {
     "value_bdt": 2360000.0,
@@ -4655,8 +4655,8 @@
     "count": 1
    },
    "2026": {
-    "value_bdt": 2990000.0,
-    "count": 3
+    "value_bdt": 7220000.0,
+    "count": 4
    }
   },
   "by_nature": {
@@ -4668,6 +4668,11 @@
     "company": "M/s. Subecha Engineering",
     "value_bdt": 4780000.0,
     "count": 3
+   },
+   {
+    "company": "Eastern Cables Ltd",
+    "value_bdt": 4230000.0,
+    "count": 1
    },
    {
     "company": "M/S. NAHID ELECTRIC & ENGINEERING",
@@ -4688,11 +4693,18 @@
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 6
+    "count": 7
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "03.06.1535.327.07.000.26",
+    "awarded_to": "Eastern Cables Ltd",
+    "value_bdt": 4230000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Purchase of 11KV Underground Cable (3C X 185 sqmm) from Eastern Cables Limited"
+   },
    {
     "package_ref": "03.06.1535.327.07.173.23",
     "awarded_to": "M/s. Subecha Engineering",
@@ -4720,13 +4732,6 @@
     "value_bdt": 870000.0,
     "contract_signing_date": "2026-08-02",
     "description": "Monthly servicing and maintenance of Passenger lift of BEPZA Zone Office 10-storied Investors Residence and Officer's Dormitory at Chattogram EPZ"
-   },
-   {
-    "package_ref": "03.06.1535.327.18.096.23",
-    "awarded_to": "M/S Ruman International",
-    "value_bdt": 640000.0,
-    "contract_signing_date": "2023-08-13",
-    "description": "Painting of street light HP security light and 11 KV pole at Chattogram EPZ"
    }
   ]
  },
@@ -4794,11 +4799,11 @@
     "count": 6
    },
    {
-    "phrase": "Solar Street Light Patuakhali",
+    "phrase": "Street Light Patuakhali Project",
     "count": 4
    },
    {
-    "phrase": "Street Light Patuakhali Project",
+    "phrase": "Solar Street Light Patuakhali",
     "count": 4
    },
    {
@@ -4806,11 +4811,11 @@
     "count": 4
    },
    {
-    "phrase": "Network Group Patuakhali Project",
+    "phrase": "Treated Water Distribution Network",
     "count": 3
    },
    {
-    "phrase": "Treated Water Distribution Network",
+    "phrase": "Distribution Network Group Patuakhali",
     "count": 3
    },
    {
@@ -4911,11 +4916,11 @@
     "count": 8
    },
    {
-    "phrase": "Plot Sector Karnaphuli North",
+    "phrase": "Sector Karnaphuli North Patenga",
     "count": 4
    },
    {
-    "phrase": "Sector Karnaphuli North Patenga",
+    "phrase": "Plot Sector Karnaphuli North",
     "count": 4
    },
    {
@@ -4927,15 +4932,15 @@
     "count": 3
    },
    {
-    "phrase": "Carpeting Plot Sector Karnaphuli",
-    "count": 3
-   },
-   {
     "phrase": "Bituminous Carpeting Plot Sector",
     "count": 3
    },
    {
     "phrase": "Road Dense Bituminous Carpeting",
+    "count": 3
+   },
+   {
+    "phrase": "Dense Bituminous Carpeting Plot",
     "count": 3
    }
   ],
@@ -5509,12 +5514,12 @@
   ]
  },
  "8225": {
-  "value_bdt": 21610000.0,
-  "count": 10,
+  "value_bdt": 21700000.0,
+  "count": 11,
   "by_year": {
    "2026": {
-    "value_bdt": 21610000.0,
-    "count": 10
+    "value_bdt": 21700000.0,
+    "count": 11
    }
   },
   "by_nature": {
@@ -5551,17 +5556,17 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 10
+    "count": 11
    }
   ],
   "top_phrases": [
    {
     "phrase": "Supply Installation Testing Commissioning",
-    "count": 4
+    "count": 5
    },
    {
     "phrase": "Supply Installation",
-    "count": 6
+    "count": 7
    },
    {
     "phrase": "Complex Dhanmondi",

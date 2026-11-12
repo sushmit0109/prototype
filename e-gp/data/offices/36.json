@@ -602,11 +602,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Divisional Social",
+    "phrase": "Office Khulna",
     "count": 3
    },
    {
-    "phrase": "Office Khulna",
+    "phrase": "Divisional Social",
     "count": 3
    }
   ],
@@ -671,16 +671,23 @@
   ]
  },
  "10009": {
-  "value_bdt": 92580000.0,
-  "count": 4,
+  "value_bdt": 156980000.0,
+  "count": 5,
   "by_year": {
    "2026": {
-    "value_bdt": 92580000.0,
-    "count": 4
+    "value_bdt": 156980000.0,
+    "count": 5
    }
   },
-  "by_nature": {},
+  "by_nature": {
+   "Goods": 1
+  },
   "top_vendors": [
+   {
+    "company": "NADIA FURNITURE LTD.",
+    "value_bdt": 64400000.0,
+    "count": 1
+   },
    {
     "company": "Posh Furniture & Interior Limited",
     "value_bdt": 59920000.0,
@@ -700,11 +707,18 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "DSS/SSP2nd/POC/GD -11 Lot-2",
+    "awarded_to": "NADIA FURNITURE LTD.",
+    "value_bdt": 64400000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Procurement of closets for 19 centers"
+   },
    {
     "package_ref": "DSS/SSP2nd/PRT&RC/GD-11 Lot-03",
     "awarded_to": "Posh Furniture & Interior Limited",

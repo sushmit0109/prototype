@@ -468,11 +468,11 @@
     "count": 18
    },
    {
-    "phrase": "Cm X Cm X",
+    "phrase": "Size Cm X Cm",
     "count": 18
    },
    {
-    "phrase": "Size Cm X Cm",
+    "phrase": "Cm X Cm X",
     "count": 18
    },
    {
@@ -1450,11 +1450,11 @@
     "count": 3
    },
    {
-    "phrase": "Sheets for Mental Ability",
+    "phrase": "Answer Sheets for Mental",
     "count": 3
    },
    {
-    "phrase": "Answer Sheets for Mental",
+    "phrase": "Sheets for Mental Ability",
     "count": 3
    },
    {
@@ -1807,11 +1807,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Repair Renewal and Modernization",
+    "phrase": "Internal Electrical Repair Renewal",
     "count": 3
    },
    {
-    "phrase": "Internal Electrical Repair Renewal",
+    "phrase": "Repair Renewal and Modernization",
     "count": 3
    },
    {
@@ -2190,11 +2190,11 @@
     "count": 5
    },
    {
-    "phrase": "Foundation Regional Center",
+    "phrase": "Regional Center Bogura",
     "count": 4
    },
    {
-    "phrase": "Regional Center Bogura",
+    "phrase": "Foundation Regional Center",
     "count": 4
    },
    {
@@ -2316,11 +2316,11 @@
     "count": 3
    },
    {
-    "phrase": "Equipment Etc",
+    "phrase": "Related Equipment",
     "count": 3
    },
    {
-    "phrase": "Related Equipment",
+    "phrase": "Equipment Etc",
     "count": 3
    }
   ],
@@ -5044,12 +5044,12 @@
   ]
  },
  "8931": {
-  "value_bdt": 3820000.0,
-  "count": 1,
+  "value_bdt": 4350000.0,
+  "count": 4,
   "by_year": {
    "2026": {
-    "value_bdt": 3820000.0,
-    "count": 1
+    "value_bdt": 4350000.0,
+    "count": 4
    }
   },
   "by_nature": {},
@@ -5058,15 +5058,25 @@
     "company": "Rancon Infrastructures & Engineering Limited",
     "value_bdt": 3820000.0,
     "count": 1
+   },
+   {
+    "company": "KAFI ENTERPRISE",
+    "value_bdt": 530000.0,
+    "count": 3
    }
   ],
   "top_districts": [
    {
     "district": "Jamalpur",
-    "count": 1
+    "count": 4
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Office Jamalpur",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "05.45.3900.012.01.001.002.26",
@@ -5074,6 +5084,27 @@
     "value_bdt": 3820000.0,
     "contract_signing_date": "2026-06-11",
     "description": "single"
+   },
+   {
+    "package_ref": "05.45.3900.000.012.04.0002.22.3255101",
+    "awarded_to": "KAFI ENTERPRISE",
+    "value_bdt": 240000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Supply of Computer accessories printer or related other accessories for DC Office Jamalpur FY 2026-2027"
+   },
+   {
+    "package_ref": "05.45.3900.000.012.04.0002.22.3258103",
+    "awarded_to": "KAFI ENTERPRISE",
+    "value_bdt": 160000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Maintenance of Computer and related Accessories of DC Office Jamalpur"
+   },
+   {
+    "package_ref": "05.45.3900.000.012.04.0002.22.3255105",
+    "awarded_to": "KAFI ENTERPRISE",
+    "value_bdt": 130000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Procurement of other stationary for DC office Jamalpur"
    }
   ]
  },

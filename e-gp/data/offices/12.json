@@ -107,15 +107,15 @@
     "count": 4
    },
    {
-    "phrase": "Work Including Civil Sanitary",
+    "phrase": "Earners Welfare Board Lonjoni",
+    "count": 3
+   },
+   {
+    "phrase": "Welfare Board Lonjoni Para",
     "count": 3
    },
    {
     "phrase": "Board Lonjoni Para Borua",
-    "count": 3
-   },
-   {
-    "phrase": "Earners Welfare Board Lonjoni",
     "count": 3
    }
   ],
@@ -495,23 +495,23 @@
     "count": 3
    },
    {
-    "phrase": "File Folder Calendar Etc",
-    "count": 3
-   },
-   {
     "phrase": "Booklet File Folder Calendar",
     "count": 3
    },
    {
-    "phrase": "Consumables for and Field",
+    "phrase": "File Folder Calendar Etc",
     "count": 3
    },
    {
-    "phrase": "Printer Toner Photocopier Toner",
+    "phrase": "Center Printer Toner Photocopier",
     "count": 3
    },
    {
-    "phrase": "Toner Keyboard Mouse Pen",
+    "phrase": "Toner Photocopier Toner Keyboard",
+    "count": 3
+   },
+   {
+    "phrase": "Keyboard Mouse Pen Drive",
     "count": 3
    },
    {
@@ -616,19 +616,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Related Services for Technical",
-    "count": 14
-   },
-   {
     "phrase": "Equipment and Related Services",
     "count": 14
    },
    {
-    "phrase": "Training Equipment and Related",
+    "phrase": "Services for Technical Training",
     "count": 14
    },
    {
-    "phrase": "Services for Technical Training",
+    "phrase": "Related Services for Technical",
+    "count": 14
+   },
+   {
+    "phrase": "Training Equipment and Related",
     "count": 14
    },
    {
@@ -1322,11 +1322,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 3
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 3
    },
    {
@@ -1748,11 +1748,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Materials and Spare Parts",
+    "phrase": "Raw Materials and Spare",
     "count": 4
    },
    {
-    "phrase": "Raw Materials and Spare",
+    "phrase": "Materials and Spare Parts",
     "count": 4
    },
    {
@@ -2471,7 +2471,7 @@
     "count": 3
    },
    {
-    "phrase": "Training Masonry and Graphics",
+    "phrase": "Material for Training Masonry",
     "count": 3
    },
    {
@@ -2479,7 +2479,7 @@
     "count": 3
    },
    {
-    "phrase": "Material for Training Masonry",
+    "phrase": "Training Masonry and Graphics",
     "count": 3
    },
    {
@@ -2592,11 +2592,11 @@
     "count": 4
    },
    {
-    "phrase": "Parts for Different Trade",
+    "phrase": "Spare Parts for Different",
     "count": 4
    },
    {
-    "phrase": "Spare Parts for Different",
+    "phrase": "Parts for Different Trade",
     "count": 4
    },
    {
@@ -2686,11 +2686,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Raw Materials for Deferent",
+    "phrase": "Materials for Deferent Trade",
     "count": 6
    },
    {
-    "phrase": "Materials for Deferent Trade",
+    "phrase": "Raw Materials for Deferent",
     "count": 6
    }
   ],
@@ -3028,12 +3028,16 @@
   ]
  },
  "7397": {
-  "value_bdt": 1660000.0,
-  "count": 5,
+  "value_bdt": 2160000.0,
+  "count": 6,
   "by_year": {
    "2025": {
     "value_bdt": 1660000.0,
     "count": 5
+   },
+   "2026": {
+    "value_bdt": 500000.0,
+    "count": 1
    }
   },
   "by_nature": {},
@@ -3044,41 +3048,52 @@
     "count": 3
    },
    {
-    "company": "M/S Rafi And Rahat Enterprise",
-    "value_bdt": 280000.0,
-    "count": 1
+    "company": "M/S Mirza Enterprise",
+    "value_bdt": 710000.0,
+    "count": 2
    },
    {
-    "company": "M/S Mirza Enterprise",
-    "value_bdt": 210000.0,
+    "company": "M/S Rafi And Rahat Enterprise",
+    "value_bdt": 280000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Shariatpur",
-    "count": 5
+    "count": 6
    }
   ],
   "top_phrases": [
+   {
+    "phrase": "Parts for Various Trade",
+    "count": 4
+   },
+   {
+    "phrase": "Spare Parts for Various",
+    "count": 4
+   },
    {
     "phrase": "Raw Materials Spare Parts",
     "count": 3
    },
    {
-    "phrase": "Parts for Various Trade",
-    "count": 3
-   },
-   {
-    "phrase": "Spare Parts for Various",
-    "count": 3
-   },
-   {
     "phrase": "Various Trade Shariatpur",
-    "count": 5
+    "count": 6
+   },
+   {
+    "phrase": "Raw Materials",
+    "count": 4
    }
   ],
   "top_contracts": [
+   {
+    "package_ref": "49.01.8600.003.07.031.26.01",
+    "awarded_to": "M/S Mirza Enterprise",
+    "value_bdt": 500000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Supply of Raw Materials and spare parts for various Trade at TTC Shariatpur."
+   },
    {
     "package_ref": "49.01.8600.003.07.027.25",
     "awarded_to": "CIVIC LIMITED",
@@ -3106,13 +3121,6 @@
     "value_bdt": 210000.0,
     "contract_signing_date": "2025-11-09",
     "description": "Procurement of Tools & Machinery for Various Trade at TTC Shariatpur."
-   },
-   {
-    "package_ref": "49.01.8600.003.07.028.25",
-    "awarded_to": "CIVIC LIMITED",
-    "value_bdt": 200000.0,
-    "contract_signing_date": "2025-10-26",
-    "description": "Procurement of Raw Materials & Spare Parts for Various Trade at TTC Shariatpur."
    }
   ]
  },
@@ -4595,12 +4603,12 @@
   ]
  },
  "9128": {
-  "value_bdt": 2800000.0,
-  "count": 5,
+  "value_bdt": 3100000.0,
+  "count": 6,
   "by_year": {
    "2026": {
-    "value_bdt": 2800000.0,
-    "count": 5
+    "value_bdt": 3100000.0,
+    "count": 6
    }
   },
   "by_nature": {
@@ -4621,15 +4629,25 @@
     "company": "M/S. NAZMUL TRADERS",
     "value_bdt": 300000.0,
     "count": 1
+   },
+   {
+    "company": "Bishmoy Consortium",
+    "value_bdt": 300000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 5
+    "count": 6
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Raw Materials",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "49.01.2638.001.25.002.26-2632",
@@ -4660,11 +4678,11 @@
     "description": "Supply of Engineering and Other Equipment for RAC EIM & Mobile Phone Servicing Trade."
    },
    {
-    "package_ref": "KTTC/SICIP/GD-1/2026",
-    "awarded_to": "M/S. J.N Construction",
-    "value_bdt": 260000.0,
-    "contract_signing_date": "2026-09-15",
-    "description": "Raw materials for fashion design graphic design and beautification trades."
+    "package_ref": "KTTC/GoB/GD-2/2026",
+    "awarded_to": "Bishmoy Consortium",
+    "value_bdt": 300000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Supply of Training Raw Materials for Three Trade (Mobil Phone Servicing Electrical & Computer)"
    }
   ]
  },
@@ -4708,11 +4726,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Spare Parts",
+    "phrase": "Trade Madaripur",
     "count": 3
    },
    {
-    "phrase": "Trade Madaripur",
+    "phrase": "Spare Parts",
     "count": 3
    }
   ],
@@ -5081,11 +5099,11 @@
     "count": 3
    },
    {
-    "phrase": "Machine Shop Practice",
+    "phrase": "Electrical Installation Maintenance",
     "count": 3
    },
    {
-    "phrase": "Electrical Installation Maintenance",
+    "phrase": "Machine Shop Practice",
     "count": 3
    },
    {
@@ -5556,20 +5574,25 @@
   ]
  },
  "9766": {
-  "value_bdt": 1520000.0,
-  "count": 4,
+  "value_bdt": 2410000.0,
+  "count": 6,
   "by_year": {
    "2026": {
-    "value_bdt": 1520000.0,
-    "count": 4
+    "value_bdt": 2410000.0,
+    "count": 6
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
     "company": "M/S. Jaman Enterprisre",
-    "value_bdt": 950000.0,
-    "count": 2
+    "value_bdt": 1350000.0,
+    "count": 3
+   },
+   {
+    "company": "SAGOR DESIGN & CONSTRUCTION-SDC",
+    "value_bdt": 490000.0,
+    "count": 1
    },
    {
     "company": "M/S. ASAD ENTERPRISE",
@@ -5585,10 +5608,19 @@
   "top_districts": [
    {
     "district": "Lalmonirhat",
-    "count": 4
+    "count": 6
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Different Trade Lalmonirhat",
+    "count": 3
+   },
+   {
+    "phrase": "Raw Materials",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "TTC/Lal/GoB/2026-27/GD-01",
@@ -5598,6 +5630,13 @@
     "description": "Supply of Raw Materials for Different Trade at TTC Lalmonirhat"
    },
    {
+    "package_ref": "TTC/Lal/GoB/2026-27/GD-03",
+    "awarded_to": "SAGOR DESIGN & CONSTRUCTION-SDC",
+    "value_bdt": 490000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Procurement of Engineering Equipment for Different Trade at TTC Lalmonirhat"
+   },
+   {
     "package_ref": "TTC/Lal/GoB/2026-27/WO-02",
     "awarded_to": "M/S. Jaman Enterprisre",
     "value_bdt": 450000.0,
@@ -5605,18 +5644,18 @@
     "description": "Repair Maintenance and Minor Renovation Works of Academic Building and Principal Residential Building at Lalmonirhat LTTC"
    },
    {
+    "package_ref": "TTC/Lal/GoB/2026-27/GD-02",
+    "awarded_to": "M/S. Jaman Enterprisre",
+    "value_bdt": 400000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Supply of Raw Materials for Different Trade at TTC Lalmonirhat"
+   },
+   {
     "package_ref": "Purchasing of training raw materials /2025/GD-01",
     "awarded_to": "M/S. ASAD ENTERPRISE",
     "value_bdt": 290000.0,
     "contract_signing_date": "2026-01-25",
     "description": "Purchasing of training raw materials at Lalmonirhat Technical Training Centre Sadar Lalmonirhat."
-   },
-   {
-    "package_ref": "Purchasing Of training Materials /2025/GD-02",
-    "awarded_to": "M/S. Shorov Construction",
-    "value_bdt": 280000.0,
-    "contract_signing_date": "2026-01-06",
-    "description": "Purchasing Of training Materials at Lalmonirhat Technical Training Centre Sadar Lalmonirhat."
    }
   ]
  },

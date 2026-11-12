@@ -297,16 +297,12 @@
     "count": 4
    },
    {
-    "phrase": "Uniform Dress Other Accessories",
-    "count": 4
-   },
-   {
     "phrase": "Accessories for Th Grade",
     "count": 4
    },
    {
-    "phrase": "Showcase Photo Frame Display",
-    "count": 3
+    "phrase": "Uniform Dress Other Accessories",
+    "count": 4
    },
    {
     "phrase": "Photo Frame Display Board",
@@ -317,7 +313,11 @@
     "count": 3
    },
    {
-    "phrase": "Frame Display Board Furniture",
+    "phrase": "Showcase Table Showcase Photo",
+    "count": 3
+   },
+   {
+    "phrase": "Showcase Photo Frame Display",
     "count": 3
    }
   ],
@@ -588,11 +588,11 @@
     "count": 13
    },
    {
-    "phrase": "Material for Conservation Work",
+    "phrase": "Supply Material for Conservation",
     "count": 4
    },
    {
-    "phrase": "Supply Material for Conservation",
+    "phrase": "Material for Conservation Work",
     "count": 4
    },
    {
@@ -994,8 +994,8 @@
   ]
  },
  "5299": {
-  "value_bdt": 3610000.0,
-  "count": 4,
+  "value_bdt": 3870000.0,
+  "count": 5,
   "by_year": {
    "2021": {
     "value_bdt": 720000.0,
@@ -1004,6 +1004,10 @@
    "2022": {
     "value_bdt": 2890000.0,
     "count": 3
+   },
+   "2026": {
+    "value_bdt": 260000.0,
+    "count": 1
    }
   },
   "by_nature": {
@@ -1024,12 +1028,17 @@
     "company": "ANR Technologies",
     "value_bdt": 420000.0,
     "count": 1
+   },
+   {
+    "company": "Innovative Soft",
+    "value_bdt": 260000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [],
@@ -1061,6 +1070,13 @@
     "value_bdt": 420000.0,
     "contract_signing_date": "2022-11-10",
     "description": "Computer and Photocopy Machine Toner"
+   },
+   {
+    "package_ref": "43.00.0000.000.111.07.0001.26(1-8)",
+    "awarded_to": "Innovative Soft",
+    "value_bdt": 260000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Procurement of Digital Attendance Machine"
    }
   ]
  },
@@ -1669,8 +1685,8 @@
   ]
  },
  "6994": {
-  "value_bdt": 5300000.0,
-  "count": 3,
+  "value_bdt": 7080000.0,
+  "count": 4,
   "by_year": {
    "2024": {
     "value_bdt": 2200000.0,
@@ -1679,10 +1695,14 @@
    "2025": {
     "value_bdt": 3100000.0,
     "count": 2
+   },
+   "2026": {
+    "value_bdt": 1780000.0,
+    "count": 1
    }
   },
   "by_nature": {
-   "Goods": 3
+   "Goods": 4
   },
   "top_vendors": [
    {
@@ -1692,14 +1712,14 @@
    },
    {
     "company": "Otobi Limited",
-    "value_bdt": 1250000.0,
-    "count": 1
+    "value_bdt": 3030000.0,
+    "count": 2
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 3
+    "count": 4
    }
   ],
   "top_phrases": [],
@@ -1717,6 +1737,13 @@
     "value_bdt": 1850000.0,
     "contract_signing_date": "2025-12-02",
     "description": "Supply of Computer and Other Item (Desktop Computer Laptop Printer UPS Scanner)"
+   },
+   {
+    "package_ref": "43.25.0000.003.021.07.0021.25",
+    "awarded_to": "Otobi Limited",
+    "value_bdt": 1780000.0,
+    "contract_signing_date": "2026-11-11",
+    "description": "Supply of Furniture (Conference Chair Sofa Computer Table Computer Chair Secretariate Table Visitor Chair Steel File Cabinet Steel Book Rack etc.)"
    },
    {
     "package_ref": "43.25.0000.003.021.07.0021.25",
@@ -2451,11 +2478,11 @@
     "count": 3
    },
    {
-    "phrase": "Conservation and Development",
+    "phrase": "Archaeological Sites Mymensingh",
     "count": 4
    },
    {
-    "phrase": "Archaeological Sites Mymensingh",
+    "phrase": "Conservation and Development",
     "count": 4
    }
   ],
