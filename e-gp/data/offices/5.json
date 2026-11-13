@@ -285,11 +285,7 @@
     "count": 25
    },
    {
-    "phrase": "Line Pachmatha-panchapukur-kishorgonj Sadurarpool Road",
-    "count": 21
-   },
-   {
-    "phrase": "Sadurarpool Road Road Division",
+    "phrase": "Joygonj-bhabanigonj-nilphamari Police Line Pachmatha-panchapukur-kishorgonj",
     "count": 21
    },
    {
@@ -297,11 +293,15 @@
     "count": 21
    },
    {
-    "phrase": "Joygonj-bhabanigonj-nilphamari Police Line Pachmatha-panchapukur-kishorgonj",
+    "phrase": "Pachmatha-panchapukur-kishorgonj Sadurarpool Road Road",
     "count": 21
    },
    {
-    "phrase": "Pachmatha-panchapukur-kishorgonj Sadurarpool Road Road",
+    "phrase": "Line Pachmatha-panchapukur-kishorgonj Sadurarpool Road",
+    "count": 21
+   },
+   {
+    "phrase": "Sadurarpool Road Road Division",
     "count": 21
    },
    {
@@ -475,11 +475,11 @@
     "count": 33
    },
    {
-    "phrase": "Ibrahimpur-horina-chandpur Bhatialpur Road Shariatpur",
+    "phrase": "Bhatialpur Road Shariatpur Road",
     "count": 32
    },
    {
-    "phrase": "Bhatialpur Road Shariatpur Road",
+    "phrase": "Ibrahimpur-horina-chandpur Bhatialpur Road Shariatpur",
     "count": 32
    }
   ],
@@ -637,11 +637,11 @@
     "count": 35
    },
    {
-    "phrase": "Roads Road Division Thakurgaon",
+    "phrase": "Different Roads Road Division",
     "count": 28
    },
    {
-    "phrase": "Different Roads Road Division",
+    "phrase": "Roads Road Division Thakurgaon",
     "count": 28
    },
    {
@@ -649,11 +649,11 @@
     "count": 27
    },
    {
-    "phrase": "Bitumenous Work Repair Carpeting",
+    "phrase": "Damaged Bitumenous Work Repair",
     "count": 27
    },
    {
-    "phrase": "Damaged Bitumenous Work Repair",
+    "phrase": "Bitumenous Work Repair Carpeting",
     "count": 27
    }
   ],
@@ -1218,8 +1218,8 @@
   ]
  },
  "73": {
-  "value_bdt": 3645360000.0,
-  "count": 494,
+  "value_bdt": 3892320000.0,
+  "count": 495,
   "by_year": {
    "2013": {
     "value_bdt": 7600000.0,
@@ -1274,12 +1274,12 @@
     "count": 46
    },
    "2026": {
-    "value_bdt": 510790000.0,
-    "count": 48
+    "value_bdt": 757750000.0,
+    "count": 49
    }
   },
   "by_nature": {
-   "Works": 380,
+   "Works": 381,
    "Goods": 59
   },
   "top_vendors": [
@@ -1287,6 +1287,11 @@
     "company": "Hassan Techno Builders Ltd.",
     "value_bdt": 1323670000.0,
     "count": 21
+   },
+   {
+    "company": "Rimi Nirman Ltd.",
+    "value_bdt": 474280000.0,
+    "count": 2
    },
    {
     "company": "Al Amin Construction Co. Ltd. - M.A.H. CONSTRUCTION LTD. (JV)",
@@ -1299,11 +1304,6 @@
     "count": 40
    },
    {
-    "company": "Rimi Nirman Ltd.",
-    "value_bdt": 227320000.0,
-    "count": 1
-   },
-   {
     "company": "Oyster Construction and Shipping Company Ltd.",
     "value_bdt": 187430000.0,
     "count": 1
@@ -1312,13 +1312,13 @@
   "top_districts": [
    {
     "district": "Chandpur",
-    "count": 494
+    "count": 495
    }
   ],
   "top_phrases": [
    {
     "phrase": "Road Road Division Chandpur",
-    "count": 303
+    "count": 304
    },
    {
     "phrase": "Repairing the Existing Damaged",
@@ -1372,18 +1372,18 @@
     "description": "Earthwork reconstruction DBS etc Pavement work Construction of 2 Nos RCC Box Culvert (Single & Double Vent) Drain Protective Work Sign Signal installation work "
    },
    {
+    "package_ref": "e-GP/CRD/EE/PMP Road/OTM/04/2025-2026",
+    "awarded_to": "Rimi Nirman Ltd.",
+    "value_bdt": 246960000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Periodic Maintenance Programme (PMP) by Providing Rigid Pavment And RCC Retaining Wall from Ch: 05+500 (Rahimanagar- Bazar South Side) to Ch: 07+012 (Rahimnagar"
+   },
+   {
     "package_ref": "egp/CRD/EE/PMPRoad/OSTETM/03/2024-2025",
     "awarded_to": "Rimi Nirman Ltd.",
     "value_bdt": 227320000.0,
     "contract_signing_date": "2025-11-05",
     "description": "Periodic Maintenance Programme (PMP) by Providing DBS Wearing Course DBS Base Course on Repair portion from Ch:30+610 (Khajuria) to Ch:47+500 (Hajigonj Bazar) o"
-   },
-   {
-    "package_ref": "egp/CRD/EE/PMPRoad/OTM/01/2025-2026",
-    "awarded_to": "Hassan Techno Builders Ltd.",
-    "value_bdt": 222060000.0,
-    "contract_signing_date": "2026-04-29",
-    "description": "Periodic Maintenance Programme (PMP) by Providing DBS-Wearing Course Strengthening & Rigid Pavement from 47+500 (Hajigonj Bazar) to 54+000 (Bakila) of Cumilla-L"
    }
   ]
  },
@@ -1851,11 +1851,11 @@
     "count": 53
    },
    {
-    "phrase": "Seal Coat Including Necessary",
+    "phrase": "Coat Including Necessary Repair",
     "count": 52
    },
    {
-    "phrase": "Coat Including Necessary Repair",
+    "phrase": "Seal Coat Including Necessary",
     "count": 52
    },
    {
@@ -3037,11 +3037,11 @@
     "count": 73
    },
    {
-    "phrase": "Steel Road Safety Convex",
+    "phrase": "Stainless Steel Road Safety",
     "count": 40
    },
    {
-    "phrase": "Stainless Steel Road Safety",
+    "phrase": "Steel Road Safety Convex",
     "count": 40
    },
    {
@@ -3381,15 +3381,15 @@
     "count": 8
    },
    {
-    "phrase": "Khulna Stackyard for Repairing",
-    "count": 5
-   },
-   {
     "phrase": "Division Khulna Road Division",
     "count": 5
    },
    {
-    "phrase": "Culvert Number Road Marking",
+    "phrase": "Khulna Stackyard for Repairing",
+    "count": 5
+   },
+   {
+    "phrase": "Marking Sign Signal Installation",
     "count": 4
    }
   ],
@@ -3539,7 +3539,7 @@
     "count": 5
    },
    {
-    "phrase": "Existing Pavement Providing Double",
+    "phrase": "Flat Soling and Herring",
     "count": 5
    },
    {
@@ -3547,7 +3547,7 @@
     "count": 5
    },
    {
-    "phrase": "Providing Double Layer Brick",
+    "phrase": "Layer Brick Flat Soling",
     "count": 5
    }
   ],
@@ -3811,11 +3811,11 @@
     "count": 297
    },
    {
-    "phrase": "Stack Yard Road Division",
+    "phrase": "Yard Road Division Naogaon",
     "count": 41
    },
    {
-    "phrase": "Yard Road Division Naogaon",
+    "phrase": "Stack Yard Road Division",
     "count": 41
    },
    {
@@ -4666,11 +4666,11 @@
     "count": 35
    },
    {
-    "phrase": "Work Providing Aggregate Base",
+    "phrase": "Maintenance Work Providing Aggregate",
     "count": 35
    },
    {
-    "phrase": "Maintenance Work Providing Aggregate",
+    "phrase": "Work Providing Aggregate Base",
     "count": 35
    },
    {
@@ -4836,11 +4836,11 @@
     "count": 104
    },
    {
-    "phrase": "Road Sub-division Noakhali Road",
+    "phrase": "Sub-division Noakhali Road Division",
     "count": 88
    },
    {
-    "phrase": "Sub-division Noakhali Road Division",
+    "phrase": "Road Sub-division Noakhali Road",
     "count": 88
    },
    {
@@ -4852,11 +4852,11 @@
     "count": 71
    },
    {
-    "phrase": "Base Type-ii Carpeting Seal",
+    "phrase": "Type-ii Carpeting Seal Coat",
     "count": 57
    },
    {
-    "phrase": "Type-ii Carpeting Seal Coat",
+    "phrase": "Base Type-ii Carpeting Seal",
     "count": 57
    }
   ],
@@ -5848,11 +5848,11 @@
     "count": 320
    },
    {
-    "phrase": "Bituminous Surface Treatment Work",
+    "phrase": "Single Bituminous Surface Treatment",
     "count": 48
    },
    {
-    "phrase": "Single Bituminous Surface Treatment",
+    "phrase": "Bituminous Surface Treatment Work",
     "count": 48
    },
    {
@@ -6366,11 +6366,11 @@
     "count": 38
    },
    {
-    "phrase": "Roads Road Division Kushtia",
+    "phrase": "Different Roads Road Division",
     "count": 38
    },
    {
-    "phrase": "Different Roads Road Division",
+    "phrase": "Roads Road Division Kushtia",
     "count": 38
    },
    {
@@ -6702,11 +6702,11 @@
     "count": 62
    },
    {
-    "phrase": "Seal Coat Including Necessary",
+    "phrase": "Coat Including Necessary Repair",
     "count": 44
    },
    {
-    "phrase": "Coat Including Necessary Repair",
+    "phrase": "Seal Coat Including Necessary",
     "count": 44
    },
    {
@@ -7047,11 +7047,11 @@
     "count": 225
    },
    {
-    "phrase": "Base Type-ii Carpeting Seal",
+    "phrase": "Type-ii Carpeting Seal Coat",
     "count": 97
    },
    {
-    "phrase": "Type-ii Carpeting Seal Coat",
+    "phrase": "Base Type-ii Carpeting Seal",
     "count": 97
    },
    {
@@ -7218,15 +7218,15 @@
     "count": 16
    },
    {
+    "phrase": "Notakhola Kashinathpur Bogra Rangpur",
+    "count": 15
+   },
+   {
     "phrase": "Kashinathpur Bogra Rangpur Beldanga",
     "count": 15
    },
    {
     "phrase": "Bogra Rangpur Beldanga Banglabandha",
-    "count": 15
-   },
-   {
-    "phrase": "Notakhola Kashinathpur Bogra Rangpur",
     "count": 15
    },
    {
@@ -7404,11 +7404,11 @@
     "count": 70
    },
    {
-    "phrase": "Joydebpur-mymensingh Road Gazipur Road",
+    "phrase": "Banani Joydebpur-mymensingh Road Gazipur",
     "count": 66
    },
    {
-    "phrase": "Banani Joydebpur-mymensingh Road Gazipur",
+    "phrase": "Joydebpur-mymensingh Road Gazipur Road",
     "count": 66
    }
   ],
@@ -7902,11 +7902,11 @@
     "count": 20
    },
    {
-    "phrase": "Ghat Barguna Road Division",
+    "phrase": "Ferry Ghat Barguna Road",
     "count": 19
    },
    {
-    "phrase": "Ferry Ghat Barguna Road",
+    "phrase": "Ghat Barguna Road Division",
     "count": 19
    },
    {
@@ -8404,11 +8404,11 @@
     "count": 239
    },
    {
-    "phrase": "Supply for Routine Maintenance",
+    "phrase": "Labour Supply for Routine",
     "count": 42
    },
    {
-    "phrase": "Labour Supply for Routine",
+    "phrase": "Supply for Routine Maintenance",
     "count": 42
    },
    {
@@ -8587,11 +8587,11 @@
     "count": 59
    },
    {
-    "phrase": "Ghat Ferry Sub-division Faridpur",
+    "phrase": "Ferry Ghat Ferry Sub-division",
     "count": 56
    },
    {
-    "phrase": "Ferry Ghat Ferry Sub-division",
+    "phrase": "Ghat Ferry Sub-division Faridpur",
     "count": 56
    },
    {
@@ -8911,11 +8911,11 @@
     "count": 47
    },
    {
-    "phrase": "Seal Coat Including Necessary",
+    "phrase": "Coat Including Necessary Repair",
     "count": 44
    },
    {
-    "phrase": "Coat Including Necessary Repair",
+    "phrase": "Seal Coat Including Necessary",
     "count": 44
    },
    {
@@ -9243,11 +9243,11 @@
     "count": 13
    },
    {
-    "phrase": "Repair Seal Coat Work",
+    "phrase": "Magura-mohammadpur Road Road Division",
     "count": 12
    },
    {
-    "phrase": "Magura-mohammadpur Road Road Division",
+    "phrase": "Repair Seal Coat Work",
     "count": 12
    }
   ],
@@ -9692,7 +9692,23 @@
     "count": 9
    },
    {
+    "phrase": "Saucer Drain Toe Gide",
+    "count": 5
+   },
+   {
+    "phrase": "Gide Wall Palasiding Sign",
+    "count": 5
+   },
+   {
     "phrase": "Surface Saucer Drain Toe",
+    "count": 5
+   },
+   {
+    "phrase": "Earth Work Widening Strengthening",
+    "count": 5
+   },
+   {
+    "phrase": "Drain Toe Gide Wall",
     "count": 5
    },
    {
@@ -9701,22 +9717,6 @@
    },
    {
     "phrase": "Work Widening Strengthening Surfacing",
-    "count": 5
-   },
-   {
-    "phrase": "Saucer Drain Toe Gide",
-    "count": 5
-   },
-   {
-    "phrase": "Earth Work Widening Strengthening",
-    "count": 5
-   },
-   {
-    "phrase": "Toe Gide Wall Palasiding",
-    "count": 5
-   },
-   {
-    "phrase": "Drain Toe Gide Wall",
     "count": 5
    }
   ],
@@ -10691,7 +10691,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Ghats Ferry Sub-division Patuakhali",
+    "phrase": "Different Ferry Ghats Ferry",
     "count": 438
    },
    {
@@ -10699,7 +10699,7 @@
     "count": 438
    },
    {
-    "phrase": "Different Ferry Ghats Ferry",
+    "phrase": "Ghats Ferry Sub-division Patuakhali",
     "count": 438
    },
    {
@@ -11026,11 +11026,11 @@
     "count": 535
    },
    {
-    "phrase": "Division Procurement Storage Division",
+    "phrase": "Ferry Division Procurement Storage",
     "count": 532
    },
    {
-    "phrase": "Ferry Division Procurement Storage",
+    "phrase": "Division Procurement Storage Division",
     "count": 532
    },
    {
@@ -11196,11 +11196,11 @@
     "count": 9
    },
    {
-    "phrase": "Materials for Maintenance Work",
+    "phrase": "Road Sub-division Tangail Road",
     "count": 8
    },
    {
-    "phrase": "Sub-division Tangail Road Division",
+    "phrase": "Materials for Maintenance Work",
     "count": 8
    }
   ],
@@ -11494,11 +11494,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Overhauling Other Repair Works",
+    "phrase": "Engine Overhauling Other Repair",
     "count": 11
    },
    {
-    "phrase": "Engine Overhauling Other Repair",
+    "phrase": "Overhauling Other Repair Works",
     "count": 11
    },
    {
@@ -11510,11 +11510,11 @@
     "count": 8
    },
    {
-    "phrase": "Road Division Bogra Ferry",
+    "phrase": "Bogra Ferry Division Bogra",
     "count": 8
    },
    {
-    "phrase": "Bogra Ferry Division Bogra",
+    "phrase": "Road Division Bogra Ferry",
     "count": 8
    },
    {
@@ -11522,7 +11522,7 @@
     "count": 8
    },
    {
-    "phrase": "Other Repair Works Denting",
+    "phrase": "Repair Works Denting Painting",
     "count": 8
    }
   ],
@@ -11837,11 +11837,11 @@
     "count": 11
    },
    {
-    "phrase": "Regional Highway Bhola Road",
+    "phrase": "Highway Bhola Road Division",
     "count": 10
    },
    {
-    "phrase": "Highway Bhola Road Division",
+    "phrase": "Regional Highway Bhola Road",
     "count": 10
    },
    {
@@ -12656,15 +12656,11 @@
     "count": 10
    },
    {
-    "phrase": "Ghonapara Road Including Construction",
-    "count": 8
-   },
-   {
-    "phrase": "Sheik Lutfar Rahman Bridge",
-    "count": 8
-   },
-   {
     "phrase": "Pirojpur-gopalgonj Ghonapara Road Including",
+    "count": 8
+   },
+   {
+    "phrase": "Incomplete Sheik Lutfar Rahman",
     "count": 8
    },
    {
@@ -12672,7 +12668,11 @@
     "count": 8
    },
    {
-    "phrase": "Incomplete Sheik Lutfar Rahman",
+    "phrase": "Sheik Lutfar Rahman Bridge",
+    "count": 8
+   },
+   {
+    "phrase": "Lutfar Rahman Bridge Patgati",
     "count": 8
    }
   ],
@@ -13323,7 +13323,7 @@
     "count": 50
    },
    {
-    "phrase": "Shoulder Repair Etc Work",
+    "phrase": "Cutting Soft Shoulder Repair",
     "count": 33
    }
   ],
@@ -13947,15 +13947,15 @@
     "count": 8
    },
    {
+    "phrase": "Sharifur Road Road Division",
+    "count": 3
+   },
+   {
     "phrase": "Prithimpasha Hajipur Sharifur Road",
     "count": 3
    },
    {
     "phrase": "Hajipur Sharifur Road Road",
-    "count": 3
-   },
-   {
-    "phrase": "Sharifur Road Road Division",
     "count": 3
    },
    {
@@ -14461,7 +14461,7 @@
     "count": 21
    },
    {
-    "phrase": "Jatrabari Mawa-bhanga-barisal-patuakhali National Highway",
+    "phrase": "Dhaka Jatrabari Mawa-bhanga-barisal-patuakhali National",
     "count": 19
    }
   ],
@@ -14610,15 +14610,15 @@
     "count": 4
    },
    {
+    "phrase": "Pipulbaria-sonamukhi-dhunot Road Road Division",
+    "count": 3
+   },
+   {
     "phrase": "Shaheed Monsur Ali Pipulbaria-sonamukhi-dhunot",
     "count": 3
    },
    {
     "phrase": "Ali Pipulbaria-sonamukhi-dhunot Road Road",
-    "count": 3
-   },
-   {
-    "phrase": "Monsur Ali Pipulbaria-sonamukhi-dhunot Road",
     "count": 3
    }
   ],
@@ -15253,11 +15253,11 @@
     "count": 62
    },
    {
-    "phrase": "Ferry Ghat Workshop Division",
+    "phrase": "Ghat Workshop Division Rangamati",
     "count": 50
    },
    {
-    "phrase": "Ghat Workshop Division Rangamati",
+    "phrase": "Ferry Ghat Workshop Division",
     "count": 50
    },
    {
@@ -15277,7 +15277,7 @@
     "count": 37
    },
    {
-    "phrase": "Spare Parts for Engine",
+    "phrase": "Parts for Engine Overhauling",
     "count": 36
    }
   ],
@@ -15880,7 +15880,7 @@
     "count": 3
    },
    {
-    "phrase": "Per Soil Classification",
+    "phrase": "Engineering Soil Mapping",
     "count": 3
    },
    {
@@ -15888,15 +15888,15 @@
     "count": 3
    },
    {
-    "phrase": "Engineering Soil Mapping",
+    "phrase": "Per Soil Classification",
     "count": 3
    },
    {
-    "phrase": "Soil Mapping",
+    "phrase": "Sub-soil Investigation",
     "count": 4
    },
    {
-    "phrase": "Sub-soil Investigation",
+    "phrase": "Soil Mapping",
     "count": 4
    }
   ],
@@ -16001,6 +16001,14 @@
     "count": 18
    },
    {
+    "phrase": "Project Phase-ii Ferry Construction",
+    "count": 18
+   },
+   {
+    "phrase": "Phase-ii Ferry Construction Division",
+    "count": 18
+   },
+   {
     "phrase": "Construction Rehabilitation Project Phase-ii",
     "count": 18
    },
@@ -16009,19 +16017,11 @@
     "count": 18
    },
    {
-    "phrase": "Project Phase-ii Ferry Construction",
-    "count": 18
-   },
-   {
-    "phrase": "Rehabilitation Project Phase-ii Ferry",
-    "count": 18
-   },
-   {
     "phrase": "Pontoon Construction Rehabilitation Project",
     "count": 18
    },
    {
-    "phrase": "Phase-ii Ferry Construction Division",
+    "phrase": "Rehabilitation Project Phase-ii Ferry",
     "count": 18
    },
    {
@@ -16167,11 +16167,11 @@
     "count": 2389
    },
    {
-    "phrase": "Spare Parts for Repair",
+    "phrase": "Parts for Repair Work",
     "count": 2307
    },
    {
-    "phrase": "Parts for Repair Work",
+    "phrase": "Spare Parts for Repair",
     "count": 2307
    },
    {
@@ -16329,11 +16329,11 @@
     "count": 91
    },
    {
-    "phrase": "Road Division Workshop Division",
+    "phrase": "Different Road Division Workshop",
     "count": 91
    },
    {
-    "phrase": "Different Road Division Workshop",
+    "phrase": "Road Division Workshop Division",
     "count": 91
    },
    {
@@ -16823,11 +16823,11 @@
     "count": 32
    },
    {
-    "phrase": "Overhauling Other Repair Works",
+    "phrase": "Engine Overhauling Other Repair",
     "count": 11
    },
    {
-    "phrase": "Engine Overhauling Other Repair",
+    "phrase": "Overhauling Other Repair Works",
     "count": 11
    },
    {
@@ -16981,11 +16981,11 @@
     "count": 145
    },
    {
-    "phrase": "Spare Parts for Engine",
+    "phrase": "Engine Overhauling Fuel Pump",
     "count": 101
    },
    {
-    "phrase": "Engine Overhauling Fuel Pump",
+    "phrase": "Spare Parts for Engine",
     "count": 101
    },
    {
@@ -17151,11 +17151,11 @@
     "count": 5
    },
    {
-    "phrase": "Mawa-bhanga Barisal-patuakhali Road Barisal",
+    "phrase": "Barisal-patuakhali Road Barisal Road",
     "count": 4
    },
    {
-    "phrase": "Barisal-patuakhali Road Barisal Road",
+    "phrase": "Jatrabari Mawa-bhanga Barisal-patuakhali Road",
     "count": 4
    }
   ],
@@ -17449,7 +17449,7 @@
     "count": 5
    },
    {
-    "phrase": "Necessary Drain Protective Work",
+    "phrase": "Work Other Supporting Works",
     "count": 4
    },
    {
@@ -17457,11 +17457,11 @@
     "count": 4
    },
    {
-    "phrase": "Drain Protective Work Other",
+    "phrase": "Necessary Drain Protective Work",
     "count": 4
    },
    {
-    "phrase": "Work Other Supporting Works",
+    "phrase": "Drain Protective Work Other",
     "count": 4
    }
   ],
@@ -17756,11 +17756,11 @@
     "count": 5
    },
    {
-    "phrase": "Damaged Landslide Road Division",
+    "phrase": "Retaining Wall Including Drain",
     "count": 4
    },
    {
-    "phrase": "Including Drain Permanent Protection",
+    "phrase": "Drain Permanent Protection Different",
     "count": 4
    }
   ],
@@ -17909,15 +17909,15 @@
     "count": 5
    },
    {
-    "phrase": "Road Including Earth Work",
+    "phrase": "Including Earth Work Wearing",
+    "count": 5
+   },
+   {
+    "phrase": "Existing Road Including Earth",
     "count": 5
    },
    {
     "phrase": "Earth Work Wearing Course",
-    "count": 5
-   },
-   {
-    "phrase": "Saucer Drain Protective Work",
     "count": 5
    }
   ],
@@ -18216,7 +18216,7 @@
     "count": 7
    },
    {
-    "phrase": "Road Embankment Earth Work",
+    "phrase": "Embankment Earth Work Widening",
     "count": 6
    },
    {
@@ -18224,7 +18224,7 @@
     "count": 6
    },
    {
-    "phrase": "Embankment Earth Work Widening",
+    "phrase": "Road Embankment Earth Work",
     "count": 6
    },
    {
@@ -18358,6 +18358,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Operation Division East Dhaka",
+    "count": 111
+   },
+   {
     "phrase": "Arboriculturist Operation Division East",
     "count": 111
    },
@@ -18366,15 +18370,11 @@
     "count": 111
    },
    {
-    "phrase": "Operation Division East Dhaka",
-    "count": 111
-   },
-   {
-    "phrase": "Maintenance Work Different Part",
+    "phrase": "Two Maintenance Work Different",
     "count": 102
    },
    {
-    "phrase": "Two Maintenance Work Different",
+    "phrase": "Maintenance Work Different Part",
     "count": 102
    },
    {
@@ -18760,7 +18760,7 @@
     "count": 5
    },
    {
-    "phrase": "Th Bangladesh-china Friendship Bridge",
+    "phrase": "Friendship Bridge Mukterpur Bridge",
     "count": 4
    },
    {
@@ -18768,7 +18768,7 @@
     "count": 4
    },
    {
-    "phrase": "Friendship Bridge Mukterpur Bridge",
+    "phrase": "Th Bangladesh-china Friendship Bridge",
     "count": 4
    },
    {
@@ -18780,7 +18780,7 @@
     "count": 3
    },
    {
-    "phrase": "Item for Toll Operation",
+    "phrase": "Reimbursable Item for Toll",
     "count": 3
    }
   ],
@@ -19392,7 +19392,7 @@
     "count": 7
    },
    {
-    "phrase": "Road Road Road Division",
+    "phrase": "Mollahhat Gonapara Road Road",
     "count": 6
    },
    {
@@ -19400,19 +19400,19 @@
     "count": 6
    },
    {
-    "phrase": "Pavement Surfacing Dbs-base Course",
+    "phrase": "Existing Pavement Surfacing Dbs-base",
     "count": 6
    },
    {
-    "phrase": "Division Gopalgong the Package",
+    "phrase": "Gonapara Road Road Road",
     "count": 6
    },
    {
-    "phrase": "Strengthening the Existing Pavement",
+    "phrase": "Road Road Division Gopalgong",
     "count": 6
    },
    {
-    "phrase": "Tekerhat-gopalgonj Horidaspur Mollahhat Gonapara",
+    "phrase": "Road Road Road Division",
     "count": 6
    }
   ],
@@ -19541,11 +19541,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Office Purpose Soil Investigation",
+    "phrase": "Purpose Soil Investigation Division",
     "count": 3
    },
    {
-    "phrase": "Purpose Soil Investigation Division",
+    "phrase": "Office Purpose Soil Investigation",
     "count": 3
    },
    {
@@ -19812,7 +19812,7 @@
     "count": 9
    },
    {
-    "phrase": "Road Road Division Jhenaidah",
+    "phrase": "Dbs-base Course Dbs-wearing Course",
     "count": 4
    },
    {
@@ -19820,7 +19820,7 @@
     "count": 4
    },
    {
-    "phrase": "Dbs-base Course Dbs-wearing Course",
+    "phrase": "Road Road Division Jhenaidah",
     "count": 4
    },
    {
@@ -19828,15 +19828,15 @@
     "count": 4
    },
    {
-    "phrase": "Meherpur Chuadanga Jhenaidah Road",
-    "count": 4
-   },
-   {
-    "phrase": "Kushtia Trimohoni Meherpur Chuadanga",
+    "phrase": "Box Culvert New Jersey",
     "count": 4
    },
    {
     "phrase": "Trimohoni Meherpur Chuadanga Jhenaidah",
+    "count": 4
+   },
+   {
+    "phrase": "Jersey Barrier U-drain Protective",
     "count": 4
    }
   ],
@@ -19966,11 +19966,11 @@
     "count": 5
    },
    {
-    "phrase": "Box Culvert Saucer Drain",
+    "phrase": "Post Installation Road Marking",
     "count": 4
    },
    {
-    "phrase": "Post Installation Road Marking",
+    "phrase": "Box Culvert Saucer Drain",
     "count": 4
    },
    {
@@ -20207,11 +20207,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Management Capacity Development Project",
+    "phrase": "Bridge Management Capacity Development",
     "count": 3
    },
    {
-    "phrase": "Bridge Management Capacity Development",
+    "phrase": "Management Capacity Development Project",
     "count": 3
    }
   ],
@@ -20997,7 +20997,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Operation Division West Rajshahi",
+    "phrase": "Executive Arboriculturist Operation Division",
     "count": 120
    },
    {
@@ -21005,7 +21005,7 @@
     "count": 120
    },
    {
-    "phrase": "Executive Arboriculturist Operation Division",
+    "phrase": "Operation Division West Rajshahi",
     "count": 120
    },
    {
@@ -21017,11 +21017,11 @@
     "count": 82
    },
    {
-    "phrase": "Maintenance Work Different Part",
+    "phrase": "Two Maintenance Work Different",
     "count": 74
    },
    {
-    "phrase": "Two Maintenance Work Different",
+    "phrase": "Maintenance Work Different Part",
     "count": 74
    },
    {
@@ -21303,11 +21303,11 @@
     "count": 4
    },
    {
-    "phrase": "Vehicle Drivers",
+    "phrase": "Highways Road",
     "count": 4
    },
    {
-    "phrase": "Highways Road",
+    "phrase": "Vehicle Drivers",
     "count": 4
    },
    {
@@ -21469,11 +21469,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Corridor Road Improvement Project",
+    "phrase": "Dhaka-sylhet Corridor Road Improvement",
     "count": 5
    },
    {
-    "phrase": "Dhaka-sylhet Corridor Road Improvement",
+    "phrase": "Corridor Road Improvement Project",
     "count": 5
    },
    {
@@ -22017,14 +22017,6 @@
     "count": 6
    },
    {
-    "phrase": "Higher Version Profilometer Vehicle",
-    "count": 6
-   },
-   {
-    "phrase": "Roughometer-iii Higher Version Profilometer",
-    "count": 6
-   },
-   {
     "phrase": "Survey Roughometer-iii Higher Version",
     "count": 6
    },
@@ -22033,15 +22025,23 @@
     "count": 6
    },
    {
-    "phrase": "Index Survey and Survey",
-    "count": 4
+    "phrase": "Higher Version Profilometer Vehicle",
+    "count": 6
+   },
+   {
+    "phrase": "Roughometer-iii Higher Version Profilometer",
+    "count": 6
    },
    {
     "phrase": "Survey and Survey Roughometer-iii",
     "count": 4
    },
    {
-    "phrase": "Version Profilometer Vehicle Preferred",
+    "phrase": "Index Survey and Survey",
+    "count": 4
+   },
+   {
+    "phrase": "Profilometer Vehicle Preferred Single",
     "count": 4
    }
   ],
@@ -22512,20 +22512,20 @@
   ]
  },
  "7122": {
-  "value_bdt": 126660000.0,
-  "count": 26,
+  "value_bdt": 147910000.0,
+  "count": 27,
   "by_year": {
    "2025": {
     "value_bdt": 1740000.0,
     "count": 3
    },
    "2026": {
-    "value_bdt": 124920000.0,
-    "count": 23
+    "value_bdt": 146170000.0,
+    "count": 24
    }
   },
   "by_nature": {
-   "Goods": 19
+   "Goods": 20
   },
   "top_vendors": [
    {
@@ -22535,8 +22535,8 @@
    },
    {
     "company": "SILKWAYS CARD AND PRINTING LTD",
-    "value_bdt": 22000000.0,
-    "count": 1
+    "value_bdt": 43250000.0,
+    "count": 2
    },
    {
     "company": "M/S Kamol Trade International",
@@ -22557,16 +22557,16 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 26
+    "count": 27
    }
   ],
   "top_phrases": [
    {
-    "phrase": "Mass Transit Company Limited",
+    "phrase": "Dhaka Mass Transit Company",
     "count": 3
    },
    {
-    "phrase": "Dhaka Mass Transit Company",
+    "phrase": "Mass Transit Company Limited",
     "count": 3
    },
    {
@@ -22594,6 +22594,13 @@
     "description": "Supply of MRT Pass for Dhaka Metro Rail under DMTCL"
    },
    {
+    "package_ref": "35.05.0000.000.023.07.0081.26",
+    "awarded_to": "SILKWAYS CARD AND PRINTING LTD",
+    "value_bdt": 21250000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Procurement of SJT Card for S&T Department"
+   },
+   {
     "package_ref": "35.05.0000.022.07.011.26",
     "awarded_to": "M/S Kamol Trade International",
     "value_bdt": 8220000.0,
@@ -22606,13 +22613,6 @@
     "value_bdt": 8150000.0,
     "contract_signing_date": "2026-04-13",
     "description": "Supply of Fire Protection Items and Related Services of Electrical Department under DMTCL."
-   },
-   {
-    "package_ref": "35.05.0000.000.023.07.0048.26",
-    "awarded_to": "SRS CORPORATION ONE",
-    "value_bdt": 5380000.0,
-    "contract_signing_date": "2026-10-29",
-    "description": "Procurement of Fire Extinguisher Refill Novec Gas Refilling Trace Tube Installation and FACP Power Card Replacement Works in various buildings of Uttara Depot u"
    }
   ]
  },
@@ -23043,15 +23043,15 @@
     "count": 9
    },
    {
+    "phrase": "Survey Monitoring and Data",
+    "count": 6
+   },
+   {
     "phrase": "Months the Operation Division",
     "count": 6
    },
    {
     "phrase": "Monitoring and Data Administration",
-    "count": 6
-   },
-   {
-    "phrase": "Survey Monitoring and Data",
     "count": 6
    },
    {
@@ -23262,7 +23262,7 @@
     "count": 5
    },
    {
-    "phrase": "Ferryghat Paira River Project",
+    "phrase": "Pairakunju Ferryghat Paira River",
     "count": 5
    },
    {
@@ -23270,7 +23270,7 @@
     "count": 5
    },
    {
-    "phrase": "Pairakunju Ferryghat Paira River",
+    "phrase": "Ferryghat Paira River Project",
     "count": 5
    },
    {
@@ -23788,6 +23788,94 @@
     "value_bdt": 1870000.0,
     "contract_signing_date": "2026-10-19",
     "description": "Procurement of related goods for organizing The National Road Safety Day 2026 program."
+   }
+  ]
+ },
+ "10070": {
+  "value_bdt": 3950000.0,
+  "count": 5,
+  "by_year": {
+   "2026": {
+    "value_bdt": 3950000.0,
+    "count": 5
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "ESORT TRADING",
+    "value_bdt": 2370000.0,
+    "count": 3
+   },
+   {
+    "company": "R A S Corporation",
+    "value_bdt": 1580000.0,
+    "count": 2
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 5
+   }
+  ],
+  "top_phrases": [
+   {
+    "phrase": "Bridges Mymensingh Division Bangladesh",
+    "count": 5
+   },
+   {
+    "phrase": "Five Climate Resilient Bridges",
+    "count": 5
+   },
+   {
+    "phrase": "Mymensingh Division Bangladesh Project",
+    "count": 5
+   },
+   {
+    "phrase": "Resilient Bridges Mymensingh Division",
+    "count": 5
+   },
+   {
+    "phrase": "Climate Resilient Bridges Mymensingh",
+    "count": 5
+   }
+  ],
+  "top_contracts": [
+   {
+    "package_ref": "CCR5BP/PG-05b",
+    "awarded_to": "R A S Corporation",
+    "value_bdt": 790000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Supplying Furniture for Construction of Five Climate Resilient Bridges in Mymensingh Division Bangladesh Project during the financial year 2026-2027"
+   },
+   {
+    "package_ref": "CCR5BP/PG-05a",
+    "awarded_to": "ESORT TRADING",
+    "value_bdt": 790000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Supplying Furniture for Construction of Five Climate Resilient Bridges in Mymensingh Division Bangladesh Project During the financial year 2026-2027"
+   },
+   {
+    "package_ref": "CCR5BP/PG-04a",
+    "awarded_to": "ESORT TRADING",
+    "value_bdt": 790000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Supplying Office Equipment for Construction of Five Climate Resilient Bridges in Mymensingh Division Bangladesh Project during the financial year 2026-2027"
+   },
+   {
+    "package_ref": "CCR5BP/PG-02b",
+    "awarded_to": "R A S Corporation",
+    "value_bdt": 790000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Supplying Computers and Accessories for Construction of Five Climate Resilient Bridges in Mymensingh Division Bangladesh Project during the financial year 2026-"
+   },
+   {
+    "package_ref": "CCR5BP/PG-02a",
+    "awarded_to": "ESORT TRADING",
+    "value_bdt": 790000.0,
+    "contract_signing_date": "2026-11-12",
+    "description": "Supplying Computers and Accessories for Construction of Five Climate Resilient Bridges in Mymensingh Division Bangladesh Project during the financial year 2026-"
    }
   ]
  }

@@ -15,7 +15,7 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56709,
+  "vendors_scanned": 56713,
   "ownership_groups_checked": 235
  },
  "top_growers": [
@@ -1642,6 +1642,35 @@
    "shared_owner_keys": []
   },
   {
+   "company": "Rimi Nirman Ltd.",
+   "company_key": "rimi nirman",
+   "first_year": "2022",
+   "baseline_value_bdt": 0,
+   "baseline_count": 0,
+   "recent_value_bdt": 2815150000.0,
+   "recent_count": 32,
+   "recent_by_era": {
+    "Awami League (2009–2024)": {
+     "count": 11,
+     "value_bdt": 844720000.0
+    },
+    "Interim Government (2024–2026)": {
+     "count": 4,
+     "value_bdt": 355940000.0
+    },
+    "Elected Government (2026–)": {
+     "count": 17,
+     "value_bdt": 1614490000.0
+    }
+   },
+   "recent_distinct_ministries": 2,
+   "recent_top_ministry": "Ministry of Road Transport and Bridges",
+   "recent_distinct_offices": 17,
+   "recent_top_office": "Bandarban Road Division",
+   "recent_top_office_share": 0.1875,
+   "shared_owner_keys": []
+  },
+  {
    "company": "Mir Habibul Alam & Mahabub Brothers (Pvt) Ltd JV",
    "company_key": "mir habibul alam & mahabub brothers () jv",
    "first_year": "2022",
@@ -1755,35 +1784,6 @@
    "recent_distinct_offices": 22,
    "recent_top_office": "Office of the Executive Engineer, LGED, Jamalpur",
    "recent_top_office_share": 0.1978,
-   "shared_owner_keys": []
-  },
-  {
-   "company": "Rimi Nirman Ltd.",
-   "company_key": "rimi nirman",
-   "first_year": "2022",
-   "baseline_value_bdt": 0,
-   "baseline_count": 0,
-   "recent_value_bdt": 2568190000.0,
-   "recent_count": 31,
-   "recent_by_era": {
-    "Awami League (2009–2024)": {
-     "count": 11,
-     "value_bdt": 844720000.0
-    },
-    "Interim Government (2024–2026)": {
-     "count": 4,
-     "value_bdt": 355940000.0
-    },
-    "Elected Government (2026–)": {
-     "count": 16,
-     "value_bdt": 1367530000.0
-    }
-   },
-   "recent_distinct_ministries": 2,
-   "recent_top_ministry": "Ministry of Road Transport and Bridges",
-   "recent_distinct_offices": 17,
-   "recent_top_office": "Bandarban Road Division",
-   "recent_top_office_share": 0.1935,
    "shared_owner_keys": []
   },
   {
@@ -2429,9 +2429,9 @@
    ],
    "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 30235500000.0,
-   "combined_recent_count": 701,
-   "combined_growth_ratio_value": 6.8,
+   "combined_recent_value_bdt": 30519680000.0,
+   "combined_recent_count": 702,
+   "combined_growth_ratio_value": 6.87,
    "combined_recent_distinct_ministries": 27
   },
   {
@@ -2461,9 +2461,9 @@
    ],
    "member_companies_matched": 5,
    "combined_baseline_value_bdt": 5924520000.0,
-   "combined_recent_value_bdt": 30235500000.0,
-   "combined_recent_count": 701,
-   "combined_growth_ratio_value": 6.8,
+   "combined_recent_value_bdt": 30519680000.0,
+   "combined_recent_count": 702,
+   "combined_growth_ratio_value": 6.87,
    "combined_recent_distinct_ministries": 27
   },
   {
@@ -2501,10 +2501,10 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1468690000.0,
-   "combined_recent_value_bdt": 14221790000.0,
-   "combined_recent_count": 253,
-   "combined_growth_ratio_value": 12.91,
-   "combined_recent_distinct_ministries": 14
+   "combined_recent_value_bdt": 14505970000.0,
+   "combined_recent_count": 254,
+   "combined_growth_ratio_value": 13.17,
+   "combined_recent_distinct_ministries": 15
   },
   {
    "owner_key": "s. ananta bikash tripura",
@@ -3205,8 +3205,8 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 0.0,
-   "combined_recent_value_bdt": 3417710000.0,
-   "combined_recent_count": 50,
+   "combined_recent_value_bdt": 3428720000.0,
+   "combined_recent_count": 51,
    "combined_growth_ratio_value": null,
    "combined_recent_distinct_ministries": 9
   },
@@ -3225,8 +3225,8 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 0.0,
-   "combined_recent_value_bdt": 3417710000.0,
-   "combined_recent_count": 50,
+   "combined_recent_value_bdt": 3428720000.0,
+   "combined_recent_count": 51,
    "combined_growth_ratio_value": null,
    "combined_recent_distinct_ministries": 9
   },
