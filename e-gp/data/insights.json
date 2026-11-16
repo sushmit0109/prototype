@@ -1,7 +1,7 @@
 {
  "meta": {
-  "record_count": 877197,
-  "distinct_vendors": 56713
+  "record_count": 877350,
+  "distinct_vendors": 56719
  },
  "national_by_year": {
   "2011": {
@@ -65,8 +65,8 @@
    "value_bdt": 724502930000.0
   },
   "2026": {
-   "count": 97447,
-   "value_bdt": 673694400000.0
+   "count": 97600,
+   "value_bdt": 675333970000.0
   }
  },
  "procurement_method_by_year": {
@@ -414,32 +414,32 @@
   },
   "2026": {
    "OTM": {
-    "count": 42090,
-    "value_bdt": 517700480000.0
+    "count": 42141,
+    "value_bdt": 519129330000.0
    },
    "DPM": {
     "count": 687,
     "value_bdt": 4757270000.0
    },
    "LTM": {
-    "count": 37935,
-    "value_bdt": 95844660000.0
+    "count": 38007,
+    "value_bdt": 96021070000.0
    },
    "RFQL": {
-    "count": 862,
-    "value_bdt": 289930000.0
+    "count": 864,
+    "value_bdt": 290880000.0
    },
    "RFQ": {
-    "count": 7527,
-    "value_bdt": 2255400000.0
+    "count": 7542,
+    "value_bdt": 2262120000.0
    },
    "RFQU": {
-    "count": 8027,
-    "value_bdt": 3165870000.0
+    "count": 8039,
+    "value_bdt": 3169730000.0
    },
    "OSTETM": {
-    "count": 151,
-    "value_bdt": 47686790000.0
+    "count": 152,
+    "value_bdt": 47709570000.0
    },
    "SSS": {
     "count": 44,
@@ -462,15 +462,15 @@
  "top_ministries_by_value": [
   {
    "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-   "value_bdt": 3055211090000.0
+   "value_bdt": 3055905200000.0
   },
   {
    "ministry": "Ministry of Road Transport and Bridges",
-   "value_bdt": 989134930000.0
+   "value_bdt": 989186550000.0
   },
   {
    "ministry": "Ministry of Education",
-   "value_bdt": 741186260000.0
+   "value_bdt": 741220850000.0
   },
   {
    "ministry": "Ministry of Water Resources",
@@ -478,27 +478,27 @@
   },
   {
    "ministry": "Ministry of Housing and Public Works",
-   "value_bdt": 621333760000.0
+   "value_bdt": 621344430000.0
   },
   {
    "ministry": "Ministry of Energy, Power and Mineral Resources",
-   "value_bdt": 302044380000.0
+   "value_bdt": 302285780000.0
   },
   {
    "ministry": "Ministry of Shipping",
-   "value_bdt": 167089340000.0
+   "value_bdt": 167364370000.0
   },
   {
    "ministry": "Ministry of Health and Family Welfare",
-   "value_bdt": 156073410000.0
+   "value_bdt": 156078870000.0
   },
   {
    "ministry": "Ministry of Agriculture",
-   "value_bdt": 114158280000.0
+   "value_bdt": 114173120000.0
   },
   {
    "ministry": "Ministry of Home Affairs",
-   "value_bdt": 91254290000.0
+   "value_bdt": 91281550000.0
   },
   {
    "ministry": "Ministry of Disaster Management & Relief",
@@ -510,7 +510,7 @@
   },
   {
    "ministry": "Ministry of Post, Telecommunications & Information Technology",
-   "value_bdt": 53866240000.0
+   "value_bdt": 53867770000.0
   },
   {
    "ministry": "Ministry of Civil Aviation & Tourism",
@@ -518,11 +518,11 @@
   },
   {
    "ministry": "Ministry of Railways",
-   "value_bdt": 45778280000.0
+   "value_bdt": 45779900000.0
   },
   {
    "ministry": "Ministry of Food",
-   "value_bdt": 43856450000.0
+   "value_bdt": 43869360000.0
   },
   {
    "ministry": "Ministry of chittagong Hill Tract's Affairs",
@@ -530,7 +530,7 @@
   },
   {
    "ministry": "Ministry of Industries",
-   "value_bdt": 35186770000.0
+   "value_bdt": 35221680000.0
   },
   {
    "ministry": "Ministry of Primary and Mass Education",
@@ -600,8 +600,8 @@
     "value_bdt": 271067860000.0
    },
    "2026": {
-    "count": 27292,
-    "value_bdt": 245780890000.0
+    "count": 27334,
+    "value_bdt": 246475000000.0
    }
   },
   "Ministry of Road Transport and Bridges": {
@@ -654,8 +654,8 @@
     "value_bdt": 83631110000.0
    },
    "2026": {
-    "count": 3669,
-    "value_bdt": 78021100000.0
+    "count": 3676,
+    "value_bdt": 78072720000.0
    }
   },
   "Ministry of Education": {
@@ -708,8 +708,8 @@
     "value_bdt": 86135380000.0
    },
    "2026": {
-    "count": 10335,
-    "value_bdt": 55509160000.0
+    "count": 10353,
+    "value_bdt": 55543750000.0
    }
   },
   "Ministry of Water Resources": {
@@ -820,8 +820,8 @@
     "value_bdt": 44556880000.0
    },
    "2026": {
-    "count": 10869,
-    "value_bdt": 38963920000.0
+    "count": 10884,
+    "value_bdt": 38974590000.0
    }
   },
   "Ministry of Energy, Power and Mineral Resources": {
@@ -882,8 +882,8 @@
     "value_bdt": 34992120000.0
    },
    "2026": {
-    "count": 9963,
-    "value_bdt": 38187340000.0
+    "count": 9983,
+    "value_bdt": 38428740000.0
    }
   },
   "Ministry of Shipping": {
@@ -928,8 +928,8 @@
     "value_bdt": 18434060000.0
    },
    "2026": {
-    "count": 2253,
-    "value_bdt": 17665840000.0
+    "count": 2257,
+    "value_bdt": 17940870000.0
    }
   },
   "Ministry of Health and Family Welfare": {
@@ -978,8 +978,8 @@
     "value_bdt": 24655160000.0
    },
    "2026": {
-    "count": 6520,
-    "value_bdt": 29272900000.0
+    "count": 6522,
+    "value_bdt": 29278360000.0
    }
   },
   "Ministry of Agriculture": {
@@ -1024,8 +1024,8 @@
     "value_bdt": 19100390000.0
    },
    "2026": {
-    "count": 3646,
-    "value_bdt": 14531450000.0
+    "count": 3658,
+    "value_bdt": 14546290000.0
    }
   },
   "Ministry of Home Affairs": {
@@ -1066,8 +1066,8 @@
     "value_bdt": 16676510000.0
    },
    "2026": {
-    "count": 7563,
-    "value_bdt": 29441500000.0
+    "count": 7572,
+    "value_bdt": 29468760000.0
    }
   },
   "Ministry of Disaster Management & Relief": {
@@ -1204,8 +1204,8 @@
     "value_bdt": 2438370000.0
    },
    "2026": {
-    "count": 647,
-    "value_bdt": 4272880000.0
+    "count": 653,
+    "value_bdt": 4274410000.0
    }
   },
   "Ministry of Civil Aviation & Tourism": {
@@ -1292,8 +1292,8 @@
     "value_bdt": 6188850000.0
    },
    "2026": {
-    "count": 1232,
-    "value_bdt": 2796700000.0
+    "count": 1234,
+    "value_bdt": 2798320000.0
    }
   },
   "Ministry of Food": {
@@ -1342,8 +1342,8 @@
     "value_bdt": 9114140000.0
    },
    "2026": {
-    "count": 407,
-    "value_bdt": 7392000000.0
+    "count": 408,
+    "value_bdt": 7404910000.0
    }
   },
   "Ministry of chittagong Hill Tract's Affairs": {
@@ -1426,8 +1426,8 @@
     "value_bdt": 5680830000.0
    },
    "2026": {
-    "count": 972,
-    "value_bdt": 7227270000.0
+    "count": 976,
+    "value_bdt": 7262180000.0
    }
   },
   "Ministry of Primary and Mass Education": {
@@ -1518,63 +1518,63 @@
  "top_districts_by_value": [
   {
    "district": "Dhaka",
-   "count": 177794,
-   "value_bdt": 1870688060000.0
+   "count": 177827,
+   "value_bdt": 1871643600000.0
   },
   {
    "district": "Chattogram",
-   "count": 48194,
-   "value_bdt": 342135050000.0
+   "count": 48202,
+   "value_bdt": 342140850000.0
   },
   {
    "district": "Rajshahi",
-   "count": 21320,
-   "value_bdt": 242287760000.0
+   "count": 21321,
+   "value_bdt": 242287810000.0
   },
   {
    "district": "Mymensingh",
-   "count": 19612,
-   "value_bdt": 232623890000.0
+   "count": 19615,
+   "value_bdt": 232625840000.0
   },
   {
    "district": "Khulna",
-   "count": 21790,
-   "value_bdt": 215640270000.0
+   "count": 21801,
+   "value_bdt": 215652830000.0
   },
   {
    "district": "Sylhet",
-   "count": 20697,
-   "value_bdt": 192907280000.0
+   "count": 20700,
+   "value_bdt": 192923050000.0
   },
   {
    "district": "Cumilla",
-   "count": 21826,
-   "value_bdt": 190170550000.0
+   "count": 21828,
+   "value_bdt": 190171960000.0
   },
   {
    "district": "Rangpur",
-   "count": 13348,
-   "value_bdt": 157499470000.0
+   "count": 13349,
+   "value_bdt": 157517780000.0
   },
   {
    "district": "Gazipur",
-   "count": 15428,
-   "value_bdt": 146188640000.0
+   "count": 15432,
+   "value_bdt": 146203780000.0
   },
   {
    "district": "Barishal",
-   "count": 14000,
-   "value_bdt": 136819300000.0
+   "count": 14002,
+   "value_bdt": 136821230000.0
   },
   {
    "district": "Noakhali",
-   "count": 16286,
-   "value_bdt": 125509450000.0
+   "count": 16287,
+   "value_bdt": 125510050000.0
   },
   {
    "district": "Gopalganj",
-   "count": 10642,
-   "value_bdt": 123349070000.0
+   "count": 10643,
+   "value_bdt": 123349160000.0
   },
   {
    "district": "Bhola",
@@ -1583,38 +1583,38 @@
   },
   {
    "district": "Tangail",
-   "count": 15847,
-   "value_bdt": 108925370000.0
+   "count": 15853,
+   "value_bdt": 108944660000.0
   },
   {
    "district": "Jamalpur",
-   "count": 10008,
-   "value_bdt": 106538950000.0
+   "count": 10009,
+   "value_bdt": 106555690000.0
   },
   {
    "district": "Sunamganj",
-   "count": 7616,
-   "value_bdt": 106378120000.0
+   "count": 7617,
+   "value_bdt": 106383500000.0
   },
   {
    "district": "Cox's Bazar",
-   "count": 8565,
-   "value_bdt": 103277620000.0
+   "count": 8566,
+   "value_bdt": 103279340000.0
   },
   {
    "district": "Narayanganj",
-   "count": 12962,
-   "value_bdt": 99385630000.0
+   "count": 12965,
+   "value_bdt": 99393410000.0
   },
   {
    "district": "Dinajpur",
-   "count": 14696,
-   "value_bdt": 96754730000.0
+   "count": 14699,
+   "value_bdt": 96757070000.0
   },
   {
    "district": "Kishoreganj",
-   "count": 10956,
-   "value_bdt": 95270010000.0
+   "count": 10975,
+   "value_bdt": 95352100000.0
   }
  ],
  "top_vendors_by_value": [
@@ -1850,6 +1850,17 @@
    "top_entity_share": 0.182
   },
   {
+   "company_key": "property development",
+   "company": "PROPERTY DEVELOPMENT LIMITED",
+   "count": 501,
+   "value_bdt": 18740110000.0,
+   "distinct_procuring_entities": 103,
+   "distinct_ministries": 18,
+   "years_active": 12,
+   "top_entity": "PWD EM Division-4, Dhaka",
+   "top_entity_share": 0.096
+  },
+  {
    "company_key": "noorani construction",
    "company": "Noorani Construction Ltd",
    "count": 66,
@@ -1859,17 +1870,6 @@
    "years_active": 10,
    "top_entity": "Tangail PWD Division",
    "top_entity_share": 0.167
-  },
-  {
-   "company_key": "property development",
-   "company": "PROPERTY DEVELOPMENT LIMITED",
-   "count": 500,
-   "value_bdt": 18467900000.0,
-   "distinct_procuring_entities": 102,
-   "distinct_ministries": 18,
-   "years_active": 12,
-   "top_entity": "PWD EM Division-4, Dhaka",
-   "top_entity_share": 0.096
   },
   {
    "company_key": "efteetcl ()",
@@ -2173,8 +2173,8 @@
   {
    "company_key": "khan traders",
    "company": "M/S Khan Traders",
-   "count": 1154,
-   "value_bdt": 4186040000.0,
+   "count": 1156,
+   "value_bdt": 4192350000.0,
    "distinct_procuring_entities": 363,
    "distinct_ministries": 19,
    "years_active": 14,
@@ -2217,9 +2217,9 @@
   {
    "company_key": "j s enterprise",
    "company": "M/S J S Enterprise",
-   "count": 1077,
-   "value_bdt": 1064100000.0,
-   "distinct_procuring_entities": 105,
+   "count": 1078,
+   "value_bdt": 1065960000.0,
+   "distinct_procuring_entities": 106,
    "distinct_ministries": 10,
    "years_active": 12,
    "top_entity": "PWD EM Division-5, Dhaka",
@@ -2349,8 +2349,8 @@
   {
    "company_key": "smart technologies (bd)",
    "company": "Smart Technologies (BD) Ltd.",
-   "count": 832,
-   "value_bdt": 11951360000.0,
+   "count": 833,
+   "value_bdt": 11972290000.0,
    "distinct_procuring_entities": 359,
    "distinct_ministries": 41,
    "years_active": 13,
@@ -2393,13 +2393,13 @@
   {
    "company_key": "mim enterprise",
    "company": "M/S MIM ENTERPRISE",
-   "count": 755,
-   "value_bdt": 3022010000.0,
+   "count": 756,
+   "value_bdt": 3022300000.0,
    "distinct_procuring_entities": 247,
    "distinct_ministries": 16,
    "years_active": 14,
    "top_entity": "Azimpur PWD Division, New Market, Dhaka",
-   "top_entity_share": 0.068
+   "top_entity_share": 0.067
   },
   {
    "company_key": "rfl plastics",
@@ -2944,7 +2944,7 @@
   }
  ],
  "tender_funnel": {
-  "record_count": 639524,
+  "record_count": 639947,
   "by_status": {
    "Contract Awarded": 460075,
    "Cancelled": 6419,
@@ -2954,11 +2954,11 @@
    "Rejected": 5850,
    "Contract Terminated": 1742,
    "Amendment/Corrigendum issued : 20": 1,
-   "Live": 20522,
-   "Amendment/Corrigendum issued : 1": 367,
-   "Amendment/Corrigendum issued : 2": 82,
-   "Amendment/Corrigendum issued : 3": 24,
-   "Amendment/Corrigendum issued : 4": 2
+   "Live": 20931,
+   "Amendment/Corrigendum issued : 1": 376,
+   "Amendment/Corrigendum issued : 2": 85,
+   "Amendment/Corrigendum issued : 3": 25,
+   "Amendment/Corrigendum issued : 4": 3
   },
   "by_year_status": {
    "2011": {
@@ -3091,17 +3091,17 @@
     "Contract Terminated": 53
    },
    "2026": {
-    "Live": 20522,
-    "Amendment/Corrigendum issued : 1": 367,
+    "Live": 20931,
+    "Amendment/Corrigendum issued : 1": 376,
     "Cancelled": 507,
-    "Amendment/Corrigendum issued : 2": 82,
+    "Amendment/Corrigendum issued : 2": 85,
     "Being processed": 10355,
     "Re-Tendered": 2194,
-    "Amendment/Corrigendum issued : 3": 24,
+    "Amendment/Corrigendum issued : 3": 25,
     "To be Re-Tendered": 476,
     "Contract Awarded": 26248,
     "Rejected": 321,
-    "Amendment/Corrigendum issued : 4": 2,
+    "Amendment/Corrigendum issued : 4": 3,
     "Contract Terminated": 22
    },
    "unknown": {
