@@ -475,7 +475,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Effluent Treatment Plant Handloom",
+    "phrase": "Plant Handloom Service Center",
     "count": 3
    },
    {
@@ -483,7 +483,7 @@
     "count": 3
    },
    {
-    "phrase": "Construction Supplying Installing Testing",
+    "phrase": "Installing Testing and Commissioning",
     "count": 3
    },
    {
@@ -491,15 +491,15 @@
     "count": 3
    },
    {
-    "phrase": "Plant Handloom Service Center",
-    "count": 3
-   },
-   {
-    "phrase": "Installing Testing and Commissioning",
-    "count": 3
-   },
-   {
     "phrase": "Cum Hr Effluent Treatment",
+    "count": 3
+   },
+   {
+    "phrase": "Effluent Treatment Plant Handloom",
+    "count": 3
+   },
+   {
+    "phrase": "Construction Supplying Installing Testing",
     "count": 3
    }
   ],
@@ -1086,8 +1086,8 @@
   ]
  },
  "6495": {
-  "value_bdt": 10080000.0,
-  "count": 3,
+  "value_bdt": 13700000.0,
+  "count": 4,
   "by_year": {
    "2024": {
     "value_bdt": 7720000.0,
@@ -1096,10 +1096,14 @@
    "2025": {
     "value_bdt": 2360000.0,
     "count": 1
+   },
+   "2026": {
+    "value_bdt": 3620000.0,
+    "count": 1
    }
   },
   "by_nature": {
-   "Goods": 3
+   "Goods": 4
   },
   "top_vendors": [
    {
@@ -1111,15 +1115,29 @@
     "company": "Hazi Traders",
     "value_bdt": 4780000.0,
     "count": 2
+   },
+   {
+    "company": "Hannan & Brothers",
+    "value_bdt": 3620000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Gaibandha",
     "count": 3
+   },
+   {
+    "district": "Dhaka",
+    "count": 1
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Related Services Equipment",
+    "count": 3
+   }
+  ],
   "top_contracts": [
    {
     "package_ref": "24.00.0000.112.07.004.24-1797",
@@ -1127,6 +1145,13 @@
     "value_bdt": 5300000.0,
     "contract_signing_date": "2024-12-31",
     "description": "Desktop Computer All in All PC Laptop Printer Router Smart TV 65Êº Smart TV 43Êº UPS Color Printer Document Scanner Switch Scanner and Related Services Equipmen"
+   },
+   {
+    "package_ref": "24.00.0000.042.07.004.24.1117",
+    "awarded_to": "Hannan & Brothers",
+    "value_bdt": 3620000.0,
+    "contract_signing_date": "2026-11-16",
+    "description": "Supply and Installation of Computer Monitor Printer Scanner Laptop Interactive Board and Related Services Equipment for Ministry of Textiles and Jute."
    },
    {
     "package_ref": "24.00.0000.112.07.003.22-506",
@@ -1859,11 +1884,11 @@
     "count": 3
    },
    {
-    "phrase": "Center Bangladesh Sericulture Development",
+    "phrase": "Bangladesh Sericulture Development Board",
     "count": 3
    },
    {
-    "phrase": "Bangladesh Sericulture Development Board",
+    "phrase": "Center Bangladesh Sericulture Development",
     "count": 3
    }
   ],

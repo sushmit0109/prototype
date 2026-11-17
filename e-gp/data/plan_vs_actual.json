@@ -2,11 +2,11 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 877350,
-  "matched_pairs": 120092,
+  "contracts_scanned": 877506,
+  "matched_pairs": 120093,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4068,
-  "pairs_excluded_generic": 2538,
+  "pairs_excluded_generic": 2539,
   "pairs_excluded_sanity": 291
  },
  "award_vs_estimate": {
@@ -19,7 +19,7 @@
   "buckets": {
    "<70%": 2755,
    "70-85%": 7586,
-   "85-95%": 64350,
+   "85-95%": 64351,
    "95-100%": 36900,
    "100-115%": 7563,
    ">115%": 938
@@ -56,7 +56,7 @@
    "0.88": 2340,
    "0.89": 3725,
    "0.90": 23920,
-   "0.91": 2269,
+   "0.91": 2270,
    "0.92": 1596,
    "0.93": 8990,
    "0.94": 9207,
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119864,
+  "unchanged": 119865,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61070,
+   "OTM->OTM": 61071,
    "LTM->LTM": 55372,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
@@ -568,7 +568,7 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 9223,
+    "matched_pairs": 9224,
     "median_ratio": 0.9476,
     "iqr": 0.0527,
     "share_above_115": 0.0139,
@@ -738,7 +738,7 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11745,
+    "matched_pairs": 11746,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
@@ -764,7 +764,7 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9327,
+    "matched_pairs": 9328,
     "median_ratio": 0.9444,
     "iqr": 0.0552,
     "share_above_115": 0.0017,
