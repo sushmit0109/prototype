@@ -2,8 +2,8 @@
  "meta": {
   "plan_line_items": 750512,
   "plan_packages_with_estimate": 747363,
-  "contracts_scanned": 877506,
-  "matched_pairs": 120093,
+  "contracts_scanned": 877643,
+  "matched_pairs": 120095,
   "match_rate_of_plan": 0.1607,
   "generic_refs_excluded": 4068,
   "pairs_excluded_generic": 2539,
@@ -18,8 +18,8 @@
   "share_above_estimate": 0.0708,
   "buckets": {
    "<70%": 2755,
-   "70-85%": 7586,
-   "85-95%": 64351,
+   "70-85%": 7587,
+   "85-95%": 64352,
    "95-100%": 36900,
    "100-115%": 7563,
    ">115%": 938
@@ -46,7 +46,7 @@
    "0.78": 383,
    "0.79": 399,
    "0.80": 922,
-   "0.81": 441,
+   "0.81": 442,
    "0.82": 608,
    "0.83": 758,
    "0.84": 813,
@@ -55,7 +55,7 @@
    "0.87": 1671,
    "0.88": 2340,
    "0.89": 3725,
-   "0.90": 23920,
+   "0.90": 23921,
    "0.91": 2270,
    "0.92": 1596,
    "0.93": 8990,
@@ -98,7 +98,7 @@
   },
   "discount_spikes": {
    "at_10pct_below": {
-    "count": 23932,
+    "count": 23933,
     "share": 0.1993
    },
    "at_5pct_below": {
@@ -123,11 +123,11 @@
   }
  },
  "method_change": {
-  "unchanged": 119865,
+  "unchanged": 119867,
   "less_open_than_planned": 85,
   "more_open_than_planned": 143,
   "top_transitions": {
-   "OTM->OTM": 61071,
+   "OTM->OTM": 61073,
    "LTM->LTM": 55372,
    "RFQU->RFQU": 2083,
    "OSTETM->OSTETM": 934,
@@ -568,11 +568,11 @@
    },
    {
     "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
-    "matched_pairs": 9224,
+    "matched_pairs": 9225,
     "median_ratio": 0.9476,
     "iqr": 0.0527,
     "share_above_115": 0.0139,
-    "share_at_10pct_below": 0.0772
+    "share_at_10pct_below": 0.0773
    },
    {
     "ministry": "Ministry of Youth & Sports",
@@ -616,11 +616,11 @@
    },
    {
     "ministry": "Ministry of Shipping",
-    "matched_pairs": 1163,
+    "matched_pairs": 1164,
     "median_ratio": 0.987,
     "iqr": 0.064,
     "share_above_115": 0.0052,
-    "share_at_10pct_below": 0.0267
+    "share_at_10pct_below": 0.0266
    },
    {
     "ministry": "Ministry of Water Resources",
@@ -738,11 +738,11 @@
    },
    {
     "year": "2026",
-    "matched_pairs": 11746,
+    "matched_pairs": 11748,
     "median_ratio": 0.9429,
     "iqr": 0.0522,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.0608
+    "share_at_10pct_below": 0.0609
    }
   ],
   "by_era": [
@@ -764,11 +764,11 @@
    },
    {
     "era": "Elected Government (2026–)",
-    "matched_pairs": 9328,
+    "matched_pairs": 9330,
     "median_ratio": 0.9444,
-    "iqr": 0.0552,
+    "iqr": 0.0551,
     "share_above_115": 0.0017,
-    "share_at_10pct_below": 0.054
+    "share_at_10pct_below": 0.0541
    }
   ],
   "min_pairs_for_ministry": 30
