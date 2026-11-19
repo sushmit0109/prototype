@@ -379,15 +379,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Size Gm Sheets Ream",
-    "count": 8
-   },
-   {
-    "phrase": "Gm Sheets Ream Offset",
-    "count": 8
-   },
-   {
-    "phrase": "Sheets Ream Offset Paper",
+    "phrase": "Stationary Item Size Gm",
     "count": 8
    },
    {
@@ -395,7 +387,7 @@
     "count": 8
    },
    {
-    "phrase": "Stationary Item Size Gm",
+    "phrase": "Size Gm Sheets Ream",
     "count": 8
    },
    {
@@ -403,11 +395,19 @@
     "count": 8
    },
    {
+    "phrase": "Sheets Ream Offset Paper",
+    "count": 8
+   },
+   {
+    "phrase": "Gm Sheets Ream Offset",
+    "count": 8
+   },
+   {
     "phrase": "Sheets Guarantee Each Ream",
     "count": 7
    },
    {
-    "phrase": "Offset Paper Type Copy",
+    "phrase": "Size Offset Paper Type",
     "count": 4
    }
   ],
@@ -532,8 +532,8 @@
   ]
  },
  "1401": {
-  "value_bdt": 191990000.0,
-  "count": 102,
+  "value_bdt": 192870000.0,
+  "count": 103,
   "by_year": {
    "2016": {
     "value_bdt": 6670000.0,
@@ -576,12 +576,12 @@
     "count": 9
    },
    "2026": {
-    "value_bdt": 1070000.0,
-    "count": 2
+    "value_bdt": 1950000.0,
+    "count": 3
    }
   },
   "by_nature": {
-   "Goods": 84,
+   "Goods": 85,
    "Works": 17
   },
   "top_vendors": [
@@ -614,7 +614,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 102
+    "count": 103
    }
   ],
   "top_phrases": [
@@ -627,11 +627,11 @@
     "count": 4
    },
    {
-    "phrase": "Passenger Lift Brand Schindler",
+    "phrase": "Lift Brand Schindler Switzerland",
     "count": 4
    },
    {
-    "phrase": "Lift Brand Schindler Switzerland",
+    "phrase": "Passenger Lift Brand Schindler",
     "count": 4
    },
    {
@@ -647,7 +647,7 @@
     "count": 3
    },
    {
-    "phrase": "Paper Gsm White Paper",
+    "phrase": "Goods Offset Paper Gsm",
     "count": 3
    }
   ],
@@ -3381,12 +3381,12 @@
   ]
  },
  "8067": {
-  "value_bdt": 9600000.0,
-  "count": 7,
+  "value_bdt": 10210000.0,
+  "count": 8,
   "by_year": {
    "2026": {
-    "value_bdt": 9600000.0,
-    "count": 7
+    "value_bdt": 10210000.0,
+    "count": 8
    }
   },
   "by_nature": {
@@ -3423,7 +3423,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 7
+    "count": 8
    }
   ],
   "top_phrases": [],
@@ -3710,12 +3710,12 @@
   ]
  },
  "8282": {
-  "value_bdt": 57330000.0,
-  "count": 2,
+  "value_bdt": 57960000.0,
+  "count": 3,
   "by_year": {
    "2026": {
-    "value_bdt": 57330000.0,
-    "count": 2
+    "value_bdt": 57960000.0,
+    "count": 3
    }
   },
   "by_nature": {
@@ -3732,12 +3732,17 @@
     "company": "Z S Technologies",
     "value_bdt": 1790000.0,
     "count": 1
+   },
+   {
+    "company": "Infosonik Systems limited",
+    "value_bdt": 630000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 2
+    "count": 3
    }
   ],
   "top_phrases": [],
@@ -3755,6 +3760,13 @@
     "value_bdt": 1790000.0,
     "contract_signing_date": "2026-07-27",
     "description": "Supply of Computer Consumables"
+   },
+   {
+    "package_ref": "52.01.0000.000.909.07.0033.26.1582",
+    "awarded_to": "Infosonik Systems limited",
+    "value_bdt": 630000.0,
+    "contract_signing_date": "2026-11-18",
+    "description": "Procurement of Face recognizing smart attendance system for HQ and related services"
    }
   ]
  },
