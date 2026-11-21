@@ -15,8 +15,8 @@
   "min_growth_ratio": 3.0,
   "new_dominant_min_recent_value_bdt": 100000000.0,
   "new_dominant_first_year_floor": "2021",
-  "vendors_scanned": 56752,
-  "ownership_groups_checked": 236
+  "vendors_scanned": 56759,
+  "ownership_groups_checked": 237
  },
  "top_growers": [
   {
@@ -1755,7 +1755,9 @@
    "recent_distinct_offices": 23,
    "recent_top_office": "Office of the Executive Engineer(Disposal), Waste Management Department",
    "recent_top_office_share": 0.2615,
-   "shared_owner_keys": []
+   "shared_owner_keys": [
+    "h. m. helal"
+   ]
   },
   {
    "company": "E-SMART CONSTRUCTIONS LIMITED",
@@ -3293,8 +3295,8 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1155210000.0,
-   "combined_recent_value_bdt": 3120800000.0,
-   "combined_recent_count": 175,
+   "combined_recent_value_bdt": 3121040000.0,
+   "combined_recent_count": 176,
    "combined_growth_ratio_value": 3.6,
    "combined_recent_distinct_ministries": 8
   },
@@ -3313,8 +3315,8 @@
    ],
    "member_companies_matched": 2,
    "combined_baseline_value_bdt": 1155210000.0,
-   "combined_recent_value_bdt": 3120800000.0,
-   "combined_recent_count": 175,
+   "combined_recent_value_bdt": 3121040000.0,
+   "combined_recent_count": 176,
    "combined_growth_ratio_value": 3.6,
    "combined_recent_distinct_ministries": 8
   },
@@ -3337,6 +3339,26 @@
    "combined_recent_count": 191,
    "combined_growth_ratio_value": 6527.51,
    "combined_recent_distinct_ministries": 22
+  },
+  {
+   "owner_key": "h. m. helal",
+   "owner_name": "H. M. HELAL",
+   "companies": [
+    {
+     "company": "H M Helal & Co Limited",
+     "designation": "Managing Director"
+    },
+    {
+     "company": "HMHCL-RMI-JV",
+     "designation": "Managing Director"
+    }
+   ],
+   "member_companies_matched": 2,
+   "combined_baseline_value_bdt": 0.0,
+   "combined_recent_value_bdt": 2769230000.0,
+   "combined_recent_count": 66,
+   "combined_growth_ratio_value": null,
+   "combined_recent_distinct_ministries": 5
   },
   {
    "owner_key": "mahbubul hoque repon",
@@ -3453,38 +3475,6 @@
    "combined_recent_count": 8,
    "combined_growth_ratio_value": 400.91,
    "combined_recent_distinct_ministries": 2
-  },
-  {
-   "owner_key": "fazlul karim chowdhury sapon",
-   "owner_name": "Fazlul Karim Chowdhury Sapon",
-   "companies": [
-    {
-     "company": "The Builders Engineers Associates Ltd",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "CCL-TBL JV",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "TBEAL-SMC (JV)",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "TBEAL-MKT (JV)",
-     "designation": "Managing Director"
-    },
-    {
-     "company": "TBEAL-KUSHIARA (JV)",
-     "designation": "Managing Director"
-    }
-   ],
-   "member_companies_matched": 5,
-   "combined_baseline_value_bdt": 2667050000.0,
-   "combined_recent_value_bdt": 2480710000.0,
-   "combined_recent_count": 8,
-   "combined_growth_ratio_value": 1.24,
-   "combined_recent_distinct_ministries": 5
   }
  ]
 }

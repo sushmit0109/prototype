@@ -119,7 +119,7 @@
     "count": 5
    },
    {
-    "phrase": "Clothes and Other Materials",
+    "phrase": "Ironing Clothes and Other",
     "count": 5
    }
   ],
@@ -241,11 +241,11 @@
     "count": 6
    },
    {
-    "phrase": "Cricket Bat Cricket Ball",
+    "phrase": "Cricket Wicket Keeping Pad",
     "count": 5
    },
    {
-    "phrase": "Cricket Wicket Keeping Pad",
+    "phrase": "Cricket Bat Cricket Ball",
     "count": 5
    },
    {
@@ -253,19 +253,19 @@
     "count": 4
    },
    {
-    "phrase": "Notun Kuri Sports Final",
-    "count": 4
-   },
-   {
     "phrase": "Kuri Sports Final Event",
     "count": 4
    },
    {
-    "phrase": "Hockey Set Chess Set",
-    "count": 3
+    "phrase": "Notun Kuri Sports Final",
+    "count": 4
    },
    {
     "phrase": "Handball Hockey Set Chess",
+    "count": 3
+   },
+   {
+    "phrase": "Hockey Set Chess Set",
     "count": 3
    }
   ],
@@ -862,11 +862,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Works Youth Training Centre",
+    "phrase": "Ancillary Works Youth Training",
     "count": 3
    },
    {
-    "phrase": "Ancillary Works Youth Training",
+    "phrase": "Works Youth Training Centre",
     "count": 3
    },
    {
@@ -1180,11 +1180,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "System for Youth Training",
+    "phrase": "Division and Youth Training",
     "count": 4
    },
    {
-    "phrase": "Youth Training Centers Ytcs",
+    "phrase": "System for Youth Training",
     "count": 4
    },
    {
@@ -1192,7 +1192,7 @@
     "count": 4
    },
    {
-    "phrase": "Division and Youth Training",
+    "phrase": "Construction Supply Installation Testing",
     "count": 4
    },
    {
@@ -1200,7 +1200,7 @@
     "count": 4
    },
    {
-    "phrase": "Construction Supply Installation Testing",
+    "phrase": "Youth Training Centers Ytcs",
     "count": 4
    }
   ],
@@ -1294,7 +1294,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Stadium Upazila Level Nd",
+    "phrase": "Upazila Level Nd Phase",
     "count": 12
    },
    {
@@ -1302,11 +1302,11 @@
     "count": 12
    },
    {
-    "phrase": "Upazila Level Nd Phase",
+    "phrase": "Level Nd Phase St",
     "count": 12
    },
    {
-    "phrase": "Level Nd Phase St",
+    "phrase": "Stadium Upazila Level Nd",
     "count": 12
    },
    {
@@ -1408,11 +1408,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Youth Development Academy Savar",
+    "phrase": "Development Academy Savar Dhaka",
     "count": 6
    },
    {
-    "phrase": "Development Academy Savar Dhaka",
+    "phrase": "Youth Development Academy Savar",
     "count": 6
    },
    {
@@ -1511,18 +1511,27 @@
   ]
  },
  "7842": {
-  "value_bdt": 440000.0,
-  "count": 1,
+  "value_bdt": 4660000.0,
+  "count": 2,
   "by_year": {
    "2025": {
     "value_bdt": 440000.0,
     "count": 1
+   },
+   "2026": {
+    "value_bdt": 4220000.0,
+    "count": 1
    }
   },
   "by_nature": {
-   "Goods": 1
+   "Goods": 2
   },
   "top_vendors": [
+   {
+    "company": "Hazi Traders",
+    "value_bdt": 4220000.0,
+    "count": 1
+   },
    {
     "company": "ADRITA COMPUTERS",
     "value_bdt": 440000.0,
@@ -1532,11 +1541,18 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "34.00.0000.000.041.07.0164.25/",
+    "awarded_to": "Hazi Traders",
+    "value_bdt": 4220000.0,
+    "contract_signing_date": "2026-11-19",
+    "description": "Supplying Of Computers & Accessories (All-in-One Computer Desktop computer Monitors Laptops Printers and Scanner)"
+   },
    {
     "package_ref": "34.03.00.0000.041.46.001.22-01",
     "awarded_to": "ADRITA COMPUTERS",
