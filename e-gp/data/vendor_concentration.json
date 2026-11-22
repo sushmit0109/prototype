@@ -1,7 +1,7 @@
 {
  "meta": {
   "method": "Herfindahl-Hirschman Index (sum of squared vendor value-shares, 0-1 scale) per district per calendar month, vendor identity via entity.normalize_company. Cells with fewer than 3 contracts are dropped as too thin to produce a meaningful concentration estimate (a single contract is HHI=1.0 by construction, regardless of anything about the district).",
-  "total_contracts": 877919,
+  "total_contracts": 877920,
   "district_month_cells_total": 10169,
   "district_month_cells_kept": 9758,
   "min_contracts_for_hhi": 3,
@@ -52015,11 +52015,11 @@
      "top_vendor_display": "MD. MOYENUDDIN (BASHI) LIMITED"
     },
     "2026-11": {
-     "hhi": 0.0961,
-     "n_vendors": 58,
-     "n_contracts": 71,
-     "total_value_bdt": 540800000.0,
-     "top_vendor_share": 0.2416,
+     "hhi": 0.096,
+     "n_vendors": 59,
+     "n_contracts": 72,
+     "total_value_bdt": 541290000.0,
+     "top_vendor_share": 0.2413,
      "top_vendor_display": "M/S. Bappy Traders"
     }
    }

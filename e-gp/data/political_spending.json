@@ -73,7 +73,7 @@
    "coefficient": -0.0299,
    "std_error": 0.121,
    "t_stat": -0.247,
-   "p_value": 0.8057,
+   "p_value": 0.8058,
    "df": 63,
    "n_obs": 1792,
    "n_districts": 64,
@@ -88,7 +88,7 @@
    "coefficient": 0.364,
    "std_error": 0.8757,
    "t_stat": 0.416,
-   "p_value": 0.6791,
+   "p_value": 0.679,
    "df": 63,
    "n_obs": 1792,
    "n_districts": 64,
@@ -535,7 +535,7 @@
      "period": "2026-11",
      "coefficient": -0.1976,
      "std_error": 0.4029,
-     "p_value": 0.6255,
+     "p_value": 0.6256,
      "is_reference": false
     }
    ]
@@ -741,7 +741,7 @@
      "period": "2026-11",
      "coefficient": -0.6823,
      "std_error": 0.9287,
-     "p_value": 0.4652,
+     "p_value": 0.4653,
      "is_reference": false
     }
    ]
@@ -769,7 +769,7 @@
     "coefficient": 0.0974,
     "std_error": 0.117,
     "t_stat": 0.832,
-    "p_value": 0.4085,
+    "p_value": 0.4086,
     "df": 63,
     "n_obs": 1780,
     "n_districts": 64,
@@ -967,7 +967,7 @@
      "Thakurgaon"
     ],
     "avg_interim_value_per_voter_bdt": 8156.83,
-    "avg_elected_value_per_voter_bdt": 3802.21,
+    "avg_elected_value_per_voter_bdt": 3802.22,
     "avg_change_bdt_per_voter": -4354.61
    },
    "all": {
@@ -1313,7 +1313,7 @@
     "bnp_won=1_post=0": 4497.8,
     "bnp_won=1_post=1": 3731.86
    },
-   "did_bdt_per_voter": 184.22
+   "did_bdt_per_voter": 184.23
   },
   "placebo_did": {
    "coefficient": 0.161,
@@ -1392,7 +1392,7 @@
    "bnp_seat_share": 0.7,
    "bnp_won": 1,
    "interim_value_per_voter_bdt": 5586.32,
-   "elected_value_per_voter_bdt": 3734.77,
+   "elected_value_per_voter_bdt": 3734.95,
    "total_voters": 2817684
   },
   {
