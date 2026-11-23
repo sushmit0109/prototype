@@ -1,12 +1,12 @@
 {
  "meta": {
-  "generated_at": "2026-11-22T00:58:11.748395+00:00",
-  "contracts_scanned": 877920,
+  "generated_at": "2026-11-23T01:57:55.643100+00:00",
+  "contracts_scanned": 878105,
   "debarment_records": 1028,
-  "flag_count": 1983,
+  "flag_count": 1984,
   "by_type": {
    "active_debarment_violation": 246,
-   "post_debarment_award": 1737
+   "post_debarment_award": 1738
   },
   "value_at_risk_bdt_active_violations": 698590000.0,
   "company_names_excluded_as_generic": 345,
@@ -13993,6 +13993,25 @@
    "debarment_reason": "You M/S M S A Construction & Engineering participated in the e-GP Tender ID. 46138 of Executive Engineer's Office, LGED, Dhaka and submitted a bank certificate of The Farmers Bank Limited, Mawna Branch, Gazipur. TEC verified that submitted document from concerned bank and found that it was fake. So, it is treated as fraudulent practice as per Regulation 127(2) of PPR-2008. So please submit your clarification as to why your firm should not be debarred.",
    "debarment_scope": "Unspecified",
    "era": "Interim Government (2024–2026)"
+  },
+  {
+   "flag_type": "post_debarment_award",
+   "severity": "low",
+   "company": "M/S M S A Construction & Engineering",
+   "company_key": "m s a construction & engineering",
+   "tender_id": "1343772",
+   "pkg_lot_id": "2195440",
+   "procuring_entity": "Office Of The Upazila Engineer, Savar, Dhaka",
+   "ministry": "Ministry of Local Government, Rural Development and Co-operatives",
+   "district": "Dhaka",
+   "contract_signing_date": "2026-11-22",
+   "value_bdt": 12540000.0,
+   "debar_start": "01-Jun-2017",
+   "debar_end": "31-May-2018",
+   "debarred_by": "Organization Name: Local Government Engineering Department (LGED) ;",
+   "debarment_reason": "You M/S M S A Construction & Engineering participated in the e-GP Tender ID. 46138 of Executive Engineer's Office, LGED, Dhaka and submitted a bank certificate of The Farmers Bank Limited, Mawna Branch, Gazipur. TEC verified that submitted document from concerned bank and found that it was fake. So, it is treated as fraudulent practice as per Regulation 127(2) of PPR-2008. So please submit your clarification as to why your firm should not be debarred.",
+   "debarment_scope": "Unspecified",
+   "era": "Elected Government (2026–)"
   },
   {
    "flag_type": "post_debarment_award",
