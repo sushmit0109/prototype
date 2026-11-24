@@ -1,18 +1,18 @@
 {
  "meta": {
   "source": "https://www.eprocure.gov.bd/resources/common/DebarmentRpt.jsp",
-  "generated_at": "2026-11-23T01:56:55.576769+00:00",
-  "record_count": 1028
+  "generated_at": "2026-11-24T05:34:17.625878+00:00",
+  "record_count": 1029
  },
  "summary": {
   "by_severity": {
+   "low": 178,
    "medium": 283,
    "critical": 344,
-   "low": 177,
    "high": 224
   },
   "by_reason": {
-   "unspecified": 592,
+   "unspecified": 593,
    "forgery_false_document": 78,
    "fraud": 404,
    "corruption": 11,
@@ -107,6 +107,25 @@
   ]
  },
  "records": [
+  {
+   "company": "Techtack BD Corporation",
+   "country": "Bangladesh",
+   "address": "84/T/1, Jahanara Garden, Zafrabad, Mohammadpur, Dhaka- 1207, Bangladesh,Dhaka North City Corporation,Dhaka.",
+   "debarred_by": "Debarment for Procurement Proceedings",
+   "debar_start": "24-Nov-2026",
+   "debar_end": "23-Nov-2027",
+   "stay_order_note": null,
+   "scope": "Election Commission Secretariat , Election Commission Secretariat",
+   "reason": "Techtack BD Corporation, 84/T/1, Jahanara Garden (5th Floor), Jafrabad, Mohammadpur, Dhaka-1207. Due to committing an offense warranting contract termination on account of professional misconduct, offense, and breach of contract terms under Rule 149 of PPA-2006 and PPR-2025, the following decision has been unanimously adopted by the committee in accordance with Sub-rule (8) of Rule 149 of PPR 2025: a) The contract with the aforementioned organization may be canceled/terminated. b) The aforementioned organization may be declared ineligible/disqualified for at least 1 (one) year in the public procurement activities of the Electoral Training Institute.",
+   "company_key": "techtack bd corporation",
+   "scope_label": "Unspecified",
+   "reason_tags": [
+    "unspecified"
+   ],
+   "duration_days": 364,
+   "repeat_offender_count": 1,
+   "severity": "low"
+  },
   {
    "company": "M/S TALUKDER ENGINEERING AND NETWORK REMITTANCE SERVICE",
    "country": "Bangladesh",

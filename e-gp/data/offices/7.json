@@ -1091,15 +1091,19 @@
     "count": 20
    },
    {
-    "phrase": "Related Services for Core",
-    "count": 9
-   },
-   {
     "phrase": "Services for Core Banking",
     "count": 9
    },
    {
+    "phrase": "Related Services for Core",
+    "count": 9
+   },
+   {
     "phrase": "Supply Installation Commissioning Implementation",
+    "count": 8
+   },
+   {
+    "phrase": "Banking Solution Rajshahi Krishi",
     "count": 8
    },
    {
@@ -1108,10 +1112,6 @@
    },
    {
     "phrase": "Solution Rajshahi Krishi Unnayan",
-    "count": 8
-   },
-   {
-    "phrase": "Banking Solution Rajshahi Krishi",
     "count": 8
    },
    {
@@ -1286,22 +1286,6 @@
     "count": 21
    },
    {
-    "phrase": "Non Current Cheque Books",
-    "count": 6
-   },
-   {
-    "phrase": "Savings Cheque Books Leaf",
-    "count": 6
-   },
-   {
-    "phrase": "Leaf Book and Non",
-    "count": 6
-   },
-   {
-    "phrase": "Non Savings Cheque Books",
-    "count": 6
-   },
-   {
     "phrase": "Cheque Books Leaf Book",
     "count": 6
    },
@@ -1310,7 +1294,23 @@
     "count": 6
    },
    {
+    "phrase": "Non Savings Cheque Books",
+    "count": 6
+   },
+   {
+    "phrase": "Leaf Book and Non",
+    "count": 6
+   },
+   {
+    "phrase": "Non Current Cheque Books",
+    "count": 6
+   },
+   {
     "phrase": "Current Cheque Books Leaf",
+    "count": 6
+   },
+   {
+    "phrase": "Savings Cheque Books Leaf",
     "count": 6
    }
   ],
@@ -1353,8 +1353,8 @@
   ]
  },
  "2019": {
-  "value_bdt": 1285620000.0,
-  "count": 16,
+  "value_bdt": 1392580000.0,
+  "count": 18,
   "by_year": {
    "2017": {
     "value_bdt": 159460000.0,
@@ -1381,12 +1381,12 @@
     "count": 2
    },
    "2026": {
-    "value_bdt": 16690000.0,
-    "count": 2
+    "value_bdt": 123650000.0,
+    "count": 4
    }
   },
   "by_nature": {
-   "Goods": 16
+   "Goods": 18
   },
   "top_vendors": [
    {
@@ -1396,8 +1396,13 @@
    },
    {
     "company": "Express Systems Limited",
-    "value_bdt": 239220000.0,
-    "count": 3
+    "value_bdt": 291300000.0,
+    "count": 4
+   },
+   {
+    "company": "Global Brand PLC.",
+    "value_bdt": 56810000.0,
+    "count": 2
    },
    {
     "company": "data edge limited",
@@ -1408,17 +1413,12 @@
     "company": "Tech Valley Solutions Limited",
     "value_bdt": 42790000.0,
     "count": 2
-   },
-   {
-    "company": "Millennium Information Solution Limited",
-    "value_bdt": 14990000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 16
+    "count": 18
    }
   ],
   "top_phrases": [
@@ -1432,11 +1432,11 @@
    },
    {
     "phrase": "Agrani Bank",
-    "count": 16
+    "count": 18
    },
    {
     "phrase": "Supply Installation",
-    "count": 4
+    "count": 5
    }
   ],
   "top_contracts": [
@@ -1469,11 +1469,11 @@
     "description": "Supply Installation Training Commissioning and Implementation of Oracle Database Vault and Oracle Advanced Security for Agrani Bank Limited."
    },
    {
-    "package_ref": "e-GP/ABL/IT/OTM/719/05/21",
-    "awarded_to": "Express Systems Limited",
-    "value_bdt": 52160000.0,
-    "contract_signing_date": "2021-07-19",
-    "description": "Procurement of existing Networking and Security device Licenses Renewal Warranty and Support services for Agrani Bank Limited."
+    "package_ref": "ABPLC/IT/AD_ES/OTM/2025-26/003",
+    "awarded_to": "Global Brand PLC.",
+    "value_bdt": 54880000.0,
+    "contract_signing_date": "2026-11-23",
+    "description": "Procurement of Microsoft Active Directory Microsoft Exchange Services and Multifactor Authentication (MFA) Licenses for a Period of Three (03) Years of Agrani B"
    }
   ]
  },
@@ -1860,23 +1860,23 @@
     "count": 3
    },
    {
-    "phrase": "Report English Annual Report",
-    "count": 3
-   },
-   {
-    "phrase": "English and Newsletter Parikrama",
-    "count": 3
-   },
-   {
-    "phrase": "Parikrama Bengali for Bangladesh",
-    "count": 3
-   },
-   {
     "phrase": "English Annual Report Bengali",
     "count": 3
    },
    {
     "phrase": "Annual Report English Annual",
+    "count": 3
+   },
+   {
+    "phrase": "Report English Annual Report",
+    "count": 3
+   },
+   {
+    "phrase": "Annual Report Bengali Quarterly",
+    "count": 3
+   },
+   {
+    "phrase": "English and Newsletter Parikrama",
     "count": 3
    }
   ],
@@ -2064,8 +2064,8 @@
   ]
  },
  "2489": {
-  "value_bdt": 493110000.0,
-  "count": 59,
+  "value_bdt": 500910000.0,
+  "count": 60,
   "by_year": {
    "2018": {
     "value_bdt": 1300000.0,
@@ -2100,8 +2100,8 @@
     "count": 6
    },
    "2026": {
-    "value_bdt": 47010000.0,
-    "count": 9
+    "value_bdt": 54810000.0,
+    "count": 10
    }
   },
   "by_nature": {
@@ -2137,7 +2137,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 59
+    "count": 60
    }
   ],
   "top_phrases": [
@@ -2547,11 +2547,11 @@
     "count": 4
    },
    {
-    "phrase": "Desk Calendar",
+    "phrase": "Wall Calendar",
     "count": 3
    },
    {
-    "phrase": "Wall Calendar",
+    "phrase": "Desk Calendar",
     "count": 3
    },
    {
@@ -2780,11 +2780,11 @@
     "count": 3
    },
    {
-    "phrase": "Related Services",
+    "phrase": "Different Branches",
     "count": 3
    },
    {
-    "phrase": "Different Branches",
+    "phrase": "Related Services",
     "count": 3
    }
   ],
@@ -4137,11 +4137,11 @@
     "count": 5
    },
    {
-    "phrase": "Office Branches Booth Sub",
+    "phrase": "Branches Booth Sub Branch",
     "count": 4
    },
    {
-    "phrase": "Branches Booth Sub Branch",
+    "phrase": "Office Branches Booth Sub",
     "count": 4
    }
   ],
@@ -4321,8 +4321,8 @@
   ]
  },
  "4719": {
-  "value_bdt": 102460000.0,
-  "count": 10,
+  "value_bdt": 135780000.0,
+  "count": 11,
   "by_year": {
    "2021": {
     "value_bdt": 15880000.0,
@@ -4345,14 +4345,19 @@
     "count": 2
    },
    "2026": {
-    "value_bdt": 23060000.0,
-    "count": 3
+    "value_bdt": 56380000.0,
+    "count": 4
    }
   },
   "by_nature": {
-   "Goods": 9
+   "Goods": 10
   },
   "top_vendors": [
+   {
+    "company": "HUMAYUN PRINTING AND PACKAGING",
+    "value_bdt": 33320000.0,
+    "count": 1
+   },
    {
     "company": "ZARA PRINTERS",
     "value_bdt": 21870000.0,
@@ -4372,21 +4377,36 @@
     "company": "Print Age Limited",
     "value_bdt": 15880000.0,
     "count": 1
-   },
-   {
-    "company": "M/S. FAHIMA ENTERPRISE",
-    "value_bdt": 12030000.0,
-    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 10
+    "count": 11
    }
   ],
-  "top_phrases": [],
+  "top_phrases": [
+   {
+    "phrase": "Printing and Supplying",
+    "count": 3
+   },
+   {
+    "phrase": "Lac Wall Calendars",
+    "count": 3
+   },
+   {
+    "phrase": "Twenty Thousand",
+    "count": 3
+   }
+  ],
   "top_contracts": [
+   {
+    "package_ref": "DGM/CSD/Calendar/2026/177",
+    "awarded_to": "HUMAYUN PRINTING AND PACKAGING",
+    "value_bdt": 33320000.0,
+    "contract_signing_date": "2026-11-23",
+    "description": "Printing and supplying of 1100000 (Eleven Lac) wall calendars and 20000 (Twenty Thousand) pieces of Envelopes."
+   },
    {
     "package_ref": "Calendar-2024/01",
     "awarded_to": "ZARA PRINTERS",
@@ -4414,13 +4434,6 @@
     "value_bdt": 15880000.0,
     "contract_signing_date": "2021-12-02",
     "description": "700000 PCS CALENDAR PRINTING AND SUPPLY FOR SONALI BANK LIMITED"
-   },
-   {
-    "package_ref": "2025/125",
-    "awarded_to": "M/S. FAHIMA ENTERPRISE",
-    "value_bdt": 12030000.0,
-    "contract_signing_date": "2025-12-17",
-    "description": "Procurement of Blanket for Sonali Bank PLC."
    }
   ]
  },
@@ -4612,11 +4625,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Method Using E-gp System",
+    "phrase": "Tendering Method Using E-gp",
     "count": 5
    },
    {
-    "phrase": "Tendering Method Using E-gp",
+    "phrase": "Method Using E-gp System",
     "count": 5
    },
    {
@@ -4940,11 +4953,11 @@
     "count": 8
    },
    {
-    "phrase": "Office Building Purana Paltan",
+    "phrase": "Building Purana Paltan Dhaka",
     "count": 8
    },
    {
-    "phrase": "Building Purana Paltan Dhaka",
+    "phrase": "Office Building Purana Paltan",
     "count": 8
    },
    {
@@ -5194,15 +5207,11 @@
     "count": 7
    },
    {
-    "phrase": "Personal Computer for Several",
-    "count": 3
-   },
-   {
     "phrase": "Computer for Several Branches",
     "count": 3
    },
    {
-    "phrase": "Machines for Several Branches",
+    "phrase": "Personal Computer for Several",
     "count": 3
    },
    {
@@ -5210,11 +5219,15 @@
     "count": 3
    },
    {
+    "phrase": "Machines for Several Branches",
+    "count": 3
+   },
+   {
     "phrase": "Several Branches Offices",
     "count": 3
    },
    {
-    "phrase": "Money Counting Machines",
+    "phrase": "Supply Installation Commissioning",
     "count": 3
    }
   ],
@@ -5311,16 +5324,20 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Commissioning for Janata Bank",
+    "phrase": "Installation Commissioning for Janata",
     "count": 18
    },
    {
-    "phrase": "Installation Commissioning for Janata",
+    "phrase": "Commissioning for Janata Bank",
     "count": 18
    },
    {
     "phrase": "Following Open Tendering Method",
     "count": 16
+   },
+   {
+    "phrase": "Limited Following Open Tendering",
+    "count": 8
    },
    {
     "phrase": "Bank Limited Following Open",
@@ -5331,15 +5348,11 @@
     "count": 8
    },
    {
-    "phrase": "Limited Following Open Tendering",
-    "count": 8
-   },
-   {
-    "phrase": "Bank Following Open Tendering",
+    "phrase": "Janata Bank Following Open",
     "count": 5
    },
    {
-    "phrase": "Janata Bank Following Open",
+    "phrase": "Bank Following Open Tendering",
     "count": 5
    }
   ],
@@ -5816,19 +5829,19 @@
     "count": 3
    },
    {
-    "phrase": "Krishi Bank Mymensingh Division",
-    "count": 3
-   },
-   {
     "phrase": "Bangladesh Krishi Bank Mymensingh",
     "count": 3
    },
    {
-    "phrase": "Mymensingh Division",
-    "count": 5
+    "phrase": "Krishi Bank Mymensingh Division",
+    "count": 3
    },
    {
     "phrase": "Several Branches",
+    "count": 5
+   },
+   {
+    "phrase": "Mymensingh Division",
     "count": 5
    },
    {
@@ -6974,11 +6987,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Probashi Kallyan Bank",
+    "phrase": "Supply Installation Commissioning",
     "count": 5
    },
    {
-    "phrase": "Supply Installation Commissioning",
+    "phrase": "Probashi Kallyan Bank",
     "count": 5
    }
   ],
@@ -7076,11 +7089,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Bangladesh Krishi Bank Dhaka",
+    "phrase": "Krishi Bank Dhaka Division",
     "count": 7
    },
    {
-    "phrase": "Krishi Bank Dhaka Division",
+    "phrase": "Bangladesh Krishi Bank Dhaka",
     "count": 7
    },
    {
@@ -7088,11 +7101,11 @@
     "count": 4
    },
    {
-    "phrase": "Branches and Offices Bangladesh",
+    "phrase": "Offices Bangladesh Krishi Bank",
     "count": 3
    },
    {
-    "phrase": "Offices Bangladesh Krishi Bank",
+    "phrase": "Branches and Offices Bangladesh",
     "count": 3
    },
    {
@@ -7717,11 +7730,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Intelligence and Investigation Unit",
+    "phrase": "Tax Intelligence and Investigation",
     "count": 5
    },
    {
-    "phrase": "Tax Intelligence and Investigation",
+    "phrase": "Intelligence and Investigation Unit",
     "count": 5
    },
    {
@@ -7820,11 +7833,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Janata Bank Divisional Office",
+    "phrase": "Bank Divisional Office Cumilla",
     "count": 5
    },
    {
-    "phrase": "Bank Divisional Office Cumilla",
+    "phrase": "Janata Bank Divisional Office",
     "count": 5
    },
    {
@@ -7935,11 +7948,11 @@
     "count": 4
    },
    {
-    "phrase": "Machine for Janata Bank",
+    "phrase": "Counting Machine for Janata",
     "count": 4
    },
    {
-    "phrase": "Counting Machine for Janata",
+    "phrase": "Machine for Janata Bank",
     "count": 4
    },
    {
@@ -7951,11 +7964,11 @@
     "count": 3
    },
    {
-    "phrase": "Workstations for Janata Bank",
+    "phrase": "Computer Workstations for Janata",
     "count": 3
    },
    {
-    "phrase": "Computer Workstations for Janata",
+    "phrase": "Workstations for Janata Bank",
     "count": 3
    }
   ],
@@ -8052,19 +8065,19 @@
     "count": 17
    },
    {
-    "phrase": "Bank Following Open Tendering",
-    "count": 14
-   },
-   {
     "phrase": "Janata Bank Following Open",
     "count": 14
    },
    {
-    "phrase": "Commissioning for Janata Bank",
-    "count": 13
+    "phrase": "Bank Following Open Tendering",
+    "count": 14
    },
    {
     "phrase": "Installation Commissioning for Janata",
+    "count": 13
+   },
+   {
+    "phrase": "Commissioning for Janata Bank",
     "count": 13
    },
    {
@@ -8072,11 +8085,11 @@
     "count": 12
    },
    {
-    "phrase": "Desktop Computer Without Monitor",
+    "phrase": "Without Monitor and Monitor",
     "count": 3
    },
    {
-    "phrase": "Without Monitor and Monitor",
+    "phrase": "Desktop Computer Without Monitor",
     "count": 3
    }
   ],
@@ -8297,10 +8310,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Janata Bank Divisional Office",
-    "count": 8
-   },
-   {
     "phrase": "Different Branches the Control",
     "count": 8
    },
@@ -8309,15 +8318,19 @@
     "count": 8
    },
    {
+    "phrase": "Janata Bank Divisional Office",
+    "count": 8
+   },
+   {
     "phrase": "Supply Installation and Commissioning",
     "count": 6
    },
    {
-    "phrase": "Note Counting Machine Janta",
+    "phrase": "Counting Machine Janta Bank",
     "count": 5
    },
    {
-    "phrase": "Counting Machine Janta Bank",
+    "phrase": "Note Counting Machine Janta",
     "count": 5
    },
    {
@@ -8755,15 +8768,15 @@
     "count": 3
    },
    {
-    "phrase": "Installation Commissioning for Different",
-    "count": 3
-   },
-   {
-    "phrase": "Pcs Desktop Without Monitor",
+    "phrase": "Line Interactive Supply Installation",
     "count": 3
    },
    {
     "phrase": "Interactive Supply Installation Commissioning",
+    "count": 3
+   },
+   {
+    "phrase": "Pcs Desktop Without Monitor",
     "count": 3
    }
   ],
@@ -9300,11 +9313,11 @@
     "count": 4
    },
    {
-    "phrase": "Branches Janata Bank Divisional",
+    "phrase": "Supply Installation and Commissioning",
     "count": 3
    },
    {
-    "phrase": "Supply Installation and Commissioning",
+    "phrase": "Branches Janata Bank Divisional",
     "count": 3
    }
   ],
@@ -9470,11 +9483,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Janata Bank Divisional Office",
+    "phrase": "Bank Divisional Office Khulna",
     "count": 6
    },
    {
-    "phrase": "Bank Divisional Office Khulna",
+    "phrase": "Janata Bank Divisional Office",
     "count": 6
    },
    {
@@ -9577,11 +9590,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Janata Bank Divisional Office",
+    "phrase": "Bank Divisional Office Mymensingh",
     "count": 9
    },
    {
-    "phrase": "Bank Divisional Office Mymensingh",
+    "phrase": "Janata Bank Divisional Office",
     "count": 9
    },
    {
@@ -9589,11 +9602,11 @@
     "count": 4
    },
    {
-    "phrase": "Their Branches Janata Bank",
+    "phrase": "Branches Janata Bank Divisional",
     "count": 4
    },
    {
-    "phrase": "Branches Janata Bank Divisional",
+    "phrase": "Their Branches Janata Bank",
     "count": 4
    },
    {
@@ -9692,15 +9705,15 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Janata Bank Turn-key Basis",
-    "count": 8
-   },
-   {
     "phrase": "Bank Turn-key Basis Following",
     "count": 8
    },
    {
-    "phrase": "Turn-key Basis Following Request",
+    "phrase": "Janata Bank Turn-key Basis",
+    "count": 8
+   },
+   {
+    "phrase": "Supply Installation and Commissioning",
     "count": 4
    },
    {
@@ -9708,15 +9721,15 @@
     "count": 4
    },
    {
-    "phrase": "Supply Installation and Commissioning",
-    "count": 4
-   },
-   {
-    "phrase": "Basis Following Limited Tendering",
+    "phrase": "Turn-key Basis Following Request",
     "count": 4
    },
    {
     "phrase": "Following Limited Tendering Method",
+    "count": 4
+   },
+   {
+    "phrase": "Basis Following Limited Tendering",
     "count": 4
    },
    {
@@ -9811,11 +9824,11 @@
     "count": 3
    },
    {
-    "phrase": "Various Branches",
+    "phrase": "Two Units",
     "count": 3
    },
    {
-    "phrase": "Two Units",
+    "phrase": "Various Branches",
     "count": 3
    }
   ],
@@ -9969,11 +9982,11 @@
     "count": 4
    },
    {
-    "phrase": "Rooftop Base Managed Aquifer",
+    "phrase": "Base Managed Aquifer Recharge",
     "count": 3
    },
    {
-    "phrase": "Base Managed Aquifer Recharge",
+    "phrase": "Rooftop Base Managed Aquifer",
     "count": 3
    },
    {
@@ -10060,11 +10073,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Bank Head Office Dhaka",
+    "phrase": "Agrani Bank Head Office",
     "count": 3
    },
    {
-    "phrase": "Agrani Bank Head Office",
+    "phrase": "Bank Head Office Dhaka",
     "count": 3
    }
   ],
@@ -10149,19 +10162,19 @@
     "count": 4
    },
    {
-    "phrase": "Different Branches Divisional Office",
-    "count": 4
-   },
-   {
     "phrase": "Desktop Computer Set Monitor",
     "count": 4
    },
    {
-    "phrase": "Laser Printer One Scanner",
-    "count": 3
+    "phrase": "Different Branches Divisional Office",
+    "count": 4
    },
    {
     "phrase": "One Laser Printer One",
+    "count": 3
+   },
+   {
+    "phrase": "Laser Printer One Scanner",
     "count": 3
    },
    {
@@ -10488,11 +10501,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Upazila Chapainawabganj District",
+    "phrase": "Managed Aquifer Recharge",
     "count": 5
    },
    {
-    "phrase": "Managed Aquifer Recharge",
+    "phrase": "Upazila Chapainawabganj District",
     "count": 5
    },
    {
@@ -10593,11 +10606,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Aquifer Recharge Gomastapur Upazila",
+    "phrase": "Roof-top Managed Aquifer Recharge",
     "count": 9
    },
    {
-    "phrase": "Roof-top Managed Aquifer Recharge",
+    "phrase": "Aquifer Recharge Gomastapur Upazila",
     "count": 9
    },
    {
@@ -10803,11 +10816,11 @@
     "count": 4
    },
    {
-    "phrase": "Aquifer Recharge System Hapania",
+    "phrase": "Recharge System Hapania Union",
     "count": 4
    },
    {
-    "phrase": "Recharge System Hapania Union",
+    "phrase": "Aquifer Recharge System Hapania",
     "count": 4
    },
    {
@@ -10950,6 +10963,10 @@
     "count": 5
    },
    {
+    "phrase": "Aquifer Recharge System Hajinagar",
+    "count": 5
+   },
+   {
     "phrase": "Recharge System Hajinagar Chandannagor",
     "count": 5
    },
@@ -10958,19 +10975,15 @@
     "count": 5
    },
    {
-    "phrase": "Aquifer Recharge System Hajinagar",
-    "count": 5
-   },
-   {
     "phrase": "Union Naogaon Niamatpur Upazila",
     "count": 4
    },
    {
-    "phrase": "Niamatpur Upazila Naogaon District",
+    "phrase": "Union Niamatpur Upazila Naogaon",
     "count": 3
    },
    {
-    "phrase": "Union Niamatpur Upazila Naogaon",
+    "phrase": "Niamatpur Upazila Naogaon District",
     "count": 3
    }
   ],
@@ -11156,7 +11169,7 @@
     "count": 9
    },
    {
-    "phrase": "Dam Porsha Upazila Naogaon",
+    "phrase": "Earthen Dam Porsha Upazila",
     "count": 4
    },
    {
@@ -11164,15 +11177,15 @@
     "count": 4
    },
    {
-    "phrase": "Earthen Dam Porsha Upazila",
+    "phrase": "Dam Porsha Upazila Naogaon",
     "count": 4
    },
    {
-    "phrase": "Pond Stair Porsha Upazila",
+    "phrase": "Stair Porsha Upazila Naogaon",
     "count": 3
    },
    {
-    "phrase": "Stair Porsha Upazila Naogaon",
+    "phrase": "Pond Stair Porsha Upazila",
     "count": 3
    }
   ],
@@ -11261,19 +11274,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Rooftop-based Managed Aquifer Recharge",
-    "count": 4
-   },
-   {
-    "phrase": "Managed Aquifer Recharge System",
-    "count": 4
-   },
-   {
     "phrase": "Recharge System Patnitala Naogaon",
     "count": 4
    },
    {
     "phrase": "Aquifer Recharge System Patnitala",
+    "count": 4
+   },
+   {
+    "phrase": "Rooftop-based Managed Aquifer Recharge",
+    "count": 4
+   },
+   {
+    "phrase": "Managed Aquifer Recharge System",
     "count": 4
    },
    {
@@ -11901,18 +11914,6 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Per Approved Design Rasulpur",
-    "count": 7
-   },
-   {
-    "phrase": "Paroil Srimantapur and Bahadurpur",
-    "count": 7
-   },
-   {
-    "phrase": "Approved Design Rasulpur Paroil",
-    "count": 7
-   },
-   {
     "phrase": "Design Rasulpur Paroil Srimantapur",
     "count": 7
    },
@@ -11921,15 +11922,27 @@
     "count": 7
    },
    {
-    "phrase": "Bahadurpur Union Naogaon Niamatpur",
-    "count": 7
-   },
-   {
     "phrase": "Union Naogaon Niamatpur Upazila",
     "count": 7
    },
    {
-    "phrase": "Managed Aquifer Recharge System",
+    "phrase": "Approved Design Rasulpur Paroil",
+    "count": 7
+   },
+   {
+    "phrase": "Bahadurpur Union Naogaon Niamatpur",
+    "count": 7
+   },
+   {
+    "phrase": "Paroil Srimantapur and Bahadurpur",
+    "count": 7
+   },
+   {
+    "phrase": "Per Approved Design Rasulpur",
+    "count": 7
+   },
+   {
+    "phrase": "Based Managed Aquifer Recharge",
     "count": 6
    }
   ],
@@ -12842,11 +12855,11 @@
     "count": 5
    },
    {
-    "phrase": "Secretariat Table",
+    "phrase": "Sofa Set",
     "count": 4
    },
    {
-    "phrase": "Sofa Set",
+    "phrase": "Secretariat Table",
     "count": 4
    }
   ],
@@ -13914,11 +13927,11 @@
     "count": 5
    },
    {
-    "phrase": "Sundries Supply Taxes Zone",
+    "phrase": "Other Sundries Supply Taxes",
     "count": 3
    },
    {
-    "phrase": "Other Sundries Supply Taxes",
+    "phrase": "Sundries Supply Taxes Zone",
     "count": 3
    },
    {

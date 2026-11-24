@@ -717,11 +717,19 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Bed Sheets Pillows Covers",
+    "phrase": "Window Curtains for Residents",
     "count": 4
    },
    {
-    "phrase": "Nets Thin Quilts Katha",
+    "phrase": "Mosquito Nets Thin Quilts",
+    "count": 4
+   },
+   {
+    "phrase": "Thin Quilts Katha Prayer",
+    "count": 4
+   },
+   {
+    "phrase": "Covers Mosquito Nets Thin",
     "count": 4
    },
    {
@@ -733,19 +741,11 @@
     "count": 4
    },
    {
-    "phrase": "Mattresses Blankets Bed Sheets",
+    "phrase": "Curtains for Residents Living",
     "count": 4
    },
    {
-    "phrase": "Pillows Covers Mosquito Nets",
-    "count": 4
-   },
-   {
-    "phrase": "Window Curtains for Residents",
-    "count": 4
-   },
-   {
-    "phrase": "Blankets Bed Sheets Pillows",
+    "phrase": "Nets Thin Quilts Katha",
     "count": 4
    }
   ],
@@ -788,28 +788,33 @@
   ]
  },
  "10037": {
-  "value_bdt": 50530000.0,
-  "count": 1,
+  "value_bdt": 58280000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 50530000.0,
-    "count": 1
+    "value_bdt": 58280000.0,
+    "count": 2
    }
   },
   "by_nature": {
-   "Goods": 1
+   "Goods": 2
   },
   "top_vendors": [
    {
     "company": "RFL Plastics Limited",
     "value_bdt": 50530000.0,
     "count": 1
+   },
+   {
+    "company": "M/S Sadia Enterprise",
+    "value_bdt": 7750000.0,
+    "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
@@ -820,6 +825,13 @@
     "value_bdt": 50530000.0,
     "contract_signing_date": "2026-11-09",
     "description": "Procurement of steel beds for 19 centers"
+   },
+   {
+    "package_ref": "DSS/SSP2nd/PUT/GD-07",
+    "awarded_to": "M/S Sadia Enterprise",
+    "value_bdt": 7750000.0,
+    "contract_signing_date": "2026-11-23",
+    "description": "Procurement of utensils for 19 centers"
    }
   ]
  }
