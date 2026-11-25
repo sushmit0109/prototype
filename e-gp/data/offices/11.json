@@ -67,7 +67,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Land Development Site Office",
+    "phrase": "Development Site Office Boundary",
+    "count": 4
+   },
+   {
+    "phrase": "Wall River Training Etc",
     "count": 4
    },
    {
@@ -75,15 +79,7 @@
     "count": 4
    },
    {
-    "phrase": "Development Site Office Boundary",
-    "count": 4
-   },
-   {
     "phrase": "Office Boundary Wall River",
-    "count": 4
-   },
-   {
-    "phrase": "Wall River Training Etc",
     "count": 4
    },
    {
@@ -92,6 +88,10 @@
    },
    {
     "phrase": "Boundary Wall River Training",
+    "count": 4
+   },
+   {
+    "phrase": "Land Development Site Office",
     "count": 4
    },
    {
@@ -686,11 +686,23 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Ends Dm Tolerance Shots",
+    "count": 1041
+   },
+   {
+    "phrase": "Porter Ends Dm Tolerance",
+    "count": 1041
+   },
+   {
     "phrase": "Tolerance Shots Ins Picks",
     "count": 1041
    },
    {
-    "phrase": "Ends Dm Tolerance Shots",
+    "phrase": "Shots Ins Picks Dm",
+    "count": 1041
+   },
+   {
+    "phrase": "Dm Tolerance Shots Ins",
     "count": 1041
    },
    {
@@ -703,18 +715,6 @@
    },
    {
     "phrase": "Picks Dm Tolerance Moisture",
-    "count": 1041
-   },
-   {
-    "phrase": "Shots Ins Picks Dm",
-    "count": 1041
-   },
-   {
-    "phrase": "Dm Tolerance Shots Ins",
-    "count": 1041
-   },
-   {
-    "phrase": "Dm Tolerance Moisture Regain",
     "count": 1041
    }
   ],
@@ -968,11 +968,11 @@
     "count": 3
    },
    {
-    "phrase": "Bucket Elevator Belt",
+    "phrase": "Rubber Conveyor Belt",
     "count": 3
    },
    {
-    "phrase": "Rubber Conveyor Belt",
+    "phrase": "Bucket Elevator Belt",
     "count": 3
    },
    {
@@ -2043,11 +2043,11 @@
     "count": 9
    },
    {
-    "phrase": "Boundary Wall",
+    "phrase": "Repair Re-construction",
     "count": 3
    },
    {
-    "phrase": "Repair Re-construction",
+    "phrase": "Boundary Wall",
     "count": 3
    }
   ],
@@ -3462,16 +3462,23 @@
   ]
  },
  "10015": {
-  "value_bdt": 500000.0,
-  "count": 1,
+  "value_bdt": 5050000.0,
+  "count": 2,
   "by_year": {
    "2026": {
-    "value_bdt": 500000.0,
-    "count": 1
+    "value_bdt": 5050000.0,
+    "count": 2
    }
   },
-  "by_nature": {},
+  "by_nature": {
+   "Goods": 1
+  },
   "top_vendors": [
+   {
+    "company": "M/S ONE BUSINESS CENTER",
+    "value_bdt": 4550000.0,
+    "count": 1
+   },
    {
     "company": "JANANI TRADERS",
     "value_bdt": 500000.0,
@@ -3481,11 +3488,18 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 1
+    "count": 2
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "13.01.0000.000.334.47.001.26.965",
+    "awarded_to": "M/S ONE BUSINESS CENTER",
+    "value_bdt": 4550000.0,
+    "contract_signing_date": "2026-11-24",
+    "description": "Laminated Plastic Bags for 50 KG Atta Packaging"
+   },
    {
     "package_ref": "13.01.0000.000.334.38.002.26-985",
     "awarded_to": "JANANI TRADERS",

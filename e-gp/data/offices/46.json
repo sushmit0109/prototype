@@ -95,11 +95,11 @@
     "count": 5
    },
    {
-    "phrase": "Computers Professional Sound Card",
+    "phrase": "Broadcast Computers Professional Sound",
     "count": 5
    },
    {
-    "phrase": "Broadcast Computers Professional Sound",
+    "phrase": "Computers Professional Sound Card",
     "count": 5
    },
    {
@@ -245,11 +245,11 @@
     "count": 7
    },
    {
-    "phrase": "Bangladesh Television Rampura Dhaka",
+    "phrase": "Supply Installation Testing Commissioning",
     "count": 5
    },
    {
-    "phrase": "Supply Installation Testing Commissioning",
+    "phrase": "Bangladesh Television Rampura Dhaka",
     "count": 5
    },
    {
@@ -453,7 +453,7 @@
   ],
   "top_phrases": [
    {
-    "phrase": "District Level St Phase",
+    "phrase": "Complexes District Level St",
     "count": 5
    },
    {
@@ -465,7 +465,7 @@
     "count": 5
    },
    {
-    "phrase": "Complexes District Level St",
+    "phrase": "District Level St Phase",
     "count": 5
    },
    {
@@ -473,11 +473,11 @@
     "count": 5
    },
    {
-    "phrase": "Office the Project Construction",
+    "phrase": "Project Office the Project",
     "count": 3
    },
    {
-    "phrase": "Project Office the Project",
+    "phrase": "Office the Project Construction",
     "count": 3
    },
    {
@@ -2524,7 +2524,15 @@
   ],
   "top_phrases": [
    {
+    "phrase": "Power Transmitting Station Bangladesh",
+    "count": 4
+   },
+   {
     "phrase": "Transmitting Station Bangladesh Betar",
+    "count": 4
+   },
+   {
+    "phrase": "Station Bangladesh Betar Savar",
     "count": 4
    },
    {
@@ -2536,15 +2544,7 @@
     "count": 4
    },
    {
-    "phrase": "Power Transmitting Station Bangladesh",
-    "count": 4
-   },
-   {
-    "phrase": "Station Bangladesh Betar Savar",
-    "count": 4
-   },
-   {
-    "phrase": "Office Low Power Transmitting",
+    "phrase": "Subordinate Office Low Power",
     "count": 3
    },
    {
@@ -3429,6 +3429,40 @@
     "value_bdt": 90000.0,
     "contract_signing_date": "2026-11-15",
     "description": "Purchase of AC ( 1.5 ton)"
+   }
+  ]
+ },
+ "10140": {
+  "value_bdt": 300000.0,
+  "count": 1,
+  "by_year": {
+   "2026": {
+    "value_bdt": 300000.0,
+    "count": 1
+   }
+  },
+  "by_nature": {},
+  "top_vendors": [
+   {
+    "company": "M/S. RIMON ENTERPRISE",
+    "value_bdt": 300000.0,
+    "count": 1
+   }
+  ],
+  "top_districts": [
+   {
+    "district": "Dhaka",
+    "count": 1
+   }
+  ],
+  "top_phrases": [],
+  "top_contracts": [
+   {
+    "package_ref": "15.53.0000.117.07.107.26.679",
+    "awarded_to": "M/S. RIMON ENTERPRISE",
+    "value_bdt": 300000.0,
+    "contract_signing_date": "2026-11-24",
+    "description": "Purchage of Office Other Stationary"
    }
   ]
  }
