@@ -150,8 +150,8 @@
   ]
  },
  "2898": {
-  "value_bdt": 384550000.0,
-  "count": 164,
+  "value_bdt": 385050000.0,
+  "count": 165,
   "by_year": {
    "2018": {
     "value_bdt": 2390000.0,
@@ -186,8 +186,8 @@
     "count": 56
    },
    "2026": {
-    "value_bdt": 49750000.0,
-    "count": 24
+    "value_bdt": 50250000.0,
+    "count": 25
    }
   },
   "by_nature": {
@@ -224,7 +224,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 117
+    "count": 118
    },
    {
     "district": "Tangail",
@@ -453,6 +453,10 @@
   ],
   "top_phrases": [
    {
+    "phrase": "District Level St Phase",
+    "count": 5
+   },
+   {
     "phrase": "Complexes District Level St",
     "count": 5
    },
@@ -465,19 +469,15 @@
     "count": 5
    },
    {
-    "phrase": "District Level St Phase",
-    "count": 5
-   },
-   {
     "phrase": "Tangail and Magura Information",
     "count": 5
    },
    {
-    "phrase": "Project Office the Project",
+    "phrase": "Office the Project Construction",
     "count": 3
    },
    {
-    "phrase": "Office the Project Construction",
+    "phrase": "Project Office the Project",
     "count": 3
    },
    {
@@ -1001,11 +1001,11 @@
     "count": 7
    },
    {
-    "phrase": "Broadcasting House Bangladesh Radio",
+    "phrase": "House Bangladesh Radio Dhaka",
     "count": 5
    },
    {
-    "phrase": "House Bangladesh Radio Dhaka",
+    "phrase": "Broadcasting House Bangladesh Radio",
     "count": 5
    },
    {
@@ -2100,35 +2100,42 @@
   ]
  },
  "9223": {
-  "value_bdt": 200000.0,
-  "count": 2,
+  "value_bdt": 350000.0,
+  "count": 3,
   "by_year": {
    "2026": {
-    "value_bdt": 200000.0,
-    "count": 2
+    "value_bdt": 350000.0,
+    "count": 3
    }
   },
   "by_nature": {},
   "top_vendors": [
    {
-    "company": "T. S. Enterprise",
-    "value_bdt": 110000.0,
-    "count": 1
+    "company": "M/S N H Enterprise",
+    "value_bdt": 240000.0,
+    "count": 2
    },
    {
-    "company": "M/S N H Enterprise",
-    "value_bdt": 90000.0,
+    "company": "T. S. Enterprise",
+    "value_bdt": 110000.0,
     "count": 1
    }
   ],
   "top_districts": [
    {
     "district": "Chattogram",
-    "count": 2
+    "count": 3
    }
   ],
   "top_phrases": [],
   "top_contracts": [
+   {
+    "package_ref": "15.53.1500.000.102.26.0001.23.416",
+    "awarded_to": "M/S N H Enterprise",
+    "value_bdt": 150000.0,
+    "contract_signing_date": "2026-11-25",
+    "description": "Repair and maintenance of different motor and vehicle parts."
+   },
    {
     "package_ref": "15.53.1500.000.102.20.0001.25.2042",
     "awarded_to": "T. S. Enterprise",
@@ -2524,15 +2531,11 @@
   ],
   "top_phrases": [
    {
-    "phrase": "Power Transmitting Station Bangladesh",
+    "phrase": "Station Bangladesh Betar Savar",
     "count": 4
    },
    {
     "phrase": "Transmitting Station Bangladesh Betar",
-    "count": 4
-   },
-   {
-    "phrase": "Station Bangladesh Betar Savar",
     "count": 4
    },
    {
@@ -2544,15 +2547,19 @@
     "count": 4
    },
    {
-    "phrase": "Subordinate Office Low Power",
-    "count": 3
-   },
-   {
-    "phrase": "Savar Dhaka and Subordinate",
-    "count": 3
+    "phrase": "Power Transmitting Station Bangladesh",
+    "count": 4
    },
    {
     "phrase": "Low Power Transmitting Station",
+    "count": 3
+   },
+   {
+    "phrase": "Station Bangladesh Betar Kallyanpur",
+    "count": 3
+   },
+   {
+    "phrase": "Bangladesh Betar Kallyanpur Dhaka",
     "count": 3
    }
   ],
