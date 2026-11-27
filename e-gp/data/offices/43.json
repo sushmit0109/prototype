@@ -88,22 +88,22 @@
   ]
  },
  "10007": {
-  "value_bdt": 3390000.0,
-  "count": 4,
+  "value_bdt": 6650000.0,
+  "count": 5,
   "by_year": {
    "2026": {
-    "value_bdt": 3390000.0,
-    "count": 4
+    "value_bdt": 6650000.0,
+    "count": 5
    }
   },
   "by_nature": {
-   "Goods": 1
+   "Goods": 2
   },
   "top_vendors": [
    {
     "company": "Hannan & Brothers",
-    "value_bdt": 1890000.0,
-    "count": 1
+    "value_bdt": 5150000.0,
+    "count": 2
    },
    {
     "company": "M/S. J.H ENTERPRISE",
@@ -119,7 +119,7 @@
   "top_districts": [
    {
     "district": "Dhaka",
-    "count": 4
+    "count": 5
    }
   ],
   "top_phrases": [
@@ -129,6 +129,13 @@
    }
   ],
   "top_contracts": [
+   {
+    "package_ref": "48.00.0000.000.001.07.0012.26",
+    "awarded_to": "Hannan & Brothers",
+    "value_bdt": 3260000.0,
+    "contract_signing_date": "2026-11-26",
+    "description": "Procurement of Stationary Goods"
+   },
    {
     "package_ref": "48.00.0000.000.001.07.0012.26-",
     "awarded_to": "Hannan & Brothers",
